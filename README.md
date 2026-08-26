@@ -105,7 +105,7 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
 
 # Tabla de Contenidos
 
-## [Capítulo I: Presentaicón](Capitulo_1.md)
+## [Capítulo I: Presentación](Capitulo_1.md)
 
 - [1.1. Startup Profile](Capitulo_1.md#11-startup-profile)
   - [1.1.1. Descripción de la Startup](Capitulo_1.md#111-descripción-de-la-startup)
@@ -213,7 +213,7 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
 
 ## [Conclusiones](Conclusiones.md)
 
-- [Conclusiones y recomendaciones.](Conclusiones.md#conclusiones-y-recomendaciones)
+- [Conclusiones y recomendaciones.](Conclusiones.md#conclusiones)
 - [Video App Validation]()
 - [Video About the product]()
 - [Video About the team]()
@@ -222,7 +222,7 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
 
 ## [Glosario](Glosario.md)
 
-- [Glosario]()
+- [Glosario](Glosario.md#glosario)
 
 ---
 
@@ -234,13 +234,9 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
 
 ## [Anexos](Anexos.md)
 
-- [Anexos]()
+- [Anexos](Anexos.md#anexos)
 
 ---
-
-<br>
-
-<div style="page-break-after: always;"></div>
 
 # Student Outcome
 
