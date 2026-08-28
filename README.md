@@ -17,10 +17,10 @@ Docente<br>
 **Informe del Trabajo Final**<br>
 
 Equipo<br>
-**----**
+**Logix**
 
 Proyecto<br>
-**---**
+**OptiFlow**
 
 <br>**Integrantes** 
 
@@ -105,19 +105,19 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
 
 # Tabla de Contenidos
 
-## [Capítulo I: Presentación](Capitulo_1.md)
+## [Capítulo I: Presentación](Capitulo1.md)
 
-- [1.1. Startup Profile](Capitulo_1.md#11-startup-profile)
-  - [1.1.1. Descripción de la Startup](Capitulo_1.md#111-descripción-de-la-startup)
-  - [1.1.2. Perfiles de integrantes del equipo](Capitulo_1.md#112-perfiles-de-los-miembros-del-equipo)
-- [1.2. Solution Profile](Capitulo_1.md#12-solution-profile)
-  - [1.2.1. Antecedentes y problemática](Capitulo_1.md#121-antecedentes-y-problemática)
-  - [1.2.2. Lean UX Process](Capitulo_1.md#122-lean-ux-process)
-    - [1.2.2.1. Lean UX Problem Statements](Capitulo_1.md#1221-lean-ux-problem-statements)
-    - [1.2.2.2. Lean UX Assumptions](Capitulo_1.md#1222-lean-ux-assumptions)
-    - [1.2.2.3. Lean UX Hypothesis Statements](Capitulo_1.md#1223-lean-ux-hypothesis-statements)
-    - [1.2.2.4. Lean UX Canvas](Capitulo_1.md#1224-lean-ux-canvas)
-- [1.3. Segmentos objetivo](Capitulo_1.md#13-segmentos-objetivos)
+- [1.1. Startup Profile](Capitulo1#11-startup-profile)
+  - [1.1.1. Descripción de la Startup](Capitulo1#111-descripción-de-la-startup)
+  - [1.1.2. Perfiles de integrantes del equipo](Capitulo1#112-perfiles-de-integrantes-del-equipo)
+- [1.2. Solution Profile](Capitulo1#12-solution-profile)
+  - [1.2.1. Antecedentes y problemática](Capitulo1#121-antecedentes-y-problemática)
+  - [1.2.2. Lean UX Process](Capitulo1#122-lean-ux-process)
+    - [1.2.2.1. Lean UX Problem Statements](Capitulo1#1221-lean-ux-problem-statements)
+    - [1.2.2.2. Lean UX Assumptions](Capitulo1#1222-lean-ux-assumptions)
+    - [1.2.2.3. Lean UX Hypothesis Statements](Capitulo1#1223-lean-ux-hypothesis-statements)
+    - [1.2.2.4. Lean UX Canvas](Capitulo1#1224-lean-ux-canvas)
+- [1.3. Segmentos objetivo](Capitulo1#13-segmentos-objetivo)
 
 ---
 
