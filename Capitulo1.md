@@ -18,11 +18,13 @@ Alcance de la aplicación: El alcance de OptiFlow comprende un ecosistema que in
 | --- | --- |
 <img src="assets/members" alt="integrante"> | Descripcion
 
-<img src="assets/members"> | Descripcion
+<img src="assets/members"> |
+
 
 <img src="assets/members"> | Descripcion
 
-<img src="assets/members"> | 
+<img src="assets/members/nicolas.png"> | 
+Atoche Gonzales - Nicolas Fernando - u20241d317 Actualmente estoy en el sexto ciclo de la carrera de ingeniería de software. Poseo un conocimiento básico/intermedio en programación con C++, Lua, Luau, Python y Java. Además, cuento con conocimientos básicos en el desarrollo de videojuegos. Suelo orientarme por el conocimiento y el pensamiento lógico, con lo cual suelo buscar la solución más óptima y ágil dentro de un problema a través de pasos sencillos y definidos que construyan una base sólida donde pueda desarrollar respuestas claras y efectivas.
 
 <img src="assets/members/cesar.jpeg"> | 
 Quispe Llacsahuanga César Agusto - u202417405 Soy estudiante de Ingeniería de Software, interesado en el desarrollo de soluciones tecnológicas y el aprendizaje continuo en herramientas de programación. Cuento con conocimientos en lógica de programación, bases de datos y desarrollo de aplicaciones, lo que me permite contribuir en la construcción de sistemas eficientes. Me caracterizo por ser responsable, proactivo y con buena disposición para el trabajo en equipo, adaptándome a nuevos retos y aportando en el cumplimiento de los objetivos del proyecto.
@@ -294,7 +296,7 @@ Sabremos que funcionó cuando las llamadas o mensajes de pacientes consultando *
 
 #### 1.2.2.4. Lean UX Canvas
 
-![](../assets/lean-UX-Canvas.png){width=75%}
+![Lean UX Canvas.png](assets/cap1/Lean%20UX%20Canvas.png)
 
 ## 1.3. Segmentos objetivo
 
