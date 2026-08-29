@@ -294,7 +294,7 @@ Sabremos que funcionó cuando las llamadas o mensajes de pacientes consultando *
 
 #### 1.2.2.4. Lean UX Canvas
 
-![](../assets/lean-UX-Canvas.png){width=75%}
+![Lean UX Canvas.png](assets/cap1/Lean%20UX%20Canvas.png)
 
 ## 1.3. Segmentos objetivo
 
