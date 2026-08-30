@@ -16,24 +16,11 @@ Alcance de la aplicación: El alcance de OptiFlow comprende un ecosistema que in
 
 |Foto|Apellido y Nombre| 
 | --- | --- |
-<img src="assets/members" alt="integrante"> | Descripcion
-
-<img src="assets/members"> |
-
-
+<img src="assets/members/nicolas.png"> | Atoche Gonzales - Nicolas Fernando - u20241d317 Actualmente estoy en el sexto ciclo de la carrera de ingeniería de software. Poseo un conocimiento básico/intermedio en programación con C++, Lua, Luau, Python y Java. Además, cuento con conocimientos básicos en el desarrollo de videojuegos. Suelo orientarme por el conocimiento y el pensamiento lógico, con lo cual suelo buscar la solución más óptima y ágil dentro de un problema a través de pasos sencillos y definidos que construyan una base sólida donde pueda desarrollar respuestas claras y efectivas.
+<img src="assets/members/Felix.jpg"> | Felix Orlando Becerra Ttito - u20211b387 Soy estudiante de Ingeniería de Software, interesado en el desarrollo de soluciones tecnológicas y en la creación de aplicaciones que permitan resolver problemas de manera práctica y eficiente. He adquirido experiencia trabajando con tecnologías como Java, Python, HTML, CSS y bases de datos, participando en proyectos de desarrollo frontend y backend. Me considero una persona responsable, perseverante y con disposición para aprender nuevas tecnologías. Valoro el trabajo en equipo y busco aportar de manera activa en cada proyecto, mejorando continuamente mis conocimientos y habilidades para afrontar nuevos retos en el ámbito tecnológico.
 <img src="assets/members/eslander.jpg"> | Celis Berrospi Eslander - u201911249 Soy estudiante de Ingeniería de Software. Me considero una persona responsable y comprometida con mis objetivos, con una gran disposición para aprender y mejorar de manera continua. Valoro mucho la ética y el trabajo en equipo, aportando siempre ideas y soluciones para alcanzar resultados de calidad. Me esfuerzo por mantener un enfoque ordenado en mis tareas y contribuir activamente al desarrollo colectivo. Tengo conocimientos en Python, C++ y HTML, lo que me permite desarrollar soluciones tecnológicas y fortalecer mis habilidades en programación. Estoy motivado a seguir aprendiendo y asumir nuevos retos que me ayuden a crecer tanto profesional como personalmente.
-
-<img src="assets/members/nicolas.png"> | 
-Atoche Gonzales - Nicolas Fernando - u20241d317 Actualmente estoy en el sexto ciclo de la carrera de ingeniería de software. Poseo un conocimiento básico/intermedio en programación con C++, Lua, Luau, Python y Java. Además, cuento con conocimientos básicos en el desarrollo de videojuegos. Suelo orientarme por el conocimiento y el pensamiento lógico, con lo cual suelo buscar la solución más óptima y ágil dentro de un problema a través de pasos sencillos y definidos que construyan una base sólida donde pueda desarrollar respuestas claras y efectivas.
-
-<img src="assets/members/cesar.jpeg"> | 
-Quispe Llacsahuanga César Agusto - u202417405 Soy estudiante de Ingeniería de Software, interesado en el desarrollo de soluciones tecnológicas y el aprendizaje continuo en herramientas de programación. Cuento con conocimientos en lógica de programación, bases de datos y desarrollo de aplicaciones, lo que me permite contribuir en la construcción de sistemas eficientes. Me caracterizo por ser responsable, proactivo y con buena disposición para el trabajo en equipo, adaptándome a nuevos retos y aportando en el cumplimiento de los objetivos del proyecto.
-
-<img src="assets/members/Mariana.jpeg"> | 
-Mariana Morocho Pinedo - u202411521 Soy estudiante de Ingeniería de Software. Cuento con conocimientos en lenguajes de programación como C++, Python y Java, los cuales he aplicado en distintos proyectos académicos orientados a la resolución de problemas y desarrollo de sistemas. Me caracterizo por ser proactiva y  con disposición de generar un buen ambiente.
-
-<img src="assets/members/Felix.jpg"> | 
-Felix Orlando Becerra Ttito - u20211b387 Soy estudiante de Ingeniería de Software, interesado en el desarrollo de soluciones tecnológicas y en la creación de aplicaciones que permitan resolver problemas de manera práctica y eficiente. He adquirido experiencia trabajando con tecnologías como Java, Python, HTML, CSS y bases de datos, participando en proyectos de desarrollo frontend y backend. Me considero una persona responsable, perseverante y con disposición para aprender nuevas tecnologías. Valoro el trabajo en equipo y busco aportar de manera activa en cada proyecto, mejorando continuamente mis conocimientos y habilidades para afrontar nuevos retos en el ámbito tecnológico.
+<img src="assets/members/Mariana.jpeg"> | Mariana Morocho Pinedo - u202411521 Soy estudiante de Ingeniería de Software. Cuento con conocimientos en lenguajes de programación como C++, Python y Java, los cuales he aplicado en distintos proyectos académicos orientados a la resolución de problemas y desarrollo de sistemas. Me caracterizo por ser proactiva y  con disposición de generar un buen ambiente.
+<img src="assets/members/cesar.jpeg"> | Quispe Llacsahuanga César Agusto - u202417405 Soy estudiante de Ingeniería de Software, interesado en el desarrollo de soluciones tecnológicas y el aprendizaje continuo en herramientas de programación. Cuento con conocimientos en lógica de programación, bases de datos y desarrollo de aplicaciones, lo que me permite contribuir en la construcción de sistemas eficientes. Me caracterizo por ser responsable, proactivo y con buena disposición para el trabajo en equipo, adaptándome a nuevos retos y aportando en el cumplimiento de los objetivos del proyecto.
 
 ## 1.2. Solution Profile
 
@@ -70,206 +57,147 @@ Nuestro servicio ofrece un ecosistema digital compuesto por una aplicación móv
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-#### A. Business Assumptions
-* Creemos que nuestros clientes necesitan:
-Unificar la gestión clínica, comercial y logística de sus ópticas en una única interfaz móvil para eliminar los procesos manuales y los silos de información entre el consultorio, las ventas y el laboratorio.
-* Creemos que estas necesidades se resolverán mediante:
-Una aplicación móvil especializada (OptiFlow) que integre historias clínicas electrónicas, control de inventarios, gestión de ventas y trazabilidad de órdenes de trabajo mediante un tablero Kanban móvil.
-* Creemos que nuestros primeros clientes serán:
-Ópticas medianas con un alto volumen de pacientes que buscan digitalizar sus operaciones sin depender de equipos de cómputo fijos o sistemas complejos.
-* Creemos que el principal valor para nuestros clientes será:
-La movilidad y el control en tiempo real del negocio desde la palma de la mano, mejorando la velocidad de atención y la precisión en las entregas.
-* Creemos que los usuarios obtendrán beneficios adicionales como:
-La reducción de errores de transcripción, la disminución de trabajos rehechos, un mejor control de inventarios, mayor retención de clientes y trazabilidad transparente de las órdenes.
-* Creemos que adquiriremos nuestros primeros usuarios mediante:
-Demostraciones directas en establecimientos ópticos, validación académica, difusión en redes especializadas y pruebas piloto con negocios locales.
-* Creemos que nuestro modelo de ingresos será:
-Un modelo de suscripción mensual (SaaS) basado en el volumen de usuarios activos o sucursales conectadas a la aplicación móvil.
-* Creemos que nuestros principales competidores serán:
-Sistemas ERP tradicionales de escritorio o plataformas web genéricas que no están optimizadas para la movilidad en el piso de venta de una óptica.
-* Creemos que nuestra principal ventaja competitiva será:
-Una aplicación móvil intuitiva y diseñada específicamente para el flujo de trabajo oftalmológico, permitiendo operar sin fricciones desde cualquier lugar del establecimiento.
-* Creemos que el mayor riesgo del producto será:
-La resistencia al cambio del personal tradicional y la complejidad de adaptar flujos clínicos y de laboratorio detallados a una interfaz móvil.
-* Creemos que podremos mitigar este riesgo mediante:
-Una interfaz móvil altamente simplificada, experiencia de usuario (UX) centrada en roles (optómetra, ventas, administración) y capacitación guiada dentro de la app.
-
-#### B. User Assumptions
-* Creemos que los usuarios serán:
-Administradores, optómetras y asesores de ventas de ópticas que requieren coordinar operaciones de forma rápida y portátil.
-* Creemos que el producto formará parte de:
-Su jornada laboral diaria, utilizándose de forma constante en el piso de ventas, durante los exámenes visuales y al registrar el avance en el taller.
-* Creemos que el principal problema que desean resolver es:
-La desconexión entre áreas, la pérdida de recetas o estados de órdenes y la lentitud al consultar inventarios o precios frente al cliente.
-* Creemos que el uso más frecuente del producto será:
-Consultar y registrar historiales clínicos, escanear productos para verificar stock, registrar ventas y actualizar el estado de las órdenes en el tablero Kanban móvil.
-* Creemos que las características más importantes para los usuarios serán:
-Un dashboard móvil por roles, historias clínicas digitales de acceso rápido, notificaciones push de estado de laboratorio y herramientas de venta ágil.
-* Creemos que los usuarios esperarán una interfaz:
-Fluida, nativa o multiplataforma de alto rendimiento, con tiempos de respuesta inmediatos y muy fácil de usar sin necesidad de conocimientos técnicos avanzados.
-
-#### C. User Outcome & Benefit Assumptions
-* Creemos que los usuarios podrán consultar y actualizar información crítica del negocio en cualquier momento desde su dispositivo móvil.
-* Creemos que los usuarios reducirán drásticamente los errores de transcripción logística y los reprocesos en el laboratorio.
-* Creemos que los usuarios agilizarán la atención al paciente en el piso de ventas gracias a la portabilidad del sistema.
-* Creemos que los usuarios experimentarán mayor control y tranquilidad frente al flujo diario de pedidos y entregas.
-* Creemos que los usuarios disminuirán los tiempos de espera de los clientes mediante notificaciones y un seguimiento claro.
-
-#### D. Business Outcome Assumptions
-* Creemos que OptiFlow permitirá reducir los tiempos de entrega de las órdenes de trabajo en al menos un 25% durante los primeros meses de uso.
-* Creemos que el uso de la aplicación móvil incrementará la conversión de ventas en el piso de atención en aproximadamente un 20%.
-* Creemos que alcanzaremos al menos las primeras ópticas piloto operando de forma activa y continua en el primer año.
-* Creemos que lograremos una alta retención operativa gracias a la mejora directa en la productividad diaria del personal.
-* Creemos que nos diferenciaremos de softwares de escritorio rígidos mediante la agilidad, portabilidad y enfoque móvil de la solución.
-
-#### E. Feature Assumptions
-* Creemos que el Módulo de Historia Clínica Móvil permitirá consultar y registrar diagnósticos de manera inmediata desde el consultorio.
-* Creemos que el Tablero Kanban Móvil optimizará la trazabilidad y el control de las órdenes en el área de laboratorio.
-* Creemos que la herramienta de Consulta de Stock por Cámara (escaneo) agilizará las cotizaciones y ventas en el salón de exhibición.
-* Creemos que las Notificaciones Push en tiempo real mantendrán informados tanto al personal como al cliente sobre el estado de sus lentes.
-* Creemos que el Control de Accesos por Roles (Administrador, Optómetra, Ventas) garantizará la seguridad y la correcta segregación de funciones en la aplicación.
+OptiFlow fue diseñado para permitir que los administradores, optómetras y personal de ventas de ópticas gestionen el ciclo comercial, el historial clínico y la logística de producción de manera centralizada y eficiente mediante una aplicación móvil.
+Sin embargo, hemos observado que, ante un alto volumen de pacientes, muchos establecimientos continúan dependiendo de procesos manuales o soluciones aisladas, lo que ocasiona el colapso de los flujos de trabajo, genera silos de información y causa la pérdida de trazabilidad en la fabricación de lentes, además de descuadres de inventario y una deficiente gestión de cobranzas.
+Esta situación provoca retrasos operativos, mermas económicas por trabajos rehechos y una experiencia de atención poco eficiente, perjudicando enormemente la satisfacción del cliente y limitando la capacidad de la gerencia para tomar decisiones basadas en datos.
+¿Cómo podríamos ofrecer una aplicación móvil intuitiva que centralice e integre el flujo de ventas, atención clínica y producción para optimizar la toma de decisiones, eliminar errores de transcripción logística y garantizar entregas puntuales y rentables?
 
 #### 1.2.2.2. Lean UX Assumptions
 
-##### Preguntas sobre el Producto / Usuario (User Assumptions)
+**Preguntas sobre el Producto / Usuario (User Assumptions)**
 
-###### ¿Quién es el usuario?
-Nuestros usuarios principales internos son los administradores/gerentes de la óptica, el personal clínico (optómetras), los asesores de ventas y los técnicos de laboratorio. De forma indirecta, impactamos a los pacientes (clientes finales).
+**¿Quién es el usuario?**
+> Nuestros usuarios principales internos son los administradores/gerentes de la óptica, el personal clínico (optómetras), los asesores de ventas y los técnicos de laboratorio. De forma indirecta, impactamos a los pacientes (clientes finales).
+> 
+> - El administrador utilizará la aplicación móvil para auditar embudos de ventas, inventario y flujo de caja desde cualquier ubicación.
+> - El staff la usará desde sus smartphones o tablets para registrar historias clínicas, cotizar escaneando productos, cobrar adelantos y enviar/monitorear órdenes de trabajo al laboratorio.
+> - El paciente interactúa indirectamente al recibir notificaciones push automatizadas del estado de su pedido en su celular.
 
-- El administrador utilizará el sistema para auditar embudos de ventas, inventario y flujo de caja.
-- El staff lo usará para registrar historias clínicas, cotizar cruzando datos con el inventario, cobrar adelantos y enviar/monitorear órdenes de trabajo al laboratorio.
-- El paciente interactúa indirectamente al recibir notificaciones automatizadas de su pedido.
+**¿Dónde encaja nuestro producto en su trabajo o vida?**
+> Será el core operativo y la espina dorsal del negocio. Estará abierto constantemente en smartphones o tablets desde la apertura hasta el cierre, reemplazando:
+> - Historias y recetas en papel.
+> - Hojas de Excel aisladas en computadoras de escritorio.
+> - Chats de WhatsApp para la comunicación informal con los laboratorios.
 
-###### ¿Dónde encaja nuestro producto en su trabajo o vida?
-Será el core operativo y la espina dorsal del negocio. Estará abierto constantemente en navegadores web o tablets desde la apertura hasta el cierre, reemplazando:
-- Historias en papel
-- Hojas de Excel aisladas para inventario
-- Chats de WhatsApp para la comunicación con los laboratorios
+**¿Qué problemas tiene nuestro producto que resolver?**
+> La latencia y fragmentación de datos ante el alto volumen de atención. Específicamente:
+> 
+> - La fuga de conversiones (recetas emitidas que no terminan en ventas por falta de agilidad en el piso de ventas).
+> - Los errores de montaje y mermas económicas por la transcripción manual de órdenes al laboratorio.
+> - El descuadre de inventario de monturas entre piso de ventas y almacén.
+> - La insatisfacción del cliente por retrasos y falta de comunicación proactiva sobre sus lentes.
 
-###### ¿Qué problemas tiene nuestro producto que resolver?
-La latencia y fragmentación de datos ante el alto volumen de atención. Específicamente:
+**¿Cuándo y cómo es usado nuestro producto?**
+> De forma concurrente durante toda la jornada comercial, intensificando su uso durante las horas pico.
+> - Los vendedores operarán el módulo de venta ágil desde su celular acompañando al cliente por todo el salón.
+> - Los doctores utilizarán el módulo EHR portátil en una tablet dentro de la cabina.
+> - Los técnicos de laboratorio usarán el tablero Kanban táctil para actualizar estados rápidamente.
+> - Los administradores lo usarán para cortes de caja diarios y análisis de KPIs en tiempo real desde sus teléfonos.
 
-- La fuga de conversiones (recetas emitidas que no terminan en ventas por falta de seguimiento).
-- Los errores de montaje y mermas económicas por la transcripción manual de órdenes al laboratorio.
-- El descuadre de inventario de monturas entre piso de ventas y almacén.
-- La insatisfacción del cliente por retrasos y falta de comunicación proactiva sobre sus lentes.
+**¿Qué características son importantes?**
+> - Historias clínicas electrónicas (EHR) vinculadas directamente al módulo de ventas móvil para auto-completar cotizaciones.
+> - Control de inventario sincronizado en tiempo real mediante el uso de la cámara del celular como escáner.
+> - Tablero Kanban optimizado para pantallas táctiles, permitiendo la trazabilidad visual de las Órdenes de Trabajo (Work Orders).
+> - Motor CRM para notificaciones push automatizadas al dispositivo del paciente.
 
-###### ¿Cuándo y cómo es usado nuestro producto?
-De forma concurrente durante toda la jornada comercial, intensificando su uso durante las horas pico.
-
-- Los vendedores operarán el módulo POS en el mostrador
-- Los doctores el módulo EHR en cabina
-- Los laboratorios el tablero Kanban para actualizar estados
-- Los administradores lo usarán para cortes de caja diarios y análisis de KPIs a fin de mes
-
-###### ¿Qué características son importantes?
-- Historias clínicas electrónicas (EHR) vinculadas directamente al Punto de Venta (POS) para auto-completar cotizaciones
-- Control de inventario sincronizado en tiempo real
-- Tablero Kanban para la trazabilidad visual de las Órdenes de Trabajo (Work Orders)
-- Motor CRM para notificaciones automatizadas al paciente
-
-###### ¿Cómo debe verse nuestro producto y cómo debe comportarse?
-Debe ser comercial, impecable y con un diseño de interfaz (Lean UI) que reduzca la carga cognitiva en horas de alta demanda.
-
-- El flujo de cotización debe ser rápido para evitar filas
-- El tablero del laboratorio debe ser visualmente jerarquizado (semaforización de estados)
-- Debe permitir actualizaciones de un solo clic
+**¿Cómo debe verse nuestro producto y cómo debe comportarse?**
+> Debe ser comercial, impecable y con un diseño de interfaz nativo (Mobile UI) que reduzca la carga cognitiva en horas de alta demanda.
+> 
+> - El flujo de cotización debe ser rápido y operable a una sola mano para evitar filas.
+> - El tablero del laboratorio debe ser visualmente jerarquizado (semaforización de estados).
+> - Debe permitir actualizaciones de estado con un solo tap (toque).
 
 ---
 
-##### Business Assumptions
+**Business Assumptions**
 
-Creo que mis clientes necesitan un sistema integral que:
+> Creo que mis clientes necesitan un ecosistema móvil que:
+> - Soporte el escalamiento de sus atenciones sin depender de módulos fijos de PC.
+> - Elimine el desorden administrativo por sobrecarga de datos.
+> - Erradique las mermas por errores de pedidos manuales.
+> - Permita control financiero total desde la palma de la mano.
 
-- Soporte el escalamiento de sus atenciones
-- Elimine el desorden administrativo por sobrecarga de datos
-- Erradique las mermas por errores de pedidos manuales
-- Permita control financiero total
+> Estas necesidades se pueden resolver con:
+> 
+> La implementación de nuestra aplicación móvil ERP/CRM que automatiza el viaje de la información, conectando sin fricción la receta del doctor en cabina, la venta en movimiento en el mostrador y la fabricación en el laboratorio.
 
-Estas necesidades se pueden resolver con:
+**Clientes iniciales:**
+> Cadenas de ópticas medianas y grandes en Lima Metropolitana que:
+> - Procesan altos volúmenes de órdenes diarias.
+> - Sufren de cuellos de botella por dependencia al papel, métodos empíricos o sistemas de escritorio obsoletos.
 
-> La implementación de nuestra plataforma web ERP/CRM que automatiza el viaje de la información, conectando sin fricción la receta del doctor, la venta en mostrador y la fabricación en el laboratorio.
+**Propuesta de valor**
+> **Para el gerente:**
+> - Aumentar la rentabilidad neta.
+> - Mejorar la conversión de ventas mediante atención portátil.
+> - Reducir a cero errores de transcripción.
+> - Mantener control exacto de cuentas por cobrar en tiempo real.
+> 
+> **Para el paciente:**
+> - Recibir sus lentes con medida exacta.
+> - Cumplimiento de fechas prometidas.
+> - Información constante del proceso en su propio teléfono.
 
-###### Clientes iniciales
-Cadenas de ópticas medianas y grandes en Lima Metropolitana que:
+**Beneficios adicionales:**
+> **Administrativos:**
+> - Auditoría de eficiencia y conversión por empleado.
+> - Digitalización y eliminación de archivos físicos.
+> - Proyección de demanda de inventario.
+> 
+> **Personal operativo:**
+> - Reducción de estrés.
+> - Menos dependencia de WhatsApp personal.
+> - Mejora del clima laboral.
+> - Mejor trato al paciente al no darle la espalda para usar una PC.
 
-- Procesan altos volúmenes de órdenes diarias
-- Sufren de cuellos de botella por dependencia al papel y métodos empíricos
+**Estrategia de adquisición de clientes**
+> - Ventas directas B2B.
+> - Demostraciones en vivo de la aplicación en el propio establecimiento.
+> - Programas piloto gratuitos limitados en sucursales.
 
-###### Propuesta de valor
+**Modelo de ingresos**
+> Modelo B2B tipo SaaS (Software as a Service) móvil:
+> 
+> - Suscripciones mensuales o anuales.
+> - Escaladas según:
+>   - Número de sucursales conectadas.
+>   - Cantidad de dispositivos/usuarios activos.
+>   - Volumen de transacciones.
 
-**Para el gerente:**
-- Aumentar la rentabilidad neta
-- Mejorar la conversión de ventas
-- Reducir a cero errores de transcripción
-- Mantener control exacto de cuentas por cobrar
+**Competencia**
+> - Sistemas POS genéricos de escritorio sin soporte optométrico.
+> - Uso combinado de Excel + WhatsApp.
 
-**Para el paciente:**
-- Recibir sus lentes con medida exacta
-- Cumplimiento de fechas prometidas
-- Información constante del proceso
+**Ventaja competitiva**
+> Proponemos una solución verticalizada y 100% móvil que:
+> 
+> - Integra la complejidad clínica (receta médica).
+> - Conecta la venta retail (montura) en cualquier punto de la tienda.
+> - Gestiona la logística de producción (laboratorio).
+> 
+> Todo en un solo ecosistema de bolsillo.
 
-###### Beneficios adicionales
+**Riesgos principales**
+> - Resistencia al cambio del personal acostumbrado al papel.
+> - Dependencia de laboratorios externos.
+> - Preferencia por seguir usando WhatsApp por costumbre.
 
-**Administrativos:**
-- Auditoría de eficiencia y conversión por empleado
-- Digitalización y eliminación de archivos físicos
-- Proyección de demanda de inventario
+**Mitigación**
+> - Diseño Mobile UX/UI altamente intuitivo (curva de aprendizaje casi nula).
+> - Autocompletado desde recetas para acelerar ventas (menos tipeo en pantallas pequeñas).
+> - Interfaces táctiles simplificadas con botones grandes para laboratorios.
 
-**Personal operativo:**
-- Reducción de estrés
-- Menos dependencia de WhatsApp
-- Mejora del clima laboral
-- Mejor trato al paciente
-
-###### Estrategia de adquisición de clientes
-- Ventas directas B2B
-- Demostraciones de la plataforma
-- Programas piloto gratuitos en sucursales
-
-###### Modelo de ingresos
-Modelo B2B tipo SaaS (Software as a Service):
-
-- Suscripciones mensuales o anuales
-- Escaladas según:
-  - Número de sucursales
-  - Usuarios administrativos
-  - Volumen de transacciones
-
-###### Competencia
-- Sistemas POS genéricos sin soporte optométrico
-- Uso combinado de Excel + WhatsApp
-
-###### Ventaja competitiva
-Proponemos una solución verticalizada que:
-
-- Integra la complejidad clínica (receta médica)
-- Conecta la venta retail (montura)
-- Gestiona la logística de producción (laboratorio)
-
-Todo en un solo ecosistema.
-
-###### Riesgos principales
-- Resistencia al cambio del personal
-- Dependencia de laboratorios externos
-- Preferencia por WhatsApp
-
-###### Mitigación
-- Diseño UX/UI altamente usable
-- Autocompletado desde recetas para acelerar ventas
-- Interfaces simplificadas para laboratorios
-
-###### Suposiciones tecnológicas
-Se asume que las ópticas cuentan con:
-
-- Computadoras o tablets
-- Red Wi-Fi estable
-
-**Riesgo:**  
-Si no hay internet confiable, el modelo SaaS en la nube podría fallar.
-
-**Posible solución:**  
-Evaluar una arquitectura *offline-first*.
+**Suposiciones tecnológicas**
+> Se asume que las ópticas cuentan con:
+> 
+> - Smartphones o tablets para su personal operativo.
+> - Red Wi-Fi estable o planes de datos móviles.
+> 
+> **Riesgo:**  
+> Si no hay internet confiable, el modelo SaaS móvil podría experimentar interrupciones en la sincronización.
+> 
+> **Posible solución:**  
+> Evaluar una arquitectura *offline-first* para la aplicación móvil, que guarde los datos localmente y los sincronice en background al recuperar la conexión.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
