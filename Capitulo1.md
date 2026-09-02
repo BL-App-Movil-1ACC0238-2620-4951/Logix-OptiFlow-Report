@@ -4,13 +4,13 @@
 
 ### 1.1.1. Descripción de la Startup
 
-OptiFlow nace para cerrar la brecha entre la gestión oftalmológica empírica y la innovación tecnológica. Somos una startup comprometida con la unificación de los procesos clínicos, comerciales y de producción en establecimientos ópticos, asegurando que la toma de decisiones basada en datos reemplace a la intuición, maximizando la conversión de ventas, la retención de clientes y la trazabilidad de los pedidos.
+OptiFlow nace para cerrar la brecha entre la búsqueda dispersa de servicios ópticos y una experiencia de agendamiento moderna, ágil y centrada en el paciente. Somos una startup que conecta a los pacientes con las ópticas de su preferencia: nuestro enfoque abarca tanto a las ópticas como a los pacientes, pero en esta etapa priorizamos al paciente, facilitándole encontrar, comparar y reservar una cita —eligiendo el modelo, la fecha, la hora y el local que más le convenga— desde su celular, sin necesidad de desplazarse físicamente de óptica en óptica.
 
-La misión de OptiFlow es ofrecer un sistema integral tipo ERP/CRM complementado con una solución móvil, optimizando los flujos de trabajo administrativos y la experiencia del usuario. Buscamos transformar la gestión manual de historiales médicos, inventarios comerciales y órdenes de laboratorio en datos accionables y centralizados en la nube, garantizando operaciones comerciales eficientes, transparentes y accesibles.
+La misión de OptiFlow es ofrecer una plataforma móvil que simplifique al máximo el proceso de búsqueda y reserva de citas ópticas, y que a la vez afiance el vínculo entre el paciente y la óptica, entendiendo que este tipo de negocios se sostiene sobre una comunidad de clientes fieles. En paralelo, buscamos dotar al optometrista —y a la persona en quien delegue la gestión— de herramientas de notificación proactivas, como recordatorios de citas y alertas de cumpleaños de pacientes, que permitan una comunicación más clara y oportuna con la cartera de clientes, tanto antiguos como nuevos.
 
-Nuestra visión es consolidarnos como la plataforma líder en gestión operativa y comercial para el sector oftalmológico, promoviendo una administración moderna y predictiva que elimine los silos de información entre el consultorio, el piso de ventas y el laboratorio, impulsando a las ópticas hacia una transformación digital absoluta centrada en la movilidad.
+Nuestra visión es consolidarnos como la plataforma líder de agendamiento y fidelización para el sector óptico, siendo el punto de encuentro natural entre pacientes que buscan atención visual y ópticas que buscan construir relaciones duraderas con su comunidad, todo mediado por la conveniencia de un celular.
 
-Alcance de la aplicación: El alcance de OptiFlow comprende un ecosistema que integra una plataforma administrativa para la creación de historias clínicas electrónicas, el control detallado de inventarios, las ventas y la trazabilidad de órdenes de trabajo mediante un tablero Kanban para los laboratorios, complementada estrechamente con una aplicación móvil nativa o híbrida. La aplicación móvil abarca el portal del paciente para la consulta de recetas digitales, notificaciones push en tiempo real sobre el estado de fabricación de las lunas, el seguimiento interactivo de órdenes y pagos, así como herramientas de consulta rápida de stock y catálogo para agilizar la atención en el piso de venta.
+Alcance de la aplicación: El alcance de OptiFlow se centra, en esta etapa, en una aplicación móvil orientada al paciente, que le permite buscar ópticas, explorar el catálogo de modelos disponibles y reservar una cita en la fecha, hora y local que elija, sin salir de casa. Complementariamente, el sistema incorpora un módulo de notificaciones para el optometrista —y para la persona encargada de la gestión, en caso de delegación— que avisa sobre citas próximas y fechas especiales de los pacientes, como cumpleaños, promoviendo una atención más puntual, proactiva y personalizada.
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
@@ -26,166 +26,157 @@ Alcance de la aplicación: El alcance de OptiFlow comprende un ecosistema que in
 
 ### 1.2.1. Antecedentes y problemática
 
-El problema central radica en la deficiente administración del ecosistema comercial y operativo de las ópticas ante un alto volumen de demanda. Existe una desconexión crítica (silos de información) entre el consultorio, el área de ventas y el laboratorio de producción. A medida que aumenta la cantidad de pacientes, los sistemas manuales colapsan por sobrecarga cognitiva, generando una ineficiencia operativa severa. Según estudios, la entrada manual de datos en establecimientos de salud provoca errores de omisión y transposición que impactan la integridad del servicio (Flatworld Solutions, 2026). Por otro lado, la retención de historias clínicas y órdenes en papel ralentiza drásticamente el flujo de atención, exponiendo a la clínica a la pérdida de datos y mermas económicas (Glasson, 2025).
+El problema central radica en la dificultad que enfrentan los pacientes para encontrar y reservar una cita óptica de forma rápida y centralizada. Actualmente, un paciente que busca renovar sus lentes o agendar una consulta debe desplazarse físicamente, óptica por óptica, o realizar llamadas dispersas, sin poder comparar de antemano modelos, horarios y disponibilidad desde un solo lugar. Esta fricción no solo desgasta la experiencia del paciente, sino que también impide a las ópticas competir con base en conveniencia y captar la demanda de nuevos clientes que hoy resuelven su necesidad visual con el primer establecimiento que encuentran disponible, y no necesariamente con el que mejor se ajusta a sus preferencias.
 
-Esta desorganización empeora en la cadena de suministro. Las órdenes de trabajo enviadas al laboratorio, a menudo transcritas rápidamente en horas pico hacia hojas de cálculo o chats de WhatsApp, son un foco altísimo de errores de montaje. La falta de un sistema capaz de procesar concurrencia hace que el administrador opere a ciegas, perdiendo el control del inventario y la rentabilidad.
+Por otro lado, una vez que el paciente ya es cliente de una óptica, se identifica una segunda problemática: la falta de herramientas para que el optometrista —y el personal en quien delegue la gestión— mantenga una comunicación proactiva y oportuna con su cartera de pacientes. El seguimiento de citas programadas, así como de fechas relevantes como los cumpleaños, se realiza hoy de forma manual o simplemente no se realiza, lo que se traduce en inasistencias, oportunidades de fidelización perdidas (como un saludo o descuento de cumpleaños) y una relación menos cercana entre el paciente y la óptica, pese a que las ópticas suelen sostenerse sobre una comunidad de pacientes fieles y recurrentes.
 
-**What / ¿Qué?** 
-La problemática central es la latencia sistémica y la fragmentación administrativa en las ópticas. Esto se agrava exponencialmente por el alto volumen de pacientes, lo que provoca que los procesos manuales y de memoria colapsen. Según Flatworld Solutions (2026), la gestión no automatizada genera errores transaccionales (duplicados u omisiones) que destruyen la eficiencia, resultando en pérdida de conversiones, descuadre de inventarios y errores de montaje en el laboratorio.
+**What / ¿Qué?**
+La problemática central es doble, la dispersión y falta de centralización en la búsqueda y reserva de citas ópticas por parte del paciente, quien debe indagar óptica por óptica sin visibilidad de disponibilidad, modelos u horarios; y la ausencia de un sistema de notificaciones y seguimiento que permita al optometrista y "a quien delegue esta tarea" estar al tanto de sus citas y de las fechas importantes de sus pacientes, debilitando la comunicación y la fidelización.
 
-**When / ¿Cuándo?** 
-Estos problemas se manifiestan en el día a día y explotan durante las horas pico. Al aumentar la rotación de clientes, el seguimiento manual es insostenible; el personal no tiene el ancho de banda mental para atender pacientes y rastrear pedidos físicos simultáneamente.
+**When / ¿Cuándo?**
+Se manifiesta en el momento en que el paciente necesita una cita y no cuenta con una forma rápida de comparar y reservar opciones. Del lado de la óptica, se manifiesta día a día en la gestión de la agenda: cuando el optometrista atiende a un paciente y deja el puesto libre, o simplemente pierde de vista su calendario y las fechas relevantes de sus clientes.
 
-**Where / ¿Dónde?** 
-Ocurre de forma transversal en cadenas de ópticas medianas que intentan procesar un alto volumen de transacciones diarias utilizando herramientas domésticas (papel, Excel) en lugar de un software de nivel corporativo (ERP).
+**Where / ¿Dónde?**
+Ocurre de forma transversal en el mercado de ópticas independientes y cadenas medianas, donde el paciente no tiene un canal digital único para descubrir y reservar citas, y donde el personal no cuenta con un sistema móvil de recordatorios que centralice su agenda y la de su cartera de pacientes.
 
 **Who / ¿Quién?**
-Afecta a tres grupos: Administradores (pierden control financiero y sufren mermas operativas), Staff/Optómetras (sufren sobrecarga laboral por tareas repetitivas y búsquedas manuales) y Pacientes (sufren demoras por trabajos rehechos y falta de información clara).
+Afecta principalmente a dos grupos: Pacientes (pierden tiempo buscando óptica por óptica y no siempre encuentran la opción que mejor se ajusta a su preferencia de modelo, horario o ubicación) y Optometristas / personal de gestión (pierden oportunidades de fidelización y puntualidad por falta de recordatorios y de visibilidad de su agenda, especialmente cuando delegan la gestión a un tercero).
 
 **Why / ¿Por qué?**
-El problema persiste porque las clínicas no cuentan con una arquitectura de software que soporte el crecimiento a escala. Parseur (2026) señala que la dependencia de la entrada manual de datos en áreas de salud causa tiempos de respuesta inaceptables y requiere un esfuerzo insostenible durante picos de demanda. La información se queda atrapada en canales asíncronos y aislados.
+El problema persiste porque no existe una plataforma que unifique, del lado del paciente, la búsqueda y reserva de citas en distintas ópticas, ni que, del lado de la óptica, automatice el recordatorio de citas y de fechas relevantes del paciente. La comunicación queda librada a la memoria del optometrista o a canales informales, lo cual resulta insostenible a medida que crece la cartera de pacientes.
 
-**How / ¿Cómo?** 
-La solución operará a través de un ERP/CRM centralizado. Los doctores registrarán la receta digitalmente; ventas tomará ese registro en tiempo real para generar una cotización cruzada con el inventario; y se emitirá una Orden de Trabajo digital que el laboratorio actualizará en un tablero Kanban, automatizando las notificaciones al paciente.
+**How / ¿Cómo?**
+La solución operará a través de una aplicación móvil donde el paciente podrá buscar ópticas, explorar modelos disponibles y reservar una cita eligiendo fecha, hora y local. En simultáneo, el sistema notificará al optometrista sobre sus citas próximas y los cumpleaños de sus pacientes, permitiéndole delegar esta gestión en una persona encargada, quien recibirá las mismas alertas para dar seguimiento oportuno.
 
 **How much (Cuánto)** 
-La ineficiencia manual y la saturación de datos generan una fuga de capital masiva. Las fallas en la transcripción de datos en la industria cuestan a las empresas millones anuales en procesos de retrabajo y pérdida de clientes (Parseur, 2026). Por el contrario, la implementación de un software integrado y específico permite aumentar el volumen de atención de pacientes entre un 30% y 40% sin incrementar el agotamiento del personal, eliminando los cuellos de botella (Glasson, 2026). Además, las historias clínicas electrónicas (EHR) pueden reducir los retrasos y errores médicos en cerca del 30% (Kivicare, 2024). (faltaron graficas)
+
+[cambiar esto]
+
+--La ineficiencia manual y la saturación de datos generan una fuga de capital masiva. Las fallas en la transcripción de datos en la industria cuestan a las empresas millones anuales en procesos de retrabajo y pérdida de clientes (Parseur, 2026). Por el contrario, la implementación de un software integrado y específico permite aumentar el volumen de atención de pacientes entre un 30% y 40% sin incrementar el agotamiento del personal, eliminando los cuellos de botella (Glasson, 2026). Además, las historias clínicas electrónicas (EHR) pueden reducir los retrasos y errores médicos en cerca del 30% (Kivicare, 2024). (faltaron graficas)
 
 ### 1.2.2. Lean UX Process
 
-Nuestro servicio ofrece un ecosistema digital compuesto por una aplicación móvil centralizada para gestionar el ciclo comercial, el historial clínico y la logística de producción (órdenes de trabajo) en ópticas. Hemos observado que, ante un alto volumen de pacientes, la carencia de un sistema unificado ocasiona el colapso de los procesos manuales, generando silos de información, pérdida de trazabilidad en la fabricación de lentes, descuadre de inventarios y una deficiente gestión de cobranzas. Esto provoca retrasos que perjudican enormemente la experiencia del cliente y generan mermas económicas por trabajos rehechos. ¿De qué manera podemos digitalizar e integrar el flujo de ventas, producción y atención clínica mediante herramientas web y móviles para optimizar la toma de decisiones de la gerencia, eliminar errores de transcripción logística y garantizar entregas puntuales y rentables?
+Nuestro servicio ofrece una aplicación móvil centrada en el paciente, que le permite descubrir ópticas, comparar modelos y reservar una cita en el lugar, fecha y hora de su preferencia, sin necesidad de desplazarse físicamente. En paralelo, dota al optometrista —y al personal en quien delegue la gestión— de un sistema de notificaciones que le recuerda sus citas y las fechas relevantes de sus pacientes, como cumpleaños, fortaleciendo así la relación de fidelidad entre la óptica y su comunidad. Hemos observado que, hoy en día, el paciente no cuenta con un canal único para buscar y reservar citas ópticas, mientras que el optometrista carece de herramientas que le permitan mantenerse proactivamente pendiente de su cartera de pacientes. Esto provoca una experiencia de búsqueda frustrante para el paciente y oportunidades de fidelización perdidas para la óptica. ¿De qué manera podemos, mediante una aplicación móvil, facilitarle al paciente la búsqueda y reserva de citas ópticas, y a la vez dotar al optometrista de un sistema de notificaciones que le permita ser más puntual y proactivo con su comunidad de pacientes?
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-OptiFlow fue diseñado para permitir que los administradores, optómetras y personal de ventas de ópticas gestionen el ciclo comercial, el historial clínico y la logística de producción de manera centralizada y eficiente mediante una aplicación móvil.
-Sin embargo, hemos observado que, ante un alto volumen de pacientes, muchos establecimientos continúan dependiendo de procesos manuales o soluciones aisladas, lo que ocasiona el colapso de los flujos de trabajo, genera silos de información y causa la pérdida de trazabilidad en la fabricación de lentes, además de descuadres de inventario y una deficiente gestión de cobranzas.
-Esta situación provoca retrasos operativos, mermas económicas por trabajos rehechos y una experiencia de atención poco eficiente, perjudicando enormemente la satisfacción del cliente y limitando la capacidad de la gerencia para tomar decisiones basadas en datos.
-¿Cómo podríamos ofrecer una aplicación móvil intuitiva que centralice e integre el flujo de ventas, atención clínica y producción para optimizar la toma de decisiones, eliminar errores de transcripción logística y garantizar entregas puntuales y rentables?
+OptiFlow fue diseñado para permitir que el paciente pueda buscar, comparar y reservar una cita óptica —eligiendo modelo, fecha, hora y local— directamente desde su celular, sin necesidad de desplazarse óptica por óptica. En paralelo, permite que el optometrista, o la persona en quien delegue la gestión, reciba notificaciones sobre sus citas próximas y sobre fechas relevantes de sus pacientes, como cumpleaños, facilitando una comunicación más clara y oportuna. Sin embargo, hemos observado que actualmente el paciente no cuenta con un canal centralizado para conocer la disponibilidad de las distintas ópticas, lo que lo obliga a invertir tiempo desplazándose o llamando de establecimiento en establecimiento. Del lado de la óptica, el optometrista suele perder de vista su agenda y las fechas importantes de sus pacientes en medio de la atención diaria, debilitando el vínculo de fidelidad que caracteriza a este tipo de negocios. Esta situación provoca una experiencia de búsqueda poco eficiente para el paciente y oportunidades de fidelización perdidas para la óptica, limitando el crecimiento de una relación de largo plazo entre ambos. ¿Cómo podríamos ofrecer una aplicación móvil que facilite al paciente encontrar y reservar su cita óptica ideal, y que a la vez ayude al optometrista a ser más puntual y proactivo con su comunidad de pacientes mediante notificaciones inteligentes?
 
 #### 1.2.2.2. Lean UX Assumptions
 
 **Preguntas sobre el Producto / Usuario (User Assumptions)**
 
 **¿Quién es el usuario?**
-> Nuestros usuarios principales internos son los administradores/gerentes de la óptica, el personal clínico (optómetras), los asesores de ventas y los técnicos de laboratorio. De forma indirecta, impactamos a los pacientes (clientes finales).
-> 
-> - El administrador utilizará la aplicación móvil para auditar embudos de ventas, inventario y flujo de caja desde cualquier ubicación.
-> - El staff la usará desde sus smartphones o tablets para registrar historias clínicas, cotizar escaneando productos, cobrar adelantos y enviar/monitorear órdenes de trabajo al laboratorio.
-> - El paciente interactúa indirectamente al recibir notificaciones push automatizadas del estado de su pedido en su celular.
+> Nuestro usuario principal y prioritario es el paciente que busca un servicio óptico. De forma secundaria, atendemos a la óptica: el optometrista y, en caso de delegación, la persona encargada de la gestión.
+> - El paciente utilizará la aplicación móvil para buscar ópticas, comparar modelos y reservar su cita en el lugar, fecha y hora que prefiera.
+> - El optometrista recibirá notificaciones sobre sus citas próximas y sobre fechas relevantes de sus pacientes, como cumpleaños.
 
 **¿Dónde encaja nuestro producto en su trabajo o vida?**
-> Será el core operativo y la espina dorsal del negocio. Estará abierto constantemente en smartphones o tablets desde la apertura hasta el cierre, reemplazando:
-> - Historias y recetas en papel.
-> - Hojas de Excel aisladas en computadoras de escritorio.
-> - Chats de WhatsApp para la comunicación informal con los laboratorios.
+> Para el paciente, será el primer punto de contacto al momento de necesitar un servicio óptico, reemplazando la búsqueda física de óptica en óptica o las llamadas telefónicas dispersas. Para el optometrista, será una extensión de su agenda diaria en el celular, presente desde que se despierta (recordatorio de la primera cita del día) hasta el cierre de operaciones, reemplazando:
+> - La búsqueda manual y presencial de disponibilidad en ópticas.
+> - Las agendas en papel o los recordatorios informales de citas y cumpleaños.
+> - La coordinación telefónica entre el optometrista y la persona de gestión.
 
 **¿Qué problemas tiene nuestro producto que resolver?**
-> La latencia y fragmentación de datos ante el alto volumen de atención. Específicamente:
-> 
-> - La fuga de conversiones (recetas emitidas que no terminan en ventas por falta de agilidad en el piso de ventas).
-> - Los errores de montaje y mermas económicas por la transcripción manual de órdenes al laboratorio.
-> - El descuadre de inventario de monturas entre piso de ventas y almacén.
-> - La insatisfacción del cliente por retrasos y falta de comunicación proactiva sobre sus lentes.
+> La fricción del paciente al buscar y reservar una cita óptica, y la falta de proactividad del optometrista en el seguimiento de su cartera de pacientes. Específicamente:
+> - La pérdida de tiempo del paciente al desplazarse óptica por óptica para conocer disponibilidad y modelos.
+> - La dificultad del paciente para elegir, en un solo lugar, el modelo, la fecha, la hora y el local de su preferencia.
+> - El olvido de citas próximas y de fechas relevantes (cumpleaños) por parte del optometrista.
+> - La falta de un canal claro para delegar el seguimiento de pacientes a otra persona sin perder visibilidad.
 
 **¿Cuándo y cómo es usado nuestro producto?**
-> De forma concurrente durante toda la jornada comercial, intensificando su uso durante las horas pico.
-> - Los vendedores operarán el módulo de venta ágil desde su celular acompañando al cliente por todo el salón.
-> - Los doctores utilizarán el módulo EHR portátil en una tablet dentro de la cabina.
-> - Los técnicos de laboratorio usarán el tablero Kanban táctil para actualizar estados rápidamente.
-> - Los administradores lo usarán para cortes de caja diarios y análisis de KPIs en tiempo real desde sus teléfonos.
+> El paciente lo usará de forma puntual, cada vez que necesite agendar o renovar un servicio óptico, desde cualquier lugar y en el momento que le resulte conveniente. El optometrista (o la persona de gestión) lo usará de forma continua durante la jornada, principalmente:
+> - Al inicio del día, para revisar las citas y recordatorios pendientes.
+> - Durante la jornada, al recibir notificaciones en tiempo real sobre citas próximas o cumpleaños de pacientes.
+> - Al delegar tareas de seguimiento, manteniendo visibilidad compartida con la persona encargada de la gestión.
 
 **¿Qué características son importantes?**
-> - Historias clínicas electrónicas (EHR) vinculadas directamente al módulo de ventas móvil para auto-completar cotizaciones.
-> - Control de inventario sincronizado en tiempo real mediante el uso de la cámara del celular como escáner.
-> - Tablero Kanban optimizado para pantallas táctiles, permitiendo la trazabilidad visual de las Órdenes de Trabajo (Work Orders).
-> - Motor CRM para notificaciones push automatizadas al dispositivo del paciente.
+> - Buscador de ópticas con catálogo de modelos disponibles.
+> - Reserva de citas eligiendo modelo, fecha, hora y local, desde el celular.
+> - Notificaciones push al optometrista sobre citas próximas y cumpleaños de pacientes.
+> - Delegación de la gestión de notificaciones a una persona designada, sin perder visibilidad.
 
 **¿Cómo debe verse nuestro producto y cómo debe comportarse?**
-> Debe ser comercial, impecable y con un diseño de interfaz nativo (Mobile UI) que reduzca la carga cognitiva en horas de alta demanda.
-> 
-> - El flujo de cotización debe ser rápido y operable a una sola mano para evitar filas.
-> - El tablero del laboratorio debe ser visualmente jerarquizado (semaforización de estados).
-> - Debe permitir actualizaciones de estado con un solo tap (toque).
+> Debe ser simple, cercano y confiable, priorizando la facilidad de uso del paciente y la inmediatez de las notificaciones para el optometrista.
+> - El flujo de búsqueda y reserva de cita debe completarse en pocos pasos, sin fricciones, y ser operable a una sola mano.
+> - Las notificaciones deben ser claras, oportunas y accionables (por ejemplo, permitir confirmar, reprogramar o delegar una cita con un solo tap).
 
 ---
 
 **Business Assumptions**
 
-> Creo que mis clientes necesitan un ecosistema móvil que:
-> - Soporte el escalamiento de sus atenciones sin depender de módulos fijos de PC.
-> - Elimine el desorden administrativo por sobrecarga de datos.
-> - Erradique las mermas por errores de pedidos manuales.
-> - Permita control financiero total desde la palma de la mano.
+> Creo que mis clientes necesitan una herramienta móvil que:
+> - Les permita captar pacientes que hoy buscan alternativas óptica por óptica.
+> - Fortalezca la fidelidad de su comunidad de pacientes mediante comunicación oportuna.
+> - Reduzca las inasistencias y el desorden en el seguimiento de citas y fechas relevantes.
+> - Permita delegar la gestión de la comunicación sin perder control ni visibilidad.
 
 > Estas necesidades se pueden resolver con:
-> 
-> La implementación de nuestra aplicación móvil ERP/CRM que automatiza el viaje de la información, conectando sin fricción la receta del doctor en cabina, la venta en movimiento en el mostrador y la fabricación en el laboratorio.
+> La implementación de nuestra aplicación móvil, que conecta al paciente con la óptica desde el momento de la búsqueda y reserva de la cita, y sostiene esa relación en el tiempo mediante notificaciones automáticas de citas y fechas relevantes al optometrista o a quien delegue esta tarea.
 
 **Clientes iniciales:**
-> Cadenas de ópticas medianas y grandes en Lima Metropolitana que:
-> - Procesan altos volúmenes de órdenes diarias.
-> - Sufren de cuellos de botella por dependencia al papel, métodos empíricos o sistemas de escritorio obsoletos.
+> Ópticas independientes y cadenas medianas en Lima Metropolitana que:
+> - Buscan atraer nuevos pacientes que hoy comparan alternativas de forma manual.
+> - Desean fidelizar a su cartera de pacientes existente mediante una comunicación más cercana y oportuna.
 
 **Propuesta de valor**
-> **Para el gerente:**
-> - Aumentar la rentabilidad neta.
-> - Mejorar la conversión de ventas mediante atención portátil.
-> - Reducir a cero errores de transcripción.
-> - Mantener control exacto de cuentas por cobrar en tiempo real.
-> 
 > **Para el paciente:**
-> - Recibir sus lentes con medida exacta.
-> - Cumplimiento de fechas prometidas.
-> - Información constante del proceso en su propio teléfono.
+> - Encontrar y reservar su cita óptica ideal sin desplazarse físicamente de óptica en óptica.
+> - Elegir el modelo, la fecha, la hora y el local de su preferencia, todo desde el celular.
+> - Sentirse parte de una comunidad fiel a su óptica de confianza.
+> 
+> **Para el optometrista / la óptica:**
+> - Ser más puntual y proactivo gracias a notificaciones automáticas de citas y cumpleaños.
+> - Fortalecer la fidelización de pacientes antiguos y nuevos.
+> - Delegar el seguimiento de la agenda en una persona de gestión sin perder visibilidad.
 
 **Beneficios adicionales:**
-> **Administrativos:**
-> - Auditoría de eficiencia y conversión por empleado.
-> - Digitalización y eliminación de archivos físicos.
-> - Proyección de demanda de inventario.
+> **Óptica:**
+> - Mayor captación de pacientes nuevos que buscan reservar sin desplazarse.
+> - Menor dependencia de la memoria o de canales informales para el seguimiento de citas.
+> - Mejor clima de comunicación entre el optometrista y la persona de gestión.
 > 
-> **Personal operativo:**
-> - Reducción de estrés.
-> - Menos dependencia de WhatsApp personal.
-> - Mejora del clima laboral.
-> - Mejor trato al paciente al no darle la espalda para usar una PC.
+> **Paciente:**
+> - Ahorro de tiempo al comparar y reservar en un solo lugar.
+> - Sensación de cercanía y pertenencia a la comunidad de la óptica.
 
 **Estrategia de adquisición de clientes**
-> - Ventas directas B2B.
+> - Ventas directas B2B a ópticas independientes y cadenas medianas.
 > - Demostraciones en vivo de la aplicación en el propio establecimiento.
 > - Programas piloto gratuitos limitados en sucursales.
+> - Del lado del paciente: presencia en tiendas de aplicaciones y recomendación boca a boca dentro de la comunidad de cada óptica.
 
 **Modelo de ingresos**
-> Modelo B2B tipo SaaS (Software as a Service) móvil:
-> 
+> Modelo B2B tipo SaaS (Software as a Service) móvil, cobrado a las ópticas:
 > - Suscripciones mensuales o anuales.
 > - Escaladas según:
 >   - Número de sucursales conectadas.
->   - Cantidad de dispositivos/usuarios activos.
->   - Volumen de transacciones.
+>   - Cantidad de citas o notificaciones gestionadas.
+>   - Cantidad de dispositivos/usuarios activos (optometrista + persona de gestión).
 
 **Competencia**
-> - Sistemas POS genéricos de escritorio sin soporte optométrico.
-> - Uso combinado de Excel + WhatsApp.
+> - Búsqueda manual boca a boca o desplazamiento físico óptica por óptica.
+> - Coordinación de citas vía llamadas telefónicas o WhatsApp.
+> - Apps genéricas de reserva de citas sin especialización en el sector óptico.
 
 **Ventaja competitiva**
 > Proponemos una solución verticalizada y 100% móvil que:
 > 
-> - Integra la complejidad clínica (receta médica).
-> - Conecta la venta retail (montura) en cualquier punto de la tienda.
-> - Gestiona la logística de producción (laboratorio).
+> - Centraliza la búsqueda, comparación y reserva de citas ópticas para el paciente.
+> - Fortalece la fidelización mediante notificaciones inteligentes al optometrista.
+> - Permite delegar el seguimiento de la agenda sin perder control ni visibilidad.
 > 
-> Todo en un solo ecosistema de bolsillo.
+> Todo en un solo ecosistema de bolsillo, pensado primero para el paciente.
 
 **Riesgos principales**
-> - Resistencia al cambio del personal acostumbrado al papel.
-> - Dependencia de laboratorios externos.
-> - Preferencia por seguir usando WhatsApp por costumbre.
+> - Baja adopción inicial del paciente si no conoce o no confía en la app.
+> - Resistencia al cambio del personal acostumbrado a la agenda en papel o WhatsApp.
+> - Dependencia de que las ópticas mantengan actualizada su disponibilidad y catálogo de modelos.
 
 **Mitigación**
-> - Diseño Mobile UX/UI altamente intuitivo (curva de aprendizaje casi nula).
-> - Autocompletado desde recetas para acelerar ventas (menos tipeo en pantallas pequeñas).
-> - Interfaces táctiles simplificadas con botones grandes para laboratorios.
+> - Diseño Mobile UX/UI altamente intuitivo para el paciente (curva de aprendizaje casi nula).
+> - Onboarding simple y programas piloto/promocionales para incentivar la primera reserva.
+> - Interfaces simplificadas y notificaciones claras para el optometrista y la persona de gestión.
 
 **Suposiciones tecnológicas**
 > Se asume que las ópticas cuentan con:
@@ -205,28 +196,28 @@ Esta situación provoca retrasos operativos, mermas económicas por trabajos reh
 
 ##### Hipótesis 1
 **Hipótesis:**  
-Creemos que si integramos el historial clínico (EHR) directamente con el módulo de cotización y ventas (POS), se reducirá la fuga de pacientes que no compran sus lentes.
+Creemos que si le permitimos al paciente buscar, comparar y reservar una cita óptica (eligiendo modelo, fecha, hora y local) directamente desde su celular, aumentará la proporción de búsquedas que terminan en una cita efectivamente reservada.
 
 **Métrica:**  
-Sabremos que funcionó cuando la tasa de conversión (recetas emitidas vs. ventas concretadas) aumente en un **15%** en el primer trimestre.
+Sabremos que funcionó cuando la tasa de conversión de búsquedas a citas reservadas aumente en un 15% en el primer trimestre. (pendiente de validar con datos de campo del equipo)
 
 ---
 
 ##### Hipótesis 2
 **Hipótesis:**  
-Creemos que si proporcionamos un tablero Kanban de Órdenes de Trabajo para el laboratorio, conectado a la base de datos central, se erradicarán los errores por transcripción manual.
+Creemos que si notificamos al optometrista sobre sus citas próximas y los cumpleaños de sus pacientes, mejorará su puntualidad y proactividad en el seguimiento de su cartera.
 
 **Métrica:**  
-Sabremos que esto funcionó cuando los reportes demuestren una disminución del **90%** en los costos asumidos por refabricación de lentes (mermas) en los primeros tres meses.
+Sabremos que esto funcionó cuando las inasistencias o reprogramaciones de última hora disminuyan en un 80% en los primeros tres meses.
 
 ---
 
 ##### Hipótesis 3
-**Hipótesis:**  
-Creemos que automatizar el envío de notificaciones (Email/SMS) sobre el estado del pedido reducirá la carga de atención al cliente y mejorará la percepción del servicio.
+**Hipótesis:**
+Creemos que si permitimos al optometrista delegar la gestión de notificaciones en una persona encargada, se reducirá la carga de seguimiento manual y mejorará la comunicación con el paciente.
 
-**Métrica:**  
-Sabremos que funcionó cuando las llamadas o mensajes de pacientes consultando *"¿dónde están mis lentes?"* se reduzcan en un **80%**.
+**Métrica:**
+Sabremos que funcionó cuando el tiempo de respuesta a solicitudes o dudas de pacientes se reduzca en un 80% en los primeros tres meses.
 
 #### 1.2.2.4. Lean UX Canvas
 
