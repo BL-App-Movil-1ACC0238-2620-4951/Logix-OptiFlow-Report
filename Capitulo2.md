@@ -273,6 +273,58 @@ Como tácticas, se plantea implementar estados comprensibles para las órdenes, 
 
 ### 2.2.1. Diseño de entrevistas
 
+Preguntas generales:
+
+1.  Datos de perfil: ¿Podrías indicarme tu nombre,  edad, estado civil y ocupación exacta?
+2.  Contexto personal: ¿En qué distrito resides?
+3.  Entorno digital: ¿Qué dispositivos (móvil, tablet, laptop) usas más en tu vida diaria y cuáles son tus canales digitales o marcas preferidas para informarte sobre el sector?
+
+**Primer Segmento: *Optómetra***
+
+4.  ¿Cómo describirías el funcionamiento general de tu óptica en el día a día?
+5.  ¿Cuáles son las principales responsabilidades que tienes como administrador/a y cuánto tiempo te quita la parte operativa?( Agendamiento, historial médico,etc)
+6.  ¿Qué es lo que más valoras en la gestión de una óptica para considerar que el negocio es realmente "eficiente"?
+7.  ¿Cómo es actualmente el proceso desde que el cliente elige una montura hasta que el pedido llega al laboratorio?
+8.  En cuanto a los historiales médicos, ¿cómo aseguras que la información de la consulta esté disponible inmediatamente para la venta comercial?
+9.  ¿Cómo gestionas el inventario para saber exactamente qué tienes en stock y cuándo necesitas reponer sin tener que contar piezas manualmente?
+10.  ¿Qué tipo de herramientas o sistemas utilizas hoy para centralizar las ventas, la clínica y la administración?¿Cuáles son?
+11.  ¿Qué tan fácil te resulta hoy obtener un reporte de rentabilidad o de productos más vendidos al final del mes?
+12.  ¿Cómo es la relación con tus clientes y qué procesos sigues para recordarles que deben volver para un ajuste o una nueva revisión?
+13.  ¿Cómo manejas la competencia y qué aspectos consideras que hacen que un cliente prefiera tu servicio frente a una gran cadena?
+14.  ¿Qué mejoras o procesos te gustaría automatizar en el futuro para que tú y tu equipo puedan enfocarse más en el paciente y menos en el papeleo?
+15.  ¿Cómo imaginas que debería evolucionar una óptica para adaptarse a un mercado donde el cliente espera rapidez y acceso digital a su información
+
+
+**Segundo Segmento: *Clientes de la óptica***
+
+4. ¿Con qué frecuencia acudes a la óptica a medirte la vista o renovar tus lentes, y por qué motivo principal?
+5. ¿Qué tipo de corrección visual utilizas actualmente (visión sencilla, bifocales, progresivos) y cuántas horas al día usas pantallas?
+6. ¿Cómo ha sido tu experiencia habitual al momento de esperar por la fabricación o entrega de tus lentes?
+7. ¿Alguna vez has experimentado retrasos o errores en la entrega de tus lentes? ¿Cómo te comunicaron ese problema?
+8. ¿Cómo prefieres enterarte de que tus lentes ya están listos para ser recogidos (WhatsApp, SMS, llamada)?
+9. ¿Te gustaría contar con un historial o carné digital con la receta de tus lentes accesible desde tu teléfono?
+10. ¿Qué tan dispuesto/a estarías a recibir recordatorios automáticos sobre tus controles visuales o vencimiento de la receta?
+11. ¿Estarías dispuesto/a a rastrear el estado de fabricación de tus lentes mediante un enlace de seguimiento en tiempo real?
+12. ¿Qué es lo que más valoras de la atención en una óptica (rapidez, precio, asesoría, puntualidad en la entrega)?
+13. ¿Qué canales digitales utilizas para investigar ofertas, marcas de monturas o salud visual antes de comprar?
+14. ¿Has tenido problemas para recordar el tipo de luna o tratamiento que compraste en tu última visita?
+15. ¿Qué haría que recomiendes una óptica a tus familiares o amigos sobre otras alternativas?
+
+**Tercer Segmento: *Asesor de Lentes***
+
+4. ¿Cómo realizas la cotización y selección de monturas y lunas cuando el paciente sale de la consulta con el optómetra?
+5. ¿Cómo verificas si hay disponibilidad (stock) de una montura, luna o tratamiento específico mientras estás con el cliente?
+6. ¿Qué problemas enfrentas cuando la receta ingresada por el optómetra no está clara o falta información para enviar al laboratorio?
+7. ¿Cómo realizas el seguimiento de los pedidos que están en el laboratorio para dar respuesta a los clientes que consultan?
+8. ¿Qué herramientas o materiales usas para mostrar el catálogo completo de productos o explicar beneficios (lentes progresivos, filtros, etc.)?
+9. Si contaras con una app en una tablet/móvil para cotizar y mostrar catálogos interactivos al cliente al instante, ¿cómo afectaría tus ventas?
+10. ¿Qué información del inventario o precios necesitas tener al alcance de la mano para no perder una venta?
+11. ¿Qué tan útil sería para ti recibir una alerta inmediata cuando el laboratorio termine de procesar el lente de un cliente?
+12. ¿Qué comisión o meta de venta cruzada (accesorios, tratamientos) te resulta más difícil de cumplir y por qué?
+13. ¿En qué redes sociales o comunidades digitales sueles informarte o capacitarte sobre técnicas de venta retail o productos ópticos?
+14. ¿Qué es lo más frustrante de tu jornada de trabajo respecto a los sistemas de registro o cobro que utilizas hoy?
+15. ¿Qué incentivo o funcionalidad dentro de una app te motivaría a usarla constantemente durante toda tu jornada laboral?
+
 ### 2.2.2. Registro de entrevistas
 
 ### 2.2.3. Análisis de entrevistas
