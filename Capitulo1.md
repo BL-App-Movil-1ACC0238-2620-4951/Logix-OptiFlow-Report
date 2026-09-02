@@ -68,123 +68,115 @@ OptiFlow fue diseñado para permitir que el paciente pueda buscar, comparar y re
 
 **¿Quién es el usuario?**
 > Nuestro usuario principal y prioritario es el paciente que busca un servicio óptico. De forma secundaria, atendemos a la óptica: el optometrista y, en caso de delegación, la persona encargada de la gestión.
-> - El administrador utilizará la aplicación móvil para auditar embudos de ventas, inventario y flujo de caja desde cualquier ubicación.
-> - El staff la usará desde sus smartphones o tablets para registrar historias clínicas, cotizar escaneando productos, cobrar adelantos y enviar/monitorear órdenes de trabajo al laboratorio.
-> - El paciente interactúa indirectamente al recibir notificaciones push automatizadas del estado de su pedido en su celular.
+> - El paciente utilizará la aplicación móvil para buscar ópticas, comparar modelos y reservar su cita en el lugar, fecha y hora que prefiera.
+> - El optometrista recibirá notificaciones sobre sus citas próximas y sobre fechas relevantes de sus pacientes, como cumpleaños.
 
 **¿Dónde encaja nuestro producto en su trabajo o vida?**
-> Será el core operativo y la espina dorsal del negocio. Estará abierto constantemente en smartphones o tablets desde la apertura hasta el cierre, reemplazando:
-> - Historias y recetas en papel.
-> - Hojas de Excel aisladas en computadoras de escritorio.
-> - Chats de WhatsApp para la comunicación informal con los laboratorios.
+> Para el paciente, será el primer punto de contacto al momento de necesitar un servicio óptico, reemplazando la búsqueda física de óptica en óptica o las llamadas telefónicas dispersas. Para el optometrista, será una extensión de su agenda diaria en el celular, presente desde que se despierta (recordatorio de la primera cita del día) hasta el cierre de operaciones, reemplazando:
+> - La búsqueda manual y presencial de disponibilidad en ópticas.
+> - Las agendas en papel o los recordatorios informales de citas y cumpleaños.
+> - La coordinación telefónica entre el optometrista y la persona de gestión.
 
 **¿Qué problemas tiene nuestro producto que resolver?**
-> La latencia y fragmentación de datos ante el alto volumen de atención. Específicamente:
-> 
-> - La fuga de conversiones (recetas emitidas que no terminan en ventas por falta de agilidad en el piso de ventas).
-> - Los errores de montaje y mermas económicas por la transcripción manual de órdenes al laboratorio.
-> - El descuadre de inventario de monturas entre piso de ventas y almacén.
-> - La insatisfacción del cliente por retrasos y falta de comunicación proactiva sobre sus lentes.
+> La fricción del paciente al buscar y reservar una cita óptica, y la falta de proactividad del optometrista en el seguimiento de su cartera de pacientes. Específicamente:
+> - La pérdida de tiempo del paciente al desplazarse óptica por óptica para conocer disponibilidad y modelos.
+> - La dificultad del paciente para elegir, en un solo lugar, el modelo, la fecha, la hora y el local de su preferencia.
+> - El olvido de citas próximas y de fechas relevantes (cumpleaños) por parte del optometrista.
+> - La falta de un canal claro para delegar el seguimiento de pacientes a otra persona sin perder visibilidad.
 
 **¿Cuándo y cómo es usado nuestro producto?**
-> De forma concurrente durante toda la jornada comercial, intensificando su uso durante las horas pico.
-> - Los vendedores operarán el módulo de venta ágil desde su celular acompañando al cliente por todo el salón.
-> - Los doctores utilizarán el módulo EHR portátil en una tablet dentro de la cabina.
-> - Los técnicos de laboratorio usarán el tablero Kanban táctil para actualizar estados rápidamente.
-> - Los administradores lo usarán para cortes de caja diarios y análisis de KPIs en tiempo real desde sus teléfonos.
+> El paciente lo usará de forma puntual, cada vez que necesite agendar o renovar un servicio óptico, desde cualquier lugar y en el momento que le resulte conveniente. El optometrista (o la persona de gestión) lo usará de forma continua durante la jornada, principalmente:
+> - Al inicio del día, para revisar las citas y recordatorios pendientes.
+> - Durante la jornada, al recibir notificaciones en tiempo real sobre citas próximas o cumpleaños de pacientes.
+> - Al delegar tareas de seguimiento, manteniendo visibilidad compartida con la persona encargada de la gestión.
 
 **¿Qué características son importantes?**
-> - Historias clínicas electrónicas (EHR) vinculadas directamente al módulo de ventas móvil para auto-completar cotizaciones.
-> - Control de inventario sincronizado en tiempo real mediante el uso de la cámara del celular como escáner.
-> - Tablero Kanban optimizado para pantallas táctiles, permitiendo la trazabilidad visual de las Órdenes de Trabajo (Work Orders).
-> - Motor CRM para notificaciones push automatizadas al dispositivo del paciente.
+> - Buscador de ópticas con catálogo de modelos disponibles.
+> - Reserva de citas eligiendo modelo, fecha, hora y local, desde el celular.
+> - Notificaciones push al optometrista sobre citas próximas y cumpleaños de pacientes.
+> - Delegación de la gestión de notificaciones a una persona designada, sin perder visibilidad.
 
 **¿Cómo debe verse nuestro producto y cómo debe comportarse?**
-> Debe ser comercial, impecable y con un diseño de interfaz nativo (Mobile UI) que reduzca la carga cognitiva en horas de alta demanda.
-> 
-> - El flujo de cotización debe ser rápido y operable a una sola mano para evitar filas.
-> - El tablero del laboratorio debe ser visualmente jerarquizado (semaforización de estados).
-> - Debe permitir actualizaciones de estado con un solo tap (toque).
+> Debe ser simple, cercano y confiable, priorizando la facilidad de uso del paciente y la inmediatez de las notificaciones para el optometrista.
+> - El flujo de búsqueda y reserva de cita debe completarse en pocos pasos, sin fricciones, y ser operable a una sola mano.
+> - Las notificaciones deben ser claras, oportunas y accionables (por ejemplo, permitir confirmar, reprogramar o delegar una cita con un solo tap).
 
 ---
 
 **Business Assumptions**
 
-> Creo que mis clientes necesitan un ecosistema móvil que:
-> - Soporte el escalamiento de sus atenciones sin depender de módulos fijos de PC.
-> - Elimine el desorden administrativo por sobrecarga de datos.
-> - Erradique las mermas por errores de pedidos manuales.
-> - Permita control financiero total desde la palma de la mano.
+> Creo que mis clientes necesitan una herramienta móvil que:
+> - Les permita captar pacientes que hoy buscan alternativas óptica por óptica.
+> - Fortalezca la fidelidad de su comunidad de pacientes mediante comunicación oportuna.
+> - Reduzca las inasistencias y el desorden en el seguimiento de citas y fechas relevantes.
+> - Permita delegar la gestión de la comunicación sin perder control ni visibilidad.
 
 > Estas necesidades se pueden resolver con:
-> 
-> La implementación de nuestra aplicación móvil ERP/CRM que automatiza el viaje de la información, conectando sin fricción la receta del doctor en cabina, la venta en movimiento en el mostrador y la fabricación en el laboratorio.
+> La implementación de nuestra aplicación móvil, que conecta al paciente con la óptica desde el momento de la búsqueda y reserva de la cita, y sostiene esa relación en el tiempo mediante notificaciones automáticas de citas y fechas relevantes al optometrista o a quien delegue esta tarea.
 
 **Clientes iniciales:**
-> Cadenas de ópticas medianas y grandes en Lima Metropolitana que:
-> - Procesan altos volúmenes de órdenes diarias.
-> - Sufren de cuellos de botella por dependencia al papel, métodos empíricos o sistemas de escritorio obsoletos.
+> Ópticas independientes y cadenas medianas en Lima Metropolitana que:
+> - Buscan atraer nuevos pacientes que hoy comparan alternativas de forma manual.
+> - Desean fidelizar a su cartera de pacientes existente mediante una comunicación más cercana y oportuna.
 
 **Propuesta de valor**
-> **Para el gerente:**
-> - Aumentar la rentabilidad neta.
-> - Mejorar la conversión de ventas mediante atención portátil.
-> - Reducir a cero errores de transcripción.
-> - Mantener control exacto de cuentas por cobrar en tiempo real.
-> 
 > **Para el paciente:**
-> - Recibir sus lentes con medida exacta.
-> - Cumplimiento de fechas prometidas.
-> - Información constante del proceso en su propio teléfono.
+> - Encontrar y reservar su cita óptica ideal sin desplazarse físicamente de óptica en óptica.
+> - Elegir el modelo, la fecha, la hora y el local de su preferencia, todo desde el celular.
+> - Sentirse parte de una comunidad fiel a su óptica de confianza.
+> 
+> **Para el optometrista / la óptica:**
+> - Ser más puntual y proactivo gracias a notificaciones automáticas de citas y cumpleaños.
+> - Fortalecer la fidelización de pacientes antiguos y nuevos.
+> - Delegar el seguimiento de la agenda en una persona de gestión sin perder visibilidad.
 
 **Beneficios adicionales:**
-> **Administrativos:**
-> - Auditoría de eficiencia y conversión por empleado.
-> - Digitalización y eliminación de archivos físicos.
-> - Proyección de demanda de inventario.
+> **Óptica:**
+> - Mayor captación de pacientes nuevos que buscan reservar sin desplazarse.
+> - Menor dependencia de la memoria o de canales informales para el seguimiento de citas.
+> - Mejor clima de comunicación entre el optometrista y la persona de gestión.
 > 
-> **Personal operativo:**
-> - Reducción de estrés.
-> - Menos dependencia de WhatsApp personal.
-> - Mejora del clima laboral.
-> - Mejor trato al paciente al no darle la espalda para usar una PC.
+> **Paciente:**
+> - Ahorro de tiempo al comparar y reservar en un solo lugar.
+> - Sensación de cercanía y pertenencia a la comunidad de la óptica.
 
 **Estrategia de adquisición de clientes**
-> - Ventas directas B2B.
+> - Ventas directas B2B a ópticas independientes y cadenas medianas.
 > - Demostraciones en vivo de la aplicación en el propio establecimiento.
 > - Programas piloto gratuitos limitados en sucursales.
+> - Del lado del paciente: presencia en tiendas de aplicaciones y recomendación boca a boca dentro de la comunidad de cada óptica.
 
 **Modelo de ingresos**
-> Modelo B2B tipo SaaS (Software as a Service) móvil:
-> 
+> Modelo B2B tipo SaaS (Software as a Service) móvil, cobrado a las ópticas:
 > - Suscripciones mensuales o anuales.
 > - Escaladas según:
 >   - Número de sucursales conectadas.
->   - Cantidad de dispositivos/usuarios activos.
->   - Volumen de transacciones.
+>   - Cantidad de citas o notificaciones gestionadas.
+>   - Cantidad de dispositivos/usuarios activos (optometrista + persona de gestión).
 
 **Competencia**
-> - Sistemas POS genéricos de escritorio sin soporte optométrico.
-> - Uso combinado de Excel + WhatsApp.
+> - Búsqueda manual boca a boca o desplazamiento físico óptica por óptica.
+> - Coordinación de citas vía llamadas telefónicas o WhatsApp.
+> - Apps genéricas de reserva de citas sin especialización en el sector óptico.
 
 **Ventaja competitiva**
 > Proponemos una solución verticalizada y 100% móvil que:
 > 
-> - Integra la complejidad clínica (receta médica).
-> - Conecta la venta retail (montura) en cualquier punto de la tienda.
-> - Gestiona la logística de producción (laboratorio).
+> - Centraliza la búsqueda, comparación y reserva de citas ópticas para el paciente.
+> - Fortalece la fidelización mediante notificaciones inteligentes al optometrista.
+> - Permite delegar el seguimiento de la agenda sin perder control ni visibilidad.
 > 
-> Todo en un solo ecosistema de bolsillo.
+> Todo en un solo ecosistema de bolsillo, pensado primero para el paciente.
 
 **Riesgos principales**
-> - Resistencia al cambio del personal acostumbrado al papel.
-> - Dependencia de laboratorios externos.
-> - Preferencia por seguir usando WhatsApp por costumbre.
+> - Baja adopción inicial del paciente si no conoce o no confía en la app.
+> - Resistencia al cambio del personal acostumbrado a la agenda en papel o WhatsApp.
+> - Dependencia de que las ópticas mantengan actualizada su disponibilidad y catálogo de modelos.
 
 **Mitigación**
-> - Diseño Mobile UX/UI altamente intuitivo (curva de aprendizaje casi nula).
-> - Autocompletado desde recetas para acelerar ventas (menos tipeo en pantallas pequeñas).
-> - Interfaces táctiles simplificadas con botones grandes para laboratorios.
+> - Diseño Mobile UX/UI altamente intuitivo para el paciente (curva de aprendizaje casi nula).
+> - Onboarding simple y programas piloto/promocionales para incentivar la primera reserva.
+> - Interfaces simplificadas y notificaciones claras para el optometrista y la persona de gestión.
 
 **Suposiciones tecnológicas**
 > Se asume que las ópticas cuentan con:
@@ -204,28 +196,28 @@ OptiFlow fue diseñado para permitir que el paciente pueda buscar, comparar y re
 
 ##### Hipótesis 1
 **Hipótesis:**  
-Creemos que si integramos el historial clínico (EHR) directamente con el módulo de cotización y ventas (POS), se reducirá la fuga de pacientes que no compran sus lentes.
+Creemos que si le permitimos al paciente buscar, comparar y reservar una cita óptica (eligiendo modelo, fecha, hora y local) directamente desde su celular, aumentará la proporción de búsquedas que terminan en una cita efectivamente reservada.
 
 **Métrica:**  
-Sabremos que funcionó cuando la tasa de conversión (recetas emitidas vs. ventas concretadas) aumente en un **15%** en el primer trimestre.
+Sabremos que funcionó cuando la tasa de conversión de búsquedas a citas reservadas aumente en un 15% en el primer trimestre. (pendiente de validar con datos de campo del equipo)
 
 ---
 
 ##### Hipótesis 2
 **Hipótesis:**  
-Creemos que si proporcionamos un tablero Kanban de Órdenes de Trabajo para el laboratorio, conectado a la base de datos central, se erradicarán los errores por transcripción manual.
+Creemos que si notificamos al optometrista sobre sus citas próximas y los cumpleaños de sus pacientes, mejorará su puntualidad y proactividad en el seguimiento de su cartera.
 
 **Métrica:**  
-Sabremos que esto funcionó cuando los reportes demuestren una disminución del **90%** en los costos asumidos por refabricación de lentes (mermas) en los primeros tres meses.
+Sabremos que esto funcionó cuando las inasistencias o reprogramaciones de última hora disminuyan en un 80% en los primeros tres meses.
 
 ---
 
 ##### Hipótesis 3
-**Hipótesis:**  
-Creemos que automatizar el envío de notificaciones (Email/SMS) sobre el estado del pedido reducirá la carga de atención al cliente y mejorará la percepción del servicio.
+**Hipótesis:**
+Creemos que si permitimos al optometrista delegar la gestión de notificaciones en una persona encargada, se reducirá la carga de seguimiento manual y mejorará la comunicación con el paciente.
 
-**Métrica:**  
-Sabremos que funcionó cuando las llamadas o mensajes de pacientes consultando *"¿dónde están mis lentes?"* se reduzcan en un **80%**.
+**Métrica:**
+Sabremos que funcionó cuando el tiempo de respuesta a solicitudes o dudas de pacientes se reduzca en un 80% en los primeros tres meses.
 
 #### 1.2.2.4. Lean UX Canvas
 
