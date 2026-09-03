@@ -192,32 +192,22 @@ OptiFlow fue diseñado para permitir que el paciente pueda buscar, comparar y re
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-#### Hipótesis y Métricas
+**Gestión Clínica y Comercial Integrada**
 
-##### Hipótesis 1
-**Hipótesis:**  
-Creemos que si le permitimos al paciente buscar, comparar y reservar una cita óptica (eligiendo modelo, fecha, hora y local) directamente desde su celular, aumentará la proporción de búsquedas que terminan en una cita efectivamente reservada.
+Creemos que al integrar la historia clínica electrónica con el módulo de cotizaciones en una aplicación móvil para los optómetras y asesores de ventas, estos podrán registrar recetas y generar ventas sin depender de estaciones de PC fijas ni papeles, logrando reducir los errores de transcripción logística casi a cero y aumentar la conversión de ventas en el salón en un 20%. Sabremos que tenemos razón cuando observemos comentarios como: "Ahora paso al paciente de la cabina a la venta sin tener que volver a tipear sus datos de medida" y/o cuando los registros del sistema reflejen una reducción drástica de mermas económicas por trabajos rehechos.
 
-**Métrica:**  
-Sabremos que funcionó cuando la tasa de conversión de búsquedas a citas reservadas aumente en un 15% en el primer trimestre. (pendiente de validar con datos de campo del equipo)
+**Trazabilidad mediante Tablero Kanban Móvil**
 
----
+Creemos que al ofrecer un tablero Kanban interactivo para el staff de la óptica y el laboratorio, estos podrán actualizar y visualizar el estado de fabricación de cada orden de trabajo con un solo toque (tap) en la pantalla de su dispositivo móvil, logrando reducir los tiempos de entrega en al menos un 25% y eliminando la pérdida de pedidos. Sabremos que tenemos razón cuando observemos comentarios como: "Ya no necesito usar WhatsApp ni llamar al taller para saber si los lentes están listos" y/o cuando las métricas del sistema reflejen un cumplimiento superior al 95% en los plazos de entrega prometidos al cliente.
 
-##### Hipótesis 2
-**Hipótesis:**  
-Creemos que si notificamos al optometrista sobre sus citas próximas y los cumpleaños de sus pacientes, mejorará su puntualidad y proactividad en el seguimiento de su cartera.
+**Consulta Ágil de Inventario por Cámara**
 
-**Métrica:**  
-Sabremos que esto funcionó cuando las inasistencias o reprogramaciones de última hora disminuyan en un 80% en los primeros tres meses.
+Creemos que al implementar un escáner de códigos (QR/barras) utilizando la cámara del smartphone para los asesores comerciales, estos podrán consultar stock y precios de monturas en tiempo real frente al cliente, logrando acelerar el flujo de cotización y eliminar el descuadre de inventarios entre el piso de ventas y el almacén. Sabremos que tenemos razón cuando los usuarios comenten: "Puedo armar la proforma exacta en segundos mientras el cliente se prueba la montura" y/o cuando las auditorías mensuales de inventario muestren coincidencias exactas con la base de datos de la aplicación.
 
----
+**Seguimiento y Notificaciones Push para Pacientes**
 
-##### Hipótesis 3
-**Hipótesis:**
-Creemos que si permitimos al optometrista delegar la gestión de notificaciones en una persona encargada, se reducirá la carga de seguimiento manual y mejorará la comunicación con el paciente.
+Creemos que al brindar un portal móvil de seguimiento con alertas automáticas (Push) para los pacientes (clientes finales), estos podrán conocer en tiempo real el estado de fabricación de sus lentes, logrando incrementar su satisfacción y reduciendo el tiempo invertido por el staff en responder consultas de estado manuales. Sabremos que tenemos razón cuando observemos comentarios como: "Me encantó saber exactamente cuándo ir a recoger mis lentes sin tener que estar llamando" y/o cuando la carga de atención a consultas de seguimiento por canales tradicionales disminuya en un 80% durante los primeros tres meses.
 
-**Métrica:**
-Sabremos que funcionó cuando el tiempo de respuesta a solicitudes o dudas de pacientes se reduzca en un 80% en los primeros tres meses.
 
 #### 1.2.2.4. Lean UX Canvas
 
@@ -225,16 +215,12 @@ Sabremos que funcionó cuando el tiempo de respuesta a solicitudes o dudas de pa
 
 ## 1.3. Segmentos objetivo
 
-### Segmento 1: Optómetras
-El optometrista es el profesional encargado de la salud visual del paciente dentro del establecimiento óptico. Su rol combina funciones clínicas y administrativas: realiza el examen de la vista y la medición precisa de graduación, pero también registra manualmente los datos del paciente, anota las medidas en fichas físicas, gestiona historiales clínicos y coordina con el asesor y el laboratorio para asegurar que los lentes se fabriquen según la prescripción indicada. Se trata de profesionales de entre 25 y 55 años, de nivel socioeconómico B y C, ubicados principalmente en zonas urbanas de Lima Metropolitana y otras ciudades con alta concentración comercial como Arequipa, Trujillo, Piura y Chiclayo.
-En cuanto al tamaño del mercado, el sector óptico en Perú alcanzó un volumen aproximado de USD 295,05 millones en 2025 y se proyecta que llegará a USD 403,93 millones en 2035, con una tasa de crecimiento anual compuesta del 3,60% (Informes de Expertos, 2026). Este crecimiento sostenido implica un aumento proporcional en el número de establecimientos ópticos que necesitan herramientas de gestión más sofisticadas. El mercado peruano se caracteriza por su alta fragmentación, con una marcada división entre un grupo de grandes cadenas que controla una sola compañía y un vasto sector de ópticos independientes, donde la gran mayoría opera entre una y diez tiendas (Infomercado, 2026). Este segundo grupo representa el principal mercado objetivo de OptiFlow, ya que son precisamente estos negocios los que carecen de estructura tecnológica para escalar sus operaciones.
-En términos de comportamiento, el entorno es altamente atomizado con un crecimiento del consumo estimado en torno al 10% anual (Modaengafas, 2026). Esto genera una presión operativa creciente sobre el personal, que debe atender más pacientes con los mismos recursos humanos y herramientas deficientes. Los usuarios de este segmento experimentan frustración ante sistemas fragmentados que obligan a duplicar registros entre consultorio, ventas y laboratorio, y valoran herramientas que centralicen la información, reduzcan errores operativos y mejoren la trazabilidad de las órdenes de trabajo en tiempo real.
+### Segmento 1: Staff de la Óptica (Optómetras y Asesores Comerciales)
+Este segmento agrupa a los usuarios operativos internos del ecosistema móvil, combinando las funciones clínicas y comerciales del establecimiento. Incluye al optometrista, encargado de realizar el examen visual y gestionar el historial clínico, y al asesor de lentes, responsable de atraer al paciente, guiar la selección del producto y cerrar la venta. Son profesionales de entre 22 y 55 años, de nivel socioeconómico B y C, radicados en zonas urbanas de Lima Metropolitana y ciudades con alta concentración comercial como Arequipa, Trujillo, Piura y Chiclayo. 
+
+A nivel de mercado, el sector óptico en Perú alcanzó un volumen de USD 295,05 millones en 2025 y proyecta llegar a USD 403,93 millones en 2035 (CAGR 3,60%, Informes de Expertos, 2026). Este crecimiento exige herramientas de gestión más sofisticadas, impulsado también por un incremento del 8% anual en la contratación de personal comercial del rubro (MTPE, 2025). El mercado peruano presenta una alta fragmentación, siendo el objetivo principal de OptiFlow los negocios independientes que operan entre una y diez tiendas (Infomercado, 2026). Estos enfrentan una creciente presión operativa debido a un aumento del consumo del 10% anual (Modaengafas, 2026) y metas estrictas de facturación y venta cruzada (Cámara de Comercio de Lima, 2025). El personal experimenta frustración ante sistemas fragmentados, duplicidad de registros manuales, falta de información de stock en tiempo real y descoordinación con el laboratorio. Requieren herramientas móviles ágiles que unifiquen la historia clínica, muestren catálogos completos y optimicen la trazabilidad de las órdenes.
 
 ### Segmento 2: Clientes de la óptica (Pacientes)
-Los pacientes que reciben servicios en las ópticas donde se implemente OptiFlow. Son personas de entre 18 y 60 años o más, de nivel socioeconómico transversal (A, B, C y D), residentes en zonas urbanas con acceso a centros ópticos. Según datos de 2024, el 80,4% de la población peruana vive en áreas urbanas, con una edad media de 29,8 años (Informes de Expertos, 2026), lo que define un mercado potencial amplio y con creciente necesidad de corrección visual, impulsada por el uso intensivo de dispositivos digitales.
-El comportamiento de este segmento está marcado por agendas ajustadas y altas expectativas de servicio. La prevalencia de problemas visuales va en aumento: el uso de lentes crece debido a la masificación de dispositivos tecnológicos que afectan la salud visual, y la demanda de lentes progresivos ha crecido significativamente, representando el 80% del mercado global (Gestión, 2025). Los pacientes de este segmento experimentan frustración ante demoras en la entrega, falta de comunicación sobre el estado de sus pedidos y errores en la fabricación. Aunque no interactúan directamente con el sistema, son los principales beneficiarios de la eficiencia operativa que OptiFlow genera: reciben notificaciones automatizadas, entregas puntuales y atención sin reprocesos.
+Los pacientes son los consumidores finales y usuarios del portal móvil de seguimiento de OptiFlow. Son personas de entre 18 y 60 años o más, de nivel socioeconómico transversal (A, B, C y D), residentes en zonas urbanas. Dado que el 80,4% de la población peruana vive en áreas urbanas con una edad media de 29,8 años (Informes de Expertos, 2026), conforman un mercado potencial masivo con una creciente necesidad de corrección visual generada por el uso intensivo de dispositivos digitales. 
 
-### Segmento 3: Asesor de lentes
-El asesor de lentes es el primer contacto comercial del paciente con la óptica. Su rol es estratégico: atrae al paciente mediante promociones y comunicación persuasiva, lo deriva al optómetra para la medición clínica y, una vez finalizada la consulta, lo recibe nuevamente para guiarlo en la selección del modelo. Se trata de profesionales de entre 22 y 50 años, de nivel socioeconómico B y C, ubicados en zonas urbanas de Lima Metropolitana, Arequipa, Trujillo, Piura y Chiclayo.
-En el mercado laboral peruano, la demanda de asesores de lentes ha mostrado un crecimiento sostenido. Según el Ministerio de Trabajo y Promoción del Empleo (MTPE, 2025), el rubro de comercio minorista de artículos médicos y ópticos ha incrementado su contratación en un 8% anual durante los últimos tres años, destacando la figura del asesor comercial como un puesto clave para la atención al cliente y el cierre de ventas.
-Según estudios del sector retail en Perú, el personal de ventas en establecimientos ópticos enfrenta una presión constante por cumplir metas de facturación, con un enfoque creciente en la fidelización del cliente y la venta cruzada de accesorios y servicios complementarios (Cámara de Comercio de Lima, 2025). Además, experimentan frustración ante la falta de información actualizada de stock y precios, la descoordinación con el optometrista y el laboratorio, y la ausencia de herramientas que les permitan mostrar catálogos completos de manera ágil.
+La prevalencia de problemas visuales va en aumento continuo, destacando la demanda de lentes progresivos que ya representan el 80% del mercado global (Gestión, 2025). El comportamiento de este segmento está marcado por agendas ajustadas y altas expectativas de atención y servicio. Usualmente experimentan frustración ante las demoras en las entregas, la falta de comunicación proactiva sobre el estado de sus pedidos y los errores en la fabricación. A través del ecosistema de la aplicación móvil, se convierten en los principales beneficiarios de la eficiencia operativa: reciben notificaciones push automatizadas, logran visibilidad del estado de sus lentes y aseguran entregas puntuales sin reprocesos.
