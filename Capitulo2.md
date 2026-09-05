@@ -327,6 +327,70 @@ Preguntas generales:
 
 ### 2.2.2. Registro de entrevistas
 
+En esta sección presentamos los registros de las entrevistas que hicimos para cada segmento objetivo de nuestra aplicación.
+
+**Segmento 1:**
+
+<table>
+<colgroup>
+</colgroup>
+<thead>
+  <tr>
+    <th colspan="2">Entrevista #1<br></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Nombre</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Apellidos</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Edad</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Distrito</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Evidencia</td>
+    <td><div align="center"><img src="imagenes/Imagenes_Cap2/interview-of-magali-alcantara open.png" alt=""></td>
+  </tr>
+  <tr>
+    <td>Link</td>
+    <td><p> <a target="_blank"  href=</td> 
+  </tr>
+  <tr>
+    <td>Duracion<br></td>
+    <td>0:00 min - n</td>
+  </tr>
+  <tr>
+    <td>Resumen</td>
+    <td>
+</td>
+  </tr>
+</tbody>
+</table>
+
+**Segmento 2:**
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Entrevista** | **#1** |
+| **Nombre** | Azumy Cristal |
+| **Apellidos** | Bautista Coral |
+| **Edad** | 20 |
+| **Distrito** | El Agustino |
+| **Evidencia** | <div align="center"><img src="assets/cap2/Entrevista2 - Azumy.png" alt="" width="250"></div> |
+| **Link** | [Microsoft stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202417405_upc_edu_pe/IQBIEeX3NHMTSJ-Hs-6tRzXVAfGqU3hm1XieccvWsvphaTI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=LflBFo) (https://upcedupe-my.sharepoint.com/:v:/g/personal/u202417405_upc_edu_pe/IQBIEeX3NHMTSJ-Hs-6tRzXVAfGqU3hm1XieccvWsvphaTI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=LflBFo)|
+| **Duración** | 0:00 min - 7:34 min |
+| **Resumen** | Azumy es una estudiante universitaria de 20 años y trabajadora a medio tiempo que reside en El Agustino. Pasa aproximadamente 6 horas diarias frente a pantallas y utiliza lentes de visión sencilla debido a la fatiga visual. Valora la buena asesoría y la puntualidad en la entrega por parte de las ópticas. Mostró gran interés en una solución digital que le permita tener su historial y receta a la mano en el teléfono, dado que suele olvidar qué tipo de luna o tratamiento eligió en compras anteriores. Considera muy útil poder rastrear el estado de fabricación de sus lentes mediante un enlace en tiempo real (comparándolo con la logística de Shalom) y acepta recibir recordatorios de renovación vía WhatsApp. Recomienda que la interfaz de cualquier aplicativo sea sumamente clara y fácil de entender, especialmente pensando en la accesibilidad para adultos mayores. |
+
+
 ### 2.2.3. Análisis de entrevistas
 
 
