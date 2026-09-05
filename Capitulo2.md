@@ -483,6 +483,15 @@ En esta sección se detallan las historias de usuario orientadas al desarrollo d
 
 ### 2.4.2. Impact Mapping
 
+El Impact Mapping es una herramienta que nos permitió estructurar y visualizar de manera clara la relación entre los objetivos del proyecto, los actores involucrados y las funcionalidades propuestas en la solución. A partir de la información recopilada en las entrevistas y el análisis de necesidades, se identificaron los principales problemas que enfrentan los usuarios.
+
+***IMPACT MAPPING 1***
+<div align="center"><img src="assets/cap2/IMPACT MAPPING 1.png">
+</div>
+
+***IMPACT MAPPING 2***
+<div align="center"><img src="assets/cap2/IMPACT MAPPING 2.png">
+</div>
 
 
 ### 2.4.3. Product Backlog
