@@ -310,21 +310,6 @@ Preguntas generales:
 14. ¿Has tenido problemas para recordar el tipo de luna o tratamiento que compraste en tu última visita?
 15. ¿Qué haría que recomiendes una óptica a tus familiares o amigos sobre otras alternativas?
 
-**Tercer Segmento: *Asesor de Lentes***
-
-4. ¿Cómo realizas la cotización y selección de monturas y lunas cuando el paciente sale de la consulta con el optómetra?
-5. ¿Cómo verificas si hay disponibilidad (stock) de una montura, luna o tratamiento específico mientras estás con el cliente?
-6. ¿Qué problemas enfrentas cuando la receta ingresada por el optómetra no está clara o falta información para enviar al laboratorio?
-7. ¿Cómo realizas el seguimiento de los pedidos que están en el laboratorio para dar respuesta a los clientes que consultan?
-8. ¿Qué herramientas o materiales usas para mostrar el catálogo completo de productos o explicar beneficios (lentes progresivos, filtros, etc.)?
-9. Si contaras con una app en una tablet/móvil para cotizar y mostrar catálogos interactivos al cliente al instante, ¿cómo afectaría tus ventas?
-10. ¿Qué información del inventario o precios necesitas tener al alcance de la mano para no perder una venta?
-11. ¿Qué tan útil sería para ti recibir una alerta inmediata cuando el laboratorio termine de procesar el lente de un cliente?
-12. ¿Qué comisión o meta de venta cruzada (accesorios, tratamientos) te resulta más difícil de cumplir y por qué?
-13. ¿En qué redes sociales o comunidades digitales sueles informarte o capacitarte sobre técnicas de venta retail o productos ópticos?
-14. ¿Qué es lo más frustrante de tu jornada de trabajo respecto a los sistemas de registro o cobro que utilizas hoy?
-15. ¿Qué incentivo o funcionalidad dentro de una app te motivaría a usarla constantemente durante toda tu jornada laboral?
-
 ### 2.2.2. Registro de entrevistas
 
 En esta sección presentamos los registros de las entrevistas que hicimos para cada segmento objetivo de nuestra aplicación.
