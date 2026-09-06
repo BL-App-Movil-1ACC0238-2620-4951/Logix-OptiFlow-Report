@@ -421,11 +421,137 @@ Después de las entrevistas realizadas a ambos segmentos, se evidencia una brech
 
 ### 2.3.1. User Personas
 
+A partir del análisis de las entrevistas realizadas y la recolección de información sobre las dinámicas operativas y comerciales en el sector óptico, se identificaron los principales perfiles de usuarios que interactúan directamente con la solución OptiFlow. Estos perfiles representan los segmentos clave para el sistema, ya que concentran tanto la necesidad de centralizar la gestión clínica, comercial y logística del establecimiento, como la exigencia de transparencia, inmediatez y trazabilidad por parte del cliente final. La construcción de los *User Personas* permite al equipo de desarrollo comprender a profundidad sus motivaciones, frustraciones y hábitos tecnológicos, asegurando el diseño de experiencias móviles efectivas y funcionalidades pertinentes para cada rol.
+
+**1. Segmento 1: Staff de la Óptica (Administrador y Optómetra)**
+
+Para este segmento se elaboró el User Persona Marcelo Ruiz. Se consideraron factores representativos como su experiencia gestionando la atención en ópticas independientes y medianas, su rol activo realizando evaluaciones refractivas y su responsabilidad directa sobre el inventario y las órdenes de laboratorio. Sus principales frustraciones giran en torno a la dispersión de información en formatos manuales (papel, Excel, chats informales), los descuadres de stock y la falta de trazabilidad cuando los pacientes consultan por el estado de fabricación de sus monturas. Asimismo, se integró su familiaridad con dispositivos móviles para cobranzas y su necesidad crítica de contar con una plataforma *mobile-first* que automatice recordatorios, centralice historias clínicas electrónicas (EHR) y organice el flujo del taller mediante un tablero visual Kanban, sin perder la cercanía ni la calidad del trato humano.
+
+<div align="center">
+  <img src="assets/cap2/Marcelo Ruiz.png"/>
+</div>
+
+<br>
+
+**2. Segmento 2: Clientes de la Óptica (Paciente Frecuente)**
+
+Para este segmento se elaboró el User Persona Valeria Morales. Se consideraron aspectos como su estilo de vida digital acelerado, su alta exposición diaria a pantallas de trabajo y estudio (entre 6 y 9 horas) y su necesidad periódica de renovar lentes o mitigar la fatiga visual. Sus motivaciones se orientan a optimizar su tiempo y tener control autónomo sobre su salud visual. Entre sus frustraciones destacan el olvido recurrente de las especificaciones técnicas de compras anteriores (fórmulas, tipos de lunas y tratamientos), la incertidumbre respecto a las fechas reales de entrega de sus pedidos y la falta de cumplimiento en los tiempos pactados por el establecimiento. Su perfil refleja una necesidad esencial de disponer de un carné o receta clínica accesible desde el smartphone, así como de recibir notificaciones oportunas vía WhatsApp y herramientas de rastreo en tiempo real para el recojo de sus lentes.
+
+<div align="center">
+  <img src="assets/cap2/Valeria Morales.png">
+</div>
+
+
 ### 2.3.2. User Task Matrix
+
+El User Task Matrix presenta las tareas que realizan los User Persona para cumplir sus objetivos en su día a día dentro del ecosistema de atención y gestión óptica, independientemente de si utilizan nuestro software o no. Se evalúa la frecuencia y la importancia de cada tarea para identificar los puntos críticos donde OptiFlow puede aportar valor.
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; width:100%; font-family:Arial, sans-serif; text-align:center;">
+  <thead>
+    <tr style="background-color:#;">
+      <th rowspan="2">Tarea (Task)</th>
+      <th colspan="2">Personal de Óptica (Marcelo)</th>
+      <th colspan="2">Cliente / Paciente (Valeria)</th>
+    </tr>
+    <tr style="background-color:#;">
+      <th>Frecuencia</th>
+      <th>Importancia</th>
+      <th>Frecuencia</th>
+      <th>Importancia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left;">Evaluación optométrica y emisión de receta médica</td>
+      <td>Often</td><td>High</td>
+      <td>Occasionally</td><td>High</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Exploración y selección de monturas según las necesidades del cliente</td>
+      <td>Often</td><td>High</td>
+      <td>Often</td><td>Occasionally</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Consulta de receta anterior e historial de medidas</td>
+      <td>Often</td><td>High</td>
+      <td>Occasionally</td><td>High</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Envío de orden de trabajo y seguimiento de fabricación en laboratorio</td>
+      <td>Often</td><td>High</td>
+      <td>Occasionally</td><td>High</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Verificación de disponibilidad y stock de productos</td>
+      <td>Often</td><td>High</td>
+      <td>Occasionally</td><td>Medium</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Consulta del estado y fecha estimada de entrega del pedido</td>
+      <td>Often</td><td>High</td>
+      <td>Often</td><td>High</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Cierre diario de caja y registro de operaciones realizadas</td>
+      <td>Often</td><td>High</td>
+      <td>Never</td><td>Low</td>
+    </tr>
+  </tbody>
+</table>
+
+**Análisis del Task Matrix:**
+
+Se evidencia que las tareas de Envío de orden de trabajo y seguimiento de fabricación en laboratorio y Consulta del estado y fecha estimada de entrega del pedido presentan una Importancia **High** para ambos arquetipos. Estas actividades representan un punto crítico dentro del servicio óptico, debido a que el personal necesita organizar y controlar las órdenes mientras que el cliente necesita reducir la incertidumbre respecto al estado y fecha de entrega de sus lentes.
+
+Asimismo, tareas como Evaluación optométrica y emisión de receta médica, Exploración y selección de monturas y Consulta de receta anterior e historial de medidas presentan una Importancia **High**, principalmente por la necesidad de disponer de información clínica y comercial de manera accesible durante el proceso de atención. Esto evidencia una oportunidad para centralizar la información y facilitar su consulta desde dispositivos móviles.
+
+Por otro lado, la Verificación de disponibilidad y stock de productos y el Cierre diario de caja y registro de operaciones realizadas presentan una frecuencia **Often** e importancia **High** para Marcelo, debido a que forman parte de sus responsabilidades operativas dentro de la óptica. La optimización de estas tareas permitiría reducir errores, agilizar la atención y evitar retrasos ocasionados por información desactualizada.
+
+<div style="page-break-after: always;"></div>
 
 ### 2.3.3. User Journey Mapping
 
+El User Journey Mapping es una herramienta visual que permite "caminar en los zapatos" de los usuarios, trazando tanto el recorrido operativo como la trayectoria emocional que experimentan a lo largo de las distintas etapas de interacción con el servicio óptico. Este mapeo permite contrastar los momentos de mayor frustración (*pain points*) frente a las oportunidades de optimización que OptiFlow introduce para transformar la experiencia del servicio.
+
+**1. Segmento 1: Staff de la Óptica (Marcelo Ruiz)**
+
+A continuación, se detalla el recorrido operativo de Marcelo Ruiz, reflejando las dificultades asociadas a la gestión manual de historiales, la verificación física de inventario y la falta de trazabilidad con el laboratorio, junto con las oportunidades de automatización que ofrece la plataforma móvil.
+
+<div align="center">
+  <img src="assets/cap2/Journey map 1.png"/>
+</div>
+
+<br>
+
+**2. Segmento 2: Clientes de la Óptica (Valeria Morales)**
+
+Se presenta el viaje de Valeria Morales desde la aparición de síntomas de fatiga visual hasta el recojo y uso de sus lentes, evidenciando cómo la incertidumbre en los tiempos de taller y la falta de acceso a su historial clínico se resuelven mediante notificaciones y seguimiento en tiempo real.
+
+<div align="center">
+  <img src="assets/cap2/Journey map 2.png"/>
+</div>
+
 ### 2.3.4. Empathy Mapping
+
+El Empathy Mapping es una herramienta de diseño centrada en el usuario que permite profundizar en la comprensión de los arquetipos identificados, analizando lo que dicen, hacen, piensan, sienten, oyen y ven durante su interacción con los servicios ópticos. Este análisis resulta fundamental para alinear los requisitos funcionales de OptiFlow con los dolores (*pains*) y motivaciones (*gains*) prioritarios de cada segmento.
+
+**1. Segmento 1: Staff de la Óptica (Marcelo Ruiz)**
+
+A continuación, se presenta el mapa de empatía de Marcelo Ruiz, sintetizando su perspectiva operativa como optómetra y administrador frente a las limitaciones de los registros manuales y su necesidad de trazabilidad clínica y logística.
+
+<div align="center">
+  <img src="assets/cap2/Empathy map 1.png"/>
+</div>
+
+<br>
+
+**2. Segmento 2: Clientes de la Óptica (Valeria Morales)**
+
+Se detalla el mapa de empatía de Valeria Morales, reflejando su experiencia como paciente digital, su frustración ante la incertidumbre en los plazos de entrega y su expectativa de autonomía sobre su historial médico visual.
+
+<div align="center">
+  <img src="assets/cap2/Empathy map 2.png"/>
+</div>
 
 ### 2.3.5. Big Picture EventStorming
 
@@ -666,3 +792,4 @@ En esta sección se formalizan los Bounded Context Canvases para cada uno de los
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
+
