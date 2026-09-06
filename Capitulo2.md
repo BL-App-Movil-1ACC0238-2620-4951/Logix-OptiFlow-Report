@@ -557,6 +557,78 @@ Se detalla el mapa de empatía de Valeria Morales, reflejando su experiencia com
 
 ### 2.3.6. Ubiquitous Language
 
+El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre los expertos del dominio (personal de óptica y pacientes) y el equipo de ingeniería de software. Su objetivo es eliminar la ambigüedad terminológica en el código, las historias de usuario y las interfaces de OptiFlow.
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; width:100%; font-family:Arial, sans-serif;">
+  <thead>
+      <th style="width:25%;">Término</th>
+      <th style="width:50%;">Definición en el Dominio de OptiFlow</th>
+      <th style="width:25%;">Contexto Delimitado Asociado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Patient (Paciente)</strong></td>
+      <td>Usuario final que acude a la óptica para evaluación visual, adquisición de monturas o seguimiento de recetas.</td>
+      <td style="text-align:center;">Search & Booking / Clinical</td>
+    </tr>
+    <tr>
+      <td><strong>Appointment (Cita)</strong></td>
+      <td>Reserva formal de un bloque de horario para atención presencial o examen optométrico en una sucursal.</td>
+      <td style="text-align:center;">Search & Booking Context</td>
+    </tr>
+    <tr>
+      <td><strong>Optical Prescription (Receta Médica / Ficha EHR)</strong></td>
+      <td>Registro clínico digital que contiene los parámetros refractivos (esfera, cilindro, eje, adición) del paciente.</td>
+      <td style="text-align:center;">Clinical & Commercial Context</td>
+    </tr>
+    <tr>
+      <td><strong>Quotation (Cotización)</strong></td>
+      <td>Presupuesto comercial detallado que calcula el costo sumando monturas, tipos de luna y tratamientos específicos.</td>
+      <td style="text-align:center;">Clinical & Commercial Context</td>
+    </tr>
+    <tr>
+      <td><strong>Sale (Venta)</strong></td>
+      <td>Transacción comercial cerrada mediante pago (efectivo, tarjeta o billeteras móviles Yape/Plin) que confirma el pedido.</td>
+      <td style="text-align:center;">Clinical & Commercial Context</td>
+    </tr>
+    <tr>
+      <td><strong>Work Order (Orden de Trabajo)</strong></td>
+      <td>Documento operativo que describe las especificaciones técnicas enviadas al taller para el tallado y biselado de lunas.</td>
+      <td style="text-align:center;">Production & Tracking Context</td>
+    </tr>
+    <tr>
+      <td><strong>Work Order Status (Estado de la Orden)</strong></td>
+      <td>Fase de avance del pedido dentro del tablero Kanban (Pendiente, En Taller, Control de Calidad, Listo para Entrega).</td>
+      <td style="text-align:center;">Production & Tracking Context</td>
+    </tr>
+    <tr>
+      <td><strong>Delivery Date (Fecha Estimada de Entrega)</strong></td>
+      <td>Fecha pactada con el cliente para el recojo del producto terminado, calculada según la complejidad del pedido.</td>
+      <td style="text-align:center;">Production & Tracking Context</td>
+    </tr>
+    <tr>
+      <td><strong>Frame Model (Modelo de Montura)</strong></td>
+      <td>Artículo físico del catálogo con atributos de material, forma, color y compatibilidad con el tipo de rostro.</td>
+      <td style="text-align:center;">Store Management & Inventory</td>
+    </tr>
+    <tr>
+      <td><strong>Low Stock Alert (Alerta de Stock Crítico)</strong></td>
+      <td>Notificación automática generada cuando las unidades de una montura caen por debajo del umbral mínimo configurado.</td>
+      <td style="text-align:center;">Store Management & Inventory</td>
+    </tr>
+    <tr>
+      <td><strong>Order Progress Notification (Notificación de Avance)</strong></td>
+      <td>Mensaje automático (push o WhatsApp) despachado al paciente al cambiar el estado de su orden en el taller.</td>
+      <td style="text-align:center;">Notification & Loyalty Context</td>
+    </tr>
+    <tr>
+      <td><strong>Reactivation Campaign (Campaña de Reactivación)</strong></td>
+      <td>Recordatorio preventivo enviado anualmente al paciente para incentivar el control de su graduación visual.</td>
+      <td style="text-align:center;">Notification & Loyalty Context</td>
+    </tr>
+  </tbody>
+</table>
 
 ## 2.4. Requirements Specification
 
