@@ -26,33 +26,63 @@ Alcance de la aplicación: El alcance de OptiFlow se centra, en esta etapa, en u
 
 ### 1.2.1. Antecedentes y problemática
 
-El problema central radica en la dificultad que enfrentan los pacientes para encontrar y reservar una cita óptica de forma rápida y centralizada. Actualmente, un paciente que busca renovar sus lentes o agendar una consulta debe desplazarse físicamente, óptica por óptica, o realizar llamadas dispersas, sin poder comparar de antemano modelos, horarios y disponibilidad desde un solo lugar. Esta fricción no solo desgasta la experiencia del paciente, sino que también impide a las ópticas competir con base en conveniencia y captar la demanda de nuevos clientes que hoy resuelven su necesidad visual con el primer establecimiento que encuentran disponible, y no necesariamente con el que mejor se ajusta a sus preferencias.
+El problema central identificado se relaciona con la dificultad que enfrentan los pacientes para encontrar y reservar una cita óptica de manera rápida, organizada y centralizada. Actualmente, un paciente que necesita renovar sus lentes o realizarse un control visual puede verse obligado a consultar diferentes ópticas mediante llamadas, redes sociales, páginas web o visitas presenciales, sin contar necesariamente con un espacio único donde pueda comparar establecimientos, horarios y disponibilidad de atención. Esta situación genera una experiencia fragmentada y aumenta el tiempo necesario para encontrar una alternativa que se adapte a sus preferencias.
 
-Por otro lado, una vez que el paciente ya es cliente de una óptica, se identifica una segunda problemática: la falta de herramientas para que el optometrista —y el personal en quien delegue la gestión— mantenga una comunicación proactiva y oportuna con su cartera de pacientes. El seguimiento de citas programadas, así como de fechas relevantes como los cumpleaños, se realiza hoy de forma manual o simplemente no se realiza, lo que se traduce en inasistencias, oportunidades de fidelización perdidas (como un saludo o descuento de cumpleaños) y una relación menos cercana entre el paciente y la óptica, pese a que las ópticas suelen sostenerse sobre una comunidad de pacientes fieles y recurrentes.
+Por otro lado, una vez que el paciente ya es atendido por una óptica, se presenta una segunda problemática relacionada con el seguimiento y la comunicación. La gestión de citas, recordatorios y fechas importantes de los pacientes puede depender de registros manuales, hojas de cálculo, agendas personales o canales informales de comunicación. Esto dificulta que el optometrista o el personal autorizado para realizar esta gestión pueda mantener un seguimiento oportuno de su cartera de pacientes.
+
+Esta situación puede generar inasistencias, pérdida de oportunidades de fidelización y una comunicación poco constante con los clientes. Por ello, la problemática no solo afecta al paciente, sino también a la capacidad de la óptica para organizar su agenda, mantener una relación cercana con sus clientes y aprovechar de manera eficiente los espacios disponibles para atención.
 
 **What / ¿Qué?**
-La problemática central es doble, la dispersión y falta de centralización en la búsqueda y reserva de citas ópticas por parte del paciente, quien debe indagar óptica por óptica sin visibilidad de disponibilidad, modelos u horarios; y la ausencia de un sistema de notificaciones y seguimiento que permita al optometrista y "a quien delegue esta tarea" estar al tanto de sus citas y de las fechas importantes de sus pacientes, debilitando la comunicación y la fidelización.
+
+La problemática central comprende dos aspectos relacionados. Por un lado, existe una falta de centralización en la búsqueda y reserva de citas ópticas, lo que obliga al paciente a consultar diferentes establecimientos sin contar con información integrada sobre disponibilidad, horarios y opciones de atención. Por otro lado, existe una limitada automatización del seguimiento de citas y fechas relevantes de los pacientes, dificultando que el optometrista o el personal autorizado pueda realizar recordatorios y mantener una comunicación oportuna.
 
 **When / ¿Cuándo?**
-Se manifiesta en el momento en que el paciente necesita una cita y no cuenta con una forma rápida de comparar y reservar opciones. Del lado de la óptica, se manifiesta día a día en la gestión de la agenda: cuando el optometrista atiende a un paciente y deja el puesto libre, o simplemente pierde de vista su calendario y las fechas relevantes de sus clientes.
+
+La problemática se presenta principalmente cuando un paciente necesita encontrar una óptica y programar una atención visual, especialmente cuando requiere comparar diferentes alternativas antes de tomar una decisión. Desde la perspectiva de la óptica, se manifiesta durante la gestión diaria de la agenda, cuando es necesario controlar las citas próximas, identificar espacios disponibles y realizar seguimiento a los pacientes para reducir inasistencias o fortalecer la relación con ellos.
 
 **Where / ¿Dónde?**
-Ocurre de forma transversal en el mercado de ópticas independientes y cadenas medianas, donde el paciente no tiene un canal digital único para descubrir y reservar citas, y donde el personal no cuenta con un sistema móvil de recordatorios que centralice su agenda y la de su cartera de pacientes.
+
+La problemática se presenta principalmente en ópticas independientes y cadenas medianas que gestionan la atención de sus pacientes mediante diferentes canales y herramientas. Para el paciente, la búsqueda puede realizarse mediante llamadas, redes sociales, páginas web o visitas presenciales. Para el personal de la óptica, la gestión puede encontrarse distribuida entre agendas, hojas de cálculo y medios de comunicación como WhatsApp, dificultando la centralización de la información.
 
 **Who / ¿Quién?**
-Afecta principalmente a dos grupos: Pacientes (pierden tiempo buscando óptica por óptica y no siempre encuentran la opción que mejor se ajusta a su preferencia de modelo, horario o ubicación) y Optometristas / personal de gestión (pierden oportunidades de fidelización y puntualidad por falta de recordatorios y de visibilidad de su agenda, especialmente cuando delegan la gestión a un tercero).
+
+La problemática afecta principalmente a dos grupos:
+
+- **Pacientes:** necesitan invertir tiempo en buscar establecimientos, consultar disponibilidad y coordinar una cita, sin disponer necesariamente de un canal único que centralice estas acciones.
+- **Optometristas y personal autorizado de gestión:** necesitan administrar las citas y mantener el seguimiento de sus pacientes, pero pueden depender de procesos manuales que dificultan el control de la agenda, los recordatorios y las oportunidades de fidelización.
 
 **Why / ¿Por qué?**
-El problema persiste porque no existe una plataforma que unifique, del lado del paciente, la búsqueda y reserva de citas en distintas ópticas, ni que, del lado de la óptica, automatice el recordatorio de citas y de fechas relevantes del paciente. La comunicación queda librada a la memoria del optometrista o a canales informales, lo cual resulta insostenible a medida que crece la cartera de pacientes.
+
+El problema persiste debido a la ausencia de una solución especializada que integre en un mismo flujo la búsqueda de ópticas, la disponibilidad de atención, la reserva de citas y el seguimiento posterior del paciente. Asimismo, la gestión de recordatorios y fechas importantes puede depender de procesos manuales o de herramientas que no fueron diseñadas específicamente para las necesidades de una óptica.
+
+Como consecuencia, la información puede permanecer dispersa entre diferentes canales y aumentar la posibilidad de olvidar citas, realizar seguimientos tardíos o perder oportunidades de mantener una relación continua con los pacientes.
 
 **How / ¿Cómo?**
-La solución operará a través de una aplicación móvil donde el paciente podrá buscar ópticas, explorar modelos disponibles y reservar una cita eligiendo fecha, hora y local. En simultáneo, el sistema notificará al optometrista sobre sus citas próximas y los cumpleaños de sus pacientes, permitiéndole delegar esta gestión en una persona encargada, quien recibirá las mismas alertas para dar seguimiento oportuno.
 
-**How much (Cuánto)** 
+OptiFlow abordará esta problemática mediante una aplicación móvil que permitirá al paciente buscar ópticas disponibles, consultar información relevante sobre los establecimientos y reservar una cita seleccionando una fecha y horario disponible.
 
-[cambiar esto]
+De manera complementaria, la plataforma permitirá gestionar las citas y generar notificaciones y recordatorios para los pacientes. Estas alertas podrán ser consultadas por el optometrista o por el personal autorizado al que se delegue la gestión, permitiendo realizar un seguimiento oportuno de las citas y de fechas relevantes de los pacientes.
 
---La ineficiencia manual y la saturación de datos generan una fuga de capital masiva. Las fallas en la transcripción de datos en la industria cuestan a las empresas millones anuales en procesos de retrabajo y pérdida de clientes (Parseur, 2026). Por el contrario, la implementación de un software integrado y específico permite aumentar el volumen de atención de pacientes entre un 30% y 40% sin incrementar el agotamiento del personal, eliminando los cuellos de botella (Glasson, 2026). Además, las historias clínicas electrónicas (EHR) pueden reducir los retrasos y errores médicos en cerca del 30% (Kivicare, 2024). (faltaron graficas)
+De esta manera, OptiFlow busca conectar el proceso de descubrimiento y reserva realizado por el paciente con la gestión y seguimiento realizado por la óptica, reduciendo la dependencia de procesos manuales y canales dispersos.
+
+**How much / ¿Cuánto?**
+
+La dimensión del problema puede observarse principalmente en el impacto que generan las inasistencias y la gestión manual de las citas. Una revisión sistemática de 105 estudios sobre citas médicas encontró una tasa promedio de inasistencia de aproximadamente **23%**, evidenciando que la pérdida de citas constituye un problema relevante para la utilización eficiente de los recursos disponibles.
+
+Asimismo, una revisión sistemática y metaanálisis que analizó 26 estudios encontró que las notificaciones electrónicas incrementaron la asistencia a las citas: los pacientes que recibieron recordatorios presentaron una asistencia del **67% frente al 54%** del grupo sin notificaciones y fueron aproximadamente **25% menos propensos a no asistir** a sus citas.
+
+Estos resultados permiten establecer una relación directa con la problemática identificada en OptiFlow: la automatización de recordatorios puede contribuir a disminuir las inasistencias y mejorar el aprovechamiento de los horarios disponibles. Por ello, la plataforma busca generar un impacto medible mediante indicadores como:
+
+- **Tasa de inasistencia a citas.**
+- **Porcentaje de citas confirmadas mediante recordatorios.**
+- **Cantidad de citas reservadas mediante la plataforma.**
+- **Cantidad de pacientes que reciben recordatorios oportunamente.**
+- **Tiempo promedio requerido para encontrar y reservar una cita.**
+- **Número de pacientes con seguimiento activo.**
+
+Además, el uso de sistemas electrónicos para gestionar información clínica puede contribuir a mejorar la eficiencia operativa. Una revisión sistemática y metaanálisis encontró una reducción promedio de **22.4% en el tiempo de documentación** asociada al uso de historias clínicas electrónicas, lo que respalda el valor de centralizar la información clínica y reducir procesos manuales.
+
+Es importante señalar que estos porcentajes corresponden a estudios realizados en diferentes contextos sanitarios y **no representan directamente una estimación del mercado peruano de ópticas**. Por ello, para OptiFlow se plantea utilizar estos resultados como referencia y posteriormente medir el impacto real de la solución mediante los indicadores definidos durante la validación del producto.
 
 ### 1.2.2. Lean UX Process
 
