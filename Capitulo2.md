@@ -919,10 +919,28 @@ En esta relación, la plataforma de mensajería externa (**Meta WhatsApp Cloud A
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
+![context.svg](assets/cap2/C4/context.svg)
+
 #### 2.5.3.2. Software Architecture Container Level Diagrams
+
+![container.svg](assets/cap2/C4/container.svg)
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
+##### Clinical & Commercial
+![Clinical & Commercial component.svg](assets/cap2/C4/Clinical%20%26%20Commercial%20component.svg)
+
+##### Notification & Loyalty
+![Notification & Loyalty component.svg](assets/cap2/C4/Notification%20%26%20Loyalty%20component.svg)
+
+##### Production & Tracking
+![Production & Tracking component.svg](assets/cap2/C4/Production%20%26%20Tracking%20component.svg)
+
+##### Search & Booking
+![Search & Booking component.svg](assets/cap2/C4/Search%20%26%20Booking%20component.svg)
+
+##### Store Management & Inventory
+![Store Management & Inventory component.svg](assets/cap2/C4/Store%20Management%20%26%20Inventory%20component.svg)
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
