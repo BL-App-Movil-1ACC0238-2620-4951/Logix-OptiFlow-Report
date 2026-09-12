@@ -944,15 +944,304 @@ En esta relación, la plataforma de mensajería externa (**Meta WhatsApp Cloud A
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
-### 2.6.1. Bounded Context: <Bounded Context Name>
+### 2.6.1. Bounded Context: Search & Booking Context
+
+El Bounded Context **Search & Booking** es uno de los contextos principales de la solución OptiFlow y está clasificado estratégicamente como **Core Domain**. Su responsabilidad es gestionar el proceso inicial de interacción del paciente con las ópticas, desde la búsqueda y filtrado de establecimientos hasta la exploración del catálogo de monturas y la reserva de citas según la disponibilidad de horarios.
+
+Este contexto encapsula las reglas relacionadas con la identidad del paciente, las ópticas disponibles, los horarios de atención, las preferencias del paciente, las valoraciones y el proceso de reserva. De esta manera, mantiene un modelo de dominio independiente de los demás Bounded Contexts y publica eventos que permiten continuar el flujo hacia los contextos **Clinical & Commercial** y **Notification & Loyalty**.
+
+El lenguaje ubicuo definido para este contexto comprende los conceptos `Patient`, `Time Slot`, `Optical Store`, `Store Catalog`, `Favorite Store`, `Store Rating`, `Appointment` y `Booking`. Asimismo, las principales operaciones de entrada corresponden a los comandos `RegisterPatient`, `LogIn`, `PublishAvailableTimeSlots`, `SearchOpticalStores`, `FilterOpticalStores`, `SaveFavoriteOpticalStore`, `ExploreFrameCatalog`, `RateOpticalStore` y `BookAppointment`. :contentReference[oaicite:1]{index=1}
 
 #### 2.6.1.1. Domain Layer
 
+La **Domain Layer** concentra el modelo de negocio del Bounded Context Search & Booking. En esta capa se definen los agregados, entidades, objetos de valor, enumeraciones, servicios de dominio, repositorios y eventos de dominio necesarios para representar las reglas del proceso de búsqueda y reserva de citas.
+
+Esta capa no depende de frameworks, bases de datos ni servicios externos, permitiendo que las reglas principales del negocio permanezcan aisladas de los detalles técnicos de implementación.
+
+##### Aggregate Root: `Appointment`
+
+La entidad `Appointment` representa la reserva formal realizada por un paciente para recibir atención en una óptica dentro de un horario determinado. Se considera el **Aggregate Root** principal del proceso de reserva, debido a que concentra las reglas necesarias para mantener la consistencia de una cita.
+
+Cuando un paciente selecciona una óptica y un horario disponible, el agregado valida la información correspondiente y permite crear la reserva. Asimismo, controla las operaciones relacionadas con la confirmación, cancelación y reprogramación de una cita.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `AppointmentId` (VO) | Identificador único de la cita |
+| `patientId` | `PatientId` (VO) | Identificador del paciente que realiza la reserva |
+| `opticalStoreId` | `OpticalStoreId` (VO) | Identificador de la óptica seleccionada |
+| `timeSlot` | `TimeSlot` (VO) | Fecha y horario seleccionado para la atención |
+| `status` | `AppointmentStatus` (Enum) | Estado actual de la cita |
+| `createdAt` | `DateTime` | Fecha y hora en que se creó la reserva |
+| `updatedAt` | `DateTime` | Fecha y hora de la última actualización |
+
+##### Métodos principales
+
+| Método | Visibilidad | Descripción |
+|---|---|---|
+| `book()` | public | Confirma la creación de una reserva cuando el horario seleccionado está disponible |
+| `confirm()` | public | Cambia el estado de la cita a confirmada |
+| `cancel()` | public | Cancela una cita previamente registrada |
+| `reschedule(timeSlot: TimeSlot)` | public | Permite cambiar la fecha y horario de una cita |
+| `isAvailable()` | public | Valida si el horario asociado puede ser utilizado para la reserva |
+
+##### Entidad: `Patient`
+
+La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar ópticas, consultar disponibilidad y reservar citas. Dentro de este contexto, la información del paciente se utiliza principalmente para identificar al usuario y relacionarlo con sus reservas y preferencias.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `PatientId` (VO) | Identificador único del paciente |
+| `name` | `Name` (VO) | Nombre completo del paciente |
+| `email` | `EmailAddress` (VO) | Correo electrónico del paciente |
+| `phone` | `PhoneNumber` (VO) | Número telefónico del paciente |
+| `createdAt` | `DateTime` | Fecha de registro del paciente |
+
+##### Entidad: `OpticalStore`
+
+La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `OpticalStoreId` (VO) | Identificador único de la óptica |
+| `name` | `StoreName` (VO) | Nombre de la óptica |
+| `address` | `StoreAddress` (VO) | Dirección física de la sucursal |
+| `phone` | `PhoneNumber` (VO) | Número telefónico de contacto |
+| `rating` | `StoreRating` (VO) | Valoración promedio de la óptica |
+| `status` | `StoreStatus` (Enum) | Estado actual de la óptica |
+
+##### Entidad: `TimeSlot`
+
+`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `TimeSlotId` (VO) | Identificador del horario |
+| `opticalStoreId` | `OpticalStoreId` (VO) | Óptica a la que pertenece el horario |
+| `startDateTime` | `DateTime` | Fecha y hora de inicio |
+| `endDateTime` | `DateTime` | Fecha y hora de finalización |
+| `status` | `TimeSlotStatus` (Enum) | Disponibilidad actual del horario |
+
+##### Value Objects
+
+| Value Object | Propósito |
+|---|---|
+| `AppointmentId` | Identificador único de una cita |
+| `PatientId` | Identificador único del paciente |
+| `OpticalStoreId` | Identificador único de una óptica |
+| `TimeSlotId` | Identificador único de un horario |
+| `Name` | Representa un nombre válido de paciente |
+| `EmailAddress` | Encapsula y valida el correo electrónico |
+| `PhoneNumber` | Encapsula el número telefónico |
+| `StoreName` | Representa el nombre de una óptica |
+| `StoreAddress` | Representa la dirección de una sucursal |
+| `StoreRating` | Representa la valoración otorgada a una óptica |
+| `TimeSlot` | Representa un intervalo de tiempo para una atención |
+
+##### Enumerations
+
+| Enum | Valores | Propósito |
+|---|---|---|
+| `AppointmentStatus` | PENDING, CONFIRMED, CANCELLED, COMPLETED | Representa el estado de una cita |
+| `TimeSlotStatus` | AVAILABLE, RESERVED, BLOCKED | Representa la disponibilidad de un horario |
+| `StoreStatus` | ACTIVE, INACTIVE | Representa el estado operativo de una óptica |
+
+##### Domain Services
+
+| Domain Service | Responsabilidad |
+|---|---|
+| `AppointmentAvailabilityService` | Verifica que un `TimeSlot` se encuentre disponible antes de realizar una reserva |
+| `OpticalStoreSearchService` | Ejecuta las reglas de búsqueda y filtrado de ópticas |
+| `StoreRatingService` | Gestiona las reglas asociadas a las valoraciones de las ópticas |
+
+##### Repository Interfaces
+
+Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades.
+
+| Interface | Operaciones principales |
+|---|---|
+| `AppointmentRepository` | `save()`, `findById()`, `findByPatientId()`, `findByTimeSlot()` |
+| `PatientRepository` | `save()`, `findById()`, `findByEmail()` |
+| `OpticalStoreRepository` | `findById()`, `search()`, `filter()` |
+| `TimeSlotRepository` | `findById()`, `findAvailableByStore()`, `reserve()` |
+
+##### Domain Events
+
+Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto.
+
+| Domain Event | Descripción |
+|---|---|
+| `PatientRegistered` | Se genera cuando un nuevo paciente completa su registro |
+| `PatientLoggedIn` | Se genera cuando un paciente inicia sesión correctamente |
+| `OpticalStoresPublished` | Se genera cuando las ópticas disponibles son publicadas |
+| `OpticalStoresFiltered` | Se genera cuando una búsqueda de ópticas es filtrada |
+| `FavoriteOpticalStoreSaved` | Se genera cuando un paciente guarda una óptica como favorita |
+| `FrameCatalogExplored` | Se genera cuando un paciente explora el catálogo de monturas |
+| `OpticalStoreRated` | Se genera cuando un paciente registra una valoración |
+| `AppointmentBooked` | Se genera cuando una cita es reservada correctamente |
+
+Los eventos anteriores corresponden a los eventos publicados definidos para el **Search & Booking Context** en el diseño estratégico de OptiFlow. :contentReference[oaicite:2]{index=2}
+
+##### Factories
+
+| Factory | Propósito |
+|---|---|
+| `AppointmentFactory` | Centraliza la creación de nuevas instancias válidas de `Appointment` |
+| `PatientFactory` | Centraliza la creación de nuevos pacientes cumpliendo las reglas del dominio |
+
+---
+
 #### 2.6.1.2. Interface Layer
+
+La **Interface Layer** representa el punto de entrada al Bounded Context Search & Booking. Su responsabilidad es recibir las solicitudes provenientes de la aplicación cliente y traducirlas al modelo utilizado por la Application Layer.
+
+Esta capa permite exponer las capacidades de búsqueda, consulta de disponibilidad, registro de pacientes, exploración de catálogos y reserva de citas sin exponer directamente las entidades internas del dominio.
+
+##### Controllers
+
+| Controller | Endpoints | Capabilities soportadas |
+|---|---|---|
+| `PatientController` | `POST /patients`, `POST /login` | Registro e inicio de sesión de pacientes |
+| `OpticalStoreController` | `GET /optical-stores`, `GET /optical-stores/{id}` | Búsqueda y consulta de ópticas |
+| `OpticalStoreFilterController` | `GET /optical-stores/search` | Filtrado de ópticas según criterios del paciente |
+| `TimeSlotController` | `GET /optical-stores/{id}/availability` | Consulta de horarios disponibles |
+| `AppointmentController` | `POST /appointments`, `GET /appointments/{id}` | Creación y consulta de citas |
+| `FavoriteStoreController` | `POST /patients/{id}/favorites` | Registro de ópticas favoritas |
+| `StoreRatingController` | `POST /optical-stores/{id}/ratings` | Registro de valoraciones |
+
+##### Resources / DTOs
+
+| DTO | Tipo | Uso |
+|---|---|---|
+| `RegisterPatientRequest` | Input | Datos necesarios para registrar un paciente |
+| `LoginRequest` | Input | Datos necesarios para iniciar sesión |
+| `SearchOpticalStoreRequest` | Input | Parámetros utilizados para buscar ópticas |
+| `FilterOpticalStoreRequest` | Input | Criterios utilizados para filtrar resultados |
+| `BookAppointmentRequest` | Input | Datos necesarios para reservar una cita |
+| `SaveFavoriteStoreRequest` | Input | Datos necesarios para guardar una óptica favorita |
+| `RateOpticalStoreRequest` | Input | Datos de la valoración de una óptica |
+| `PatientResponse` | Output | Información pública del paciente |
+| `OpticalStoreResponse` | Output | Información de una óptica |
+| `TimeSlotResponse` | Output | Información sobre un horario disponible |
+| `AppointmentResponse` | Output | Información de una cita registrada |
+
+##### Assemblers
+
+| Assembler | Transformación |
+|---|---|
+| `FromRegisterPatientRequestAssembler` | `RegisterPatientRequest` → `RegisterPatientCommand` |
+| `FromLoginRequestAssembler` | `LoginRequest` → `LoginCommand` |
+| `FromSearchOpticalStoreRequestAssembler` | `SearchOpticalStoreRequest` → `SearchOpticalStoresQuery` |
+| `FromFilterOpticalStoreRequestAssembler` | `FilterOpticalStoreRequest` → `FilterOpticalStoresQuery` |
+| `FromBookAppointmentRequestAssembler` | `BookAppointmentRequest` → `BookAppointmentCommand` |
+| `FromRateOpticalStoreRequestAssembler` | `RateOpticalStoreRequest` → `RateOpticalStoreCommand` |
+
+---
 
 #### 2.6.1.3. Application Layer
 
+La **Application Layer** coordina los casos de uso del Bounded Context Search & Booking. Esta capa recibe commands y queries desde la Interface Layer, coordina los servicios y repositorios del dominio, controla la ejecución de las operaciones y publica los eventos generados por el dominio.
+
+Se utiliza una separación entre **Commands**, orientados a modificar el estado del sistema, y **Queries**, orientadas a consultar información.
+
+##### Command Handlers
+
+| Command Handler | Command procesado | Flujo |
+|---|---|---|
+| `RegisterPatientCommandHandler` | `RegisterPatient` | Valida los datos, crea el paciente mediante `PatientFactory`, persiste mediante `PatientRepository` y publica `PatientRegistered` |
+| `LoginCommandHandler` | `LogIn` | Valida las credenciales del paciente y publica `PatientLoggedIn` |
+| `PublishAvailableTimeSlotsCommandHandler` | `PublishAvailableTimeSlots` | Registra o actualiza los horarios disponibles de una óptica y publica `OpticalStoresPublished` |
+| `SaveFavoriteOpticalStoreCommandHandler` | `SaveFavoriteOpticalStore` | Registra una óptica como favorita del paciente y publica `FavoriteOpticalStoreSaved` |
+| `RateOpticalStoreCommandHandler` | `RateOpticalStore` | Valida y registra la valoración realizada por el paciente y publica `OpticalStoreRated` |
+| `BookAppointmentCommandHandler` | `BookAppointment` | Verifica la disponibilidad del horario, crea la cita mediante `AppointmentFactory`, persiste el agregado y publica `AppointmentBooked` |
+
+##### Query Services
+
+| Query Service | Query soportada | Retorno |
+|---|---|---|
+| `SearchOpticalStoresQueryService` | `SearchOpticalStoresQuery` | Lista de ópticas encontradas |
+| `FilterOpticalStoresQueryService` | `FilterOpticalStoresQuery` | Lista de ópticas filtradas |
+| `GetOpticalStoreQueryService` | `GetOpticalStoreQuery` | Información detallada de una óptica |
+| `GetAvailableTimeSlotsQueryService` | `GetAvailableTimeSlotsQuery` | Lista de horarios disponibles |
+| `GetPatientAppointmentsQueryService` | `GetPatientAppointmentsQuery` | Lista de citas del paciente |
+| `GetFrameCatalogQueryService` | `ExploreFrameCatalogQuery` | Catálogo de monturas disponible |
+
+##### Event Handlers
+
+Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno.
+
+| Event Handler | Evento | Acción |
+|---|---|---|
+| `AppointmentBookedEventHandler` | `AppointmentBooked` | Publica el evento para que **Clinical & Commercial** pueda iniciar el flujo de atención mediante `ExaminePatient` |
+| `AppointmentBookedNotificationHandler` | `AppointmentBooked` | Publica el evento para que **Notification & Loyalty** pueda ejecutar `SendAppointmentReminder` |
+
+El evento `AppointmentBooked` constituye una integración importante del contexto, ya que actualmente el diseño estratégico establece que una reserva realizada en Search & Booking desencadena tanto el proceso clínico como el proceso de recordatorio de la cita. :contentReference[oaicite:3]{index=3}
+
+##### Application Services
+
+| Application Service | Responsabilidad |
+|---|---|
+| `SearchBookingApplicationService` | Fachada principal del contexto que coordina los casos de uso de búsqueda, disponibilidad y reserva |
+| `PatientApplicationService` | Coordina las operaciones relacionadas con el registro e identificación de pacientes |
+| `AppointmentApplicationService` | Coordina las operaciones relacionadas con la creación, consulta, confirmación, cancelación y reprogramación de citas |
+| `OpticalStoreApplicationService` | Coordina las operaciones de búsqueda, filtrado, favoritos, catálogo y valoración de ópticas |
+
+---
+
 #### 2.6.1.4. Infrastructure Layer
+
+La "Infrastructure Layer" proporciona las implementaciones concretas de las abstracciones definidas por el Domain Layer. Esta capa contiene los mecanismos de persistencia, comunicación y adaptación necesarios para conectar Search & Booking con los recursos externos.
+
+La infraestructura se mantiene separada del dominio para evitar que las reglas de negocio dependan de una tecnología específica.
+
+##### Repository Implementations
+
+| Implementación | Interface que implementa | Responsabilidad |
+|---|---|---|
+| `AppointmentRepositoryImpl` | `AppointmentRepository` | Persistencia y consulta de citas |
+| `PatientRepositoryImpl` | `PatientRepository` | Persistencia y consulta de pacientes |
+| `OpticalStoreRepositoryImpl` | `OpticalStoreRepository` | Consulta y filtrado de ópticas |
+| `TimeSlotRepositoryImpl` | `TimeSlotRepository` | Gestión de horarios disponibles y reservados |
+
+##### Persistence Entities
+
+| Persistence Entity | Mapeo |
+|---|---|
+| `AppointmentEntity` | Representa la información persistida de una cita |
+| `PatientEntity` | Representa la información persistida de un paciente |
+| `OpticalStoreEntity` | Representa la información persistida de una óptica |
+| `TimeSlotEntity` | Representa la información persistida de un horario |
+| `FavoriteStoreEntity` | Representa la relación entre un paciente y una óptica favorita |
+| `StoreRatingEntity` | Representa la valoración realizada por un paciente |
+
+##### Mappers
+
+| Mapper | Transformación |
+|---|---|
+| `AppointmentMapper` | `Appointment` ↔ `AppointmentEntity` |
+| `PatientMapper` | `Patient` ↔ `PatientEntity` |
+| `OpticalStoreMapper` | `OpticalStore` ↔ `OpticalStoreEntity` |
+| `TimeSlotMapper` | `TimeSlot` ↔ `TimeSlotEntity` |
+| `FavoriteStoreMapper` | Modelo de dominio ↔ `FavoriteStoreEntity` |
+| `StoreRatingMapper` | Modelo de dominio ↔ `StoreRatingEntity` |
+
+##### External Service Adapters
+
+| Adapter | Servicio | Responsabilidad |
+|---|---|---|
+| `EventPublisherAdapter` | Sistema de eventos | Publicar eventos de dominio hacia otros Bounded Contexts |
+| `AuthenticationAdapter` | Servicio de autenticación | Gestionar la autenticación del paciente |
+| `NotificationIntegrationAdapter` | Servicio de notificaciones | Facilitar la integración con el contexto Notification & Loyalty cuando corresponda |
+
+##### Configuration
+
+| Clase de configuración | Propósito |
+|---|---|
+| `SearchBookingContextConfig` | Configura los componentes principales del Bounded Context |
+| `RepositoryConfig` | Configura las implementaciones de los repositorios |
+| `EventPublisherConfig` | Configura la publicación de eventos del contexto |
+| `ApiConfig` | Configura los puntos de entrada utilizados por la Interface Layer |
+
+---
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
