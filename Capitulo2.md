@@ -1251,3 +1251,85 @@ La infraestructura se mantiene separada del dominio para evitar que las reglas d
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
+
+### 2.6.2. Bounded Context: Clinical & Commercial Context
+
+Este Bounded Context es responsable de la atención clínica presencial del paciente y de la conversión comercial derivada de dicha atención: registro de historia médica, generación de la receta óptica, elaboración y aprobación de cotizaciones, aplicación de promociones o descuentos, y el cierre de la venta con la emisión del recibo electrónico correspondiente. A continuación se detalla, a manera de diccionario de clases, cada una de las clases identificadas para las capas de Domain, Interface, Application e Infrastructure, incluyendo su propósito, atributos, métodos y relaciones.
+
+#### 2.6.2.1. Domain Layer
+
+El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio.
+
+| Clase | Estereotipo | Propósito | Atributos | Métodos |
+| :--- | :--- | :--- | :--- | :--- |
+| `ClinicalRecord` | Aggregate Root | Representa el expediente clínico de un episodio de atención optométrica. | `id: UUID`, `patientId: UUID`, `appointmentId: UUID`, `examinationDate: DateTime`, `status: ClinicalRecordStatus` | `+recordMedicalHistory(history)`, `+generatePrescription(data)`, `+close()` |
+| `MedicalHistory` | Entity | Antecedentes clínicos y oculares del paciente asociados al expediente. | `allergies: String[]`, `previousConditions: String[]`, `familyOcularHistory: String`, `lastUpdated: DateTime` | `+update(data)` |
+| `OpticalPrescription` | Value Object | Especificación técnica de la receta óptica emitida tras la evaluación. | `sphereOD/OS`, `cylinderOD/OS`, `axisOD/OS: Integer`, `addition: Decimal`, `treatment: String`, `recommendedFrameType: String` | `+isValid()` |
+| `Quotation` | Aggregate Root | Propuesta comercial derivada de la receta, sujeta a aprobación del paciente. | `id`, `clinicalRecordId`, `discount: Discount`, `total: Money`, `status: QuotationStatus` | `+addItem(item)`, `+applyPromotionOrDiscount(d)`, `+approve()`, `+reject(reason)`, `+calculateTotal()` |
+| `QuotationItem` | Entity | Línea de detalle de una cotización (producto o servicio cotizado). | `id`, `description: String`, `unitPrice: Money`, `quantity: Integer` | `+subtotal()` |
+| `Discount` | Value Object | Encapsula una promoción o descuento aplicado a una cotización. | `type: DiscountType`, `value: Decimal`, `reason: String` | — |
+| `Sale` | Aggregate Root | Venta concretada a partir de una cotización aprobada. | `id`, `quotationId`, `patientId`, `status: SaleStatus`, `closedAt: DateTime` | `+recordPayment(p)`, `+close()` |
+| `Payment` | Value Object | Detalle del cobro asociado a la venta. | `method: PaymentMethod`, `amount: Money`, `transactionReference: String`, `paidAt: DateTime` | — |
+| `ElectronicReceipt` | Entity | Comprobante electrónico emitido al cierre de la venta. | `id`, `receiptNumber`, `saleId`, `issueDate`, `taxAmount: Money`, `totalAmount: Money` | `+issue()` |
+| `ClinicalRecordRepository` | Interface (Repository) | Abstracción de persistencia para `ClinicalRecord`. | — | `+save(record)`, `+findById(id)` |
+| `QuotationRepository` | Interface (Repository) | Abstracción de persistencia para `Quotation`. | — | `+save(quotation)`, `+findById(id)` |
+| `SaleRepository` | Interface (Repository) | Abstracción de persistencia para `Sale`. | — | `+save(sale)`, `+findById(id)` |
+
+Relaciones principales: `ClinicalRecord` compone 1 `MedicalHistory` y 0..1 `OpticalPrescription`, y origina 0..* `Quotation`; `Quotation` compone 1..* `QuotationItem`, agrega 0..1 `Discount` y concreta 0..1 `Sale`; `Sale` compone 1 `Payment` y da lugar a 0..1 `ElectronicReceipt`.
+
+Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHistoryRecorded`, `ClinicalRecordRegistered`, `OpticalPrescriptionGenerated`, `PromotionOrDiscountApplied`, `QuotationApproved`, `QuotationRejected`, `PaymentRecorded`, `SaleWasClosed`, `ElectronicReceiptIssued`.
+
+#### 2.6.2.2. Interface Layer
+
+| Clase | Tipo | Responsabilidad |
+| :--- | :--- | :--- |
+| `ClinicalRecordController` | REST Controller | Expone `ExaminePatient`, `RecordMedicalHistory`, `RegisterClinicalRecord` y `GenerateOpticalPrescription`. |
+| `QuotationController` | REST Controller | Expone `ApplyPromotionOrDiscount`, `ApproveQuotation` y `RejectQuotation`. |
+| `SaleController` | REST Controller | Expone `RecordPayment` y `CloseSale`. |
+| `AppointmentBookedConsumer` | Event Consumer | Se suscribe al evento externo `AppointmentBooked` (proveniente de Search & Booking vía Event Bus) y lo traduce al comando interno `ExaminePatient`, actuando como puerto de entrada de la Anti-Corruption Layer documentada en el Context Mapping (2.5.2). |
+
+#### 2.6.2.3. Application Layer
+
+| Clase | Tipo | Orquesta |
+| :--- | :--- | :--- |
+| `ExaminePatientHandler` | Command Handler | Crea el `ClinicalRecord` a partir de la cita reservada. |
+| `RecordMedicalHistoryHandler` | Command Handler | Registra los antecedentes clínicos en el expediente. |
+| `RegisterClinicalRecordHandler` | Command Handler | Persiste el expediente clínico registrado. |
+| `GenerateOpticalPrescriptionHandler` | Command Handler | Genera la `OpticalPrescription` a partir de la evaluación. |
+| `ApplyPromotionOrDiscountHandler` | Command Handler | Aplica un `Discount` a la cotización vigente. |
+| `ApproveQuotationHandler` / `RejectQuotationHandler` | Command Handler | Resuelven el estado de la cotización. |
+| `RecordPaymentHandler` | Command Handler | Registra el `Payment` sobre la venta. |
+| `CloseSaleHandler` | Command Handler | Cierra la venta y solicita la emisión del recibo. |
+| `AppointmentBookedEventHandler` | Event Handler | Reacciona a la notificación entrante del `AppointmentBookedConsumer` invocando `ExaminePatientHandler`. |
+
+#### 2.6.2.4. Infrastructure Layer
+
+| Clase | Tipo | Detalle técnico |
+| :--- | :--- | :--- |
+| `ClinicalRecordRepositoryImpl` | Repository (impl) | Implementa `ClinicalRecordRepository` sobre JPA/PostgreSQL. |
+| `QuotationRepositoryImpl` | Repository (impl) | Implementa `QuotationRepository` sobre JPA/PostgreSQL. |
+| `SaleRepositoryImpl` | Repository (impl) | Implementa `SaleRepository` sobre JPA/PostgreSQL. |
+| `DomainEventPublisher` | Messaging | Publica los eventos de dominio del contexto hacia el Event Bus (RabbitMQ/Kafka). |
+| `PaymentGatewayAdapter` | Anti-Corruption Layer | Traduce las respuestas de la Pasarela de Pagos externa (POS bancario, Yape, Plin) al modelo interno de `Payment` y `ElectronicReceipt`, aislando al dominio de los formatos propietarios del proveedor bancario (patrón Customer/Supplier documentado en 2.5.2). |
+
+#### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+El siguiente Component Diagram (C4 Model) descompone el container **Clinical & Commercial Service** en sus bloques estructurales principales, agrupados según las cuatro capas descritas: presentation (`Clinical & Commercial Controllers`), application (`Clinical & Commercial Application Services`), domain (`Clinical & Commercial Domain Model`) e infrastructure (`Clinical Record Repository`, `Event Publisher`, `Appointment Event Subscriber` y `Payment Gateway ACL`).
+
+![Clinical & Commercial component.svg](assets/cap2/C4/Clinical%20%26%20Commercial%20component.svg)
+
+El componente de presentación expone la API REST y traduce las solicitudes HTTP en comandos de aplicación; la capa de aplicación orquesta los casos de uso descritos en 2.6.2.3; el modelo de dominio concentra las reglas de negocio e invariantes de los agregados `ClinicalRecord`, `Quotation` y `Sale`; y la capa de infraestructura resuelve la persistencia (JPA), la publicación/suscripción de eventos sobre el Event Bus y la integración anticorrupción con la Pasarela de Pagos externa.
+
+#### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones.
+
+[me falta la diagrama de clases]
+
+##### 2.6.2.6.2. Bounded Context Database Design Diagram
+
+El esquema relacional (PostgreSQL) refleja la persistencia de los tres agregados como tablas independientes vinculadas por llaves foráneas: `clinical_records` como raíz, con `medical_histories` y `optical_prescriptions` en relación 1 a 1 opcional; `quotations` referencia a `clinical_records` y compone `quotation_items`; y `sales` referencia a `quotations`, dando lugar opcionalmente a `electronic_receipts`.
+
+[faltaria el diagrama de la base de datos para recolectar la coneccion entre los clinical_records medical_histories y optical_prescriptions]
