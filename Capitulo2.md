@@ -1547,3 +1547,209 @@ En esta sección se presenta el **Class Diagram** correspondiente al Domain Laye
 En esta sección se presenta el **Database Design Diagram** correspondiente a la persistencia utilizada por Production & Tracking, mostrando las estructuras necesarias para almacenar la información asociada al proceso de producción y seguimiento de las órdenes de trabajo.
 
 **Evidencia del Database Design Diagram:**
+
+
+### 2.6.4. Bounded Context: Store Management & Inventory Context
+
+El Bounded Context **Store Management & Inventory** es un contexto clasificado estratégicamente como **Supporting Domain**. Su responsabilidad principal es gestionar las existencias físicas de la óptica, el catálogo de modelos de monturas, los precios, el abastecimiento y los proveedores.
+
+Este contexto permite controlar la disponibilidad de productos físicos, gestionar los modelos de monturas registrados en el catálogo, actualizar sus precios, realizar consultas de stock, gestionar el reabastecimiento y registrar proveedores.
+
+El lenguaje ubicuo definido para este contexto comprende los conceptos `Frame Model`, `Catalog`, `Price`, `Stock`, `Inventory`, `Low Stock Alert`, `Supplier` y `Replenishment`.
+
+Además, el contexto recibe el evento `SaleWasClosed` proveniente de **Clinical & Commercial**, permitiendo evaluar el stock consumido como consecuencia de una venta.
+
+---
+
+#### 2.6.4.1. Domain Layer
+
+La **Domain Layer** concentra las reglas de negocio relacionadas con la gestión del catálogo, inventario y abastecimiento de productos físicos de la óptica.
+
+El modelo de dominio se organiza alrededor de los conceptos definidos en el lenguaje ubicuo del contexto.
+
+##### Domain Concepts
+
+| Concepto | Tipo | Responsabilidad |
+|---|---|---|
+| `Frame Model` | Entity | Representa un modelo físico de montura disponible en el catálogo. |
+| `Catalog` | Aggregate / Domain Concept | Representa el conjunto de modelos de monturas disponibles para la óptica. |
+| `Price` | Value Object / Domain Concept | Representa el precio asociado a un modelo de montura. |
+| `Stock` | Entity / Domain Concept | Representa la cantidad disponible de un producto físico. |
+| `Inventory` | Aggregate / Domain Concept | Gestiona las existencias físicas de productos dentro de la óptica. |
+| `Low Stock Alert` | Domain Concept | Representa la alerta generada cuando las existencias de un producto alcanzan un nivel crítico. |
+| `Supplier` | Entity | Representa al proveedor encargado del abastecimiento de productos. |
+| `Replenishment` | Domain Concept | Representa el proceso de reposición de existencias. |
+
+##### Domain Commands
+
+Los comandos definidos para el contexto son:
+
+| Command | Responsabilidad |
+|---|---|
+| `AddNewFrameModel` | Registra un nuevo modelo de montura dentro del catálogo. |
+| `UpdateFrameModelPrice` | Actualiza el precio asociado a un modelo de montura. |
+| `ConsultStock` | Permite consultar la disponibilidad de existencias de un producto. |
+| `ReplenishStock` | Gestiona el reabastecimiento de las existencias. |
+| `RegisterSupplier` | Registra un nuevo proveedor para las operaciones de abastecimiento. |
+
+##### Domain Events
+
+Los principales eventos publicados por el contexto son:
+
+| Domain Event | Descripción |
+|---|---|
+| `NewFrameModelAdded` | Indica que un nuevo modelo de montura fue agregado al catálogo. |
+| `FrameModelPriceUpdated` | Indica que el precio de un modelo de montura fue actualizado. |
+| `StockWasConsulted` | Indica que se realizó una consulta sobre las existencias. |
+| `StockWasReplenished` | Indica que las existencias fueron reabastecidas. |
+| `LowStockAlertGenerated` | Indica que se generó una alerta debido a un nivel bajo de stock. |
+| `InventoryWasUpdated` | Indica que la información del inventario fue actualizada. |
+| `SupplierRegistered` | Indica que un nuevo proveedor fue registrado. |
+
+##### Repository
+
+| Repository | Responsabilidad |
+|---|---|
+| `InventoryRepository` | Abstrae el acceso y persistencia de la información relacionada con el inventario. |
+| `FrameModelRepository` | Abstrae el acceso y persistencia de los modelos de monturas registrados en el catálogo. |
+| `SupplierRepository` | Abstrae el acceso y persistencia de los proveedores registrados. |
+
+---
+
+#### 2.6.4.2. Interface Layer
+
+La **Interface Layer** representa el punto de entrada para las operaciones relacionadas con el catálogo, precios, stock, reabastecimiento y proveedores.
+
+Las solicitudes externas son recibidas mediante la API Gateway y posteriormente transformadas en comandos de aplicación.
+
+##### Controllers
+
+| Controller | Tipo | Responsabilidad |
+|---|---|---|
+| `FrameModelController` | REST Controller | Gestiona las operaciones relacionadas con los modelos de monturas y sus precios. |
+| `InventoryController` | REST Controller | Gestiona las operaciones relacionadas con consultas y reabastecimiento de stock. |
+| `SupplierController` | REST Controller | Gestiona el registro de proveedores. |
+
+##### Event Consumers
+
+| Consumer | Tipo | Responsabilidad |
+|---|---|---|
+| `SaleWasClosedConsumer` | Event Consumer | Recibe el evento `SaleWasClosed` proveniente de Clinical & Commercial para evaluar el stock consumido por la venta. |
+
+La recepción de `SaleWasClosed` forma parte del flujo de integración definido entre **Clinical & Commercial** y **Store Management & Inventory**.
+
+##### Resources / DTOs
+
+| DTO | Tipo | Uso |
+|---|---|---|
+| `AddNewFrameModelRequest` | Input | Datos necesarios para registrar un nuevo modelo de montura. |
+| `UpdateFrameModelPriceRequest` | Input | Datos necesarios para actualizar el precio de un modelo de montura. |
+| `ConsultStockRequest` | Input | Parámetros utilizados para consultar las existencias. |
+| `ReplenishStockRequest` | Input | Datos necesarios para gestionar el reabastecimiento del stock. |
+| `RegisterSupplierRequest` | Input | Datos necesarios para registrar un proveedor. |
+| `FrameModelResponse` | Output | Información de un modelo de montura registrado. |
+| `StockResponse` | Output | Información sobre las existencias disponibles. |
+| `SupplierResponse` | Output | Información de un proveedor registrado. |
+| `InventoryResponse` | Output | Información relacionada con el inventario. |
+
+##### Assemblers
+
+| Assembler | Transformación |
+|---|---|
+| `FromAddNewFrameModelRequestAssembler` | `AddNewFrameModelRequest` → `AddNewFrameModelCommand` |
+| `FromUpdateFrameModelPriceRequestAssembler` | `UpdateFrameModelPriceRequest` → `UpdateFrameModelPriceCommand` |
+| `FromConsultStockRequestAssembler` | `ConsultStockRequest` → `ConsultStockCommand` |
+| `FromReplenishStockRequestAssembler` | `ReplenishStockRequest` → `ReplenishStockCommand` |
+| `FromRegisterSupplierRequestAssembler` | `RegisterSupplierRequest` → `RegisterSupplierCommand` |
+
+---
+
+#### 2.6.4.3. Application Layer
+
+La **Application Layer** coordina los casos de uso relacionados con la administración del catálogo, actualización de precios, consulta de stock, reabastecimiento y gestión de proveedores.
+
+Los casos de uso se ejecutan mediante handlers que reciben los comandos provenientes de la Interface Layer y coordinan las operaciones correspondientes sobre el modelo de dominio.
+
+##### Command Handlers
+
+| Handler | Tipo | Orquesta |
+|---|---|---|
+| `AddNewFrameModelHandler` | Command Handler | Coordina el registro de un nuevo modelo de montura en el catálogo. |
+| `UpdateFrameModelPriceHandler` | Command Handler | Coordina la actualización del precio de un modelo de montura. |
+| `ConsultStockHandler` | Command Handler | Coordina la consulta de las existencias disponibles. |
+| `ReplenishStockHandler` | Command Handler | Coordina el proceso de reabastecimiento del inventario. |
+| `RegisterSupplierHandler` | Command Handler | Coordina el registro de un nuevo proveedor. |
+
+##### Event Handler
+
+| Handler | Tipo | Responsabilidad |
+|---|---|---|
+| `SaleWasClosedEventHandler` | Event Handler | Reacciona al evento `SaleWasClosed` para iniciar el procesamiento relacionado con el stock consumido por la venta. |
+
+##### Application Services
+
+| Application Service | Responsabilidad |
+|---|---|
+| `InventoryApplicationService` | Coordina los casos de uso relacionados con la consulta, actualización y reabastecimiento del inventario. |
+| `FrameModelApplicationService` | Coordina los casos de uso relacionados con la administración de modelos de monturas y sus precios. |
+| `SupplierApplicationService` | Coordina las operaciones relacionadas con el registro y gestión de proveedores. |
+
+La Application Layer permite mantener separados los casos de uso de las reglas de negocio del dominio y de los mecanismos utilizados para persistir la información o comunicarse con otros contextos.
+
+---
+
+#### 2.6.4.4. Infrastructure Layer
+
+La **Infrastructure Layer** contiene las implementaciones técnicas necesarias para persistir la información del catálogo, inventario y proveedores, así como para publicar y consumir eventos.
+
+##### Repositories
+
+| Clase | Tipo | Responsabilidad |
+|---|---|---|
+| `InventoryRepositoryImpl` | Repository Implementation | Implementa `InventoryRepository` para gestionar la persistencia del inventario. |
+| `FrameModelRepositoryImpl` | Repository Implementation | Implementa `FrameModelRepository` para gestionar la persistencia de los modelos de monturas. |
+| `SupplierRepositoryImpl` | Repository Implementation | Implementa `SupplierRepository` para gestionar la persistencia de los proveedores. |
+
+##### Persistence
+
+| Componente | Responsabilidad |
+|---|---|
+| `InventoryEntity` | Representa la persistencia de la información del inventario. |
+| `FrameModelEntity` | Representa la persistencia de los modelos de monturas. |
+| `SupplierEntity` | Representa la persistencia de los proveedores. |
+| `InventoryMapper` | Transforma la información de persistencia del inventario hacia el modelo utilizado por el dominio y viceversa. |
+| `FrameModelMapper` | Transforma la información de persistencia de los modelos de monturas hacia el modelo utilizado por el dominio y viceversa. |
+| `SupplierMapper` | Transforma la información de persistencia de los proveedores hacia el modelo utilizado por el dominio y viceversa. |
+
+##### Messaging
+
+| Componente | Responsabilidad |
+|---|---|
+| `DomainEventPublisher` | Publica los eventos generados por Store Management & Inventory hacia el Event Bus. |
+| `SaleWasClosedConsumer` | Consume el evento `SaleWasClosed` proveniente de Clinical & Commercial. |
+
+El evento `SaleWasClosed` permite que Store Management & Inventory reaccione al cierre de una venta y evalúe el stock consumido. Esta interacción forma parte del flujo de mensajes definido en el modelo estratégico.
+
+---
+
+#### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+En esta sección se presenta el **Component Diagram** correspondiente al Bounded Context **Store Management & Inventory**, donde se representan los principales componentes de las capas de Interface, Application, Domain e Infrastructure y sus relaciones.
+
+**Evidencia del Component Level Diagram:**
+
+---
+
+#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+En esta sección se presenta el **Class Diagram** correspondiente al Domain Layer de Store Management & Inventory, mostrando los principales conceptos relacionados con `Frame Model`, `Catalog`, `Price`, `Stock`, `Inventory`, `Low Stock Alert`, `Supplier` y `Replenishment`.
+
+**Evidencia del Class Diagram:**
+
+##### 2.6.4.6.2. Bounded Context Database Design Diagram
+
+En esta sección se presenta el **Database Design Diagram** correspondiente a la persistencia utilizada por Store Management & Inventory, mostrando las estructuras necesarias para gestionar los modelos de monturas, catálogo, precios, existencias, inventario y proveedores.
+
+**Evidencia del Database Design Diagram:**
