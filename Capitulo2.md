@@ -1333,3 +1333,217 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 El esquema relacional (PostgreSQL) refleja la persistencia de los tres agregados como tablas independientes vinculadas por llaves foráneas: `clinical_records` como raíz, con `medical_histories` y `optical_prescriptions` en relación 1 a 1 opcional; `quotations` referencia a `clinical_records` y compone `quotation_items`; y `sales` referencia a `quotations`, dando lugar opcionalmente a `electronic_receipts`.
 
 [faltaria el diagrama de la base de datos para recolectar la coneccion entre los clinical_records medical_histories y optical_prescriptions]
+
+### 2.6.3. Bounded Context: Production & Tracking Context
+
+El Bounded Context **Production & Tracking** es un contexto clasificado estratégicamente como **Core Domain**. Su responsabilidad principal es gestionar la trazabilidad del proceso de fabricación de lentes y monturas, desde la generación de la orden de trabajo hasta su entrega final al paciente.
+
+Este contexto maneja el ciclo de vida de la **Work Order**, incluyendo su generación, asignación a técnicos de laboratorio, envío al laboratorio, actualización de estados mediante un flujo Kanban, cálculo de fechas estimadas de entrega y gestión de retrasos.
+
+El lenguaje ubicuo definido para este contexto comprende los conceptos `Work Order`, `Technician`, `Laboratory`, `Work Order Status`, `Lenses`, `Delivery Date` y `Delivery Delay`.
+
+Además, el contexto recibe el evento `SaleWasClosed` proveniente de **Clinical & Commercial**, a partir del cual se inicia la generación de la orden de trabajo. Durante el proceso de fabricación publica eventos relacionados con la asignación, envío, actualización de estado, finalización de las lentes y entrega del pedido.
+
+---
+
+#### 2.6.3.1. Domain Layer
+
+La **Domain Layer** concentra las reglas de negocio relacionadas con la producción y trazabilidad de los pedidos ópticos. Esta capa representa los conceptos propios del contexto y mantiene las reglas del proceso de fabricación independientes de los mecanismos de persistencia, comunicación o infraestructura.
+
+El modelo de dominio se estructura alrededor de los principales conceptos definidos en el lenguaje ubicuo del contexto:
+
+| Concepto | Tipo | Responsabilidad |
+|---|---|---|
+| `Work Order` | Aggregate / Entity | Representa la orden de trabajo asociada a la fabricación del pedido óptico y permite controlar su ciclo de vida. |
+| `Technician` | Entity | Representa al técnico responsable de ejecutar las actividades asociadas a una orden de trabajo. |
+| `Laboratory` | Entity | Representa el laboratorio donde se realiza el proceso de fabricación de las lentes y monturas. |
+| `Lenses` | Entity | Representa las lentes que serán procesadas de acuerdo con las especificaciones técnicas del pedido. |
+| `Work Order Status` | Value / Domain Concept | Representa la fase actual de la orden dentro del flujo Kanban. |
+| `Delivery Date` | Value Object / Domain Concept | Representa la fecha estimada para la entrega del pedido terminado. |
+| `Delivery Delay` | Domain Concept | Representa la situación en la que la orden presenta un retraso respecto a la fecha estimada de entrega. |
+
+El flujo de estados definido para la `Work Order` utiliza las siguientes etapas:
+
+| Estado | Descripción |
+|---|---|
+| `Pendiente` | La orden ha sido generada y se encuentra pendiente de iniciar el proceso de producción. |
+| `En Taller` | La orden se encuentra en proceso de fabricación en el taller o laboratorio. |
+| `Control de Calidad` | Las lentes y monturas se encuentran en la etapa de revisión antes de la entrega. |
+| `Listo para Entrega` | El proceso de fabricación y control ha finalizado y el pedido se encuentra preparado para ser entregado al paciente. |
+
+##### Domain Commands
+
+Los principales comandos definidos para el contexto son:
+
+| Command | Responsabilidad |
+|---|---|
+| `GenerateWorkOrder` | Genera una nueva orden de trabajo a partir de una venta cerrada. |
+| `AssignWorkOrderToTechnician` | Asigna una orden de trabajo a un técnico de laboratorio. |
+| `SendWorkOrderToLaboratory` | Envía la orden de trabajo al laboratorio correspondiente. |
+| `UpdateWorkOrderStatus` | Actualiza el estado de la orden dentro del flujo Kanban. |
+| `CompleteLenses` | Registra la finalización del proceso de fabricación de las lentes. |
+| `NotifyDeliveryDelay` | Gestiona la notificación asociada a un retraso en la entrega. |
+| `MarkOrderAsDelivered` | Registra que la orden ha sido entregada al paciente. |
+
+##### Domain Events
+
+Los eventos publicados por este contexto son:
+
+| Domain Event | Descripción |
+|---|---|
+| `WorkOrderGenerated` | Indica que una nueva orden de trabajo ha sido generada. |
+| `WorkOrderAssigned` | Indica que una orden de trabajo ha sido asignada a un técnico. |
+| `WorkOrderSentToLaboratory` | Indica que la orden ha sido enviada al laboratorio. |
+| `WorkOrderStatusUpdated` | Indica que el estado de una orden de trabajo ha cambiado. |
+| `LensesWereCompleted` | Indica que las lentes asociadas a la orden han finalizado su proceso. |
+| `EstimatedDeliveryDateCalculated` | Indica que se ha calculado una fecha estimada de entrega. |
+| `DeliveryDelayNotified` | Indica que se ha registrado y notificado un retraso en la entrega. |
+| `OrderWasMarkedAsDelivered` | Indica que la orden ha sido marcada como entregada. |
+
+##### Repository
+
+| Repository | Responsabilidad |
+|---|---|
+| `WorkOrderRepository` | Abstrae el acceso y persistencia de las órdenes de trabajo del contexto. |
+
+La interacción principal del dominio con otros contextos comienza cuando **Clinical & Commercial** publica el evento `SaleWasClosed`. Production & Tracking recibe este evento y ejecuta el comando `GenerateWorkOrder`, iniciando así el ciclo de producción de la orden.
+
+---
+
+#### 2.6.3.2. Interface Layer
+
+La **Interface Layer** representa el punto de entrada mediante el cual Production & Tracking recibe comandos y eventos externos. Su función es traducir las solicitudes externas hacia las operaciones que serán procesadas por la Application Layer.
+
+Los comandos definidos en el Bounded Context se exponen mediante la API Gateway, mientras que el evento `SaleWasClosed` es recibido desde el contexto **Clinical & Commercial**.
+
+##### Controllers
+
+| Controller | Tipo | Responsabilidad |
+|---|---|---|
+| `WorkOrderController` | REST Controller | Expone las operaciones relacionadas con la generación, asignación, envío, actualización y entrega de órdenes de trabajo. |
+
+##### Event Consumers
+
+| Consumer | Tipo | Responsabilidad |
+|---|---|---|
+| `SaleWasClosedConsumer` | Event Consumer | Recibe el evento `SaleWasClosed` proveniente de Clinical & Commercial y permite iniciar la generación de una `Work Order`. |
+
+##### Resources / DTOs
+
+| DTO | Tipo | Uso |
+|---|---|---|
+| `GenerateWorkOrderRequest` | Input | Datos necesarios para generar una orden de trabajo. |
+| `AssignWorkOrderToTechnicianRequest` | Input | Datos necesarios para asignar una orden a un técnico. |
+| `SendWorkOrderToLaboratoryRequest` | Input | Datos necesarios para enviar una orden al laboratorio. |
+| `UpdateWorkOrderStatusRequest` | Input | Datos necesarios para actualizar el estado de una orden. |
+| `CompleteLensesRequest` | Input | Datos necesarios para registrar la finalización de las lentes. |
+| `NotifyDeliveryDelayRequest` | Input | Datos asociados a la notificación de un retraso. |
+| `MarkOrderAsDeliveredRequest` | Input | Datos necesarios para registrar la entrega de una orden. |
+| `WorkOrderResponse` | Output | Información de una orden de trabajo. |
+| `WorkOrderStatusResponse` | Output | Información relacionada con el estado actual de una orden. |
+
+##### Assemblers
+
+| Assembler | Transformación |
+|---|---|
+| `FromGenerateWorkOrderRequestAssembler` | `GenerateWorkOrderRequest` → `GenerateWorkOrderCommand` |
+| `FromAssignWorkOrderToTechnicianRequestAssembler` | `AssignWorkOrderToTechnicianRequest` → `AssignWorkOrderToTechnicianCommand` |
+| `FromSendWorkOrderToLaboratoryRequestAssembler` | `SendWorkOrderToLaboratoryRequest` → `SendWorkOrderToLaboratoryCommand` |
+| `FromUpdateWorkOrderStatusRequestAssembler` | `UpdateWorkOrderStatusRequest` → `UpdateWorkOrderStatusCommand` |
+| `FromCompleteLensesRequestAssembler` | `CompleteLensesRequest` → `CompleteLensesCommand` |
+| `FromNotifyDeliveryDelayRequestAssembler` | `NotifyDeliveryDelayRequest` → `NotifyDeliveryDelayCommand` |
+| `FromMarkOrderAsDeliveredRequestAssembler` | `MarkOrderAsDeliveredRequest` → `MarkOrderAsDeliveredCommand` |
+
+---
+
+#### 2.6.3.3. Application Layer
+
+La **Application Layer** coordina los casos de uso definidos para Production & Tracking. Esta capa recibe los comandos provenientes de la Interface Layer y coordina su ejecución sobre el modelo de dominio.
+
+Los casos de uso principales corresponden a las operaciones definidas en el Bounded Context Canvas.
+
+##### Command Handlers
+
+| Handler | Tipo | Orquesta |
+|---|---|---|
+| `GenerateWorkOrderHandler` | Command Handler | Genera una nueva `Work Order` a partir de la información recibida después del cierre de una venta. |
+| `AssignWorkOrderToTechnicianHandler` | Command Handler | Coordina la asignación de una orden de trabajo a un técnico. |
+| `SendWorkOrderToLaboratoryHandler` | Command Handler | Coordina el envío de la orden al laboratorio correspondiente. |
+| `UpdateWorkOrderStatusHandler` | Command Handler | Gestiona la actualización del estado de la orden dentro del flujo Kanban. |
+| `CompleteLensesHandler` | Command Handler | Gestiona la finalización del proceso de fabricación de las lentes. |
+| `NotifyDeliveryDelayHandler` | Command Handler | Gestiona el registro y notificación de retrasos en la entrega. |
+| `MarkOrderAsDeliveredHandler` | Command Handler | Coordina el registro de la entrega final de la orden. |
+
+##### Event Handler
+
+| Handler | Tipo | Responsabilidad |
+|---|---|---|
+| `SaleWasClosedEventHandler` | Event Handler | Reacciona al evento `SaleWasClosed` y desencadena el proceso de generación de una orden de trabajo mediante `GenerateWorkOrder`. |
+
+##### Application Services
+
+| Application Service | Responsabilidad |
+|---|---|
+| `WorkOrderApplicationService` | Coordina los casos de uso relacionados con la generación, asignación, envío, seguimiento y entrega de órdenes de trabajo. |
+
+La Application Layer permite mantener separados los casos de uso del sistema respecto de las reglas internas del dominio y de los mecanismos utilizados para persistir o comunicar información.
+
+---
+
+#### 2.6.3.4. Infrastructure Layer
+
+La **Infrastructure Layer** contiene las implementaciones técnicas necesarias para conectar el dominio de Production & Tracking con los mecanismos externos de persistencia y comunicación.
+
+Esta capa implementa las abstracciones definidas en el dominio y permite que las reglas de negocio permanezcan independientes de tecnologías específicas.
+
+##### Repositories
+
+| Clase | Tipo | Responsabilidad |
+|---|---|---|
+| `WorkOrderRepositoryImpl` | Repository Implementation | Implementa `WorkOrderRepository` y permite persistir y recuperar las órdenes de trabajo. |
+
+##### Persistence
+
+| Componente | Responsabilidad |
+|---|---|
+| `WorkOrderEntity` | Representa la persistencia de la orden de trabajo en la base de datos. |
+| `WorkOrderMapper` | Transforma el modelo de persistencia de la orden de trabajo hacia el modelo utilizado por el dominio y viceversa. |
+
+##### Messaging
+
+| Componente | Responsabilidad |
+|---|---|
+| `DomainEventPublisher` | Publica los eventos generados por Production & Tracking hacia el Event Bus. |
+| `SaleWasClosedConsumer` | Consume el evento `SaleWasClosed` proveniente de Clinical & Commercial. |
+
+La comunicación mediante eventos permite desacoplar Production & Tracking de los demás Bounded Contexts. En particular, el contexto recibe `SaleWasClosed` desde **Clinical & Commercial** y publica eventos como `WorkOrderStatusUpdated` y `OrderWasMarkedAsDelivered`, que son consumidos por **Notification & Loyalty**.
+
+##### Anti-Corruption Layer
+
+Production & Tracking utiliza una **Anti-Corruption Layer (ACL)** en su relación con **Clinical & Commercial**. Esta capa permite traducir la información recibida mediante `SaleWasClosed` hacia el modelo propio de producción, evitando que los conceptos comerciales y de facturación del contexto upstream se incorporen directamente al modelo de fabricación.
+
+La relación se encuentra definida en el Context Mapping del apartado 2.5.2 mediante el patrón **Customer / Supplier**, donde **Clinical & Commercial** actúa como upstream y **Production & Tracking** como downstream.
+
+---
+
+#### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+En esta sección se presenta el **Component Diagram** correspondiente al Bounded Context **Production & Tracking**, donde se representan los componentes que conforman las capas de interfaz, aplicación, dominio e infraestructura, así como sus relaciones.
+
+**Evidencia del Component Level Diagram:**
+
+
+#### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+En esta sección se presenta el **Class Diagram** correspondiente al Domain Layer de Production & Tracking, incluyendo los principales conceptos del dominio relacionados con `Work Order`, `Technician`, `Laboratory`, `Lenses`, `Work Order Status`, `Delivery Date` y `Delivery Delay`.
+
+**Evidencia del Class Diagram:**
+
+
+##### 2.6.3.6.2. Bounded Context Database Design Diagram
+
+En esta sección se presenta el **Database Design Diagram** correspondiente a la persistencia utilizada por Production & Tracking, mostrando las estructuras necesarias para almacenar la información asociada al proceso de producción y seguimiento de las órdenes de trabajo.
+
+**Evidencia del Database Design Diagram:**
