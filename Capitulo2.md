@@ -555,6 +555,32 @@ Se detalla el mapa de empatía de Valeria Morales, reflejando su experiencia com
 
 ### 2.3.5. Big Picture EventStorming
 
+Antes de definir módulos o componentes técnicos para OptiFlow, el equipo realizó una sesión colaborativa de Big Picture EventStorming con el objetivo de explorar el dominio del negocio desde una perspectiva integral. Esta actividad permitió mapear los principales eventos que ocurren en el sector óptico, desde la búsqueda de establecimientos y reserva de turnos hasta la evaluación optométrica, la cotización comercial, la manufactura de lunas en laboratorio, la gestión de inventario y la fidelización del paciente.
+
+A diferencia de un inventario aislado de eventos, el equipo organizó los acontecimientos cronológicamente a lo largo de una línea de tiempo (flujo end-to-end), identificando a los actores intervinientes (Valeria Morales como paciente y Marcelo Ruiz como optómetra/administrador), los comandos disparadores, las políticas temporales del sistema y los puntos críticos de fricción operativa (*hot spots*).
+
+<div align="center">
+  <img src="assets/cap2/BigPicture1.png" alt="Big Picture EventStorming - OptiFlow"/>
+</div>
+
+<br>
+
+<div align="center">
+  <img src="assets/cap2/BigPicture2.png" alt="Big Picture EventStorming - OptiFlow"/>
+</div>
+
+<br>
+
+Como resultado de esta dinámica, el flujo de negocio se consolidó en cinco subprocesos secuenciales:
+
+* **Búsqueda y Reserva de Citas:** Inicia cuando la paciente consulta sucursales y horarios, formalizando el evento `Cita Agendada` (*AppointmentBooked*), con capacidades de reprogramación y confirmación presencial (`Paciente Registró Asistencia`), mitigando el ausentismo no alertado.
+* **Consulta Clínica y Venta:** Comprende la refracción médica (`Examen Refractivo Completado`), la emisión de la receta digital (`Receta Médica Generada`), la estructuración del presupuesto (`Cotización Aprobada`) y el cobro mediante canales presenciales o digitales (`Venta Concretada`), resolviendo la recurrente pérdida de medidas físicas.
+* **Producción y Taller:** Articula el ciclo de manufactura técnica disparado tras la venta (`Orden de Trabajo Creada`), abarcando el tallado, biselado y montaje de lunas, el control de calidad estricto y la puesta a disposición en mostrador (`Pedido Listo para Recojo`), eliminando la incertidumbre del cliente sobre los tiempos de laboratorio.
+* **Inventario y Suministro:** Regula la catalogación de modelos (`Modelo de Montura Añadido`), el abastecimiento por proveedores y la deducción automática de stock tras cada transacción (`Stock de Almacén Descontado`), alertando ante quiebres de existencias críticas.
+* **Alertas y Fidelización:** Orquesta la comunicación reactiva mediante avisos de retiro de pedido, encuestas de servicio post-entrega y políticas temporales automatizadas para saludos de cumpleaños y convocatorias al control visual anual preventivo.
+
+Esta exploración integral evidenció que términos como *Montura* o *Paciente* poseían significados dispares según el área operativa, lo cual constituyó el insumo principal para demarcar el lenguaje ubicuo del sistema y justificar la posterior delimitación de los Bounded Contexts estratégicos de la solución.
+
 ### 2.3.6. Ubiquitous Language
 
 El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre los expertos del dominio (personal de óptica y pacientes) y el equipo de ingeniería de software. Su objetivo es eliminar la ambigüedad terminológica en el código, las historias de usuario y las interfaces de OptiFlow.
