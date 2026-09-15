@@ -1753,3 +1753,209 @@ En esta sección se presenta el **Class Diagram** correspondiente al Domain Laye
 En esta sección se presenta el **Database Design Diagram** correspondiente a la persistencia utilizada por Store Management & Inventory, mostrando las estructuras necesarias para gestionar los modelos de monturas, catálogo, precios, existencias, inventario y proveedores.
 
 **Evidencia del Database Design Diagram:**
+
+
+### 2.6.5. Bounded Context: Notification & Loyalty Context
+
+#### 2.6.5.1. Domain Layer
+
+La capa de dominio del **Notification & Loyalty Context** concentra las reglas relacionadas con la comunicación y fidelización del paciente. Este contexto gestiona las notificaciones, preferencias de comunicación, encuestas de satisfacción, campañas de reactivación y beneficios asociados a fechas especiales.
+
+##### Domain Concepts
+
+| Concepto | Tipo | Descripción |
+|---|---|---|
+| `Patient Birthday` | Domain Concept | Representa la fecha de cumpleaños del paciente utilizada para activar acciones de fidelización. |
+| `Birthday Discount` | Domain Concept | Beneficio promocional enviado al paciente por motivo de su cumpleaños. |
+| `Satisfaction Survey` | Domain Concept | Encuesta enviada al paciente para recopilar información sobre su experiencia. |
+| `Staff Member` | Entity | Personal responsable de gestionar las notificaciones dentro de la óptica. |
+| `Notification Preferences` | Value Object | Configuración de las preferencias de comunicación del paciente. |
+| `In-App Notification` | Domain Concept | Notificación mostrada directamente dentro de la aplicación móvil. |
+| `Order Progress` | Domain Concept | Información relacionada con el avance del pedido de lentes. |
+| `Reactivation Campaign` | Domain Concept | Recordatorio preventivo enviado al paciente para incentivar un nuevo control de su graduación visual. |
+
+##### Commands
+
+| Command | Descripción |
+|---|---|
+| `DetectPatientBirthday` | Detecta los pacientes que cumplen años y permite iniciar el flujo de fidelización. |
+| `SendBirthdayDiscount` | Envía el beneficio o descuento correspondiente al cumpleaños del paciente. |
+| `SendSatisfactionSurvey` | Envía una encuesta de satisfacción después de la entrega del pedido. |
+| `AssignStaffMemberToManageNotifications` | Asigna un miembro del personal para gestionar las notificaciones. |
+| `ConfigureNotificationPreferences` | Configura las preferencias de comunicación del paciente. |
+| `NotifyPatientInApp` | Envía una notificación directamente dentro de la aplicación. |
+| `NotifyLensOrderProgress` | Comunica al paciente el avance de su pedido de lentes. |
+| `SendReactivationCampaign` | Envía una campaña de reactivación para incentivar una nueva atención del paciente. |
+
+##### Domain Events
+
+| Evento | Descripción |
+|---|---|
+| `PatientBirthdayDetected` | Indica que se detectó el cumpleaños de un paciente. |
+| `BirthdayDiscountWasSent` | Indica que el beneficio de cumpleaños fue enviado. |
+| `SatisfactionSurveyWasSent` | Indica que una encuesta de satisfacción fue enviada. |
+| `SatisfactionSurveyCompleted` | Indica que el paciente completó una encuesta de satisfacción. |
+| `StaffMemberAssigned` | Indica que un miembro del personal fue asignado para gestionar notificaciones. |
+| `NotificationPreferencesConfigured` | Indica que las preferencias de notificación fueron configuradas. |
+| `InAppNotificationSent` | Indica que una notificación fue enviada dentro de la aplicación. |
+| `LensOrderProgressNotified` | Indica que se comunicó al paciente el avance de su pedido. |
+| `ReactivationCampaignSent` | Indica que una campaña de reactivación fue enviada. |
+
+El contexto también consume eventos provenientes de otros Bounded Contexts. `AppointmentBooked` permite activar los recordatorios de citas, `WorkOrderStatusUpdated` permite notificar el avance del pedido y `OrderWasMarkedAsDelivered` permite iniciar el envío de la encuesta de satisfacción.
+
+---
+
+#### 2.6.5.2. Interface Layer
+
+La Interface Layer expone los puntos de entrada necesarios para ejecutar las operaciones relacionadas con las notificaciones y la fidelización. Los comandos son recibidos mediante el API Gateway y posteriormente transformados a objetos propios de la capa de aplicación.
+
+##### Resources / DTOs
+
+| DTO | Tipo | Uso |
+|---|---|---|
+| `DetectPatientBirthdayRequest` | Input | Datos necesarios para ejecutar la detección de cumpleaños. |
+| `SendBirthdayDiscountRequest` | Input | Datos necesarios para enviar el descuento de cumpleaños. |
+| `SendSatisfactionSurveyRequest` | Input | Datos necesarios para enviar una encuesta de satisfacción. |
+| `AssignStaffMemberToManageNotificationsRequest` | Input | Datos necesarios para asignar personal responsable de las notificaciones. |
+| `ConfigureNotificationPreferencesRequest` | Input | Datos utilizados para configurar las preferencias de notificación. |
+| `NotifyPatientInAppRequest` | Input | Datos necesarios para enviar una notificación dentro de la aplicación. |
+| `NotifyLensOrderProgressRequest` | Input | Datos relacionados con el avance del pedido de lentes. |
+| `SendReactivationCampaignRequest` | Input | Datos necesarios para ejecutar una campaña de reactivación. |
+
+##### Controllers
+
+| Controller | Responsabilidad |
+|---|---|
+| `BirthdayNotificationController` | Gestiona las operaciones relacionadas con cumpleaños y beneficios. |
+| `SatisfactionSurveyController` | Gestiona el envío y procesamiento de encuestas de satisfacción. |
+| `NotificationController` | Gestiona las notificaciones dentro de la aplicación. |
+| `NotificationPreferencesController` | Gestiona las preferencias de comunicación. |
+| `OrderProgressNotificationController` | Gestiona las notificaciones relacionadas con el avance de los pedidos. |
+| `ReactivationCampaignController` | Gestiona las campañas de reactivación. |
+
+##### Assemblers
+
+| Assembler | Transformación |
+|---|---|
+| `FromDetectPatientBirthdayRequestAssembler` | `DetectPatientBirthdayRequest` → `DetectPatientBirthdayCommand` |
+| `FromSendBirthdayDiscountRequestAssembler` | `SendBirthdayDiscountRequest` → `SendBirthdayDiscountCommand` |
+| `FromSendSatisfactionSurveyRequestAssembler` | `SendSatisfactionSurveyRequest` → `SendSatisfactionSurveyCommand` |
+| `FromAssignStaffMemberRequestAssembler` | `AssignStaffMemberToManageNotificationsRequest` → `AssignStaffMemberToManageNotificationsCommand` |
+| `FromConfigureNotificationPreferencesRequestAssembler` | `ConfigureNotificationPreferencesRequest` → `ConfigureNotificationPreferencesCommand` |
+| `FromNotifyPatientInAppRequestAssembler` | `NotifyPatientInAppRequest` → `NotifyPatientInAppCommand` |
+| `FromNotifyLensOrderProgressRequestAssembler` | `NotifyLensOrderProgressRequest` → `NotifyLensOrderProgressCommand` |
+| `FromSendReactivationCampaignRequestAssembler` | `SendReactivationCampaignRequest` → `SendReactivationCampaignCommand` |
+
+---
+
+#### 2.6.5.3. Application Layer
+
+La Application Layer coordina los casos de uso definidos para el contexto de notificaciones y fidelización. Su responsabilidad es recibir los comandos, ejecutar los servicios correspondientes y publicar los eventos resultantes sin incorporar reglas propias del dominio.
+
+##### Command Handlers
+
+| Command Handler | Command |
+|---|---|
+| `DetectPatientBirthdayCommandHandler` | `DetectPatientBirthdayCommand` |
+| `SendBirthdayDiscountCommandHandler` | `SendBirthdayDiscountCommand` |
+| `SendSatisfactionSurveyCommandHandler` | `SendSatisfactionSurveyCommand` |
+| `AssignStaffMemberToManageNotificationsCommandHandler` | `AssignStaffMemberToManageNotificationsCommand` |
+| `ConfigureNotificationPreferencesCommandHandler` | `ConfigureNotificationPreferencesCommand` |
+| `NotifyPatientInAppCommandHandler` | `NotifyPatientInAppCommand` |
+| `NotifyLensOrderProgressCommandHandler` | `NotifyLensOrderProgressCommand` |
+| `SendReactivationCampaignCommandHandler` | `SendReactivationCampaignCommand` |
+
+##### Event Consumers
+
+| Event Consumer | Evento recibido | Acción |
+|---|---|---|
+| `AppointmentBookedConsumer` | `AppointmentBooked` | Inicia el flujo de recordatorio de la cita. |
+| `WorkOrderStatusUpdatedConsumer` | `WorkOrderStatusUpdated` | Inicia la notificación del avance del pedido. |
+| `OrderWasMarkedAsDeliveredConsumer` | `OrderWasMarkedAsDelivered` | Inicia el envío de la encuesta de satisfacción. |
+
+##### Application Services
+
+| Application Service | Responsabilidad |
+|---|---|
+| `BirthdayNotificationService` | Coordina la detección de cumpleaños y el envío del beneficio correspondiente. |
+| `SatisfactionSurveyService` | Coordina el envío y gestión de las encuestas de satisfacción. |
+| `NotificationService` | Coordina el envío de notificaciones dentro de la aplicación. |
+| `NotificationPreferenceService` | Gestiona la configuración de preferencias de comunicación. |
+| `OrderProgressNotificationService` | Coordina las notificaciones relacionadas con el avance de las órdenes. |
+| `ReactivationCampaignService` | Coordina el envío de campañas de reactivación. |
+
+---
+
+#### 2.6.5.4. Infrastructure Layer
+
+La Infrastructure Layer implementa los mecanismos técnicos requeridos para persistir información y comunicarse con servicios externos de mensajería. El contexto utiliza una **Anti-Corruption Layer (ACL)** para evitar que los formatos propios de Meta WhatsApp Cloud API o Firebase Cloud Messaging se propaguen hacia el modelo interno de OptiFlow.
+
+##### Repositories
+
+| Repository | Responsabilidad |
+|---|---|
+| `NotificationRepository` | Persistencia de las notificaciones generadas. |
+| `NotificationPreferencesRepository` | Persistencia de las preferencias de comunicación. |
+| `SatisfactionSurveyRepository` | Persistencia de las encuestas y sus respuestas. |
+| `StaffMemberRepository` | Persistencia de los miembros del personal responsables de las notificaciones. |
+| `ReactivationCampaignRepository` | Persistencia de las campañas de reactivación. |
+
+##### Persistence
+
+| Componente | Responsabilidad |
+|---|---|
+| `NotificationEntity` | Representación persistente de una notificación. |
+| `NotificationPreferencesEntity` | Representación persistente de las preferencias del paciente. |
+| `SatisfactionSurveyEntity` | Representación persistente de una encuesta de satisfacción. |
+| `StaffMemberEntity` | Representación persistente del personal asignado. |
+| `ReactivationCampaignEntity` | Representación persistente de una campaña de reactivación. |
+
+##### Messaging
+
+| Componente | Responsabilidad |
+|---|---|
+| `AppointmentBookedConsumer` | Consume eventos de reservas confirmadas. |
+| `WorkOrderStatusUpdatedConsumer` | Consume eventos de actualización del estado de las órdenes. |
+| `OrderWasMarkedAsDeliveredConsumer` | Consume eventos de entrega de pedidos. |
+| `DomainEventPublisher` | Publica los eventos generados por el contexto. |
+
+##### External Messaging / ACL
+
+| Componente | Responsabilidad |
+|---|---|
+| `WhatsAppMessagingAdapter` | Adaptación de las notificaciones internas hacia Meta WhatsApp Cloud API. |
+| `FirebaseMessagingAdapter` | Adaptación de las notificaciones internas hacia Firebase Cloud Messaging. |
+| `MessagingAntiCorruptionLayer` | Aísla el modelo de notificaciones de OptiFlow de los formatos externos de mensajería. |
+
+La comunicación con **Third-Party Messaging** se realiza siguiendo el patrón **Customer / Supplier**, donde la plataforma externa actúa como proveedor y Notification & Loyalty como cliente. La ACL permite desacoplar las plantillas y eventos propios de OptiFlow de los payloads y cabeceras requeridos por los servicios externos.
+
+---
+
+#### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
+
+ el Component Diagram
+
+##### Componentes principales
+
+| Componente | Responsabilidad |
+|---|---|
+| `Notification API` | Expone las operaciones relacionadas con notificaciones. |
+| `Notification Application` | Coordina los casos de uso del contexto. |
+| `Notification Domain` | Contiene los conceptos y reglas propias de notificación y fidelización. |
+| `Notification Infrastructure` | Implementa persistencia y comunicación con servicios externos. |
+| `Messaging ACL` | Adapta las comunicaciones hacia WhatsApp y Firebase. |
+| `Event Consumers` | Reciben eventos publicados por otros Bounded Contexts. |
+
+---
+
+#### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+
+El diagrama 
+
+##### 2.6.5.6.2. Bounded Context Database Design Diagram
+
+
+El diagrama 
