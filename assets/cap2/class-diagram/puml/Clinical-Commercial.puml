@@ -1,0 +1,186 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam nodesep 20
+skinparam ranksep 40
+hide circle
+left to right direction
+
+package "clinicalCommercial" {
+
+  package "presentation" as presentation
+ {
+
+    class PrescriptionScreen <<Composable>> {
+      + Content(viewModel: PrescriptionViewModel): void
+    }
+    class PrescriptionUiState {
+      - prescription: OpticalPrescription
+      - isLoading: Boolean
+      - errorMessage: String
+    }
+    class PrescriptionViewModel {
+      - uiState: StateFlow<PrescriptionUiState>
+      + loadPrescription(clinicalRecordId: String): void
+    }
+
+    class QuotationScreen <<Composable>> {
+      + Content(viewModel: QuotationViewModel): void
+    }
+    class QuotationUiState {
+      - quotation: Quotation
+      - isLoading: Boolean
+      - errorMessage: String
+    }
+    class QuotationViewModel {
+      - uiState: StateFlow<QuotationUiState>
+      + loadQuotation(quotationId: String): void
+      + onApprove(): void
+      + onReject(reason: String): void
+    }
+    class QuotationItemList <<Composable>> {
+      + Content(items: List<QuotationItem>): void
+    }
+
+    class SaleReceiptScreen <<Composable>> {
+      + Content(viewModel: SaleReceiptViewModel): void
+    }
+    class SaleReceiptUiState {
+      - sale: Sale
+      - isLoading: Boolean
+      - errorMessage: String
+    }
+    class SaleReceiptViewModel {
+      - uiState: StateFlow<SaleReceiptUiState>
+      + loadReceipt(saleId: String): void
+    }
+  }
+
+  package "application" as application {
+    class GetOpticalPrescriptionUseCase {
+      + invoke(clinicalRecordId: String): Result<OpticalPrescription>
+    }
+    class GetQuotationUseCase {
+      + invoke(quotationId: String): Result<Quotation>
+    }
+    class ApproveQuotationUseCase {
+      + invoke(quotationId: String): Result<Quotation>
+    }
+    class RejectQuotationUseCase {
+      + invoke(quotationId: String, reason: String): Result<Quotation>
+    }
+    class GetSaleReceiptUseCase {
+      + invoke(saleId: String): Result<Sale>
+    }
+  }
+
+  package "domain" as domain
+ {
+    class ClinicalRecord {
+      + id: String
+      + patientId: String
+      + examinationDate: String
+      + status: String
+    }
+    class OpticalPrescription {
+      + clinicalRecordId: String
+      + sphereOD: Double
+      + cylinderOD: Double
+      + axisOD: Int
+      + sphereOS: Double
+      + cylinderOS: Double
+      + axisOS: Int
+      + addition: Double
+      + treatment: String
+    }
+    class Quotation {
+      + id: String
+      + items: List<QuotationItem>
+      + discountValue: Double
+      + total: Double
+      + status: String
+    }
+    class QuotationItem {
+      + description: String
+      + unitPrice: Double
+      + quantity: Int
+    }
+    class Sale {
+      + id: String
+      + quotationId: String
+      + paymentMethod: String
+      + amount: Double
+      + status: String
+    }
+    interface ClinicalCommercialRepository {
+      + getPrescription(clinicalRecordId: String): OpticalPrescription
+      + getQuotation(quotationId: String): Quotation
+      + approveQuotation(quotationId: String): Quotation
+      + rejectQuotation(quotationId: String, reason: String): Quotation
+      + getSale(saleId: String): Sale
+    }
+  }
+
+  package "infrastructure" as infrastructure {
+    package "remote" as remote {
+      interface ClinicalCommercialApiService <<Retrofit>> {
+        + getPrescription(clinicalRecordId: String): OpticalPrescriptionDto
+        + getQuotation(quotationId: String): QuotationDto
+        + approveQuotation(quotationId: String): QuotationDto
+        + rejectQuotation(quotationId: String, reason: String): QuotationDto
+        + getSale(saleId: String): SaleDto
+      }
+      class ClinicalCommercialRemoteDataSource {
+        - api: ClinicalCommercialApiService
+        + fetchPrescription(clinicalRecordId: String): OpticalPrescription
+        + fetchQuotation(quotationId: String): Quotation
+        + fetchSale(saleId: String): Sale
+      }
+    }
+    package "repository" as repository {
+      class ClinicalCommercialRepositoryImpl {
+        - remoteDataSource: ClinicalCommercialRemoteDataSource
+        + getPrescription(clinicalRecordId: String): OpticalPrescription
+        + getQuotation(quotationId: String): Quotation
+        + approveQuotation(quotationId: String): Quotation
+        + rejectQuotation(quotationId: String, reason: String): Quotation
+        + getSale(saleId: String): Sale
+      }
+    }
+  }
+}
+
+PrescriptionScreen --> PrescriptionViewModel : observa
+PrescriptionViewModel "1" --> "1" PrescriptionUiState : expone
+PrescriptionViewModel --> GetOpticalPrescriptionUseCase : invoca
+PrescriptionUiState "1" o-- "0..1" OpticalPrescription : contiene
+
+QuotationScreen --> QuotationViewModel : observa
+QuotationScreen --> QuotationItemList : compone
+QuotationItemList ..> QuotationItem : muestra
+QuotationViewModel "1" --> "1" QuotationUiState : expone
+QuotationViewModel --> GetQuotationUseCase : invoca
+QuotationViewModel --> ApproveQuotationUseCase : invoca
+QuotationViewModel --> RejectQuotationUseCase : invoca
+QuotationUiState "1" o-- "0..1" Quotation : contiene
+
+SaleReceiptScreen --> SaleReceiptViewModel : observa
+SaleReceiptViewModel "1" --> "1" SaleReceiptUiState : expone
+SaleReceiptViewModel --> GetSaleReceiptUseCase : invoca
+SaleReceiptUiState "1" o-- "0..1" Sale : contiene
+
+' -- Relaciones Application -> Domain --
+GetOpticalPrescriptionUseCase --> ClinicalCommercialRepository : usa
+GetQuotationUseCase --> ClinicalCommercialRepository : usa
+ApproveQuotationUseCase --> ClinicalCommercialRepository : usa
+RejectQuotationUseCase --> ClinicalCommercialRepository : usa
+GetSaleReceiptUseCase --> ClinicalCommercialRepository : usa
+
+Quotation "1" *-- "1..*" QuotationItem : compone
+ClinicalRecord "1" --> "0..1" OpticalPrescription : origina
+
+' -- Relaciones Infrastructure -> Domain (implementación) --
+ClinicalCommercialRepositoryImpl ..|> ClinicalCommercialRepository : implementa
+ClinicalCommercialRepositoryImpl --> ClinicalCommercialRemoteDataSource : usa
+ClinicalCommercialRemoteDataSource --> ClinicalCommercialApiService : usa
+@enduml

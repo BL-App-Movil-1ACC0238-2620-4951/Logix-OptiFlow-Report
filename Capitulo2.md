@@ -1352,13 +1352,11 @@ El componente de presentación expone la API REST y traduce las solicitudes HTTP
 
 El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones.
 
-[me falta la diagrama de clases]
+![Clinical-Commercial.svg](assets/cap2/class-diagram/imageclass/Clinical-Commercial.svg)
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
 El esquema relacional (PostgreSQL) refleja la persistencia de los tres agregados como tablas independientes vinculadas por llaves foráneas: `clinical_records` como raíz, con `medical_histories` y `optical_prescriptions` en relación 1 a 1 opcional; `quotations` referencia a `clinical_records` y compone `quotation_items`; y `sales` referencia a `quotations`, dando lugar opcionalmente a `electronic_receipts`.
-
-[faltaria el diagrama de la base de datos para recolectar la coneccion entre los clinical_records medical_histories y optical_prescriptions]
 
 ### 2.6.3. Bounded Context: Production & Tracking Context
 
