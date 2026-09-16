@@ -1274,9 +1274,35 @@ La infraestructura se mantiene separada del dominio para evitar que las reglas d
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
+El siguiente UML Class Diagram representa la estructura del **Domain Layer** correspondiente al Bounded Context **Search & Booking**.
+
+El modelo tiene como elemento principal al Aggregate Root `Appointment`, encargado de representar el proceso de reserva de una cita. Este se relaciona con las Entities `Patient`, `OpticalStore` y `TimeSlot`, las cuales representan respectivamente al paciente que realiza la reserva, la óptica seleccionada y el horario disponible para la atención.
+
+El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde.
+
+<div align="center">
+  <img src="assets/cap2/Class Diagrams.png" alt="Search and Booking Domain Layer Class Diagram" width="1000">
+</div>
+
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
+El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Search & Booking**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza una base de datos relacional independiente implementada mediante **PostgreSQL**.
 
+El modelo está compuesto por las tablas `patients`, `optical_stores`, `time_slots`, `appointments`, `favorite_stores` y `store_ratings`.
+
+La tabla `patients` almacena la información de los pacientes registrados, mientras que `optical_stores` contiene la información correspondiente a las ópticas disponibles dentro de la plataforma. Cada óptica puede disponer de múltiples registros en `time_slots`, los cuales representan los horarios disponibles para realizar una reserva.
+
+La tabla `appointments` representa las citas registradas en el sistema y mantiene relaciones mediante Foreign Keys con `patients`, `optical_stores` y `time_slots`. De esta manera, cada cita puede asociarse con el paciente que realizó la reserva, la óptica seleccionada y el horario correspondiente.
+
+Por otro lado, `favorite_stores` representa la relación entre los pacientes y las ópticas marcadas como favoritas. Para evitar que un mismo paciente registre repetidamente una misma óptica como favorita, se utiliza una **Primary Key compuesta** formada por `patient_id` y `optical_store_id`. Ambas columnas también funcionan como Foreign Keys hacia las tablas `patients` y `optical_stores`.
+
+De manera similar, `store_ratings` representa las valoraciones realizadas por los pacientes hacia las ópticas. Esta tabla utiliza una Primary Key compuesta por `patient_id` y `optical_store_id`, permitiendo identificar la valoración correspondiente a cada relación entre paciente y óptica.
+
+El modelo utiliza **Primary Keys, Foreign Keys, restricciones de unicidad y restricciones de validación** para mantener la integridad de los datos y representar correctamente las reglas necesarias para el proceso de búsqueda y reserva.
+
+<div align="center">
+  <img src="assets/cap2/Database Design Diagram.png" alt="Search and Booking Database Design Diagram" width="1000">
+</div>
 
 ### 2.6.2. Bounded Context: Clinical & Commercial Context
 
@@ -1356,7 +1382,19 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-El esquema relacional (PostgreSQL) refleja la persistencia de los tres agregados como tablas independientes vinculadas por llaves foráneas: `clinical_records` como raíz, con `medical_histories` y `optical_prescriptions` en relación 1 a 1 opcional; `quotations` referencia a `clinical_records` y compone `quotation_items`; y `sales` referencia a `quotations`, dando lugar opcionalmente a `electronic_receipts`.
+El siguiente Database Design Diagram representa el modelo de persistencia del Bounded Context **Clinical & Commercial**, implementado mediante PostgreSQL.
+
+El esquema se organiza alrededor de `clinical_records`, que almacena la información principal de cada atención clínica. Las tablas `medical_histories` y `optical_prescriptions` dependen de dicho registro y permiten persistir los antecedentes clínicos y la receta óptica correspondiente.
+
+Las cotizaciones se almacenan mediante `quotations`, mientras que sus elementos son registrados en `quotation_items`. Los datos correspondientes al descuento se mantienen dentro de la cotización debido a que `Discount` forma parte de su estado y no posee identidad independiente.
+
+Una cotización aprobada puede originar una venta registrada en `sales`. Los datos correspondientes al pago se mantienen dentro de esta estructura, mientras que `electronic_receipts` registra el comprobante electrónico asociado a la venta.
+
+Las relaciones se establecen mediante Primary Keys, Foreign Keys y restricciones de unicidad para mantener la integridad de los agregados y sus entidades persistentes.
+
+<div align="center">
+  <img src="assets/cap2/DB-Clinical & Commercial.png" alt="Clinical and Commercial Database Design Diagram" width="1000">
+</div>
 
 ### 2.6.3. Bounded Context: Production & Tracking Context
 
@@ -1561,16 +1599,33 @@ En esta sección se presenta el **Component Diagram** correspondiente al Bounded
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-En esta sección se presenta el **Class Diagram** correspondiente al Domain Layer de Production & Tracking, incluyendo los principales conceptos del dominio relacionados con `Work Order`, `Technician`, `Laboratory`, `Lenses`, `Work Order Status`, `Delivery Date` y `Delivery Delay`.
+El siguiente UML Class Diagram representa la estructura del Domain Layer correspondiente al Bounded Context **Production & Tracking**.
 
-**Evidencia del Class Diagram:**
+El modelo se organiza alrededor de `WorkOrder`, que representa el Aggregate Root encargado de controlar el ciclo de vida de una orden de trabajo desde su generación hasta la entrega final del pedido. La orden puede ser asignada a un `Technician`, enviada a un `Laboratory` y contiene las `Lenses` que forman parte del proceso de fabricación.
+
+El estado actual de la orden es representado mediante `WorkOrderStatus`, el cual permite identificar las diferentes etapas del flujo de producción: pendiente, en taller, control de calidad y listo para entrega. Asimismo, `DeliveryDate` representa la fecha estimada de entrega del pedido, mientras que `DeliveryDelay` permite representar situaciones relacionadas con retrasos durante el proceso de fabricación.
+
+El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo.
+
+<div align="center">
+  <img src="assets/cap2/ProductionTrackingDomainLayerClassDiagram.png" alt="Production and Tracking Domain Layer Class Diagram" width="1000">
+</div>
+
 
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-En esta sección se presenta el **Database Design Diagram** correspondiente a la persistencia utilizada por Production & Tracking, mostrando las estructuras necesarias para almacenar la información asociada al proceso de producción y seguimiento de las órdenes de trabajo.
+El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Production & Tracking**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza **MongoDB** como mecanismo de persistencia.
 
-**Evidencia del Database Design Diagram:**
+El modelo se organiza alrededor de la colección `work_orders`, correspondiente a la representación persistente de `WorkOrderEntity`. Cada documento almacena la información necesaria para representar la orden de trabajo y los conceptos asociados a su proceso de fabricación.
+
+Dentro del documento de una orden pueden representarse la información del técnico asignado, el laboratorio, las lentes asociadas, el estado actual de producción, la fecha estimada de entrega y la información relacionada con posibles retrasos.
+
+Debido al uso de MongoDB, los elementos que forman parte del agregado pueden representarse mediante documentos embebidos y arreglos internos, evitando la necesidad de utilizar relaciones mediante Primary Keys y Foreign Keys propias de un modelo relacional.
+
+<div align="center">
+  <img src="assets/cap2/ProductionTrackingDatabaseDesignDiagram.png" alt="Production and Tracking Database Design Diagram" width="1000">
+</div>
 
 
 ### 2.6.4. Bounded Context: Store Management & Inventory Context
@@ -1768,15 +1823,38 @@ En esta sección se presenta el **Component Diagram** correspondiente al Bounded
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-En esta sección se presenta el **Class Diagram** correspondiente al Domain Layer de Store Management & Inventory, mostrando los principales conceptos relacionados con `Frame Model`, `Catalog`, `Price`, `Stock`, `Inventory`, `Low Stock Alert`, `Supplier` y `Replenishment`.
+El siguiente UML Class Diagram representa la estructura del Domain Layer correspondiente al Bounded Context **Store Management & Inventory**.
 
-**Evidencia del Class Diagram:**
+El modelo se organiza principalmente alrededor de `FrameModel` e `Inventory`. `FrameModel` representa los modelos de monturas disponibles para la óptica y mantiene información relacionada con sus características y precio. Por su parte, `Inventory` controla las existencias físicas de los productos y concentra las operaciones de consulta, incremento, reducción y reabastecimiento de stock.
+
+`Catalog` representa el conjunto de modelos de monturas disponibles, mientras que `Price` se modela como un Value Object asociado a `FrameModel`. La entidad `Stock` mantiene la cantidad disponible y el nivel mínimo definido para cada modelo de montura, permitiendo determinar cuándo las existencias han alcanzado un nivel crítico.
+
+El proceso de abastecimiento se representa mediante `Replenishment`, el cual relaciona el inventario, el producto y el `Supplier` responsable del suministro. Asimismo, `LowStockAlert` representa la información generada cuando la cantidad disponible de un producto alcanza o se encuentra por debajo del nivel mínimo establecido.
+
+El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository` y `SupplierRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores.
+
+<div align="center">
+  <img src="assets/cap2/StoreManagementInventoryDomainLayerClassDiagram.png" alt="Store Management and Inventory Domain Layer Class Diagram" width="1000">
+</div>
+
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-En esta sección se presenta el **Database Design Diagram** correspondiente a la persistencia utilizada por Store Management & Inventory, mostrando las estructuras necesarias para gestionar los modelos de monturas, catálogo, precios, existencias, inventario y proveedores.
+El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Store Management & Inventory**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza **PostgreSQL** como sistema de gestión de base de datos relacional.
 
-**Evidencia del Database Design Diagram:**
+El modelo se organiza alrededor de las tablas `frame_models`, `inventories`, `inventory_stocks`, `suppliers` y `replenishments`.
+
+La tabla `frame_models` almacena la información correspondiente a los modelos de monturas registrados en el catálogo, incluyendo sus principales características y la información de precio. Debido a que `Price` forma parte del estado de un modelo de montura y no posee identidad independiente, sus datos se almacenan directamente dentro de `frame_models`.
+
+La tabla `inventories` representa los inventarios administrados por el contexto, mientras que `inventory_stocks` mantiene las existencias de cada modelo de montura. Esta última utiliza una Primary Key compuesta formada por `inventory_id` y `frame_model_id`, permitiendo mantener un único registro de stock para cada modelo dentro de un inventario.
+
+La tabla `suppliers` almacena los proveedores responsables del abastecimiento de productos. Por otro lado, `replenishments` registra las operaciones de reposición de stock, relacionando un inventario, un modelo de montura y el proveedor involucrado en el abastecimiento.
+
+Las relaciones entre las tablas se establecen mediante Primary Keys y Foreign Keys, permitiendo mantener la integridad referencial de la información relacionada con catálogo, existencias, proveedores y operaciones de reabastecimiento.
+
+<div align="center">
+  <img src="assets/cap2/StoreManagementInventoryDatabaseDesignDiagram.png" alt="Store Management and Inventory Database Design Diagram" width="1000">
+</div>
 
 
 ### 2.6.5. Bounded Context: Notification & Loyalty Context
@@ -1976,10 +2054,32 @@ La comunicación con **Third-Party Messaging** se realiza siguiendo el patrón *
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
+El siguiente UML Class Diagram representa la estructura del Domain Layer correspondiente al Bounded Context **Notification & Loyalty**.
 
-El diagrama 
+El modelo se organiza principalmente alrededor de `NotificationPreferences`, que representa la configuración de comunicación asociada al paciente y permite determinar los canales mediante los cuales pueden enviarse las diferentes notificaciones.
+
+`PatientBirthday` representa la información utilizada para detectar fechas especiales del paciente y puede activar la generación de un `BirthdayDiscount`. Por otro lado, `SatisfactionSurvey` permite representar las encuestas enviadas después de la entrega de un pedido, mientras que `ReactivationCampaign` modela las campañas destinadas a incentivar futuros controles visuales.
+
+`InAppNotification` representa los mensajes mostrados directamente dentro de la aplicación y puede utilizar información de `OrderProgress` para comunicar los cambios producidos durante la fabricación de un pedido. Asimismo, `StaffMember` representa al personal responsable de gestionar las comunicaciones cuando corresponda.
+
+El Domain Layer incluye también las interfaces de repositorio necesarias para abstraer la persistencia de notificaciones, preferencias de comunicación, encuestas, miembros del personal y campañas de reactivación. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las diferentes operaciones de notificación y fidelización.
+
+<div align="center">
+  <img src="assets/cap2/NotificationLoyaltyDomainLayerClassDiagram.png" alt="Notification and Loyalty Domain Layer Class Diagram" width="1000">
+</div>
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
+El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Notification & Loyalty**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza **MongoDB** como sistema de persistencia NoSQL orientado a documentos.
 
-El diagrama 
+El modelo está compuesto por las colecciones `notification_preferences`, `notifications`, `satisfaction_surveys`, `staff_members` y `reactivation_campaigns`, correspondientes a los principales elementos persistentes identificados en la Infrastructure Layer.
+
+La colección `notification_preferences` almacena la configuración de comunicación asociada a cada paciente, permitiendo determinar los canales habilitados para el envío de mensajes. La colección `notifications` almacena las notificaciones generadas dentro del contexto y puede contener información embebida de `OrderProgress` cuando la comunicación está relacionada con el avance de una orden de trabajo.
+
+Por otro lado, `satisfaction_surveys` almacena las encuestas enviadas a los pacientes después de la entrega de sus pedidos, mientras que `staff_members` mantiene la información del personal que puede ser asignado a la gestión de notificaciones. Finalmente, `reactivation_campaigns` registra las campañas utilizadas para incentivar futuros controles visuales.
+
+Debido al uso de MongoDB, las relaciones entre los elementos del dominio pueden representarse mediante documentos embebidos o referencias lógicas, sin utilizar Primary Keys y Foreign Keys propias de un modelo relacional.
+
+<div align="center">
+  <img src="assets/cap2/NotificationLoyaltyDatabaseDesignDiagram.png" alt="Notification and Loyalty Database Design Diagram" width="1000">
+</div>
