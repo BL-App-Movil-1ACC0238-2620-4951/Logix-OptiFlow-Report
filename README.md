@@ -24,13 +24,17 @@ Proyecto<br>
 
 <br>**Integrantes** 
 
+<div align="center"> 
+
 | Código|Apellidos y Nombres|
 |-------------| --------------------------------- |
 | U20241d317| Atoche Gonzáles, Nicolás Fernando|
 | U20211b387| Becerra Ttito, Felix Orlando|
 | U201911249| Celis Berrospi, Eslander|
 | U202411521| Morocho Pinedo, Mariana|
-| U202417405| Quispe llacsahuanga, Cesar Agusto|
+| U202417405| Quispe llacsahuanga, Cesar Agusto| 
+
+</div>
 
 **Período 202620**  
 
@@ -40,15 +44,14 @@ Proyecto<br>
 <div class="page"></div>
 <br>
 
-# Registro de Versiones del Informe
-
-| Versión | Fecha | Autores | Descripción de modificación  |
+# Registro de Versiones del Informe 
+ 
+| Versión | Fecha | Autores | Descripción de modificación |
 | ----------- | --------- |----------- |--------------------|
-| AV1 | | Atoche Gonzáles, Nicolás Fernando <br> </br> Becerra Ttito, Felix Orlando <br><br> Celis Berrospi, Eslander <br><br> Morocho Pinedo, Mariana <br><br> Quispe llacsahuanga, Cesar Agusto | |
-| TB1 | |  | |
+| AV1 | 17/09/2026 | Atoche Nicolás Fernando <br> </br> Becerra Felix Orlando <br><br> Celis Eslander <br><br> Morocho Pinedo Mariana <br><br> Quispe Cesar Agusto | Desarrollo del avance inicial del informe de OptiFlow, incluyendo el análisis de antecedentes y problemática, análisis de competidores, entrevistas y levantamiento de requisitos. Elaboración y priorización de User Stories y Product Backlog. Desarrollo del análisis estratégico del dominio mediante EventStorming, Candidate Context Discovery, Domain Message Flows, Bounded Context Canvases y Context Mapping. Definición de los Bounded Contexts: Search & Booking, Clinical & Commercial, Production & Tracking, Store Management & Inventory y Notification & Loyalty. Desarrollo inicial del diseño táctico de los Bounded Contexts y de la arquitectura de software mediante diagramas C4 de Context, Container y Component. Elaboración de diagramas de diseño de dominio y base de datos para los contextos desarrollados, además de la organización de conclusiones y anexos del informe. |
+| TB1 | | | |
 | AV2 | | | |
 | TB2 | | | |
-
 <div style="page-break-after: always;"></div>
 
 # Project Report Collaboration Insights
@@ -76,9 +79,6 @@ Durante esta fase, el equipo elaboró el **informe inicial**, que incluyó los s
 - **Registro de Versiones del Informe**, documentando los cambios realizados.
 - **Capítulo I** con nuestra propuesta inicial de nuestro proyecto.
 - **Capítulo II** con los primeros avances en Requirements Elicitation & Analysis.
-- **Capítulo III** con la especificación de Requisitos, User Stories y Product Backlog.
-- **Capítulo IV** con los avances en Product Design, incluyendo Style Guidelines, Wireframes y Mockups.
-- **Capítulo V** con los avances del Product Implementation, Validation & Deployment.
 - **Adicionalmente** conclusiones, bibliografía y anexos.
 
 A continuación se presenta la captura de los analíticos de colaboración y commits en GitHub para este entregable:
@@ -102,6 +102,8 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
 ## AV2 - Semana 12
 
 ## TB2 - Semana 12
+
+-----
 
 # Tabla de Contenidos
 
