@@ -557,31 +557,53 @@ Se detalla el mapa de empatía de Valeria Morales, reflejando su experiencia com
 
 ### 2.3.5. Big Picture EventStorming
 
-Antes de definir módulos o componentes técnicos para OptiFlow, el equipo realizó una sesión colaborativa de Big Picture EventStorming con el objetivo de explorar el dominio del negocio desde una perspectiva integral. Esta actividad permitió mapear los principales eventos que ocurren en el sector óptico, desde la búsqueda de establecimientos y reserva de turnos hasta la evaluación optométrica, la cotización comercial, la manufactura de lunas en laboratorio, la gestión de inventario y la fidelización del paciente.
+Como parte culminante de la fase de Needfinding, el equipo de desarrollo de **OptiFlow** llevó a cabo una sesión colaborativa de Big Picture EventStorming empleando la plataforma virtual Miro. Esta técnica de diseño estratégico nos permite modelar de forma visual y participativa el dominio integral de las ópticas independientes y medianas. La sesión congregó a desarrolladores y expertos del negocio con el propósito de alinear la comprensión del flujo operativo, identificar eventos significativos del dominio y detectar puntos críticos de fricción antes de formalizar la arquitectura técnica del sistema.
 
-A diferencia de un inventario aislado de eventos, el equipo organizó los acontecimientos cronológicamente a lo largo de una línea de tiempo (flujo end-to-end), identificando a los actores intervinientes (Valeria Morales como paciente y Marcelo Ruiz como optómetra/administrador), los comandos disparadores, las políticas temporales del sistema y los puntos críticos de fricción operativa (*hot spots*).
+El desarrollo del taller se estructuró en fases iterativas orientadas a construir la línea de tiempo de extremo a extremo (*end-to-end*):
+
+- **Recolección de eventos de dominio:** Los participantes plasmaron los hechos concretos que suceden en la operación diaria de una óptica, redactándolos en participio pasado sobre tarjetas adhesivas naranjas (por ejemplo, *cita fue confirmada*, *examen refractivo fue completado*, *receta médica EHR fue generada*).
+- **Ordenamiento cronológico y revisión inversa:** Los eventos se distribuyeron secuencialmente en un eje temporal horizontal, aplicando una auditoría en sentido inverso para verificar la consistencia de las dependencias y descartar omisiones operativas.
+- **Segmentación por carriles de actores:** Se incorporaron tarjetas de actor (amarillas) para agrupar los eventos según las responsabilidades de los roles involucrados: Paciente (Valeria Morales), Asesor Comercial / Recepción, Optómetra (Marcelo Ruiz), Técnico de Laboratorio y Mostrador y Fidelización.
+- **Detección de puntos críticos (*hotspots*):** Se delimitaron tres macro-etapas operativas y se marcaron mediante rombos de advertencia (?) las zonas de vulnerabilidad e ineficiencia que ralentizan el servicio.
+
+A continuación, la primera vista del tablero expone la recolección exhaustiva de los veintiocho eventos de dominio ordenados cronológicamente a lo largo de la línea temporal:
 
 <div align="center">
-  <img src="assets/cap2/BigPicture1.png" alt="Big Picture EventStorming - OptiFlow"/>
+  <img src="assets/cap2/BigPictureEventStorming1.png" alt="Recolección y Flujo Cronológico de Eventos de Dominio en Miro - OptiFlow" width="100%"/>
 </div>
 
 <br>
 
+Complementariamente, la segunda vista del tablero detalla la distribución de los eventos a lo largo de los carriles funcionales de actores, dividiendo el flujo en tres macro-etapas operativas y explicitando los cuatro puntos críticos descubiertos durante el taller:
+
 <div align="center">
-  <img src="assets/cap2/BigPicture2.png" alt="Big Picture EventStorming - OptiFlow"/>
+  <img src="assets/cap2/BigPictureEventStorming2.png" alt="Estructuración por Carriles de Actores, Etapas del Proceso y Puntos Críticos - OptiFlow" width="100%"/>
 </div>
 
 <br>
 
-Como resultado de esta dinámica, el flujo de negocio se consolidó en cinco subprocesos secuenciales:
+A partir de esta modelación colaborativa, el análisis detallado del negocio permitió aislar tres macro-etapas operativas y sus respectivos focos de fricción representados por los rombos de advertencia (?):
 
-* **Búsqueda y Reserva de Citas:** Inicia cuando la paciente consulta sucursales y horarios, formalizando el evento `Cita Agendada` (*AppointmentBooked*), con capacidades de reprogramación y confirmación presencial (`Paciente Registró Asistencia`), mitigando el ausentismo no alertado.
-* **Consulta Clínica y Venta:** Comprende la refracción médica (`Examen Refractivo Completado`), la emisión de la receta digital (`Receta Médica Generada`), la estructuración del presupuesto (`Cotización Aprobada`) y el cobro mediante canales presenciales o digitales (`Venta Concretada`), resolviendo la recurrente pérdida de medidas físicas.
-* **Producción y Taller:** Articula el ciclo de manufactura técnica disparado tras la venta (`Orden de Trabajo Creada`), abarcando el tallado, biselado y montaje de lunas, el control de calidad estricto y la puesta a disposición en mostrador (`Pedido Listo para Recojo`), eliminando la incertidumbre del cliente sobre los tiempos de laboratorio.
-* **Inventario y Suministro:** Regula la catalogación de modelos (`Modelo de Montura Añadido`), el abastecimiento por proveedores y la deducción automática de stock tras cada transacción (`Stock de Almacén Descontado`), alertando ante quiebres de existencias críticas.
-* **Alertas y Fidelización:** Orquesta la comunicación reactiva mediante avisos de retiro de pedido, encuestas de servicio post-entrega y políticas temporales automatizadas para saludos de cumpleaños y convocatorias al control visual anual preventivo.
+**1. Búsqueda, Descubrimiento y Agendamiento de Citas (Paciente y Recepción)**
+Esta fase inicial modela el comportamiento del paciente frente a la necesidad de corrección visual. El usuario explora ópticas cercanas, examina sucursales, consulta el catálogo y solicita formalmente su cita.
+- **Punto Crítico 1 (Ausentismo en Citas):** Ubicado tras la confirmación de la cita, refleja el ausentismo no alertado debido al olvido del turno pactado por parte del paciente, generando tiempos muertos en el consultorio y desaprovechamiento de los horarios médicos.
 
-Esta exploración integral evidenció que términos como *Montura* o *Paciente* poseían significados dispares según el área operativa, lo cual constituyó el insumo principal para demarcar el lenguaje ubicuo del sistema y justificar la posterior delimitación de los Bounded Contexts estratégicos de la solución.
+**2. Evaluación Clínica, Presupuesto y Conversión Comercial (Optómetra y Asesor de Ventas y Caja)**
+Comprende la atención presencial dentro de la óptica. El optómetra ejecuta la refracción en cabina y genera la receta médica digital (EHR). Posteriormente, el asesor comercial asiste en la elección de la montura, valida existencias en inventario, calcula la cotización y concreta la venta tras registrar el cobro (efectivo, tarjeta o billeteras digitales Yape/Plin).
+- **Punto Crítico 2 (Pérdida de Historial Clínico):** Ubicado tras la generación de la receta médica, responde a la dificultad histórica de los pacientes para conservar recetas de papel anteriores y recordar especificaciones de tratamientos (antirreflejo o filtros), obligando a repetir consultas previas.
+- **Punto Crítico 3 (Desfase de Stock y Contingencia Offline):** Ubicado tras el cálculo de la cotización, señala el riesgo de prescribir monturas exhibidas en vitrina que no cuentan con existencia real en almacén, así como la vulnerabilidad de las ventas ante cortes imprevistos de internet en el salón, lo cual exige una arquitectura con soporte local (*Offline-First*).
+
+**3. Fabricación en Taller, Control de Calidad y Cierre Postventa (Técnico de Laboratorio y Mostrador y Fidelización)**
+Engloba la trazabilidad técnica posterior al cierre comercial. Se apertura la orden de trabajo para el taller, se inicia el tallado y montaje de lunas, y se somete la pieza a inspección de calidad antes de enviarla a mostrador. Finalmente, se entrega el producto terminado al paciente y se activan los flujos de fidelización (encuestas de atención, saludos de cumpleaños y recordatorios anuales).
+- **Punto Crítico 4 (Incertidumbre en Tiempos de Fabricación):** Ubicado al finalizar el control de calidad y traslado a mostrador, refleja la falta de visibilidad del paciente sobre el avance real de sus lentes en taller, provocando consultas telefónicas reiteradas y sobrecarga operativa en el personal de atención.
+
+**Articulación con los Bounded Contexts de OptiFlow**
+Las fronteras funcionales y semánticas descubiertas durante el Big Picture EventStorming justifican formalmente la descomposición arquitectónica del backend en cinco Bounded Contexts:
+- **Search & Booking Context:** Soporta la búsqueda de sucursales, horarios de atención y reserva formal de citas.
+- **Clinical & Commercial Context:** Centraliza el historial clínico electrónico (EHR), recetas médicas, cotizaciones y cobros comerciales.
+- **Production & Tracking Context:** Administra la orden de trabajo en taller, el tablero Kanban y la trazabilidad de fabricación.
+- **Store Management & Inventory Context:** Controla el catálogo de monturas, precios, reabastecimiento y stock físico.
+- **Notification & Loyalty Context:** Gestiona los avisos de recojo por WhatsApp/Push, encuestas de satisfacción y recordatorios preventivos de salud visual.
 
 ### 2.3.6. Ubiquitous Language
 
