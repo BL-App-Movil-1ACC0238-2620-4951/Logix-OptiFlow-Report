@@ -968,16 +968,13 @@ En esta relación, la plataforma de mensajería externa (**Meta WhatsApp Cloud A
 ##### Store Management & Inventory
 ![Store Management & Inventory component.svg](assets/cap2/C4/Store%20Management%20%26%20Inventory%20component.svg)
 
+<a id="Tactical-Level Domain-Driven Design"></a>
 ## 2.6. Tactical-Level Domain-Driven Design
 
+<a id="2.6.1. Bounded Context: Search & Booking Context"></a>
 ### 2.6.1. Bounded Context: Search & Booking Context
 
-El Bounded Context **Search & Booking** es uno de los contextos principales de la solución OptiFlow y está clasificado estratégicamente como **Core Domain**. Su responsabilidad es gestionar el proceso inicial de interacción del paciente con las ópticas, desde la búsqueda y filtrado de establecimientos hasta la exploración del catálogo de monturas y la reserva de citas según la disponibilidad de horarios.
-
-Este contexto encapsula las reglas relacionadas con la identidad del paciente, las ópticas disponibles, los horarios de atención, las preferencias del paciente, las valoraciones y el proceso de reserva. De esta manera, mantiene un modelo de dominio independiente de los demás Bounded Contexts y publica eventos que permiten continuar el flujo hacia los contextos **Clinical & Commercial** y **Notification & Loyalty**.
-
-El lenguaje ubicuo definido para este contexto comprende los conceptos `Patient`, `Time Slot`, `Optical Store`, `Store Catalog`, `Favorite Store`, `Store Rating`, `Appointment` y `Booking`. Asimismo, las principales operaciones de entrada corresponden a los comandos `RegisterPatient`, `LogIn`, `PublishAvailableTimeSlots`, `SearchOpticalStores`, `FilterOpticalStores`, `SaveFavoriteOpticalStore`, `ExploreFrameCatalog`, `RateOpticalStore` y `BookAppointment`. :contentReference[oaicite:1]{index=1}
-
+<a id="2.6.1.1. Domain Layer"></a>
 #### 2.6.1.1. Domain Layer
 
 La **Domain Layer** concentra el modelo de negocio del Bounded Context Search & Booking. En esta capa se definen los agregados, entidades, objetos de valor, enumeraciones, servicios de dominio, repositorios y eventos de dominio necesarios para representar las reglas del proceso de búsqueda y reserva de citas.
@@ -1116,6 +1113,7 @@ Los eventos anteriores corresponden a los eventos publicados definidos para el *
 
 ---
 
+<a id="2.6.1.2. Interface Layer"></a>
 #### 2.6.1.2. Interface Layer
 
 La **Interface Layer** representa el punto de entrada al Bounded Context Search & Booking. Su responsabilidad es recibir las solicitudes provenientes de la aplicación cliente y traducirlas al modelo utilizado por la Application Layer.
@@ -1163,6 +1161,7 @@ Esta capa permite exponer las capacidades de búsqueda, consulta de disponibilid
 
 ---
 
+<a id="2.6.1.3. Application Layer"></a>
 #### 2.6.1.3. Application Layer
 
 La **Application Layer** coordina los casos de uso del Bounded Context Search & Booking. Esta capa recibe commands y queries desde la Interface Layer, coordina los servicios y repositorios del dominio, controla la ejecución de las operaciones y publica los eventos generados por el dominio.
@@ -1213,6 +1212,7 @@ El evento `AppointmentBooked` constituye una integración importante del context
 
 ---
 
+<a id="2.6.1.4. Infrastructure Layer"></a>
 #### 2.6.1.4. Infrastructure Layer
 
 La "Infrastructure Layer" proporciona las implementaciones concretas de las abstracciones definidas por el Domain Layer. Esta capa contiene los mecanismos de persistencia, comunicación y adaptación necesarios para conectar Search & Booking con los recursos externos.
@@ -1269,10 +1269,13 @@ La infraestructura se mantiene separada del dominio para evitar que las reglas d
 
 ---
 
+<a id="2.6.1.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
+<a id="2.6.1.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
+<a id="2.6.1.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 El siguiente UML Class Diagram representa la estructura del **Domain Layer** correspondiente al Bounded Context **Search & Booking**.
 
@@ -1285,6 +1288,7 @@ El diagrama también incorpora los **Domain Services** relacionados con la dispo
 </div>
 
 
+<a id="2.6.1.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Search & Booking**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza una base de datos relacional independiente implementada mediante **PostgreSQL**.
 
@@ -1304,10 +1308,10 @@ El modelo utiliza **Primary Keys, Foreign Keys, restricciones de unicidad y rest
   <img src="assets/cap2/Database Design Diagram.png" alt="Search and Booking Database Design Diagram" width="1000">
 </div>
 
+<a id="2.6.2. Bounded Context: Clinical & Commercial Context"></a>
 ### 2.6.2. Bounded Context: Clinical & Commercial Context
 
-Este Bounded Context es responsable de la atención clínica presencial del paciente y de la conversión comercial derivada de dicha atención: registro de historia médica, generación de la receta óptica, elaboración y aprobación de cotizaciones, aplicación de promociones o descuentos, y el cierre de la venta con la emisión del recibo electrónico correspondiente. A continuación se detalla, a manera de diccionario de clases, cada una de las clases identificadas para las capas de Domain, Interface, Application e Infrastructure, incluyendo su propósito, atributos, métodos y relaciones.
-
+<a id="2.6.2.1. Domain Layer"></a>
 #### 2.6.2.1. Domain Layer
 
 El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio.
@@ -1331,6 +1335,7 @@ Relaciones principales: `ClinicalRecord` compone 1 `MedicalHistory` y 0..1 `Opti
 
 Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHistoryRecorded`, `ClinicalRecordRegistered`, `OpticalPrescriptionGenerated`, `PromotionOrDiscountApplied`, `QuotationApproved`, `QuotationRejected`, `PaymentRecorded`, `SaleWasClosed`, `ElectronicReceiptIssued`.
 
+<a id="2.6.2.2. Interface Layer"></a>
 #### 2.6.2.2. Interface Layer
 
 | Clase | Tipo | Responsabilidad |
@@ -1340,6 +1345,7 @@ Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHi
 | `SaleController` | REST Controller | Expone `RecordPayment` y `CloseSale`. |
 | `AppointmentBookedConsumer` | Event Consumer | Se suscribe al evento externo `AppointmentBooked` (proveniente de Search & Booking vía Event Bus) y lo traduce al comando interno `ExaminePatient`, actuando como puerto de entrada de la Anti-Corruption Layer documentada en el Context Mapping (2.5.2). |
 
+<a id="2.6.2.3. Application Layer"></a>
 #### 2.6.2.3. Application Layer
 
 | Clase | Tipo | Orquesta |
@@ -1354,6 +1360,7 @@ Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHi
 | `CloseSaleHandler` | Command Handler | Cierra la venta y solicita la emisión del recibo. |
 | `AppointmentBookedEventHandler` | Event Handler | Reacciona a la notificación entrante del `AppointmentBookedConsumer` invocando `ExaminePatientHandler`. |
 
+<a id="2.6.2.4. Infrastructure Layer"></a>
 #### 2.6.2.4. Infrastructure Layer
 
 | Clase | Tipo | Detalle técnico |
@@ -1364,6 +1371,7 @@ Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHi
 | `DomainEventPublisher` | Messaging | Publica los eventos de dominio del contexto hacia el Event Bus (RabbitMQ/Kafka). |
 | `PaymentGatewayAdapter` | Anti-Corruption Layer | Traduce las respuestas de la Pasarela de Pagos externa (POS bancario, Yape, Plin) al modelo interno de `Payment` y `ElectronicReceipt`, aislando al dominio de los formatos propietarios del proveedor bancario (patrón Customer/Supplier documentado en 2.5.2). |
 
+<a id="2.6.2.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
 El siguiente Component Diagram (C4 Model) descompone el container **Clinical & Commercial Service** en sus bloques estructurales principales, agrupados según las cuatro capas descritas: presentation (`Clinical & Commercial Controllers`), application (`Clinical & Commercial Application Services`), domain (`Clinical & Commercial Domain Model`) e infrastructure (`Clinical Record Repository`, `Event Publisher`, `Appointment Event Subscriber` y `Payment Gateway ACL`).
@@ -1372,14 +1380,17 @@ El siguiente Component Diagram (C4 Model) descompone el container **Clinical & C
 
 El componente de presentación expone la API REST y traduce las solicitudes HTTP en comandos de aplicación; la capa de aplicación orquesta los casos de uso descritos en 2.6.2.3; el modelo de dominio concentra las reglas de negocio e invariantes de los agregados `ClinicalRecord`, `Quotation` y `Sale`; y la capa de infraestructura resuelve la persistencia (JPA), la publicación/suscripción de eventos sobre el Event Bus y la integración anticorrupción con la Pasarela de Pagos externa.
 
+<a id="2.6.2.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
+<a id="2.6.2.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
 El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones.
 
 ![Clinical-Commercial.svg](assets/cap2/class-diagram/imageclass/Clinical-Commercial.svg)
 
+<a id="2.6.2.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
 El siguiente Database Design Diagram representa el modelo de persistencia del Bounded Context **Clinical & Commercial**, implementado mediante PostgreSQL.
@@ -1396,18 +1407,10 @@ Las relaciones se establecen mediante Primary Keys, Foreign Keys y restricciones
   <img src="assets/cap2/DB-Clinical & Commercial.png" alt="Clinical and Commercial Database Design Diagram" width="1000">
 </div>
 
+<a id="2.6.3. Bounded Context: Production & Tracking Context"></a>
 ### 2.6.3. Bounded Context: Production & Tracking Context
 
-El Bounded Context **Production & Tracking** es un contexto clasificado estratégicamente como **Core Domain**. Su responsabilidad principal es gestionar la trazabilidad del proceso de fabricación de lentes y monturas, desde la generación de la orden de trabajo hasta su entrega final al paciente.
-
-Este contexto maneja el ciclo de vida de la **Work Order**, incluyendo su generación, asignación a técnicos de laboratorio, envío al laboratorio, actualización de estados mediante un flujo Kanban, cálculo de fechas estimadas de entrega y gestión de retrasos.
-
-El lenguaje ubicuo definido para este contexto comprende los conceptos `Work Order`, `Technician`, `Laboratory`, `Work Order Status`, `Lenses`, `Delivery Date` y `Delivery Delay`.
-
-Además, el contexto recibe el evento `SaleWasClosed` proveniente de **Clinical & Commercial**, a partir del cual se inicia la generación de la orden de trabajo. Durante el proceso de fabricación publica eventos relacionados con la asignación, envío, actualización de estado, finalización de las lentes y entrega del pedido.
-
----
-
+<a id="2.6.3.1. Domain Layer"></a>
 #### 2.6.3.1. Domain Layer
 
 La **Domain Layer** concentra las reglas de negocio relacionadas con la producción y trazabilidad de los pedidos ópticos. Esta capa representa los conceptos propios del contexto y mantiene las reglas del proceso de fabricación independientes de los mecanismos de persistencia, comunicación o infraestructura.
@@ -1472,6 +1475,7 @@ La interacción principal del dominio con otros contextos comienza cuando **Clin
 
 ---
 
+<a id="2.6.3.2. Interface Layer"></a>
 #### 2.6.3.2. Interface Layer
 
 La **Interface Layer** representa el punto de entrada mediante el cual Production & Tracking recibe comandos y eventos externos. Su función es traducir las solicitudes externas hacia las operaciones que serán procesadas por la Application Layer.
@@ -1518,6 +1522,7 @@ Los comandos definidos en el Bounded Context se exponen mediante la API Gateway,
 
 ---
 
+<a id="2.6.3.3. Application Layer"></a>
 #### 2.6.3.3. Application Layer
 
 La **Application Layer** coordina los casos de uso definidos para Production & Tracking. Esta capa recibe los comandos provenientes de la Interface Layer y coordina su ejecución sobre el modelo de dominio.
@@ -1552,6 +1557,7 @@ La Application Layer permite mantener separados los casos de uso del sistema res
 
 ---
 
+<a id="2.6.3.4. Infrastructure Layer"></a>
 #### 2.6.3.4. Infrastructure Layer
 
 La **Infrastructure Layer** contiene las implementaciones técnicas necesarias para conectar el dominio de Production & Tracking con los mecanismos externos de persistencia y comunicación.
@@ -1588,6 +1594,7 @@ La relación se encuentra definida en el Context Mapping del apartado 2.5.2 medi
 
 ---
 
+<a id="2.6.3.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
 En esta sección se presenta el **Component Diagram** correspondiente al Bounded Context **Production & Tracking**, donde se representan los componentes que conforman las capas de interfaz, aplicación, dominio e infraestructura, así como sus relaciones.
@@ -1595,8 +1602,10 @@ En esta sección se presenta el **Component Diagram** correspondiente al Bounded
 **Evidencia del Component Level Diagram:**
 
 
+<a id="2.6.3.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
+<a id="2.6.3.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
 El siguiente UML Class Diagram representa la estructura del Domain Layer correspondiente al Bounded Context **Production & Tracking**.
@@ -1613,6 +1622,7 @@ El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persisten
 
 
 
+<a id="2.6.3.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
 El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Production & Tracking**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza **MongoDB** como mecanismo de persistencia.
@@ -1628,18 +1638,10 @@ Debido al uso de MongoDB, los elementos que forman parte del agregado pueden rep
 </div>
 
 
+<a id="2.6.4. Bounded Context: Store Management & Inventory Contexty"></a>
 ### 2.6.4. Bounded Context: Store Management & Inventory Context
 
-El Bounded Context **Store Management & Inventory** es un contexto clasificado estratégicamente como **Supporting Domain**. Su responsabilidad principal es gestionar las existencias físicas de la óptica, el catálogo de modelos de monturas, los precios, el abastecimiento y los proveedores.
-
-Este contexto permite controlar la disponibilidad de productos físicos, gestionar los modelos de monturas registrados en el catálogo, actualizar sus precios, realizar consultas de stock, gestionar el reabastecimiento y registrar proveedores.
-
-El lenguaje ubicuo definido para este contexto comprende los conceptos `Frame Model`, `Catalog`, `Price`, `Stock`, `Inventory`, `Low Stock Alert`, `Supplier` y `Replenishment`.
-
-Además, el contexto recibe el evento `SaleWasClosed` proveniente de **Clinical & Commercial**, permitiendo evaluar el stock consumido como consecuencia de una venta.
-
----
-
+<a id="2.6.4.1. Domain Layer"></a>
 #### 2.6.4.1. Domain Layer
 
 La **Domain Layer** concentra las reglas de negocio relacionadas con la gestión del catálogo, inventario y abastecimiento de productos físicos de la óptica.
@@ -1695,6 +1697,7 @@ Los principales eventos publicados por el contexto son:
 
 ---
 
+<a id="2.6.4.2. Interface Layer"></a>
 #### 2.6.4.2. Interface Layer
 
 La **Interface Layer** representa el punto de entrada para las operaciones relacionadas con el catálogo, precios, stock, reabastecimiento y proveedores.
@@ -1743,6 +1746,7 @@ La recepción de `SaleWasClosed` forma parte del flujo de integración definido 
 
 ---
 
+<a id="2.6.4.3. Application Layer"></a>
 #### 2.6.4.3. Application Layer
 
 La **Application Layer** coordina los casos de uso relacionados con la administración del catálogo, actualización de precios, consulta de stock, reabastecimiento y gestión de proveedores.
@@ -1777,6 +1781,7 @@ La Application Layer permite mantener separados los casos de uso de las reglas d
 
 ---
 
+<a id="2.6.4.4. Infrastructure Layer"></a>
 #### 2.6.4.4. Infrastructure Layer
 
 La **Infrastructure Layer** contiene las implementaciones técnicas necesarias para persistir la información del catálogo, inventario y proveedores, así como para publicar y consumir eventos.
@@ -1811,6 +1816,7 @@ El evento `SaleWasClosed` permite que Store Management & Inventory reaccione al 
 
 ---
 
+<a id="2.6.4.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
 En esta sección se presenta el **Component Diagram** correspondiente al Bounded Context **Store Management & Inventory**, donde se representan los principales componentes de las capas de Interface, Application, Domain e Infrastructure y sus relaciones.
@@ -1819,8 +1825,10 @@ En esta sección se presenta el **Component Diagram** correspondiente al Bounded
 
 ---
 
+<a id="2.6.4.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
+<a id="2.6.4.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
 El siguiente UML Class Diagram representa la estructura del Domain Layer correspondiente al Bounded Context **Store Management & Inventory**.
@@ -1838,6 +1846,7 @@ El Domain Layer también incluye las interfaces `FrameModelRepository`, `Invento
 </div>
 
 
+<a id="2.6.4.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
 El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Store Management & Inventory**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza **PostgreSQL** como sistema de gestión de base de datos relacional.
@@ -1857,8 +1866,10 @@ Las relaciones entre las tablas se establecen mediante Primary Keys y Foreign Ke
 </div>
 
 
+<a id="2.6.5. Bounded Context: Notification & Loyalty Context"></a>
 ### 2.6.5. Bounded Context: Notification & Loyalty Context
 
+<a id="2.6.5.1. Domain Layer"></a>
 #### 2.6.5.1. Domain Layer
 
 La capa de dominio del **Notification & Loyalty Context** concentra las reglas relacionadas con la comunicación y fidelización del paciente. Este contexto gestiona las notificaciones, preferencias de comunicación, encuestas de satisfacción, campañas de reactivación y beneficios asociados a fechas especiales.
@@ -1907,6 +1918,7 @@ El contexto también consume eventos provenientes de otros Bounded Contexts. `Ap
 
 ---
 
+<a id="2.6.5.2. Interface Layer"></a>
 #### 2.6.5.2. Interface Layer
 
 La Interface Layer expone los puntos de entrada necesarios para ejecutar las operaciones relacionadas con las notificaciones y la fidelización. Los comandos son recibidos mediante el API Gateway y posteriormente transformados a objetos propios de la capa de aplicación.
@@ -1950,6 +1962,7 @@ La Interface Layer expone los puntos de entrada necesarios para ejecutar las ope
 
 ---
 
+<a id="2.6.5.3. Application Layer"></a>
 #### 2.6.5.3. Application Layer
 
 La Application Layer coordina los casos de uso definidos para el contexto de notificaciones y fidelización. Su responsabilidad es recibir los comandos, ejecutar los servicios correspondientes y publicar los eventos resultantes sin incorporar reglas propias del dominio.
@@ -1988,6 +2001,7 @@ La Application Layer coordina los casos de uso definidos para el contexto de not
 
 ---
 
+<a id="2.6.5.4. Infrastructure Layere"></a>
 #### 2.6.5.4. Infrastructure Layer
 
 La Infrastructure Layer implementa los mecanismos técnicos requeridos para persistir información y comunicarse con servicios externos de mensajería. El contexto utiliza una **Anti-Corruption Layer (ACL)** para evitar que los formatos propios de Meta WhatsApp Cloud API o Firebase Cloud Messaging se propaguen hacia el modelo interno de OptiFlow.
@@ -2033,6 +2047,7 @@ La comunicación con **Third-Party Messaging** se realiza siguiendo el patrón *
 
 ---
 
+<a id="2.6.5.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
  el Component Diagram
@@ -2050,8 +2065,10 @@ La comunicación con **Third-Party Messaging** se realiza siguiendo el patrón *
 
 ---
 
+<a id="2.6.5.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 
+<a id="2.6.5.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
 El siguiente UML Class Diagram representa la estructura del Domain Layer correspondiente al Bounded Context **Notification & Loyalty**.
@@ -2068,6 +2085,7 @@ El Domain Layer incluye también las interfaces de repositorio necesarias para a
   <img src="assets/cap2/NotificationLoyaltyDomainLayerClassDiagram.png" alt="Notification and Loyalty Domain Layer Class Diagram" width="1000">
 </div>
 
+<a id="2.6.5.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
 El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Notification & Loyalty**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza **MongoDB** como sistema de persistencia NoSQL orientado a documentos.
