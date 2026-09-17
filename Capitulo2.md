@@ -1597,9 +1597,7 @@ La relación se encuentra definida en el Context Mapping del apartado 2.5.2 medi
 <a id="2.6.3.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-En esta sección se presenta el **Component Diagram** correspondiente al Bounded Context **Production & Tracking**, donde se representan los componentes que conforman las capas de interfaz, aplicación, dominio e infraestructura, así como sus relaciones.
 
-**Evidencia del Component Level Diagram:**
 
 
 <a id="2.6.3.6. Bounded Context Software Architecture Code Level Diagrams"></a>
@@ -1814,16 +1812,11 @@ La **Infrastructure Layer** contiene las implementaciones técnicas necesarias p
 
 El evento `SaleWasClosed` permite que Store Management & Inventory reaccione al cierre de una venta y evalúe el stock consumido. Esta interacción forma parte del flujo de mensajes definido en el modelo estratégico.
 
----
 
 <a id="2.6.4.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-En esta sección se presenta el **Component Diagram** correspondiente al Bounded Context **Store Management & Inventory**, donde se representan los principales componentes de las capas de Interface, Application, Domain e Infrastructure y sus relaciones.
 
-**Evidencia del Component Level Diagram:**
-
----
 
 <a id="2.6.4.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
@@ -1916,7 +1909,6 @@ La capa de dominio del **Notification & Loyalty Context** concentra las reglas r
 
 El contexto también consume eventos provenientes de otros Bounded Contexts. `AppointmentBooked` permite activar los recordatorios de citas, `WorkOrderStatusUpdated` permite notificar el avance del pedido y `OrderWasMarkedAsDelivered` permite iniciar el envío de la encuesta de satisfacción.
 
----
 
 <a id="2.6.5.2. Interface Layer"></a>
 #### 2.6.5.2. Interface Layer
@@ -1960,7 +1952,6 @@ La Interface Layer expone los puntos de entrada necesarios para ejecutar las ope
 | `FromNotifyLensOrderProgressRequestAssembler` | `NotifyLensOrderProgressRequest` → `NotifyLensOrderProgressCommand` |
 | `FromSendReactivationCampaignRequestAssembler` | `SendReactivationCampaignRequest` → `SendReactivationCampaignCommand` |
 
----
 
 <a id="2.6.5.3. Application Layer"></a>
 #### 2.6.5.3. Application Layer
@@ -1999,7 +1990,6 @@ La Application Layer coordina los casos de uso definidos para el contexto de not
 | `OrderProgressNotificationService` | Coordina las notificaciones relacionadas con el avance de las órdenes. |
 | `ReactivationCampaignService` | Coordina el envío de campañas de reactivación. |
 
----
 
 <a id="2.6.5.4. Infrastructure Layere"></a>
 #### 2.6.5.4. Infrastructure Layer
@@ -2045,25 +2035,10 @@ La Infrastructure Layer implementa los mecanismos técnicos requeridos para pers
 
 La comunicación con **Third-Party Messaging** se realiza siguiendo el patrón **Customer / Supplier**, donde la plataforma externa actúa como proveedor y Notification & Loyalty como cliente. La ACL permite desacoplar las plantillas y eventos propios de OptiFlow de los payloads y cabeceras requeridos por los servicios externos.
 
----
 
 <a id="2.6.5.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
- el Component Diagram
-
-##### Componentes principales
-
-| Componente | Responsabilidad |
-|---|---|
-| `Notification API` | Expone las operaciones relacionadas con notificaciones. |
-| `Notification Application` | Coordina los casos de uso del contexto. |
-| `Notification Domain` | Contiene los conceptos y reglas propias de notificación y fidelización. |
-| `Notification Infrastructure` | Implementa persistencia y comunicación con servicios externos. |
-| `Messaging ACL` | Adapta las comunicaciones hacia WhatsApp y Firebase. |
-| `Event Consumers` | Reciben eventos publicados por otros Bounded Contexts. |
-
----
 
 <a id="2.6.5.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams

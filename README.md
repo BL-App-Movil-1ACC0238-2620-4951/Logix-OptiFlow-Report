@@ -83,17 +83,19 @@ Durante esta fase, el equipo elaboró el **informe inicial**, que incluyó los s
 
 A continuación se presenta la captura de los analíticos de colaboración y commits en GitHub para este entregable:
 
-![Project Report Collaboration Insights AV1]()
+![Project Report Collaboration Insights AV1](assets/commits/commit1.png)
 
-![Project Report Collaboration Insights AV1]()
+![Project Report Collaboration Insights AV1](assets/commits/commit2.png)
+
+![Project Report Collaboration Insights AV1](assets/commits/commit3.png)
 
 | Integrante | Usuario GitHub | Commits | Adiciones | Eliminaciones |
-|---|---|---|---|---|
-| Atoche Gonzáles, Nicolás Fernando | `Nicolas-Ato` | | | |
-| Becerra Ttito, Felix Orlando | `Felixb14` | | | |
-| Celis Berrospi, Eslander | `Eslander-Celis` | | | |
-| Morocho Pinedo, Mariana | `Patto04` | | | |
-| Quispe llacsahuanga, Cesar Agusto | `user20-bit` | | | |
+|---|---|---:|---:|---:|
+| Atoche Gonzáles, Nicolás Fernando | `Nicolas-Ato` | 15 | 510 | 110 |
+| Becerra Ttito, Felix Orlando | `Felixb14` | 10 | 362 | 2 |
+| Celis Berrospi, Eslander | `Eslander-Celis` | 7 | 557 | 104 |
+| Morocho Pinedo, Mariana | `Patto04` | 10 | 127 | 68 |
+| Quispe Cesar Agusto | `user20-bit` | 16 | 2372 | 419 |
 
 La colaboración fue activa y equitativa, con aportes sustanciales de todos los integrantes en la redacción y organización del informe.
 
