@@ -14,7 +14,6 @@ Se seleccionaron tres competidores: SIT-OPTICAL, OptiGestion y OPTOL. Los dos pr
 La selección de estos competidores permite contrastar la propuesta de OptiFlow con soluciones existentes que ya cubren parcialmente las necesidades identificadas. Por este motivo, el análisis no se limita a comparar funcionalidades, sino que busca identificar oportunidades reales de diferenciación en términos de movilidad, experiencia de usuario, integración entre áreas y trazabilidad del flujo completo de una orden óptica.
 
 
-
 ### 2.1.1. Análisis competitivo
 
 El análisis competitivo tiene como objetivo identificar las principales diferencias entre OptiFlow y las soluciones existentes para la gestión de ópticas, permitiendo reconocer oportunidades de diferenciación y establecer estrategias frente a los principales competidores del mercado.
@@ -37,25 +36,28 @@ El análisis competitivo tiene como objetivo identificar las principales diferen
       <td colspan="2"><strong>Competidor</strong></td>
       <td align="center">
     <strong>OptiFlow</strong><br><br>
-    <img src="assets/cap2/logo/logo.png" alt="Logo de OptiFlow" width="120">
+    <img src="assets/cap2/logo/logo.png" alt="Logo de OptiFlow" width="120"> 
+
   </td>
 
   <td align="center">
     <strong>SIT-OPTICAL</strong><br><br>
     <img src="assets/cap2/sit-optical.jpg" alt="Logo de SIT-OPTICAL" width="120">
+
   </td>
 
   <td align="center">
     <strong>OptiGestion</strong><br><br>
     <img src="assets/cap2/optigestion.jpg" alt="Logo de OptiGestion" width="120">
+
   </td>
 
   <td align="center">
     <strong>OPTOL</strong><br><br>
     <img src="assets/cap2/optol.png" alt="Logo de OPTOL" width="120">
+
   </td>
     </tr>
-    <!-- PERFIL -->
     <tr>
       <td rowspan="2"><strong>Perfil</strong></td>
       <td><strong>Overview</strong></td>

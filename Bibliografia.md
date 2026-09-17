@@ -18,16 +18,6 @@
 
 - Schwaber, K., & Sutherland, J. (2020). *The Scrum Guide: The definitive guide to Scrum: The rules of the game*. Scrum Guides. https://scrumguides.org/
 
-- Nielsen, J. (1994). *Usability Engineering*. Morgan Kaufmann.
-
-- Osterwalder, A., Pigneur, Y., Bernarda, G., & Smith, A. (2014). *Value Proposition Design: How to Create Products and Services Customers Want*. Wiley.
-
-- Ries, E. (2011). *The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses*. Crown Business.
-
-- Patton, J. (2014). *User Story Mapping: Discover the Whole Story, Build the Right Product*. O'Reilly Media.
-
-- Cohn, M. (2004). *User Stories Applied: For Agile Software Development*. Addison-Wesley.
-
 - Microsoft. (s. f.). *Microsoft Learn: Mobile application development*. Microsoft. https://learn.microsoft.com/
 
 - Flutter. (s. f.). *Flutter documentation*. Google. https://docs.flutter.dev/
