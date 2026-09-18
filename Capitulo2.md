@@ -1296,6 +1296,19 @@ La infraestructura se mantiene separada del dominio para evitar que las reglas d
 <a id="2.6.1.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
+El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Search & Booking Service** en sus componentes internos estructurados bajo los principios de Domain-Driven Design (DDD) y Clean Architecture, organizados en cuatro capas:
+
+* **Interface / Presentation Layer:** Agrupa los controladores REST (`SearchBookingController`, `PatientController`, `OpticalStoreController`, `TimeSlotController`) que reciben las solicitudes HTTP/JSON desde las aplicaciones móviles y web a través del API Gateway, así como los DTOs de entrada/salida y los Assemblers responsables de transformar los requests en comandos y queries internos.
+* **Application Layer:** Contiene los Command Handlers (`BookAppointmentCommandHandler`, `LoginCommandHandler`, `PublishAvailableTimeSlotsCommandHandler`, `SaveFavoriteOpticalStoreCommandHandler`, `RateOpticalStoreCommandHandler`) encargados de orquestar las mutaciones de estado, los Query Services (`SearchOpticalStoresQueryService`, `GetAvailableTimeSlotsQueryService`, `GetPatientAppointmentsQueryService`, etc.) para consultas optimizadas, los Event Handlers (`AppointmentBookedEventHandler`, `AppointmentBookedNotificationHandler`) y los Application Services que actúan como fachada de coordinación.
+* **Domain Layer:** Núcleo libre de dependencias de infraestructura que encapsula las entidades y agregados principales (`Appointment`, `Patient`, `OpticalStore`, `TimeSlot`, `FavoriteStore`, `StoreRating`), los Domain Services, Factories y las interfaces de repositorio (`AppointmentRepository`, `PatientRepository`, `OpticalStoreRepository`, `TimeSlotRepository`) junto con la definición de eventos de dominio (`AppointmentBooked`, etc.).
+* **Infrastructure Layer:** Proporciona las implementaciones técnicas concretas, incluyendo los repositorios sobre PostgreSQL/JPA (`AppointmentRepositoryImpl`, `PatientRepositoryImpl`, etc.), las entidades de persistencia (`AppointmentEntity`, etc.), los Mappers, el `EventPublisherAdapter` para la publicación asíncrona de eventos hacia el Event Bus (RabbitMQ/Kafka), y los adaptadores de integración externa (`AuthenticationAdapter`, `NotificationIntegrationAdapter`).
+
+<div align="center">
+  <img src="assets/cap2/C4/component-search&bocking.jpeg" alt="Search and Booking Component Level Diagram" width="1000">
+</div>
+
+La interacción entre estos componentes garantiza un bajo acoplamiento y alta cohesión: las peticiones entrantes fluyen desde los controladores hacia los servicios de aplicación, los cuales interactúan con las entidades de dominio y delegan la persistencia y la comunicación de eventos a los adaptadores de infraestructura a través de inversión de dependencias.
+
 <a id="2.6.1.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -1398,11 +1411,18 @@ Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHi
 <a id="2.6.2.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-El siguiente Component Diagram (C4 Model) descompone el container **Clinical & Commercial Service** en sus bloques estructurales principales, agrupados según las cuatro capas descritas: presentation (`Clinical & Commercial Controllers`), application (`Clinical & Commercial Application Services`), domain (`Clinical & Commercial Domain Model`) e infrastructure (`Clinical Record Repository`, `Event Publisher`, `Appointment Event Subscriber` y `Payment Gateway ACL`).
+El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Clinical & Commercial Service** en sus bloques estructurales principales, organizados según las cuatro capas arquitectónicas:
 
-![Clinical & Commercial component.svg](assets/cap2/C4/Clinical%20%26%20Commercial%20component.svg)
+* **Interface Layer:** Expone los controladores REST (`ClinicalRecordController`, `QuotationController`, `SaleController`) para gestionar atenciones optométricas, cotizaciones y ventas, además del `AppointmentBookedConsumer`, que actúa como puerto de entrada para procesar eventos provenientes de Search & Booking.
+* **Application Layer:** Orquesta los casos de uso clínicos y comerciales a través de Command Handlers especializados (`ExaminePatientHandler`, `RecordMedicalHistoryHandler`, `RegisterClinicalRecordHandler`, `GenerateOpticalPrescriptionHandler`, `ApplyPromotionOrDiscountHandler`, `ApproveQuotationHandler`, `RecordPaymentHandler`, `CloseSaleHandler`) y el `AppointmentBookedEventHandler`.
+* **Domain Layer:** Encapsula la lógica de negocio y las invariantes de los agregados `ClinicalRecord`, `Quotation` y `Sale`, las entidades `MedicalHistory`, `QuotationItem` y `ElectronicReceipt`, los Value Objects (`OpticalPrescription`, `Discount`, `Payment`), y define las interfaces de persistencia (`ClinicalRecordRepository`, `QuotationRepository`, `SaleRepository`).
+* **Infrastructure Layer:** Resuelve la persistencia de datos mediante `ClinicalRecordRepositoryImpl`, `QuotationRepositoryImpl` y `SaleRepositoryImpl` sobre PostgreSQL utilizando JPA/Hibernate, publica eventos de dominio hacia el Event Bus mediante `DomainEventPublisher`, y provee la `PaymentGatewayAdapter` (Anti-Corruption Layer) para comunicarse de forma desacoplada con pasarelas de pago externas (POS, billeteras digitales).
 
-El componente de presentación expone la API REST y traduce las solicitudes HTTP en comandos de aplicación; la capa de aplicación orquesta los casos de uso descritos en 2.6.2.3; el modelo de dominio concentra las reglas de negocio e invariantes de los agregados `ClinicalRecord`, `Quotation` y `Sale`; y la capa de infraestructura resuelve la persistencia (JPA), la publicación/suscripción de eventos sobre el Event Bus y la integración anticorrupción con la Pasarela de Pagos externa.
+<div align="center">
+  <img src="assets/cap2/C4/component-clinical&commercial.jpeg" alt="Clinical and Commercial Component Level Diagram" width="1000">
+</div>
+
+La estructura modular permite que el registro clínico, la prescripción optométrica, la cotización y la venta se ejecuten manteniendo la coherencia transaccional y la trazabilidad de eventos como `SaleWasClosed`, indispensable para desencadenar los flujos de producción e inventario.
 
 <a id="2.6.2.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
@@ -1621,8 +1641,18 @@ La relación se encuentra definida en el Context Mapping del apartado 2.5.2 medi
 <a id="2.6.3.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Production & Tracking Service** en sus componentes de software estructurados por capas:
 
+* **Interface Layer:** Provee el `WorkOrderController` para la interacción síncrona vía REST (generación, asignación a técnicos, envío a laboratorio, actualización de estados Kanban y entrega), el `SaleWasClosedConsumer` para la recepción de eventos de venta desde Clinical & Commercial, además de los DTOs de solicitud/respuesta y sus respectivos Assemblers.
+* **Application Layer:** Coordina el flujo de fabricación óptica mediante los Command Handlers (`GenerateWorkOrderHandler`, `AssignWorkOrderToTechnicianHandler`, `SendWorkOrderToLaboratoryHandler`, `UpdateWorkOrderStatusHandler`, `CompleteLensesHandler`, `NotifyDeliveryDelayHandler`, `MarkOrderAsDeliveredHandler`), el `SaleWasClosedEventHandler` y el servicio de aplicación `WorkOrderApplicationService`.
+* **Domain Layer:** Contiene el Aggregate Root `WorkOrder` que modela el ciclo de vida de la orden, las entidades `Technician`, `Laboratory` y `Lenses`, los Value Objects (`WorkOrderStatus`, `DeliveryDate`, `DeliveryDelay`), las interfaces `WorkOrderRepository` y los eventos de dominio (`WorkOrderStatusUpdated`, `OrderWasMarkedAsDelivered`, etc.).
+* **Infrastructure Layer:** Implementa la persistencia documental mediante `WorkOrderRepositoryImpl`, `WorkOrderEntity` y `WorkOrderMapper` sobre MongoDB, la mensajería asíncrona mediante `DomainEventPublisher` y `SaleWasClosedConsumer` conectados al Event Bus (RabbitMQ/Kafka), y una Anti-Corruption Layer (ACL) que aísla el modelo de fabricación respecto a los datos comerciales y de facturación.
 
+<div align="center">
+  <img src="assets/cap2/C4/component-production&tracking.jpeg" alt="Production and Tracking Component Level Diagram" width="1000">
+</div>
+
+Este diseño por componentes asegura que cada transición del estado de fabricación de las lentes (pendiente, taller, control de calidad, entrega) se registre de forma consistente y notifique en tiempo real a los contextos interesados sin generar dependencias directas con las interfaces de usuario.
 
 <a id="2.6.3.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
@@ -1840,7 +1870,18 @@ El evento `SaleWasClosed` permite que Store Management & Inventory reaccione al 
 <a id="2.6.4.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
+El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Store Management & Inventory Service** en sus componentes internos organizados en las cuatro capas del diseño guiado por el dominio:
 
+* **Interface Layer:** Proporciona los controladores REST (`InventoryController`, `FrameModelController`, `SupplierController`) expuestos a través del API Gateway para la administración del catálogo, stock y proveedores, el consumidor `SaleWasClosedConsumer` que procesa las deducciones de existencias originadas por ventas, y los DTOs y Assemblers correspondientes.
+* **Application Layer:** Coordina la lógica de aplicación mediante Command Handlers (`AddNewFrameModelHandler`, `UpdateFrameModelPriceHandler`, `ReplenishStockHandler`, `RegisterSupplierHandler`), el `SaleWasClosedEventHandler`, servicios de consulta y los servicios de aplicación `InventoryApplicationService`, `FrameModelApplicationService` y `SupplierApplicationService`.
+* **Domain Layer:** Concentra el modelo de negocio con los agregados y entidades `Inventory`, `FrameModel`, `Stock`, `Supplier` y `Catalog`, los Value Objects `Price`, `LowStockAlert` y `Replenishment`, las interfaces de repositorio (`InventoryRepository`, `FrameModelRepository`, `SupplierRepository`) y los eventos de dominio (`FrameModelAdded`, `StockReplenished`, `LowStockAlertTriggered`).
+* **Infrastructure Layer:** Provee la implementación de persistencia relacional (`InventoryRepositoryImpl`, `FrameModelRepositoryImpl`, `SupplierRepositoryImpl`) sobre PostgreSQL, las entidades de persistencia (`InventoryEntity`, `FrameModelEntity`, `SupplierEntity`), los Mappers, el publicador de eventos `DomainEventPublisher` y el consumidor `SaleWasClosedConsumer` sobre el Event Bus.
+
+<div align="center">
+  <img src="assets/cap2/C4/component-store&inventory.jpeg" alt="Store Management and Inventory Component Level Diagram" width="1000">
+</div>
+
+La articulación de estos componentes garantiza el control de inventario multitienda, la detección temprana de niveles críticos de existencias mediante alertas automáticas y la actualización precisa de stock tras cada venta concretada.
 
 <a id="2.6.4.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
@@ -2063,6 +2104,18 @@ La comunicación con **Third-Party Messaging** se realiza siguiendo el patrón *
 <a id="2.6.5.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
+El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Notification & Loyalty Service** en sus bloques de componentes estructurados en cuatro capas:
+
+* **Interface Layer:** Expone los controladores REST (`BirthdayNotificationController`, `SatisfactionSurveyController`, `NotificationController`, `NotificationPreferencesController`, `OrderProgressNotificationController`, `ReactivationCampaignController`), los consumidores de eventos entrantes (`AppointmentBookedConsumer`, `WorkOrderStatusUpdatedConsumer`, `OrderWasMarkedAsDeliveredConsumer`), además de los DTOs y Assemblers para el mapeo de peticiones.
+* **Application Layer:** Orquesta los casos de uso de comunicación y fidelización mediante Command Handlers (`DetectPatientBirthdayCommandHandler`, `SendBirthdayDiscountCommandHandler`, `SendSatisfactionSurveyCommandHandler`, `AssignStaffMemberToManageNotificationsCommandHandler`, `ConfigureNotificationPreferencesCommandHandler`, `NotifyPatientInAppCommandHandler`, `NotifyLensOrderProgressCommandHandler`, `SendReactivationCampaignCommandHandler`) y los servicios de aplicación (`BirthdayNotificationService`, `SatisfactionSurveyService`, `NotificationService`, `NotificationPreferenceService`, `OrderProgressNotificationService`, `ReactivationCampaignService`).
+* **Domain Layer:** Encapsula las reglas y modelos de fidelización: `NotificationPreferences`, `PatientBirthday`, `BirthdayDiscount`, `SatisfactionSurvey`, `InAppNotification`, `OrderProgress`, `ReactivationCampaign`, `StaffMember`, junto con las interfaces de repositorio (`NotificationRepository`, `NotificationPreferencesRepository`, `SatisfactionSurveyRepository`, `StaffMemberRepository`, `ReactivationCampaignRepository`) y los eventos de dominio.
+* **Infrastructure Layer:** Resuelve la persistencia orientada a documentos sobre MongoDB (`NotificationRepositoryImpl`, `NotificationPreferencesRepositoryImpl`, etc.), la mensajería asíncrona mediante el `DomainEventPublisher` y los consumidores de eventos, y los adaptadores de integración externa (`WhatsAppMessagingAdapter`, `FirebaseMessagingAdapter`) mediados por la `MessagingAntiCorruptionLayer` (ACL) para desacoplar el dominio de los proveedores externos de mensajería (Meta WhatsApp Cloud API, Firebase Cloud Messaging).
+
+<div align="center">
+  <img src="assets/cap2/C4/component-notification&loyalty.jpeg" alt="Notification and Loyalty Component Level Diagram" width="1000">
+</div>
+
+Esta arquitectura basada en componentes y eventos permite que las notificaciones multicanal (in-app, WhatsApp, push) y las estrategias de fidelización se ejecuten de manera reactiva ante los eventos clave del ciclo de atención y producción de OptiFlow.
 
 <a id="2.6.5.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
