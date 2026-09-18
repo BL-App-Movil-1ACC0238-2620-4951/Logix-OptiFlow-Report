@@ -1,0 +1,194 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam nodesep 20
+skinparam ranksep 40
+hide circle
+left to right direction
+
+package "storeManagementInventory" {
+
+  package "presentation" as presentation {
+
+    class FrameCatalogScreen <<Composable>> {
+      + Content(viewModel: FrameCatalogViewModel): void
+    }
+    class FrameCatalogUiState {
+      - frameModels: List<FrameModel>
+      - isLoading: Boolean
+      - errorMessage: String
+    }
+    class FrameCatalogViewModel {
+      - uiState: StateFlow<FrameCatalogUiState>
+      + loadCatalog(): void
+    }
+
+    class InventoryScreen <<Composable>> {
+      + Content(viewModel: InventoryViewModel): void
+    }
+    class InventoryUiState {
+      - stocks: List<Stock>
+      - lowStockAlerts: List<LowStockAlert>
+      - isLoading: Boolean
+    }
+    class InventoryViewModel {
+      - uiState: StateFlow<InventoryUiState>
+      + consultStock(frameModelId: String): void
+      + replenishStock(frameModelId: String, quantity: Int, supplierId: String): void
+    }
+
+    class SupplierScreen <<Composable>> {
+      + Content(viewModel: SupplierViewModel): void
+    }
+    class SupplierUiState {
+      - suppliers: List<Supplier>
+      - isLoading: Boolean
+      - errorMessage: String
+    }
+    class SupplierViewModel {
+      - uiState: StateFlow<SupplierUiState>
+      + loadSuppliers(): void
+      + registerSupplier(name: String, contact: String): void
+    }
+  }
+
+  package "application" as application {
+    class GetFrameCatalogUseCase {
+      + invoke(): Result<List<FrameModel>>
+    }
+    class UpdateFrameModelPriceUseCase {
+      + invoke(frameModelId: String, price: Double): Result<FrameModel>
+    }
+    class ConsultStockUseCase {
+      + invoke(frameModelId: String): Result<Stock>
+    }
+    class ReplenishStockUseCase {
+      + invoke(frameModelId: String, quantity: Int, supplierId: String): Result<Stock>
+    }
+    class RegisterSupplierUseCase {
+      + invoke(name: String, contact: String): Result<Supplier>
+    }
+  }
+
+  package "domain" as domain {
+    class FrameModel {
+      + id: String
+      + name: String
+      + brand: String
+      + price: Double
+      + imageUrl: String
+    }
+    class Stock {
+      + frameModelId: String
+      + quantity: Int
+      + minimumLevel: Int
+      + isBelowMinimum(): Boolean
+    }
+    class LowStockAlert {
+      + frameModelId: String
+      + currentQuantity: Int
+      + generatedAt: String
+    }
+    class Supplier {
+      + id: String
+      + name: String
+      + contact: String
+    }
+    class Replenishment {
+      + id: String
+      + frameModelId: String
+      + supplierId: String
+      + quantity: Int
+      + registeredAt: String
+    }
+    interface FrameModelRepository {
+      + getCatalog(): List<FrameModel>
+      + updatePrice(frameModelId: String, price: Double): FrameModel
+    }
+    interface InventoryRepository {
+      + consultStock(frameModelId: String): Stock
+      + replenish(frameModelId: String, quantity: Int, supplierId: String): Stock
+    }
+    interface SupplierRepository {
+      + getAll(): List<Supplier>
+      + register(name: String, contact: String): Supplier
+    }
+  }
+
+  package "infrastructure" as infrastructure {
+    package "remote" as remote {
+      interface StoreInventoryApiService <<Retrofit>> {
+        + getCatalog(): List<FrameModelDto>
+        + updatePrice(frameModelId: String, request: UpdateFrameModelPriceRequestDto): FrameModelDto
+        + consultStock(frameModelId: String): StockDto
+        + replenishStock(frameModelId: String, request: ReplenishStockRequestDto): StockDto
+        + getSuppliers(): List<SupplierDto>
+        + registerSupplier(request: RegisterSupplierRequestDto): SupplierDto
+      }
+      class StoreInventoryRemoteDataSource {
+        - api: StoreInventoryApiService
+        + fetchCatalog(): List<FrameModel>
+        + fetchStock(frameModelId: String): Stock
+        + fetchSuppliers(): List<Supplier>
+      }
+    }
+    package "repository" as repository {
+      class FrameModelRepositoryImpl {
+        - remoteDataSource: StoreInventoryRemoteDataSource
+        + getCatalog(): List<FrameModel>
+        + updatePrice(frameModelId: String, price: Double): FrameModel
+      }
+      class InventoryRepositoryImpl {
+        - remoteDataSource: StoreInventoryRemoteDataSource
+        + consultStock(frameModelId: String): Stock
+        + replenish(frameModelId: String, quantity: Int, supplierId: String): Stock
+      }
+      class SupplierRepositoryImpl {
+        - remoteDataSource: StoreInventoryRemoteDataSource
+        + getAll(): List<Supplier>
+        + register(name: String, contact: String): Supplier
+      }
+    }
+  }
+}
+
+' -- Relaciones Presentation --
+FrameCatalogScreen --> FrameCatalogViewModel : observa
+FrameCatalogViewModel "1" --> "1" FrameCatalogUiState : expone
+FrameCatalogViewModel --> GetFrameCatalogUseCase : invoca
+FrameCatalogUiState "1" o-- "0..*" FrameModel : contiene
+
+InventoryScreen --> InventoryViewModel : observa
+InventoryViewModel "1" --> "1" InventoryUiState : expone
+InventoryViewModel --> ConsultStockUseCase : invoca
+InventoryViewModel --> ReplenishStockUseCase : invoca
+InventoryUiState "1" o-- "0..*" Stock : contiene
+InventoryUiState "1" o-- "0..*" LowStockAlert : contiene
+
+SupplierScreen --> SupplierViewModel : observa
+SupplierViewModel "1" --> "1" SupplierUiState : expone
+SupplierViewModel --> RegisterSupplierUseCase : invoca
+SupplierUiState "1" o-- "0..*" Supplier : contiene
+
+' -- Relaciones Application -> Domain --
+GetFrameCatalogUseCase --> FrameModelRepository : usa
+UpdateFrameModelPriceUseCase --> FrameModelRepository : usa
+ConsultStockUseCase --> InventoryRepository : usa
+ReplenishStockUseCase --> InventoryRepository : usa
+RegisterSupplierUseCase --> SupplierRepository : usa
+
+' -- Relaciones dentro del dominio --
+Stock "1" --> "1" FrameModel : controla existencias de
+LowStockAlert "0..*" --> "1" FrameModel : referencia
+Replenishment "0..*" --> "1" FrameModel : repone
+Replenishment "0..*" --> "1" Supplier : involucra
+
+' -- Relaciones Infrastructure -> Domain (implementación) --
+FrameModelRepositoryImpl ..|> FrameModelRepository : implementa
+InventoryRepositoryImpl ..|> InventoryRepository : implementa
+SupplierRepositoryImpl ..|> SupplierRepository : implementa
+FrameModelRepositoryImpl --> StoreInventoryRemoteDataSource : usa
+InventoryRepositoryImpl --> StoreInventoryRemoteDataSource : usa
+SupplierRepositoryImpl --> StoreInventoryRemoteDataSource : usa
+StoreInventoryRemoteDataSource --> StoreInventoryApiService : usa
+@enduml

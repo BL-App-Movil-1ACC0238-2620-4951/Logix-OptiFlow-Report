@@ -1307,10 +1307,7 @@ El modelo tiene como elemento principal al Aggregate Root `Appointment`, encarga
 
 El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde.
 
-<div align="center">
-  <img src="assets/cap2/Class Diagrams.png" alt="Search and Booking Domain Layer Class Diagram" width="1000">
-</div>
-
+![Search-Booking.svg](assets/cap2/class-diagram/imageclass/Search-Booking.svg)
 
 <a id="2.6.1.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
@@ -1638,11 +1635,7 @@ El estado actual de la orden es representado mediante `WorkOrderStatus`, el cual
 
 El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo.
 
-<div align="center">
-  <img src="assets/cap2/ProductionTrackingDomainLayerClassDiagram.png" alt="Production and Tracking Domain Layer Class Diagram" width="1000">
-</div>
-
-
+![Production-Tracking.svg](assets/cap2/class-diagram/imageclass/Production-Tracking.svg)
 
 <a id="2.6.3.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
@@ -1858,10 +1851,7 @@ El proceso de abastecimiento se representa mediante `Replenishment`, el cual rel
 
 El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository` y `SupplierRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores.
 
-<div align="center">
-  <img src="assets/cap2/StoreManagementInventoryDomainLayerClassDiagram.png" alt="Store Management and Inventory Domain Layer Class Diagram" width="1000">
-</div>
-
+![Store-Management-Inventory.svg](assets/cap2/class-diagram/imageclass/Store-Management-Inventory.svg)
 
 <a id="2.6.4.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
@@ -2080,9 +2070,7 @@ El modelo se organiza principalmente alrededor de `NotificationPreferences`, que
 
 El Domain Layer incluye también las interfaces de repositorio necesarias para abstraer la persistencia de notificaciones, preferencias de comunicación, encuestas, miembros del personal y campañas de reactivación. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las diferentes operaciones de notificación y fidelización.
 
-<div align="center">
-  <img src="assets/cap2/NotificationLoyaltyDomainLayerClassDiagram.png" alt="Notification and Loyalty Domain Layer Class Diagram" width="1000">
-</div>
+![Notification.svg](assets/cap2/class-diagram/imageclass/Notification.svg)
 
 <a id="2.6.5.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
