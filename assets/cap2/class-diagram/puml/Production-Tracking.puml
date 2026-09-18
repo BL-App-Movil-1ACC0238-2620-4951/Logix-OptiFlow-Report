@@ -1,0 +1,188 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam nodesep 20
+skinparam ranksep 40
+hide circle
+left to right direction
+
+package "productionTracking" {
+
+  package "presentation" as presentation {
+
+    class OrderTrackingScreen <<Composable>> {
+      + Content(viewModel: OrderTrackingViewModel): void
+    }
+    class OrderTrackingUiState {
+      - workOrder: WorkOrder
+      - isLoading: Boolean
+      - errorMessage: String
+    }
+    class OrderTrackingViewModel {
+      - uiState: StateFlow<OrderTrackingUiState>
+      + loadWorkOrder(saleId: String): void
+    }
+
+    class WorkOrderBoardScreen <<Composable>> {
+      + Content(viewModel: WorkOrderBoardViewModel): void
+    }
+    class WorkOrderBoardUiState {
+      - workOrders: List<WorkOrder>
+      - selectedStatus: String
+      - isLoading: Boolean
+    }
+    class WorkOrderBoardViewModel {
+      - uiState: StateFlow<WorkOrderBoardUiState>
+      + loadAssignedWorkOrders(technicianId: String): void
+      + filterByStatus(status: String): void
+    }
+
+    class WorkOrderDetailScreen <<Composable>> {
+      + Content(viewModel: WorkOrderDetailViewModel): void
+    }
+    class WorkOrderDetailUiState {
+      - workOrder: WorkOrder
+      - isLoading: Boolean
+      - errorMessage: String
+    }
+    class WorkOrderDetailViewModel {
+      - uiState: StateFlow<WorkOrderDetailUiState>
+      + updateStatus(status: String): void
+      + sendToLaboratory(laboratoryId: String): void
+      + completeLenses(): void
+      + registerDeliveryDelay(reason: String): void
+      + markAsDelivered(): void
+    }
+  }
+
+  package "application" as application {
+    class GetWorkOrderUseCase {
+      + invoke(workOrderId: String): Result<WorkOrder>
+    }
+    class GetAssignedWorkOrdersUseCase {
+      + invoke(technicianId: String): Result<List<WorkOrder>>
+    }
+    class UpdateWorkOrderStatusUseCase {
+      + invoke(workOrderId: String, status: String): Result<WorkOrder>
+    }
+    class SendWorkOrderToLaboratoryUseCase {
+      + invoke(workOrderId: String, laboratoryId: String): Result<WorkOrder>
+    }
+    class CompleteLensesUseCase {
+      + invoke(workOrderId: String): Result<WorkOrder>
+    }
+    class NotifyDeliveryDelayUseCase {
+      + invoke(workOrderId: String, reason: String): Result<WorkOrder>
+    }
+    class MarkOrderAsDeliveredUseCase {
+      + invoke(workOrderId: String): Result<WorkOrder>
+    }
+  }
+
+  package "domain" as domain {
+    class WorkOrder {
+      + id: String
+      + saleId: String
+      + technicianId: String
+      + laboratoryId: String
+      + status: String
+      + estimatedDeliveryDate: String
+      + delayReason: String
+      + createdAt: String
+      + isDelayed(): Boolean
+    }
+    class Technician {
+      + id: String
+      + name: String
+    }
+    class Laboratory {
+      + id: String
+      + name: String
+    }
+    class Lenses {
+      + id: String
+      + specifications: String
+      + completed: Boolean
+    }
+    interface WorkOrderRepository {
+      + getById(workOrderId: String): WorkOrder
+      + getAssignedTo(technicianId: String): List<WorkOrder>
+      + updateStatus(workOrderId: String, status: String): WorkOrder
+      + sendToLaboratory(workOrderId: String, laboratoryId: String): WorkOrder
+      + completeLenses(workOrderId: String): WorkOrder
+      + registerDelay(workOrderId: String, reason: String): WorkOrder
+      + markAsDelivered(workOrderId: String): WorkOrder
+    }
+  }
+
+  package "infrastructure" as infrastructure {
+    package "remote" as remote {
+      interface ProductionTrackingApiService <<Retrofit>> {
+        + getWorkOrder(workOrderId: String): WorkOrderDto
+        + getAssignedWorkOrders(technicianId: String): List<WorkOrderDto>
+        + updateStatus(workOrderId: String, request: UpdateWorkOrderStatusRequestDto): WorkOrderDto
+        + sendToLaboratory(workOrderId: String, request: SendWorkOrderToLaboratoryRequestDto): WorkOrderDto
+        + completeLenses(workOrderId: String): WorkOrderDto
+        + notifyDelay(workOrderId: String, request: NotifyDeliveryDelayRequestDto): WorkOrderDto
+        + markAsDelivered(workOrderId: String): WorkOrderDto
+      }
+      class ProductionTrackingRemoteDataSource {
+        - api: ProductionTrackingApiService
+        + fetchWorkOrder(workOrderId: String): WorkOrder
+        + fetchAssignedWorkOrders(technicianId: String): List<WorkOrder>
+      }
+    }
+    package "repository" as repository {
+      class WorkOrderRepositoryImpl {
+        - remoteDataSource: ProductionTrackingRemoteDataSource
+        + getById(workOrderId: String): WorkOrder
+        + getAssignedTo(technicianId: String): List<WorkOrder>
+        + updateStatus(workOrderId: String, status: String): WorkOrder
+        + sendToLaboratory(workOrderId: String, laboratoryId: String): WorkOrder
+        + completeLenses(workOrderId: String): WorkOrder
+        + registerDelay(workOrderId: String, reason: String): WorkOrder
+        + markAsDelivered(workOrderId: String): WorkOrder
+      }
+    }
+  }
+}
+
+' -- Relaciones Presentation --
+OrderTrackingScreen --> OrderTrackingViewModel : observa
+OrderTrackingViewModel "1" --> "1" OrderTrackingUiState : expone
+OrderTrackingViewModel --> GetWorkOrderUseCase : invoca
+OrderTrackingUiState "1" o-- "0..1" WorkOrder : contiene
+
+WorkOrderBoardScreen --> WorkOrderBoardViewModel : observa
+WorkOrderBoardViewModel "1" --> "1" WorkOrderBoardUiState : expone
+WorkOrderBoardViewModel --> GetAssignedWorkOrdersUseCase : invoca
+WorkOrderBoardUiState "1" o-- "0..*" WorkOrder : contiene
+
+WorkOrderDetailScreen --> WorkOrderDetailViewModel : observa
+WorkOrderDetailViewModel "1" --> "1" WorkOrderDetailUiState : expone
+WorkOrderDetailViewModel --> UpdateWorkOrderStatusUseCase : invoca
+WorkOrderDetailViewModel --> SendWorkOrderToLaboratoryUseCase : invoca
+WorkOrderDetailViewModel --> CompleteLensesUseCase : invoca
+WorkOrderDetailViewModel --> NotifyDeliveryDelayUseCase : invoca
+WorkOrderDetailViewModel --> MarkOrderAsDeliveredUseCase : invoca
+WorkOrderDetailUiState "1" o-- "1" WorkOrder : contiene
+
+' -- Relaciones Application -> Domain --
+GetWorkOrderUseCase --> WorkOrderRepository : usa
+GetAssignedWorkOrdersUseCase --> WorkOrderRepository : usa
+UpdateWorkOrderStatusUseCase --> WorkOrderRepository : usa
+SendWorkOrderToLaboratoryUseCase --> WorkOrderRepository : usa
+CompleteLensesUseCase --> WorkOrderRepository : usa
+NotifyDeliveryDelayUseCase --> WorkOrderRepository : usa
+MarkOrderAsDeliveredUseCase --> WorkOrderRepository : usa
+
+' -- Relaciones dentro del dominio --
+WorkOrder "0..*" --> "0..1" Technician : asignada a
+WorkOrder "0..*" --> "0..1" Laboratory : enviada a
+WorkOrder "1" *-- "1..*" Lenses : contiene
+
+' -- Relaciones Infrastructure -> Domain (implementación) --
+WorkOrderRepositoryImpl ..|> WorkOrderRepository : implementa
+WorkOrderRepositoryImpl --> ProductionTrackingRemoteDataSource : usa
+ProductionTrackingRemoteDataSource --> ProductionTrackingApiService : usa
+@enduml
