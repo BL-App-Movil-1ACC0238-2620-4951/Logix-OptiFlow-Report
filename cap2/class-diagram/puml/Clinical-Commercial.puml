@@ -8,20 +8,8 @@ left to right direction
 
 package "clinicalCommercial" {
 
-  package "presentation" as presentation {
-
-    class ClinicalRecordScreen <<Composable>> {
-      + Content(viewModel: ClinicalRecordViewModel): void
-    }
-    class ClinicalRecordUiState {
-      - clinicalRecord: ClinicalRecord
-      - isLoading: Boolean
-      - errorMessage: String
-    }
-    class ClinicalRecordViewModel {
-      - uiState: StateFlow<ClinicalRecordUiState>
-      + loadClinicalRecord(clinicalRecordId: String): void
-    }
+  package "presentation" as presentation
+ {
 
     class PrescriptionScreen <<Composable>> {
       + Content(viewModel: PrescriptionViewModel): void
@@ -59,21 +47,16 @@ package "clinicalCommercial" {
     }
     class SaleReceiptUiState {
       - sale: Sale
-      - receipt: ElectronicReceipt
       - isLoading: Boolean
       - errorMessage: String
     }
     class SaleReceiptViewModel {
       - uiState: StateFlow<SaleReceiptUiState>
       + loadReceipt(saleId: String): void
-      + downloadReceiptPdf(): void
     }
   }
 
   package "application" as application {
-    class GetClinicalRecordUseCase {
-      + invoke(clinicalRecordId: String): Result<ClinicalRecord>
-    }
     class GetOpticalPrescriptionUseCase {
       + invoke(clinicalRecordId: String): Result<OpticalPrescription>
     }
@@ -91,21 +74,15 @@ package "clinicalCommercial" {
     }
   }
 
-  package "domain" as domain {
+  package "domain" as domain
+ {
     class ClinicalRecord {
       + id: String
       + patientId: String
-      + appointmentId: String
       + examinationDate: String
       + status: String
     }
-    class MedicalHistory {
-      + allergies: List<String>
-      + previousConditions: List<String>
-      + familyOcularHistory: String
-    }
     class OpticalPrescription {
-      + id: String
       + clinicalRecordId: String
       + sphereOD: Double
       + cylinderOD: Double
@@ -115,27 +92,18 @@ package "clinicalCommercial" {
       + axisOS: Int
       + addition: Double
       + treatment: String
-      + recommendedFrameType: String
     }
     class Quotation {
       + id: String
-      + clinicalRecordId: String
       + items: List<QuotationItem>
-      + discount: Discount
+      + discountValue: Double
       + total: Double
       + status: String
-      + calculateTotal(): Double
     }
     class QuotationItem {
       + description: String
       + unitPrice: Double
       + quantity: Int
-      + subtotal(): Double
-    }
-    class Discount {
-      + type: String
-      + value: Double
-      + reason: String
     }
     class Sale {
       + id: String
@@ -143,26 +111,12 @@ package "clinicalCommercial" {
       + paymentMethod: String
       + amount: Double
       + status: String
-      + closedAt: String
     }
-    class ElectronicReceipt {
-      + id: String
-      + receiptNumber: String
-      + saleId: String
-      + issueDate: String
-      + taxAmount: Double
-      + totalAmount: Double
-    }
-    interface ClinicalRecordRepository {
-      + getClinicalRecord(clinicalRecordId: String): ClinicalRecord
+    interface ClinicalCommercialRepository {
       + getPrescription(clinicalRecordId: String): OpticalPrescription
-    }
-    interface QuotationRepository {
       + getQuotation(quotationId: String): Quotation
       + approveQuotation(quotationId: String): Quotation
       + rejectQuotation(quotationId: String, reason: String): Quotation
-    }
-    interface SaleRepository {
       + getSale(saleId: String): Sale
     }
   }
@@ -170,7 +124,6 @@ package "clinicalCommercial" {
   package "infrastructure" as infrastructure {
     package "remote" as remote {
       interface ClinicalCommercialApiService <<Retrofit>> {
-        + getClinicalRecord(clinicalRecordId: String): ClinicalRecordDto
         + getPrescription(clinicalRecordId: String): OpticalPrescriptionDto
         + getQuotation(quotationId: String): QuotationDto
         + approveQuotation(quotationId: String): QuotationDto
@@ -179,37 +132,23 @@ package "clinicalCommercial" {
       }
       class ClinicalCommercialRemoteDataSource {
         - api: ClinicalCommercialApiService
-        + fetchClinicalRecord(clinicalRecordId: String): ClinicalRecord
         + fetchPrescription(clinicalRecordId: String): OpticalPrescription
         + fetchQuotation(quotationId: String): Quotation
         + fetchSale(saleId: String): Sale
       }
     }
     package "repository" as repository {
-      class ClinicalRecordRepositoryImpl {
+      class ClinicalCommercialRepositoryImpl {
         - remoteDataSource: ClinicalCommercialRemoteDataSource
-        + getClinicalRecord(clinicalRecordId: String): ClinicalRecord
         + getPrescription(clinicalRecordId: String): OpticalPrescription
-      }
-      class QuotationRepositoryImpl {
-        - remoteDataSource: ClinicalCommercialRemoteDataSource
         + getQuotation(quotationId: String): Quotation
         + approveQuotation(quotationId: String): Quotation
         + rejectQuotation(quotationId: String, reason: String): Quotation
-      }
-      class SaleRepositoryImpl {
-        - remoteDataSource: ClinicalCommercialRemoteDataSource
         + getSale(saleId: String): Sale
       }
     }
   }
 }
-
-' -- Relaciones Presentation --
-ClinicalRecordScreen --> ClinicalRecordViewModel : observa
-ClinicalRecordViewModel "1" --> "1" ClinicalRecordUiState : expone
-ClinicalRecordViewModel --> GetClinicalRecordUseCase : invoca
-ClinicalRecordUiState "1" o-- "0..1" ClinicalRecord : contiene
 
 PrescriptionScreen --> PrescriptionViewModel : observa
 PrescriptionViewModel "1" --> "1" PrescriptionUiState : expone
@@ -229,31 +168,19 @@ SaleReceiptScreen --> SaleReceiptViewModel : observa
 SaleReceiptViewModel "1" --> "1" SaleReceiptUiState : expone
 SaleReceiptViewModel --> GetSaleReceiptUseCase : invoca
 SaleReceiptUiState "1" o-- "0..1" Sale : contiene
-SaleReceiptUiState "1" o-- "0..1" ElectronicReceipt : contiene
 
 ' -- Relaciones Application -> Domain --
-GetClinicalRecordUseCase --> ClinicalRecordRepository : usa
-GetOpticalPrescriptionUseCase --> ClinicalRecordRepository : usa
-GetQuotationUseCase --> QuotationRepository : usa
-ApproveQuotationUseCase --> QuotationRepository : usa
-RejectQuotationUseCase --> QuotationRepository : usa
-GetSaleReceiptUseCase --> SaleRepository : usa
+GetOpticalPrescriptionUseCase --> ClinicalCommercialRepository : usa
+GetQuotationUseCase --> ClinicalCommercialRepository : usa
+ApproveQuotationUseCase --> ClinicalCommercialRepository : usa
+RejectQuotationUseCase --> ClinicalCommercialRepository : usa
+GetSaleReceiptUseCase --> ClinicalCommercialRepository : usa
 
-' -- Relaciones dentro del dominio --
-ClinicalRecord "1" *-- "1" MedicalHistory : compone
-ClinicalRecord "1" --> "0..1" OpticalPrescription : origina
-Quotation "1" --> "0..1" ClinicalRecord : deriva de
 Quotation "1" *-- "1..*" QuotationItem : compone
-Quotation "1" o-- "0..1" Discount : aplica
-Sale "1" --> "1" Quotation : concreta
-Sale "1" --> "0..1" ElectronicReceipt : emite
+ClinicalRecord "1" --> "0..1" OpticalPrescription : origina
 
 ' -- Relaciones Infrastructure -> Domain (implementación) --
-ClinicalRecordRepositoryImpl ..|> ClinicalRecordRepository : implementa
-QuotationRepositoryImpl ..|> QuotationRepository : implementa
-SaleRepositoryImpl ..|> SaleRepository : implementa
-ClinicalRecordRepositoryImpl --> ClinicalCommercialRemoteDataSource : usa
-QuotationRepositoryImpl --> ClinicalCommercialRemoteDataSource : usa
-SaleRepositoryImpl --> ClinicalCommercialRemoteDataSource : usa
+ClinicalCommercialRepositoryImpl ..|> ClinicalCommercialRepository : implementa
+ClinicalCommercialRepositoryImpl --> ClinicalCommercialRemoteDataSource : usa
 ClinicalCommercialRemoteDataSource --> ClinicalCommercialApiService : usa
 @enduml
