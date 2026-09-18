@@ -1407,7 +1407,6 @@ El componente de presentación expone la API REST y traduce las solicitudes HTTP
 <a id="2.6.2.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-
 El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones.
 
 ![Clinical-Commercial.svg](assets/cap2/class-diagram/imageclass/Clinical-Commercial.svg)
