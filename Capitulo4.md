@@ -145,11 +145,80 @@ El siguiente Deployment Diagram del Modelo C4, elaborado en Structurizr, muestra
 
 ## 4.2. Landing Page & Mobile Application Implementation
 ### 4.2.1. Sprint 1
+Durante el Sprint 1, el equipo de OptiFlow inició la etapa de implementación de los productos digitales de la solución. El objetivo de esta primera iteración consiste en establecer una primera presencia funcional del producto mediante el Landing Page y avanzar en los primeros flujos orientados al paciente, específicamente la búsqueda de ópticas y la reserva de citas para atención optométrica.
+
+El trabajo del Sprint se organiza mediante reuniones virtuales realizadas a través de Discord, seguimiento de actividades mediante el Sprint Backlog y control de versiones a través de los repositorios de GitHub de la organización del equipo.
+
+En la fecha de corte de esta versión del informe, la principal evidencia de implementación disponible corresponde al Landing Page. Conforme avance el Sprint, esta sección será complementada con las evidencias correspondientes a los Web Services y a la aplicación móvil.
 #### 4.2.1.1. Sprint Planning 1
+El Sprint Planning 1 tuvo como finalidad establecer el objetivo de la primera iteración, seleccionar las User Stories que contribuyen directamente a dicho objetivo, determinar la capacidad inicial del equipo y distribuir las principales responsabilidades de implementación.
+
+La reunión se realizó de manera virtual mediante Discord y fue preparada por Celis Berrospi, Eslander. Debido a que Sprint 1 representa la primera iteración de implementación de la solución, no existe un Sprint anterior sobre el cual realizar un Sprint Review o Sprint Retrospective formal.
+
+| Sprint # | Sprint 1 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| **Date** | `[2026-09-28]` |
+| **Time** | `[19:00]` |
+| **Location** | Discord |
+| **Prepared By** | Celis Berrospi, Eslander |
+| **Attendees (to planning meeting)** | Atoche Gonzales, Nicolas Fernando / Becerra Ttito, Felix Orlando / Celis Berrospi, Eslander / Morocho Pinedo, Mariana / Quispe Llacsahuanga, César Agusto |
+| **Sprint 0 Review Summary** | No aplica, debido a que Sprint 1 corresponde a la primera iteración de implementación de OptiFlow. Antes del inicio de este Sprint, el equipo desarrolló las actividades de investigación, análisis de los segmentos objetivo, especificación de requisitos, Domain-Driven Design, arquitectura de software y diseño UX/UI que sirven como base para la implementación del producto. |
+| **Sprint 0 Retrospective Summary** | No se realizó una retrospectiva formal debido a que no existió un Sprint de implementación anterior. Sin embargo, a partir del trabajo realizado durante las etapas previas, el equipo identificó la necesidad de distribuir claramente las responsabilidades, dividir el trabajo en tareas de corta duración, mantener una comunicación constante mediante Discord y conservar la trazabilidad del desarrollo mediante GitHub. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 1 Goal** | Durante Sprint 1, el equipo se enfocará en obtener el primer incremento funcional de OptiFlow. Para ello, se iniciará la implementación del Landing Page y se avanzará en el flujo principal orientado al paciente, relacionado con la búsqueda de ópticas y la reserva de citas. Este incremento busca facilitar al paciente una forma centralizada de encontrar establecimientos ópticos, consultar su disponibilidad y programar una atención. El objetivo se considerará alcanzado cuando el Landing Page pueda ejecutarse y visualizarse correctamente y los flujos asociados a US05 y US06 presenten un avance funcional demostrable. |
+| **Sprint 1 Velocity** | 13 Story Points |
+| **Sum of Story Points** | 13 Story Points |
+
 #### 4.2.1.2. Aspect Leaders and Collaborators
+Para organizar las responsabilidades del Sprint se establece una Leadership-and-Collaboration Matrix (LACX). La matriz identifica al integrante responsable de liderar cada aspecto y a los integrantes que participan como colaboradores.
+
+Los principales aspectos considerados durante Sprint 1 son la implementación del Landing Page, la experiencia móvil de búsqueda de ópticas, el flujo móvil de reserva de citas, los servicios asociados a Search & Booking y la integración y coordinación general del Sprint.
+
+| Team Member | GitHub Username | Landing Page | Optical Store Search | Appointment Booking | Search & Booking Services | Integration & Sprint Coordination |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| Atoche Gonzales, Nicolas Fernando | `THECOMAX` | C | **L** | C | C | C |
+| Becerra Ttito, Felix Orlando | `Felixb14` | C | C | C | **L** | C |
+| Celis Berrospi, Eslander | `Eslander-Celis` | C | C | C | C | **L** |
+| Morocho Pinedo, Mariana | `Patto04` | C | C | **L** | C | C |
+| Quispe Llacsahuanga, César Agusto | `user20-bit` | **L** | C | C | C | C |
+
+**L:** Leader  
+**C:** Collaborator
+
+La asignación permite que cada aspecto posea un responsable principal, manteniendo al mismo tiempo la participación colaborativa del resto de integrantes. En particular, el liderazgo inicial del Landing Page se relaciona con la evidencia disponible en el repositorio, donde las primeras contribuciones registradas fueron realizadas por César Agusto. Por otro lado, Celis Berrospi, Eslander asume la coordinación del Sprint y la integración de las actividades acordadas durante las reuniones de trabajo.
 #### 4.2.1.3. Sprint Backlog 1
+| Sprint # | User Story | User Story Title | Task ID | Task Title | Description | Estimation (Hours) | Assigned To | Status |
+| :---: | :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
+| 1 | US21 | Visualización del Landing Page de OptiFlow | T01 | Create initial project structure | Crear la estructura inicial del proyecto del Landing Page y organizar los archivos necesarios para iniciar su implementación. | 4 | Quispe Llacsahuanga, César Agusto | Done |
+| 1 | US21 | Visualización del Landing Page de OptiFlow | T02 | Implement base styles | Implementar los estilos base y la identidad visual inicial del Landing Page de acuerdo con los lineamientos definidos para OptiFlow. | 6 | Quispe Llacsahuanga, César Agusto | Done |
+| 1 | US21 | Visualización del Landing Page de OptiFlow | T03 | Configure Three.js environment | Configurar Three.js y los recursos necesarios para los elementos visuales e interactivos del Landing Page. | 4 | Quispe Llacsahuanga, César Agusto | Done |
+| 1 | US21 | Visualización del Landing Page de OptiFlow | T04 | Implement Landing Page sections | Implementar las principales secciones informativas del Landing Page, incluyendo la presentación de OptiFlow, propuesta de valor y principales características. | 8 | Quispe Llacsahuanga, César Agusto | In-Process |
+| 1 | US21 | Visualización del Landing Page de OptiFlow | T05 | Implement responsive navigation | Implementar la navegación del Landing Page y adaptar su visualización para dispositivos móviles y equipos de escritorio. | 6 | Quispe Llacsahuanga, César Agusto | To-do |
+| 1 | US05 | Búsqueda de ópticas y disponibilidad de atención | T06 | Implement optical store search screen | Implementar la interfaz móvil que permita al paciente iniciar la búsqueda de ópticas disponibles. | 6 | Atoche Gonzales, Nicolas Fernando | To-do |
+| 1 | US05 | Búsqueda de ópticas y disponibilidad de atención | T07 | Implement optical store results | Implementar la visualización de los establecimientos disponibles, incluyendo sucursales, direcciones y horarios de atención. | 6 | Atoche Gonzales, Nicolas Fernando | To-do |
+| 1 | US05 | Búsqueda de ópticas y disponibilidad de atención | T08 | Implement optical store search service | Implementar las operaciones del servicio RESTful necesarias para consultar ópticas y su disponibilidad. | 8 | Becerra Ttito, Felix Orlando | To-do |
+| 1 | US05 | Búsqueda de ópticas y disponibilidad de atención | T09 | Integrate optical store search | Integrar la aplicación móvil con el servicio de búsqueda de ópticas y gestionar los estados de carga, resultados y ausencia de establecimientos. | 6 | Celis Berrospi, Eslander | To-do |
+| 1 | US06 | Reserva de cita para atención optométrica | T10 | Implement appointment selection screen | Implementar la interfaz para seleccionar sucursal, fecha y horario disponible para una cita optométrica. | 6 | Morocho Pinedo, Mariana | To-do |
+| 1 | US06 | Reserva de cita para atención optométrica | T11 | Implement appointment booking service | Implementar el servicio RESTful encargado de registrar las reservas de citas realizadas por los pacientes. | 8 | Becerra Ttito, Felix Orlando | To-do |
+| 1 | US06 | Reserva de cita para atención optométrica | T12 | Implement availability validation | Implementar la validación de disponibilidad del horario antes de confirmar una reserva. | 4 | Becerra Ttito, Felix Orlando | To-do |
+| 1 | US06 | Reserva de cita para atención optométrica | T13 | Integrate appointment confirmation | Integrar el flujo móvil de reserva con el servicio correspondiente y mostrar al paciente el resultado de la operación. | 6 | Celis Berrospi, Eslander | To-do |
+
 #### 4.2.1.4. Development Evidence for Sprint Review
+Durante Sprint 1, el equipo inició la implementación del Landing Page de OptiFlow. Hasta la fecha de corte de esta versión del informe, este producto cuenta con evidencia verificable en el repositorio de control de versiones del equipo.
+
+**Repository:**  
+[Logix-OptiFlow-lading-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-lading-page)
+
+Los commits registrados hasta el momento son los siguientes:
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Logix-OptiFlow-lading-page` | `main` | `52a57c66` | `feat: add initial project structure, base styles, and Three.js setup` | `-` | `2026-10-03` |
+| `Logix-OptiFlow-lading-page` | `main` | `4b6c3d8d` | `Initial commit` | `-` | `2026-09-29` |
+
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
+
 #### 4.2.1.6. Execution Evidence for Sprint Review
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
