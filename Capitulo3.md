@@ -15,49 +15,57 @@ Las principales características consideradas para el diseño son:
 * **Accesibilidad:** los elementos deben contar con tamaños, contrastes y estructuras que faciliten su utilización.
 * **Retroalimentación:** las acciones realizadas por el usuario deben mostrar estados o mensajes que indiquen si la operación fue exitosa, está en proceso o requiere alguna corrección.
 
- ** foto ** 
 
 #### 3.1.1.1. General Style Guidelines
 
  **Tipografía**
 
+<p align="center">
+  <img src="assets/cap3/styles/Tipografia.png">
+</p>
+
 La tipografía debe facilitar la lectura de la información presentada en OptiFlow, especialmente en elementos relacionados con citas, recetas ópticas, pedidos, órdenes de trabajo y registros de pacientes.
 
 Se propone utilizar una tipografía **sans-serif**, debido a que permite una lectura clara tanto en dispositivos móviles como en interfaces administrativas.
 
-Los tamaños se organizarán jerárquicamente de acuerdo con el nivel de importancia del contenido:
 
-| Elemento         | Uso                                               |
-| ---------------- | ------------------------------------------------- |
-| Título principal | Identificar las principales secciones o pantallas |
-| Subtítulo        | Describir subsecciones o grupos de información    |
-| Texto principal  | Mostrar información y descripciones               |
-| Texto secundario | Presentar información complementaria              |
-| Texto de apoyo   | Mostrar etiquetas, estados o información auxiliar |
+| Elemento                | Uso                                               |
+| ----------------------- | ------------------------------------------------- |
+| Título principal (32px) | Identificar las principales secciones o pantallas |
+| Subtítulo        (20px) | Describir subsecciones o grupos de información    |
+| Texto principal  (16px) | Mostrar información y descripciones               |
+| Texto secundario (14px) | Presentar información complementaria              |
+| Texto de apoyo   (12px) | Mostrar etiquetas, estados o información auxiliar |
 
-La jerarquía tipográfica permitirá diferenciar rápidamente títulos, información principal, acciones y contenido secundario.
 
 **Colores**
+
+<p align="center">
+  <img src="assets/cap3/styles/colores.png">
+</p>
+
 
 La paleta de colores debe transmitir una apariencia relacionada con los conceptos de **salud visual, confianza, claridad y tecnología**.
 
 Se considera una paleta compuesta por colores principales, secundarios y colores destinados a comunicar estados del sistema.
 
-| Elemento       | Color propuesto | Uso                                                 |
-| -------------- | --------------- | --------------------------------------------------- |
-| Primary        | `#2563EB`       | Botones principales, enlaces y elementos destacados |
-| Secondary      | `#0EA5A4`       | Acciones secundarias y elementos complementarios    |
-| Background     | `#F8FAFC`       | Fondo general de las interfaces                     |
-| Surface        | `#FFFFFF`       | Tarjetas, formularios y contenedores                |
-| Text           | `#1E293B`       | Texto principal                                     |
-| Secondary Text | `#64748B`       | Texto secundario y descripciones                    |
-| Success        | `#16A34A`       | Operaciones completadas y estados positivos         |
-| Warning        | `#F59E0B`       | Advertencias y situaciones que requieren atención   |
-| Error          | `#DC2626`       | Errores, validaciones y acciones críticas           |
-
-Los colores de estado se utilizarán de manera consistente. Por ejemplo, un pedido listo para ser recogido podrá identificarse mediante un estado positivo, mientras que una orden retrasada podrá utilizar un estado de advertencia.
+| Elemento | Color actual | Uso |
+| :---: | :---: | :---: |
+| Primary | #212B93 | Encabezados, botones principales, bloques destacados |
+| Secondary | #107194 | Botones secundarios, enlaces, elementos informativos |
+| Accent / Mint | #6FF4BB | Botones destacados, selección, estados positivos |
+| Background | #DFFBFF | Fondo general de las pantallas |
+| Surface | #FFFFFF | Tarjetas, formularios y contenedores |
+| Text | #1E1E1E | Texto principal |
+| Secondary Text | #6B7280 | Texto secundario |
+| Success | #6FF4BB | Confirmaciones y estados positivos |
+| Error | #DC2626 | Errores y acciones críticas |
 
 **Botones**
+
+<p align="center">
+  <img src="assets/cap3/styles/botones.png">
+</p>
 
 Los botones deben diferenciar claramente las acciones principales de las acciones secundarias.
 
@@ -69,6 +77,10 @@ Los botones deben diferenciar claramente las acciones principales de las accione
 
 
 **Tarjetas**
+
+<p align="center">
+  <img src="assets/cap3/styles/tarjetas.png">
+</p>
 
 En el caso de los pacientes, podrán utilizarse para presentar:
 
@@ -88,13 +100,13 @@ Para el personal de la óptica, las tarjetas podrán presentar:
 * Estados de producción.
 * Indicadores de gestión.
 
-Cada tarjeta deberá presentar una jerarquía visual clara, priorizando la información más relevante y evitando incluir demasiados elementos en un mismo componente.
-
 **Iconografía**
 
-Los iconos se utilizarán como elementos complementarios para facilitar el reconocimiento de acciones y funcionalidades.
+<p align="center">
+  <img src="assets/cap3/styles/iconos.png">
+</p>
 
-Algunos ejemplos de iconos que podrán utilizarse son:
+Los iconos se utilizarán como elementos complementarios para facilitar el reconocimiento de acciones y funcionalidades.
 
 | Icono / representación | Funcionalidad              |
 | ---------------------- | -------------------------- |
@@ -111,22 +123,11 @@ Algunos ejemplos de iconos que podrán utilizarse son:
 
 Los iconos no deberán utilizarse como único medio para comunicar información importante. Cuando sea necesario, deberán acompañarse de un texto descriptivo.
 
-**Espaciado y distribución**
-
-Se considerarán espacios diferenciados para:
-
-* Separación entre secciones.
-* Separación entre títulos y contenido.
-* Separación entre campos de formularios.
-* Separación entre botones.
-* Márgenes internos de tarjetas y contenedores.
-* Márgenes generales de las pantallas.
-
-La distribución deberá priorizar la información relevante y permitir que el usuario identifique rápidamente las acciones disponibles.
-
 **Formularios**
 
-Se considerarán los siguientes elementos:
+<p align="center">
+  <img src="assets/cap3/styles/formularios.png">
+</p>
 
 * Etiqueta del campo.
 * Campo de entrada.
@@ -134,11 +135,13 @@ Se considerarán los siguientes elementos:
 * Mensaje de validación.
 * Indicador de campo obligatorio cuando corresponda.
 
-Las validaciones deberán mostrarse cerca del campo correspondiente para facilitar la corrección de errores.
-
-Por ejemplo, al realizar una reserva de cita, el sistema deberá indicar claramente la óptica, fecha, horario seleccionado y cualquier información necesaria antes de permitir la confirmación.
+Las validaciones deberán mostrarse cerca del campo correspondiente para facilitar la corrección de errores. Por ejemplo, al realizar una reserva de cita, el sistema deberá indicar claramente la óptica, fecha, horario seleccionado y cualquier información necesaria antes de permitir la confirmación.
 
 **Estados de la interfaz**
+
+<p align="center">
+  <img src="assets/cap3/styles/estados.png">
+</p>
 
 Los componentes de OptiFlow deberán contemplar diferentes estados para proporcionar retroalimentación al usuario.
 
@@ -156,9 +159,11 @@ Los componentes de OptiFlow deberán contemplar diferentes estados para proporci
 
 **Diseño responsivo**
 
-La interfaz deberá adaptarse a los diferentes tamaños de pantalla en los que se utilice OptiFlow.
+<p align="center">
+  <img src="assets/cap3/styles/Diseño_Responsivo.png">
+</p>
 
-En la aplicación orientada a pacientes, el diseño priorizará dispositivos móviles, considerando:
+La interfaz deberá adaptarse a los diferentes tamaños de pantalla en los que se utilice OptiFlow. En la aplicación orientada a pacientes, el diseño priorizará dispositivos móviles, considerando:
 
 * Controles táctiles de tamaño adecuado.
 * Navegación sencilla.
@@ -169,6 +174,10 @@ En la aplicación orientada a pacientes, el diseño priorizará dispositivos mó
 En las interfaces destinadas al personal de la óptica se podrá aprovechar un espacio de pantalla mayor para mostrar tablas, indicadores, filtros y diferentes bloques de información simultáneamente.
 
 **Accesibilidad**
+<p align="center">
+  <img src="assets/cap3/styles/accesibilidad.png">
+</p>
+
 
 El diseño deberá considerar principios básicos de accesibilidad para facilitar el uso de la aplicación por diferentes usuarios.
 
@@ -182,49 +191,204 @@ Se considerarán los siguientes aspectos:
 * Uso de etiquetas descriptivas.
 * Estructura visual consistente.
 
-Estas consideraciones permitirán que información como estados de pedidos, alertas de inventario y disponibilidad de citas pueda ser comprendida de manera adecuada.
-
-**Comunicación visual**
-
-OptiFlow utilizará elementos visuales para representar información relacionada con el proceso óptico y la gestión de las ópticas.
-
-La comunicación visual estará orientada principalmente a:
-
-* Facilitar la búsqueda de ópticas y productos.
-* Mostrar disponibilidad de citas.
-* Comunicar el estado de las órdenes de trabajo.
-* Presentar alertas y notificaciones.
-* Diferenciar estados de pedidos.
-* Mostrar información clínica y comercial de manera organizada.
-
-Los elementos visuales deberán complementar el contenido textual y no reemplazar información necesaria para que el usuario pueda tomar una acción.
-
-
 ### 3.1.2. Information Architecture
+
+La arquitectura de información de **OptiFlow** establece la forma en que se organiza, estructura y presenta la información dentro de la solución. Su objetivo es facilitar que los usuarios puedan encontrar rápidamente las funcionalidades y datos que necesitan de acuerdo con su rol y actividad dentro del sistema.
+
+La arquitectura se define considerando los dos principales tipos de usuarios identificados: **pacientes** y **personal de la óptica**. Cada perfil dispone de funcionalidades específicas, evitando presentar información que no corresponda a sus necesidades.
 
 #### 3.1.2.1. Organization Systems
 
+El sistema de organización de OptiFlow define cómo se agrupan las funcionalidades y contenidos de acuerdo con el tipo de usuario, las tareas que realiza y el contexto en el que se encuentra.
+
+Para ello, se utilizan principalmente los siguientes esquemas de organización:
+
+* **Organización jerárquica:** permite establecer niveles de información desde las funcionalidades principales hacia sus opciones específicas.
+* **Organización por categorías:** agrupa funcionalidades relacionadas con una misma actividad o dominio.
+* **Organización secuencial:** organiza determinadas funcionalidades de acuerdo con el orden lógico en que deben ejecutarse.
+
+**Organización jerárquica**
+
+La estructura general de OptiFlow parte de las funcionalidades principales y posteriormente se divide en opciones específicas.
+
+Para el **paciente**, la organización principal se plantea de la siguiente manera:
+
+<p align="center">
+  <img src="assets/cap3/organization/organizacion_paciente.png">
+</p>
+
+```text
+OptiFlow
+├── Inicio
+├── Buscar óptica
+│   ├── Ópticas disponibles
+│   ├── Información de la óptica
+│   ├── Catálogo de monturas
+│   └── Disponibilidad
+├── Citas
+│   ├── Próximas citas
+│   ├── Historial de citas
+│   └── Reservar cita
+├── Pedidos
+│   ├── Pedidos activos
+│   ├── Estado del pedido
+│   └── Historial de pedidos
+├── Receta
+│   ├── Receta actual
+│   └── Historial de recetas
+├── Notificaciones
+└── Perfil
+    ├── Datos personales
+    └── Preferencias
+```
+
+Para el **personal de la óptica**, la organización se adapta a las actividades administrativas, clínicas y operativas:
+
+<p align="center">
+  <img src="assets/cap3/organization/organizacion_personal.png">
+</p>
+
+
+```text
+OptiFlow
+├── Inicio
+│   ├── Resumen
+│   ├── Citas del día
+│   ├── Alertas
+│   └── Indicadores
+├── Agenda
+│   ├── Citas
+│   └── Disponibilidad
+├── Pacientes
+│   ├── Registro de pacientes
+│   ├── Historia clínica
+│   └── Recetas ópticas
+├── Ventas
+│   ├── Cotizaciones
+│   ├── Ventas
+│   └── Comprobantes
+├── Inventario
+│   ├── Monturas
+│   ├── Stock
+│   ├── Proveedores
+│   └── Alertas de stock
+├── Órdenes de trabajo
+│   ├── Órdenes pendientes
+│   ├── Producción
+│   ├── Control de calidad
+│   └── Entregas
+├── Notificaciones
+└── Perfil
+```
+
+Esta separación permite que cada usuario tenga acceso a las funcionalidades correspondientes a sus responsabilidades.
+
+**Organización por categorías**
+
+Las funcionalidades también se agrupan según la actividad que representan.
+
+| Categoría                     | Funcionalidades principales                               | Usuario             |
+| ----------------------------- | --------------------------------------------------------- | ------------------- |
+| Búsqueda y reserva            | Buscar ópticas, consultar disponibilidad y reservar citas | Paciente            |
+| Gestión clínica               | Historia clínica, recetas y seguimiento del paciente      | Paciente / Personal |
+| Gestión comercial             | Cotizaciones, ventas, pagos y comprobantes                | Personal            |
+| Producción y seguimiento      | Órdenes de trabajo, producción, estados y entregas        | Personal            |
+| Notificaciones y fidelización | Recordatorios, alertas, promociones y encuestas           | Paciente / Personal |
+| Inventario                    | Monturas, stock, proveedores y alertas                    | Personal            |
+
+Esta clasificación permite relacionar las funcionalidades de la interfaz con los principales procesos identificados durante el análisis del dominio.
+
+**Organización secuencial**
+
+Algunas funcionalidades de OptiFlow requieren que el usuario complete una serie de pasos en un orden determinado. Para la **reserva de una cita**, el flujo de información se organiza de la siguiente manera:
+
+<p align="center">
+  <img src="assets/cap3/organization/Flujo_paciente.png">
+</p>
+
+
+Para el **seguimiento de una orden de trabajo**, la información se presenta de acuerdo con el avance del proceso:
+
+<p align="center">
+  <img src="assets/cap3/organization/Flujo_personal.png">
+</p>
+
+Esta organización permite que el usuario comprenda en qué etapa se encuentra una actividad y cuáles son los siguientes pasos disponibles.
+
+**Diagrama de organización de la información**
+
+La estructura anterior puede representarse mediante un **diagrama de arquitectura de información o sitemap**, mostrando la relación entre las funcionalidades principales y sus subfuncionalidades.
+
+<p align="center">
+  <img src="assets/cap3/organization/Diagrama_organizacion.png">
+</p>
+
 #### 3.1.2.2. Labeling Systems
 
-#### 3.1.2.3. SEO Tags and Meta Tags
-
-#### 3.1.2.4. Searching Systems
-
-#### 3.1.2.5. Navigation Systems 
-
-### 3.1.3. Landing Page UI Design
-
-### 3.1.4. Mobile Applications UX/UI Design
-
-#### 3.1.4.1. Mobile Applications Wireframes
-
-#### 3.1.4.2. Mobile Applications Wireflow Diagrams
-
-#### 3.1.4.3. Mobile Applications Mock-ups
-
-#### 3.1.4.4. Mobile Applications User Flow Diagrams
-
-#### 3.1.4.5. Mobile Applications Prototyping
+El sistema de etiquetado establece los nombres utilizados para identificar las funcionalidades, secciones, acciones y estados dentro de OptiFlow. Los nombres seleccionados buscan utilizar un lenguaje claro y familiar para los usuarios, evitando términos técnicos que puedan dificultar la comprensión de las funcionalidades.
 
 
+**Etiquetas principales**
 
+| Etiqueta           | Descripción                                                | Usuario             |
+| ------------------ | ---------------------------------------------------------- | ------------------- |
+| Inicio             | Acceso a la información principal y resumen de actividades | Paciente / Personal |
+| Buscar óptica      | Permite encontrar ópticas disponibles                      | Paciente            |
+| Reservar cita      | Permite seleccionar y confirmar una cita                   | Paciente            |
+| Mis citas          | Permite consultar las citas registradas                    | Paciente            |
+| Mis pedidos        | Permite consultar el estado de los pedidos                 | Paciente            |
+| Mi receta          | Permite consultar la receta óptica registrada              | Paciente            |
+| Notificaciones     | Permite consultar avisos y actualizaciones                 | Paciente / Personal |
+| Perfil             | Permite consultar y modificar información personal         | Paciente / Personal |
+| Agenda             | Permite administrar las citas de la óptica                 | Personal            |
+| Pacientes          | Permite gestionar la información de los pacientes          | Personal            |
+| Historia clínica   | Permite consultar información clínica del paciente         | Personal            |
+| Recetas ópticas    | Permite registrar y consultar recetas                      | Personal            |
+| Ventas             | Permite gestionar las operaciones comerciales              | Personal            |
+| Cotizaciones       | Permite gestionar cotizaciones para los pacientes          | Personal            |
+| Inventario         | Permite administrar productos y existencias                | Personal            |
+| Órdenes de trabajo | Permite gestionar el proceso de producción                 | Personal            |
+| Alertas de stock   | Informa sobre productos con existencias bajas              | Personal            |
+
+**Etiquetas para acciones**
+
+Las acciones utilizarán verbos directos que indiquen claramente la operación que realizará el usuario.
+
+| Acción       | Uso                                                 |
+| ------------ | --------------------------------------------------- |
+| Buscar       | Realizar una búsqueda                               |
+| Filtrar      | Reducir los resultados según determinados criterios |
+| Ver detalles | Consultar información adicional                     |
+| Reservar     | Registrar una cita                                  |
+| Confirmar    | Confirmar una operación                             |
+| Cancelar     | Cancelar una operación                              |
+| Guardar      | Registrar cambios                                   |
+| Editar       | Modificar información                               |
+| Eliminar     | Remover información                                 |
+| Descargar    | Obtener un documento o información                  |
+| Continuar    | Avanzar al siguiente paso                           |
+| Volver       | Regresar al paso anterior                           |
+
+**Etiquetas para estados**
+
+Los estados de los procesos también deberán mantener una nomenclatura consistente.
+
+| Estado             | Aplicación                                 |
+| ------------------ | ------------------------------------------ |
+| Pendiente          | Actividad que todavía no ha sido atendida  |
+| Confirmada         | Cita u operación confirmada                |
+| En proceso         | Actividad actualmente en ejecución         |
+| En producción      | Orden que se encuentra en fabricación      |
+| Lista para entrega | Pedido que puede ser entregado al paciente |
+| Entregada          | Pedido completado y entregado              |
+| Cancelada          | Operación cancelada                        |
+| Retrasada          | Proceso que presenta un retraso            |
+| Completada         | Actividad finalizada correctamente         |
+
+El uso de etiquetas consistentes permite que los usuarios puedan reconocer rápidamente las funcionalidades y estados del sistema. Además, evita utilizar diferentes nombres para representar un mismo concepto dentro de las distintas pantallas.
+
+##### 3.1.2.3. SEO Tags and Meta Tags
+
+##### 3.1.2.4. Searching Systems
+
+##### 3.1.2.5. Navigation Systems 
