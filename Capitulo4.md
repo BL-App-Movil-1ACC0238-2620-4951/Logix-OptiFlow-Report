@@ -142,3 +142,19 @@ Esta sección describe la configuración necesaria para desplegar cada producto 
 El siguiente Deployment Diagram del Modelo C4, elaborado en Structurizr, muestra cómo se distribuyen los contenedores de software sobre la infraestructura: [descripción breve de los nodos, por ejemplo el servidor del backend, las bases de datos, el hosting de la Landing Page y Firebase].
 
 ![Deployment Diagram](assets/cap4/deployment-diagram.svg)
+
+## 4.2. Landing Page & Mobile Application Implementation
+### 4.2.1. Sprint 1
+#### 4.2.1.1. Sprint Planning 1
+#### 4.2.1.2. Aspect Leaders and Collaborators
+#### 4.2.1.3. Sprint Backlog 1
+#### 4.2.1.4. Development Evidence for Sprint Review
+#### 4.2.1.5. Testing Suite Evidence for Sprint Review
+#### 4.2.1.6. Execution Evidence for Sprint Review
+#### 4.2.1.7. Services Documentation Evidence for Sprint Review
+#### 4.2.1.8. Software Deployment Evidence for Sprint Review
+#### 4.2.1.9. Team Collaboration Insights during Sprint
+## 4.3. Validation Interviews
+### 4.3.1. Diseño de entrevistas
+### 4.3.2. Registro de entrevistas
+### 4.3.3. Evaluaciones según heurísticas

@@ -28,13 +28,13 @@ Proyecto<br>
 
 | Código|Apellidos y Nombres|
 |-------------| --------------------------------- |
-| U20241d317| Atoche Gonzáles, Nicolás Fernando|
+| U20241d317| Atoche Gonzáles, Nicolás Fernando
 | U20211b387| Becerra Ttito, Felix Orlando|
 | U201911249| Celis Berrospi, Eslander|
 | U202411521| Morocho Pinedo, Mariana|
 | U202417405| Quispe llacsahuanga, Cesar Agusto| 
 
-</div>
+</div> 
 
 **Período 202620**  
 
@@ -253,8 +253,8 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
     - [4.2.1.5. Testing Suite Evidence for Sprint Review]()
     - [4.2.1.6. Execution Evidence for Sprint Review]()
     - [4.2.1.7. Services Documentation Evidence for Sprint Review]()
-    - [5.2.1.8. Software Deployment Evidence for Sprint Review]()
-    - [5.2.1.9. Team Collaboration Insights during Sprint]()
+    - [4.2.1.8. Software Deployment Evidence for Sprint Review]()
+    - [4.2.1.9. Team Collaboration Insights during Sprint]()
 - [4.3. Validation Interviews]()
   - [4.3.1. Diseño de entrevistas]()
   - [4.3.2. Registro de entrevistas]()
