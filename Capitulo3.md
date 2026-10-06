@@ -468,8 +468,15 @@ La navegación principal en nuestra app visualmente:
 
 
 ### 3.1.3. Landing Page UI Design
+
 #### 3.1.3.1. Landing Page Wireframe
+
+![Landing page wireframe.png](assets/cap3/wireframes/Landing%20page%20wireframe.png)
+
 #### 3.1.3.2. Landing Page Mock-up
+
+![Landing page mockup.png](assets/cap3/mockups/Landing%20page%20mockup.png)
+
 ### 3.1.4. Mobile Applications UX/UI Design
 #### 3.1.4.1. Mobile Applications Wireframes
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
