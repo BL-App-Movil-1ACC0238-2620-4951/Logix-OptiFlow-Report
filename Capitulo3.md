@@ -389,6 +389,79 @@ El uso de etiquetas consistentes permite que los usuarios puedan reconocer rápi
 
 ##### 3.1.2.3. SEO Tags and Meta Tags
 
+Las etiquetas SEO y meta etiquetas de OptiFlow se aplicarán principalmente a la **Landing Page**, debido a que esta constituye el principal punto de acceso público a la solución. Su finalidad es facilitar la identificación del producto por los motores de búsqueda y proporcionar información relevante sobre el contenido de la página.
+
+Las etiquetas se plantean considerando el propósito de como una solución orientada a la gestión de citas, ópticas, pacientes y seguimiento de pedidos.
+
+| Elemento | Propuesta |
+|---|---|
+| **Title** | OptiFlow - Gestión de citas y servicios ópticos |
+| **Meta Description** | OptiFlow facilita la búsqueda de ópticas, reserva de citas y seguimiento de pedidos en un solo lugar. |
+| **Keywords** | ópticas, citas ópticas, reserva de citas, gestión óptica, pacientes, recetas ópticas, seguimiento de pedidos |
+| **Robots** | `index, follow` |
+| **Open Graph Title** | OptiFlow - Gestión de citas y servicios ópticos |
+| **Open Graph Description** | Encuentra ópticas, reserva citas y realiza el seguimiento de tus pedidos mediante OptiFlow. |
+| **Open Graph Type** | `website` |
+
+El **Title** permite identificar el propósito principal de la plataforma en los resultados de búsqueda, mientras que la **Meta Description** proporciona una descripción breve de los servicios ofrecidos. Las palabras clave propuestas se relacionan con las principales funcionalidades y conceptos del sistema, como la búsqueda de ópticas, reserva de citas, gestión de pacientes y seguimiento de pedidos.
+
+Por otro lado, las etiquetas **Open Graph** permiten definir la información que se mostrará cuando la Landing Page sea compartida mediante plataformas y redes sociales. La configuración de `robots` mediante `index, follow` permitirá que los motores de búsqueda puedan redirigir la Landing Page y seguir los enlaces disponibles en ella.
+
 ##### 3.1.2.4. Searching Systems
 
-##### 3.1.2.5. Navigation Systems 
+El sistema de búsqueda de OptiFlow permite al paciente localizar ópticas de acuerdo con diferentes criterios y consultar rápidamente su disponibilidad. La interfaz está diseñada para facilitar la búsqueda desde un dispositivo móvil, mostrando los resultados de manera clara y priorizando la información necesaria para seleccionar una óptica.
+
+La pantalla de búsqueda cuenta con una barra que permite ingresar diferentes criterios relacionados con la óptica, como el nombre, dirección o estilo. Además, se presentan accesos rápidos para facilitar la búsqueda según las necesidades del usuario.
+
+Entre los principales elementos del sistema se encuentran:
+
+- **Barra de búsqueda:** permite ingresar términos relacionados con la óptica que se desea encontrar.
+- **Búsqueda por montura:** permite iniciar una búsqueda a partir del modelo de montura que desea encontrar el paciente.
+- **Filtros rápidos:** permiten consultar ópticas cercanas, establecimientos abiertos o aquellos con disponibilidad en la primera hora.
+- **Mapa:** presenta visualmente la ubicación de las ópticas disponibles.
+- **Resultados cercanos:** muestra las ópticas encontradas junto con información relevante como horario disponible, distancia y servicios ofrecidos.
+- **Acceso a detalles:** permite seleccionar una óptica para consultar información adicional y continuar con el proceso de reserva.
+
+El flujo general de búsqueda se representa de la siguiente manera:
+
+```text
+Ingresar criterio de búsqueda
+            ↓
+Mostrar ópticas disponibles
+            ↓
+Aplicar filtro de búsqueda
+            ↓
+Consultar resultados cercanos
+            ↓
+Seleccionar óptica
+            ↓
+Consultar información y disponibilidad
+```
+
+Figura Buscar Optica. Interfaz del sistema de búsqueda de ópticas.
+
+<p align="center">
+  <img src="assets/cap3/organization/buscar_optica.png">
+</p> 
+
+##### 3.1.2.5. Navigation Systems
+
+El sistema de navegación de OptiFlow permite que los usuarios accedan de manera rápida a las principales funcionalidades de la aplicación. La navegación se organiza de acuerdo con las necesidades del paciente, priorizando el acceso a las funcionalidades utilizadas con mayor frecuencia.
+
+Para la aplicación móvil del paciente se utiliza una **barra de navegación inferior**, ubicada de manera permanente en la parte inferior de la pantalla. Este patrón permite acceder a las secciones principales sin necesidad de regresar constantemente a la pantalla de inicio.
+
+La navegación principal está compuesta por las siguientes opciones:
+
+| Opción | Funcionalidad |
+|---|---|
+| **Inicio** | Permite acceder a la pantalla principal y consultar información relevante para el paciente. |
+| **Buscar** | Permite buscar ópticas, consultar resultados cercanos y utilizar filtros de búsqueda. |
+| **Citas** | Permite consultar y gestionar las citas del paciente. |
+| **Receta** | Permite consultar la receta óptica registrada y su información asociada. |
+| **Perfil** | Permite consultar y administrar la información personal y preferencias del usuario. |
+
+La navegación principal en nuestra app visualmente:
+
+<p align="center">
+  <img src="assets/cap3/navigation/pantalla_inicio.png">
+</p> 
