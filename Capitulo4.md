@@ -792,6 +792,44 @@ Durante el Sprint 1, las tareas de implementación de la Landing Page, los Web S
 | Morocho Pinedo, Mariana | `Patto04` | Patto04 |
 | Quispe Llacsahuanga, César Agusto | `user20-bit` | Cesar Augusto |
 
+Las siguientes figuras muestran la actividad de cada repositorio según **GitHub Insights**, consultada el 2026-10-08. La sección *Contributors* cuenta los commits de cada integrante en la rama principal de trabajo, sin incluir los commits de *merge*, y la sección *Commits* muestra la cantidad de commits por semana. La mayor parte de la actividad se concentra en las semanas del 28 de septiembre y del 5 de octubre de 2026, que corresponden al Sprint 1.
+
+##### Landing Page
+
+En la rama `main` del repositorio de la Landing Page se registran contribuciones de los cinco integrantes: `Patto04` (8 commits), `user20-bit` (3), `Felixb14` (3), `Eslander-Celis` (3) y `THECOMAX` (2).
+
+**Figura 4.2.1.9-1. Contribuidores del repositorio de la Landing Page.**
+
+![Contributors de la Landing Page](assets/cap4/sprint1/insights-contributors-landing.png)
+
+**Figura 4.2.1.9-2. Commits por semana del repositorio de la Landing Page.**
+
+![Commits de la Landing Page](assets/cap4/sprint1/insights-activity-landing.png)
+
+##### Web Services
+
+En la rama `develop` del backend se registran 14 commits de `Felixb14`, 5 de `user20-bit` y 3 de `Eslander-Celis`, correspondientes a la implementación de los bounded contexts, los perfiles de base de datos y la configuración del despliegue.
+
+**Figura 4.2.1.9-3. Contribuidores del repositorio de los Web Services.**
+
+![Contributors del backend](assets/cap4/sprint1/insights-contributors-backend.png)
+
+**Figura 4.2.1.9-4. Commits por semana del repositorio de los Web Services.**
+
+![Commits del backend](assets/cap4/sprint1/insights-activity-backend.png)
+
+##### Aplicación móvil
+
+En la rama `develop` de la aplicación móvil se registran 15 commits de `user20-bit` y 5 de `Felixb14`, correspondientes a la estructura base del proyecto, la integración con los Web Services y las pantallas de los roles de paciente y personal clínico.
+
+**Figura 4.2.1.9-5. Contribuidores del repositorio de la aplicación móvil.**
+
+![Contributors de la app móvil](assets/cap4/sprint1/insights-contributors-mobile.png)
+
+**Figura 4.2.1.9-6. Commits por semana del repositorio de la aplicación móvil.**
+
+![Commits de la app móvil](assets/cap4/sprint1/insights-activity-mobile.png)
+
 ## 4.3. Validation Interviews
 ### 4.3.1. Diseño de entrevistas
 
