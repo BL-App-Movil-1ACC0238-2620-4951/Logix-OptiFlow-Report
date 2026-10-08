@@ -666,4 +666,167 @@ Tareas del prototipo: buscar una óptica y consultar su disponibilidad, reservar
 
 ### 4.3.2. Registro de entrevistas
 
+En esta sección se registran las entrevistas de validación realizadas con usuarios de los dos segmentos objetivo de OptiFlow, quienes interactuaron con la Landing Page y con la aplicación móvil. Todas las entrevistas se encuentran en un solo video, publicado en el OneDrive facilitado por el docente.
+
+**Video de entrevistas de validación:** [URL del video en OneDrive]
+
+**Segmento 1: *Staff de la Óptica***
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Entrevista** | **#1** |
+| **Nombre** | |
+| **Apellidos** | |
+| **Edad** | |
+| **Distrito** | |
+| **Evidencia** | |
+| **Link** | |
+| **Duración** | |
+| **Resumen** | |
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Entrevista** | **#2** |
+| **Nombre** | |
+| **Apellidos** | |
+| **Edad** | |
+| **Distrito** | |
+| **Evidencia** | |
+| **Link** | |
+| **Duración** | |
+| **Resumen** | |
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Entrevista** | **#3** |
+| **Nombre** | |
+| **Apellidos** | |
+| **Edad** | |
+| **Distrito** | |
+| **Evidencia** | |
+| **Link** | |
+| **Duración** | |
+| **Resumen** | |
+
+**Segmento 2: *Clientes de la óptica***
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Entrevista** | **#1** |
+| **Nombre** | |
+| **Apellidos** | |
+| **Edad** | |
+| **Distrito** | |
+| **Evidencia** | |
+| **Link** | |
+| **Duración** | |
+| **Resumen** | |
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Entrevista** | **#2** |
+| **Nombre** | |
+| **Apellidos** | |
+| **Edad** | |
+| **Distrito** | |
+| **Evidencia** | |
+| **Link** | |
+| **Duración** | |
+| **Resumen** | |
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Entrevista** | **#3** |
+| **Nombre** | |
+| **Apellidos** | |
+| **Edad** | |
+| **Distrito** | |
+| **Evidencia** | |
+| **Link** | |
+| **Duración** | |
+| **Resumen** | |
+
+
 ### 4.3.3. Evaluaciones según heurísticas
+
+En esta sección se presenta la evaluación de la experiencia de usuario de OptiFlow a partir de las sesiones de validación. Se consideran heurísticas de **usabilidad**, principios de **arquitectura de información** y principios de **diseño inclusivo**, siguiendo el formato de evaluación indicado para el proyecto.
+
+| | |
+| :--- | :--- |
+| **CARRERA** | Ingeniería de Software |
+| **CURSO** | 1ACC0238 Aplicaciones para Dispositivos Móviles |
+| **NRC** | 4951 |
+| **PROFESOR** | Jorge Luis Mayta Guillermo |
+| **AUDITOR** | Logix |
+| **CLIENTE(S)** | [Nombres de las personas que participan en la sesión] |
+
+**SITE o APP A EVALUAR:**
+OptiFlow: Landing Page y aplicación móvil.
+
+**TAREAS A EVALUAR:**
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+1. Conocer la propuesta de valor de OptiFlow desde la Landing Page.
+2. Registrarse e iniciar sesión en la aplicación móvil según el rol (paciente o personal clínico).
+3. Buscar una óptica y consultar sus horarios disponibles.
+4. Reservar una cita de atención optométrica.
+5. Consultar la receta óptica y el historial clínico.
+6. Revisar el estado y el seguimiento de un pedido de lentes.
+7. Configurar las notificaciones y los recordatorios de control visual.
+8. Registrar un paciente nuevo desde el rol de personal clínico.
+9. Consultar el stock de una montura mediante el escáner.
+10. Generar una cotización vinculada a la receta del paciente.
+11. Actualizar el estado de una orden de trabajo en el tablero de producción.
+12. Revisar los reportes y las alertas de stock crítico.
+
+No están incluidas en esta versión de la evaluación las siguientes tareas:
+
+1. Prueba virtual de monturas con la cámara del dispositivo.
+2. Registro de pagos y emisión de comprobantes.
+3. Generación y exportación de reportes.
+4. Gestión de permisos por roles.
+5. Operaciones sin conexión a internet.
+
+**ESCALA DE SEVERIDAD:**
+Los errores serán puntuados tomando en cuenta la siguiente escala de severidad:
+
+| Nivel | Descripción |
+| :---: | :--- |
+| 1 | **Problema superficial:** puede ser fácilmente superado por el usuario y ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| 2 | **Problema menor:** puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja resolverlo de cara al siguiente *release*. |
+| 3 | **Problema mayor:** ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante que sea corregido y se le debe asignar una prioridad alta. |
+| 4 | **Problema muy grave:** un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+
+**TABLA RESUMEN:**
+
+**Tabla N**
+*Resumen de problemas identificados en la evaluación heurística*
+
+| # | Problema | Escala de severidad | Heurística / Principio violado(a) |
+| :---: | :--- | :---: | :--- |
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |
+| 4 | | | |
+| 5 | | | |
+
+*Nota.* Elaboración propia.
+
+**DESCRIPCIÓN DE PROBLEMAS:**
+
+**PROBLEMA #1:** [Título del problema]
+
+- **Severidad:**
+- **Heurística violada:**
+- **Problema:**
+
+**Figura N**
+*[Título de la captura que ilustra el problema #1]*
+
+**[Insertar captura: Problema 1]**
+
+*Nota.* Captura de la aplicación OptiFlow.
+
+- **Recomendación:**
+
+<!-- Repetir la estructura anterior por cada problema registrado en la tabla resumen. -->
