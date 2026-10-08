@@ -449,5 +449,47 @@ El video de navegación y explicación del incremento será grabado por el equip
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 ## 4.3. Validation Interviews
 ### 4.3.1. Diseño de entrevistas
+
+Preguntas generales:
+
+1.  Datos de perfil: ¿Podrías indicarme tu nombre, edad, estado civil y ocupación exacta?
+2.  Contexto personal: ¿En qué distrito resides?
+3.  Entorno digital: ¿Qué dispositivo móvil utilizas con mayor frecuencia y cómo describirías tu experiencia con aplicaciones similares (agendamiento, gestión de pedidos o atención al cliente)?
+
+**Primer Segmento: *Staff de la óptica (Optómetras y Asesores comerciales)***
+
+Tareas del prototipo: iniciar sesión, registrar un paciente, consultar su historial clínico y receta, escanear una montura, generar una cotización, actualizar una orden de trabajo en el tablero Kanban y revisar el dashboard de métricas y las alertas de stock.
+
+4.  Después de explorar el prototipo, explícame con tus propias palabras qué hace la aplicación y en qué momentos de tu jornada la usarías.
+5.  Cuéntame cómo fue tu experiencia al iniciar sesión y llegar a la pantalla principal de tu rol: ¿qué esperabas encontrar y qué viste realmente?
+6.  Describe paso a paso cómo registraste al paciente nuevo y qué opinas de los campos solicitados, su orden y el tiempo que te tomó completarlos mientras atiendes.
+7.  Cuéntame cómo llegaste al historial clínico y la receta del paciente, qué información usarías durante la atención y cuál necesitarías ver y no encontraste.
+8.  Explícame qué entendiste de la información que apareció al escanear la montura (stock, características, precio) y qué esperarías que ocurra cuando el código no es reconocido.
+9.  Describe cómo fue el proceso de generar la cotización: ¿qué pasos te parecieron lógicos, cuáles te confundieron y qué información te faltó o te sobró?
+10. Cuéntame cómo interpretaste cada estado del tablero Kanban y qué pensaste mientras cambiabas una orden de estado.
+11. Explícame qué decisiones sobre ventas e inventario tomarías con el dashboard y las alertas de stock crítico, y qué indicador adicional necesitarías.
+12. Menciona con tus palabras qué significa cada menú, botón o ícono por los que pasaste, y señala cuáles interpretaste de forma distinta a lo esperado o te costó ubicar.
+13. Compara, con ejemplos de tu trabajo, cómo realizas hoy estas mismas tareas con tus herramientas actuales (celular, WhatsApp, Word, Excel u otro sistema) y cómo las harías con este prototipo.
+14. Imagina tu jornada real (atendiendo de pie, con pantalla pequeña o con conexión inestable): describe qué situaciones se te harían cómodas o difíciles con esta aplicación en cuanto a texto, botones y legibilidad.
+15. Si pudieras rediseñar este prototipo antes de usarlo en tu óptica, ¿qué cambiarías, quitarías o agregarías y por qué? ¿Qué tendría que ocurrir para que lo adoptes y lo recomiendes a otros colegas?
+
+**Segundo Segmento: *Clientes de la óptica (Pacientes)***
+
+Tareas del prototipo: buscar una óptica y consultar su disponibilidad, reservar una cita, consultar su receta e historial visual, revisar el estado de un pedido y configurar notificaciones y recordatorios.
+
+4.  Después de explorar el prototipo, explícame con tus propias palabras qué puedes hacer con la aplicación y en qué situaciones de tu vida la usarías.
+5.  Cuéntame cómo fue buscar una óptica: ¿cómo la encontraste, cómo la comparaste con otras y qué información necesitaste para decidir?
+6.  Describe paso a paso cómo reservaste la cita y qué sentiste durante el proceso y al recibir la confirmación.
+7.  Imagina que el horario que elegiste ya fue ocupado por otro paciente: ¿cómo interpretas el mensaje que viste y qué esperarías que la aplicación te ofrezca para continuar?
+8.  Cuéntame cómo llegaste a tu receta e historial visual y explícame con tus palabras qué significa cada dato (medida, tipo de luna, tratamientos).
+9.  Explícame cómo interpretaste el estado de tu pedido y cómo calcularías, a partir de lo que ves, cuándo estarán listos tus lentes.
+10. ¿Sobre qué cambios de tu pedido te gustaría que te avisen, por qué canal (notificación de la aplicación, WhatsApp u otro) y en qué momento del día? Cuéntame por qué.
+11. Describe cómo imaginas los recordatorios de control visual ideales: ¿con qué frecuencia, con qué mensaje y en qué momento te serían útiles?
+12. Menciona con tus palabras qué significa cada menú, botón o ícono por los que pasaste, y señala cuáles interpretaste de forma distinta a lo esperado o te costó ubicar.
+13. Describe cómo se ve y se lee la aplicación para ti (tamaño de letra, colores, botones) y qué dificultades imaginas que tendría un familiar de mayor edad al usarla sin ayuda.
+14. Compara, con una experiencia reciente, cómo reservaste una cita o consultaste un pedido antes y cómo lo harías con esta aplicación.
+15. Si pudieras modificar esta aplicación, ¿qué cambiarías, quitarías o agregarías y por qué? ¿Qué haría que la uses con frecuencia y la recomiendes a tus familiares o amigos?
+
 ### 4.3.2. Registro de entrevistas
+
 ### 4.3.3. Evaluaciones según heurísticas
