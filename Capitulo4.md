@@ -610,6 +610,17 @@ En este Sprint se desplegaron los tres productos digitales de OptiFlow: la **Lan
 El código de la Landing Page se encuentra en el repositorio [Logix-OptiFlow-lading-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-lading-page). GitHub Pages se eligió porque aloja sitios estáticos sin costo y publica automáticamente los cambios integrados en la rama configurada.
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
+
+Durante el Sprint 1, las tareas de implementación de la Landing Page, los Web Services y la aplicación móvil se distribuyeron entre los integrantes según la matriz de líderes y colaboradores de la sección 4.2.1.2. El trabajo siguió **GitFlow** y **Conventional Commits**: cada integrante trabajó en ramas `feature/*` creadas desde `develop` y los cambios se integraron mediante *pull requests*. En la Landing Page, la publicación se realiza desde `main`, que dispara el workflow de GitHub Pages.
+
+| Integrante | Usuario de GitHub | Autor en el historial de commits |
+| :--- | :--- | :--- |
+| Atoche Gonzales, Nicolas Fernando | `THECOMAX` | Fernando N. / Nicolas-Ato |
+| Becerra Ttito, Felix Orlando | `Felixb14` | Felixb14 |
+| Celis Berrospi, Eslander | `Eslander-Celis` | Eslander-Celis |
+| Morocho Pinedo, Mariana | `Patto04` | Patto04 |
+| Quispe Llacsahuanga, César Agusto | `user20-bit` | Cesar Augusto |
+
 ## 4.3. Validation Interviews
 ### 4.3.1. Diseño de entrevistas
 
