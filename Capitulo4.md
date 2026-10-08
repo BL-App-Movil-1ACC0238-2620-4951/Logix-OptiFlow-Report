@@ -603,11 +603,182 @@ En este Sprint se desplegaron los tres productos digitales de OptiFlow: la **Lan
 | :--- | :--- | :--- |
 | Landing Page | GitHub Pages | [https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-lading-page/](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-lading-page/) |
 | Web Services | Render (Docker) | [https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) |
-| Aplicación móvil | Firebase App Distribution | [Enlace de invitación de Firebase App Distribution] |
+| Aplicación móvil | Firebase App Distribution | [https://appdistribution.firebase.dev/i/69aa930a1cd1ad63](https://appdistribution.firebase.dev/i/69aa930a1cd1ad63) |
 
 ##### Landing Page
 
 El código de la Landing Page se encuentra en el repositorio [Logix-OptiFlow-lading-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-lading-page). GitHub Pages se eligió porque aloja sitios estáticos sin costo y publica automáticamente los cambios integrados en la rama configurada.
+
+**Paso 1: Acceso a la configuración del repositorio.**
+
+Desde el repositorio de la Landing Page en la organización de GitHub se ingresó a la pestaña **Settings** y luego a la sección **Pages**.
+
+**Paso 2: Configuración de la fuente de publicación.**
+
+Se seleccionó *Deploy from a branch* como fuente, la rama `main` y la carpeta raíz (`/root`). Con esta configuración GitHub Pages publica el sitio en la URL de la organización y fuerza el uso de HTTPS.
+
+**Figura 4.2.1.8-1. Configuración de GitHub Pages del repositorio de la Landing Page.**
+
+![Configuración de GitHub Pages](assets/cap4/sprint1/deploy-landing-settings.png)
+
+**Paso 3: Verificación del workflow de despliegue.**
+
+Cada integración en `main` ejecuta el workflow `pages build and deployment`. La ejecución #10, lanzada por `Patto04` con el commit `54caeae`, terminó con estado *Success* en 45 segundos tras completar los jobs `build`, `report-build-status` y `deploy`.
+
+**Figura 4.2.1.8-2. Ejecución del workflow pages build and deployment.**
+
+![Workflow de GitHub Pages](assets/cap4/sprint1/deploy-landing-actions.png)
+
+**Paso 4: Verificación del sitio publicado.**
+
+Se ingresó a la URL pública generada por GitHub Pages y se comprobó que la Landing Page carga correctamente.
+
+**Figura 4.2.1.8-3. Landing Page publicada en GitHub Pages.**
+
+![Landing Page publicada](assets/cap4/sprint1/deploy-landing-pages.png)
+
+##### Web Services
+
+El código del backend se encuentra en el repositorio [Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End). El servicio se desplegó en **Render** a partir del `Dockerfile` del repositorio, junto con una base de datos **PostgreSQL 16** administrada por la misma plataforma.
+
+**Paso 1: Creación del proyecto y sus recursos.**
+
+En Render se creó el proyecto **OptiFlow-Back-end** con un entorno *Production* que agrupa dos recursos en la región Frankfurt: el Web Service `Logix-OptiFlow-Back-End`, con runtime Docker, y la base de datos `Postgres Backend`, con PostgreSQL 16.
+
+**Figura 4.2.1.8-4. Recursos del proyecto OptiFlow-Back-end en Render.**
+
+![Proyecto en Render](assets/cap4/sprint1/deploy-render-project.png)
+
+**Paso 2: Configuración del build con Docker.**
+
+El Web Service se vinculó al repositorio del backend y a la rama `develop`. El `Dockerfile` usa una construcción en dos etapas: compila el proyecto con Maven y luego ejecuta el JAR generado sobre una imagen con Java 21, exponiendo el puerto 8080.
+
+```dockerfile
+FROM maven:3.9.11-eclipse-temurin-21 AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn -q -DskipTests package
+
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=build /app/target/optiflow-platform-0.1.0.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+
+**Paso 3: Conexión con la base de datos.**
+
+El backend define dos perfiles de Spring: `local`, con base de datos H2 en memoria, y `postgres`, que lee la conexión desde `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME` y `SPRING_DATASOURCE_PASSWORD` y aplica las migraciones de Flyway. Estos valores se registran como variables de entorno del servicio en Render y no se incluyen en el repositorio.
+
+**Paso 4: Verificación del despliegue.**
+
+Render vuelve a desplegar el servicio cada vez que se actualiza `develop`. El último despliegue corresponde al commit `6c388bc` y se encuentra en estado *Live* en [https://logix-optiflow-back-end.onrender.com](https://logix-optiflow-back-end.onrender.com). Como el servicio utiliza el plan gratuito, se suspende tras un periodo sin tráfico y la primera solicitud posterior puede demorar alrededor de un minuto. Swagger UI responde en la URL pública con los endpoints de los tres bounded contexts (ver sección 4.2.1.7).
+
+**Figura 4.2.1.8-5. Web Service en estado Live y su historial de despliegues.**
+
+![Servicio en Render](assets/cap4/sprint1/deploy-render-service.png)
+
+##### Aplicación móvil
+
+La aplicación móvil se desarrolla en **Kotlin con Jetpack Compose** en el repositorio [Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) y se distribuyó mediante **Firebase App Distribution** para que los evaluadores puedan instalarla en sus dispositivos Android. La variante `prodDebug` consume los Web Services desplegados en Render.
+
+**Paso 1: Creación del proyecto en Firebase.**
+
+Se creó el proyecto **Optiflow** en la consola de Firebase, con el plan Spark sin costo.
+
+**Figura 4.2.1.8-6. Proyecto Optiflow en la consola de Firebase.**
+
+![Proyecto en Firebase](assets/cap4/sprint1/deploy-firebase-project.png)
+
+**Paso 2: Registro de la aplicación Android.**
+
+Se registró la aplicación Android dentro del proyecto con los siguientes datos:
+
+```
+Alias de la aplicación: OptiFlow
+Nombre del paquete: com.logix.optiflow
+```
+
+**Figura 4.2.1.8-7. Aplicación Android registrada en Firebase.**
+
+![App Android registrada](assets/cap4/sprint1/deploy-firebase-android-app.png)
+
+**Paso 3: Generación del APK desde Android Studio.**
+
+En Android Studio se seleccionó la variante `prodDebug` en **Build Variants** y se generó el APK desde el menú **Build → Generate App Bundles or APKs → Generate APKs**.
+
+**Figura 4.2.1.8-8. Variante prodDebug seleccionada en Build Variants.**
+
+<img src="assets/cap4/sprint1/deploy-mobile-build-variants.png" alt="Build Variants" width="420">
+
+**Figura 4.2.1.8-9. Generación del APK en Android Studio.**
+
+<img src="assets/cap4/sprint1/deploy-mobile-generate-apk.png" alt="Generate APKs" width="420">
+
+**Paso 4: Ubicación del APK generado.**
+
+El archivo generado se ubicó en la siguiente ruta del proyecto:
+
+```
+app/build/outputs/apk/prod/debug/app-prod-debug.apk
+```
+
+**Figura 4.2.1.8-10. APK generado en la carpeta de salida del proyecto.**
+
+<img src="assets/cap4/sprint1/deploy-mobile-apk-output.png" alt="APK generado" width="300">
+
+**Paso 5: Carga del APK en Firebase App Distribution.**
+
+Se ingresó al módulo **App Distribution** y se cargó el APK, que se registró como la versión **1.0 (1)**.
+
+**Figura 4.2.1.8-11. Versión 1.0 (1) cargada en Firebase App Distribution.**
+
+![Versión cargada en App Distribution](assets/cap4/sprint1/deploy-firebase-release.png)
+
+**Paso 6: Registro de evaluadores.**
+
+Se creó el grupo `optiflow-testers` con seis evaluadores y se le distribuyó la versión 1.0 (1) con la nota "Sprint 1 – versión inicial de OptiFlow".
+
+**Figura 4.2.1.8-12. Grupo de evaluadores optiflow-testers.**
+
+![Evaluadores en App Distribution](assets/cap4/sprint1/deploy-firebase-testers.png)
+
+**Paso 7: Creación del vínculo de invitación.**
+
+Se generó un vínculo de invitación asociado al grupo `optiflow-testers`. Cualquier persona que lo abra desde un dispositivo Android puede iniciar sesión con su cuenta de Google, unirse al grupo y descargar la aplicación: [https://appdistribution.firebase.dev/i/69aa930a1cd1ad63](https://appdistribution.firebase.dev/i/69aa930a1cd1ad63).
+
+**Figura 4.2.1.8-13. Vínculo de invitación de Firebase App Distribution.**
+
+![Vínculo de invitación](assets/cap4/sprint1/deploy-firebase-invite-link.png)
+
+**Paso 8: Instalación en un dispositivo.**
+
+Desde un dispositivo Android se abrió el vínculo de invitación y se instaló la versión 1.0 (1) mediante Firebase App Tester.
+
+**Figura 4.2.1.8-14. Versión 1.0 (1) instalada desde Firebase App Tester.**
+
+<img src="assets/cap4/sprint1/deploy-firebase-app-tester.png" alt="App Tester" width="300">
+
+**Paso 9: Verificación de la aplicación contra el backend desplegado.**
+
+Se comprobó que la aplicación instalada se comunica con el backend desplegado en Render: el registro e inicio de sesión del paciente, la búsqueda de ópticas y la consulta de disponibilidad devolvieron los mismos datos que Swagger UI.
+
+**Figura 4.2.1.8-15. Pantalla de inicio del paciente en el dispositivo.**
+
+<img src="assets/cap4/sprint1/deploy-mobile-home-device.png" alt="Inicio del paciente" width="300">
+
+**Figura 4.2.1.8-16. Inicio de sesión del paciente contra el backend desplegado.**
+
+<img src="assets/cap4/sprint1/deploy-mobile-login.png" alt="Inicio de sesión" width="300">
+
+**Figura 4.2.1.8-17. Búsqueda de ópticas obtenida de Render.**
+
+<img src="assets/cap4/sprint1/deploy-mobile-search.png" alt="Búsqueda de ópticas" width="300">
+
+**Figura 4.2.1.8-18. Disponibilidad de horarios obtenida de Render.** Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /optical-stores/{id}/availability` de la Figura 4.2.1.7-6.
+
+<img src="assets/cap4/sprint1/deploy-mobile-availability.png" alt="Disponibilidad de horarios" width="300">
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
