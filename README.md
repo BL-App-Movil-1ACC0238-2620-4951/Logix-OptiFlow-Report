@@ -1,6 +1,13 @@
 <div align="center">
 
+
+La evidencia de README se presenta en [Figura P-001](#figura-p-001).
+
 <img src="assets/UPC_logo_transparente.png" alt="Logo-UPC" width="150"> 
+
+<a id="figura-p-001"></a>
+**Figura P-001. Logo-UPC.**
+
 
 **Universidad Peruana de Ciencias Aplicadas**<br>
 **Carrera de Ingeniería de Software**
@@ -26,6 +33,12 @@ Proyecto<br>
 
 <div align="center"> 
 
+
+<a id="tabla-p-001"></a>
+La [Tabla P-001](#tabla-p-001) presenta detalle de README y permite revisar los elementos documentados en esta sección.
+
+**Tabla P-001. Detalle de README.**
+
 | Código|Apellidos y Nombres|
 |-------------| --------------------------------- |
 | U20241d317| Atoche Gonzáles, Nicolás Fernando
@@ -46,6 +59,12 @@ Proyecto<br>
 
 # Registro de Versiones del Informe 
  
+
+<a id="tabla-p-002"></a>
+La [Tabla P-002](#tabla-p-002) presenta detalle de Registro de Versiones del Informe  y permite revisar los elementos documentados en esta sección.
+
+**Tabla P-002. Detalle de Registro de Versiones del Informe .**
+
 | Versión | Fecha | Autores | Descripción de modificación |
 | ----------- | --------- |----------- |--------------------|
 | AV1 | 17/09/2026 | Atoche Nicolás Fernando <br> </br> Becerra Felix Orlando <br><br> Celis Eslander <br><br> Morocho Pinedo Mariana <br><br> Quispe Cesar Agusto | Desarrollo del avance inicial del informe de OptiFlow, incluyendo el análisis de antecedentes y problemática, análisis de competidores, entrevistas y levantamiento de requisitos. Elaboración y priorización de User Stories y Product Backlog. Desarrollo del análisis estratégico del dominio mediante EventStorming, Candidate Context Discovery, Domain Message Flows, Bounded Context Canvases y Context Mapping. Definición de los Bounded Contexts: Search & Booking, Clinical & Commercial, Production & Tracking, Store Management & Inventory y Notification & Loyalty. Desarrollo inicial del diseño táctico de los Bounded Contexts y de la arquitectura de software mediante diagramas C4 de Context, Container y Component. Elaboración de diagramas de diseño de dominio y base de datos para los contextos desarrollados, además de la organización de conclusiones y anexos del informe. |
@@ -83,11 +102,38 @@ Durante esta fase, el equipo elaboró el **informe inicial**, que incluyó los s
 
 A continuación se presenta la captura de los analíticos de colaboración y commits en GitHub para este entregable:
 
+
+La evidencia de AV1 — Semana 4 se presenta en [Figura P-002](#figura-p-002).
+
 ![Project Report Collaboration Insights AV1](assets/commits/commit1.png)
+
+<a id="figura-p-002"></a>
+**Figura P-002. Project Report Collaboration Insights AV1.**
+
+
+
+La evidencia de AV1 — Semana 4 se presenta en [Figura P-003](#figura-p-003).
 
 ![Project Report Collaboration Insights AV1](assets/commits/commit2.png)
 
+<a id="figura-p-003"></a>
+**Figura P-003. Project Report Collaboration Insights AV1.**
+
+
+
+La evidencia de AV1 — Semana 4 se presenta en [Figura P-004](#figura-p-004).
+
 ![Project Report Collaboration Insights AV1](assets/commits/commit3.png)
+
+<a id="figura-p-004"></a>
+**Figura P-004. Project Report Collaboration Insights AV1.**
+
+
+
+<a id="tabla-p-003"></a>
+La [Tabla P-003](#tabla-p-003) presenta detalle de AV1 — Semana 4 y permite revisar los elementos documentados en esta sección.
+
+**Tabla P-003. Detalle de AV1 — Semana 4.**
 
 | Integrante | Usuario GitHub | Commits | Adiciones | Eliminaciones |
 |---|---|---:|---:|---:|
@@ -108,6 +154,9 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
 -----
 
 # Tabla de Contenidos
+
+- [Student Outcome](#student-outcome)
+- [Objetivos SMART](#objetivos-smart)
 
 ## [Capítulo I: Presentación](Capitulo1.md)
 
@@ -214,47 +263,47 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
       - [2.6.5.6.2. Bounded Context Database Design Diagram](Capitulo2.md#26562-bounded-context-database-design-diagram)
 ---
 
-## [Capítulo III: Solution UI/UX Design](Capitulo_3.md)
+## [Capítulo III: Solution UI/UX Design](Capitulo3.md)
 
-- [3.1. Product design]()
-  - [3.1.1. Style Guidelines]()
-    - [3.1.1.1. General Style Guidelines]()
-  - [3.1.2. Information Architecture]()
-    - [3.1.2.1. Organization Systems]()
-    - [3.1.2.2. Labeling Systems]()
-    - [3.1.2.3. SEO Tags and Meta Tags]()
-    - [3.1.2.4. Searching Systems]()
-    - [3.1.2.5. Navigation Systems]()
-  - [3.1.3. Landing Page UI Design]()
-    - [3.1.3.1. Landing Page Wireframe]()
-    - [3.1.3.2. Landing Page Mock-up]()
-  - [3.1.4. Mobile Applications UX/UI Design]()
-    - [3.1.4.1. Mobile Applications Wireframes]()
-    - [3.1.4.2. Mobile Applications Wireflow Diagrams]()
-    - [3.1.4.3. Mobile Applications Mock-ups]()
-    - [3.1.4.4. Mobile Applications User Flow Diagrams]()
-    - [3.1.4.5 Mobile Applications Prototyping]()
+- [3.1. Product design](Capitulo3.md#31-product-design)
+  - [3.1.1. Style Guidelines](Capitulo3.md#311-style-guidelines)
+    - [3.1.1.1. General Style Guidelines](Capitulo3.md#3111-general-style-guidelines)
+  - [3.1.2. Information Architecture](Capitulo3.md#312-information-architecture)
+    - [3.1.2.1. Organization Systems](Capitulo3.md#3121-organization-systems)
+    - [3.1.2.2. Labeling Systems](Capitulo3.md#3122-labeling-systems)
+    - [3.1.2.3. SEO Tags and Meta Tags](Capitulo3.md#3123-seo-tags-and-meta-tags)
+    - [3.1.2.4. Searching Systems](Capitulo3.md#3124-searching-systems)
+    - [3.1.2.5. Navigation Systems](Capitulo3.md#3125-navigation-systems)
+  - [3.1.3. Landing Page UI Design](Capitulo3.md#313-landing-page-ui-design)
+    - [3.1.3.1. Landing Page Wireframe](Capitulo3.md#3131-landing-page-wireframe)
+    - [3.1.3.2. Landing Page Mock-up](Capitulo3.md#3132-landing-page-mock-up)
+  - [3.1.4. Mobile Applications UX/UI Design](Capitulo3.md#314-mobile-applications-uxui-design)
+    - [3.1.4.1. Mobile Applications Wireframes](Capitulo3.md#3141-mobile-applications-wireframes)
+    - [3.1.4.2. Mobile Applications Wireflow Diagrams](Capitulo3.md#3142-mobile-applications-wireflow-diagrams)
+    - [3.1.4.3. Mobile Applications Mock-ups](Capitulo3.md#3143-mobile-applications-mock-ups)
+    - [3.1.4.4. Mobile Applications User Flow Diagrams](Capitulo3.md#3144-mobile-applications-user-flow-diagrams)
+    - [3.1.4.5 Mobile Applications Prototyping](Capitulo3.md#3145-mobile-applications-prototyping)
 ---
-## [Capítulo IV: Product Implementation & Validation](Capitulo_4.md)
+## [Capítulo IV: Product Implementation & Validation](Capitulo4.md)
 
- [4. Product Implementation & Validation]()
+ [4. Product Implementation & Validation](Capitulo4.md#4-product-implementation--validation)
 
-- [4.1. Software Configuration Management]()
-  - [4.1.1. Software Development Environment Configuration]()
-  - [4.1.2. Source Code Management]()
-  - [4.1.3. Source Code Style Guide & Conventions]()
-  - [4.1.4. Software Deployment Configuration]()
-- [4.2. Landing Page & Mobile Application Implementation]()
-  - [4.2.1. Sprint 1]()
-    - [4.2.1.1. Sprint Planning 1]()
-    - [4.2.1.2. Aspect Leaders and Collaborators]()
-    - [4.2.1.3. Sprint Backlog 1]()
-    - [4.2.1.4. Development Evidence for Sprint Review]()
-    - [4.2.1.5. Testing Suite Evidence for Sprint Review]()
-    - [4.2.1.6. Execution Evidence for Sprint Review]()
-    - [4.2.1.7. Services Documentation Evidence for Sprint Review]()
-    - [4.2.1.8. Software Deployment Evidence for Sprint Review]()
-    - [4.2.1.9. Team Collaboration Insights during Sprint]()
+- [4.1. Software Configuration Management](Capitulo4.md#41-software-configuration-management)
+  - [4.1.1. Software Development Environment Configuration](Capitulo4.md#411-software-development-environment-configuration)
+  - [4.1.2. Source Code Management](Capitulo4.md#412-source-code-management)
+  - [4.1.3. Source Code Style Guide & Conventions](Capitulo4.md#413-source-code-style-guide--conventions)
+  - [4.1.4. Software Deployment Configuration](Capitulo4.md#414-software-deployment-configuration)
+- [4.2. Landing Page & Mobile Application Implementation](Capitulo4.md#42-landing-page--mobile-application-implementation)
+  - [4.2.1. Sprint 1](Capitulo4.md#421-sprint-1)
+    - [4.2.1.1. Sprint Planning 1](Capitulo4.md#4211-sprint-planning-1)
+    - [4.2.1.2. Aspect Leaders and Collaborators](Capitulo4.md#4212-aspect-leaders-and-collaborators)
+    - [4.2.1.3. Sprint Backlog 1](Capitulo4.md#4213-sprint-backlog-1)
+    - [4.2.1.4. Development Evidence for Sprint Review](Capitulo4.md#4214-development-evidence-for-sprint-review)
+    - [4.2.1.5. Testing Suite Evidence for Sprint Review](Capitulo4.md#4215-testing-suite-evidence-for-sprint-review)
+    - [4.2.1.6. Execution Evidence for Sprint Review](Capitulo4.md#4216-execution-evidence-for-sprint-review)
+    - [4.2.1.7. Services Documentation Evidence for Sprint Review](Capitulo4.md#4217-services-documentation-evidence-for-sprint-review)
+    - [4.2.1.8. Software Deployment Evidence for Sprint Review](Capitulo4.md#4218-software-deployment-evidence-for-sprint-review)
+    - [4.2.1.9. Team Collaboration Insights during Sprint](Capitulo4.md#4219-team-collaboration-insights-during-sprint)
 - [4.3. Validation Interviews]()
   - [4.3.1. Diseño de entrevistas]()
   - [4.3.2. Registro de entrevistas]()
@@ -289,7 +338,25 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
 
 ---
 
+<div style="break-before: page; page-break-before: always;"></div>
+
 # Student Outcome
+
+El curso contribuye al cumplimiento del Student Outcome ABET:
+
+**ABET - EAC - Student Outcome 7**
+
+**Criterio:** La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.
+
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7.
+
+En OptiFlow, este aprendizaje se relaciona con la investigación del dominio, la aplicación de Lean UX y DDD, el diseño de la experiencia móvil y la integración del flujo de búsqueda y reserva. Las acciones individuales registradas en el cuadro sustentan los dos criterios específicos: actualización de conocimientos y reconocimiento de la necesidad del aprendizaje permanente.
+
+
+<a id="tabla-p-004"></a>
+La [Tabla P-004](#tabla-p-004) presenta detalle de Student Outcome y permite revisar los elementos documentados en esta sección.
+
+**Tabla P-004. Detalle de Student Outcome.**
 
 <table>
    <tr>
@@ -349,4 +416,38 @@ Durante el desarrollo del AV1, el equipo reconoció que el aprendizaje permanent
 </table>
 
 
+<div style="break-before: page; page-break-before: always;"></div>
+
 # Objetivos SMART
+
+Los siguientes planes proponen dos objetivos de desarrollo profesional por integrante, con plazos contados desde la fecha de graduación. Cada objetivo define una actividad específica, una evidencia medible, una dedicación alcanzable y su relevancia profesional. Los certificados, proyectos y revisiones mencionados son resultados previstos del plan, no logros ya obtenidos.
+
+## Atoche Gonzáles, Nicolás Fernando
+
+**Objetivo 1.** Durante los primeros 12 meses posteriores a mi graduación, fortaleceré mis competencias en desarrollo de software completando un curso de al menos 40 horas y publicando dos proyectos ejecutables en mi portafolio, cada uno con instrucciones de instalación y una explicación de las decisiones técnicas. Reservaré cuatro horas semanales para estas actividades y verificaré el avance al cierre de cada mes mediante los certificados, repositorios y versiones publicadas.
+
+**Objetivo 2.** Durante los primeros 18 meses posteriores a mi graduación, mejoraré mi capacidad para evaluar soluciones técnicas realizando seis ejercicios documentados de comparación de algoritmos o estructuras de datos. Cada ejercicio incluirá dos alternativas, mediciones reproducibles y una conclusión sobre su uso. Dedicaré dos horas semanales y registraré una revisión trimestral del portafolio para orientar mi desarrollo como ingeniero de software.
+
+## Becerra Ttito, Felix Orlando
+
+**Objetivo 1.** Durante los primeros 12 meses posteriores a mi graduación, profundizaré en desarrollo backend con Java completando un curso de al menos 40 horas y publicando una API REST con persistencia, documentación OpenAPI y pruebas de cinco reglas de negocio. Dedicaré cuatro horas semanales y realizaré una revisión mensual del repositorio para verificar el avance mediante el certificado, la documentación y los resultados de pruebas.
+
+**Objetivo 2.** Durante los primeros 18 meses posteriores a mi graduación, mejoraré mis competencias para integrar aplicaciones web y servicios implementando dos proyectos completos que conecten una interfaz con una API y una base de datos. Cada proyecto tendrá una demostración ejecutable, instrucciones de despliegue y una revisión técnica documentada. Reservaré tres horas semanales y evaluaré los resultados cada trimestre para fortalecer mi perfil de desarrollo de soluciones.
+
+## Celis Berrospi, Eslander
+
+**Objetivo 1.** Durante los primeros 12 meses posteriores a mi graduación, fortaleceré mis competencias de programación y datos completando un curso de al menos 40 horas y desarrollando dos aplicaciones pequeñas con Python y persistencia. Cada aplicación incluirá instrucciones de ejecución y cinco pruebas de sus funciones principales. Dedicaré cuatro horas semanales y registraré mensualmente los entregables en mi portafolio.
+
+**Objetivo 2.** Durante los primeros 18 meses posteriores a mi graduación, profundizaré en análisis de requisitos y modelado del dominio realizando tres casos de estudio. Cada caso incluirá un problema delimitado, al menos cinco historias de usuario, un mapa de contextos y una revisión de consistencia entre requisitos y diseño. Dedicaré dos horas semanales y solicitaré una revisión técnica por caso, documentando los ajustes para mejorar mi capacidad de comunicar soluciones.
+
+## Morocho Pinedo, Mariana
+
+**Objetivo 1.** Durante los primeros 12 meses posteriores a mi graduación, fortaleceré mis competencias de desarrollo de aplicaciones completando un curso de al menos 40 horas y publicando dos proyectos que utilicen Java o Python con una base de datos. Cada proyecto incluirá instrucciones de instalación y cinco pruebas de sus funciones principales. Reservaré cuatro horas semanales y revisaré mensualmente los avances mediante certificados y repositorios.
+
+**Objetivo 2.** Durante los primeros 18 meses posteriores a mi graduación, mejoraré mis competencias en diseño centrado en el usuario desarrollando dos prototipos interactivos y realizando tres sesiones de evaluación por prototipo. Documentaré las tareas, dificultades observadas y cambios de diseño en dos informes. Dedicaré dos horas semanales y evaluaré cada trimestre el avance para incorporar evidencia de usuarios a mis decisiones profesionales.
+
+## Quispe Llacsahuanga, César Agusto
+
+**Objetivo 1.** Durante los primeros 12 meses posteriores a mi graduación, fortaleceré mis competencias en lógica de programación y bases de datos completando un curso de al menos 40 horas y publicando dos aplicaciones con persistencia. Cada proyecto incluirá un modelo de datos, instrucciones de ejecución y cinco pruebas de reglas de negocio. Dedicaré cuatro horas semanales y verificaré mensualmente los entregables mediante certificados y repositorios.
+
+**Objetivo 2.** Durante los primeros 18 meses posteriores a mi graduación, profundizaré en arquitectura de software y DDD elaborando tres casos de estudio con diagramas C4 de contexto, contenedores y componentes, más un registro de cinco decisiones arquitectónicas por caso. Dedicaré dos horas semanales y documentaré una revisión técnica por caso para mejorar mi capacidad de justificar diseños modulares y mantenibles.

@@ -1,18 +1,29 @@
+<div style="break-before: page; page-break-before: always;"></div>
+
 # Capítulo I: Introducción
 
 ## 1.1. Startup Profile
 
 ### 1.1.1. Descripción de la Startup
 
-OptiFlow nace para cerrar la brecha entre la búsqueda dispersa de servicios ópticos y una experiencia de agendamiento moderna, ágil y centrada en el paciente. Somos una startup que conecta a los pacientes con las ópticas de su preferencia: nuestro enfoque abarca tanto a las ópticas como a los pacientes, pero en esta etapa priorizamos al paciente, facilitándole encontrar, comparar y reservar una cita —eligiendo el modelo, la fecha, la hora y el local que más le convenga— desde su celular, sin necesidad de desplazarse físicamente de óptica en óptica.
+OptiFlow es una startup que propone conectar a pacientes y ópticas mediante una aplicación móvil. Surge ante la dispersión de los canales utilizados para consultar establecimientos, conocer su disponibilidad y coordinar una atención. La solución contempla las necesidades de ambos segmentos; en el Sprint 1 prioriza el flujo del paciente para buscar ópticas, consultar horarios y reservar una cita desde su celular.
 
-La misión de OptiFlow es ofrecer una plataforma móvil que simplifique al máximo el proceso de búsqueda y reserva de citas ópticas, y que a la vez afiance el vínculo entre el paciente y la óptica, entendiendo que este tipo de negocios se sostiene sobre una comunidad de clientes fieles. En paralelo, buscamos dotar al optometrista —y a la persona en quien delegue la gestión— de herramientas de notificación proactivas, como recordatorios de citas y alertas de cumpleaños de pacientes, que permitan una comunicación más clara y oportuna con la cartera de clientes, tanto antiguos como nuevos.
+La misión de OptiFlow es simplificar la búsqueda y reserva de citas ópticas y fortalecer la comunicación entre el establecimiento y sus pacientes. Como parte de la propuesta integral, se plantean recordatorios de citas y alertas de fechas relevantes que faciliten el seguimiento por parte del optometrista o del personal autorizado para gestionar la agenda.
 
-Nuestra visión es consolidarnos como la plataforma líder de agendamiento y fidelización para el sector óptico, siendo el punto de encuentro natural entre pacientes que buscan atención visual y ópticas que buscan construir relaciones duraderas con su comunidad, todo mediado por la conveniencia de un celular.
+La visión de OptiFlow es convertirse en una plataforma de referencia para el agendamiento y la fidelización en el sector óptico, conectando a pacientes que necesitan atención visual con establecimientos que buscan ofrecer un servicio organizado y mantener relaciones duraderas con sus clientes.
 
-Alcance de la aplicación: El alcance de OptiFlow se centra, en esta etapa, en una aplicación móvil orientada al paciente, que le permite buscar ópticas, explorar el catálogo de modelos disponibles y reservar una cita en la fecha, hora y local que elija, sin salir de casa. Complementariamente, el sistema incorpora un módulo de notificaciones para el optometrista —y para la persona encargada de la gestión, en caso de delegación— que avisa sobre citas próximas y fechas especiales de los pacientes, como cumpleaños, promoviendo una atención más puntual, proactiva y personalizada.
+**Alcance de la aplicación:** la propuesta integral comprende la búsqueda de ópticas, la consulta de catálogos y disponibilidad, la reserva de citas y el seguimiento posterior del paciente. Para TB1, el incremento del Sprint 1 se concentra en la búsqueda y reserva, correspondientes a US05 y US06. Las funciones de fidelización, notificaciones y gestión interna forman parte del diseño general; su definición no implica que todas estén implementadas en la aplicación móvil de esta entrega.
 
 ### 1.1.2. Perfiles de integrantes del equipo
+
+
+<a id="tabla-1-001"></a>
+La [Tabla 1-001](#tabla-1-001) presenta detalle de 1.1.2. Perfiles de integrantes del equipo y permite revisar los elementos documentados en esta sección.
+
+**Tabla 1-001. Detalle de 1.1.2. Perfiles de integrantes del equipo.**
+
+
+La evidencia de 1.1.2. Perfiles de integrantes del equipo se presenta en [Figura 1-001](#figura-1-001), [Figura 1-002](#figura-1-002), [Figura 1-003](#figura-1-003), [Figura 1-004](#figura-1-004), [Figura 1-005](#figura-1-005).
 
 |Foto|Apellido y Nombre| 
 | --- | --- |
@@ -21,6 +32,18 @@ Alcance de la aplicación: El alcance de OptiFlow se centra, en esta etapa, en u
 <img src="assets/members/eslander.jpg"> | Celis Berrospi Eslander - u201911249 Soy estudiante de Ingeniería de Software. Me considero una persona responsable y comprometida con mis objetivos, con una gran disposición para aprender y mejorar de manera continua. Valoro mucho la ética y el trabajo en equipo, aportando siempre ideas y soluciones para alcanzar resultados de calidad. Me esfuerzo por mantener un enfoque ordenado en mis tareas y contribuir activamente al desarrollo colectivo. Tengo conocimientos en Python, C++ y HTML, lo que me permite desarrollar soluciones tecnológicas y fortalecer mis habilidades en programación. Estoy motivado a seguir aprendiendo y asumir nuevos retos que me ayuden a crecer tanto profesional como personalmente.
 <img src="assets/members/Mariana.jpeg"> | Mariana Morocho Pinedo - u202411521 Soy estudiante de Ingeniería de Software. Cuento con conocimientos en lenguajes de programación como C++, Python y Java, los cuales he aplicado en distintos proyectos académicos orientados a la resolución de problemas y desarrollo de sistemas. Me caracterizo por ser proactiva y  con disposición de generar un buen ambiente.
 <img src="assets/members/cesar.jpeg"> | Quispe Llacsahuanga César Agusto - u202417405 Soy estudiante de Ingeniería de Software, interesado en el desarrollo de soluciones tecnológicas y el aprendizaje continuo en herramientas de programación. Cuento con conocimientos en lógica de programación, bases de datos y desarrollo de aplicaciones, lo que me permite contribuir en la construcción de sistemas eficientes. Me caracterizo por ser responsable, proactivo y con buena disposición para el trabajo en equipo, adaptándome a nuevos retos y aportando en el cumplimiento de los objetivos del proyecto.
+
+<a id="figura-1-001"></a>
+**Figura 1-001. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
+<a id="figura-1-002"></a>
+**Figura 1-002. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
+<a id="figura-1-003"></a>
+**Figura 1-003. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
+<a id="figura-1-004"></a>
+**Figura 1-004. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
+<a id="figura-1-005"></a>
+**Figura 1-005. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
+
 
 ## 1.2. Solution Profile
 
@@ -53,7 +76,7 @@ La problemática afecta principalmente a dos grupos:
 
 **Why / ¿Por qué?**
 
-El problema persiste debido a la ausencia de una solución especializada que integre en un mismo flujo la búsqueda de ópticas, la disponibilidad de atención, la reserva de citas y el seguimiento posterior del paciente. Asimismo, la gestión de recordatorios y fechas importantes puede depender de procesos manuales o de herramientas que no fueron diseñadas específicamente para las necesidades de una óptica.
+El problema persiste cuando los canales utilizados por la óptica no integran la búsqueda del establecimiento, la disponibilidad, la reserva y el seguimiento posterior. La dependencia de agendas manuales o herramientas generales dificulta mantener información consistente entre el paciente y el personal. Esta situación constituye una oportunidad de integración para OptiFlow, sin suponer que no existan otras soluciones en el mercado.
 
 Como consecuencia, la información puede permanecer dispersa entre diferentes canales y aumentar la posibilidad de olvidar citas, realizar seguimientos tardíos o perder oportunidades de mantener una relación continua con los pacientes.
 
@@ -190,13 +213,13 @@ OptiFlow fue diseñado para permitir que el paciente pueda buscar, comparar y re
 > - Apps genéricas de reserva de citas sin especialización en el sector óptico.
 
 **Ventaja competitiva**
-> Proponemos una solución verticalizada y 100% móvil que:
+> Proponemos una solución especializada en el sector óptico, con una experiencia centrada en dispositivos móviles, que:
 > 
 > - Centraliza la búsqueda, comparación y reserva de citas ópticas para el paciente.
 > - Fortalece la fidelización mediante notificaciones inteligentes al optometrista.
 > - Permite delegar el seguimiento de la agenda sin perder control ni visibilidad.
 > 
-> Todo en un solo ecosistema de bolsillo, pensado primero para el paciente.
+> La propuesta integra la experiencia del paciente con los procesos de atención del establecimiento.
 
 **Riesgos principales**
 > - Baja adopción inicial del paciente si no conoce o no confía en la app.
@@ -204,7 +227,7 @@ OptiFlow fue diseñado para permitir que el paciente pueda buscar, comparar y re
 > - Dependencia de que las ópticas mantengan actualizada su disponibilidad y catálogo de modelos.
 
 **Mitigación**
-> - Diseño Mobile UX/UI altamente intuitivo para el paciente (curva de aprendizaje casi nula).
+> - Diseñar una interfaz móvil clara y evaluar su facilidad de uso con los segmentos objetivo.
 > - Onboarding simple y programas piloto/promocionales para incentivar la primera reserva.
 > - Interfaces simplificadas y notificaciones claras para el optometrista y la persona de gestión.
 
@@ -224,24 +247,31 @@ OptiFlow fue diseñado para permitir que el paciente pueda buscar, comparar y re
 
 **Gestión Clínica y Comercial Integrada**
 
-Creemos que al integrar la historia clínica electrónica con el módulo de cotizaciones en una aplicación móvil para los optómetras y asesores de ventas, estos podrán registrar recetas y generar ventas sin depender de estaciones de PC fijas ni papeles, logrando reducir los errores de transcripción logística casi a cero y aumentar la conversión de ventas en el salón en un 20%. Sabremos que tenemos razón cuando observemos comentarios como: "Ahora paso al paciente de la cabina a la venta sin tener que volver a tipear sus datos de medida" y/o cuando los registros del sistema reflejen una reducción drástica de mermas económicas por trabajos rehechos.
+Creemos que integrar la historia clínica y las cotizaciones en una aplicación móvil facilitará el trabajo de los optómetras y asesores comerciales, al reducir la transcripción repetida de datos entre la evaluación y la venta. Planteamos como meta experimental aumentar la conversión de ventas en un 20% y reducir los errores de transcripción. Contrastaremos esta hipótesis comparando registros antes y después del uso de la solución, junto con entrevistas al personal. Estas metas son criterios de evaluación futuros y no resultados obtenidos en TB1.
 
 **Trazabilidad mediante Tablero Kanban Móvil**
 
-Creemos que al ofrecer un tablero Kanban interactivo para el staff de la óptica y el laboratorio, estos podrán actualizar y visualizar el estado de fabricación de cada orden de trabajo con un solo toque (tap) en la pantalla de su dispositivo móvil, logrando reducir los tiempos de entrega en al menos un 25% y eliminando la pérdida de pedidos. Sabremos que tenemos razón cuando observemos comentarios como: "Ya no necesito usar WhatsApp ni llamar al taller para saber si los lentes están listos" y/o cuando las métricas del sistema reflejen un cumplimiento superior al 95% en los plazos de entrega prometidos al cliente.
+Creemos que un tablero Kanban móvil permitirá al personal y al laboratorio consultar y actualizar el estado de las órdenes de trabajo con mayor claridad. La hipótesis plantea reducir los tiempos de entrega en al menos un 25% y alcanzar un cumplimiento superior al 95% de los plazos prometidos. Se evaluará mediante la comparación de tiempos registrados, incidencias y comentarios del personal; estos valores son metas pendientes de validación.
 
 **Consulta Ágil de Inventario por Cámara**
 
-Creemos que al implementar un escáner de códigos (QR/barras) utilizando la cámara del smartphone para los asesores comerciales, estos podrán consultar stock y precios de monturas en tiempo real frente al cliente, logrando acelerar el flujo de cotización y eliminar el descuadre de inventarios entre el piso de ventas y el almacén. Sabremos que tenemos razón cuando los usuarios comenten: "Puedo armar la proforma exacta en segundos mientras el cliente se prueba la montura" y/o cuando las auditorías mensuales de inventario muestren coincidencias exactas con la base de datos de la aplicación.
+Creemos que consultar stock y precios mediante el escaneo de códigos QR o de barras facilitará la preparación de cotizaciones frente al cliente y reducirá las diferencias entre el inventario registrado y las existencias físicas. La hipótesis se contrastará mediante tiempos de consulta, incidencias de inventario y comentarios de los asesores. La función se plantea como parte del diseño y no como un resultado validado del Sprint 1.
 
 **Seguimiento y Notificaciones Push para Pacientes**
 
-Creemos que al brindar un portal móvil de seguimiento con alertas automáticas (Push) para los pacientes (clientes finales), estos podrán conocer en tiempo real el estado de fabricación de sus lentes, logrando incrementar su satisfacción y reduciendo el tiempo invertido por el staff en responder consultas de estado manuales. Sabremos que tenemos razón cuando observemos comentarios como: "Me encantó saber exactamente cuándo ir a recoger mis lentes sin tener que estar llamando" y/o cuando la carga de atención a consultas de seguimiento por canales tradicionales disminuya en un 80% durante los primeros tres meses.
+Creemos que el seguimiento móvil de pedidos y las notificaciones oportunas reducirán la incertidumbre del paciente y las consultas manuales atendidas por el personal. Se plantea como meta disminuir estas consultas en un 80% durante los primeros tres meses de uso. La evaluación considerará el volumen de consultas antes y después de la adopción y la satisfacción reportada por los pacientes. Esta meta requiere una evaluación posterior en operación real.
 
 
 #### 1.2.2.4. Lean UX Canvas
 
+
+La evidencia de 1.2.2.4. Lean UX Canvas se presenta en [Figura 1-006](#figura-1-006).
+
 ![Lean UX Canvas.png](assets/cap1/Lean%20UX%20Canvas.png)
+
+<a id="figura-1-006"></a>
+**Figura 1-006. Evidencia visual de 1.2.2.4. Lean UX Canvas.**
+
 
 ## 1.3. Segmentos objetivo
 

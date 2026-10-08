@@ -1,3 +1,5 @@
+<div style="break-before: page; page-break-before: always;"></div>
+
 # Capítulo IV: Product Implementation & Validation
 
 ## 4. Product Implementation & Validation
@@ -6,11 +8,18 @@
 
 #### 4.1.1. Software Development Environment Configuration
 
-Esta sección presenta las herramientas que el equipo utiliza para colaborar durante el ciclo de vida de la solución, junto con el propósito de uso de cada una.
+Esta sección describe las herramientas del entorno de trabajo y su función en el diseño, desarrollo, documentación y validación de OptiFlow. La configuración general se complementa con las evidencias específicas del Sprint 1, donde se distinguen las actividades ejecutadas de las decisiones previstas para entregas posteriores.
 
 ##### Figma
 
+
+La evidencia de Figma se presenta en [Figura 4-001](#figura-4-001).
+
 ![Logo de Figma](assets/cap4/ExternalAppsForDesign/figma%20lockup.png)
+
+<a id="figura-4-001"></a>
+**Figura 4-001. Logo de Figma.**
+
 
 Se utiliza para definir el diseño de la Landing Page y de la aplicación móvil: wireframes, mock-ups y prototipo interactivo con la simulación de navegación entre pantallas.
 
@@ -18,7 +27,14 @@ Ruta de referencia: https://www.figma.com
 
 ##### Android Studio
 
+
+La evidencia de Android Studio se presenta en [Figura 4-002](#figura-4-002).
+
 ![android-studio-logo.png](assets/cap4/ExternalAppsForDesign/android-studio-logo.png)
+
+<a id="figura-4-002"></a>
+**Figura 4-002. Evidencia visual de Android Studio.**
+
 
 Es el entorno de desarrollo integrado (IDE) para la programación de la aplicación móvil. Además, se emplean el Android SDK, Gradle para la gestión de dependencias y la compilación, el Android Emulator para pruebas durante el desarrollo y un dispositivo físico con depuración USB para validar el funcionamiento real de la aplicación.
 
@@ -26,7 +42,14 @@ Ruta de descarga: https://developer.android.com/studio
 
 ##### Docker
 
+
+La evidencia de Docker se presenta en [Figura 4-003](#figura-4-003).
+
 ![docker logo.png](assets/cap4/ExternalAppsForDesign/docker%20logo.png)
+
+<a id="figura-4-003"></a>
+**Figura 4-003. Evidencia visual de Docker.**
+
 
 Se utiliza para empaquetar en contenedores el backend (Web Services) y la Landing Page, de modo que el despliegue sea reproducible y no dependa de la configuración de cada equipo.
 
@@ -34,7 +57,14 @@ Ruta de descarga: https://www.docker.com/products/docker-desktop
 
 ##### Structurizr
 
+
+La evidencia de Structurizr se presenta en [Figura 4-004](#figura-4-004).
+
 ![structurizr logo.png](assets/cap4/ExternalAppsForDesign/structurizr%20logo.png)
+
+<a id="figura-4-004"></a>
+**Figura 4-004. Evidencia visual de Structurizr.**
+
 
 Se utiliza para elaborar los diagramas de arquitectura de software del Modelo C4 (Context, Container, Component y Deployment).
 
@@ -42,7 +72,14 @@ Ruta de referencia: https://structurizr.com
 
 ##### Miro
 
+
+La evidencia de Miro se presenta en [Figura 4-005](#figura-4-005).
+
 ![miro logo.png](assets/cap4/ExternalAppsForDesign/miro%20logo.png)
+
+<a id="figura-4-005"></a>
+**Figura 4-005. Evidencia visual de Miro.**
+
 
 Se utiliza como pizarra colaborativa para las sesiones de EventStorming: Big Picture, Candidate Context Discovery y modelado de Domain Message Flows.
 
@@ -50,9 +87,15 @@ Ruta de referencia: https://miro.com
 
 #### 4.1.2. Source Code Management
 
-El equipo utiliza **GitHub** como plataforma de alojamiento y sistema de control de versiones. Los repositorios del proyecto son públicos y están organizados dentro de la organización [nombre de la organización], lo que permite evidenciar mediante commits el aporte de cada integrante.
+El equipo utiliza **Git** para el control de versiones y **GitHub** para alojar los repositorios y colaborar sobre el código y la documentación. Los productos se agrupan en la organización [BL-App-Movil-1ACC0238-2620-4951](https://github.com/BL-App-Movil-1ACC0238-2620-4951). Los historiales de commits permiten relacionar los cambios registrados con sus autores y fechas.
 
 ##### Repositorios del proyecto
+
+
+<a id="tabla-4-001"></a>
+La [Tabla 4-001](#tabla-4-001) presenta detalle de Repositorios del proyecto y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-001. Detalle de Repositorios del proyecto.**
 
 | Producto | Repositorio |
 |---|---|
@@ -65,6 +108,12 @@ El equipo utiliza **GitHub** como plataforma de alojamiento y sistema de control
 
 Se adoptó **GitFlow** como flujo de trabajo para organizar el desarrollo en ramas con responsabilidades definidas:
 
+
+<a id="tabla-4-002"></a>
+La [Tabla 4-002](#tabla-4-002) presenta detalle de Flujo de trabajo con GitFlow y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-002. Detalle de Flujo de trabajo con GitFlow.**
+
 | Rama | Propósito | Convención de nombre |
 |---|---|---|
 | `main` | Contiene las versiones estables y publicadas del producto. | `main` |
@@ -75,7 +124,7 @@ Se adoptó **GitFlow** como flujo de trabajo para organizar el desarrollo en ram
 
 Los cambios se integran mediante **Pull Requests** hacia la rama `develop`, de modo que cada modificación sea revisada por otro integrante antes de incorporarse.
 
-Los mensajes de commit siguen **Conventional Commits**, con el formato `<tipo>: <descripción en inglés>`. Los tipos utilizados son:
+La convención propuesta para los mensajes utiliza un tipo y una descripción breve, de modo que el historial permita reconocer el propósito de cada cambio. El cuerpo del mensaje puede explicar en español el comportamiento incorporado, la corrección realizada o la documentación actualizada. Los tipos principales son:
 
 - `feat/feature`: nueva funcionalidad.
 - `fix`: corrección de un error.
@@ -83,9 +132,15 @@ Los mensajes de commit siguen **Conventional Commits**, con el formato `<tipo>: 
 
 #### 4.1.3. Source Code Style Guide & Conventions
 
-Para mantener un código consistente, legible y fácil de mantener por todos los integrantes, el equipo adopta guías de estilo estándar para cada lenguaje utilizado en la solución. Todos los nombres de clases, funciones, variables, archivos, ramas y mensajes de commit se escriben en **inglés**, independientemente del idioma de la documentación.
+Las guías de estilo buscan mantener el código legible y consistente entre los integrantes. Los identificadores de clases, funciones, variables, archivos y ramas se definen en **inglés**. La documentación y la explicación del cuerpo de los commits pueden redactarse en español para describir con claridad el propósito del cambio.
 
 ##### Guías de estilo por lenguaje
+
+
+<a id="tabla-4-003"></a>
+La [Tabla 4-003](#tabla-4-003) presenta detalle de Guías de estilo por lenguaje y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-003. Detalle de Guías de estilo por lenguaje.**
 
 | Lenguaje | Producto | Guía adoptada |
 |---|---|---|
@@ -95,6 +150,12 @@ Para mantener un código consistente, legible y fácil de mantener por todos los
 | Gherkin | Archivos `.feature` de pruebas de aceptación | [Gherkin Conventions for Readable Specifications](https://specflow.org/gherkin/gherkin-conventions-for-readablespecifications/) |
 
 ##### Convenciones de nomenclatura
+
+
+<a id="tabla-4-004"></a>
+La [Tabla 4-004](#tabla-4-004) presenta detalle de Convenciones de nomenclatura y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-004. Detalle de Convenciones de nomenclatura.**
 
 | Elemento | Convención | Ejemplo |
 |---|---|---|
@@ -112,7 +173,7 @@ El código se organiza siguiendo las capas de Domain-Driven Design definidas en 
 #### 4.1.4. Software Deployment Configuration
 [VERSION PRELIMINAR]
 
-Esta sección describe la configuración necesaria para desplegar cada producto digital de la solución a partir de su repositorio de código fuente: la Landing Page, los Web Services y la aplicación móvil. El despliegue de la Landing Page y del backend se apoya en **Docker**, mientras que la aplicación móvil se distribuye mediante **Firebase App Distribution**.
+La configuración de despliegue debe distinguir los mecanismos previstos de los utilizados en el Sprint 1. Según la evidencia de la sección 4.2.1.8, la Landing Page se publica en **GitHub Pages**, los Web Services se despliegan en **Render** mediante Docker y la aplicación móvil se distribuye a través de **Firebase App Distribution**. Las instrucciones siguientes se conservan como referencia preliminar y no sustituyen la evidencia de cada entorno.
 
 ##### Landing Page
 
@@ -139,13 +200,20 @@ Esta sección describe la configuración necesaria para desplegar cada producto 
 
 ##### Deployment Diagram
 
-El siguiente Deployment Diagram del Modelo C4, elaborado en Structurizr, muestra cómo se distribuyen los contenedores de software sobre la infraestructura: [descripción breve de los nodos, por ejemplo el servidor del backend, las bases de datos, el hosting de la Landing Page y Firebase].
+El Deployment Diagram distingue los nodos de publicación y ejecución descritos para el Sprint 1: GitHub Pages para la Landing Page, Render para el backend y Firebase App Distribution para distribuir la aplicación al dispositivo Android. El nodo de persistencia es lógico y no afirma que PostgreSQL se ejecute dentro del mismo contenedor Docker. La evidencia de los entornos utilizados se presenta en la sección 4.2.1.8.
+
+
+La evidencia de Deployment Diagram se presenta en [Figura 4-006](#figura-4-006).
 
 ![Deployment Diagram](assets/cap4/deployment-diagram.svg)
 
+<a id="figura-4-006"></a>
+**Figura 4-006. Deployment Diagram.**
+
+
 ## 4.2. Landing Page & Mobile Application Implementation
 ### 4.2.1. Sprint 1
-Durante el Sprint 1, el equipo de OptiFlow inició la etapa de implementación de los productos digitales de la solución. El objetivo de esta primera iteración consiste en establecer una primera presencia funcional del producto mediante el Landing Page y avanzar en los primeros flujos orientados al paciente, específicamente la búsqueda de ópticas y la reserva de citas para atención optométrica.
+Durante el Sprint 1, el equipo inició la implementación de OptiFlow con dos prioridades: publicar la Landing Page y desarrollar el flujo del paciente para buscar ópticas y reservar una cita de atención optométrica. Este incremento establece una primera integración entre la aplicación móvil y los Web Services, cuyo comportamiento se documenta mediante evidencias de desarrollo, pruebas y ejecución.
 
 El trabajo del Sprint se organiza mediante reuniones virtuales realizadas a través de Discord, seguimiento de actividades mediante el Sprint Backlog y control de versiones a través de los repositorios de GitHub de la organización del equipo.
 
@@ -154,6 +222,12 @@ Con fecha de revisión del 2026-10-07, los historiales locales contienen avances
 El Sprint Planning 1 tuvo como finalidad establecer el objetivo de la primera iteración, seleccionar las User Stories que contribuyen directamente a dicho objetivo, determinar la capacidad inicial del equipo y distribuir las principales responsabilidades de implementación.
 
 La reunión se realizó de manera virtual mediante Discord y fue preparada por Celis Berrospi, Eslander. Debido a que Sprint 1 representa la primera iteración de implementación de la solución, no existe un Sprint anterior sobre el cual realizar un Sprint Review o Sprint Retrospective formal.
+
+
+<a id="tabla-4-005"></a>
+La [Tabla 4-005](#tabla-4-005) presenta detalle de 4.2.1.1. Sprint Planning 1 y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-005. Detalle de 4.2.1.1. Sprint Planning 1.**
 
 | Sprint # | Sprint 1 |
 | :--- | :--- |
@@ -177,6 +251,12 @@ Para organizar las responsabilidades del Sprint se establece una Leadership-and-
 
 Los principales aspectos considerados durante Sprint 1 son la implementación del Landing Page, la experiencia móvil de búsqueda de ópticas, el flujo móvil de reserva de citas, los servicios asociados a Search & Booking y la integración y coordinación general del Sprint.
 
+
+<a id="tabla-4-006"></a>
+La [Tabla 4-006](#tabla-4-006) presenta detalle de 4.2.1.2. Aspect Leaders and Collaborators y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-006. Detalle de 4.2.1.2. Aspect Leaders and Collaborators.**
+
 | Team Member | GitHub Username | Landing Page | Optical Store Search | Appointment Booking | Search & Booking Services | Integration & Sprint Coordination |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
 | Atoche Gonzales, Nicolas Fernando | `THECOMAX` | C | **L** | C | C | C |
@@ -196,7 +276,20 @@ El Sprint Backlog reúne las tareas de búsqueda de ópticas y reserva de citas 
 
 **Board del Sprint:** [Tablero del Sprint 1 en GitHub](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report/blob/develop/assets/cap4/sprint1/sprint-board.md) · [Vista del tablero local](assets/cap4/sprint1/sprint-board.html). El tablero adjunto se elaboró para esta revisión a partir de las tareas del informe y sus evidencias; no se presenta como un registro histórico de una herramienta externa.
 
+
+La evidencia de 4.2.1.3. Sprint Backlog 1 se presenta en [Figura 4-007](#figura-4-007).
+
 ![Tablero de revisión del Sprint 1](assets/cap4/sprint1/sprint-board.png)
+
+<a id="figura-4-007"></a>
+**Figura 4-007. Tablero de revisión del Sprint 1.**
+
+
+
+<a id="tabla-4-007"></a>
+La [Tabla 4-007](#tabla-4-007) presenta detalle de 4.2.1.3. Sprint Backlog 1 y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-007. Detalle de 4.2.1.3. Sprint Backlog 1.**
 
 | Sprint # | User Story | User Story Title | Task ID | Task Title | Description | Estimation (Hours) | Assigned To | Status |
 | :---: | :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
@@ -219,6 +312,12 @@ El Sprint Backlog reúne las tareas de búsqueda de ópticas y reserva de citas 
 Durante el Sprint 1 se registraron avances en los tres productos principales de OptiFlow. La Landing Page incorpora secciones informativas, ajustes visuales, navegación y validaciones del formulario. El backend incluye operaciones de búsqueda de ópticas, disponibilidad y reserva de citas, además de validaciones de entrada y manejo de errores. La aplicación móvil incorpora el cliente de comunicación con el backend, el registro e inicio de sesión del paciente, la consulta de establecimientos y la selección de horarios para realizar reservas.
 
 La siguiente tabla presenta commits representativos del alcance documentado, obtenidos de los historiales de las clonaciones locales revisadas el 2026-10-07.
+
+
+<a id="tabla-4-008"></a>
+La [Tabla 4-008](#tabla-4-008) presenta detalle de 4.2.1.4. Development Evidence for Sprint Review y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-008. Detalle de 4.2.1.4. Development Evidence for Sprint Review.**
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
@@ -255,6 +354,12 @@ La siguiente tabla presenta commits representativos del alcance documentado, obt
 
 La verificación de Web Services comprende pruebas unitarias, pruebas de integración y pruebas de aceptación automatizadas bajo BDD. JUnit valida las reglas del dominio; Spring Boot Test y MockMvc comprueban las operaciones de la API; Cucumber ejecuta los escenarios Gherkin de US05 y US06 mediante Steps en Java.
 
+
+<a id="tabla-4-009"></a>
+La [Tabla 4-009](#tabla-4-009) presenta detalle de 4.2.1.5. Testing Suite Evidence for Sprint Review y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-009. Detalle de 4.2.1.5. Testing Suite Evidence for Sprint Review.**
+
 | Test Suite | Tipo | Clases y comportamientos relacionados | Relación con el Sprint |
 |---|---|---|---|
 | `AppointmentBookingRulesTest` | Unit Tests | `AppointmentAvailabilityService`, `AppointmentFactory`, `TimeSlot` y `Appointment`: confirmación de una cita disponible y rechazo de un horario reservado. | US06 |
@@ -266,6 +371,12 @@ La verificación de Web Services comprende pruebas unitarias, pruebas de integra
 ##### Resultados de ejecución
 
 El 2026-10-07 a las 23:09:57 (America/Lima) se ejecutó `mvn test` sobre el backend con la suite BDD incorporada localmente. Maven finalizó con **BUILD SUCCESS: 53 tests, 0 failures, 0 errors y 0 skipped**. Las suites relacionadas con Search & Booking y soporte suman 38 ejecuciones, incluidos cuatro escenarios de aceptación. Las 15 ejecuciones restantes corresponden a Clinical & Commercial y Production & Tracking.
+
+
+<a id="tabla-4-010"></a>
+La [Tabla 4-010](#tabla-4-010) presenta detalle de Resultados de ejecución y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-010. Detalle de Resultados de ejecución.**
 
 | Test Suite | Tests | Failures | Errors | Skipped |
 |---|---:|---:|---:|---:|
@@ -282,7 +393,14 @@ Los casos parametrizados se contabilizan como ejecuciones individuales. La ejecu
 
 **Evidencias:** [resumen de Maven Surefire](assets/cap4/sprint1/test-results.txt), [reporte HTML de Cucumber](assets/cap4/sprint1/testing/cucumber.html) y [resultados JSON](assets/cap4/sprint1/testing/cucumber.json).
 
+
+La evidencia de Resultados de ejecución se presenta en [Figura 4-008](#figura-4-008).
+
 ![Resultado de los escenarios de aceptación en Cucumber](assets/cap4/sprint1/cucumber-results.png)
+
+<a id="figura-4-008"></a>
+**Figura 4-008. Resultado de los escenarios de aceptación en Cucumber.**
+
 
 ##### Verificación posterior a la integración
 
@@ -291,6 +409,12 @@ Antes de publicar se integraron los tres commits nuevos de Notification & Loyalt
 Los errores de contexto se deben al índice parcial con WHERE de la migración V4, que H2 no admite. Los otros dos fallos corresponden a expectativas de NotificationPersistenceIntegrationTest y SearchAndBookingApiTest. Esta verificación distingue el resultado exitoso de la ejecución inicial de 53 pruebas de los problemas incorporados por la revisión remota posterior. El detalle se conserva en [validación de publicación](assets/cap4/sprint1/publish-validation.txt).
 
 ##### Evidencia de control de versiones
+
+
+<a id="tabla-4-011"></a>
+La [Tabla 4-011](#tabla-4-011) presenta detalle de Evidencia de control de versiones y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-011. Detalle de Evidencia de control de versiones.**
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
@@ -305,6 +429,12 @@ Los commits indicados incluyen cambios en `src/test`. Las suites y recursos pued
 La suite BDD se encuentra registrada en el commit [706ada9](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/706ada927d4fd49807035e79d4313fbe463e9e54) del backend. Los archivos Gherkin, Steps y configuración de ejecución forman parte de ese commit.
 
 ##### Archivos de pruebas de aceptación
+
+
+<a id="tabla-4-012"></a>
+La [Tabla 4-012](#tabla-4-012) presenta detalle de Archivos de pruebas de aceptación y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-012. Detalle de Archivos de pruebas de aceptación.**
 
 | Archivo en el backend | Responsabilidad | Copia de evidencia |
 |---|---|---|
@@ -379,38 +509,94 @@ La ejecución del incremento permitió visualizar la Landing Page en escritorio 
 
 La Landing Page presenta la propuesta de valor de OptiFlow y permite navegar entre sus secciones informativas. Las capturas se obtuvieron desde la clonación local en Chrome, con viewports de 1440 × 1000 píxeles para escritorio y 390 × 844 píxeles para móvil. Se utilizó el control Saltar para finalizar la introducción y acceder a la vista principal.
 
-**Figura 4.2.1.6-1. Landing Page en escritorio.** Se visualizan la identidad de OptiFlow, la propuesta de valor y los accesos de navegación.
+**Landing Page en escritorio.** Se visualizan la identidad de OptiFlow, la propuesta de valor y los accesos de navegación.
+
+
+La evidencia de Landing Page se presenta en [Figura 4-009](#figura-4-009).
 
 ![Landing Page en escritorio](assets/cap4/sprint1/landing-desktop.png)
 
-**Figura 4.2.1.6-2. Landing Page en móvil.** La presentación se adapta a una distribución vertical y la navegación utiliza un menú compacto.
+<a id="figura-4-009"></a>
+**Figura 4-009. Landing Page en escritorio.**
+
+
+**Landing Page en móvil.** La presentación se adapta a una distribución vertical y la navegación utiliza un menú compacto.
+
+
+La evidencia de Landing Page se presenta en [Figura 4-010](#figura-4-010).
 
 <img src="assets/cap4/sprint1/landing-mobile.png" alt="Landing Page en móvil" width="390">
 
-**Figura 4.2.1.6-3. Menú y navegación móvil.** Se abrió el menú y se seleccionó Beneficios para comprobar el acceso a la sección correspondiente.
+<a id="figura-4-010"></a>
+**Figura 4-010. Landing Page en móvil.**
+
+
+**Menú y navegación móvil.** Se abrió el menú y se seleccionó Beneficios para comprobar el acceso a la sección correspondiente.
+
+
+La evidencia de Landing Page se presenta en [Figura 4-011](#figura-4-011).
 
 <img src="assets/cap4/sprint1/landing-mobile-menu.png" alt="Menú móvil de la Landing Page" width="390">
+
+<a id="figura-4-011"></a>
+**Figura 4-011. Menú móvil de la Landing Page.**
+
+
+La evidencia de Landing Page se presenta en [Figura 4-012](#figura-4-012).
+
 <img src="assets/cap4/sprint1/landing-mobile-benefits.png" alt="Navegación móvil a Beneficios" width="390">
+
+<a id="figura-4-012"></a>
+**Figura 4-012. Navegación móvil a Beneficios.**
+
 
 ##### Web Services: Swagger UI
 
 Los Web Services se ejecutaron en `http://127.0.0.1:8080` con el perfil local. La documentación OpenAPI se visualizó en [Swagger UI local](http://localhost:8080/swagger-ui/index.html), que permitió ejecutar consultas y solicitudes con datos de demostración. El README de la aplicación también referencia [Swagger del backend desplegado](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html); las evidencias de esta revisión corresponden al entorno local.
 
-**Figura 4.2.1.6-4. Vista general de Swagger.** La documentación organiza las operaciones de pacientes, ópticas, disponibilidad y citas dentro de Search & Booking.
+**Vista general de Swagger.** La documentación organiza las operaciones de pacientes, ópticas, disponibilidad y citas dentro de Search & Booking.
+
+
+La evidencia de Web Services: Swagger UI se presenta en [Figura 4-013](#figura-4-013).
 
 ![Swagger UI de OptiFlow](assets/cap4/sprint1/swagger-overview.png)
 
-**Figura 4.2.1.6-5. Consulta de ópticas.** La ejecución de GET /optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado.
+<a id="figura-4-013"></a>
+**Figura 4-013. Swagger UI de OptiFlow.**
+
+
+**Consulta de ópticas.** La ejecución de GET /optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado.
+
+
+La evidencia de Web Services: Swagger UI se presenta en [Figura 4-014](#figura-4-014).
 
 ![Consulta de ópticas en Swagger](assets/cap4/sprint1/swagger-optical-stores.png)
 
-**Figura 4.2.1.6-6. Reserva confirmada.** POST /appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED.
+<a id="figura-4-014"></a>
+**Figura 4-014. Consulta de ópticas en Swagger.**
+
+
+**Reserva confirmada.** POST /appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED.
+
+
+La evidencia de Web Services: Swagger UI se presenta en [Figura 4-015](#figura-4-015).
 
 ![Reserva confirmada en Swagger](assets/cap4/sprint1/swagger-booking-confirmed.png)
 
-**Figura 4.2.1.6-7. Prevención de doble reserva.** Al repetir la solicitud sobre el mismo horario, el servicio devuelve HTTP 409 e informa que el horario seleccionado ya no está disponible.
+<a id="figura-4-015"></a>
+**Figura 4-015. Reserva confirmada en Swagger.**
+
+
+**Prevención de doble reserva.** Al repetir la solicitud sobre el mismo horario, el servicio devuelve HTTP 409 e informa que el horario seleccionado ya no está disponible.
+
+
+La evidencia de Web Services: Swagger UI se presenta en [Figura 4-016](#figura-4-016).
 
 ![Rechazo de doble reserva en Swagger](assets/cap4/sprint1/swagger-booking-conflict.png)
+
+<a id="figura-4-016"></a>
+**Figura 4-016. Rechazo de doble reserva en Swagger.**
+
 
 ##### Aplicación móvil
 
@@ -418,25 +604,60 @@ La aplicación se compiló desde la rama develop mediante assembleLocalDebug y G
 
 El recorrido utilizó el paciente ficticio Paciente Demo Informe. Tras el inicio de sesión se consultaron las ópticas disponibles, se abrió la sucursal de Miraflores, se solicitaron sus horarios y se confirmó una reserva. Las fechas y horas visibles corresponden a la zona horaria del emulador, configurado en UTC durante esta demostración.
 
-**Figura 4.2.1.6-8. Acceso del paciente.** Inicio de sesión con una cuenta ficticia del backend local.
+**Acceso del paciente.** Inicio de sesión con una cuenta ficticia del backend local.
+
+
+La evidencia de Aplicación móvil se presenta en [Figura 4-017](#figura-4-017).
 
 <img src="assets/cap4/sprint1/mobile-access.png" alt="Acceso del paciente de demostración" width="390">
 
-**Figura 4.2.1.6-9. Búsqueda de ópticas (US05).** La app muestra establecimientos obtenidos del backend, con sus direcciones, teléfonos, valoraciones y controles de búsqueda.
+<a id="figura-4-017"></a>
+**Figura 4-017. Acceso del paciente de demostración.**
+
+
+**Búsqueda de ópticas (US05).** La app muestra establecimientos obtenidos del backend, con sus direcciones, teléfonos, valoraciones y controles de búsqueda.
+
+
+La evidencia de Aplicación móvil se presenta en [Figura 4-018](#figura-4-018).
 
 <img src="assets/cap4/sprint1/mobile-search.png" alt="Búsqueda de ópticas en la aplicación" width="390">
 
-**Figura 4.2.1.6-10. Disponibilidad de atención.** Se consultan los horarios disponibles de la sucursal de Miraflores antes de solicitar la reserva.
+<a id="figura-4-018"></a>
+**Figura 4-018. Búsqueda de ópticas en la aplicación.**
+
+
+**Disponibilidad de atención.** Se consultan los horarios disponibles de la sucursal de Miraflores antes de solicitar la reserva.
+
+
+La evidencia de Aplicación móvil se presenta en [Figura 4-019](#figura-4-019).
 
 <img src="assets/cap4/sprint1/mobile-availability.png" alt="Disponibilidad de horarios en la aplicación" width="390">
 
-**Figura 4.2.1.6-11. Reserva confirmada (US06).** La app muestra el identificador de la cita creada y su estado CONFIRMED.
+<a id="figura-4-019"></a>
+**Figura 4-019. Disponibilidad de horarios en la aplicación.**
+
+
+**Reserva confirmada (US06).** La app muestra el identificador de la cita creada y su estado CONFIRMED.
+
+
+La evidencia de Aplicación móvil se presenta en [Figura 4-020](#figura-4-020).
 
 <img src="assets/cap4/sprint1/mobile-booking-confirmed.png" alt="Confirmación de la reserva desde la aplicación" width="390">
 
-**Figura 4.2.1.6-12. Verificación de la cita móvil en el backend.** GET /appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend.
+<a id="figura-4-020"></a>
+**Figura 4-020. Confirmación de la reserva desde la aplicación.**
+
+
+**Verificación de la cita móvil en el backend.** GET /appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend.
+
+
+La evidencia de Aplicación móvil se presenta en [Figura 4-021](#figura-4-021).
 
 ![Consulta en Swagger de la cita creada desde la app](assets/cap4/sprint1/swagger-mobile-booking.png)
+
+<a id="figura-4-021"></a>
+**Figura 4-021. Consulta en Swagger de la cita creada desde la app.**
+
 
 La respuesta de esta consulta se conserva como [evidencia JSON de la reserva móvil](assets/cap4/sprint1/mobile-booking-response.json). El identificador verificado es `537787f8-d78f-4181-9d0e-e51c2266f02f`, con estado CONFIRMED. Al tratarse de una base de demostración en memoria, las capturas y la respuesta adjunta conservan la evidencia de esta ejecución.
 
@@ -446,11 +667,17 @@ El video de navegación y explicación del incremento será grabado por el equip
 
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
-En este Sprint, el equipo documentó los Web Services RESTful de **OptiFlow** siguiendo la especificación **OpenAPI 3.1**. El backend se implementa en **Java 21 con Spring Boot** y la documentación se genera automáticamente con **springdoc-openapi**, que publica la interfaz interactiva **Swagger UI** a partir de las anotaciones de los controladores. La configuración de la documentación se encuentra en `shared/documentation/openapi/configuration`, donde se definen el título de la API y las etiquetas (*tags*) que agrupan los endpoints por bounded context.
+Los Web Services de **OptiFlow** se documentan mediante **OpenAPI 3.1**. El backend utiliza **Java 21 y Spring Boot**, y **springdoc-openapi** genera la especificación y la interfaz **Swagger UI** a partir de los controladores. La configuración ubicada en `shared/documentation/openapi/configuration` define los datos generales de la API y las etiquetas que agrupan las operaciones por contexto. Esta documentación permite consultar contratos y ejecutar solicitudes para revisar el comportamiento del servicio.
 
 La documentación cubre los tres bounded contexts del **Core Domain** definidos en el Capítulo II: **Search & Booking** (registro e inicio de sesión del paciente, búsqueda de ópticas, disponibilidad y reserva de citas), **Clinical & Commercial** (expediente clínico, receta, cotización y venta) y **Production & Tracking** (órdenes de trabajo y seguimiento del pedido). En total, la versión desplegada expone **37 operaciones**. El contexto de Notification & Loyalty ya cuenta con su dominio, sus manejadores de eventos y su persistencia, pero todavía no expone endpoints REST, por lo que no aparece en Swagger UI. Store Management & Inventory se documentará cuando se implemente.
 
 **Datos generales de la documentación**
+
+
+<a id="tabla-4-013"></a>
+La [Tabla 4-013](#tabla-4-013) presenta detalle de 4.2.1.7. Services Documentation Evidence for Sprint Review y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-013. Detalle de 4.2.1.7. Services Documentation Evidence for Sprint Review.**
 
 | Elemento | Valor |
 | :--- | :--- |
@@ -466,6 +693,12 @@ La documentación cubre los tres bounded contexts del **Core Domain** definidos 
 Las respuestas siguen los códigos de estado HTTP estándar: `200 OK` (consulta o actualización exitosa), `201 Created` (recurso creado), `400 Bad Request` (datos inválidos o regla de dominio incumplida), `401 Unauthorized` (credenciales inválidas en `/login`), `404 Not Found` (recurso inexistente) y `409 Conflict` (conflicto de negocio, por ejemplo un horario que ya fue reservado). Los errores se devuelven con una estructura uniforme que incluye `status`, `error` y `message`.
 
 ##### Search & Booking Context
+
+
+<a id="tabla-4-014"></a>
+La [Tabla 4-014](#tabla-4-014) presenta detalle de Search & Booking Context y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-014. Detalle de Search & Booking Context.**
 
 | Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
 | :--- | :--- | :---: | :--- | :--- | :--- | :---: |
@@ -507,9 +740,15 @@ HTTP/1.1 201 Created
 }
 ```
 
-La respuesta confirma la reserva y devuelve el identificador de la cita. Este ejemplo corresponde a la reserva registrada desde la aplicación móvil y verificada en la sección 4.2.1.6.
+La respuesta confirma la creación de la reserva y devuelve su identificador. El ejemplo corresponde a la cita registrada desde la aplicación móvil y contrastada con el backend en la sección 4.2.1.6, lo que permite relacionar la acción del usuario con el recurso persistido.
 
 ##### Clinical & Commercial Context
+
+
+<a id="tabla-4-015"></a>
+La [Tabla 4-015](#tabla-4-015) presenta detalle de Clinical & Commercial Context y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-015. Detalle de Clinical & Commercial Context.**
 
 | Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
 | :--- | :--- | :---: | :--- | :--- | :--- | :---: |
@@ -548,6 +787,12 @@ La respuesta devuelve la cotización con el subtotal de cada ítem y el total ca
 
 ##### Production & Tracking Context
 
+
+<a id="tabla-4-016"></a>
+La [Tabla 4-016](#tabla-4-016) presenta detalle de Production & Tracking Context y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-016. Detalle de Production & Tracking Context.**
+
 | Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
 | :--- | :--- | :---: | :--- | :--- | :--- | :---: |
 | `/work-orders` | Listar órdenes de trabajo para el tablero Kanban | GET | `GET /work-orders?status=IN_WORKSHOP` | Query (opcionales): `status`, `technicianId`, `opticalStoreId` | `200` lista de órdenes con estado y fecha estimada. | US10 |
@@ -565,39 +810,94 @@ La respuesta devuelve la cotización con el subtotal de cada ítem y el total ca
 
 ##### Evidencia de interacción con la documentación desplegada
 
-Las siguientes capturas se tomaron el 2026-10-08 sobre la documentación publicada en Render. Las primeras muestran los endpoints documentados de cada bounded context y las siguientes, la ejecución de operaciones de consulta con los datos de demostración del backend.
+Las capturas del 2026-10-08 registran la documentación publicada en Render. Se presentan primero las operaciones agrupadas por contexto y, después, las respuestas de consultas ejecutadas sobre datos de demostración. Estas evidencias muestran la disponibilidad de la documentación y el resultado de las operaciones consultadas; la cobertura automatizada se detalla en la sección 4.2.1.5.
 
-**Figura 4.2.1.7-1. Endpoints de Search & Booking: pacientes y ópticas.** Swagger UI desplegado en Render con las operaciones de registro, inicio de sesión, citas del paciente y búsqueda de ópticas.
+**Endpoints de Search & Booking: pacientes y ópticas.** Swagger UI desplegado en Render con las operaciones de registro, inicio de sesión, citas del paciente y búsqueda de ópticas.
+
+
+La evidencia de Evidencia de interacción con la documentación desplegada se presenta en [Figura 4-022](#figura-4-022).
 
 ![Endpoints de pacientes y ópticas en Swagger](assets/cap4/sprint1/swagger-render-search-booking-1.png)
 
-**Figura 4.2.1.7-2. Endpoints de Search & Booking**: Disponibilidad, citas, favoritos y calificaciones.
+<a id="figura-4-022"></a>
+**Figura 4-022. Endpoints de pacientes y ópticas en Swagger.**
+
+
+**Endpoints de Search & Booking**: Disponibilidad, citas, favoritos y calificaciones.
+
+
+La evidencia de Evidencia de interacción con la documentación desplegada se presenta en [Figura 4-023](#figura-4-023).
 
 ![Endpoints de disponibilidad y citas en Swagger](assets/cap4/sprint1/swagger-render-search-booking-2.png)
 
-**Figura 4.2.1.7-3. Endpoints de Clinical & Commercial.** Operaciones de expediente clínico, receta, cotizaciones y ventas.
+<a id="figura-4-023"></a>
+**Figura 4-023. Endpoints de disponibilidad y citas en Swagger.**
+
+
+**Endpoints de Clinical & Commercial.** Operaciones de expediente clínico, receta, cotizaciones y ventas.
+
+
+La evidencia de Evidencia de interacción con la documentación desplegada se presenta en [Figura 4-024](#figura-4-024).
 
 ![Endpoints de Clinical & Commercial en Swagger](assets/cap4/sprint1/swagger-render-clinical-commercial.png)
 
-**Figura 4.2.1.7-4. Endpoints de Production & Tracking.** Operaciones de órdenes de trabajo, técnicos y laboratorios.
+<a id="figura-4-024"></a>
+**Figura 4-024. Endpoints de Clinical & Commercial en Swagger.**
+
+
+**Endpoints de Production & Tracking.** Operaciones de órdenes de trabajo, técnicos y laboratorios.
+
+
+La evidencia de Evidencia de interacción con la documentación desplegada se presenta en [Figura 4-025](#figura-4-025).
 
 ![Endpoints de Production & Tracking en Swagger](assets/cap4/sprint1/swagger-render-production-tracking.png)
 
-**Figura 4.2.1.7-5. Consulta de ópticas en el entorno desplegado.** GET /optical-stores devuelve HTTP 200 con las sucursales de Miraflores y San Isidro.
+<a id="figura-4-025"></a>
+**Figura 4-025. Endpoints de Production & Tracking en Swagger.**
+
+
+**Consulta de ópticas en el entorno desplegado.** GET /optical-stores devuelve HTTP 200 con las sucursales de Miraflores y San Isidro.
+
+
+La evidencia de Evidencia de interacción con la documentación desplegada se presenta en [Figura 4-026](#figura-4-026).
 
 ![Consulta de ópticas en Render](assets/cap4/sprint1/swagger-render-optical-stores.png)
 
-**Figura 4.2.1.7-6. Consulta de disponibilidad.** GET /optical-stores/{id}/availability devuelve HTTP 200 con los horarios disponibles de la sucursal de Miraflores.
+<a id="figura-4-026"></a>
+**Figura 4-026. Consulta de ópticas en Render.**
+
+
+**Consulta de disponibilidad.** GET /optical-stores/{id}/availability devuelve HTTP 200 con los horarios disponibles de la sucursal de Miraflores.
+
+
+La evidencia de Evidencia de interacción con la documentación desplegada se presenta en [Figura 4-027](#figura-4-027).
 
 ![Disponibilidad de horarios en Render](assets/cap4/sprint1/swagger-render-availability.png)
 
-**Figura 4.2.1.7-7. Consulta de técnicos de Production & Tracking.** GET /technicians devuelve HTTP 200 con los técnicos registrados para asignar órdenes de trabajo.
+<a id="figura-4-027"></a>
+**Figura 4-027. Disponibilidad de horarios en Render.**
+
+
+**Consulta de técnicos de Production & Tracking.** GET /technicians devuelve HTTP 200 con los técnicos registrados para asignar órdenes de trabajo.
+
+
+La evidencia de Evidencia de interacción con la documentación desplegada se presenta en [Figura 4-028](#figura-4-028).
 
 ![Técnicos en Swagger desplegado](assets/cap4/sprint1/swagger-render-technicians.png)
 
+<a id="figura-4-028"></a>
+**Figura 4-028. Técnicos en Swagger desplegado.**
+
+
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
-En este Sprint se desplegaron los tres productos digitales de OptiFlow: la **Landing Page** en **GitHub Pages**, los **Web Services** en **Render** mediante Docker y la **aplicación móvil** en **Firebase App Distribution**. A continuación se detallan los pasos realizados para cada producto.
+La evidencia de despliegue del Sprint 1 comprende la **Landing Page en GitHub Pages**, los **Web Services en Render mediante Docker** y la distribución de la **aplicación móvil mediante Firebase App Distribution**. Cada producto tiene un mecanismo de publicación distinto. La sección identifica los entornos utilizados y debe interpretarse junto con las evidencias de ejecución y pruebas, sin equiparar la publicación con la validación de todas las funciones del producto.
+
+
+<a id="tabla-4-017"></a>
+La [Tabla 4-017](#tabla-4-017) presenta detalle de 4.2.1.8. Software Deployment Evidence for Sprint Review y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-017. Detalle de 4.2.1.8. Software Deployment Evidence for Sprint Review.**
 
 | Producto | Plataforma | URL |
 | :--- | :--- | :--- |
@@ -617,7 +917,11 @@ Desde el repositorio de la Landing Page en la organización de GitHub se ingres�
 
 Se seleccionó *Deploy from a branch* como fuente, la rama `main` y la carpeta raíz (`/root`). Con esta configuración GitHub Pages publica el sitio en la URL de la organización y fuerza el uso de HTTPS.
 
-**Figura 4.2.1.8-1. Configuración de GitHub Pages del repositorio de la Landing Page.**
+<a id="figura-4-029"></a>
+
+La [Figura 4-029](#figura-4-029) documenta configuración de GitHub Pages del repositorio de la Landing Page.
+
+**Figura 4-029. Configuración de GitHub Pages del repositorio de la Landing Page.**
 
 ![Configuración de GitHub Pages](assets/cap4/sprint1/deploy-landing-settings.png)
 
@@ -625,7 +929,11 @@ Se seleccionó *Deploy from a branch* como fuente, la rama `main` y la carpeta r
 
 Cada integración en `main` ejecuta el workflow `pages build and deployment`. La ejecución #10, lanzada por `Patto04` con el commit `54caeae`, terminó con estado *Success* en 45 segundos tras completar los jobs `build`, `report-build-status` y `deploy`.
 
-**Figura 4.2.1.8-2. Ejecución del workflow pages build and deployment.**
+<a id="figura-4-030"></a>
+
+La [Figura 4-030](#figura-4-030) documenta ejecución del workflow pages build and deployment.
+
+**Figura 4-030. Ejecución del workflow pages build and deployment.**
 
 ![Workflow de GitHub Pages](assets/cap4/sprint1/deploy-landing-actions.png)
 
@@ -633,7 +941,11 @@ Cada integración en `main` ejecuta el workflow `pages build and deployment`. La
 
 Se ingresó a la URL pública generada por GitHub Pages y se comprobó que la Landing Page carga correctamente.
 
-**Figura 4.2.1.8-3. Landing Page publicada en GitHub Pages.**
+<a id="figura-4-031"></a>
+
+La [Figura 4-031](#figura-4-031) documenta landing Page publicada en GitHub Pages.
+
+**Figura 4-031. Landing Page publicada en GitHub Pages.**
 
 ![Landing Page publicada](assets/cap4/sprint1/deploy-landing-pages.png)
 
@@ -645,7 +957,11 @@ El código del backend se encuentra en el repositorio [Logix-OptiFlow-Back-End](
 
 En Render se creó el proyecto **OptiFlow-Back-end** con un entorno *Production* que agrupa dos recursos en la región Frankfurt: el Web Service `Logix-OptiFlow-Back-End`, con runtime Docker, y la base de datos `Postgres Backend`, con PostgreSQL 16.
 
-**Figura 4.2.1.8-4. Recursos del proyecto OptiFlow-Back-end en Render.**
+<a id="figura-4-032"></a>
+
+La [Figura 4-032](#figura-4-032) documenta recursos del proyecto OptiFlow-Back-end en Render.
+
+**Figura 4-032. Recursos del proyecto OptiFlow-Back-end en Render.**
 
 ![Proyecto en Render](assets/cap4/sprint1/deploy-render-project.png)
 
@@ -675,7 +991,11 @@ El backend define dos perfiles de Spring: `local`, con base de datos H2 en memor
 
 Render vuelve a desplegar el servicio cada vez que se actualiza `develop`. El último despliegue corresponde al commit `6c388bc` y se encuentra en estado *Live* en [https://logix-optiflow-back-end.onrender.com](https://logix-optiflow-back-end.onrender.com). Como el servicio utiliza el plan gratuito, se suspende tras un periodo sin tráfico y la primera solicitud posterior puede demorar alrededor de un minuto. Swagger UI responde en la URL pública con los endpoints de los tres bounded contexts (ver sección 4.2.1.7).
 
-**Figura 4.2.1.8-5. Web Service en estado Live y su historial de despliegues.**
+<a id="figura-4-033"></a>
+
+La [Figura 4-033](#figura-4-033) documenta web Service en estado Live y su historial de despliegues.
+
+**Figura 4-033. Web Service en estado Live y su historial de despliegues.**
 
 ![Servicio en Render](assets/cap4/sprint1/deploy-render-service.png)
 
@@ -687,7 +1007,11 @@ La aplicación móvil se desarrolla en **Kotlin con Jetpack Compose** en el repo
 
 Se creó el proyecto **Optiflow** en la consola de Firebase, con el plan Spark sin costo.
 
-**Figura 4.2.1.8-6. Proyecto Optiflow en la consola de Firebase.**
+<a id="figura-4-034"></a>
+
+La [Figura 4-034](#figura-4-034) documenta proyecto Optiflow en la consola de Firebase.
+
+**Figura 4-034. Proyecto Optiflow en la consola de Firebase.**
 
 ![Proyecto en Firebase](assets/cap4/sprint1/deploy-firebase-project.png)
 
@@ -700,7 +1024,11 @@ Alias de la aplicación: OptiFlow
 Nombre del paquete: com.logix.optiflow
 ```
 
-**Figura 4.2.1.8-7. Aplicación Android registrada en Firebase.**
+<a id="figura-4-035"></a>
+
+La [Figura 4-035](#figura-4-035) documenta aplicación Android registrada en Firebase.
+
+**Figura 4-035. Aplicación Android registrada en Firebase.**
 
 ![App Android registrada](assets/cap4/sprint1/deploy-firebase-android-app.png)
 
@@ -708,11 +1036,19 @@ Nombre del paquete: com.logix.optiflow
 
 En Android Studio se seleccionó la variante `prodDebug` en **Build Variants** y se generó el APK desde el menú **Build → Generate App Bundles or APKs → Generate APKs**.
 
-**Figura 4.2.1.8-8. Variante prodDebug seleccionada en Build Variants.**
+<a id="figura-4-036"></a>
+
+La [Figura 4-036](#figura-4-036) documenta variante prodDebug seleccionada en Build Variants.
+
+**Figura 4-036. Variante prodDebug seleccionada en Build Variants.**
 
 <img src="assets/cap4/sprint1/deploy-mobile-build-variants.png" alt="Build Variants" width="420">
 
-**Figura 4.2.1.8-9. Generación del APK en Android Studio.**
+<a id="figura-4-037"></a>
+
+La [Figura 4-037](#figura-4-037) documenta generación del APK en Android Studio.
+
+**Figura 4-037. Generación del APK en Android Studio.**
 
 <img src="assets/cap4/sprint1/deploy-mobile-generate-apk.png" alt="Generate APKs" width="420">
 
@@ -724,7 +1060,11 @@ El archivo generado se ubicó en la siguiente ruta del proyecto:
 app/build/outputs/apk/prod/debug/app-prod-debug.apk
 ```
 
-**Figura 4.2.1.8-10. APK generado en la carpeta de salida del proyecto.**
+<a id="figura-4-038"></a>
+
+La [Figura 4-038](#figura-4-038) documenta aPK generado en la carpeta de salida del proyecto.
+
+**Figura 4-038. APK generado en la carpeta de salida del proyecto.**
 
 <img src="assets/cap4/sprint1/deploy-mobile-apk-output.png" alt="APK generado" width="300">
 
@@ -732,7 +1072,11 @@ app/build/outputs/apk/prod/debug/app-prod-debug.apk
 
 Se ingresó al módulo **App Distribution** y se cargó el APK, que se registró como la versión **1.0 (1)**.
 
-**Figura 4.2.1.8-11. Versión 1.0 (1) cargada en Firebase App Distribution.**
+<a id="figura-4-039"></a>
+
+La [Figura 4-039](#figura-4-039) documenta versión 1.0 (1) cargada en Firebase App Distribution.
+
+**Figura 4-039. Versión 1.0 (1) cargada en Firebase App Distribution.**
 
 ![Versión cargada en App Distribution](assets/cap4/sprint1/deploy-firebase-release.png)
 
@@ -740,7 +1084,11 @@ Se ingresó al módulo **App Distribution** y se cargó el APK, que se registró
 
 Se creó el grupo `optiflow-testers` con seis evaluadores y se le distribuyó la versión 1.0 (1) con la nota "Sprint 1 – versión inicial de OptiFlow".
 
-**Figura 4.2.1.8-12. Grupo de evaluadores optiflow-testers.**
+<a id="figura-4-040"></a>
+
+La [Figura 4-040](#figura-4-040) documenta grupo de evaluadores optiflow-testers.
+
+**Figura 4-040. Grupo de evaluadores optiflow-testers.**
 
 ![Evaluadores en App Distribution](assets/cap4/sprint1/deploy-firebase-testers.png)
 
@@ -748,7 +1096,11 @@ Se creó el grupo `optiflow-testers` con seis evaluadores y se le distribuyó la
 
 Se generó un vínculo de invitación asociado al grupo `optiflow-testers`. Cualquier persona que lo abra desde un dispositivo Android puede iniciar sesión con su cuenta de Google, unirse al grupo y descargar la aplicación: [https://appdistribution.firebase.dev/i/69aa930a1cd1ad63](https://appdistribution.firebase.dev/i/69aa930a1cd1ad63).
 
-**Figura 4.2.1.8-13. Vínculo de invitación de Firebase App Distribution.**
+<a id="figura-4-041"></a>
+
+La [Figura 4-041](#figura-4-041) documenta vínculo de invitación de Firebase App Distribution.
+
+**Figura 4-041. Vínculo de invitación de Firebase App Distribution.**
 
 ![Vínculo de invitación](assets/cap4/sprint1/deploy-firebase-invite-link.png)
 
@@ -756,7 +1108,11 @@ Se generó un vínculo de invitación asociado al grupo `optiflow-testers`. Cual
 
 Desde un dispositivo Android se abrió el vínculo de invitación y se instaló la versión 1.0 (1) mediante Firebase App Tester.
 
-**Figura 4.2.1.8-14. Versión 1.0 (1) instalada desde Firebase App Tester.**
+<a id="figura-4-042"></a>
+
+La [Figura 4-042](#figura-4-042) documenta versión 1.0 (1) instalada desde Firebase App Tester.
+
+**Figura 4-042. Versión 1.0 (1) instalada desde Firebase App Tester.**
 
 <img src="assets/cap4/sprint1/deploy-firebase-app-tester.png" alt="App Tester" width="300">
 
@@ -764,25 +1120,47 @@ Desde un dispositivo Android se abrió el vínculo de invitación y se instaló 
 
 Se comprobó que la aplicación instalada se comunica con el backend desplegado en Render: el registro e inicio de sesión del paciente, la búsqueda de ópticas y la consulta de disponibilidad devolvieron los mismos datos que Swagger UI.
 
-**Figura 4.2.1.8-15. Pantalla de inicio del paciente en el dispositivo.**
+<a id="figura-4-043"></a>
+
+La [Figura 4-043](#figura-4-043) documenta pantalla de inicio del paciente en el dispositivo.
+
+**Figura 4-043. Pantalla de inicio del paciente en el dispositivo.**
 
 <img src="assets/cap4/sprint1/deploy-mobile-home-device.png" alt="Inicio del paciente" width="300">
 
-**Figura 4.2.1.8-16. Inicio de sesión del paciente contra el backend desplegado.**
+<a id="figura-4-044"></a>
+
+La [Figura 4-044](#figura-4-044) documenta inicio de sesión del paciente contra el backend desplegado.
+
+**Figura 4-044. Inicio de sesión del paciente contra el backend desplegado.**
 
 <img src="assets/cap4/sprint1/deploy-mobile-login.png" alt="Inicio de sesión" width="300">
 
-**Figura 4.2.1.8-17. Búsqueda de ópticas obtenida de Render.**
+<a id="figura-4-045"></a>
+
+La [Figura 4-045](#figura-4-045) documenta búsqueda de ópticas obtenida de Render.
+
+**Figura 4-045. Búsqueda de ópticas obtenida de Render.**
 
 <img src="assets/cap4/sprint1/deploy-mobile-search.png" alt="Búsqueda de ópticas" width="300">
 
-**Figura 4.2.1.8-18. Disponibilidad de horarios obtenida de Render.** Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /optical-stores/{id}/availability` de la Figura 4.2.1.7-6.
+<a id="figura-4-046"></a>
+
+La [Figura 4-046](#figura-4-046) documenta disponibilidad de horarios obtenida de Render.
+
+**Figura 4-046. Disponibilidad de horarios obtenida de Render.** Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /optical-stores/{id}/availability` de la [Figura 4-027](#figura-4-027).
 
 <img src="assets/cap4/sprint1/deploy-mobile-availability.png" alt="Disponibilidad de horarios" width="300">
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
 Durante el Sprint 1, las tareas de implementación de la Landing Page, los Web Services y la aplicación móvil se distribuyeron entre los integrantes según la matriz de líderes y colaboradores de la sección 4.2.1.2. El trabajo siguió **GitFlow** y **Conventional Commits**: cada integrante trabajó en ramas `feature/*` creadas desde `develop` y los cambios se integraron mediante *pull requests*. En la Landing Page, la publicación se realiza desde `main`, que dispara el workflow de GitHub Pages.
+
+
+<a id="tabla-4-018"></a>
+La [Tabla 4-018](#tabla-4-018) presenta detalle de 4.2.1.9. Team Collaboration Insights during Sprint y permite revisar los elementos documentados en esta sección.
+
+**Tabla 4-018. Detalle de 4.2.1.9. Team Collaboration Insights during Sprint.**
 
 | Integrante | Usuario de GitHub | Autor en el historial de commits |
 | :--- | :--- | :--- |
@@ -798,11 +1176,19 @@ Las siguientes figuras muestran la actividad de cada repositorio según **GitHub
 
 En la rama `main` del repositorio de la Landing Page se registran contribuciones de los cinco integrantes: `Patto04` (8 commits), `user20-bit` (3), `Felixb14` (3), `Eslander-Celis` (3) y `THECOMAX` (2).
 
-**Figura 4.2.1.9-1. Contribuidores del repositorio de la Landing Page.**
+<a id="figura-4-047"></a>
+
+La [Figura 4-047](#figura-4-047) documenta contribuidores del repositorio de la Landing Page.
+
+**Figura 4-047. Contribuidores del repositorio de la Landing Page.**
 
 ![Contributors de la Landing Page](assets/cap4/sprint1/insights-contributors-landing.png)
 
-**Figura 4.2.1.9-2. Commits por semana del repositorio de la Landing Page.**
+<a id="figura-4-048"></a>
+
+La [Figura 4-048](#figura-4-048) documenta commits por semana del repositorio de la Landing Page.
+
+**Figura 4-048. Commits por semana del repositorio de la Landing Page.**
 
 ![Commits de la Landing Page](assets/cap4/sprint1/insights-activity-landing.png)
 
@@ -810,11 +1196,19 @@ En la rama `main` del repositorio de la Landing Page se registran contribuciones
 
 En la rama `develop` del backend se registran 14 commits de `Felixb14`, 5 de `user20-bit` y 3 de `Eslander-Celis`, correspondientes a la implementación de los bounded contexts, los perfiles de base de datos y la configuración del despliegue.
 
-**Figura 4.2.1.9-3. Contribuidores del repositorio de los Web Services.**
+<a id="figura-4-049"></a>
+
+La [Figura 4-049](#figura-4-049) documenta contribuidores del repositorio de los Web Services.
+
+**Figura 4-049. Contribuidores del repositorio de los Web Services.**
 
 ![Contributors del backend](assets/cap4/sprint1/insights-contributors-backend.png)
 
-**Figura 4.2.1.9-4. Commits por semana del repositorio de los Web Services.**
+<a id="figura-4-050"></a>
+
+La [Figura 4-050](#figura-4-050) documenta commits por semana del repositorio de los Web Services.
+
+**Figura 4-050. Commits por semana del repositorio de los Web Services.**
 
 ![Commits del backend](assets/cap4/sprint1/insights-activity-backend.png)
 
@@ -822,11 +1216,19 @@ En la rama `develop` del backend se registran 14 commits de `Felixb14`, 5 de `us
 
 En la rama `develop` de la aplicación móvil se registran 15 commits de `user20-bit` y 5 de `Felixb14`, correspondientes a la estructura base del proyecto, la integración con los Web Services y las pantallas de los roles de paciente y personal clínico.
 
-**Figura 4.2.1.9-5. Contribuidores del repositorio de la aplicación móvil.**
+<a id="figura-4-051"></a>
+
+La [Figura 4-051](#figura-4-051) documenta contribuidores del repositorio de la aplicación móvil.
+
+**Figura 4-051. Contribuidores del repositorio de la aplicación móvil.**
 
 ![Contributors de la app móvil](assets/cap4/sprint1/insights-contributors-mobile.png)
 
-**Figura 4.2.1.9-6. Commits por semana del repositorio de la aplicación móvil.**
+<a id="figura-4-052"></a>
+
+La [Figura 4-052](#figura-4-052) documenta commits por semana del repositorio de la aplicación móvil.
+
+**Figura 4-052. Commits por semana del repositorio de la aplicación móvil.**
 
 ![Commits de la app móvil](assets/cap4/sprint1/insights-activity-mobile.png)
 

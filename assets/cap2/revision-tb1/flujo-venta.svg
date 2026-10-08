@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="985" viewBox="0 0 1250 985" role="img"><title>DMF 2 · Venta aprobada y preparación de la orden</title><desc>Flujo de mensajes numerados con tipo, emisor, receptor y datos significativos.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="36" y="45" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#12364a">DMF 2 · Venta aprobada y preparación de la orden</text>
+<rect x="5.0" y="75" width="200" height="66" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="17.0" y="101" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Asesor comercial</text>
+<path d="M105.0,142 L105.0,920" stroke="#b5c3ce" stroke-dasharray="5,5"/>
+<rect x="351.6666666666667" y="75" width="200" height="66" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="363.6666666666667" y="101" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Clinical &amp;</text>
+<text x="363.6666666666667" y="124" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Commercial</text>
+<path d="M451.6666666666667,142 L451.6666666666667,920" stroke="#b5c3ce" stroke-dasharray="5,5"/>
+<rect x="698.3333333333334" y="75" width="200" height="66" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="710.3333333333334" y="101" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Production &amp;</text>
+<text x="710.3333333333334" y="124" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Tracking</text>
+<path d="M798.3333333333334,142 L798.3333333333334,920" stroke="#b5c3ce" stroke-dasharray="5,5"/>
+<rect x="1045.0" y="75" width="200" height="66" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="1057.0" y="101" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Store &amp; Inventory</text>
+<path d="M1145.0,142 L1145.0,920" stroke="#b5c3ce" stroke-dasharray="5,5"/>
+<path d="M105.0,195 L451.6666666666667,195" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="115.0" y="142" width="322.6666666666667" height="48" fill="white"/>
+<text x="119.0" y="161" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">1. [Comando] ApproveQuotation</text>
+<text x="119.0" y="220" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: quotationId; condición: cotización</text>
+<text x="119.0" y="241" font-family="Arial,sans-serif" font-size="14" fill="#243b53">susceptible de aprobación.</text>
+<path d="M105.0,310 L451.6666666666667,310" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="115.0" y="257" width="322.6666666666667" height="48" fill="white"/>
+<text x="119.0" y="276" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">2. [Comando] RegisterSale</text>
+<text x="119.0" y="335" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: quotationId; aprobada y sin venta</text>
+<text x="119.0" y="356" font-family="Arial,sans-serif" font-size="14" fill="#243b53">previa.</text>
+<path d="M451.6666666666667,425 L105.0,425" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" stroke-dasharray="7,5"/>
+<rect x="115.0" y="372" width="322.6666666666667" height="48" fill="white"/>
+<text x="119.0" y="391" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">3. [Respuesta] Venta registrada</text>
+<text x="119.0" y="450" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: saleId y estado PENDING_PAYMENT;</text>
+<text x="119.0" y="471" font-family="Arial,sans-serif" font-size="14" fill="#243b53">duplicado: HTTP 409.</text>
+<path d="M105.0,540 L451.6666666666667,540" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="115.0" y="487" width="322.6666666666667" height="48" fill="white"/>
+<text x="119.0" y="506" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">4. [Comando] RecordPayment</text>
+<text x="119.0" y="565" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: saleId, importe, método y</text>
+<text x="119.0" y="586" font-family="Arial,sans-serif" font-size="14" fill="#243b53">referencia.</text>
+<path d="M105.0,655 L451.6666666666667,655" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="115.0" y="602" width="322.6666666666667" height="48" fill="white"/>
+<text x="119.0" y="621" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">5. [Comando] CloseSale</text>
+<text x="119.0" y="680" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: saleId; condición: pago registrado y</text>
+<text x="119.0" y="701" font-family="Arial,sans-serif" font-size="14" fill="#243b53">reglas de cierre.</text>
+<path d="M451.6666666666667,770 L798.3333333333334,770" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="461.6666666666667" y="717" width="322.6666666666667" height="48" fill="white"/>
+<text x="465.6666666666667" y="736" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">6. [Evento] SaleWasClosed</text>
+<text x="465.6666666666667" y="795" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: saleId, patientId y especificaciones</text>
+<text x="465.6666666666667" y="816" font-family="Arial,sans-serif" font-size="14" fill="#243b53">para GenerateWorkOrder.</text>
+<path d="M451.6666666666667,885 L1145.0,885" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="461.6666666666667" y="832" width="669.3333333333333" height="48" fill="white"/>
+<text x="465.6666666666667" y="851" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">7. [Evento] SaleWasClosed</text>
+<text x="465.6666666666667" y="910" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Diseño futuro: productos y cantidades para actualizar existencias.</text>
+<text x="36" y="960" font-family="Arial,sans-serif" font-size="15" fill="#243b53">TB1: la venta no se duplica por cotización. La integración de inventario es parte del diseño, no evidencia de implementación.</text>
+</svg>

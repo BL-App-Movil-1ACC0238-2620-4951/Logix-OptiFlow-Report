@@ -1,3 +1,5 @@
+<div style="break-before: page; page-break-before: always;"></div>
+
 # Bibliografía
 
 - Agency for Healthcare Research and Quality. (2020). *Improving patient appointment scheduling and access to care*. U.S. Department of Health & Human Services. https://www.ahrq.gov/
@@ -27,3 +29,9 @@
 - GitHub. (s. f.). *GitHub Documentation*. GitHub. https://docs.github.com/
 
 - Figma. (s. f.). *Figma Help Center*. Figma. https://help.figma.com/
+
+- DDD Crew. (s. f.-a). *Domain Message Flow Modelling*. GitHub. https://github.com/ddd-crew/domain-message-flow-modelling
+
+- DDD Crew. (s. f.-b). *The Bounded Context Canvas*. GitHub. https://github.com/ddd-crew/bounded-context-canvas
+
+- Brown, S. (s. f.). *Container diagram*. C4 model. https://c4model.com/diagrams/container

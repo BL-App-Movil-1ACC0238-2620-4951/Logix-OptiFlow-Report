@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="870" viewBox="0 0 1250 870" role="img"><title>DMF 1 · Búsqueda, disponibilidad y reserva</title><desc>Flujo de mensajes numerados con tipo, emisor, receptor y datos significativos.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="36" y="45" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#12364a">DMF 1 · Búsqueda, disponibilidad y reserva</text>
+<rect x="5.0" y="75" width="200" height="66" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="17.0" y="101" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Paciente / App</text>
+<path d="M105.0,142 L105.0,805" stroke="#b5c3ce" stroke-dasharray="5,5"/>
+<rect x="351.6666666666667" y="75" width="200" height="66" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="363.6666666666667" y="101" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Search &amp; Booking</text>
+<path d="M451.6666666666667,142 L451.6666666666667,805" stroke="#b5c3ce" stroke-dasharray="5,5"/>
+<rect x="698.3333333333334" y="75" width="200" height="66" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="710.3333333333334" y="101" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Clinical &amp;</text>
+<text x="710.3333333333334" y="124" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Commercial</text>
+<path d="M798.3333333333334,142 L798.3333333333334,805" stroke="#b5c3ce" stroke-dasharray="5,5"/>
+<rect x="1045.0" y="75" width="200" height="66" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="1057.0" y="101" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Notification &amp;</text>
+<text x="1057.0" y="124" font-family="Arial,sans-serif" font-size="16" fill="#243b53" font-weight="bold">Loyalty</text>
+<path d="M1145.0,142 L1145.0,805" stroke="#b5c3ce" stroke-dasharray="5,5"/>
+<path d="M105.0,195 L451.6666666666667,195" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" stroke-dasharray="7,5"/>
+<rect x="115.0" y="142" width="322.6666666666667" height="48" fill="white"/>
+<text x="119.0" y="161" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">1. [Consulta] SearchOpticalStores</text>
+<text x="119.0" y="220" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: término de búsqueda; respuesta:</text>
+<text x="119.0" y="241" font-family="Arial,sans-serif" font-size="14" fill="#243b53">ópticas e identificadores.</text>
+<path d="M105.0,310 L451.6666666666667,310" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" stroke-dasharray="7,5"/>
+<rect x="115.0" y="257" width="322.6666666666667" height="48" fill="white"/>
+<text x="119.0" y="276" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">2. [Consulta] GetAvailableTimeSlots</text>
+<text x="119.0" y="335" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: opticalStoreId, fecha; respuesta:</text>
+<text x="119.0" y="356" font-family="Arial,sans-serif" font-size="14" fill="#243b53">horarios disponibles.</text>
+<path d="M105.0,425 L451.6666666666667,425" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="115.0" y="372" width="322.6666666666667" height="48" fill="white"/>
+<text x="119.0" y="391" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">3. [Comando] BookAppointment</text>
+<text x="119.0" y="450" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: patientId, opticalStoreId, fecha y</text>
+<text x="119.0" y="471" font-family="Arial,sans-serif" font-size="14" fill="#243b53">hora.</text>
+<path d="M451.6666666666667,540 L105.0,540" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" stroke-dasharray="7,5"/>
+<rect x="115.0" y="487" width="322.6666666666667" height="48" fill="white"/>
+<text x="119.0" y="506" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">4. [Respuesta] Reserva confirmada</text>
+<text x="119.0" y="565" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: appointmentId, estado y horario; si</text>
+<text x="119.0" y="586" font-family="Arial,sans-serif" font-size="14" fill="#243b53">hay conflicto, no se confirma.</text>
+<path d="M451.6666666666667,655 L798.3333333333334,655" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="461.6666666666667" y="602" width="322.6666666666667" height="48" fill="white"/>
+<text x="465.6666666666667" y="621" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">5. [Evento] AppointmentBooked</text>
+<text x="465.6666666666667" y="680" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: appointmentId, patientId,</text>
+<text x="465.6666666666667" y="701" font-family="Arial,sans-serif" font-size="14" fill="#243b53">opticalStoreId y horario.</text>
+<path d="M451.6666666666667,770 L1145.0,770" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="461.6666666666667" y="717" width="669.3333333333333" height="48" fill="white"/>
+<text x="465.6666666666667" y="736" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">6. [Evento] AppointmentBooked</text>
+<text x="465.6666666666667" y="795" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: appointmentId, patientId y horario; preparar recordatorio.</text>
+<text x="36" y="845" font-family="Arial,sans-serif" font-size="15" fill="#243b53">Diseño de colaboración entre módulos del mismo backend. Los mensajes no requieren un broker externo.</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1370" viewBox="0 0 1440 1370" role="img"><title>Bounded Context Canvas · Store Management &amp; Inventory</title><desc>Canvas del diseño de OptiFlow con diez dimensiones, basado en DDD Crew.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="36" y="45" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#12364a">Bounded Context Canvas · Store Management &amp; Inventory</text>
+<rect x="36" y="85" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="119" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Purpose · Propósito</text>
+<text x="56" y="157" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Mantener el catálogo, las existencias y la información</text>
+<text x="56" y="182" font-family="Arial,sans-serif" font-size="18" fill="#243b53">operativa de la óptica.</text>
+<rect x="736" y="85" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="119" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Strategic Classification · Clasificación</text>
+<text x="756" y="157" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Supporting Domain; control de recursos del establecimiento.</text>
+<rect x="36" y="333" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="367" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Domain Roles · Responsabilidades</text>
+<text x="56" y="405" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Gestión de catálogo, disponibilidad física y reposición.</text>
+<rect x="736" y="333" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="367" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Ubiquitous Language · Lenguaje</text>
+<text x="756" y="405" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Frame: montura. SKU: código de producto. Stock: existencias.</text>
+<text x="756" y="430" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Supplier: proveedor. Replenishment: reposición.</text>
+<rect x="36" y="581" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="615" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Business Decisions · Reglas</text>
+<text x="56" y="653" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Consultar stock no lo modifica. Registrar movimientos con</text>
+<text x="56" y="678" font-family="Arial,sans-serif" font-size="18" fill="#243b53">producto y cantidad. Evitar existencias negativas y</text>
+<text x="56" y="703" font-family="Arial,sans-serif" font-size="18" fill="#243b53">movimientos duplicados.</text>
+<rect x="736" y="581" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="615" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Inbound Communication · Entradas</text>
+<text x="756" y="653" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Personal: gestión de catálogo y movimientos. Clinical &amp;</text>
+<text x="756" y="678" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Commercial: cierre de venta como integración propuesta para</text>
+<text x="756" y="703" font-family="Arial,sans-serif" font-size="18" fill="#243b53">actualizar stock.</text>
+<rect x="36" y="829" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="863" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Outbound Communication · Salidas</text>
+<text x="56" y="901" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Consulta de productos, precios y stock; alertas de reposición</text>
+<text x="56" y="926" font-family="Arial,sans-serif" font-size="18" fill="#243b53">para el personal autorizado.</text>
+<rect x="736" y="829" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="863" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Assumptions · Supuestos</text>
+<text x="756" y="901" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Los códigos identifican productos y la óptica registra</text>
+<text x="756" y="926" font-family="Arial,sans-serif" font-size="18" fill="#243b53">movimientos. El módulo completo de inventario no está</text>
+<text x="756" y="951" font-family="Arial,sans-serif" font-size="18" fill="#243b53">implementado en TB1.</text>
+<rect x="36" y="1077" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="1111" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Verification Metrics · Verificación</text>
+<text x="56" y="1149" font-family="Arial,sans-serif" font-size="18" fill="#243b53">En la implementación futura, contrastar movimientos con saldo</text>
+<text x="56" y="1174" font-family="Arial,sans-serif" font-size="18" fill="#243b53">e impedir descuento duplicado por venta.</text>
+<rect x="736" y="1077" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="1111" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Open Questions · Decisiones pendientes</text>
+<text x="756" y="1149" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Decidir política de reserva de stock, ajustes, múltiples</text>
+<text x="756" y="1174" font-family="Arial,sans-serif" font-size="18" fill="#243b53">sucursales y reconciliación ante pérdida de conexión.</text>
+<text x="36" y="1350" font-family="Arial,sans-serif" font-size="16" fill="#243b53">Diseño integral hasta TB1 · Referencia metodológica: DDD Crew · Las métricas son criterios de verificación, no resultados.</text>
+</svg>
