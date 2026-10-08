@@ -1,0 +1,18 @@
+Backend base HEAD: 25c3003f34e42efbc9151d9192846407195b22ac
+Cambios locales adicionales: suite Cucumber, features, Steps y configuración Maven
+Ejecución: 2026-10-07 23:09:57 America/Lima
+Comando: mvn test
+Runtime: Java 25.0.3; release 21
+BUILD SUCCESS
+Tests: 53, Failures: 0, Errors: 0, Skipped: 0
+
+Suite | Tests | Failures | Errors | Skipped
+com.optiflow.platform.clinical.domain.entities.ClinicalCommercialRulesTest | 6 | 0 | 0 | 0
+com.optiflow.platform.clinical.interfaces.rest.ClinicalCommercialApiTest | 2 | 0 | 0 | 0
+com.optiflow.platform.production.domain.entities.ProductionTrackingRulesTest | 5 | 0 | 0 | 0
+com.optiflow.platform.production.interfaces.rest.ProductionTrackingApiTest | 2 | 0 | 0 | 0
+com.optiflow.platform.searchbooking.acceptance.SearchBookingAcceptanceTest | 4 | 0 | 0 | 0
+com.optiflow.platform.searchbooking.domain.entities.AppointmentBookingRulesTest | 2 | 0 | 0 | 0
+com.optiflow.platform.searchbooking.domain.valueobjects.PhoneNumberTest | 20 | 0 | 0 | 0
+com.optiflow.platform.searchbooking.interfaces.rest.SearchAndBookingApiTest | 4 | 0 | 0 | 0
+com.optiflow.platform.shared.interfaces.rest.ApiRequestErrorsTest | 8 | 0 | 0 | 0

@@ -1,0 +1,15 @@
+Commit BDD: 706ada927d4fd49807035e79d4313fbe463e9e54
+Base remota comparada: 6c388bc144c2bc0b08eb6451f6d9967fdaf69c6d
+Comando: mvn -o test
+
+Base remota sin BDD: tests=57, failures=2, errors=4, skipped=0
+Base remota con BDD: tests=61, failures=2, errors=4, skipped=0
+BDD: 4 escenarios aprobados, 0 fallos, 0 errores
+
+Fallos reproducidos también en la base remota:
+com.optiflow.platform.clinical.interfaces.rest.ClinicalCommercialApiTest: failures=0, errors=2
+com.optiflow.platform.notification.infrastructure.persistence.NotificationPersistenceIntegrationTest: failures=1, errors=0
+com.optiflow.platform.production.interfaces.rest.ProductionTrackingApiTest: failures=0, errors=2
+com.optiflow.platform.searchbooking.interfaces.rest.SearchAndBookingApiTest: failures=1, errors=0
+Causa de errores de contexto: H2 no admite el índice parcial con WHERE de V4__notification_loyalty_schema.sql.
+Otros fallos: NotificationPersistenceIntegrationTest (expected 1, actual 0) y SearchAndBookingApiTest (expected 3 horarios, actual 2).
