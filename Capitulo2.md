@@ -751,7 +751,10 @@ El Impact Mapping es una herramienta que nos permitió estructurar y visualizar 
 ### 2.5.1. EventStorming
 
 **Big Picture Event Storming**
+
 ![Event-Storming pasos 1-3.jpg](assets/cap2/DDD/Event-Storming%20pasos%201-3.jpg)
+
+![EVENT STORMING PASO FINAL.png](assets/cap2/DDD/EVENT%20STORMING%20PASO%20FINAL.png)
 
 #### 2.5.1.1. Candidate Context Discovery
 
