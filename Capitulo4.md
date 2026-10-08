@@ -596,6 +596,19 @@ Las siguientes capturas se tomaron el 2026-10-08 sobre la documentación publica
 ![Técnicos en Swagger desplegado](assets/cap4/sprint1/swagger-render-technicians.png)
 
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
+
+En este Sprint se desplegaron los tres productos digitales de OptiFlow: la **Landing Page** en **GitHub Pages**, los **Web Services** en **Render** mediante Docker y la **aplicación móvil** en **Firebase App Distribution**. A continuación se detallan los pasos realizados para cada producto.
+
+| Producto | Plataforma | URL |
+| :--- | :--- | :--- |
+| Landing Page | GitHub Pages | [https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-lading-page/](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-lading-page/) |
+| Web Services | Render (Docker) | [https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) |
+| Aplicación móvil | Firebase App Distribution | [Enlace de invitación de Firebase App Distribution] |
+
+##### Landing Page
+
+El código de la Landing Page se encuentra en el repositorio [Logix-OptiFlow-lading-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-lading-page). GitHub Pages se eligió porque aloja sitios estáticos sin costo y publica automáticamente los cambios integrados en la rama configurada.
+
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 ## 4.3. Validation Interviews
 ### 4.3.1. Diseño de entrevistas
