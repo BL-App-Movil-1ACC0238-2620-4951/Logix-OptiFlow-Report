@@ -490,15 +490,80 @@ Se muestra los precios y los integrantes.
 Se muestra las reseñas de las personas que interactuaron con la página y la vista final.
 
 ![Landing page reseñas.png](assets/cap3/wireframes/wireframe_landing_4.png)
+
 #### 3.1.3.2. Landing Page Mock-up
+
+Esta interfaz final consolida la identidad de la plataforma, transmitiendo profesionalismo, innovación y confianza hacia los administradores de PYMEs ópticas y los pacientes.
 
 ![Landing page mockup.png](assets/cap3/mockups/Landing%20page%20mockup.png)
 
 ### 3.1.4. Mobile Applications UX/UI Design
 
+El diseño de la experiencia y la interfaz de usuario (UX/UI) de la aplicación móvil de Optiflow constituye el pilar fundamental para la interacción directa con los pacientes y clientes finales del sector de la salud visual.
+
 #### 3.1.4.1. Mobile Applications Wireframes
 
+Los wireframes móviles establecen la estructura esquelética, la distribución funcional de componentes y la jerarquía de contenidos en la interfaz del dispositivo móvil antes de la integración del sistema visual definitivo.
 
+**Sección Autenticación y Selección de Rol**
+
+![Wireframes del flujo de inicio de sesión y selección de rol.](assets/cap3/wireframe-movil/registro.png)
+
+El contenedor central implementa un conmutador de navegación segmentada para alternar entre "Iniciar sesión" y "Registrarme". A continuación, se disponen tarjetas interactivas de selección de rol ("Paciente: Mis citas, receta y monturas" y "Personal clínico: Catálogo, agenda y pacientes"). La base del contenedor organiza los campos de entrada de datos para correo electrónico y contraseña (con botón de visibilidad y enlace de recuperación "¿Olvidaste tu contraseña?"), finalizando con el botón de acción principal de ancho completo ("Entrar a mi cuenta").
+
+**Sección Inicio y Consulta de Receta Óptica (Paciente)**
+
+![Wireframes de pantalla de inicio del paciente y ficha de receta óptica.](assets/cap3/wireframe-movil/receta.png)
+
+La primera pantalla (dashboard inicial) muestra un banner de prueba virtual interactiva con cámara de Realidad Aumentada (AR), un widget de resumen con la próxima cita confirmada, botones de acceso rápido ("Mis recetas", "Mis pedidos", "Historial"). La segunda y tercera pantalla estructuran el visor y editor de la receta médica, organizando en una tabla clínica, diagnósticos asociados, cotas dimensionales de montura, observaciones del oftalmólogo tratante y botón para actualizar o guardar prescripción.
+
+**Sección Búsqueda y Exploración de Monturas (Paciente)**
+
+![Wireframes del módulo de búsqueda y catálogo de armazones.](assets/cap3/wireframe-movil/buscar.png)
+
+Esta imagen muestra el flujo de localización de ópticas y descubrimiento de armazones en cuatro vistas. La pantalla inicial presenta una barra de búsqueda multifunción, accesos rápidos de filtrado y un bloque de mapa geolocalizado con lista de resultados cercanos que detallan distancias y horarios disponibles. Finalmente, las pantallas de detalle despliegan el carrusel de imágenes del producto, especificaciones técnicas (materiales, dimensiones, estilo unisex), disponibilidad de stock físico inmediato y el botón de acción para localizar las ópticas más cercanas con existencia en tienda.
+
+**Sección Gestión y Reserva de Citas (Paciente)**
+
+![Wireframes del flujo de gestión, reprogramación y reserva de citas.](assets/cap3/wireframe-movil/citas_paciente.png)
+
+Esta imagen detalla el flujo integral de agendamiento y control de citas médicas en siete pantallas secuenciales. Inicia con la vista "Mis citas", seguida del detalle de cita con información del profesional tratante, sede y recordatorios. El proceso de nueva reserva se guía mediante un indicador de pasos superior (stepper del 1 al 4).
+
+**Sección Seguimiento de Pedidos y Montaje (Paciente)**
+
+![Wireframes del módulo de seguimiento de pedidos en taller y entrega.](assets/cap3/wireframe-movil/pedido.png)
+
+La primera pantalla ofrece un selector de estado ("En curso" y "Entregados") y una tarjeta de pedido activo con barra de progreso segmentada y fecha estimada de entrega. La segunda pantalla expone el detalle del pedido mediante una línea de tiempo vertical (stepper de seguimiento) que refleja en tiempo real los hitos de fabricación.
+
+**Sección Perfil de Usuario, Historial y Configuración (Paciente)**
+
+![Wireframes del perfil de paciente, historial clínico y panel de ajustes.](assets/cap3/wireframe-movil/perfil.png)
+
+Esta imagen ilustra la gestión de cuenta y antecedentes médicos del paciente distribuida en cuatro pantallas.
+
+**Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
+
+![Wireframes del directorio de pacientes, ficha médica, refracción y orden de trabajo.](assets/cap3/wireframe-movil/paciente.png)
+
+Esta imagen detalla el flujo de trabajo clínico del optómetra y asesor de óptica en seis pantallas. Inicia con el directorio clínico de expedientes con métricas de resumen (total de pacientes, nuevos del mes, fichas en taller), buscador y filtros por estado. Continúa con el formulario modal de registro rápido de nuevo cliente con datos demográficos y motivo de consulta. Las pantallas clínicas finales estructuran la evaluación visual y la pantalla de confirmación de venta y pago registrado.
+
+**Sección Agenda y Control de Atención Clínica (Personal Óptico)**
+
+![Wireframes de la agenda diaria, control de sala de espera y flujo de atención.](assets/cap3/wireframe-movil/citas_optica.png)
+
+Esta imagen exhibe la interfaz operativa para la administración de turnos y consultas en cuatro vistas. Las dos primeras pantallas muestran la agenda diaria con métricas de pacientes citados, calendario de días hábiles, filtros de estado (En espera, Confirmadas, Retiros). La tercera pantalla estructura el formulario de agendamiento manual de citas. La cuarta pantalla presenta la herramienta de actualización del estado de consulta en tiempo real con campo para notas de transición.
+
+**Sección Control de Stock e Inventario (Personal Óptico)**
+
+![Wireframes de gestión de inventario, escáner de códigos y ajuste de existencias.](assets/cap3/wireframe-movil/inventario.png)
+
+Esta imagen presenta la arquitectura de administración física de existencias en cinco pantallas interactivas. El panel principal resume las métricas de stock en vitrina y productos en taller/laboratorio. La segunda pantalla habilita el escáner de productos mediante cámara para lectura instantánea de códigos de barras o QR. La tercera pantalla desglosa la ficha de producto con galería fotográfica, precios y especificaciones. La cuarta pantalla detalla la distribución de stock multisede. La última pantalla proporciona el formulario para registrar nuevos movimientos.
+
+**Sección Operaciones, Producción y Reportes (Personal Óptico)**
+
+![Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes.](assets/cap3/wireframe-movil/herramientas.png)
+
+Esta imagen expone las herramientas operativas y analíticas de la óptica organizadas en seis pantallas. El flujo operativo incluye la pantalla de confirmación de venta con desglose económico y fecha estimada de entrega, la interfaz de creación de nuevas cotizaciones con vinculación a recetas vigentes, y el tablero Kanban de control de producción en taller con etapas segmentadas. Finalmente, se presenta el centro de alertas operativas el módulo de analítica y reportes con gráficas de barras de facturación mensual, volumen de atenciones e indicadores de rendimiento comercial.
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
@@ -513,4 +578,6 @@ Se muestra las reseñas de las personas que interactuaron con la página y la vi
 
 
 #### 3.1.4.5 Mobile Applications Prototyping
+
+
 
