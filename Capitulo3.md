@@ -469,10 +469,27 @@ La navegación principal en nuestra app visualmente:
 
 ### 3.1.3. Landing Page UI Design
 
+El landing page juega un papel esencial en atraer la atención de los propietarios de pequeñas y medianas ópticas (PYMEs ópticas) y sus pacientes. En este apartado, se muestra el diseño de la interfaz de usuario del landing page de Optiflow, enfocándose en los elementos clave que optimizan la experiencia del usuario y creando una página interactiva, intuitiva y fácil de usar.
+
 #### 3.1.3.1. Landing Page Wireframe
 
-![Landing page wireframe.png](assets/cap3/wireframes/Landing%20page%20wireframe.png)
+En este conjunto de wireframes, se definen la jerarquía de contenido, la navegación y las áreas principales de interacción de la página, estructuradas para comunicar claramente la propuesta de valor dual de Optiflow.
 
+Presentación inical de OptiFlow con datos de impacto y un lema.
+
+![Landing page inicio.png](assets/cap3/wireframes/wireframe_landing_1.png)
+
+Se muestra los objetivos y beneficios de OPiflow.
+
+![Landing page mision.png](assets/cap3/wireframes/wireframe_landing_2.png)
+
+Se muestra los precios y los integrantes.
+
+![Landing page precios.png](assets/cap3/wireframes/wireframe_landing_3.png)
+
+Se muestra las reseñas de las personas que interactuaron con la página y la vista final.
+
+![Landing page reseñas.png](assets/cap3/wireframes/wireframe_landing_4.png)
 #### 3.1.3.2. Landing Page Mock-up
 
 ![Landing page mockup.png](assets/cap3/mockups/Landing%20page%20mockup.png)
