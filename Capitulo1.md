@@ -1,6 +1,6 @@
 <div style="break-before: page; page-break-before: always;"></div>
 
-# Capítulo I: Introducción
+# Capítulo I: Presentación
 
 ## 1.1. Startup Profile
 

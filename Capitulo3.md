@@ -592,7 +592,7 @@ Seleccionar óptica
 Consultar información y disponibilidad
 ```
 
-Figura Buscar óptica. Interfaz propuesta para la búsqueda de establecimientos.
+La interfaz propuesta para la búsqueda de establecimientos se muestra a continuación.
 
 
 La evidencia de 3.1.2.4. Searching Systems se presenta en [Figura 3-015](#figura-3-015).
@@ -858,11 +858,11 @@ Primero, se definen las tareas típicas que realizaría el usuario para completa
 - Introducir las credenciales requeridas (correo electrónico y contraseña) o completar los campos de registro.
 - Validar la información ingresada y confirmar el acceso al dashboard principal de la cuenta.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+Luego, se muestra el resultado de la traducción de las acciones a pantallas.
 
 ![Wireflow de ingreso o registro de usuario.](assets/cap3/wireflow/INGRESO%20O%20REGISTRO.png)
 
-A continuación, en este flujo se ilustra el proceso de autenticación y enrolamiento en la plataforma OptiFlow, permitiendo al usuario navegar entre las vistas de login y registro según su rol, gestionar la recuperación de credenciales y acceder a la experiencia personalizada de la aplicación.
+En este flujo se ilustra el proceso de autenticación y enrolamiento en la plataforma OptiFlow, permitiendo al usuario navegar entre las vistas de login y registro según su rol, gestionar la recuperación de credenciales y acceder a la experiencia personalizada de la aplicación.
 
 **User Goal 2: Personal clínico u óptico desea registrar a un nuevo paciente en el sistema**
 
@@ -872,11 +872,11 @@ Primero, se definen las tareas típicas que realizaría el personal para complet
 - Completar el formulario clínico con datos personales, número de identificación, contacto y motivo de consulta inicial.
 - Guardar la ficha del paciente y verificar su inclusión en la base de datos para futuras atenciones y refracciones.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+Luego, se muestra el resultado de la traducción de las acciones a pantallas.
 
 ![Wireflow de registro de nuevo paciente.](assets/cap3/wireflow/wireflow_REGISTRO%20NUEVO%20PACIENTE.png)
 
-A continuación, en este flujo se observa el recorrido del personal óptico para dar de alta a un paciente de manera ágil, validando los campos obligatorios del expediente clínico y dejando la ficha lista para asociarle citas o recetas.
+En este flujo se observa el recorrido del personal óptico para dar de alta a un paciente de manera ágil, validando los campos obligatorios del expediente clínico y dejando la ficha lista para asociarle citas o recetas.
 
 **User Goal 3: Usuario desea agendar una nueva cita de evaluación visual u optometría**
 
@@ -886,11 +886,11 @@ Primero, se definen las tareas típicas que realizaría el usuario para completa
 - Escoger al especialista disponible, así como la fecha y franja horaria idónea mediante el calendario interactivo.
 - Revisar el resumen de la reserva y confirmar el agendamiento con emisión de comprobante y recordatorio.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+Luego, se muestra el resultado de la traducción de las acciones a pantallas.
 
 ![Wireflow de registro de nueva cita.](assets/cap3/wireflow/wireflow_REGISTRO%20DE%20NUEVA%20CITA.png)
 
-A continuación, en este flujo se detalla el proceso paso a paso (stepper) mediante el cual el usuario concreta una reserva de cita médica, visualizando la disponibilidad en tiempo real y asegurando el turno correspondiente.
+En este flujo se detalla el proceso paso a paso (stepper) mediante el cual el usuario concreta una reserva de cita médica, visualizando la disponibilidad en tiempo real y asegurando el turno correspondiente.
 
 **User Goal 4: Personal óptico desea programar una cita directamente desde la tarjeta de un paciente**
 
@@ -900,11 +900,11 @@ Primero, se definen las tareas típicas que realizaría el personal para complet
 - Seleccionar la sede, especialidad médica y horario sin necesidad de reingresar la información del paciente.
 - Confirmar la reserva y verificar la actualización automática en el historial de citas del paciente.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+Luego, se muestra el resultado de la traducción de las acciones a pantallas.
 
 ![Wireflow de nueva cita desde la tarjeta de un cliente.](assets/cap3/wireflow/wireflow_NUEVA%20CITA%20DESDE%20LA%20TARJETA%20DE%20UN%20CLIENTE.png)
 
-A continuación, en este flujo se presenta la optimización del flujo de recepción y atención clínica, permitiendo al asesor agendar visitas recurrentes o controles posventa directamente desde la ficha activa del cliente.
+En este flujo se presenta la optimización del flujo de recepción y atención clínica, permitiendo al asesor agendar visitas recurrentes o controles posventa directamente desde la ficha activa del cliente.
 
 **User Goal 5: Optómetra o especialista desea registrar la atención clínica y la prescripción óptica**
 
@@ -914,11 +914,11 @@ Primero, se definen las tareas típicas que realizaría el especialista para com
 - Añadir observaciones de diagnóstico clínico, recomendaciones de uso y especificaciones técnicas de lentes/monturas.
 - Guardar la prescripción y generar la orden de trabajo clínica correspondiente para su derivación a taller o venta.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+Luego, se muestra el resultado de la traducción de las acciones a pantallas.
 
 ![Wireflow del proceso de atención a paciente.](assets/cap3/wireflow/wireflow_PROCESO%20DE%20ATENCION%20A%20PACIENTE.png)
 
-A continuación, en este flujo se describe la interacción técnica del profesional de la salud visual en cabina, asegurando la captura integral de los parámetros refractivos y la emisión digital de la receta médica.
+En este flujo se describe la interacción técnica del profesional de la salud visual en cabina, asegurando la captura integral de los parámetros refractivos y la emisión digital de la receta médica.
 
 **User Goal 6: Personal de taller o asesor desea verificar y actualizar el estado de producción de los lentes**
 
@@ -928,11 +928,11 @@ Primero, se definen las tareas típicas que realizaría el usuario para completa
 - Comprobar la etapa técnica actual del trabajo (corte de lunas, biselado, tratamiento antirreflejante, montaje, control de calidad).
 - Actualizar el estado de la orden hacia "Listo para entrega" y notificar la disponibilidad del producto.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+Luego, se muestra el resultado de la traducción de las acciones a pantallas.
 
 ![Wireflow de verificación del proceso de producción de los lentes del cliente.](assets/cap3/wireflow/wireflow_VERIFICACION%20DEL%20PROCESO%20DE%20PRODUCCION%20DE%20LOS%20LENTES%20DEL%20CLIENTE.png)
 
-A continuación, en este flujo se expone el seguimiento técnico de fabricación y ensamblaje óptico en laboratorio, garantizando la trazabilidad de cada fase del pedido hasta su liberación final.
+En este flujo se expone el seguimiento técnico de fabricación y ensamblaje óptico en laboratorio, garantizando la trazabilidad de cada fase del pedido hasta su liberación final.
 
 **User Goal 7: Paciente desea explorar el catálogo de monturas y reservar armazones en una óptica cercana**
 
@@ -942,29 +942,29 @@ Primero, se definen las tareas típicas que realizaría el paciente para complet
 - Visualizar el detalle técnico de la montura seleccionada (dimensiones, colores, stock en tiempo real).
 - Seleccionar la opción de reserva física en tienda o vincular el armazón a su próxima cita presencial.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+Luego, se muestra el resultado de la traducción de las acciones a pantallas.
 
 ![Wireflow de catálogo y reserva de monturas.](assets/cap3/wireflow/Wireflow%20%C2%B7%20Cat%C3%A1logo%20y%20reserva.png)
 
-A continuación, en este flujo se muestra la experiencia omnicanal del paciente, quien explora el catálogo digital de armazones y concreta la reserva en la sede óptica más conveniente.
+En este flujo se muestra la experiencia omnicanal del paciente, quien explora el catálogo digital de armazones y concreta la reserva en la sede óptica más conveniente.
 
 **User Goal 8: Paciente desea consultar el estado y avance de sus pedidos de lentes**
 
 Primero, se definen las tareas típicas que realizaría el paciente para completar este objetivo:
-- Acceder al apartado de "Mis Pedidos" desde el menú principal o su perfil de usuario.
+- Acceder a la sección "Mis Pedidos" desde el menú principal o su perfil de usuario.
 - Seleccionar el pedido activo para revisar el resumen de compra y la fecha estimada de entrega.
 - Visualizar la línea de tiempo de seguimiento (en laboratorio, biselado, control de calidad, disponible para retiro).
 - Consultar los detalles de la sede de recojo o comunicarse con soporte ante dudas sobre su entrega.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+Luego, se muestra el resultado de la traducción de las acciones a pantallas.
 
 ![Wireflow de consulta de pedidos.](assets/cap3/wireflow/Wireflow%20%C2%B7%20Consulta%20de%20pedidos.png)
 
-A continuación, en este flujo se refleja la transparencia del servicio posventa, permitiendo al cliente conocer en todo momento el avance de confección de sus lentes y el momento exacto para su recojo.
+En este flujo se refleja la transparencia del servicio posventa, permitiendo al cliente conocer en todo momento el avance de confección de sus lentes y el momento exacto para su recojo.
 
 #### 3.1.4.3. Mobile Applications Mock-ups
 
-En esta sección se presentan los mockups de alta fidelidad de la aplicación móvil de OptiFlow. Estos diseños consolidan la identidad visual, tipografía, paleta cromática, ofreciendo una experiencia moderna, intuitiva y accesible para pacientes y personal clínico.
+En esta sección se presentan los mockups de alta fidelidad de la aplicación móvil de OptiFlow. Estos diseños consolidan la identidad visual, la tipografía y la paleta cromática, y ofrecen una experiencia moderna, intuitiva y accesible para pacientes y personal clínico.
 
 **Sección Inicio y Dashboard (Paciente / Personal)**
 
@@ -975,7 +975,7 @@ La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-0
 <a id="figura-3-032"></a>
 **Figura 3-032. Mockups de la pantalla de inicio y panel principal.**
 
-Representa la interfaz principal de bienvenida personalizada de la aplicación. Aplica el sistema visual corporativo con encabezados legibles y tarjetas de navegación rápida. Muestra el banner interactivo para prueba de monturas, el resumen dinámico de la próxima cita médica agendada con hora, sede y especialista, junto con los accesos directos a recetas, seguimiento de pedidos e historial de atenciones.
+Los mockups representan la interfaz principal de bienvenida personalizada de la aplicación. Aplica el sistema visual corporativo con encabezados legibles y tarjetas de navegación rápida. Muestra el banner interactivo para prueba de monturas, el resumen dinámico de la próxima cita médica agendada con hora, sede y especialista, junto con los accesos directos a recetas, seguimiento de pedidos e historial de atenciones.
 
 **Sección Búsqueda y Exploración de Monturas (Paciente)**
 
@@ -986,7 +986,7 @@ La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-0
 <a id="figura-3-033"></a>
 **Figura 3-033. Mockups del módulo de búsqueda y catálogo de armazones.**
 
-Exhibe el catálogo digital de armazones y el buscador de ópticas. Integra barras de búsqueda multifunción, filtros por marca, material y precio, y una cuadrícula de productos con fotografías de alta resolución, especificaciones dimensionales y etiquetas de disponibilidad. Además, incluye la vista de mapa geolocalizado para identificar establecimientos cercanos con existencias en tienda y horarios de atención.
+Los mockups exhiben el catálogo digital de armazones y el buscador de ópticas. Integra barras de búsqueda multifunción, filtros por marca, material y precio, y una cuadrícula de productos con fotografías de alta resolución, especificaciones dimensionales y etiquetas de disponibilidad. Además, incluye la vista de mapa geolocalizado para identificar establecimientos cercanos con existencias en tienda y horarios de atención.
 
 **Sección Gestión y Reserva de Citas (Paciente)**
 
@@ -997,7 +997,7 @@ La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-0
 <a id="figura-3-034"></a>
 **Figura 3-034. Mockups del flujo de gestión y reserva de citas.**
 
-Presenta el flujo guiado de agendamiento médico estructurado mediante un indicador de pasos (stepper). El paciente selecciona la sede óptica, el especialista tratante y el tipo de servicio requerido (evaluación visual, consulta optometría o control). La interfaz despliega un calendario interactivo con bloques horarios disponibles y concluye con la pantalla de confirmación, resumen de la cita y recordatorio.
+Los mockups presentan el flujo guiado de agendamiento médico estructurado mediante un indicador de pasos (stepper). El paciente selecciona la sede óptica, el especialista tratante y el tipo de servicio requerido (evaluación visual, consulta optometría o control). La interfaz despliega un calendario interactivo con bloques horarios disponibles y concluye con la pantalla de confirmación, resumen de la cita y recordatorio.
 
 **Sección Consulta de Receta Óptica (Paciente)**
 
@@ -1008,7 +1008,7 @@ La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-0
 <a id="figura-3-035"></a>
 **Figura 3-035. Mockups del visor de recetas ópticas y prescripción médica.**
 
-Detalla la ficha clínica de prescripción médica en alta fidelidad. Organiza los datos refractivos de ambos ojos en una tabla clara (esfera, cilindro, eje, adición y distancia pupilar), indicando el profesional emisor, la fecha de vigencia y las observaciones sobre tratamientos de lunas recomendados (antirreflejante, filtro azul o protección UV).
+Los mockups detallan la ficha clínica de prescripción médica en alta fidelidad. Organiza los datos refractivos de ambos ojos en una tabla clara (esfera, cilindro, eje, adición y distancia pupilar), indicando el profesional emisor, la fecha de vigencia y las observaciones sobre tratamientos de lunas recomendados (antirreflejante, filtro azul o protección UV).
 
 **Sección Seguimiento de Pedidos y Montaje (Paciente)**
 
@@ -1019,7 +1019,7 @@ La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-0
 <a id="figura-3-036"></a>
 **Figura 3-036. Mockups del módulo de seguimiento de pedidos en taller y entrega.**
 
-Muestra la experiencia posventa y trazabilidad de fabricación de lentes. La pantalla inicial organiza las órdenes activas e históricas con barras de progreso porcentual y fecha estimada de entrega. La vista detallada expone una línea de tiempo vertical que informa el avance del pedido por etapas: orden recibida, corte de lunas, montaje en taller, control de calidad y listo para retiro en sede.
+Los mockups muestran la experiencia posventa y trazabilidad de fabricación de lentes. La pantalla inicial organiza las órdenes activas e históricas con barras de progreso porcentual y fecha estimada de entrega. La vista detallada expone una línea de tiempo vertical que informa el avance del pedido por etapas: orden recibida, corte de lunas, montaje en taller, control de calidad y listo para retiro en sede.
 
 **Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
 
@@ -1030,7 +1030,7 @@ La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-0
 <a id="figura-3-037"></a>
 **Figura 3-037. Mockups del directorio de pacientes, ficha médica y registro de consulta.**
 
-Presenta la herramienta operativa para optometristas y personal de atención. Dispone de un buscador en tiempo real y filtros por estado de expediente. Permite abrir la ficha integral del paciente para registrar datos demográficos, antecedentes clínicos, mediciones de agudeza visual y refracción, culminando en la generación de la orden de trabajo clínica.
+Los mockups presentan la herramienta operativa para optometristas y personal de atención. Dispone de un buscador en tiempo real y filtros por estado de expediente. Permite abrir la ficha integral del paciente para registrar datos demográficos, antecedentes clínicos, mediciones de agudeza visual y refracción, culminando en la generación de la orden de trabajo clínica.
 
 **Sección Agenda Diaria y Control de Atención (Personal Óptico)**
 
@@ -1041,7 +1041,7 @@ La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-0
 <a id="figura-3-038"></a>
 **Figura 3-038. Mockups de la agenda diaria, control de sala de espera y flujo de turnos.**
 
-Exhibe la interfaz de gestión operativa de consultas. Organiza los turnos del día en tarjetas cronológicas diferenciadas por estado (en espera, en consulta, atendido y reprogramado). Facilita al personal clínico actualizar la condición del paciente con un solo toque y registrar notas breves de transición en sala de espera.
+Los mockups exhiben la interfaz de gestión operativa de consultas. Organiza los turnos del día en tarjetas cronológicas diferenciadas por estado (en espera, en consulta, atendido y reprogramado). Facilita al personal clínico actualizar la condición del paciente con un solo toque y registrar notas breves de transición en sala de espera.
 
 **Sección Control de Stock e Inventario (Personal Óptico)**
 
@@ -1052,7 +1052,7 @@ La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-0
 <a id="figura-3-039"></a>
 **Figura 3-039. Mockups de gestión de inventario, escáner de códigos y fichas de producto.**
 
-Ilustra la administración de existencias y catálogo de la óptica. Presenta indicadores de productos en tienda y almacén, integra el módulo de escaneo por cámara de códigos de barras y QR para búsqueda inmediata, y permite visualizar fichas técnicas con precios, disponibilidad multisede y registro de movimientos de stock.
+Los mockups ilustran la administración de existencias y catálogo de la óptica. Presenta indicadores de productos en tienda y almacén, integra el módulo de escaneo por cámara de códigos de barras y QR para búsqueda inmediata, y permite visualizar fichas técnicas con precios, disponibilidad multisede y registro de movimientos de stock.
 
 **Sección Operaciones, Producción en Taller y Reportes (Personal Óptico)**
 
@@ -1063,7 +1063,7 @@ La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-0
 <a id="figura-3-040"></a>
 **Figura 3-040. Mockups del centro de herramientas, cotizaciones, taller y analítica.**
 
-Reúne las herramientas de gestión avanzada del negocio óptico: emisión de cotizaciones vinculadas a prescripciones vigentes, tablero visual para el control de órdenes de montaje en laboratorio y un panel de analítica con gráficos de atenciones realizadas, ventas mensuales e indicadores clave de rendimiento comercial.
+Los mockups reúnen las herramientas de gestión avanzada del negocio óptico: emisión de cotizaciones vinculadas a prescripciones vigentes, tablero visual para el control de órdenes de montaje en laboratorio y un panel de analítica con gráficos de atenciones realizadas, ventas mensuales e indicadores clave de rendimiento comercial.
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 #### 3.1.4.5 Mobile Applications Prototyping
