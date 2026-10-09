@@ -45,5 +45,5 @@
 <text x="756" y="1149" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Decidir vigencia de disponibilidad, política de cancelación y</text>
 <text x="756" y="1174" font-family="Arial,sans-serif" font-size="18" fill="#243b53">anticipación de recordatorios. Diferenciar reglas propuestas</text>
 <text x="756" y="1199" font-family="Arial,sans-serif" font-size="18" fill="#243b53">de las implementadas.</text>
-<text x="36" y="1350" font-family="Arial,sans-serif" font-size="16" fill="#243b53">Diseño integral hasta TB1 · Referencia metodológica: DDD Crew · Las métricas son criterios de verificación, no resultados.</text>
+<text x="36" y="1350" font-family="Arial,sans-serif" font-size="16" fill="#243b53">Referencia: DDD Crew, The Bounded Context Canvas.</text>
 </svg>

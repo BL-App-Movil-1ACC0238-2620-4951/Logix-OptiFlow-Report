@@ -1,6 +1,6 @@
 <div style="break-before: page; page-break-before: always;"></div>
 
-# Capítulo I: Introducción
+# Capítulo I: Presentación
 
 ## 1.1. Startup Profile
 
@@ -12,18 +12,19 @@ La misión de OptiFlow es simplificar la búsqueda y reserva de citas ópticas y
 
 La visión de OptiFlow es convertirse en una plataforma de referencia para el agendamiento y la fidelización en el sector óptico, conectando a pacientes que necesitan atención visual con establecimientos que buscan ofrecer un servicio organizado y mantener relaciones duraderas con sus clientes.
 
-**Alcance de la aplicación:** la propuesta integral comprende la búsqueda de ópticas, la consulta de catálogos y disponibilidad, la reserva de citas y el seguimiento posterior del paciente. Para TB1, el incremento del Sprint 1 se concentra en la búsqueda y reserva, correspondientes a US05 y US06. Las funciones de fidelización, notificaciones y gestión interna forman parte del diseño general; su definición no implica que todas estén implementadas en la aplicación móvil de esta entrega.
+**Alcance de la aplicación:** la propuesta integral comprende la búsqueda de ópticas, la consulta de catálogos y disponibilidad, la reserva de citas y el seguimiento posterior del paciente. Para TB1, el incremento del Sprint 1 se concentra en la búsqueda y reserva, correspondientes a US05 y US06.
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
 
-<a id="tabla-1-001"></a>
-La [Tabla 1-001](#tabla-1-001) presenta detalle de 1.1.2. Perfiles de integrantes del equipo y permite revisar los elementos documentados en esta sección.
+Los perfiles de los integrantes del equipo se resumen en la Tabla 5.
 
-**Tabla 1-001. Detalle de 1.1.2. Perfiles de integrantes del equipo.**
+<a id="tabla-5"></a>
 
+**Tabla 5**
 
-La evidencia de 1.1.2. Perfiles de integrantes del equipo se presenta en [Figura 1-001](#figura-1-001), [Figura 1-002](#figura-1-002), [Figura 1-003](#figura-1-003), [Figura 1-004](#figura-1-004), [Figura 1-005](#figura-1-005).
+*Perfiles de los integrantes del equipo*
+
 
 |Foto|Apellido y Nombre| 
 | --- | --- |
@@ -32,17 +33,6 @@ La evidencia de 1.1.2. Perfiles de integrantes del equipo se presenta en [Figura
 <img src="assets/members/eslander.jpg"> | Celis Berrospi Eslander - u201911249 Soy estudiante de Ingeniería de Software. Me considero una persona responsable y comprometida con mis objetivos, con una gran disposición para aprender y mejorar de manera continua. Valoro mucho la ética y el trabajo en equipo, aportando siempre ideas y soluciones para alcanzar resultados de calidad. Me esfuerzo por mantener un enfoque ordenado en mis tareas y contribuir activamente al desarrollo colectivo. Tengo conocimientos en Python, C++ y HTML, lo que me permite desarrollar soluciones tecnológicas y fortalecer mis habilidades en programación. Estoy motivado a seguir aprendiendo y asumir nuevos retos que me ayuden a crecer tanto profesional como personalmente.
 <img src="assets/members/Mariana.jpeg"> | Mariana Morocho Pinedo - u202411521 Soy estudiante de Ingeniería de Software. Cuento con conocimientos en lenguajes de programación como C++, Python y Java, los cuales he aplicado en distintos proyectos académicos orientados a la resolución de problemas y desarrollo de sistemas. Me caracterizo por ser proactiva y  con disposición de generar un buen ambiente.
 <img src="assets/members/cesar.jpeg"> | Quispe Llacsahuanga César Agusto - u202417405 Soy estudiante de Ingeniería de Software, interesado en el desarrollo de soluciones tecnológicas y el aprendizaje continuo en herramientas de programación. Cuento con conocimientos en lógica de programación, bases de datos y desarrollo de aplicaciones, lo que me permite contribuir en la construcción de sistemas eficientes. Me caracterizo por ser responsable, proactivo y con buena disposición para el trabajo en equipo, adaptándome a nuevos retos y aportando en el cumplimiento de los objetivos del proyecto.
-
-<a id="figura-1-001"></a>
-**Figura 1-001. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
-<a id="figura-1-002"></a>
-**Figura 1-002. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
-<a id="figura-1-003"></a>
-**Figura 1-003. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
-<a id="figura-1-004"></a>
-**Figura 1-004. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
-<a id="figura-1-005"></a>
-**Figura 1-005. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
 
 
 ## 1.2. Solution Profile
@@ -90,9 +80,11 @@ De esta manera, OptiFlow busca conectar el proceso de descubrimiento y reserva r
 
 **How much / ¿Cuánto?**
 
-La dimensión del problema puede observarse principalmente en el impacto que generan las inasistencias y la gestión manual de las citas. Una revisión sistemática de 105 estudios sobre citas médicas encontró una tasa promedio de inasistencia de aproximadamente **23%**, evidenciando que la pérdida de citas constituye un problema relevante para la utilización eficiente de los recursos disponibles.
+La dimensión del problema puede observarse principalmente en el impacto que generan las inasistencias y la gestión manual de las citas. Una revisión sistemática de 105 estudios sobre citas médicas encontró una tasa promedio de inasistencia de aproximadamente **23%**, evidenciando que la pérdida de citas constituye un problema relevante para la utilización eficiente de los recursos disponibles (Dantas et al., 2018). La programación de citas en salud debe equilibrar la demanda de los pacientes con la capacidad disponible, y las inasistencias son uno de sus principales retos (Gupta & Denton, 2008).
 
-Asimismo, una revisión sistemática y metaanálisis que analizó 26 estudios encontró que las notificaciones electrónicas incrementaron la asistencia a las citas: los pacientes que recibieron recordatorios presentaron una asistencia del **67% frente al 54%** del grupo sin notificaciones y fueron aproximadamente **25% menos propensos a no asistir** a sus citas.
+Asimismo, una revisión sistemática y metaanálisis que analizó 26 estudios encontró que las notificaciones electrónicas incrementaron la asistencia a las citas: los pacientes que recibieron recordatorios presentaron una asistencia del **67% frente al 54%** del grupo sin notificaciones y fueron aproximadamente **25% menos propensos a no asistir** a sus citas (Robotham et al., 2016).
+
+En el campo de la salud visual, un estudio de 14 597 citas en una práctica multicéntrica de retina encontró que la edad, el sexo, el horario de la cita y el tipo de derivación se asocian con la inasistencia (Abbas et al., 2025). Además, un ensayo clínico aleatorizado en oftalmología mostró que enviar un mensaje por el portal del paciente después de una cita perdida aumentó la reprogramación de 11,6% a 22,2% (Atta et al., 2024).
 
 Estos resultados permiten establecer una relación directa con la problemática identificada en OptiFlow: la automatización de recordatorios puede contribuir a disminuir las inasistencias y mejorar el aprovechamiento de los horarios disponibles. Por ello, la plataforma busca generar un impacto medible mediante indicadores como:
 
@@ -103,7 +95,7 @@ Estos resultados permiten establecer una relación directa con la problemática 
 - **Tiempo promedio requerido para encontrar y reservar una cita.**
 - **Número de pacientes con seguimiento activo.**
 
-Además, el uso de sistemas electrónicos para gestionar información clínica puede contribuir a mejorar la eficiencia operativa. Una revisión sistemática y metaanálisis encontró una reducción promedio de **22.4% en el tiempo de documentación** asociada al uso de historias clínicas electrónicas, lo que respalda el valor de centralizar la información clínica y reducir procesos manuales.
+Además, el uso de sistemas electrónicos para gestionar información clínica puede contribuir a mejorar la eficiencia operativa. Una revisión sistemática y metaanálisis encontró una reducción promedio de **22.4% en el tiempo de documentación** asociada al uso de historias clínicas electrónicas (Campanella et al., 2016), lo que respalda el valor de centralizar la información clínica y reducir procesos manuales.
 
 Es importante señalar que estos porcentajes corresponden a estudios realizados en diferentes contextos sanitarios y **no representan directamente una estimación del mercado peruano de ópticas**. Por ello, para OptiFlow se plantea utilizar estos resultados como referencia y posteriormente medir el impacto real de la solución mediante los indicadores definidos durante la validación del producto.
 
@@ -251,7 +243,7 @@ Creemos que integrar la historia clínica y las cotizaciones en una aplicación 
 
 **Trazabilidad mediante Tablero Kanban Móvil**
 
-Creemos que un tablero Kanban móvil permitirá al personal y al laboratorio consultar y actualizar el estado de las órdenes de trabajo con mayor claridad. La hipótesis plantea reducir los tiempos de entrega en al menos un 25% y alcanzar un cumplimiento superior al 95% de los plazos prometidos. Se evaluará mediante la comparación de tiempos registrados, incidencias y comentarios del personal; estos valores son metas pendientes de validación.
+Creemos que un tablero Kanban móvil permitirá al personal y al laboratorio consultar y actualizar el estado de las órdenes de trabajo con mayor claridad. La hipótesis plantea reducir los tiempos de entrega en al menos un 25% y alcanzar un cumplimiento superior al 95% de los plazos prometidos. Se evaluará mediante la comparación de tiempos registrados, incidencias y comentarios del personal.
 
 **Consulta Ágil de Inventario por Cámara**
 
@@ -265,12 +257,15 @@ Creemos que el seguimiento móvil de pedidos y las notificaciones oportunas redu
 #### 1.2.2.4. Lean UX Canvas
 
 
-La evidencia de 1.2.2.4. Lean UX Canvas se presenta en [Figura 1-006](#figura-1-006).
+El Lean UX Canvas de OptiFlow se muestra en la Figura 6.
+
+<a id="figura-6"></a>
+
+**Figura 6**
+
+*Lean UX Canvas de OptiFlow*
 
 ![Lean UX Canvas.png](assets/cap1/Lean%20UX%20Canvas.png)
-
-<a id="figura-1-006"></a>
-**Figura 1-006. Evidencia visual de 1.2.2.4. Lean UX Canvas.**
 
 
 ## 1.3. Segmentos objetivo
@@ -278,9 +273,9 @@ La evidencia de 1.2.2.4. Lean UX Canvas se presenta en [Figura 1-006](#figura-1-
 ### Segmento 1: Staff de la Óptica (Optómetras y Asesores Comerciales)
 Este segmento agrupa a los usuarios operativos internos del ecosistema móvil, combinando las funciones clínicas y comerciales del establecimiento. Incluye al optometrista, encargado de realizar el examen visual y gestionar el historial clínico, y al asesor de lentes, responsable de atraer al paciente, guiar la selección del producto y cerrar la venta. Son profesionales de entre 22 y 55 años, de nivel socioeconómico B y C, radicados en zonas urbanas de Lima Metropolitana y ciudades con alta concentración comercial como Arequipa, Trujillo, Piura y Chiclayo. 
 
-A nivel de mercado, el sector óptico en Perú alcanzó un volumen de USD 295,05 millones en 2025 y proyecta llegar a USD 403,93 millones en 2035 (CAGR 3,60%, Informes de Expertos, 2026). Este crecimiento exige herramientas de gestión más sofisticadas, impulsado también por un incremento del 8% anual en la contratación de personal comercial del rubro (MTPE, 2025). El mercado peruano presenta una alta fragmentación, siendo el objetivo principal de OptiFlow los negocios independientes que operan entre una y diez tiendas (Infomercado, 2026). Estos enfrentan una creciente presión operativa debido a un aumento del consumo del 10% anual (Modaengafas, 2026) y metas estrictas de facturación y venta cruzada (Cámara de Comercio de Lima, 2025). El personal experimenta frustración ante sistemas fragmentados, duplicidad de registros manuales, falta de información de stock en tiempo real y descoordinación con el laboratorio. Requieren herramientas móviles ágiles que unifiquen la historia clínica, muestren catálogos completos y optimicen la trazabilidad de las órdenes.
+A nivel de mercado, el mercado de gafas en Perú alcanzó un valor aproximado de USD 295,05 millones en 2025, con un crecimiento anual compuesto proyectado de 3,6% entre 2026 y 2035 (Informes de Expertos, 2026). El mercado está fragmentado: junto a cadenas como GMO, que cuenta con más de 120 tiendas, operan más de 4000 ópticas independientes sin una marca corporativa (Cóndor, 2026). Por ello, el objetivo principal de OptiFlow son los negocios independientes que operan entre una y diez tiendas. El personal experimenta frustración ante sistemas fragmentados, duplicidad de registros manuales, falta de información de stock en tiempo real y descoordinación con el laboratorio. Requieren herramientas móviles ágiles que unifiquen la historia clínica, muestren catálogos completos y optimicen la trazabilidad de las órdenes.
 
 ### Segmento 2: Clientes de la óptica (Pacientes)
-Los pacientes son los consumidores finales y usuarios del portal móvil de seguimiento de OptiFlow. Son personas de entre 18 y 60 años o más, de nivel socioeconómico transversal (A, B, C y D), residentes en zonas urbanas. Dado que el 80,4% de la población peruana vive en áreas urbanas con una edad media de 29,8 años (Informes de Expertos, 2026), conforman un mercado potencial masivo con una creciente necesidad de corrección visual generada por el uso intensivo de dispositivos digitales. 
+Los pacientes son los consumidores finales y usuarios del portal móvil de seguimiento de OptiFlow. Son personas de entre 18 y 60 años o más, de nivel socioeconómico transversal (A, B, C y D), residentes en zonas urbanas. Dado que el 80,4% de la población peruana vive en áreas urbanas con una edad media de 29,8 años (Informes de Expertos, 2026), conforman un mercado potencial amplio con una creciente necesidad de corrección visual generada por el uso intensivo de dispositivos digitales. 
 
-La prevalencia de problemas visuales va en aumento continuo, destacando la demanda de lentes progresivos que ya representan el 80% del mercado global (Gestión, 2025). El comportamiento de este segmento está marcado por agendas ajustadas y altas expectativas de atención y servicio. Usualmente experimentan frustración ante las demoras en las entregas, la falta de comunicación proactiva sobre el estado de sus pedidos y los errores en la fabricación. A través del ecosistema de la aplicación móvil, se convierten en los principales beneficiarios de la eficiencia operativa: reciben notificaciones push automatizadas, logran visibilidad del estado de sus lentes y aseguran entregas puntuales sin reprocesos.
+El comportamiento de este segmento está marcado por agendas ajustadas y altas expectativas de atención y servicio. Usualmente experimentan frustración ante las demoras en las entregas, la falta de comunicación proactiva sobre el estado de sus pedidos y los errores en la fabricación. A través del ecosistema de la aplicación móvil, se convierten en los principales beneficiarios de la eficiencia operativa: reciben notificaciones push automatizadas, logran visibilidad del estado de sus lentes y aseguran entregas puntuales sin reprocesos.

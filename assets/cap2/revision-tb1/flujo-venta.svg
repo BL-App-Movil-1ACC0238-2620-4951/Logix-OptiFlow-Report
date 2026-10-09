@@ -50,5 +50,4 @@
 <rect x="461.6666666666667" y="832" width="669.3333333333333" height="48" fill="white"/>
 <text x="465.6666666666667" y="851" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">7. [Evento] SaleWasClosed</text>
 <text x="465.6666666666667" y="910" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Diseño futuro: productos y cantidades para actualizar existencias.</text>
-<text x="36" y="960" font-family="Arial,sans-serif" font-size="15" fill="#243b53">TB1: la venta no se duplica por cotización. La integración de inventario es parte del diseño, no evidencia de implementación.</text>
 </svg>

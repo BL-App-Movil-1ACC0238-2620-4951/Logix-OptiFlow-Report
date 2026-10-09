@@ -6,15 +6,16 @@
 
 ## Anexo A: EventStorming del dominio de OptiFlow
 
-En este anexo se presenta la evidencia correspondiente al modelado del dominio mediante **EventStorming**, utilizado para identificar los principales eventos, comandos, actores y agrupaciones funcionales de la solución OptiFlow.
+En este anexo se presenta la evidencia correspondiente al modelado del dominio mediante **EventStorming**, utilizado para identificar los principales eventos, comandos, actores y agrupaciones funcionales de la solución OptiFlow (ver Figura A1).
 
 
-La evidencia de Anexo A: EventStorming del dominio de OptiFlow se presenta en [Figura A-001](#figura-a-001).
+<a id="figura-a1"></a>
+
+**Figura A1**
+
+*EventStorming del dominio de OptiFlow*
 
 ![EventStorming del dominio de OptiFlow](assets/cap2/DDD/Event-Storming%20pasos%201-3.jpg)
-
-<a id="figura-a-001"></a>
-**Figura A-001. EventStorming del dominio de OptiFlow.**
 
 
 ---
@@ -48,10 +49,14 @@ En este anexo se presenta la evidencia del flujo de comunicación entre los Boun
 Los principales flujos identificados incluyen:
 
 
-<a id="tabla-a-001"></a>
-La [Tabla A-001](#tabla-a-001) presenta detalle de Anexo C: Domain Message Flows y permite revisar los elementos documentados en esta sección.
+La relación entre eventos, contextos receptores y comandos se detalla en la Tabla C1.
 
-**Tabla A-001. Detalle de Anexo C: Domain Message Flows.**
+<a id="tabla-c1"></a>
+
+**Tabla C1**
+
+*Relación entre eventos, contextos receptores y comandos*
+
 
 | Contexto emisor | Comando | Evento | Contexto receptor | Comando disparado |
 |---|---|---|---|---|
@@ -70,17 +75,18 @@ Estos flujos permiten evidenciar la comunicación entre los contextos sin necesi
 
 ## Anexo D: Context Mapping
 
-En este anexo se presenta el **Context Map Final** de OptiFlow, donde se representan las relaciones entre los diferentes Bounded Contexts y sus mecanismos de integración.
+En este anexo se presenta el **Context Map Final** de OptiFlow, donde se representan las relaciones entre los diferentes Bounded Contexts y sus mecanismos de integración (ver Figura D1).
 
 
-La evidencia de Anexo D: Context Mapping se presenta en [Figura A-002](#figura-a-002).
+<a id="figura-d1"></a>
+
+**Figura D1**
+
+*Context Map de OptiFlow*
 
 <div align="center">
 <img src="assets/cap2/ContextMappingFinal.png">
 </div>
-
-<a id="figura-a-002"></a>
-**Figura A-002. Evidencia visual de Anexo D: Context Mapping.**
 
 
 ---
@@ -94,34 +100,41 @@ Se presentan como evidencia complementaria los diagramas correspondientes a los 
 ### E.1. Context Level Diagram
 
 
-La evidencia de E.1. Context Level Diagram se presenta en [Figura A-003](#figura-a-003).
+El Context Level Diagram se presenta en la Figura E1.
+
+<a id="figura-e1"></a>
+
+**Figura E1**
+
+*Context Level Diagram*
 
 ![Context Level Diagram](assets/cap2/C4/context.svg)
-
-<a id="figura-a-003"></a>
-**Figura A-003. Context Level Diagram.**
 
 
 ### E.2. Container Level Diagram
 
-La referencia vigente para TB1 es el nivel 2 corregido de la sección 2.5.3.2: un único contenedor backend y persistencia relacional. Se reproduce a continuación; la imagen original permanece como antecedente del diseño inicial.
+Se reproduce el Container Level Diagram de la sección 2.5.3.2, con un único contenedor backend y persistencia relacional (ver Figura E2).
 
 
-La evidencia de E.2. Container Level Diagram se presenta en [Figura A-004](#figura-a-004).
+<a id="figura-e2"></a>
 
-![Container Level Diagram corregido para TB1](assets/cap2/revision-tb1/c4-container-tb1.svg)
+**Figura E2**
 
-<a id="figura-a-004"></a>
-**Figura A-004. Container Level Diagram corregido para TB1.**
+*Container Level Diagram de OptiFlow elaborado en Structurizr*
+
+![Diagrama de contenedores de OptiFlow](assets/cap2/C4/containers-structurizr.svg)
 
 
+La leyenda de los elementos del diagrama se presenta a continuación (ver Figura E3).
 
-La evidencia de E.2. Container Level Diagram se presenta en [Figura A-005](#figura-a-005).
 
-![Container Level Diagram](assets/cap2/C4/container.svg)
+<a id="figura-e3"></a>
 
-<a id="figura-a-005"></a>
-**Figura A-005. Container Level Diagram.**
+**Figura E3**
+
+*Leyenda del Container Level Diagram*
+
+![Leyenda del diagrama de contenedores](assets/cap2/C4/containers-structurizr-key.svg)
 
 
 ### E.3. Component Diagrams
@@ -129,56 +142,71 @@ La evidencia de E.2. Container Level Diagram se presenta en [Figura A-005](#figu
 #### Clinical & Commercial
 
 
-La evidencia de Clinical & Commercial se presenta en [Figura A-006](#figura-a-006).
+El Clinical & Commercial Component Diagram se observa en la Figura E4.
+
+<a id="figura-e4"></a>
+
+**Figura E4**
+
+*Clinical & Commercial Component Diagram*
 
 ![Clinical & Commercial Component Diagram](assets/cap2/C4/Clinical%20%26%20Commercial%20component.svg)
-
-<a id="figura-a-006"></a>
-**Figura A-006. Clinical & Commercial Component Diagram.**
 
 
 #### Notification & Loyalty
 
 
-La evidencia de Notification & Loyalty se presenta en [Figura A-007](#figura-a-007).
+El Notification & Loyalty Component Diagram se muestra en la Figura E5.
+
+<a id="figura-e5"></a>
+
+**Figura E5**
+
+*Notification & Loyalty Component Diagram*
 
 ![Notification & Loyalty Component Diagram](assets/cap2/C4/Notification%20%26%20Loyalty%20component.svg)
-
-<a id="figura-a-007"></a>
-**Figura A-007. Notification & Loyalty Component Diagram.**
 
 
 #### Production & Tracking
 
 
-La evidencia de Production & Tracking se presenta en [Figura A-008](#figura-a-008).
+El Production & Tracking Component Diagram se presenta en la Figura E6.
+
+<a id="figura-e6"></a>
+
+**Figura E6**
+
+*Production & Tracking Component Diagram*
 
 ![Production & Tracking Component Diagram](assets/cap2/C4/Production%20%26%20Tracking%20component.svg)
-
-<a id="figura-a-008"></a>
-**Figura A-008. Production & Tracking Component Diagram.**
 
 
 #### Search & Booking
 
 
-La evidencia de Search & Booking se presenta en [Figura A-009](#figura-a-009).
+El Search & Booking Component Diagram se observa en la Figura E7.
+
+<a id="figura-e7"></a>
+
+**Figura E7**
+
+*Search & Booking Component Diagram*
 
 ![Search & Booking Component Diagram](assets/cap2/C4/Search%20%26%20Booking%20component.svg)
-
-<a id="figura-a-009"></a>
-**Figura A-009. Search & Booking Component Diagram.**
 
 
 #### Store Management & Inventory
 
 
-La evidencia de Store Management & Inventory se presenta en [Figura A-010](#figura-a-010).
+El Store Management & Inventory Component Diagram se muestra en la Figura E8.
+
+<a id="figura-e8"></a>
+
+**Figura E8**
+
+*Store Management & Inventory Component Diagram*
 
 ![Store Management & Inventory Component Diagram](assets/cap2/C4/Store%20Management%20%26%20Inventory%20component.svg)
-
-<a id="figura-a-010"></a>
-**Figura A-010. Store Management & Inventory Component Diagram.**
 
 
 ---
@@ -196,23 +224,29 @@ En este anexo se presentan evidencias complementarias de los diagramas desarroll
 #### Domain Layer Class Diagram
 
 
-La evidencia de Domain Layer Class Diagram se presenta en [Figura A-011](#figura-a-011).
+El Production & Tracking Domain Layer Class Diagram se presenta en la Figura F1.
+
+<a id="figura-f1"></a>
+
+**Figura F1**
+
+*Production & Tracking Domain Layer Class Diagram*
 
 ![Production & Tracking Domain Layer Class Diagram](assets/cap2/ProductionTrackingDomainLayerClassDiagram.png)
-
-<a id="figura-a-011"></a>
-**Figura A-011. Production & Tracking Domain Layer Class Diagram.**
 
 
 #### Database Design Diagram
 
 
-La evidencia de Database Design Diagram se presenta en [Figura A-012](#figura-a-012).
+El Production & Tracking Database Design Diagram se observa en la Figura F2.
+
+<a id="figura-f2"></a>
+
+**Figura F2**
+
+*Production & Tracking Database Design Diagram*
 
 ![Production & Tracking Database Design Diagram](assets/cap2/ProductionTrackingDatabaseDesignDiagram.png)
-
-<a id="figura-a-012"></a>
-**Figura A-012. Production & Tracking Database Design Diagram.**
 
 
 ---
