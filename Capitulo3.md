@@ -567,7 +567,7 @@ Esta imagen expone las herramientas operativas y analíticas de la óptica organ
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
-Un wireflow o flujo de pantalla es un diagrama donde se reúnen distintos wireframes realizados cuya finalidad es contar las metas del usuario con la aplicación y cómo las consiguen. Los pasos para la creación de cada diagrama empiezan por la definición de un objetivo que el usuario desea cumplir. Luego, se define el flujo de tareas que deben ser realizadas por el usuario en la aplicación para conseguir dicho objetivo. Y, finalmente, se traducen dichas tareas en pantallas de baja fidelidad (wireframes), trazando los conectores de navegación, puntos de decisión y disparadores de interacción entre los diferentes estados de la interfaz.
+Los pasos para la creación de cada diagrama empiezan por la definición de un objetivo que el usuario desea cumplir. Luego, se define el flujo de tareas que deben ser realizadas por el usuario en la aplicación para conseguir dicho objetivo. Y, finalmente, se traducen dichas tareas en pantallas de baja fidelidad.
 
 A continuación, se presentan los wireflow diagrams desarrollados para los flujos clave de la aplicación móvil de OptiFlow:
 
@@ -581,7 +581,7 @@ Primero, se definen las tareas típicas que realizaría el usuario para completa
 
 Luego, se muestra el resultado de la traducción de las acciones a pantallas:
 
-![Wireflow de ingreso o registro de usuario.](assets/cap3/wireflow/wireflow_INGRESO%20O%20REGISTRO.png)
+![Wireflow de ingreso o registro de usuario.](assets/cap3/wireflow/INGRESO%20O%20REGISTRO.png)
 
 A continuación, en este flujo se ilustra el proceso de autenticación y enrolamiento en la plataforma OptiFlow, permitiendo al usuario navegar entre las vistas de login y registro según su rol, gestionar la recuperación de credenciales y acceder a la experiencia personalizada de la aplicación.
 
