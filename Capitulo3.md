@@ -567,7 +567,121 @@ Esta imagen expone las herramientas operativas y analíticas de la óptica organ
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
+Un wireflow o flujo de pantalla es un diagrama donde se reúnen distintos wireframes realizados cuya finalidad es contar las metas del usuario con la aplicación y cómo las consiguen. Los pasos para la creación de cada diagrama empiezan por la definición de un objetivo que el usuario desea cumplir. Luego, se define el flujo de tareas que deben ser realizadas por el usuario en la aplicación para conseguir dicho objetivo. Y, finalmente, se traducen dichas tareas en pantallas de baja fidelidad (wireframes), trazando los conectores de navegación, puntos de decisión y disparadores de interacción entre los diferentes estados de la interfaz.
 
+A continuación, se presentan los wireflow diagrams desarrollados para los flujos clave de la aplicación móvil de OptiFlow:
+
+**User Goal 1: Usuario (Paciente o Personal Clínico) desea registrarse o iniciar sesión en su cuenta**
+
+Primero, se definen las tareas típicas que realizaría el usuario para completar este objetivo:
+- Abrir la aplicación móvil y seleccionar la modalidad de acceso (Iniciar sesión o Registrarse).
+- Elegir el perfil correspondiente (Paciente o Personal Clínico).
+- Introducir las credenciales requeridas (correo electrónico y contraseña) o completar los campos de registro.
+- Validar la información ingresada y confirmar el acceso al dashboard principal de la cuenta.
+
+Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+
+![Wireflow de ingreso o registro de usuario.](assets/cap3/wireflow/wireflow_INGRESO%20O%20REGISTRO.png)
+
+A continuación, en este flujo se ilustra el proceso de autenticación y enrolamiento en la plataforma OptiFlow, permitiendo al usuario navegar entre las vistas de login y registro según su rol, gestionar la recuperación de credenciales y acceder a la experiencia personalizada de la aplicación.
+
+**User Goal 2: Personal clínico u óptico desea registrar a un nuevo paciente en el sistema**
+
+Primero, se definen las tareas típicas que realizaría el personal para completar este objetivo:
+- Ingresar al módulo del directorio de pacientes desde la navegación principal.
+- Seleccionar la acción para agregar un nuevo paciente.
+- Completar el formulario clínico con datos personales, número de identificación, contacto y motivo de consulta inicial.
+- Guardar la ficha del paciente y verificar su inclusión en la base de datos para futuras atenciones y refracciones.
+
+Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+
+![Wireflow de registro de nuevo paciente.](assets/cap3/wireflow/wireflow_REGISTRO%20NUEVO%20PACIENTE.png)
+
+A continuación, en este flujo se observa el recorrido del personal óptico para dar de alta a un paciente de manera ágil, validando los campos obligatorios del expediente clínico y dejando la ficha lista para asociarle citas o recetas.
+
+**User Goal 3: Usuario desea agendar una nueva cita de evaluación visual u optometría**
+
+Primero, se definen las tareas típicas que realizaría el usuario para completar este objetivo:
+- Acceder a la sección de agendamiento o gestión de citas.
+- Seleccionar el tipo de atención (examen visual, control de lentes, consulta oftalmológica) y la sede óptica de preferencia.
+- Escoger al especialista disponible, así como la fecha y franja horaria idónea mediante el calendario interactivo.
+- Revisar el resumen de la reserva y confirmar el agendamiento con emisión de comprobante y recordatorio.
+
+Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+
+![Wireflow de registro de nueva cita.](assets/cap3/wireflow/wireflow_REGISTRO%20DE%20NUEVA%20CITA.png)
+
+A continuación, en este flujo se detalla el proceso paso a paso (stepper) mediante el cual el usuario concreta una reserva de cita médica, visualizando la disponibilidad en tiempo real y asegurando el turno correspondiente.
+
+**User Goal 4: Personal óptico desea programar una cita directamente desde la tarjeta de un paciente**
+
+Primero, se definen las tareas típicas que realizaría el personal para completar este objetivo:
+- Buscar y abrir el perfil o ficha médica del paciente en el directorio.
+- Pulsar la acción rápida de agendar nueva cita vinculada al expediente activo.
+- Seleccionar la sede, especialidad médica y horario sin necesidad de reingresar la información del paciente.
+- Confirmar la reserva y verificar la actualización automática en el historial de citas del paciente.
+
+Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+
+![Wireflow de nueva cita desde la tarjeta de un cliente.](assets/cap3/wireflow/wireflow_NUEVA%20CITA%20DESDE%20LA%20TARJETA%20DE%20UN%20CLIENTE.png)
+
+A continuación, en este flujo se presenta la optimización del flujo de recepción y atención clínica, permitiendo al asesor agendar visitas recurrentes o controles posventa directamente desde la ficha activa del cliente.
+
+**User Goal 5: Optómetra o especialista desea registrar la atención clínica y la prescripción óptica**
+
+Primero, se definen las tareas típicas que realizaría el especialista para completar este objetivo:
+- Seleccionar al paciente desde la lista de citas del día e iniciar la consulta médica.
+- Registrar los datos del examen visual y refracción (esfera, cilindro, eje, adición, distancia pupilar para ambos ojos).
+- Añadir observaciones de diagnóstico clínico, recomendaciones de uso y especificaciones técnicas de lentes/monturas.
+- Guardar la prescripción y generar la orden de trabajo clínica correspondiente para su derivación a taller o venta.
+
+Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+
+![Wireflow del proceso de atención a paciente.](assets/cap3/wireflow/wireflow_PROCESO%20DE%20ATENCION%20A%20PACIENTE.png)
+
+A continuación, en este flujo se describe la interacción técnica del profesional de la salud visual en cabina, asegurando la captura integral de los parámetros refractivos y la emisión digital de la receta médica.
+
+**User Goal 6: Personal de taller o asesor desea verificar y actualizar el estado de producción de los lentes**
+
+Primero, se definen las tareas típicas que realizaría el usuario para completar este objetivo:
+- Ingresar al módulo de taller o control de producción desde las herramientas operativas.
+- Localizar la orden de trabajo mediante el número de pedido o los datos del paciente.
+- Comprobar la etapa técnica actual del trabajo (corte de lunas, biselado, tratamiento antirreflejante, montaje, control de calidad).
+- Actualizar el estado de la orden hacia "Listo para entrega" y notificar la disponibilidad del producto.
+
+Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+
+![Wireflow de verificación del proceso de producción de los lentes del cliente.](assets/cap3/wireflow/wireflow_VERIFICACION%20DEL%20PROCESO%20DE%20PRODUCCION%20DE%20LOS%20LENTES%20DEL%20CLIENTE.png)
+
+A continuación, en este flujo se expone el seguimiento técnico de fabricación y ensamblaje óptico en laboratorio, garantizando la trazabilidad de cada fase del pedido hasta su liberación final.
+
+**User Goal 7: Paciente desea explorar el catálogo de monturas y reservar armazones en una óptica cercana**
+
+Primero, se definen las tareas típicas que realizaría el paciente para completar este objetivo:
+- Ingresar a la sección de catálogo y búsqueda de productos.
+- Filtrar por marca, material, forma de armazón, rango de precio o sedes con disponibilidad.
+- Visualizar el detalle técnico de la montura seleccionada (dimensiones, colores, stock en tiempo real).
+- Seleccionar la opción de reserva física en tienda o vincular el armazón a su próxima cita presencial.
+
+Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+
+![Wireflow de catálogo y reserva de monturas.](assets/cap3/wireflow/Wireflow%20%C2%B7%20Cat%C3%A1logo%20y%20reserva.png)
+
+A continuación, en este flujo se muestra la experiencia omnicanal del paciente, quien explora el catálogo digital de armazones y concreta la reserva en la sede óptica más conveniente.
+
+**User Goal 8: Paciente desea consultar el estado y avance de sus pedidos de lentes**
+
+Primero, se definen las tareas típicas que realizaría el paciente para completar este objetivo:
+- Acceder al apartado de "Mis Pedidos" desde el menú principal o su perfil de usuario.
+- Seleccionar el pedido activo para revisar el resumen de compra y la fecha estimada de entrega.
+- Visualizar la línea de tiempo de seguimiento (en laboratorio, biselado, control de calidad, disponible para retiro).
+- Consultar los detalles de la sede de recojo o comunicarse con soporte ante dudas sobre su entrega.
+
+Luego, se muestra el resultado de la traducción de las acciones a pantallas:
+
+![Wireflow de consulta de pedidos.](assets/cap3/wireflow/Wireflow%20%C2%B7%20Consulta%20de%20pedidos.png)
+
+A continuación, en este flujo se refleja la transparencia del servicio posventa, permitiendo al cliente conocer en todo momento el avance de confección de sus lentes y el momento exacto para su recojo.
 
 #### 3.1.4.3. Mobile Applications Mock-ups
 
