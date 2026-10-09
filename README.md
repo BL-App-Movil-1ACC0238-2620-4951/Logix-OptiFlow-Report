@@ -30,12 +30,10 @@ Proyecto<br>
 <br>**Integrantes** 
 
 <div align="center">
-  <h4>Integrantes</h4>
-
-  <table style="border: none; border-collapse: collapse;">
+    <table style="border: none; border-collapse: collapse;">
     <tr>
-      <th style="border: ;">Código</th>
-      <th style="border:;">Apellidos y Nombres</th>
+      <th style="border:none ;">Código</th>
+      <th style="border:none;">Apellidos y Nombres</th>
     </tr>
     <tr>
       <td style="border: none;">U20241d317</td>
