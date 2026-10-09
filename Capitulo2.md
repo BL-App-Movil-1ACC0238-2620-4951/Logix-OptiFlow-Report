@@ -18,16 +18,15 @@ La selección de estos competidores permite contrastar la propuesta de OptiFlow 
 
 ### 2.1.1. Análisis competitivo
 
-El análisis competitivo tiene como objetivo identificar las principales diferencias entre OptiFlow y las soluciones existentes para la gestión de ópticas, permitiendo reconocer oportunidades de diferenciación y establecer estrategias frente a los principales competidores del mercado.
+El análisis competitivo tiene como objetivo identificar las principales diferencias entre OptiFlow y las soluciones existentes para la gestión de ópticas, permitiendo reconocer oportunidades de diferenciación y establecer estrategias frente a los principales competidores del mercado (ver Tabla 6).
 
 
-<a id="tabla-2-001"></a>
-La [Tabla 2-001](#tabla-2-001) presenta detalle de 2.1.1. Análisis competitivo y permite revisar los elementos documentados en esta sección.
+<a id="tabla-6"></a>
 
-**Tabla 2-001. Detalle de 2.1.1. Análisis competitivo.**
+**Tabla 6**
 
+*Análisis competitivo de OptiFlow frente a SIT-OPTICAL, OptiGestion y OPTOL*
 
-La evidencia de 2.1.1. Análisis competitivo se presenta en [Figura 2-001](#figura-2-001), [Figura 2-002](#figura-2-002), [Figura 2-003](#figura-2-003), [Figura 2-004](#figura-2-004).
 
 <table>
   <thead>
@@ -247,15 +246,6 @@ La evidencia de 2.1.1. Análisis competitivo se presenta en [Figura 2-001](#figu
   </tbody>
 </table>
 
-<a id="figura-2-001"></a>
-**Figura 2-001. Logo de OptiFlow.**
-<a id="figura-2-002"></a>
-**Figura 2-002. Logo de SIT-OPTICAL.**
-<a id="figura-2-003"></a>
-**Figura 2-003. Logo de OptiGestion.**
-<a id="figura-2-004"></a>
-**Figura 2-004. Logo de OPTOL.**
-
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
@@ -340,13 +330,14 @@ En esta sección presentamos los registros de las entrevistas que hicimos para c
 **Segmento 1: *Staff de la Óptica***
 
 
-<a id="tabla-2-002"></a>
-La [Tabla 2-002](#tabla-2-002) presenta detalle de 2.2.2. Registro de entrevistas y permite revisar los elementos documentados en esta sección.
+El registro de la entrevista 1 del segmento staff de la óptica se presenta en la Tabla 7.
 
-**Tabla 2-002. Detalle de 2.2.2. Registro de entrevistas.**
+<a id="tabla-7"></a>
 
+**Tabla 7**
 
-La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-005](#figura-2-005).
+*Registro de la entrevista 1 del segmento staff de la óptica*
+
 
 | Campo | Detalle |
 | :--- | :--- |
@@ -360,18 +351,15 @@ La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-005](#fi
 | **Duración** | 0:00 min - 13:22 min |
 | **Resumen** | La entrevista a Liz Guevara evidenció que la óptica tiene una gestión principalmente manual, utilizando celular, redes sociales, Word y Excel para atender a los clientes y administrar el negocio. Sus principales funciones son realizar mediciones visuales, asesorar sobre lentes y concretar ventas, buscando garantizar la satisfacción del paciente. El control de historiales e inventario se realiza manualmente, lo que dificulta obtener reportes precisos. Entre las principales necesidades identificadas están la automatización de recordatorios, mayor publicidad y una aplicación que permita a los clientes consultar el estado de sus pedidos y las monturas disponibles, mejorando la atención y ampliando el alcance del negocio.|
 
-<a id="figura-2-005"></a>
-**Figura 2-005. Evidencia visual de 2.2.2. Registro de entrevistas.**
 
+El registro de la entrevista 2 del segmento staff de la óptica se resume en la Tabla 8.
 
+<a id="tabla-8"></a>
 
-<a id="tabla-2-003"></a>
-La [Tabla 2-003](#tabla-2-003) presenta detalle de 2.2.2. Registro de entrevistas y permite revisar los elementos documentados en esta sección.
+**Tabla 8**
 
-**Tabla 2-003. Detalle de 2.2.2. Registro de entrevistas.**
+*Registro de la entrevista 2 del segmento staff de la óptica*
 
-
-La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-006](#figura-2-006).
 
 | Campo | Detalle |
 | :--- | :--- |
@@ -385,18 +373,15 @@ La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-006](#fi
 | **Duración** | 0:00 min - 15:17 min |
 | **Resumen** | La entrevista a Marcos Ruiz evidenció que la óptica utiliza equipos especializados y herramientas digitales para el diagnóstico y registro de pacientes. Cuenta con una base de clientes frecuentes gracias a la calidad del servicio y utiliza un sistema que automatiza recordatorios de citas, controles y seguimiento de pedidos mejorando la organización y rapidez de atención. Entre sus principales objetivos está digitalizar y optimizar aún más los procesos, incorporando herramientas como internet e inteligencia artificial para mejorar la atención, agilizar la gestión e investigación de casos y mantener la competitividad de la óptica.|
 
-<a id="figura-2-006"></a>
-**Figura 2-006. Evidencia visual de 2.2.2. Registro de entrevistas.**
 
+El registro de la entrevista 3 del segmento staff de la óptica se detalla en la Tabla 9.
 
+<a id="tabla-9"></a>
 
-<a id="tabla-2-004"></a>
-La [Tabla 2-004](#tabla-2-004) presenta detalle de 2.2.2. Registro de entrevistas y permite revisar los elementos documentados en esta sección.
+**Tabla 9**
 
-**Tabla 2-004. Detalle de 2.2.2. Registro de entrevistas.**
+*Registro de la entrevista 3 del segmento staff de la óptica*
 
-
-La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-007](#figura-2-007).
 
 | Campo | Detalle |
 | :--- | :--- |
@@ -410,20 +395,18 @@ La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-007](#fi
 | **Duración** | 0:00 min - 45:00 min |
 | **Resumen** | La entrevista a Adán Ruiz Jova permitió identificar que el celular es la principal herramienta tecnológica en su trabajo, ya que lo utiliza para comunicarse con pacientes, realizar pagos mediante Yape, Plin y Visa, y acceder a capacitaciones. La computadora se utiliza principalmente para tareas administrativas y contables. Asimismo, señaló que el negocio enfrenta dificultades por la competencia, la situación económica y política y la disminución de clientes, debido también a que muchas personas postergan la compra de lentes. Aunque reconoce el uso de historias clínicas digitales y equipos tecnológicos para mediciones visuales, considera que la digitalización debe complementar y no reemplazar la atención médica. Para él, la atención personalizada, la interacción humana y el criterio profesional siguen siendo fundamentales para atender las necesidades particulares de cada paciente.|
 
-<a id="figura-2-007"></a>
-**Figura 2-007. Evidencia visual de 2.2.2. Registro de entrevistas.**
-
 
 **Segmento 2: *Clientes de la óptica***
 
 
-<a id="tabla-2-005"></a>
-La [Tabla 2-005](#tabla-2-005) presenta detalle de 2.2.2. Registro de entrevistas y permite revisar los elementos documentados en esta sección.
+El registro de la entrevista 1 del segmento clientes de la óptica se presenta en la Tabla 10.
 
-**Tabla 2-005. Detalle de 2.2.2. Registro de entrevistas.**
+<a id="tabla-10"></a>
 
+**Tabla 10**
 
-La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-008](#figura-2-008).
+*Registro de la entrevista 1 del segmento clientes de la óptica*
+
 
 | Campo | Detalle |
 | :--- | :--- |
@@ -437,19 +420,15 @@ La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-008](#fi
 | **Duración** | 0:00 min - 7:34 min |
 | **Resumen** | Azumy es una estudiante universitaria de 20 años y trabajadora a medio tiempo que reside en El Agustino. Pasa aproximadamente 6 horas diarias frente a pantallas y utiliza lentes de visión sencilla debido a la fatiga visual. Valora la buena asesoría y la puntualidad en la entrega por parte de las ópticas. Mostró gran interés en una solución digital que le permita tener su historial y receta a la mano en el teléfono, dado que suele olvidar qué tipo de luna o tratamiento eligió en compras anteriores. Considera muy útil poder rastrear el estado de fabricación de sus lentes mediante un enlace en tiempo real (comparándolo con la logística de Shalom) y acepta recibir recordatorios de renovación vía WhatsApp. Recomienda que la interfaz de cualquier aplicación sea sumamente clara y fácil de entender, especialmente pensando en la accesibilidad para adultos mayores. |
 
-<a id="figura-2-008"></a>
-**Figura 2-008. Evidencia visual de 2.2.2. Registro de entrevistas.**
 
+El registro de la entrevista 2 del segmento clientes de la óptica se resume en la Tabla 11.
 
+<a id="tabla-11"></a>
 
+**Tabla 11**
 
-<a id="tabla-2-006"></a>
-La [Tabla 2-006](#tabla-2-006) presenta detalle de 2.2.2. Registro de entrevistas y permite revisar los elementos documentados en esta sección.
+*Registro de la entrevista 2 del segmento clientes de la óptica*
 
-**Tabla 2-006. Detalle de 2.2.2. Registro de entrevistas.**
-
-
-La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-009](#figura-2-009).
 
 | Campo | Detalle |
 | :--- | :--- |
@@ -463,19 +442,15 @@ La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-009](#fi
 | **Duración** | 0:00 min - 4:36 min |
 | **Resumen** | Alejandro es un arquitecto soltero de 29 años que reside en Chorrillos. Pasa entre 8 y 9 horas diarias frente a pantallas debido a su trabajo y acude a la óptica con una frecuencia de cada cuatro meses para revisar su graduación visual. Valora principalmente la rapidez en el servicio y la claridad en la comunicación al momento de atenderse. Mostró gran interés en contar con un historial o carné digital en el celular para consultar su receta y tratamientos, ya que no suele recordar con exactitud las especificaciones técnicas de sus lunas anteriores. Considera muy conveniente recibir notificaciones automáticas tanto para el recojo de sus lentes como para recordarle sus controles periódicos, dado que por su rutina laboral suele olvidarlos. Además, valida positivamente poder rastrear el estado de fabricación de sus monturas en tiempo real y destaca que la agilidad en la entrega es el factor determinante para recomendar una óptica a sus conocidos. |
 
-<a id="figura-2-009"></a>
-**Figura 2-009. Evidencia visual de 2.2.2. Registro de entrevistas.**
 
+El registro de la entrevista 3 del segmento clientes de la óptica se detalla en la Tabla 12.
 
+<a id="tabla-12"></a>
 
+**Tabla 12**
 
-<a id="tabla-2-007"></a>
-La [Tabla 2-007](#tabla-2-007) presenta detalle de 2.2.2. Registro de entrevistas y permite revisar los elementos documentados en esta sección.
+*Registro de la entrevista 3 del segmento clientes de la óptica*
 
-**Tabla 2-007. Detalle de 2.2.2. Registro de entrevistas.**
-
-
-La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-010](#figura-2-010).
 
 | Campo | Detalle |
 | :--- | :--- |
@@ -488,10 +463,6 @@ La evidencia de 2.2.2. Registro de entrevistas se presenta en [Figura 2-010](#fi
 | **Link** | [Microsoft stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201911249_upc_edu_pe/IQDB7sUDSxCQQI6LAjHWwDwEASD3T5jyumGZBik3DVA76Nw?e=GyE33S&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)|
 | **Duración** | 0:00 min - 6:32 min |
 | **Resumen** | Antares Megan Celis es una joven de 18 años que reside en San Juan de Lurigancho. Utiliza principalmente su celular y laptop durante el día y pasa aproximadamente entre 8 y 9 horas frente a pantallas debido a sus actividades diarias y entretenimiento. Actualmente utiliza lentes de visión sencilla para corregir la miopía y suele acudir a la óptica aproximadamente una vez al año o cuando percibe cambios en su visión. Durante la entrevista señaló que valora principalmente una buena asesoría y la puntualidad en la entrega de sus lentes. Además, mostró interés en contar con una solución digital que le permita acceder desde su teléfono a su receta e historial visual, ya que suele olvidar datos como la medida, el tipo de luna o los tratamientos adquiridos anteriormente. También considera útil poder rastrear en tiempo real el estado de fabricación de sus lentes para saber cuándo estarán listos sin necesidad de contactar constantemente a la óptica. Prefiere recibir notificaciones y recordatorios mediante WhatsApp, tanto para conocer cuándo sus lentes están disponibles como para recordar futuros controles visuales. Finalmente, considera que una buena atención, la claridad en los precios, el asesoramiento y el cumplimiento de los tiempos de entrega son factores importantes para recomendar una óptica a familiares o amigos. |
-
-<a id="figura-2-010"></a>
-**Figura 2-010. Evidencia visual de 2.2.2. Registro de entrevistas.**
-
 
 
 ### 2.2.3. Análisis de entrevistas
@@ -526,46 +497,49 @@ A partir de las entrevistas y del análisis del servicio óptico se construyeron
 
 **1. Segmento 1: Staff de la Óptica (Administrador y Optómetra)**
 
-Para este segmento se elaboró el User Persona Marcelo Ruiz. Se consideraron factores representativos como su experiencia gestionando la atención en ópticas independientes y medianas, su rol activo realizando evaluaciones refractivas y su responsabilidad directa sobre el inventario y las órdenes de laboratorio. Sus principales frustraciones giran en torno a la dispersión de información en formatos manuales (papel, Excel, chats informales), los descuadres de stock y la falta de trazabilidad cuando los pacientes consultan por el estado de fabricación de sus monturas. Asimismo, se integró su familiaridad con dispositivos móviles para cobranzas y su necesidad crítica de contar con una plataforma *mobile-first* que automatice recordatorios, centralice historias clínicas electrónicas (EHR) y organice el flujo del taller mediante un tablero visual Kanban, sin perder la cercanía ni la calidad del trato humano.
+Para este segmento se elaboró el User Persona Marcelo Ruiz. Se consideraron factores representativos como su experiencia gestionando la atención en ópticas independientes y medianas, su rol activo realizando evaluaciones refractivas y su responsabilidad directa sobre el inventario y las órdenes de laboratorio. Sus principales frustraciones giran en torno a la dispersión de información en formatos manuales (papel, Excel, chats informales), los descuadres de stock y la falta de trazabilidad cuando los pacientes consultan por el estado de fabricación de sus monturas. Asimismo, se integró su familiaridad con dispositivos móviles para cobranzas y su necesidad crítica de contar con una plataforma *mobile-first* que automatice recordatorios, centralice historias clínicas electrónicas (EHR) y organice el flujo del taller mediante un tablero visual Kanban, sin perder la cercanía ni la calidad del trato humano (ver Figura 7).
 
 
-La evidencia de 2.3.1. User Personas se presenta en [Figura 2-011](#figura-2-011).
+<a id="figura-7"></a>
+
+**Figura 7**
+
+*User Persona Marcelo Ruiz del segmento staff de la óptica*
 
 <div align="center">
   <img src="assets/cap2/Marcelo Ruiz.png"/>
 </div>
-
-<a id="figura-2-011"></a>
-**Figura 2-011. Evidencia visual de 2.3.1. User Personas.**
 
 
 <br>
 
 **2. Segmento 2: Clientes de la Óptica (Paciente Frecuente)**
 
-Para este segmento se elaboró el User Persona Valeria Morales. Se consideraron aspectos como su estilo de vida digital acelerado, su alta exposición diaria a pantallas de trabajo y estudio (entre 6 y 9 horas) y su necesidad periódica de renovar lentes o mitigar la fatiga visual. Sus motivaciones se orientan a optimizar su tiempo y tener control autónomo sobre su salud visual. Entre sus frustraciones destacan el olvido recurrente de las especificaciones técnicas de compras anteriores (fórmulas, tipos de lunas y tratamientos), la incertidumbre respecto a las fechas reales de entrega de sus pedidos y la falta de cumplimiento en los tiempos pactados por el establecimiento. Su perfil refleja una necesidad esencial de disponer de un carné o receta clínica accesible desde el smartphone, así como de recibir notificaciones oportunas vía WhatsApp y herramientas de rastreo en tiempo real para el recojo de sus lentes.
+Para este segmento se elaboró el User Persona Valeria Morales. Se consideraron aspectos como su estilo de vida digital acelerado, su alta exposición diaria a pantallas de trabajo y estudio (entre 6 y 9 horas) y su necesidad periódica de renovar lentes o mitigar la fatiga visual. Sus motivaciones se orientan a optimizar su tiempo y tener control autónomo sobre su salud visual. Entre sus frustraciones destacan el olvido recurrente de las especificaciones técnicas de compras anteriores (fórmulas, tipos de lunas y tratamientos), la incertidumbre respecto a las fechas reales de entrega de sus pedidos y la falta de cumplimiento en los tiempos pactados por el establecimiento. Su perfil refleja una necesidad esencial de disponer de un carné o receta clínica accesible desde el smartphone, así como de recibir notificaciones oportunas vía WhatsApp y herramientas de rastreo en tiempo real para el recojo de sus lentes (ver Figura 8).
 
 
-La evidencia de 2.3.1. User Personas se presenta en [Figura 2-012](#figura-2-012).
+<a id="figura-8"></a>
+
+**Figura 8**
+
+*User Persona Valeria Morales del segmento clientes de la óptica*
 
 <div align="center">
   <img src="assets/cap2/Valeria Morales.png">
 </div>
 
-<a id="figura-2-012"></a>
-**Figura 2-012. Evidencia visual de 2.3.1. User Personas.**
-
-
 
 ### 2.3.2. User Task Matrix
 
-La User Task Matrix compara las tareas de los dos arquetipos según su frecuencia e importancia, independientemente de que utilicen OptiFlow. Esta relación permite reconocer actividades prioritarias para el personal y el paciente y justificar dónde la propuesta puede aportar mayor valor.
+La User Task Matrix compara las tareas de los dos arquetipos según su frecuencia e importancia, independientemente de que utilicen OptiFlow. Esta relación permite reconocer actividades prioritarias para el personal y el paciente y justificar dónde la propuesta puede aportar mayor valor (ver Tabla 13).
 
 
-<a id="tabla-2-008"></a>
-La [Tabla 2-008](#tabla-2-008) presenta detalle de 2.3.2. User Task Matrix y permite revisar los elementos documentados en esta sección.
+<a id="tabla-13"></a>
 
-**Tabla 2-008. Detalle de 2.3.2. User Task Matrix.**
+**Tabla 13**
+
+*User Task Matrix de los segmentos objetivo*
+
 
 <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; width:100%; font-family:Arial, sans-serif; text-align:center;">
   <thead>
@@ -636,34 +610,36 @@ El User Journey Mapping representa las etapas del servicio óptico y las expecta
 
 **1. Segmento 1: Staff de la Óptica (Marcelo Ruiz)**
 
-A continuación, se detalla el recorrido operativo de Marcelo Ruiz, reflejando las dificultades asociadas a la gestión manual de historiales, la verificación física de inventario y la falta de trazabilidad con el laboratorio, junto con las oportunidades de automatización que ofrece la plataforma móvil.
+A continuación, se detalla el recorrido operativo de Marcelo Ruiz, reflejando las dificultades asociadas a la gestión manual de historiales, la verificación física de inventario y la falta de trazabilidad con el laboratorio, junto con las oportunidades de automatización que ofrece la plataforma móvil (ver Figura 9).
 
 
-La evidencia de 2.3.3. User Journey Mapping se presenta en [Figura 2-013](#figura-2-013).
+<a id="figura-9"></a>
+
+**Figura 9**
+
+*User Journey Map del segmento staff de la óptica*
 
 <div align="center">
   <img src="assets/cap2/Journey map 1.png"/>
 </div>
-
-<a id="figura-2-013"></a>
-**Figura 2-013. Evidencia visual de 2.3.3. User Journey Mapping.**
 
 
 <br>
 
 **2. Segmento 2: Clientes de la Óptica (Valeria Morales)**
 
-El recorrido de Valeria Morales abarca desde la necesidad de atención visual hasta el recojo y uso de sus lentes. El mapa identifica la incertidumbre sobre los plazos y el acceso a la información clínica, y propone notificaciones y seguimiento del pedido como oportunidades para mejorar esa experiencia.
+El recorrido de Valeria Morales abarca desde la necesidad de atención visual hasta el recojo y uso de sus lentes. El mapa identifica la incertidumbre sobre los plazos y el acceso a la información clínica, y propone notificaciones y seguimiento del pedido como oportunidades para mejorar esa experiencia (ver Figura 10).
 
 
-La evidencia de 2.3.3. User Journey Mapping se presenta en [Figura 2-014](#figura-2-014).
+<a id="figura-10"></a>
+
+**Figura 10**
+
+*User Journey Map del segmento clientes de la óptica*
 
 <div align="center">
   <img src="assets/cap2/Journey map 2.png"/>
 </div>
-
-<a id="figura-2-014"></a>
-**Figura 2-014. Evidencia visual de 2.3.3. User Journey Mapping.**
 
 
 ### 2.3.4. Empathy Mapping
@@ -672,34 +648,36 @@ El Empathy Mapping es una herramienta de diseño centrada en el usuario que perm
 
 **1. Segmento 1: Staff de la Óptica (Marcelo Ruiz)**
 
-A continuación, se presenta el mapa de empatía de Marcelo Ruiz, sintetizando su perspectiva operativa como optómetra y administrador frente a las limitaciones de los registros manuales y su necesidad de trazabilidad clínica y logística.
+A continuación, se presenta el mapa de empatía de Marcelo Ruiz, sintetizando su perspectiva operativa como optómetra y administrador frente a las limitaciones de los registros manuales y su necesidad de trazabilidad clínica y logística (ver Figura 11).
 
 
-La evidencia de 2.3.4. Empathy Mapping se presenta en [Figura 2-015](#figura-2-015).
+<a id="figura-11"></a>
+
+**Figura 11**
+
+*Empathy Map del segmento staff de la óptica*
 
 <div align="center">
   <img src="assets/cap2/Empathy map 1.png"/>
 </div>
-
-<a id="figura-2-015"></a>
-**Figura 2-015. Evidencia visual de 2.3.4. Empathy Mapping.**
 
 
 <br>
 
 **2. Segmento 2: Clientes de la Óptica (Valeria Morales)**
 
-Se detalla el mapa de empatía de Valeria Morales, reflejando su experiencia como paciente digital, su frustración ante la incertidumbre en los plazos de entrega y su expectativa de autonomía sobre su historial médico visual.
+Se detalla el mapa de empatía de Valeria Morales, reflejando su experiencia como paciente digital, su frustración ante la incertidumbre en los plazos de entrega y su expectativa de autonomía sobre su historial médico visual (ver Figura 12).
 
 
-La evidencia de 2.3.4. Empathy Mapping se presenta en [Figura 2-016](#figura-2-016).
+<a id="figura-12"></a>
+
+**Figura 12**
+
+*Empathy Map del segmento clientes de la óptica*
 
 <div align="center">
   <img src="assets/cap2/Empathy map 2.png"/>
 </div>
-
-<a id="figura-2-016"></a>
-**Figura 2-016. Evidencia visual de 2.3.4. Empathy Mapping.**
 
 
 ### 2.3.5. Big Picture EventStorming
@@ -716,14 +694,17 @@ El desarrollo del taller se estructuró en fases iterativas orientadas a constru
 A continuación, la primera vista del tablero expone la recolección exhaustiva de los veintiocho eventos de dominio ordenados cronológicamente a lo largo de la línea temporal:
 
 
-La evidencia de 2.3.5. Big Picture EventStorming se presenta en [Figura 2-017](#figura-2-017).
+La Recolección y orden cronológico de eventos de dominio en el Big Picture EventStorming se presenta en la Figura 13.
+
+<a id="figura-13"></a>
+
+**Figura 13**
+
+*Recolección y orden cronológico de eventos de dominio en el Big Picture EventStorming*
 
 <div align="center">
   <img src="assets/cap2/BigPictureEventStorming1.png" alt="Recolección y Flujo Cronológico de Eventos de Dominio en Miro - OptiFlow" width="100%"/>
 </div>
-
-<a id="figura-2-017"></a>
-**Figura 2-017. Recolección y Flujo Cronológico de Eventos de Dominio en Miro - OptiFlow.**
 
 
 <br>
@@ -731,14 +712,17 @@ La evidencia de 2.3.5. Big Picture EventStorming se presenta en [Figura 2-017](#
 Complementariamente, la segunda vista del tablero detalla la distribución de los eventos a lo largo de los carriles funcionales de actores, dividiendo el flujo en tres macro-etapas operativas y explicitando los cuatro puntos críticos descubiertos durante el taller:
 
 
-La evidencia de 2.3.5. Big Picture EventStorming se presenta en [Figura 2-018](#figura-2-018).
+Los Carriles de actores, etapas del proceso y puntos críticos en el Big Picture EventStorming se observan en la Figura 14.
+
+<a id="figura-14"></a>
+
+**Figura 14**
+
+*Carriles de actores, etapas del proceso y puntos críticos en el Big Picture EventStorming*
 
 <div align="center">
   <img src="assets/cap2/BigPictureEventStorming2.png" alt="Estructuración por Carriles de Actores, Etapas del Proceso y Puntos Críticos - OptiFlow" width="100%"/>
 </div>
-
-<a id="figura-2-018"></a>
-**Figura 2-018. Estructuración por Carriles de Actores, Etapas del Proceso y Puntos Críticos - OptiFlow.**
 
 
 <br>
@@ -768,13 +752,15 @@ Las fronteras funcionales y semánticas descubiertas durante el Big Picture Even
 
 ### 2.3.6. Ubiquitous Language
 
-El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre los expertos del dominio (personal de óptica y pacientes) y el equipo de ingeniería de software. Su objetivo es eliminar la ambigüedad terminológica en el código, las historias de usuario y las interfaces de OptiFlow.
+El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre los expertos del dominio (personal de óptica y pacientes) y el equipo de ingeniería de software. Su objetivo es eliminar la ambigüedad terminológica en el código, las historias de usuario y las interfaces de OptiFlow (ver Tabla 14).
 
 
-<a id="tabla-2-009"></a>
-La [Tabla 2-009](#tabla-2-009) presenta detalle de 2.3.6. Ubiquitous Language y permite revisar los elementos documentados en esta sección.
+<a id="tabla-14"></a>
 
-**Tabla 2-009. Detalle de 2.3.6. Ubiquitous Language.**
+**Tabla 14**
+
+*Ubiquitous Language de OptiFlow*
+
 
 <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; width:100%; font-family:Arial, sans-serif;">
   <thead>
@@ -851,13 +837,15 @@ La [Tabla 2-009](#tabla-2-009) presenta detalle de 2.3.6. Ubiquitous Language y 
 
 ### 2.4.1. User Stories
 
-Esta sección presenta las historias de usuario de **OptiFlow** para los procesos de búsqueda y reserva, atención optométrica, gestión comercial y seguimiento de pedidos. Cada historia expresa una necesidad desde el rol que la realiza y sirve de referencia para priorizar el Product Backlog. El alcance seleccionado para el Sprint 1 se detalla en el capítulo IV.
+Esta sección presenta las historias de usuario de **OptiFlow** para los procesos de búsqueda y reserva, atención optométrica, gestión comercial y seguimiento de pedidos. Cada historia expresa una necesidad desde el rol que la realiza y sirve de referencia para priorizar el Product Backlog. El alcance seleccionado para el Sprint 1 se detalla en el capítulo IV (ver Tabla 15).
 
 
-<a id="tabla-2-010"></a>
-La [Tabla 2-010](#tabla-2-010) presenta detalle de 2.4.1. User Stories y permite revisar los elementos documentados en esta sección.
+<a id="tabla-15"></a>
 
-**Tabla 2-010. Detalle de 2.4.1. User Stories.**
+**Tabla 15**
+
+*User Stories de OptiFlow*
+
 
 | Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
 | :--- | :--- | :--- | :--- | :--- |
@@ -887,36 +875,45 @@ El Impact Mapping es una herramienta que nos permitió estructurar y visualizar 
 
 ***IMPACT MAPPING 1***
 
-La evidencia de 2.4.2. Impact Mapping se presenta en [Figura 2-019](#figura-2-019).
+
+El Impact Map del segmento staff de la óptica se muestra en la Figura 15.
+
+<a id="figura-15"></a>
+
+**Figura 15**
+
+*Impact Map del segmento staff de la óptica*
 
 <div align="center"><img src="assets/cap2/IMPACT MAPPING 1.png">
 </div>
 
-<a id="figura-2-019"></a>
-**Figura 2-019. Evidencia visual de 2.4.2. Impact Mapping.**
-
 
 ***IMPACT MAPPING 2***
 
-La evidencia de 2.4.2. Impact Mapping se presenta en [Figura 2-020](#figura-2-020).
+
+El Impact Map del segmento clientes de la óptica se presenta en la Figura 16.
+
+<a id="figura-16"></a>
+
+**Figura 16**
+
+*Impact Map del segmento clientes de la óptica*
 
 <div align="center"><img src="assets/cap2/IMPACT MAPPING 2.png">
 </div>
 
-<a id="figura-2-020"></a>
-**Figura 2-020. Evidencia visual de 2.4.2. Impact Mapping.**
-
-
 
 ### 2.4.3. Product Backlog
 
-El backlog relaciona las historias con su prioridad y estimación para organizar los incrementos. El [Anexo G](Anexos.md#anexo-g-product-backlog) resume este artefacto; el compromiso de US05 y US06 para TB1 se desarrolla en el Sprint 1 del capítulo IV.
+El backlog relaciona las historias con su prioridad y estimación para organizar los incrementos. El [Anexo G](Anexos.md#anexo-g-product-backlog) resume este artefacto; el compromiso de US05 y US06 para TB1 se desarrolla en el Sprint 1 del capítulo IV (ver Tabla 16).
 
 
-<a id="tabla-2-011"></a>
-La [Tabla 2-011](#tabla-2-011) presenta detalle de 2.4.3. Product Backlog y permite revisar los elementos documentados en esta sección.
+<a id="tabla-16"></a>
 
-**Tabla 2-011. Detalle de 2.4.3. Product Backlog.**
+**Tabla 16**
+
+*Product Backlog de OptiFlow*
+
 
 | # Orden | User Story Id | Título | Descripción | Story Points (1/2/3/5/8) |
 | :--- | :--- | :--- | :--- | :---: |
@@ -956,24 +953,27 @@ El proceso se documenta a partir de los tableros existentes y de las necesidades
 5. **Analizar puntos de fricción.** Se relacionan los problemas de inasistencia, dispersión de la información clínica, diferencias de inventario e incertidumbre de entrega con la etapa afectada. Los problemas detectados orientan requisitos e hipótesis; el tablero no demuestra que la implementación ya los haya resuelto.
 6. **Proponer fronteras y validar vocabulario.** Se agrupan reglas e información que cambian por motivos similares, obteniendo los cinco contextos candidatos. Los mensajes que cruzan estas fronteras se especifican en 2.5.1.2 y las responsabilidades, supuestos y reglas de cada contexto se amplían en 2.5.1.3. El Context Map documenta las relaciones entre esos módulos.
 
-El [Anexo A](Anexos.md#anexo-a-eventstorming-del-dominio-de-optiflow) conserva la evidencia del tablero; el [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los contextos resultantes. Las cuatro zonas de fricción descritas en 2.3.5 sirven como referencia para revisar la relación entre entrevistas, eventos y requisitos.
+El [Anexo A](Anexos.md#anexo-a-eventstorming-del-dominio-de-optiflow) conserva la evidencia del tablero; el [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los contextos resultantes. Las cuatro zonas de fricción descritas en 2.3.5 sirven como referencia para revisar la relación entre entrevistas, eventos y requisitos (ver Figura 17).
 
 
-La evidencia de 2.5.1. EventStorming se presenta en [Figura 2-021](#figura-2-021).
+<a id="figura-17"></a>
+
+**Figura 17**
+
+*Recolección y orden de eventos del EventStorming en los pasos 1 a 3*
 
 ![Event-Storming pasos 1-3.jpg](assets/cap2/DDD/Event-Storming%20pasos%201-3.jpg)
 
-<a id="figura-2-021"></a>
-**Figura 2-021. Evidencia visual de 2.5.1. EventStorming.**
 
+El resultado final del EventStorming con los contextos candidatos se observa en la Figura 18.
 
+<a id="figura-18"></a>
 
-La evidencia de 2.5.1. EventStorming se presenta en [Figura 2-022](#figura-2-022).
+**Figura 18**
+
+*Resultado final del EventStorming con los contextos candidatos*
 
 ![EVENT STORMING PASO FINAL.png](assets/cap2/DDD/EVENT%20STORMING%20PASO%20FINAL.png)
-
-<a id="figura-2-022"></a>
-**Figura 2-022. Evidencia visual de 2.5.1. EventStorming.**
 
 
 #### 2.5.1.1. Candidate Context Discovery
@@ -1011,37 +1011,40 @@ Este modelo evidencia que **Search & Booking** y **Clinical & Commercial** actú
 
 Se utiliza como referencia la técnica de [DDD Crew: Domain Message Flow Modelling](https://github.com/ddd-crew/domain-message-flow-modelling) (DDD Crew, s. f.-a). Los diagramas siguientes separan tres escenarios e identifican el orden, tipo de mensaje, emisor, receptor y datos significativos. Una **consulta** recupera información, un **comando** solicita una acción y un **evento** comunica un hecho ocurrido. Las consultas incluyen su respuesta esperada.
 
-**Escenario 1: búsqueda y reserva.** El paciente consulta ópticas y horarios antes de solicitar la reserva. Solo una reserva confirmada produce `AppointmentBooked`; un conflicto de horario debe detener ese camino. Los consumidores clínico y de notificaciones representan responsabilidades separadas dentro del backend.
+**Escenario 1: búsqueda y reserva.** El paciente consulta ópticas y horarios antes de solicitar la reserva. Solo una reserva confirmada produce `AppointmentBooked`; un conflicto de horario debe detener ese camino. Los consumidores clínico y de notificaciones representan responsabilidades separadas dentro del backend (ver Figura 19).
 
 
-La evidencia de Escenarios y notación de Domain Message Flow Modeling se presenta en [Figura 2-023](#figura-2-023).
+<a id="figura-19"></a>
+
+**Figura 19**
+
+*Domain Message Flow de búsqueda y reserva*
 
 ![Domain Message Flow: búsqueda y reserva](assets/cap2/revision-tb1/flujo-reserva.svg)
 
-<a id="figura-2-023"></a>
-**Figura 2-023. Domain Message Flow: búsqueda y reserva.**
+
+**Escenario 2: conversión comercial.** Una cotización aprobada origina como máximo una venta. El registro de pago precede al cierre, y `SaleWasClosed` comunica el cierre a producción. Para inventario se propone una actualización de existencias: el escaneo de un código es una consulta de stock, no la operación que lo descuenta. Esta precisión corrige la interpretación del resumen tabular anterior sin modificar su contenido (ver Figura 20).
 
 
-**Escenario 2: conversión comercial.** Una cotización aprobada origina como máximo una venta. El registro de pago precede al cierre, y `SaleWasClosed` comunica el cierre a producción. Para inventario se propone una actualización de existencias: el escaneo de un código es una consulta de stock, no la operación que lo descuenta. Esta precisión corrige la interpretación del resumen tabular anterior sin modificar su contenido.
+<a id="figura-20"></a>
 
+**Figura 20**
 
-La evidencia de Escenarios y notación de Domain Message Flow Modeling se presenta en [Figura 2-024](#figura-2-024).
+*Domain Message Flow de venta y orden de trabajo*
 
 ![Domain Message Flow: venta y orden de trabajo](assets/cap2/revision-tb1/flujo-venta.svg)
 
-<a id="figura-2-024"></a>
-**Figura 2-024. Domain Message Flow: venta y orden de trabajo.**
+
+**Escenario 3: seguimiento y entrega.** Los cambios de estado de producción se comunican al contexto de notificaciones. La consulta del pedido no cambia su estado. El aviso al paciente y el envío de encuestas son acciones propuestas cuya entrega externa debe verificarse por separado (ver Figura 21).
 
 
-**Escenario 3: seguimiento y entrega.** Los cambios de estado de producción se comunican al contexto de notificaciones. La consulta del pedido no cambia su estado. El aviso al paciente y el envío de encuestas son acciones propuestas cuya entrega externa debe verificarse por separado.
+<a id="figura-21"></a>
 
+**Figura 21**
 
-La evidencia de Escenarios y notación de Domain Message Flow Modeling se presenta en [Figura 2-025](#figura-2-025).
+*Domain Message Flow de seguimiento y entrega*
 
 ![Domain Message Flow: seguimiento y entrega](assets/cap2/revision-tb1/flujo-seguimiento.svg)
-
-<a id="figura-2-025"></a>
-**Figura 2-025. Domain Message Flow: seguimiento y entrega.**
 
 
 **Mensajes dependientes del tiempo.** Un recordatorio no se envía necesariamente al recibir `AppointmentBooked`: el evento permite programarlo para el momento definido por la política de notificaciones. El cumpleaños constituye otro disparador temporal, independiente de una nueva reserva. La anticipación, zona horaria y prevención de envíos duplicados son decisiones de esa política. El [Anexo C](Anexos.md#anexo-c-domain-message-flows) reúne el resumen de relaciones; los tres diagramas de esta sección especifican su interpretación por escenario.
@@ -1053,10 +1056,14 @@ En esta sección se formalizan los Bounded Context Canvases para cada uno de los
 **Canvas 1: Search & Booking Context**
 
 
-<a id="tabla-2-012"></a>
-La [Tabla 2-012](#tabla-2-012) presenta detalle de 2.5.1.3. Bounded Context Canvases y permite revisar los elementos documentados en esta sección.
+El Bounded Context Canvas del Search & Booking Context se detalla en la Tabla 17.
 
-**Tabla 2-012. Detalle de 2.5.1.3. Bounded Context Canvases.**
+<a id="tabla-17"></a>
+
+**Tabla 17**
+
+*Bounded Context Canvas del Search & Booking Context*
+
 
 | Elemento | Descripción |
 | :--- | :--- |
@@ -1070,10 +1077,14 @@ La [Tabla 2-012](#tabla-2-012) presenta detalle de 2.5.1.3. Bounded Context Canv
 **Canvas 2: Clinical & Commercial Context**
 
 
-<a id="tabla-2-013"></a>
-La [Tabla 2-013](#tabla-2-013) presenta detalle de 2.5.1.3. Bounded Context Canvases y permite revisar los elementos documentados en esta sección.
+El Bounded Context Canvas del Clinical & Commercial Context se presenta en la Tabla 18.
 
-**Tabla 2-013. Detalle de 2.5.1.3. Bounded Context Canvases.**
+<a id="tabla-18"></a>
+
+**Tabla 18**
+
+*Bounded Context Canvas del Clinical & Commercial Context*
+
 
 | Elemento | Descripción |
 | :--- | :--- |
@@ -1087,10 +1098,14 @@ La [Tabla 2-013](#tabla-2-013) presenta detalle de 2.5.1.3. Bounded Context Canv
 **Canvas 3: Production & Tracking Context**
 
 
-<a id="tabla-2-014"></a>
-La [Tabla 2-014](#tabla-2-014) presenta detalle de 2.5.1.3. Bounded Context Canvases y permite revisar los elementos documentados en esta sección.
+El Bounded Context Canvas del Production & Tracking Context se resume en la Tabla 19.
 
-**Tabla 2-014. Detalle de 2.5.1.3. Bounded Context Canvases.**
+<a id="tabla-19"></a>
+
+**Tabla 19**
+
+*Bounded Context Canvas del Production & Tracking Context*
+
 
 | Elemento | Descripción |
 | :--- | :--- |
@@ -1104,10 +1119,14 @@ La [Tabla 2-014](#tabla-2-014) presenta detalle de 2.5.1.3. Bounded Context Canv
 **Canvas 4: Notification & Loyalty Context**
 
 
-<a id="tabla-2-015"></a>
-La [Tabla 2-015](#tabla-2-015) presenta detalle de 2.5.1.3. Bounded Context Canvases y permite revisar los elementos documentados en esta sección.
+El Bounded Context Canvas del Notification & Loyalty Context se detalla en la Tabla 20.
 
-**Tabla 2-015. Detalle de 2.5.1.3. Bounded Context Canvases.**
+<a id="tabla-20"></a>
+
+**Tabla 20**
+
+*Bounded Context Canvas del Notification & Loyalty Context*
+
 
 | Elemento | Descripción |
 | :--- | :--- |
@@ -1121,10 +1140,14 @@ La [Tabla 2-015](#tabla-2-015) presenta detalle de 2.5.1.3. Bounded Context Canv
 **Canvas 5: Store Management & Inventory Context**
 
 
-<a id="tabla-2-016"></a>
-La [Tabla 2-016](#tabla-2-016) presenta detalle de 2.5.1.3. Bounded Context Canvases y permite revisar los elementos documentados en esta sección.
+El Bounded Context Canvas del Store Management & Inventory Context se presenta en la Tabla 21.
 
-**Tabla 2-016. Detalle de 2.5.1.3. Bounded Context Canvases.**
+<a id="tabla-21"></a>
+
+**Tabla 21**
+
+*Bounded Context Canvas del Store Management & Inventory Context*
+
 
 | Elemento | Descripción |
 | :--- | :--- |
@@ -1139,59 +1162,64 @@ La [Tabla 2-016](#tabla-2-016) presenta detalle de 2.5.1.3. Bounded Context Canv
 
 Los siguientes canvases complementan las tablas existentes con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-b). La comunicación se clasifica como consulta, comando o evento según su efecto, y no obliga a utilizar un bus de mensajes. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información. Los campos de verificación expresan qué debe comprobarse, sin presentar esas métricas como resultados ya alcanzados.
 
-**Search & Booking.** Facilitar que el paciente encuentre una óptica y reserve un horario disponible. Regla destacada: No duplicar reservas sobre la misma disponibilidad. Exigir datos válidos del paciente, sucursal y horario. Una consulta no crea una reserva.
+**Search & Booking.** Facilitar que el paciente encuentre una óptica y reserve un horario disponible. Regla destacada: No duplicar reservas sobre la misma disponibilidad. Exigir datos válidos del paciente, sucursal y horario. Una consulta no crea una reserva (ver Figura 22).
 
 
-La evidencia de Canvases completos y precisiones del contrato se presenta en [Figura 2-026](#figura-2-026).
+<a id="figura-22"></a>
+
+**Figura 22**
+
+*Bounded Context Canvas completo del Search & Booking Context*
 
 ![Bounded Context Canvas completo: Search & Booking](assets/cap2/revision-tb1/canvas-search-booking.svg)
 
-<a id="figura-2-026"></a>
-**Figura 2-026. Bounded Context Canvas completo: Search & Booking.**
+
+**Clinical & Commercial.** Organizar la evaluación visual y transformar una cotización aprobada en una venta trazable. Regla destacada: Solo una cotización aprobada genera una venta; máximo una venta por cotización. Registrar pago antes del cierre. Cada venta tiene como máximo un comprobante (ver Figura 23).
 
 
-**Clinical & Commercial.** Organizar la evaluación visual y transformar una cotización aprobada en una venta trazable. Regla destacada: Solo una cotización aprobada genera una venta; máximo una venta por cotización. Registrar pago antes del cierre. Cada venta tiene como máximo un comprobante.
+<a id="figura-23"></a>
 
+**Figura 23**
 
-La evidencia de Canvases completos y precisiones del contrato se presenta en [Figura 2-027](#figura-2-027).
+*Bounded Context Canvas completo del Clinical & Commercial Context*
 
 ![Bounded Context Canvas completo: Clinical & Commercial](assets/cap2/revision-tb1/canvas-clinical-commercial.svg)
 
-<a id="figura-2-027"></a>
-**Figura 2-027. Bounded Context Canvas completo: Clinical & Commercial.**
+
+**Production & Tracking.** Coordinar la fabricación y facilitar el seguimiento de cada orden hasta su entrega. Regla destacada: Vincular la orden con una venta cerrada. Respetar las transiciones válidas. Comunicar cambios sin delegar a notificaciones la decisión del estado (ver Figura 24).
 
 
-**Production & Tracking.** Coordinar la fabricación y facilitar el seguimiento de cada orden hasta su entrega. Regla destacada: Vincular la orden con una venta cerrada. Respetar las transiciones válidas. Comunicar cambios sin delegar a notificaciones la decisión del estado.
+<a id="figura-24"></a>
 
+**Figura 24**
 
-La evidencia de Canvases completos y precisiones del contrato se presenta en [Figura 2-028](#figura-2-028).
+*Bounded Context Canvas completo del Production & Tracking Context*
 
 ![Bounded Context Canvas completo: Production & Tracking](assets/cap2/revision-tb1/canvas-production-tracking.svg)
 
-<a id="figura-2-028"></a>
-**Figura 2-028. Bounded Context Canvas completo: Production & Tracking.**
+
+**Notification & Loyalty.** Comunicar hitos relevantes al paciente y apoyar el seguimiento posterior a la atención. Regla destacada: Respetar preferencias y permisos. Evitar duplicados. El estado de fabricación pertenece a producción; este contexto lo comunica (ver Figura 25).
 
 
-**Notification & Loyalty.** Comunicar hitos relevantes al paciente y apoyar el seguimiento posterior a la atención. Regla destacada: Respetar preferencias y permisos. Evitar duplicados. El estado de fabricación pertenece a producción; este contexto lo comunica.
+<a id="figura-25"></a>
 
+**Figura 25**
 
-La evidencia de Canvases completos y precisiones del contrato se presenta en [Figura 2-029](#figura-2-029).
+*Bounded Context Canvas completo del Notification & Loyalty Context*
 
 ![Bounded Context Canvas completo: Notification & Loyalty](assets/cap2/revision-tb1/canvas-notification-loyalty.svg)
 
-<a id="figura-2-029"></a>
-**Figura 2-029. Bounded Context Canvas completo: Notification & Loyalty.**
+
+**Store Management & Inventory.** Mantener el catálogo, las existencias y la información operativa de la óptica. Regla destacada: Consultar stock no lo modifica. Registrar movimientos con producto y cantidad. Evitar existencias negativas y movimientos duplicados (ver Figura 26).
 
 
-**Store Management & Inventory.** Mantener el catálogo, las existencias y la información operativa de la óptica. Regla destacada: Consultar stock no lo modifica. Registrar movimientos con producto y cantidad. Evitar existencias negativas y movimientos duplicados.
+<a id="figura-26"></a>
 
+**Figura 26**
 
-La evidencia de Canvases completos y precisiones del contrato se presenta en [Figura 2-030](#figura-2-030).
+*Bounded Context Canvas completo del Store Management & Inventory Context*
 
 ![Bounded Context Canvas completo: Store Management & Inventory](assets/cap2/revision-tb1/canvas-store-inventory.svg)
-
-<a id="figura-2-030"></a>
-**Figura 2-030. Bounded Context Canvas completo: Store Management & Inventory.**
 
 
 El [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los límites, mientras que el [Anexo D](Anexos.md#anexo-d-context-mapping) permite contrastar los colaboradores con el Context Map. Los cinco canvases describen módulos del dominio; no representan cinco despliegues independientes.
@@ -1204,14 +1232,17 @@ Los Context Maps representan las relaciones y dependencias entre los Bounded Con
 ##### Search & Booking → Clinical & Commercial
 
 
-La evidencia de Search & Booking → Clinical & Commercial se presenta en [Figura 2-031](#figura-2-031).
+El Context Map entre Search & Booking y Clinical & Commercial se observa en la Figura 27.
+
+<a id="figura-27"></a>
+
+**Figura 27**
+
+*Context Map entre Search & Booking y Clinical & Commercial*
 
 <div align="center">
 <img src="assets/cap2/ContextMapping1.png">
 </div>
-
-<a id="figura-2-031"></a>
-**Figura 2-031. Evidencia visual de Search & Booking → Clinical & Commercial.**
 
 
 **Patrón: Customer / Supplier**
@@ -1226,14 +1257,17 @@ En esta relación, **Search & Booking** actúa como el upstream (U) exponiendo u
 ##### Search & Booking → Notification & Loyalty
 
 
-La evidencia de Search & Booking → Notification & Loyalty se presenta en [Figura 2-032](#figura-2-032).
+El Context Map entre Search & Booking y Notification & Loyalty se muestra en la Figura 28.
+
+<a id="figura-28"></a>
+
+**Figura 28**
+
+*Context Map entre Search & Booking y Notification & Loyalty*
 
 <div align="center">
 <img src="assets/cap2/ContextMapping2.png">
 </div>
-
-<a id="figura-2-032"></a>
-**Figura 2-032. Evidencia visual de Search & Booking → Notification & Loyalty.**
 
 
 **Patrón: Customer / Supplier**
@@ -1248,14 +1282,17 @@ En esta relación, **Search & Booking** actúa como el upstream (U) y **Notifica
 ##### Clinical & Commercial → Production & Tracking
 
 
-La evidencia de Clinical & Commercial → Production & Tracking se presenta en [Figura 2-033](#figura-2-033).
+El Context Map entre Clinical & Commercial y Production & Tracking se presenta en la Figura 29.
+
+<a id="figura-29"></a>
+
+**Figura 29**
+
+*Context Map entre Clinical & Commercial y Production & Tracking*
 
 <div align="center">
 <img src="assets/cap2/ContextMapping3.png">
 </div>
-
-<a id="figura-2-033"></a>
-**Figura 2-033. Evidencia visual de Clinical & Commercial → Production & Tracking.**
 
 
 **Patrón: Customer / Supplier**
@@ -1267,18 +1304,20 @@ En esta relación, **Clinical & Commercial** actúa como el upstream (U) exponie
 - **Production & Tracking como cliente:** No puede iniciar ningún trabajo técnico sin la aprobación médica y comercial. Al recibir el evento, activa el comando `GenerateWorkOrder` para alimentar el tablero Kanban del taller. Implementa una ACL para aislar su modelo operativo de fabricación y control de calidad de las fluctuaciones comerciales, descuentos o métodos de facturación utilizados en la venta.
 
 
-
 ##### Clinical & Commercial → Store Management & Inventory
 
 
-La evidencia de Clinical & Commercial → Store Management & Inventory se presenta en [Figura 2-034](#figura-2-034).
+El Context Map entre Clinical & Commercial y Store Management & Inventory se observa en la Figura 30.
+
+<a id="figura-30"></a>
+
+**Figura 30**
+
+*Context Map entre Clinical & Commercial y Store Management & Inventory*
 
 <div align="center">
 <img src="assets/cap2/ContextMapping4.png">
 </div>
-
-<a id="figura-2-034"></a>
-**Figura 2-034. Evidencia visual de Clinical & Commercial → Store Management & Inventory.**
 
 
 **Patrón: Customer / Supplier**
@@ -1290,18 +1329,20 @@ En esta relación, **Clinical & Commercial** actúa como el upstream (U) y **Sto
 - **Store Management & Inventory como cliente:** Depende de este evento comercial para deducir el stock real de existencias en almacén y verificar si se ha alcanzado el umbral crítico de reabastecimiento (`LowStockAlertGenerated`). Actúa como un modelo conformista que acepta los códigos de producto y cantidades transaccionadas tal como fueron despachados desde el salón de venta.
 
 
-
 ##### Production & Tracking → Notification & Loyalty
 
 
-La evidencia de Production & Tracking → Notification & Loyalty se presenta en [Figura 2-035](#figura-2-035).
+El Context Map entre Production & Tracking y Notification & Loyalty se muestra en la Figura 31.
+
+<a id="figura-31"></a>
+
+**Figura 31**
+
+*Context Map entre Production & Tracking y Notification & Loyalty*
 
 <div align="center">
 <img src="assets/cap2/ContextMapping5.png">
 </div>
-
-<a id="figura-2-035"></a>
-**Figura 2-035. Evidencia visual de Production & Tracking → Notification & Loyalty.**
 
 
 **Patrón: Customer / Supplier**
@@ -1313,18 +1354,20 @@ En esta relación, **Production & Tracking** actúa como el upstream (U) mediant
 - **Notification & Loyalty como cliente:** No posee criterio técnico para evaluar el proceso de biselado ni los tiempos de secado de lunas. Simplemente reacciona a los eventos del laboratorio ejecutando los comandos `NotifyLensOrderProgress` y `SendSatisfactionSurvey`, consumiendo el identificador de orden y el estado logístico tal como el taller los publica.
 
 
-
 ##### Payment Gateway → Clinical & Commercial
 
 
-La evidencia de Payment Gateway → Clinical & Commercial se presenta en [Figura 2-036](#figura-2-036).
+El Context Map entre Payment Gateway y Clinical & Commercial se presenta en la Figura 32.
+
+<a id="figura-32"></a>
+
+**Figura 32**
+
+*Context Map entre Payment Gateway y Clinical & Commercial*
 
 <div align="center">
 <img src="assets/cap2/ContextMapping6.png">
 </div>
-
-<a id="figura-2-036"></a>
-**Figura 2-036. Evidencia visual de Payment Gateway → Clinical & Commercial.**
 
 
 **Patrón: Customer / Supplier**
@@ -1336,18 +1379,20 @@ En esta relación, la **Pasarela de Pagos Externa (POS / Yape / Plin)** actúa c
 - **Clinical & Commercial como cliente:** Depende de la autorización externa para registrar formalmente el evento `PaymentReceived`. Implementa una capa anticorrupción (ACL) para mapear los formatos propietarios y respuestas JSON de la pasarela bancaria externa hacia la entidad interna de recibo electrónico (`Electronic Receipt`) del dominio de OptiFlow, evitando que cambios en las APIs de los bancos alteren el sistema contable interno.
 
 
-
 ##### Third-Party Messaging → Notification & Loyalty
 
 
-La evidencia de Third-Party Messaging → Notification & Loyalty se presenta en [Figura 2-037](#figura-2-037).
+El Context Map entre Third-Party Messaging y Notification & Loyalty se observa en la Figura 33.
+
+<a id="figura-33"></a>
+
+**Figura 33**
+
+*Context Map entre Third-Party Messaging y Notification & Loyalty*
 
 <div align="center">
 <img src="assets/cap2/ContextMapping7.png">
 </div>
-
-<a id="figura-2-037"></a>
-**Figura 2-037. Evidencia visual de Third-Party Messaging → Notification & Loyalty.**
 
 
 **Patrón: Customer / Supplier**
@@ -1359,57 +1404,62 @@ En esta relación, la plataforma de mensajería externa (**Meta WhatsApp Cloud A
 - **Notification & Loyalty como cliente:** Consume los servicios de entrega de mensajería. Utiliza una ACL para desacoplar las plantillas de mensaje y eventos de negocio de OptiFlow de la estructura de carga útil (*payloads* y cabeceras HTTP) requerida por las APIs de Meta y Google.
 
 
-
 ##### Context Map Final
 
 
-La evidencia de Context Map Final se presenta en [Figura 2-038](#figura-2-038).
+El Context Map final de OptiFlow se muestra en la Figura 34.
+
+<a id="figura-34"></a>
+
+**Figura 34**
+
+*Context Map final de OptiFlow*
 
 <div align="center">
 <img src="assets/cap2/ContextMappingFinal.png">
 </div>
-
-<a id="figura-2-038"></a>
-**Figura 2-038. Evidencia visual de Context Map Final.**
-
 
 
 ### 2.5.3. Software Architecture
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relacionados. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias; el nivel 2 corregido identifica cuáles corresponden al incremento de TB1.
+El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relacionados. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias; el nivel 2 corregido identifica cuáles corresponden al incremento de TB1 (ver Figura 35).
 
 
-La evidencia de 2.5.3.1. Software Architecture Context Level Diagrams se presenta en [Figura 2-039](#figura-2-039).
+<a id="figura-35"></a>
+
+**Figura 35**
+
+*Diagrama de contexto C4 de OptiFlow*
 
 ![context.svg](assets/cap2/C4/context.svg)
-
-<a id="figura-2-039"></a>
-**Figura 2-039. Evidencia visual de 2.5.3.1. Software Architecture Context Level Diagrams.**
 
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-La vista corregida, elaborada con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.).
+La vista corregida, elaborada con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 36).
 
 
-La evidencia de 2.5.3.2. Software Architecture Container Level Diagrams se presenta en [Figura 2-040](#figura-2-040).
+<a id="figura-36"></a>
+
+**Figura 36**
+
+*Diagrama de contenedores C4 con un único backend*
 
 ![Diagrama de contenedores de OptiFlow](assets/cap2/C4/containers-structurizr.svg)
-
-<a id="figura-2-040"></a>
-**Figura 2-040. C4 nivel 2 corregido: backend único.**
-
-
-
 
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en el Sprint 1. La Landing Page se publica como sitio estático en GitHub Pages; el backend se ejecuta en un contenedor Docker en Render y accede a una base de datos PostgreSQL mediante JPA; y la aplicación móvil se distribuye con Firebase App Distribution para instalarse en los dispositivos Android, desde donde consume el backend por HTTPS. La configuración de cada entorno se detalla en la sección 4.1.4.
+El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en el Sprint 1. La Landing Page se publica como sitio estático en GitHub Pages; el backend se ejecuta en un contenedor Docker en Render y accede a una base de datos PostgreSQL mediante JPA; y la aplicación móvil se distribuye con Firebase App Distribution para instalarse en los dispositivos Android, desde donde consume el backend por HTTPS. La configuración de cada entorno se detalla en la sección 4.1.4 (ver Figura 37).
 
-**Figura 2-900. Deployment Diagram de OptiFlow en el Sprint 1.**
+
+<a id="figura-37"></a>
+
+**Figura 37**
+
+*Deployment Diagram de OptiFlow en el Sprint 1*
 
 ![Deployment Diagram de OptiFlow](assets/cap2/revision-tb1/deployment-sprint1.svg)
 
@@ -1433,13 +1483,15 @@ Esta capa no depende de frameworks, bases de datos ni servicios externos, permit
 
 La entidad `Appointment` representa la reserva formal realizada por un paciente para recibir atención en una óptica dentro de un horario determinado. Se considera el **Aggregate Root** principal del proceso de reserva, debido a que concentra las reglas necesarias para mantener la consistencia de una cita.
 
-Cuando un paciente selecciona una óptica y un horario disponible, el agregado valida la información correspondiente y permite crear la reserva. Asimismo, controla las operaciones relacionadas con la confirmación, cancelación y reprogramación de una cita.
+Cuando un paciente selecciona una óptica y un horario disponible, el agregado valida la información correspondiente y permite crear la reserva. Asimismo, controla las operaciones relacionadas con la confirmación, cancelación y reprogramación de una cita (ver Tabla 22).
 
 
-<a id="tabla-2-017"></a>
-La [Tabla 2-017](#tabla-2-017) presenta detalle de Aggregate Root: `Appointment` y permite revisar los elementos documentados en esta sección.
+<a id="tabla-22"></a>
 
-**Tabla 2-017. Detalle de Aggregate Root: `Appointment`.**
+**Tabla 22**
+
+*Atributos del aggregate root Appointment*
+
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
@@ -1454,10 +1506,14 @@ La [Tabla 2-017](#tabla-2-017) presenta detalle de Aggregate Root: `Appointment`
 ##### Métodos principales
 
 
-<a id="tabla-2-018"></a>
-La [Tabla 2-018](#tabla-2-018) presenta detalle de Métodos principales y permite revisar los elementos documentados en esta sección.
+Los métodos principales del aggregate root Appointment se presentan en la Tabla 23.
 
-**Tabla 2-018. Detalle de Métodos principales.**
+<a id="tabla-23"></a>
+
+**Tabla 23**
+
+*Métodos principales del aggregate root Appointment*
+
 
 | Método | Visibilidad | Descripción |
 |---|---|---|
@@ -1469,13 +1525,15 @@ La [Tabla 2-018](#tabla-2-018) presenta detalle de Métodos principales y permit
 
 ##### Entidad: `Patient`
 
-La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar ópticas, consultar disponibilidad y reservar citas. Dentro de este contexto, la información del paciente se utiliza principalmente para identificar al usuario y relacionarlo con sus reservas y preferencias.
+La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar ópticas, consultar disponibilidad y reservar citas. Dentro de este contexto, la información del paciente se utiliza principalmente para identificar al usuario y relacionarlo con sus reservas y preferencias (ver Tabla 24).
 
 
-<a id="tabla-2-019"></a>
-La [Tabla 2-019](#tabla-2-019) presenta detalle de Entidad: `Patient` y permite revisar los elementos documentados en esta sección.
+<a id="tabla-24"></a>
 
-**Tabla 2-019. Detalle de Entidad: `Patient`.**
+**Tabla 24**
+
+*Atributos de la entidad Patient*
+
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
@@ -1487,13 +1545,15 @@ La [Tabla 2-019](#tabla-2-019) presenta detalle de Entidad: `Patient` y permite 
 
 ##### Entidad: `OpticalStore`
 
-La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma.
+La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma (ver Tabla 25).
 
 
-<a id="tabla-2-020"></a>
-La [Tabla 2-020](#tabla-2-020) presenta detalle de Entidad: `OpticalStore` y permite revisar los elementos documentados en esta sección.
+<a id="tabla-25"></a>
 
-**Tabla 2-020. Detalle de Entidad: `OpticalStore`.**
+**Tabla 25**
+
+*Atributos de la entidad OpticalStore*
+
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
@@ -1506,13 +1566,15 @@ La [Tabla 2-020](#tabla-2-020) presenta detalle de Entidad: `OpticalStore` y per
 
 ##### Entidad: `TimeSlot`
 
-`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica.
+`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica (ver Tabla 26).
 
 
-<a id="tabla-2-021"></a>
-La [Tabla 2-021](#tabla-2-021) presenta detalle de Entidad: `TimeSlot` y permite revisar los elementos documentados en esta sección.
+<a id="tabla-26"></a>
 
-**Tabla 2-021. Detalle de Entidad: `TimeSlot`.**
+**Tabla 26**
+
+*Atributos de la entidad TimeSlot*
+
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
@@ -1525,10 +1587,14 @@ La [Tabla 2-021](#tabla-2-021) presenta detalle de Entidad: `TimeSlot` y permite
 ##### Value Objects
 
 
-<a id="tabla-2-022"></a>
-La [Tabla 2-022](#tabla-2-022) presenta detalle de Value Objects y permite revisar los elementos documentados en esta sección.
+Los Value Objects del Search & Booking Context se resumen en la Tabla 27.
 
-**Tabla 2-022. Detalle de Value Objects.**
+<a id="tabla-27"></a>
+
+**Tabla 27**
+
+*Value Objects del Search & Booking Context*
+
 
 | Value Object | Propósito |
 |---|---|
@@ -1547,10 +1613,14 @@ La [Tabla 2-022](#tabla-2-022) presenta detalle de Value Objects y permite revis
 ##### Enumerations
 
 
-<a id="tabla-2-023"></a>
-La [Tabla 2-023](#tabla-2-023) presenta detalle de Enumerations y permite revisar los elementos documentados en esta sección.
+Las enumeraciones del Search & Booking Context se detallan en la Tabla 28.
 
-**Tabla 2-023. Detalle de Enumerations.**
+<a id="tabla-28"></a>
+
+**Tabla 28**
+
+*Enumeraciones del Search & Booking Context*
+
 
 | Enum | Valores | Propósito |
 |---|---|---|
@@ -1561,10 +1631,14 @@ La [Tabla 2-023](#tabla-2-023) presenta detalle de Enumerations y permite revisa
 ##### Domain Services
 
 
-<a id="tabla-2-024"></a>
-La [Tabla 2-024](#tabla-2-024) presenta detalle de Domain Services y permite revisar los elementos documentados en esta sección.
+Los Domain Services del Search & Booking Context se presentan en la Tabla 29.
 
-**Tabla 2-024. Detalle de Domain Services.**
+<a id="tabla-29"></a>
+
+**Tabla 29**
+
+*Domain Services del Search & Booking Context*
+
 
 | Domain Service | Responsabilidad |
 |---|---|
@@ -1574,13 +1648,15 @@ La [Tabla 2-024](#tabla-2-024) presenta detalle de Domain Services y permite rev
 
 ##### Repository Interfaces
 
-Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades.
+Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades (ver Tabla 30).
 
 
-<a id="tabla-2-025"></a>
-La [Tabla 2-025](#tabla-2-025) presenta detalle de Repository Interfaces y permite revisar los elementos documentados en esta sección.
+<a id="tabla-30"></a>
 
-**Tabla 2-025. Detalle de Repository Interfaces.**
+**Tabla 30**
+
+*Repository Interfaces del Search & Booking Context*
+
 
 | Interface | Operaciones principales |
 |---|---|
@@ -1591,13 +1667,15 @@ La [Tabla 2-025](#tabla-2-025) presenta detalle de Repository Interfaces y permi
 
 ##### Domain Events
 
-Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto.
+Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto (ver Tabla 31).
 
 
-<a id="tabla-2-026"></a>
-La [Tabla 2-026](#tabla-2-026) presenta detalle de Domain Events y permite revisar los elementos documentados en esta sección.
+<a id="tabla-31"></a>
 
-**Tabla 2-026. Detalle de Domain Events.**
+**Tabla 31**
+
+*Domain Events del Search & Booking Context*
+
 
 | Domain Event | Descripción |
 |---|---|
@@ -1615,10 +1693,14 @@ Los eventos anteriores corresponden a los eventos publicados definidos para el *
 ##### Factories
 
 
-<a id="tabla-2-027"></a>
-La [Tabla 2-027](#tabla-2-027) presenta detalle de Factories y permite revisar los elementos documentados en esta sección.
+Los Factories del Search & Booking Context se resumen en la Tabla 32.
 
-**Tabla 2-027. Detalle de Factories.**
+<a id="tabla-32"></a>
+
+**Tabla 32**
+
+*Factories del Search & Booking Context*
+
 
 | Factory | Propósito |
 |---|---|
@@ -1637,10 +1719,14 @@ Esta capa permite exponer las capacidades de búsqueda, consulta de disponibilid
 ##### Controllers
 
 
-<a id="tabla-2-028"></a>
-La [Tabla 2-028](#tabla-2-028) presenta detalle de Controllers y permite revisar los elementos documentados en esta sección.
+Los Controllers del Search & Booking Context se detallan en la Tabla 33.
 
-**Tabla 2-028. Detalle de Controllers.**
+<a id="tabla-33"></a>
+
+**Tabla 33**
+
+*Controllers del Search & Booking Context*
+
 
 | Controller | Endpoints | Capabilities soportadas |
 |---|---|---|
@@ -1655,10 +1741,14 @@ La [Tabla 2-028](#tabla-2-028) presenta detalle de Controllers y permite revisar
 ##### Resources / DTOs
 
 
-<a id="tabla-2-029"></a>
-La [Tabla 2-029](#tabla-2-029) presenta detalle de Resources / DTOs y permite revisar los elementos documentados en esta sección.
+Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 34.
 
-**Tabla 2-029. Detalle de Resources / DTOs.**
+<a id="tabla-34"></a>
+
+**Tabla 34**
+
+*Resources / DTOs del Search & Booking Context*
+
 
 | DTO | Tipo | Uso |
 |---|---|---|
@@ -1677,10 +1767,14 @@ La [Tabla 2-029](#tabla-2-029) presenta detalle de Resources / DTOs y permite re
 ##### Assemblers
 
 
-<a id="tabla-2-030"></a>
-La [Tabla 2-030](#tabla-2-030) presenta detalle de Assemblers y permite revisar los elementos documentados en esta sección.
+Los Assemblers del Search & Booking Context se resumen en la Tabla 35.
 
-**Tabla 2-030. Detalle de Assemblers.**
+<a id="tabla-35"></a>
+
+**Tabla 35**
+
+*Assemblers del Search & Booking Context*
+
 
 | Assembler | Transformación |
 |---|---|
@@ -1703,10 +1797,14 @@ Se utiliza una separación entre **Commands**, orientados a modificar el estado 
 ##### Command Handlers
 
 
-<a id="tabla-2-031"></a>
-La [Tabla 2-031](#tabla-2-031) presenta detalle de Command Handlers y permite revisar los elementos documentados en esta sección.
+Los Command Handlers del Search & Booking Context se detallan en la Tabla 36.
 
-**Tabla 2-031. Detalle de Command Handlers.**
+<a id="tabla-36"></a>
+
+**Tabla 36**
+
+*Command Handlers del Search & Booking Context*
+
 
 | Command Handler | Command procesado | Flujo |
 |---|---|---|
@@ -1720,10 +1818,14 @@ La [Tabla 2-031](#tabla-2-031) presenta detalle de Command Handlers y permite re
 ##### Query Services
 
 
-<a id="tabla-2-032"></a>
-La [Tabla 2-032](#tabla-2-032) presenta detalle de Query Services y permite revisar los elementos documentados en esta sección.
+Los Query Services del Search & Booking Context se presentan en la Tabla 37.
 
-**Tabla 2-032. Detalle de Query Services.**
+<a id="tabla-37"></a>
+
+**Tabla 37**
+
+*Query Services del Search & Booking Context*
+
 
 | Query Service | Query soportada | Retorno |
 |---|---|---|
@@ -1736,13 +1838,15 @@ La [Tabla 2-032](#tabla-2-032) presenta detalle de Query Services y permite revi
 
 ##### Event Handlers
 
-Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno.
+Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno (ver Tabla 38).
 
 
-<a id="tabla-2-033"></a>
-La [Tabla 2-033](#tabla-2-033) presenta detalle de Event Handlers y permite revisar los elementos documentados en esta sección.
+<a id="tabla-38"></a>
 
-**Tabla 2-033. Detalle de Event Handlers.**
+**Tabla 38**
+
+*Event Handlers del Search & Booking Context*
+
 
 | Event Handler | Evento | Acción |
 |---|---|---|
@@ -1754,10 +1858,14 @@ En el diseño estratégico, `AppointmentBooked` comunica la creación de una res
 ##### Application Services
 
 
-<a id="tabla-2-034"></a>
-La [Tabla 2-034](#tabla-2-034) presenta detalle de Application Services y permite revisar los elementos documentados en esta sección.
+Los Application Services del Search & Booking Context se resumen en la Tabla 39.
 
-**Tabla 2-034. Detalle de Application Services.**
+<a id="tabla-39"></a>
+
+**Tabla 39**
+
+*Application Services del Search & Booking Context*
+
 
 | Application Service | Responsabilidad |
 |---|---|
@@ -1778,10 +1886,14 @@ La infraestructura se mantiene separada del dominio para evitar que las reglas d
 ##### Repository Implementations
 
 
-<a id="tabla-2-035"></a>
-La [Tabla 2-035](#tabla-2-035) presenta detalle de Repository Implementations y permite revisar los elementos documentados en esta sección.
+Los Repository Implementations del Search & Booking Context se detallan en la Tabla 40.
 
-**Tabla 2-035. Detalle de Repository Implementations.**
+<a id="tabla-40"></a>
+
+**Tabla 40**
+
+*Repository Implementations del Search & Booking Context*
+
 
 | Implementación | Interface que implementa | Responsabilidad |
 |---|---|---|
@@ -1793,10 +1905,14 @@ La [Tabla 2-035](#tabla-2-035) presenta detalle de Repository Implementations y 
 ##### Persistence Entities
 
 
-<a id="tabla-2-036"></a>
-La [Tabla 2-036](#tabla-2-036) presenta detalle de Persistence Entities y permite revisar los elementos documentados en esta sección.
+Los Persistence Entities del Search & Booking Context se presentan en la Tabla 41.
 
-**Tabla 2-036. Detalle de Persistence Entities.**
+<a id="tabla-41"></a>
+
+**Tabla 41**
+
+*Persistence Entities del Search & Booking Context*
+
 
 | Persistence Entity | Mapeo |
 |---|---|
@@ -1810,10 +1926,14 @@ La [Tabla 2-036](#tabla-2-036) presenta detalle de Persistence Entities y permit
 ##### Mappers
 
 
-<a id="tabla-2-037"></a>
-La [Tabla 2-037](#tabla-2-037) presenta detalle de Mappers y permite revisar los elementos documentados en esta sección.
+Los Mappers del Search & Booking Context se resumen en la Tabla 42.
 
-**Tabla 2-037. Detalle de Mappers.**
+<a id="tabla-42"></a>
+
+**Tabla 42**
+
+*Mappers del Search & Booking Context*
+
 
 | Mapper | Transformación |
 |---|---|
@@ -1827,10 +1947,14 @@ La [Tabla 2-037](#tabla-2-037) presenta detalle de Mappers y permite revisar los
 ##### External Service Adapters
 
 
-<a id="tabla-2-038"></a>
-La [Tabla 2-038](#tabla-2-038) presenta detalle de External Service Adapters y permite revisar los elementos documentados en esta sección.
+Los External Service Adapters del Search & Booking Context se detallan en la Tabla 43.
 
-**Tabla 2-038. Detalle de External Service Adapters.**
+<a id="tabla-43"></a>
+
+**Tabla 43**
+
+*External Service Adapters del Search & Booking Context*
+
 
 | Adapter | Servicio | Responsabilidad |
 |---|---|---|
@@ -1841,10 +1965,14 @@ La [Tabla 2-038](#tabla-2-038) presenta detalle de External Service Adapters y p
 ##### Configuration
 
 
-<a id="tabla-2-039"></a>
-La [Tabla 2-039](#tabla-2-039) presenta detalle de Configuration y permite revisar los elementos documentados en esta sección.
+Las clases de configuración del Search & Booking Context se presentan en la Tabla 44.
 
-**Tabla 2-039. Detalle de Configuration.**
+<a id="tabla-44"></a>
+
+**Tabla 44**
+
+*Clases de configuración del Search & Booking Context*
+
 
 | Clase de configuración | Propósito |
 |---|---|
@@ -1866,14 +1994,17 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Proporciona las implementaciones técnicas concretas, incluyendo los repositorios sobre PostgreSQL/JPA (`AppointmentRepositoryImpl`, `PatientRepositoryImpl`, etc.), las entidades de persistencia (`AppointmentEntity`, etc.), los Mappers, el `EventPublisherAdapter` para la publicación asíncrona de eventos hacia el Event Bus (RabbitMQ/Kafka), y los adaptadores de integración externa (`AuthenticationAdapter`, `NotificationIntegrationAdapter`).
 
 
-La evidencia de 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams se presenta en [Figura 2-047](#figura-2-047).
+El diagrama de componentes del Search & Booking Context en Spring Boot se observa en la Figura 38.
+
+<a id="figura-38"></a>
+
+**Figura 38**
+
+*Diagrama de componentes del Search & Booking Context en Spring Boot*
 
 <div align="center">
   <img src="assets/cap2/C4/component-search&bocking.jpeg" alt="Search and Booking Component Level Diagram" width="1000">
 </div>
-
-<a id="figura-2-047"></a>
-**Figura 2-047. Search and Booking Component Level Diagram.**
 
 
 La organización propuesta busca reducir el acoplamiento y concentrar cada responsabilidad en su capa: los controladores reciben las solicitudes, los servicios de aplicación coordinan los casos de uso y el dominio aplica las reglas de negocio. La persistencia y las integraciones se resuelven mediante adaptadores de infraestructura. Los componentes dibujados representan el diseño previsto y no implican que todos formen parte del incremento de TB1.
@@ -1887,15 +2018,16 @@ El siguiente UML Class Diagram representa la estructura del **Domain Layer** cor
 
 El modelo tiene como elemento principal al Aggregate Root `Appointment`, encargado de representar el proceso de reserva de una cita. Este se relaciona con las Entities `Patient`, `OpticalStore` y `TimeSlot`, las cuales representan respectivamente al paciente que realiza la reserva, la óptica seleccionada y el horario disponible para la atención.
 
-El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde.
+El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 39).
 
 
-La evidencia de 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams se presenta en [Figura 2-048](#figura-2-048).
+<a id="figura-39"></a>
+
+**Figura 39**
+
+*Diagrama de clases del Domain Layer del Search & Booking Context*
 
 ![Search-Booking.svg](assets/cap2/class-diagram/imageclass/Search-Booking.svg)
-
-<a id="figura-2-048"></a>
-**Figura 2-048. Evidencia visual de 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams.**
 
 
 <a id="2.6.1.6.2. Bounded Context Database Design Diagram"></a>
@@ -1912,17 +2044,18 @@ Por otro lado, `favorite_stores` representa la relación entre los pacientes y l
 
 De manera similar, `store_ratings` representa las valoraciones realizadas por los pacientes hacia las ópticas. Esta tabla utiliza una Primary Key compuesta por `patient_id` y `optical_store_id`, permitiendo identificar la valoración correspondiente a cada relación entre paciente y óptica.
 
-El modelo utiliza **Primary Keys, Foreign Keys, restricciones de unicidad y restricciones de validación** para mantener la integridad de los datos y representar correctamente las reglas necesarias para el proceso de búsqueda y reserva.
+El modelo utiliza **Primary Keys, Foreign Keys, restricciones de unicidad y restricciones de validación** para mantener la integridad de los datos y representar correctamente las reglas necesarias para el proceso de búsqueda y reserva (ver Figura 40).
 
 
-La evidencia de 2.6.1.6.2. Bounded Context Database Design Diagram se presenta en [Figura 2-049](#figura-2-049).
+<a id="figura-40"></a>
+
+**Figura 40**
+
+*Diagrama de base de datos del Search & Booking Context*
 
 <div align="center">
   <img src="assets/cap2/Database Design Diagram.png" alt="Search and Booking Database Design Diagram" width="1000">
 </div>
-
-<a id="figura-2-049"></a>
-**Figura 2-049. Search and Booking Database Design Diagram.**
 
 
 <a id="2.6.2. Bounded Context: Clinical & Commercial Context"></a>
@@ -1931,13 +2064,15 @@ La evidencia de 2.6.1.6.2. Bounded Context Database Design Diagram se presenta e
 <a id="2.6.2.1. Domain Layer"></a>
 #### 2.6.2.1. Domain Layer
 
-El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio.
+El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio (ver Tabla 45).
 
 
-<a id="tabla-2-040"></a>
-La [Tabla 2-040](#tabla-2-040) presenta detalle de 2.6.2.1. Domain Layer y permite revisar los elementos documentados en esta sección.
+<a id="tabla-45"></a>
 
-**Tabla 2-040. Detalle de 2.6.2.1. Domain Layer.**
+**Tabla 45**
+
+*Clases del Domain Layer del Clinical & Commercial Context*
+
 
 | Clase | Estereotipo | Propósito | Atributos | Métodos |
 | :--- | :--- | :--- | :--- | :--- |
@@ -1962,10 +2097,14 @@ Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHi
 #### 2.6.2.2. Interface Layer
 
 
-<a id="tabla-2-041"></a>
-La [Tabla 2-041](#tabla-2-041) presenta detalle de 2.6.2.2. Interface Layer y permite revisar los elementos documentados en esta sección.
+Las clases del Interface Layer del Clinical & Commercial Context se detallan en la Tabla 46.
 
-**Tabla 2-041. Detalle de 2.6.2.2. Interface Layer.**
+<a id="tabla-46"></a>
+
+**Tabla 46**
+
+*Clases del Interface Layer del Clinical & Commercial Context*
+
 
 | Clase | Tipo | Responsabilidad |
 | :--- | :--- | :--- |
@@ -1978,10 +2117,14 @@ La [Tabla 2-041](#tabla-2-041) presenta detalle de 2.6.2.2. Interface Layer y pe
 #### 2.6.2.3. Application Layer
 
 
-<a id="tabla-2-042"></a>
-La [Tabla 2-042](#tabla-2-042) presenta detalle de 2.6.2.3. Application Layer y permite revisar los elementos documentados en esta sección.
+Las clases del Application Layer del Clinical & Commercial Context se presentan en la Tabla 47.
 
-**Tabla 2-042. Detalle de 2.6.2.3. Application Layer.**
+<a id="tabla-47"></a>
+
+**Tabla 47**
+
+*Clases del Application Layer del Clinical & Commercial Context*
+
 
 | Clase | Tipo | Orquesta |
 | :--- | :--- | :--- |
@@ -1999,10 +2142,14 @@ La [Tabla 2-042](#tabla-2-042) presenta detalle de 2.6.2.3. Application Layer y 
 #### 2.6.2.4. Infrastructure Layer
 
 
-<a id="tabla-2-043"></a>
-La [Tabla 2-043](#tabla-2-043) presenta detalle de 2.6.2.4. Infrastructure Layer y permite revisar los elementos documentados en esta sección.
+Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen en la Tabla 48.
 
-**Tabla 2-043. Detalle de 2.6.2.4. Infrastructure Layer.**
+<a id="tabla-48"></a>
+
+**Tabla 48**
+
+*Clases del Infrastructure Layer del Clinical & Commercial Context*
+
 
 | Clase | Tipo | Detalle técnico |
 | :--- | :--- | :--- |
@@ -2023,14 +2170,17 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Resuelve la persistencia de datos mediante `ClinicalRecordRepositoryImpl`, `QuotationRepositoryImpl` y `SaleRepositoryImpl` sobre PostgreSQL utilizando JPA/Hibernate, publica eventos de dominio hacia el Event Bus mediante `DomainEventPublisher`, y provee la `PaymentGatewayAdapter` (Anti-Corruption Layer) para comunicarse de forma desacoplada con pasarelas de pago externas (POS, billeteras digitales).
 
 
-La evidencia de 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams se presenta en [Figura 2-050](#figura-2-050).
+El diagrama de componentes del Clinical & Commercial Context en Spring Boot se muestra en la Figura 41.
+
+<a id="figura-41"></a>
+
+**Figura 41**
+
+*Diagrama de componentes del Clinical & Commercial Context en Spring Boot*
 
 <div align="center">
   <img src="assets/cap2/C4/component-clinical&commercial.jpeg" alt="Clinical and Commercial Component Level Diagram" width="1000">
 </div>
-
-<a id="figura-2-050"></a>
-**Figura 2-050. Clinical and Commercial Component Level Diagram.**
 
 
 La estructura modular permite que el registro clínico, la prescripción optométrica, la cotización y la venta se ejecuten manteniendo la coherencia transaccional y la trazabilidad de eventos como `SaleWasClosed`, indispensable para desencadenar los flujos de producción e inventario.
@@ -2041,15 +2191,16 @@ La estructura modular permite que el registro clínico, la prescripción optomé
 <a id="2.6.2.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones.
+El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 42).
 
 
-La evidencia de 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams se presenta en [Figura 2-051](#figura-2-051).
+<a id="figura-42"></a>
+
+**Figura 42**
+
+*Diagrama de clases del Domain Layer del Clinical & Commercial Context*
 
 ![Clinical-Commercial.svg](assets/cap2/class-diagram/imageclass/Clinical-Commercial.svg)
-
-<a id="figura-2-051"></a>
-**Figura 2-051. Evidencia visual de 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams.**
 
 
 <a id="2.6.2.6.2. Bounded Context Database Design Diagram"></a>
@@ -2063,23 +2214,19 @@ Las cotizaciones se almacenan mediante `quotations`, mientras que sus elementos 
 
 Una cotización puede generar **cero o una venta**, y cada venta pertenece a **exactamente una cotización**. Para registrarla, la cotización debe estar aprobada y no tener una venta previa. Por tanto, en el alcance de TB1 una cotización no puede producir varias ventas. Los datos del pago forman parte de `sales`; una venta puede tener cero o un comprobante en `electronic_receipts`.
 
-Esta regla está implementada en `RegisterSaleHandler`: comprueba la aprobación y `existsByQuotationId`, y rechaza una segunda venta con HTTP `409 Conflict`. La migración `V2__clinical_commercial_schema.sql` refuerza la integridad con `sales.quotation_id UUID NOT NULL UNIQUE` y su Foreign Key hacia `quotations.id`. Asimismo, `electronic_receipts.sale_id` es `NOT NULL UNIQUE`. Varios ítems de una cotización no implican varias ventas, y el modelo actual no contempla dividirla en ventas parciales.
+Esta regla está implementada en `RegisterSaleHandler`: comprueba la aprobación y `existsByQuotationId`, y rechaza una segunda venta con HTTP `409 Conflict`. La migración `V2__clinical_commercial_schema.sql` refuerza la integridad con `sales.quotation_id UUID NOT NULL UNIQUE` y su Foreign Key hacia `quotations.id`. Asimismo, `electronic_receipts.sale_id` es `NOT NULL UNIQUE`. Varios ítems de una cotización no implican varias ventas, y el modelo actual no contempla dividirla en ventas parciales (ver Figura 43).
 
 
-La evidencia de 2.6.2.6.2. Bounded Context Database Design Diagram se presenta en [Figura 2-052](#figura-2-052).
+<a id="figura-43"></a>
+
+**Figura 43**
+
+*Modelo de persistencia corregido del Clinical & Commercial Context*
 
 ![Modelo corregido de persistencia Clinical & Commercial](assets/cap2/revision-tb1/clinical-commercial-db-tb1.svg)
 
-<a id="figura-2-052"></a>
-**Figura 2-052. Modelo corregido de persistencia Clinical & Commercial.**
-
-
-
 
 Las relaciones se establecen mediante Primary Keys, Foreign Keys y restricciones de unicidad para mantener la integridad de los agregados y sus entidades persistentes.
-
-
-
 
 
 <a id="2.6.3. Bounded Context: Production & Tracking Context"></a>
@@ -2093,10 +2240,14 @@ La **Domain Layer** concentra las reglas de negocio relacionadas con la producci
 El modelo de dominio se estructura alrededor de los principales conceptos definidos en el lenguaje ubicuo del contexto:
 
 
-<a id="tabla-2-044"></a>
-La [Tabla 2-044](#tabla-2-044) presenta detalle de 2.6.3.1. Domain Layer y permite revisar los elementos documentados en esta sección.
+Los conceptos del Domain Layer del Production & Tracking Context se presentan en la Tabla 49.
 
-**Tabla 2-044. Detalle de 2.6.3.1. Domain Layer.**
+<a id="tabla-49"></a>
+
+**Tabla 49**
+
+*Conceptos del Domain Layer del Production & Tracking Context*
+
 
 | Concepto | Tipo | Responsabilidad |
 |---|---|---|
@@ -2111,10 +2262,14 @@ La [Tabla 2-044](#tabla-2-044) presenta detalle de 2.6.3.1. Domain Layer y permi
 El flujo de estados definido para la `Work Order` utiliza las siguientes etapas:
 
 
-<a id="tabla-2-045"></a>
-La [Tabla 2-045](#tabla-2-045) presenta detalle de 2.6.3.1. Domain Layer y permite revisar los elementos documentados en esta sección.
+Los estados de la orden de trabajo se resumen en la Tabla 50.
 
-**Tabla 2-045. Detalle de 2.6.3.1. Domain Layer.**
+<a id="tabla-50"></a>
+
+**Tabla 50**
+
+*Estados de la orden de trabajo*
+
 
 | Estado | Descripción |
 |---|---|
@@ -2128,10 +2283,14 @@ La [Tabla 2-045](#tabla-2-045) presenta detalle de 2.6.3.1. Domain Layer y permi
 Los principales comandos definidos para el contexto son:
 
 
-<a id="tabla-2-046"></a>
-La [Tabla 2-046](#tabla-2-046) presenta detalle de Domain Commands y permite revisar los elementos documentados en esta sección.
+Los Domain Commands del Production & Tracking Context se detallan en la Tabla 51.
 
-**Tabla 2-046. Detalle de Domain Commands.**
+<a id="tabla-51"></a>
+
+**Tabla 51**
+
+*Domain Commands del Production & Tracking Context*
+
 
 | Command | Responsabilidad |
 |---|---|
@@ -2148,10 +2307,14 @@ La [Tabla 2-046](#tabla-2-046) presenta detalle de Domain Commands y permite rev
 Los eventos publicados por este contexto son:
 
 
-<a id="tabla-2-047"></a>
-La [Tabla 2-047](#tabla-2-047) presenta detalle de Domain Events y permite revisar los elementos documentados en esta sección.
+Los Domain Events del Production & Tracking Context se presentan en la Tabla 52.
 
-**Tabla 2-047. Detalle de Domain Events.**
+<a id="tabla-52"></a>
+
+**Tabla 52**
+
+*Domain Events del Production & Tracking Context*
+
 
 | Domain Event | Descripción |
 |---|---|
@@ -2167,10 +2330,14 @@ La [Tabla 2-047](#tabla-2-047) presenta detalle de Domain Events y permite revis
 ##### Repository
 
 
-<a id="tabla-2-048"></a>
-La [Tabla 2-048](#tabla-2-048) presenta detalle de Repository y permite revisar los elementos documentados en esta sección.
+El Repository del Production & Tracking Context se resume en la Tabla 53.
 
-**Tabla 2-048. Detalle de Repository.**
+<a id="tabla-53"></a>
+
+**Tabla 53**
+
+*Repository del Production & Tracking Context*
+
 
 | Repository | Responsabilidad |
 |---|---|
@@ -2190,10 +2357,14 @@ Los comandos definidos en el Bounded Context se exponen mediante la API Gateway,
 ##### Controllers
 
 
-<a id="tabla-2-049"></a>
-La [Tabla 2-049](#tabla-2-049) presenta detalle de Controllers y permite revisar los elementos documentados en esta sección.
+Los Controllers del Production & Tracking Context se detallan en la Tabla 54.
 
-**Tabla 2-049. Detalle de Controllers.**
+<a id="tabla-54"></a>
+
+**Tabla 54**
+
+*Controllers del Production & Tracking Context*
+
 
 | Controller | Tipo | Responsabilidad |
 |---|---|---|
@@ -2202,10 +2373,14 @@ La [Tabla 2-049](#tabla-2-049) presenta detalle de Controllers y permite revisar
 ##### Event Consumers
 
 
-<a id="tabla-2-050"></a>
-La [Tabla 2-050](#tabla-2-050) presenta detalle de Event Consumers y permite revisar los elementos documentados en esta sección.
+Los Event Consumers del Production & Tracking Context se presentan en la Tabla 55.
 
-**Tabla 2-050. Detalle de Event Consumers.**
+<a id="tabla-55"></a>
+
+**Tabla 55**
+
+*Event Consumers del Production & Tracking Context*
+
 
 | Consumer | Tipo | Responsabilidad |
 |---|---|---|
@@ -2214,10 +2389,14 @@ La [Tabla 2-050](#tabla-2-050) presenta detalle de Event Consumers y permite rev
 ##### Resources / DTOs
 
 
-<a id="tabla-2-051"></a>
-La [Tabla 2-051](#tabla-2-051) presenta detalle de Resources / DTOs y permite revisar los elementos documentados en esta sección.
+Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 56.
 
-**Tabla 2-051. Detalle de Resources / DTOs.**
+<a id="tabla-56"></a>
+
+**Tabla 56**
+
+*Resources / DTOs del Production & Tracking Context*
+
 
 | DTO | Tipo | Uso |
 |---|---|---|
@@ -2234,10 +2413,14 @@ La [Tabla 2-051](#tabla-2-051) presenta detalle de Resources / DTOs y permite re
 ##### Assemblers
 
 
-<a id="tabla-2-052"></a>
-La [Tabla 2-052](#tabla-2-052) presenta detalle de Assemblers y permite revisar los elementos documentados en esta sección.
+Los Assemblers del Production & Tracking Context se detallan en la Tabla 57.
 
-**Tabla 2-052. Detalle de Assemblers.**
+<a id="tabla-57"></a>
+
+**Tabla 57**
+
+*Assemblers del Production & Tracking Context*
+
 
 | Assembler | Transformación |
 |---|---|
@@ -2261,10 +2444,14 @@ Los casos de uso principales corresponden a las operaciones definidas en el Boun
 ##### Command Handlers
 
 
-<a id="tabla-2-053"></a>
-La [Tabla 2-053](#tabla-2-053) presenta detalle de Command Handlers y permite revisar los elementos documentados en esta sección.
+Los Command Handlers del Production & Tracking Context se presentan en la Tabla 58.
 
-**Tabla 2-053. Detalle de Command Handlers.**
+<a id="tabla-58"></a>
+
+**Tabla 58**
+
+*Command Handlers del Production & Tracking Context*
+
 
 | Handler | Tipo | Orquesta |
 |---|---|---|
@@ -2279,10 +2466,14 @@ La [Tabla 2-053](#tabla-2-053) presenta detalle de Command Handlers y permite re
 ##### Event Handler
 
 
-<a id="tabla-2-054"></a>
-La [Tabla 2-054](#tabla-2-054) presenta detalle de Event Handler y permite revisar los elementos documentados en esta sección.
+El Event Handler del Production & Tracking Context se resume en la Tabla 59.
 
-**Tabla 2-054. Detalle de Event Handler.**
+<a id="tabla-59"></a>
+
+**Tabla 59**
+
+*Event Handler del Production & Tracking Context*
+
 
 | Handler | Tipo | Responsabilidad |
 |---|---|---|
@@ -2291,10 +2482,14 @@ La [Tabla 2-054](#tabla-2-054) presenta detalle de Event Handler y permite revis
 ##### Application Services
 
 
-<a id="tabla-2-055"></a>
-La [Tabla 2-055](#tabla-2-055) presenta detalle de Application Services y permite revisar los elementos documentados en esta sección.
+Los Application Services del Production & Tracking Context se detallan en la Tabla 60.
 
-**Tabla 2-055. Detalle de Application Services.**
+<a id="tabla-60"></a>
+
+**Tabla 60**
+
+*Application Services del Production & Tracking Context*
+
 
 | Application Service | Responsabilidad |
 |---|---|
@@ -2314,10 +2509,14 @@ Esta capa implementa las abstracciones definidas en el dominio y permite que las
 ##### Repositories
 
 
-<a id="tabla-2-056"></a>
-La [Tabla 2-056](#tabla-2-056) presenta detalle de Repositories y permite revisar los elementos documentados en esta sección.
+Los Repositories del Production & Tracking Context se presentan en la Tabla 61.
 
-**Tabla 2-056. Detalle de Repositories.**
+<a id="tabla-61"></a>
+
+**Tabla 61**
+
+*Repositories del Production & Tracking Context*
+
 
 | Clase | Tipo | Responsabilidad |
 |---|---|---|
@@ -2326,10 +2525,14 @@ La [Tabla 2-056](#tabla-2-056) presenta detalle de Repositories y permite revisa
 ##### Persistence
 
 
-<a id="tabla-2-057"></a>
-La [Tabla 2-057](#tabla-2-057) presenta detalle de Persistence y permite revisar los elementos documentados en esta sección.
+Los componentes de persistencia del Production & Tracking Context se resumen en la Tabla 62.
 
-**Tabla 2-057. Detalle de Persistence.**
+<a id="tabla-62"></a>
+
+**Tabla 62**
+
+*Componentes de persistencia del Production & Tracking Context*
+
 
 | Componente | Responsabilidad |
 |---|---|
@@ -2339,10 +2542,14 @@ La [Tabla 2-057](#tabla-2-057) presenta detalle de Persistence y permite revisar
 ##### Messaging
 
 
-<a id="tabla-2-058"></a>
-La [Tabla 2-058](#tabla-2-058) presenta detalle de Messaging y permite revisar los elementos documentados en esta sección.
+Los componentes de mensajería del Production & Tracking Context se detallan en la Tabla 63.
 
-**Tabla 2-058. Detalle de Messaging.**
+<a id="tabla-63"></a>
+
+**Tabla 63**
+
+*Componentes de mensajería del Production & Tracking Context*
+
 
 | Componente | Responsabilidad |
 |---|---|
@@ -2370,14 +2577,17 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Implementa la persistencia documental mediante `WorkOrderRepositoryImpl`, `WorkOrderEntity` y `WorkOrderMapper` sobre MongoDB, la mensajería asíncrona mediante `DomainEventPublisher` y `SaleWasClosedConsumer` conectados al Event Bus (RabbitMQ/Kafka), y una Anti-Corruption Layer (ACL) que aísla el modelo de fabricación respecto a los datos comerciales y de facturación.
 
 
-La evidencia de 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams se presenta en [Figura 2-054](#figura-2-054).
+El diagrama de componentes del Production & Tracking Context en Spring Boot se presenta en la Figura 44.
+
+<a id="figura-44"></a>
+
+**Figura 44**
+
+*Diagrama de componentes del Production & Tracking Context en Spring Boot*
 
 <div align="center">
   <img src="assets/cap2/C4/component-production&tracking.jpeg" alt="Production and Tracking Component Level Diagram" width="1000">
 </div>
-
-<a id="figura-2-054"></a>
-**Figura 2-054. Production and Tracking Component Level Diagram.**
 
 
 Este diseño por componentes asegura que cada transición del estado de fabricación de las lentes (pendiente, taller, control de calidad, entrega) se registre de forma consistente y notifique en tiempo real a los contextos interesados sin generar dependencias directas con las interfaces de usuario.
@@ -2394,15 +2604,16 @@ El modelo se organiza alrededor de `WorkOrder`, que representa el Aggregate Root
 
 El estado actual de la orden es representado mediante `WorkOrderStatus`, el cual permite identificar las diferentes etapas del flujo de producción: pendiente, en taller, control de calidad y listo para entrega. Asimismo, `DeliveryDate` representa la fecha estimada de entrega del pedido, mientras que `DeliveryDelay` permite representar situaciones relacionadas con retrasos durante el proceso de fabricación.
 
-El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo.
+El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 45).
 
 
-La evidencia de 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams se presenta en [Figura 2-055](#figura-2-055).
+<a id="figura-45"></a>
+
+**Figura 45**
+
+*Diagrama de clases del Domain Layer del Production & Tracking Context*
 
 ![Production-Tracking.svg](assets/cap2/class-diagram/imageclass/Production-Tracking.svg)
-
-<a id="figura-2-055"></a>
-**Figura 2-055. Evidencia visual de 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams.**
 
 
 <a id="2.6.3.6.2. Bounded Context Database Design Diagram"></a>
@@ -2414,18 +2625,18 @@ El modelo se organiza alrededor de la colección `work_orders`, correspondiente 
 
 Dentro del documento de una orden pueden representarse la información del técnico asignado, el laboratorio, las lentes asociadas, el estado actual de producción, la fecha estimada de entrega y la información relacionada con posibles retrasos.
 
-Debido al uso de MongoDB, los elementos que forman parte del agregado pueden representarse mediante documentos embebidos y arreglos internos, evitando la necesidad de utilizar relaciones mediante Primary Keys y Foreign Keys propias de un modelo relacional.
+Debido al uso de MongoDB, los elementos que forman parte del agregado pueden representarse mediante documentos embebidos y arreglos internos, evitando la necesidad de utilizar relaciones mediante Primary Keys y Foreign Keys propias de un modelo relacional (ver Figura 46).
 
 
-La evidencia de 2.6.3.6.2. Bounded Context Database Design Diagram se presenta en [Figura 2-056](#figura-2-056).
+<a id="figura-46"></a>
+
+**Figura 46**
+
+*Diagrama de base de datos del Production & Tracking Context*
 
 <div align="center">
   <img src="assets/cap2/ProductionTrackingDatabaseDesignDiagram.png" alt="Production and Tracking Database Design Diagram" width="1000">
 </div>
-
-<a id="figura-2-056"></a>
-**Figura 2-056. Production and Tracking Database Design Diagram.**
-
 
 
 <a id="2.6.4. Bounded Context: Store Management & Inventory Contexty"></a>
@@ -2441,10 +2652,14 @@ El modelo de dominio se organiza alrededor de los conceptos definidos en el leng
 ##### Domain Concepts
 
 
-<a id="tabla-2-059"></a>
-La [Tabla 2-059](#tabla-2-059) presenta detalle de Domain Concepts y permite revisar los elementos documentados en esta sección.
+Los Domain Concepts del Store Management & Inventory Context se resumen en la Tabla 64.
 
-**Tabla 2-059. Detalle de Domain Concepts.**
+<a id="tabla-64"></a>
+
+**Tabla 64**
+
+*Domain Concepts del Store Management & Inventory Context*
+
 
 | Concepto | Tipo | Responsabilidad |
 |---|---|---|
@@ -2462,10 +2677,14 @@ La [Tabla 2-059](#tabla-2-059) presenta detalle de Domain Concepts y permite rev
 Los comandos definidos para el contexto son:
 
 
-<a id="tabla-2-060"></a>
-La [Tabla 2-060](#tabla-2-060) presenta detalle de Domain Commands y permite revisar los elementos documentados en esta sección.
+Los Domain Commands del Store Management & Inventory Context se detallan en la Tabla 65.
 
-**Tabla 2-060. Detalle de Domain Commands.**
+<a id="tabla-65"></a>
+
+**Tabla 65**
+
+*Domain Commands del Store Management & Inventory Context*
+
 
 | Command | Responsabilidad |
 |---|---|
@@ -2480,10 +2699,14 @@ La [Tabla 2-060](#tabla-2-060) presenta detalle de Domain Commands y permite rev
 Los principales eventos publicados por el contexto son:
 
 
-<a id="tabla-2-061"></a>
-La [Tabla 2-061](#tabla-2-061) presenta detalle de Domain Events y permite revisar los elementos documentados en esta sección.
+Los Domain Events del Store Management & Inventory Context se presentan en la Tabla 66.
 
-**Tabla 2-061. Detalle de Domain Events.**
+<a id="tabla-66"></a>
+
+**Tabla 66**
+
+*Domain Events del Store Management & Inventory Context*
+
 
 | Domain Event | Descripción |
 |---|---|
@@ -2498,10 +2721,14 @@ La [Tabla 2-061](#tabla-2-061) presenta detalle de Domain Events y permite revis
 ##### Repository
 
 
-<a id="tabla-2-062"></a>
-La [Tabla 2-062](#tabla-2-062) presenta detalle de Repository y permite revisar los elementos documentados en esta sección.
+El Repository del Store Management & Inventory Context se resume en la Tabla 67.
 
-**Tabla 2-062. Detalle de Repository.**
+<a id="tabla-67"></a>
+
+**Tabla 67**
+
+*Repository del Store Management & Inventory Context*
+
 
 | Repository | Responsabilidad |
 |---|---|
@@ -2521,10 +2748,14 @@ Las solicitudes externas son recibidas mediante la API Gateway y posteriormente 
 ##### Controllers
 
 
-<a id="tabla-2-063"></a>
-La [Tabla 2-063](#tabla-2-063) presenta detalle de Controllers y permite revisar los elementos documentados en esta sección.
+Los Controllers del Store Management & Inventory Context se detallan en la Tabla 68.
 
-**Tabla 2-063. Detalle de Controllers.**
+<a id="tabla-68"></a>
+
+**Tabla 68**
+
+*Controllers del Store Management & Inventory Context*
+
 
 | Controller | Tipo | Responsabilidad |
 |---|---|---|
@@ -2535,10 +2766,14 @@ La [Tabla 2-063](#tabla-2-063) presenta detalle de Controllers y permite revisar
 ##### Event Consumers
 
 
-<a id="tabla-2-064"></a>
-La [Tabla 2-064](#tabla-2-064) presenta detalle de Event Consumers y permite revisar los elementos documentados en esta sección.
+Los Event Consumers del Store Management & Inventory Context se presentan en la Tabla 69.
 
-**Tabla 2-064. Detalle de Event Consumers.**
+<a id="tabla-69"></a>
+
+**Tabla 69**
+
+*Event Consumers del Store Management & Inventory Context*
+
 
 | Consumer | Tipo | Responsabilidad |
 |---|---|---|
@@ -2549,10 +2784,14 @@ La recepción de `SaleWasClosed` forma parte del flujo de integración definido 
 ##### Resources / DTOs
 
 
-<a id="tabla-2-065"></a>
-La [Tabla 2-065](#tabla-2-065) presenta detalle de Resources / DTOs y permite revisar los elementos documentados en esta sección.
+Los Resources / DTOs del Store Management & Inventory Context se resumen en la Tabla 70.
 
-**Tabla 2-065. Detalle de Resources / DTOs.**
+<a id="tabla-70"></a>
+
+**Tabla 70**
+
+*Resources / DTOs del Store Management & Inventory Context*
+
 
 | DTO | Tipo | Uso |
 |---|---|---|
@@ -2569,10 +2808,14 @@ La [Tabla 2-065](#tabla-2-065) presenta detalle de Resources / DTOs y permite re
 ##### Assemblers
 
 
-<a id="tabla-2-066"></a>
-La [Tabla 2-066](#tabla-2-066) presenta detalle de Assemblers y permite revisar los elementos documentados en esta sección.
+Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 71.
 
-**Tabla 2-066. Detalle de Assemblers.**
+<a id="tabla-71"></a>
+
+**Tabla 71**
+
+*Assemblers del Store Management & Inventory Context*
+
 
 | Assembler | Transformación |
 |---|---|
@@ -2594,10 +2837,14 @@ Los casos de uso se ejecutan mediante handlers que reciben los comandos provenie
 ##### Command Handlers
 
 
-<a id="tabla-2-067"></a>
-La [Tabla 2-067](#tabla-2-067) presenta detalle de Command Handlers y permite revisar los elementos documentados en esta sección.
+Los Command Handlers del Store Management & Inventory Context se presentan en la Tabla 72.
 
-**Tabla 2-067. Detalle de Command Handlers.**
+<a id="tabla-72"></a>
+
+**Tabla 72**
+
+*Command Handlers del Store Management & Inventory Context*
+
 
 | Handler | Tipo | Orquesta |
 |---|---|---|
@@ -2610,10 +2857,14 @@ La [Tabla 2-067](#tabla-2-067) presenta detalle de Command Handlers y permite re
 ##### Event Handler
 
 
-<a id="tabla-2-068"></a>
-La [Tabla 2-068](#tabla-2-068) presenta detalle de Event Handler y permite revisar los elementos documentados en esta sección.
+El Event Handler del Store Management & Inventory Context se resume en la Tabla 73.
 
-**Tabla 2-068. Detalle de Event Handler.**
+<a id="tabla-73"></a>
+
+**Tabla 73**
+
+*Event Handler del Store Management & Inventory Context*
+
 
 | Handler | Tipo | Responsabilidad |
 |---|---|---|
@@ -2622,10 +2873,14 @@ La [Tabla 2-068](#tabla-2-068) presenta detalle de Event Handler y permite revis
 ##### Application Services
 
 
-<a id="tabla-2-069"></a>
-La [Tabla 2-069](#tabla-2-069) presenta detalle de Application Services y permite revisar los elementos documentados en esta sección.
+Los Application Services del Store Management & Inventory Context se detallan en la Tabla 74.
 
-**Tabla 2-069. Detalle de Application Services.**
+<a id="tabla-74"></a>
+
+**Tabla 74**
+
+*Application Services del Store Management & Inventory Context*
+
 
 | Application Service | Responsabilidad |
 |---|---|
@@ -2645,10 +2900,14 @@ La **Infrastructure Layer** contiene las implementaciones técnicas necesarias p
 ##### Repositories
 
 
-<a id="tabla-2-070"></a>
-La [Tabla 2-070](#tabla-2-070) presenta detalle de Repositories y permite revisar los elementos documentados en esta sección.
+Los Repositories del Store Management & Inventory Context se presentan en la Tabla 75.
 
-**Tabla 2-070. Detalle de Repositories.**
+<a id="tabla-75"></a>
+
+**Tabla 75**
+
+*Repositories del Store Management & Inventory Context*
+
 
 | Clase | Tipo | Responsabilidad |
 |---|---|---|
@@ -2659,10 +2918,14 @@ La [Tabla 2-070](#tabla-2-070) presenta detalle de Repositories y permite revisa
 ##### Persistence
 
 
-<a id="tabla-2-071"></a>
-La [Tabla 2-071](#tabla-2-071) presenta detalle de Persistence y permite revisar los elementos documentados en esta sección.
+Los componentes de persistencia del Store Management & Inventory Context se resumen en la Tabla 76.
 
-**Tabla 2-071. Detalle de Persistence.**
+<a id="tabla-76"></a>
+
+**Tabla 76**
+
+*Componentes de persistencia del Store Management & Inventory Context*
+
 
 | Componente | Responsabilidad |
 |---|---|
@@ -2676,10 +2939,14 @@ La [Tabla 2-071](#tabla-2-071) presenta detalle de Persistence y permite revisar
 ##### Messaging
 
 
-<a id="tabla-2-072"></a>
-La [Tabla 2-072](#tabla-2-072) presenta detalle de Messaging y permite revisar los elementos documentados en esta sección.
+Los componentes de mensajería del Store Management & Inventory Context se detallan en la Tabla 77.
 
-**Tabla 2-072. Detalle de Messaging.**
+<a id="tabla-77"></a>
+
+**Tabla 77**
+
+*Componentes de mensajería del Store Management & Inventory Context*
+
 
 | Componente | Responsabilidad |
 |---|---|
@@ -2700,14 +2967,17 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Provee la implementación de persistencia relacional (`InventoryRepositoryImpl`, `FrameModelRepositoryImpl`, `SupplierRepositoryImpl`) sobre PostgreSQL, las entidades de persistencia (`InventoryEntity`, `FrameModelEntity`, `SupplierEntity`), los Mappers, el publicador de eventos `DomainEventPublisher` y el consumidor `SaleWasClosedConsumer` sobre el Event Bus.
 
 
-La evidencia de 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams se presenta en [Figura 2-057](#figura-2-057).
+El diagrama de componentes del Store Management & Inventory Context en Spring Boot se presenta en la Figura 47.
+
+<a id="figura-47"></a>
+
+**Figura 47**
+
+*Diagrama de componentes del Store Management & Inventory Context en Spring Boot*
 
 <div align="center">
   <img src="assets/cap2/C4/component-store&inventory.jpeg" alt="Store Management and Inventory Component Level Diagram" width="1000">
 </div>
-
-<a id="figura-2-057"></a>
-**Figura 2-057. Store Management and Inventory Component Level Diagram.**
 
 
 La articulación de estos componentes garantiza el control de inventario multitienda, la detección temprana de niveles críticos de existencias mediante alertas automáticas y la actualización precisa de stock tras cada venta concretada.
@@ -2726,15 +2996,16 @@ El modelo se organiza principalmente alrededor de `FrameModel` e `Inventory`. `F
 
 El proceso de abastecimiento se representa mediante `Replenishment`, el cual relaciona el inventario, el producto y el `Supplier` responsable del suministro. Asimismo, `LowStockAlert` representa la información generada cuando la cantidad disponible de un producto alcanza o se encuentra por debajo del nivel mínimo establecido.
 
-El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository` y `SupplierRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores.
+El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository` y `SupplierRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 48).
 
 
-La evidencia de 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams se presenta en [Figura 2-058](#figura-2-058).
+<a id="figura-48"></a>
+
+**Figura 48**
+
+*Diagrama de clases del Domain Layer del Store Management & Inventory Context*
 
 ![Store-Management-Inventory.svg](assets/cap2/class-diagram/imageclass/Store-Management-Inventory.svg)
-
-<a id="figura-2-058"></a>
-**Figura 2-058. Evidencia visual de 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams.**
 
 
 <a id="2.6.4.6.2. Bounded Context Database Design Diagram"></a>
@@ -2750,18 +3021,18 @@ La tabla `inventories` representa los inventarios administrados por el contexto,
 
 La tabla `suppliers` almacena los proveedores responsables del abastecimiento de productos. Por otro lado, `replenishments` registra las operaciones de reposición de stock, relacionando un inventario, un modelo de montura y el proveedor involucrado en el abastecimiento.
 
-Las relaciones entre las tablas se establecen mediante Primary Keys y Foreign Keys, permitiendo mantener la integridad referencial de la información relacionada con catálogo, existencias, proveedores y operaciones de reabastecimiento.
+Las relaciones entre las tablas se establecen mediante Primary Keys y Foreign Keys, permitiendo mantener la integridad referencial de la información relacionada con catálogo, existencias, proveedores y operaciones de reabastecimiento (ver Figura 49).
 
 
-La evidencia de 2.6.4.6.2. Bounded Context Database Design Diagram se presenta en [Figura 2-059](#figura-2-059).
+<a id="figura-49"></a>
+
+**Figura 49**
+
+*Diagrama de base de datos del Store Management & Inventory Context*
 
 <div align="center">
   <img src="assets/cap2/StoreManagementInventoryDatabaseDesignDiagram.png" alt="Store Management and Inventory Database Design Diagram" width="1000">
 </div>
-
-<a id="figura-2-059"></a>
-**Figura 2-059. Store Management and Inventory Database Design Diagram.**
-
 
 
 <a id="2.6.5. Bounded Context: Notification & Loyalty Context"></a>
@@ -2775,10 +3046,14 @@ La capa de dominio del **Notification & Loyalty Context** concentra las reglas r
 ##### Domain Concepts
 
 
-<a id="tabla-2-073"></a>
-La [Tabla 2-073](#tabla-2-073) presenta detalle de Domain Concepts y permite revisar los elementos documentados en esta sección.
+Los Domain Concepts del Notification & Loyalty Context se resumen en la Tabla 78.
 
-**Tabla 2-073. Detalle de Domain Concepts.**
+<a id="tabla-78"></a>
+
+**Tabla 78**
+
+*Domain Concepts del Notification & Loyalty Context*
+
 
 | Concepto | Tipo | Descripción |
 |---|---|---|
@@ -2794,10 +3069,14 @@ La [Tabla 2-073](#tabla-2-073) presenta detalle de Domain Concepts y permite rev
 ##### Commands
 
 
-<a id="tabla-2-074"></a>
-La [Tabla 2-074](#tabla-2-074) presenta detalle de Commands y permite revisar los elementos documentados en esta sección.
+Los Commands del Notification & Loyalty Context se detallan en la Tabla 79.
 
-**Tabla 2-074. Detalle de Commands.**
+<a id="tabla-79"></a>
+
+**Tabla 79**
+
+*Commands del Notification & Loyalty Context*
+
 
 | Command | Descripción |
 |---|---|
@@ -2813,10 +3092,14 @@ La [Tabla 2-074](#tabla-2-074) presenta detalle de Commands y permite revisar lo
 ##### Domain Events
 
 
-<a id="tabla-2-075"></a>
-La [Tabla 2-075](#tabla-2-075) presenta detalle de Domain Events y permite revisar los elementos documentados en esta sección.
+Los Domain Events del Notification & Loyalty Context se presentan en la Tabla 80.
 
-**Tabla 2-075. Detalle de Domain Events.**
+<a id="tabla-80"></a>
+
+**Tabla 80**
+
+*Domain Events del Notification & Loyalty Context*
+
 
 | Evento | Descripción |
 |---|---|
@@ -2841,10 +3124,14 @@ La Interface Layer expone los puntos de entrada necesarios para ejecutar las ope
 ##### Resources / DTOs
 
 
-<a id="tabla-2-076"></a>
-La [Tabla 2-076](#tabla-2-076) presenta detalle de Resources / DTOs y permite revisar los elementos documentados en esta sección.
+Los Resources / DTOs del Notification & Loyalty Context se resumen en la Tabla 81.
 
-**Tabla 2-076. Detalle de Resources / DTOs.**
+<a id="tabla-81"></a>
+
+**Tabla 81**
+
+*Resources / DTOs del Notification & Loyalty Context*
+
 
 | DTO | Tipo | Uso |
 |---|---|---|
@@ -2860,10 +3147,14 @@ La [Tabla 2-076](#tabla-2-076) presenta detalle de Resources / DTOs y permite re
 ##### Controllers
 
 
-<a id="tabla-2-077"></a>
-La [Tabla 2-077](#tabla-2-077) presenta detalle de Controllers y permite revisar los elementos documentados en esta sección.
+Los Controllers del Notification & Loyalty Context se detallan en la Tabla 82.
 
-**Tabla 2-077. Detalle de Controllers.**
+<a id="tabla-82"></a>
+
+**Tabla 82**
+
+*Controllers del Notification & Loyalty Context*
+
 
 | Controller | Responsabilidad |
 |---|---|
@@ -2877,10 +3168,14 @@ La [Tabla 2-077](#tabla-2-077) presenta detalle de Controllers y permite revisar
 ##### Assemblers
 
 
-<a id="tabla-2-078"></a>
-La [Tabla 2-078](#tabla-2-078) presenta detalle de Assemblers y permite revisar los elementos documentados en esta sección.
+Los Assemblers del Notification & Loyalty Context se presentan en la Tabla 83.
 
-**Tabla 2-078. Detalle de Assemblers.**
+<a id="tabla-83"></a>
+
+**Tabla 83**
+
+*Assemblers del Notification & Loyalty Context*
+
 
 | Assembler | Transformación |
 |---|---|
@@ -2902,10 +3197,14 @@ La Application Layer coordina los casos de uso definidos para el contexto de not
 ##### Command Handlers
 
 
-<a id="tabla-2-079"></a>
-La [Tabla 2-079](#tabla-2-079) presenta detalle de Command Handlers y permite revisar los elementos documentados en esta sección.
+Los Command Handlers del Notification & Loyalty Context se resumen en la Tabla 84.
 
-**Tabla 2-079. Detalle de Command Handlers.**
+<a id="tabla-84"></a>
+
+**Tabla 84**
+
+*Command Handlers del Notification & Loyalty Context*
+
 
 | Command Handler | Command |
 |---|---|
@@ -2921,10 +3220,14 @@ La [Tabla 2-079](#tabla-2-079) presenta detalle de Command Handlers y permite re
 ##### Event Consumers
 
 
-<a id="tabla-2-080"></a>
-La [Tabla 2-080](#tabla-2-080) presenta detalle de Event Consumers y permite revisar los elementos documentados en esta sección.
+Los Event Consumers del Notification & Loyalty Context se detallan en la Tabla 85.
 
-**Tabla 2-080. Detalle de Event Consumers.**
+<a id="tabla-85"></a>
+
+**Tabla 85**
+
+*Event Consumers del Notification & Loyalty Context*
+
 
 | Event Consumer | Evento recibido | Acción |
 |---|---|---|
@@ -2935,10 +3238,14 @@ La [Tabla 2-080](#tabla-2-080) presenta detalle de Event Consumers y permite rev
 ##### Application Services
 
 
-<a id="tabla-2-081"></a>
-La [Tabla 2-081](#tabla-2-081) presenta detalle de Application Services y permite revisar los elementos documentados en esta sección.
+Los Application Services del Notification & Loyalty Context se presentan en la Tabla 86.
 
-**Tabla 2-081. Detalle de Application Services.**
+<a id="tabla-86"></a>
+
+**Tabla 86**
+
+*Application Services del Notification & Loyalty Context*
+
 
 | Application Service | Responsabilidad |
 |---|---|
@@ -2958,10 +3265,14 @@ La Infrastructure Layer implementa los mecanismos técnicos requeridos para pers
 ##### Repositories
 
 
-<a id="tabla-2-082"></a>
-La [Tabla 2-082](#tabla-2-082) presenta detalle de Repositories y permite revisar los elementos documentados en esta sección.
+Los Repositories del Notification & Loyalty Context se resumen en la Tabla 87.
 
-**Tabla 2-082. Detalle de Repositories.**
+<a id="tabla-87"></a>
+
+**Tabla 87**
+
+*Repositories del Notification & Loyalty Context*
+
 
 | Repository | Responsabilidad |
 |---|---|
@@ -2974,10 +3285,14 @@ La [Tabla 2-082](#tabla-2-082) presenta detalle de Repositories y permite revisa
 ##### Persistence
 
 
-<a id="tabla-2-083"></a>
-La [Tabla 2-083](#tabla-2-083) presenta detalle de Persistence y permite revisar los elementos documentados en esta sección.
+Los componentes de persistencia del Notification & Loyalty Context se detallan en la Tabla 88.
 
-**Tabla 2-083. Detalle de Persistence.**
+<a id="tabla-88"></a>
+
+**Tabla 88**
+
+*Componentes de persistencia del Notification & Loyalty Context*
+
 
 | Componente | Responsabilidad |
 |---|---|
@@ -2990,10 +3305,14 @@ La [Tabla 2-083](#tabla-2-083) presenta detalle de Persistence y permite revisar
 ##### Messaging
 
 
-<a id="tabla-2-084"></a>
-La [Tabla 2-084](#tabla-2-084) presenta detalle de Messaging y permite revisar los elementos documentados en esta sección.
+Los componentes de mensajería del Notification & Loyalty Context se presentan en la Tabla 89.
 
-**Tabla 2-084. Detalle de Messaging.**
+<a id="tabla-89"></a>
+
+**Tabla 89**
+
+*Componentes de mensajería del Notification & Loyalty Context*
+
 
 | Componente | Responsabilidad |
 |---|---|
@@ -3005,10 +3324,14 @@ La [Tabla 2-084](#tabla-2-084) presenta detalle de Messaging y permite revisar l
 ##### External Messaging / ACL
 
 
-<a id="tabla-2-085"></a>
-La [Tabla 2-085](#tabla-2-085) presenta detalle de External Messaging / ACL y permite revisar los elementos documentados en esta sección.
+Los componentes de mensajería externa y ACL del Notification & Loyalty Context se resumen en la Tabla 90.
 
-**Tabla 2-085. Detalle de External Messaging / ACL.**
+<a id="tabla-90"></a>
+
+**Tabla 90**
+
+*Componentes de mensajería externa y ACL del Notification & Loyalty Context*
+
 
 | Componente | Responsabilidad |
 |---|---|
@@ -3030,14 +3353,17 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Resuelve la persistencia orientada a documentos sobre MongoDB (`NotificationRepositoryImpl`, `NotificationPreferencesRepositoryImpl`, etc.), la mensajería asíncrona mediante el `DomainEventPublisher` y los consumidores de eventos, y los adaptadores de integración externa (`WhatsAppMessagingAdapter`, `FirebaseMessagingAdapter`) mediados por la `MessagingAntiCorruptionLayer` (ACL) para desacoplar el dominio de los proveedores externos de mensajería (Meta WhatsApp Cloud API, Firebase Cloud Messaging).
 
 
-La evidencia de 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams se presenta en [Figura 2-060](#figura-2-060).
+El diagrama de componentes del Notification & Loyalty Context en Spring Boot se muestra en la Figura 50.
+
+<a id="figura-50"></a>
+
+**Figura 50**
+
+*Diagrama de componentes del Notification & Loyalty Context en Spring Boot*
 
 <div align="center">
   <img src="assets/cap2/C4/component-notification&loyalty.jpeg" alt="Notification and Loyalty Component Level Diagram" width="1000">
 </div>
-
-<a id="figura-2-060"></a>
-**Figura 2-060. Notification and Loyalty Component Level Diagram.**
 
 
 Esta arquitectura basada en componentes y eventos permite que las notificaciones multicanal (in-app, WhatsApp, push) y las estrategias de fidelización se ejecuten de manera reactiva ante los eventos clave del ciclo de atención y producción de OptiFlow.
@@ -3056,15 +3382,16 @@ El modelo se organiza principalmente alrededor de `NotificationPreferences`, que
 
 `InAppNotification` representa los mensajes mostrados directamente dentro de la aplicación y puede utilizar información de `OrderProgress` para comunicar los cambios producidos durante la fabricación de un pedido. Asimismo, `StaffMember` representa al personal responsable de gestionar las comunicaciones cuando corresponda.
 
-El Domain Layer incluye también las interfaces de repositorio necesarias para abstraer la persistencia de notificaciones, preferencias de comunicación, encuestas, miembros del personal y campañas de reactivación. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las diferentes operaciones de notificación y fidelización.
+El Domain Layer incluye también las interfaces de repositorio necesarias para abstraer la persistencia de notificaciones, preferencias de comunicación, encuestas, miembros del personal y campañas de reactivación. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las diferentes operaciones de notificación y fidelización (ver Figura 51).
 
 
-La evidencia de 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams se presenta en [Figura 2-061](#figura-2-061).
+<a id="figura-51"></a>
+
+**Figura 51**
+
+*Diagrama de clases del Domain Layer del Notification & Loyalty Context*
 
 ![Notification.svg](assets/cap2/class-diagram/imageclass/Notification.svg)
-
-<a id="figura-2-061"></a>
-**Figura 2-061. Evidencia visual de 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams.**
 
 
 <a id="2.6.5.6.2. Bounded Context Database Design Diagram"></a>
@@ -3078,14 +3405,17 @@ La colección `notification_preferences` almacena la configuración de comunicac
 
 Por otro lado, `satisfaction_surveys` almacena las encuestas enviadas a los pacientes después de la entrega de sus pedidos, mientras que `staff_members` mantiene la información del personal que puede ser asignado a la gestión de notificaciones. Finalmente, `reactivation_campaigns` registra las campañas utilizadas para incentivar futuros controles visuales.
 
-Debido al uso de MongoDB, las relaciones entre los elementos del dominio pueden representarse mediante documentos embebidos o referencias lógicas, sin utilizar Primary Keys y Foreign Keys propias de un modelo relacional.
+Debido al uso de MongoDB, las relaciones entre los elementos del dominio pueden representarse mediante documentos embebidos o referencias lógicas, sin utilizar Primary Keys y Foreign Keys propias de un modelo relacional (ver Figura 52).
 
 
-La evidencia de 2.6.5.6.2. Bounded Context Database Design Diagram se presenta en [Figura 2-062](#figura-2-062).
+<a id="figura-52"></a>
+
+**Figura 52**
+
+*Diagrama de base de datos del Notification & Loyalty Context*
 
 <div align="center">
   <img src="assets/cap2/NotificationLoyaltyDatabaseDesignDiagram.png" alt="Notification and Loyalty Database Design Diagram" width="1000">
 </div>
 
-<a id="figura-2-062"></a>
-**Figura 2-062. Notification and Loyalty Database Design Diagram.**
+

@@ -3,9 +3,6 @@
 
 <img src="assets/UPC_logo_transparente.png" alt="Logo-UPC" width="150"> 
 
-<a id="figura-p-001"></a>
-
-
 
 **Universidad Peruana de Ciencias Aplicadas**<br>
 **Carrera de Ingeniería de Software**
@@ -71,10 +68,15 @@ Proyecto<br>
 # Registro de Versiones del Informe 
  
 
-<a id="tabla-p-002"></a>
-La [Tabla P-002](#tabla-p-002) presenta detalle de Registro de Versiones del Informe  y permite revisar los elementos documentados en esta sección.
 
-**Tabla P-002. Detalle de Registro de Versiones del Informe .**
+El registro de versiones del informe se detalla en la Tabla 1.
+
+<a id="tabla-1"></a>
+
+**Tabla 1**
+
+*Registro de versiones del informe*
+
 
 | Versión | Fecha | Autores | Descripción de modificación |
 | ----------- | --------- |----------- |--------------------|
@@ -112,37 +114,47 @@ Durante esta fase, el equipo elaboró el **informe inicial**, que incluyó los s
 A continuación se presenta la captura de los analíticos de colaboración y commits en GitHub para este entregable:
 
 
-La evidencia de AV1 — Semana 4 se presenta en [Figura P-002](#figura-p-002).
+Los commits por integrante en el repositorio del informe durante AV1 se presentan en la Figura 1.
+
+<a id="figura-1"></a>
+
+**Figura 1**
+
+*Commits por integrante en el repositorio del informe durante AV1*
 
 ![Project Report Collaboration Insights AV1](assets/commits/commit1.png)
 
-<a id="figura-p-002"></a>
-**Figura P-002. Project Report Collaboration Insights AV1.**
 
+Los commits semanales del repositorio del informe durante AV1 se observan en la Figura 2.
 
+<a id="figura-2"></a>
 
-La evidencia de AV1 — Semana 4 se presenta en [Figura P-003](#figura-p-003).
+**Figura 2**
+
+*Commits semanales del repositorio del informe durante AV1*
 
 ![Project Report Collaboration Insights AV1](assets/commits/commit2.png)
 
-<a id="figura-p-003"></a>
-**Figura P-003. Project Report Collaboration Insights AV1.**
 
+El resumen de actividad del repositorio del informe entre el 10 y el 17 de septiembre de 2026 se muestra en la Figura 3.
 
+<a id="figura-3"></a>
 
-La evidencia de AV1 — Semana 4 se presenta en [Figura P-004](#figura-p-004).
+**Figura 3**
+
+*Resumen de actividad del repositorio del informe entre el 10 y el 17 de septiembre de 2026*
 
 ![Project Report Collaboration Insights AV1](assets/commits/commit3.png)
 
-<a id="figura-p-004"></a>
-**Figura P-004. Project Report Collaboration Insights AV1.**
 
+Las contribuciones por integrante al repositorio del informe durante AV1 se presentan en la Tabla 2.
 
+<a id="tabla-2"></a>
 
-<a id="tabla-p-003"></a>
-La [Tabla P-003](#tabla-p-003) presenta detalle de AV1 — Semana 4 y permite revisar los elementos documentados en esta sección.
+**Tabla 2**
 
-**Tabla P-003. Detalle de AV1 — Semana 4.**
+*Contribuciones por integrante al repositorio del informe durante AV1*
+
 
 | Integrante | Usuario GitHub | Commits | Adiciones | Eliminaciones |
 |---|---|---:|---:|---:|
@@ -164,15 +176,36 @@ Durante TB1, el equipo corrigió las observaciones del docente sobre el AV1 y de
 - **Morocho Pinedo, Mariana:** wireframes de la Landing Page y de la aplicación móvil, y wireflows y mock-ups de la aplicación móvil.
 - **Quispe Llacsahuanga, César Augusto:** Capítulo III, con las Style Guidelines, la Information Architecture, los SEO tags y los Navigation Systems.
 
-**Figura P-005. Commits por integrante en el repositorio del informe al cierre de TB1.**
+
+Los commits por integrante en el repositorio del informe al cierre de TB1 se observan en la Figura 4.
+
+<a id="figura-4"></a>
+
+**Figura 4**
+
+*Commits por integrante en el repositorio del informe al cierre de TB1*
 
 ![Contribuidores del repositorio del informe en TB1](assets/commits/tb1-contributors.png)
 
-**Figura P-006. Commits semanales del repositorio del informe durante el último año.**
+
+Los commits semanales del repositorio del informe durante el último año se muestran en la Figura 5.
+
+<a id="figura-5"></a>
+
+**Figura 5**
+
+*Commits semanales del repositorio del informe durante el último año*
 
 ![Commits semanales del repositorio del informe](assets/commits/tb1-commit-activity.png)
 
-**Tabla P-005. Contribuciones por integrante al repositorio del informe durante TB1.**
+Las contribuciones por integrante al repositorio del informe durante TB1 se presentan en la Tabla 3.
+
+<a id="tabla-3"></a>
+
+**Tabla 3**
+
+*Contribuciones por integrante al repositorio del informe durante TB1*
+
 
 | Integrante | Usuario GitHub | Commits | Adiciones | Eliminaciones |
 |---|---|---:|---:|---:|
@@ -381,13 +414,15 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 
 En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7.
 
-En OptiFlow, este aprendizaje se relaciona con la investigación del dominio, la aplicación de Lean UX y DDD, el diseño de la experiencia móvil y la integración del flujo de búsqueda y reserva. Las acciones individuales registradas en el cuadro sustentan los dos criterios específicos: actualización de conocimientos y reconocimiento de la necesidad del aprendizaje permanente.
+En OptiFlow, este aprendizaje se relaciona con la investigación del dominio, la aplicación de Lean UX y DDD, el diseño de la experiencia móvil y la integración del flujo de búsqueda y reserva. Las acciones individuales registradas en el cuadro sustentan los dos criterios específicos: actualización de conocimientos y reconocimiento de la necesidad del aprendizaje permanente (ver Tabla 4).
 
 
-<a id="tabla-p-004"></a>
-La [Tabla P-004](#tabla-p-004) presenta detalle de Student Outcome y permite revisar los elementos documentados en esta sección.
+<a id="tabla-4"></a>
 
-**Tabla P-004. Detalle de Student Outcome.**
+**Tabla 4**
+
+*Acciones realizadas y conclusiones respecto al ABET – EAC – Student Outcome 7*
+
 
 <table>
    <tr>

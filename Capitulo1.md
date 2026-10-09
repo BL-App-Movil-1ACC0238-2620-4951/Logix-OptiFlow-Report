@@ -17,13 +17,14 @@ La visión de OptiFlow es convertirse en una plataforma de referencia para el ag
 ### 1.1.2. Perfiles de integrantes del equipo
 
 
-<a id="tabla-1-001"></a>
-La [Tabla 1-001](#tabla-1-001) presenta detalle de 1.1.2. Perfiles de integrantes del equipo y permite revisar los elementos documentados en esta sección.
+Los perfiles de los integrantes del equipo se resumen en la Tabla 5.
 
-**Tabla 1-001. Detalle de 1.1.2. Perfiles de integrantes del equipo.**
+<a id="tabla-5"></a>
 
+**Tabla 5**
 
-La evidencia de 1.1.2. Perfiles de integrantes del equipo se presenta en [Figura 1-001](#figura-1-001), [Figura 1-002](#figura-1-002), [Figura 1-003](#figura-1-003), [Figura 1-004](#figura-1-004), [Figura 1-005](#figura-1-005).
+*Perfiles de los integrantes del equipo*
+
 
 |Foto|Apellido y Nombre| 
 | --- | --- |
@@ -32,17 +33,6 @@ La evidencia de 1.1.2. Perfiles de integrantes del equipo se presenta en [Figura
 <img src="assets/members/eslander.jpg"> | Celis Berrospi Eslander - u201911249 Soy estudiante de Ingeniería de Software. Me considero una persona responsable y comprometida con mis objetivos, con una gran disposición para aprender y mejorar de manera continua. Valoro mucho la ética y el trabajo en equipo, aportando siempre ideas y soluciones para alcanzar resultados de calidad. Me esfuerzo por mantener un enfoque ordenado en mis tareas y contribuir activamente al desarrollo colectivo. Tengo conocimientos en Python, C++ y HTML, lo que me permite desarrollar soluciones tecnológicas y fortalecer mis habilidades en programación. Estoy motivado a seguir aprendiendo y asumir nuevos retos que me ayuden a crecer tanto profesional como personalmente.
 <img src="assets/members/Mariana.jpeg"> | Mariana Morocho Pinedo - u202411521 Soy estudiante de Ingeniería de Software. Cuento con conocimientos en lenguajes de programación como C++, Python y Java, los cuales he aplicado en distintos proyectos académicos orientados a la resolución de problemas y desarrollo de sistemas. Me caracterizo por ser proactiva y  con disposición de generar un buen ambiente.
 <img src="assets/members/cesar.jpeg"> | Quispe Llacsahuanga César Agusto - u202417405 Soy estudiante de Ingeniería de Software, interesado en el desarrollo de soluciones tecnológicas y el aprendizaje continuo en herramientas de programación. Cuento con conocimientos en lógica de programación, bases de datos y desarrollo de aplicaciones, lo que me permite contribuir en la construcción de sistemas eficientes. Me caracterizo por ser responsable, proactivo y con buena disposición para el trabajo en equipo, adaptándome a nuevos retos y aportando en el cumplimiento de los objetivos del proyecto.
-
-<a id="figura-1-001"></a>
-**Figura 1-001. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
-<a id="figura-1-002"></a>
-**Figura 1-002. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
-<a id="figura-1-003"></a>
-**Figura 1-003. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
-<a id="figura-1-004"></a>
-**Figura 1-004. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
-<a id="figura-1-005"></a>
-**Figura 1-005. Evidencia visual de 1.1.2. Perfiles de integrantes del equipo.**
 
 
 ## 1.2. Solution Profile
@@ -265,12 +255,15 @@ Creemos que el seguimiento móvil de pedidos y las notificaciones oportunas redu
 #### 1.2.2.4. Lean UX Canvas
 
 
-La evidencia de 1.2.2.4. Lean UX Canvas se presenta en [Figura 1-006](#figura-1-006).
+El Lean UX Canvas de OptiFlow se muestra en la Figura 6.
+
+<a id="figura-6"></a>
+
+**Figura 6**
+
+*Lean UX Canvas de OptiFlow*
 
 ![Lean UX Canvas.png](assets/cap1/Lean%20UX%20Canvas.png)
-
-<a id="figura-1-006"></a>
-**Figura 1-006. Evidencia visual de 1.2.2.4. Lean UX Canvas.**
 
 
 ## 1.3. Segmentos objetivo
