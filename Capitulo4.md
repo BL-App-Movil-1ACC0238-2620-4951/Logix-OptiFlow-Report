@@ -1424,7 +1424,13 @@ Tareas del Landing Page: explorar libremente la página, buscar cómo reservar u
 
 En esta sección se registran las entrevistas de validación realizadas con usuarios de los dos segmentos objetivo de OptiFlow, quienes interactuaron con la Landing Page y con la aplicación móvil. Todas las entrevistas se encuentran en un solo video, publicado en el OneDrive facilitado por el docente.
 
-**Video de entrevistas de validación:** [URL del video en OneDrive]
+**Video de entrevistas de validación:**
+
+![captura entrevistas.png](assets/cap3/entrevistas/captura%20entrevistas.png)
+
+Enlace:
+
+https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d317_upc_edu_pe/IQBMU94REze_ToVH6ypsrwSQAQ8o417Ttlc68_FnccjszWQ?e=k17qUs&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 **Segmento 1: *Staff de la Óptica***
 
