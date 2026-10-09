@@ -727,10 +727,6 @@ El recorrido utilizó el paciente ficticio Paciente Demo Informe. Tras el inicio
 
 La respuesta de esta consulta se conserva como [evidencia JSON de la reserva móvil](assets/cap4/sprint1/mobile-booking-response.json). El identificador verificado es `537787f8-d78f-4181-9d0e-e51c2266f02f`, con estado CONFIRMED. Al tratarse de una base de demostración en memoria, las capturas y la respuesta adjunta conservan la evidencia de esta ejecución.
 
-##### Video explicativo
-
-El video de navegación y explicación del incremento será grabado por el equipo. Su enlace se incorporará a esta sección junto con la demostración de la Landing Page, la aplicación móvil y los Web Services.
-
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
 Los Web Services de **OptiFlow** se documentan mediante **OpenAPI 3.1**. El backend utiliza **Java 21 y Spring Boot**, y **springdoc-openapi** genera la especificación y la interfaz **Swagger UI** a partir de los controladores. La configuración ubicada en `shared/documentation/openapi/configuration` define los datos generales de la API y las etiquetas que agrupan las operaciones por contexto. Esta documentación permite consultar contratos y ejecutar solicitudes para revisar el comportamiento del servicio.
