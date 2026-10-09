@@ -12,7 +12,7 @@ La misión de OptiFlow es simplificar la búsqueda y reserva de citas ópticas y
 
 La visión de OptiFlow es convertirse en una plataforma de referencia para el agendamiento y la fidelización en el sector óptico, conectando a pacientes que necesitan atención visual con establecimientos que buscan ofrecer un servicio organizado y mantener relaciones duraderas con sus clientes.
 
-**Alcance de la aplicación:** la propuesta integral comprende la búsqueda de ópticas, la consulta de catálogos y disponibilidad, la reserva de citas y el seguimiento posterior del paciente. Para TB1, el incremento del Sprint 1 se concentra en la búsqueda y reserva, correspondientes a US05 y US06. Las funciones de fidelización, notificaciones y gestión interna forman parte del diseño general; su definición no implica que todas estén implementadas en la aplicación móvil de esta entrega.
+**Alcance de la aplicación:** la propuesta integral comprende la búsqueda de ópticas, la consulta de catálogos y disponibilidad, la reserva de citas y el seguimiento posterior del paciente. Para TB1, el incremento del Sprint 1 se concentra en la búsqueda y reserva, correspondientes a US05 y US06.
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
@@ -241,7 +241,7 @@ Creemos que integrar la historia clínica y las cotizaciones en una aplicación 
 
 **Trazabilidad mediante Tablero Kanban Móvil**
 
-Creemos que un tablero Kanban móvil permitirá al personal y al laboratorio consultar y actualizar el estado de las órdenes de trabajo con mayor claridad. La hipótesis plantea reducir los tiempos de entrega en al menos un 25% y alcanzar un cumplimiento superior al 95% de los plazos prometidos. Se evaluará mediante la comparación de tiempos registrados, incidencias y comentarios del personal; estos valores son metas pendientes de validación.
+Creemos que un tablero Kanban móvil permitirá al personal y al laboratorio consultar y actualizar el estado de las órdenes de trabajo con mayor claridad. La hipótesis plantea reducir los tiempos de entrega en al menos un 25% y alcanzar un cumplimiento superior al 95% de los plazos prometidos. Se evaluará mediante la comparación de tiempos registrados, incidencias y comentarios del personal.
 
 **Consulta Ágil de Inventario por Cámara**
 

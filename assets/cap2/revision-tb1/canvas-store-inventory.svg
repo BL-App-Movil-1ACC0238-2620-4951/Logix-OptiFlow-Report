@@ -43,5 +43,5 @@
 <text x="756" y="1111" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Open Questions · Decisiones pendientes</text>
 <text x="756" y="1149" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Decidir política de reserva de stock, ajustes, múltiples</text>
 <text x="756" y="1174" font-family="Arial,sans-serif" font-size="18" fill="#243b53">sucursales y reconciliación ante pérdida de conexión.</text>
-<text x="36" y="1350" font-family="Arial,sans-serif" font-size="16" fill="#243b53">Diseño integral hasta TB1 · Referencia metodológica: DDD Crew · Las métricas son criterios de verificación, no resultados.</text>
+<text x="36" y="1350" font-family="Arial,sans-serif" font-size="16" fill="#243b53">Referencia: DDD Crew, The Bounded Context Canvas.</text>
 </svg>

@@ -301,7 +301,7 @@ Los criterios de accesibilidad de la interfaz se muestran en la Figura 61.
 </p>
 
 
-El diseño contempla legibilidad, contraste, identificación de controles y mensajes comprensibles para facilitar el uso por personas con distintas necesidades. Estos criterios orientan la interfaz y deben comprobarse durante la evaluación de usabilidad; su inclusión en el diseño no equivale a una certificación de accesibilidad.
+El diseño contempla legibilidad, contraste, identificación de controles y mensajes comprensibles para facilitar el uso por personas con distintas necesidades. Estos criterios orientan la interfaz y deben comprobarse durante la evaluación de usabilidad.
 
 Se considerarán los siguientes aspectos:
 
@@ -619,7 +619,7 @@ Las etiquetas **Open Graph** definen el título y la descripción utilizados al 
 
 ##### 3.1.2.4. Searching Systems
 
-El sistema de búsqueda propuesto permite al paciente localizar ópticas y consultar su disponibilidad mediante una interfaz móvil. El diseño organiza los resultados y prioriza los datos necesarios para elegir un establecimiento. Los filtros y el mapa descritos a continuación pertenecen a la experiencia diseñada; su presencia en el prototipo no implica que todas estas opciones estén implementadas en el Sprint 1.
+El sistema de búsqueda propuesto permite al paciente localizar ópticas y consultar su disponibilidad mediante una interfaz móvil. El diseño organiza los resultados y prioriza los datos necesarios para elegir un establecimiento. Los filtros y el mapa descritos a continuación pertenecen a la experiencia diseñada.
 
 La pantalla de búsqueda cuenta con una barra que permite ingresar diferentes criterios relacionados con la óptica, como el nombre, dirección o estilo. Además, se presentan accesos rápidos para facilitar la búsqueda según las necesidades del usuario.
 
@@ -748,7 +748,7 @@ Se presenta la distribución de la sección de precios y de los integrantes del 
 ![Landing page precios.png](assets/cap3/wireframes/wireframe_landing_3.png)
 
 
-Se muestra el espacio previsto para reseñas y la sección final de la página. Su inclusión en el wireframe representa una decisión de diseño y no evidencia, por sí sola, testimonios de usuarios reales (ver Figura 72).
+Se muestra el espacio previsto para reseñas y la sección final de la página (ver Figura 72).
 
 
 <a id="figura-72"></a>
@@ -812,7 +812,7 @@ Los Wireframes de pantalla de inicio del paciente y ficha de receta óptica se m
 ![Wireframes de pantalla de inicio del paciente y ficha de receta óptica.](assets/cap3/wireframe-movil/receta.png)
 
 
-El diseño de inicio del paciente propone accesos a citas, recetas, pedidos e historial, además de un espacio para una futura prueba virtual de monturas. Las vistas de receta organizan las medidas, las observaciones y los datos de la prescripción. La visualización por el paciente debe distinguirse de las acciones de registro o edición clínica, reservadas al personal autorizado según su rol. La representación en estos wireframes no constituye evidencia de implementación de realidad aumentada ni de edición clínica por el paciente.
+El diseño de inicio del paciente propone accesos a citas, recetas, pedidos e historial, además de un espacio para una futura prueba virtual de monturas. Las vistas de receta organizan las medidas, las observaciones y los datos de la prescripción. La visualización por el paciente debe distinguirse de las acciones de registro o edición clínica, reservadas al personal autorizado según su rol.
 
 **Sección Búsqueda y Exploración de Monturas (Paciente)**
 
@@ -940,7 +940,7 @@ Los Wireframes del centro de herramientas, cotizaciones, taller de producción y
 ![Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes.](assets/cap3/wireframe-movil/herramientas.png)
 
 
-El diseño reúne las herramientas operativas y analíticas en seis pantallas: confirmación de venta, cotizaciones vinculadas a recetas, tablero Kanban de producción, alertas y reportes. Las vistas permiten revisar la organización del flujo comercial y del taller, junto con los indicadores propuestos de facturación y atención. Estas funciones forman parte del diseño integral y no se presentan como funcionalidades móviles verificadas en el Sprint 1.
+El diseño reúne las herramientas operativas y analíticas en seis pantallas: confirmación de venta, cotizaciones vinculadas a recetas, tablero Kanban de producción, alertas y reportes. Las vistas permiten revisar la organización del flujo comercial y del taller, junto con los indicadores propuestos de facturación y atención.
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 

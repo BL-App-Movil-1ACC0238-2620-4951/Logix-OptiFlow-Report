@@ -467,7 +467,7 @@ El registro de la entrevista 3 del segmento clientes de la óptica se detalla en
 
 ### 2.2.3. Análisis de entrevistas
 
-El análisis de las entrevistas organiza los hallazgos por segmento para fundamentar los perfiles de usuario y las decisiones de diseño. Los porcentajes describen exclusivamente a los participantes entrevistados; por el tamaño y carácter exploratorio de la muestra, no representan estimaciones del mercado óptico peruano.
+El análisis de las entrevistas organiza los hallazgos por segmento para fundamentar los perfiles de usuario y las decisiones de diseño. Los porcentajes describen solo a los participantes entrevistados.
 
 **Segmento 1: *Staff de la Óptica***
 
@@ -493,7 +493,7 @@ En conjunto, las entrevistas identifican necesidades de acceso a la información
 
 ### 2.3.1. User Personas
 
-A partir de las entrevistas y del análisis del servicio óptico se construyeron dos *User Personas*: Marcelo Ruiz, que representa al personal del establecimiento, y Valeria Morales, que representa al paciente. Son arquetipos de diseño que sintetizan necesidades, motivaciones y frustraciones de los segmentos; no deben interpretarse como participantes adicionales de las entrevistas. Su propósito es orientar la priorización de tareas y el diseño de las experiencias móviles.
+A partir de las entrevistas y del análisis del servicio óptico se construyeron dos *User Personas*: Marcelo Ruiz, que representa al personal del establecimiento, y Valeria Morales, que representa al paciente. Son arquetipos de diseño que sintetizan necesidades, motivaciones y frustraciones de los segmentos. Su propósito es orientar la priorización de tareas y el diseño de las experiencias móviles.
 
 **1. Segmento 1: Staff de la Óptica (Administrador y Optómetra)**
 
@@ -944,13 +944,13 @@ El backlog relaciona las historias con su prioridad y estimación para organizar
 
 **Big Picture Event Storming**
 
-El proceso se documenta a partir de los tableros existentes y de las necesidades recogidas en las entrevistas. El resultado se utiliza para pasar del recorrido de negocio a los límites de los contextos; no equivale a separar el backend en cinco aplicaciones desplegables.
+El proceso se documenta a partir de los tableros existentes y de las necesidades recogidas en las entrevistas. El resultado se utiliza para pasar del recorrido de negocio a los límites de los contextos.
 
 1. **Delimitar el recorrido.** Se toma como inicio la búsqueda de atención y como cierre la entrega de los lentes y el seguimiento posterior. Se distinguen las perspectivas del paciente, recepción, atención clínica, asesor comercial y laboratorio.
 2. **Identificar hechos de negocio.** Se registran eventos expresados en pasado, como cita confirmada, receta generada y venta cerrada. Un evento describe algo que ya ocurrió; una intención del usuario se representa como comando y una solicitud de información como consulta.
 3. **Ordenar y revisar la secuencia.** Los eventos se agrupan cronológicamente y se revisan en sentido inverso para comprobar sus antecedentes. Por ejemplo, el taller requiere una orden y esta se vincula con una venta cerrada. Se separan caminos alternativos, como rechazo de cotización o demora de fabricación, del recorrido principal.
 4. **Relacionar actores, comandos y decisiones.** Se identifica quién solicita cada acción, qué información necesita y qué regla controla su ejecución. En la reserva se comprueba la disponibilidad; en el registro de venta se exige una cotización aprobada y sin otra venta asociada. Las consultas de disponibilidad no deben representarse como cambios de estado del negocio.
-5. **Analizar puntos de fricción.** Se relacionan los problemas de inasistencia, dispersión de la información clínica, diferencias de inventario e incertidumbre de entrega con la etapa afectada. Los problemas detectados orientan requisitos e hipótesis; el tablero no demuestra que la implementación ya los haya resuelto.
+5. **Analizar puntos de fricción.** Se relacionan los problemas de inasistencia, dispersión de la información clínica, diferencias de inventario e incertidumbre de entrega con la etapa afectada. Los problemas detectados orientan requisitos e hipótesis.
 6. **Proponer fronteras y validar vocabulario.** Se agrupan reglas e información que cambian por motivos similares, obteniendo los cinco contextos candidatos. Los mensajes que cruzan estas fronteras se especifican en 2.5.1.2 y las responsabilidades, supuestos y reglas de cada contexto se amplían en 2.5.1.3. El Context Map documenta las relaciones entre esos módulos.
 
 El [Anexo A](Anexos.md#anexo-a-eventstorming-del-dominio-de-optiflow) conserva la evidencia del tablero; el [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los contextos resultantes. Las cuatro zonas de fricción descritas en 2.3.5 sirven como referencia para revisar la relación entre entrevistas, eventos y requisitos (ver Figura 17).
@@ -1160,7 +1160,7 @@ El Bounded Context Canvas del Store Management & Inventory Context se presenta e
 
 ##### Canvases completos y precisiones del contrato
 
-Los siguientes canvases complementan las tablas existentes con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-b). La comunicación se clasifica como consulta, comando o evento según su efecto, y no obliga a utilizar un bus de mensajes. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información. Los campos de verificación expresan qué debe comprobarse, sin presentar esas métricas como resultados ya alcanzados.
+Los siguientes canvases complementan las tablas existentes con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-b). La comunicación se clasifica como consulta, comando o evento según su efecto. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información.
 
 **Search & Booking.** Facilitar que el paciente encuentre una óptica y reserve un horario disponible. Regla destacada: No duplicar reservas sobre la misma disponibilidad. Exigir datos válidos del paciente, sucursal y horario. Una consulta no crea una reserva (ver Figura 22).
 
@@ -1222,11 +1222,11 @@ Los siguientes canvases complementan las tablas existentes con propósito, regla
 ![Bounded Context Canvas completo: Store Management & Inventory](assets/cap2/revision-tb1/canvas-store-inventory.svg)
 
 
-El [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los límites, mientras que el [Anexo D](Anexos.md#anexo-d-context-mapping) permite contrastar los colaboradores con el Context Map. Los cinco canvases describen módulos del dominio; no representan cinco despliegues independientes.
+El [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los límites, mientras que el [Anexo D](Anexos.md#anexo-d-context-mapping) permite contrastar los colaboradores con el Context Map.
 
 ### 2.5.2 Context Mapping
 
-Los Context Maps representan las relaciones y dependencias entre los Bounded Contexts de OptiFlow. El diseño identifica quién provee y quién consume información, y propone patrones como **Customer/Supplier**, **Open Host Service**, **Anti-Corruption Layer** y **Conformist** para definir cómo se intercambian datos y se protege el modelo de cada contexto. Estos mapas describen decisiones arquitectónicas, no evidencias de que todas las integraciones externas estén operativas en TB1.
+Los Context Maps representan las relaciones y dependencias entre los Bounded Contexts de OptiFlow. El diseño identifica quién provee y quién consume información, y propone patrones como **Customer/Supplier**, **Open Host Service**, **Anti-Corruption Layer** y **Conformist** para definir cómo se intercambian datos y se protege el modelo de cada contexto.
 
 
 ##### Search & Booking → Clinical & Commercial
@@ -2007,7 +2007,7 @@ El diagrama de componentes del Search & Booking Context en Spring Boot se observ
 </div>
 
 
-La organización propuesta busca reducir el acoplamiento y concentrar cada responsabilidad en su capa: los controladores reciben las solicitudes, los servicios de aplicación coordinan los casos de uso y el dominio aplica las reglas de negocio. La persistencia y las integraciones se resuelven mediante adaptadores de infraestructura. Los componentes dibujados representan el diseño previsto y no implican que todos formen parte del incremento de TB1.
+La organización propuesta busca reducir el acoplamiento y concentrar cada responsabilidad en su capa: los controladores reciben las solicitudes, los servicios de aplicación coordinan los casos de uso y el dominio aplica las reglas de negocio. La persistencia y las integraciones se resuelven mediante adaptadores de infraestructura. Los componentes dibujados representan el diseño previsto.
 
 <a id="2.6.1.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams

@@ -2,7 +2,7 @@
 
 # Conclusiones
 
-Hasta TB1, el desarrollo de **OptiFlow** articula la investigación de necesidades, la especificación de requisitos, el modelado del dominio, el diseño UX/UI y un primer incremento funcional. Las entrevistas orientan la propuesta hacia dos segmentos: el personal de la óptica, que necesita organizar la atención y el seguimiento, y el paciente, que requiere información accesible para reservar citas y conocer el estado del servicio. Por su carácter exploratorio, estos hallazgos fundamentan decisiones de diseño y no representan conclusiones estadísticas sobre todo el mercado.
+Hasta TB1, el desarrollo de **OptiFlow** articula la investigación de necesidades, la especificación de requisitos, el modelado del dominio, el diseño UX/UI y un primer incremento funcional. Las entrevistas orientan la propuesta hacia dos segmentos: el personal de la óptica, que necesita organizar la atención y el seguimiento, y el paciente, que requiere información accesible para reservar citas y conocer el estado del servicio.
 
 El diseño estratégico organiza la solución en cinco Bounded Contexts: **Search & Booking, Clinical & Commercial, Production & Tracking, Store Management & Inventory y Notification & Loyalty**. EventStorming y los mapas de contexto permiten delimitar responsabilidades y proponer intercambios de información mediante comandos y eventos. Por ejemplo, `AppointmentBooked` comunica una reserva y `SaleWasClosed` vincula el cierre comercial con procesos posteriores. Estas relaciones describen el diseño integral; su implementación debe comprobarse en cada incremento.
 

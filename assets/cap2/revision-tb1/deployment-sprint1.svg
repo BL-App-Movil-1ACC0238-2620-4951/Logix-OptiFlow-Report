@@ -36,6 +36,4 @@
 <path d="M750,875 L700,875 L700,275 L750,275" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
 <text x="510" y="590" font-family="Arial,sans-serif" font-size="16" fill="#243b53">HTTPS / JSON</text>
 <text x="36" y="1080" font-family="Arial,sans-serif" font-size="18" fill="#243b53">GitHub Pages aloja la Landing Page; Firebase distribuye el archivo móvil; Render ejecuta el único backend.</text>
-<text x="36" y="1120" font-family="Arial,sans-serif" font-size="16" fill="#243b53">PostgreSQL se representa como persistencia asociada, sin afirmar que sea un proceso dentro del mismo Docker.</text>
-<text x="36" y="1160" font-family="Arial,sans-serif" font-size="16" fill="#243b53">Alcance: entornos descritos en 4.2.1.8. El nodo de persistencia es lógico; su proveedor no se especifica aquí.</text>
 </svg>

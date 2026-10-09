@@ -45,5 +45,4 @@
 <rect x="461.6666666666667" y="717" width="669.3333333333333" height="48" fill="white"/>
 <text x="465.6666666666667" y="736" font-family="Arial,sans-serif" font-size="15" fill="#243b53" font-weight="bold">6. [Evento] AppointmentBooked</text>
 <text x="465.6666666666667" y="795" font-family="Arial,sans-serif" font-size="14" fill="#243b53">Datos: appointmentId, patientId y horario; preparar recordatorio.</text>
-<text x="36" y="845" font-family="Arial,sans-serif" font-size="15" fill="#243b53">Diseño de colaboración entre módulos del mismo backend. Los mensajes no requieren un broker externo.</text>
 </svg>
