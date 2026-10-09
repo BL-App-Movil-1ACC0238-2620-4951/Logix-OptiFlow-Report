@@ -1477,37 +1477,3 @@ Los errores serán puntuados tomando en cuenta la siguiente escala de severidad:
 | 2 | **Problema menor:** puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja resolverlo de cara al siguiente *release*. |
 | 3 | **Problema mayor:** ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante que sea corregido y se le debe asignar una prioridad alta. |
 | 4 | **Problema muy grave:** un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
-
-**TABLA RESUMEN:**
-
-**Tabla N**
-*Resumen de problemas identificados en la evaluación heurística*
-
-| # | Problema | Escala de severidad | Heurística / Principio violado(a) |
-| :---: | :--- | :---: | :--- |
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-
-*Nota.* Elaboración propia.
-
-**DESCRIPCIÓN DE PROBLEMAS:**
-
-**PROBLEMA #1:** [Título del problema]
-
-- **Severidad:**
-- **Heurística violada:**
-- **Problema:**
-
-**Figura N**
-*[Título de la captura que ilustra el problema #1]*
-
-**[Insertar captura: Problema 1]**
-
-*Nota.* Captura de la aplicación OptiFlow.
-
-- **Recomendación:**
-
-<!-- Repetir la estructura anterior por cada problema registrado en la tabla resumen. -->

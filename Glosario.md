@@ -194,5 +194,65 @@ Bloque de horario disponible para la atención de un paciente en una óptica.
 ### Ubiquitous Language
 Lenguaje común utilizado por el equipo y los especialistas del dominio para representar los conceptos y procesos del sistema de manera consistente.
 
+### Android Studio
+Entorno de desarrollo integrado para construir la aplicación móvil de OptiFlow en Kotlin, utilizando herramientas como Android SDK, Gradle, emulador y depuración USB para validar el comportamiento real de la solución.
+
+### Candidate Context Discovery
+Técnica de análisis del dominio utilizada para identificar posibles Bounded Contexts a partir de eventos, entidades, actores y responsabilidades del negocio.
+
+### Docker
+Plataforma de contenedores que permite empaquetar los Web Services del proyecto en imágenes reproducibles y desplegables en distintos entornos sin depender de la configuración local del equipo.
+
+### Domain Message Flow
+Representación del intercambio de eventos y comandos entre los Bounded Contexts para coordinar procesos del negocio, como reservas, ventas, producción y notificaciones.
+
+### Firebase App Distribution
+Servicio de distribución de compilaciones de la aplicación móvil para pruebas internas, validación por parte del equipo y revisión de builds antes de su entrega.
+
+### Figma
+Herramienta de diseño colaborativo usada para crear wireframes, mock-ups y prototipos interactivos de la Landing Page y de la aplicación móvil.
+
+### GitFlow
+Modelo de ramificación que organiza el trabajo en ramas principales y temporales, como `main`, `develop`, `feature/*`, `release/*` y `hotfix/*`, para mantener un flujo ordenado de integración y entrega.
+
+### GitHub Pages
+Servicio de GitHub para publicar la Landing Page del proyecto de forma estática, permitiendo su acceso desde una URL pública.
+
+### Jetpack Compose
+Biblioteca de UI para Android basada en Kotlin que permite construir interfaces declarativas, reutilizables y adaptadas a pantallas móviles.
+
+### Kotlin
+Lenguaje de programación moderno utilizado para el desarrollo de la aplicación móvil de OptiFlow, reconocido por su sintaxis clara y su integración con Android.
+
+### Landing Page
+Sitio web promocional del proyecto que presenta la propuesta de valor de OptiFlow, su misión, sus objetivos y la solución orientada a pacientes y ópticas.
+
+### Miro
+Pizarra colaborativa empleada en sesiones de EventStorming para mapear eventos, actores, procesos y relaciones del dominio.
+
+### Mock-up
+Representación visual más detallada de una interfaz que muestra la distribución de elementos, contenido y estilos antes de la implementación final.
+
+### Prototipo
+Versión interactiva de la interfaz que simula la navegación entre pantallas y permite validar flujos de uso, contenido y experiencia del usuario.
+
+### Render
+Plataforma de despliegue utilizada para publicar los Web Services del backend en contenedores Docker y facilitar su acceso en entornos de prueba y producción.
+
+### Sprint 1
+Primera iteración de desarrollo del proyecto, enfocada en priorizar el flujo de búsqueda de ópticas, consulta de disponibilidad y reserva de citas desde la perspectiva del paciente.
+
+### Structurizr
+Herramienta para modelar la arquitectura software con el enfoque C4 (Context, Container, Component y Deployment), útil para representar componentes y relaciones del sistema.
+
+### User Story
+Descripción de una necesidad del usuario expresada como una funcionalidad con valor para el negocio y la experiencia del cliente.
+
+### Web Services
+Backend del sistema encargado de exponer servicios y lógica de negocio para la gestión de pacientes, citas, pedidos, inventario y operaciones de la óptica.
+
+### Wireframe
+Esquema básico de una pantalla o flujo que define la estructura, organización del contenido y navegación antes de refinarlos en mock-ups y prototipos.
+
 ### Venta
 Transacción comercial cerrada mediante el pago del paciente que confirma la adquisición de los productos y servicios ópticos solicitados.
