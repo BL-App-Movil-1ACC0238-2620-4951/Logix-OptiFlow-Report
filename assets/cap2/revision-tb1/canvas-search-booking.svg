@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1370" viewBox="0 0 1440 1370" role="img"><title>Bounded Context Canvas · Search &amp; Booking</title><desc>Canvas del diseño de OptiFlow con diez dimensiones, basado en DDD Crew.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="36" y="45" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#12364a">Bounded Context Canvas · Search &amp; Booking</text>
+<rect x="36" y="85" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="119" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Purpose · Propósito</text>
+<text x="56" y="157" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Facilitar que el paciente encuentre una óptica y reserve un</text>
+<text x="56" y="182" font-family="Arial,sans-serif" font-size="18" fill="#243b53">horario disponible.</text>
+<rect x="736" y="85" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="119" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Strategic Classification · Clasificación</text>
+<text x="756" y="157" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Core Domain; experiencia de descubrimiento y ejecución de</text>
+<text x="756" y="182" font-family="Arial,sans-serif" font-size="18" fill="#243b53">reservas.</text>
+<rect x="36" y="333" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="367" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Domain Roles · Responsabilidades</text>
+<text x="56" y="405" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Consulta de establecimientos y coordinación del ciclo de vida</text>
+<text x="56" y="430" font-family="Arial,sans-serif" font-size="18" fill="#243b53">de las citas.</text>
+<rect x="736" y="333" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="367" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Ubiquitous Language · Lenguaje</text>
+<text x="756" y="405" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Patient: solicitante. OpticalStore: sucursal. TimeSlot:</text>
+<text x="756" y="430" font-family="Arial,sans-serif" font-size="18" fill="#243b53">horario. Appointment: reserva identificable.</text>
+<rect x="36" y="581" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="615" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Business Decisions · Reglas</text>
+<text x="56" y="653" font-family="Arial,sans-serif" font-size="18" fill="#243b53">No duplicar reservas sobre la misma disponibilidad. Exigir</text>
+<text x="56" y="678" font-family="Arial,sans-serif" font-size="18" fill="#243b53">datos válidos del paciente, sucursal y horario. Una consulta</text>
+<text x="56" y="703" font-family="Arial,sans-serif" font-size="18" fill="#243b53">no crea una reserva.</text>
+<rect x="736" y="581" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="615" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Inbound Communication · Entradas</text>
+<text x="756" y="653" font-family="Arial,sans-serif" font-size="18" fill="#243b53">App del paciente: SearchOpticalStores y GetAvailableTimeSlots</text>
+<text x="756" y="678" font-family="Arial,sans-serif" font-size="18" fill="#243b53">(consultas); BookAppointment (comando).</text>
+<rect x="36" y="829" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="863" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Outbound Communication · Salidas</text>
+<text x="56" y="901" font-family="Arial,sans-serif" font-size="18" fill="#243b53">App: resultados, disponibilidad y confirmación. Clinical &amp;</text>
+<text x="56" y="926" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Commercial y Notification &amp; Loyalty: AppointmentBooked.</text>
+<rect x="736" y="829" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="863" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Assumptions · Supuestos</text>
+<text x="756" y="901" font-family="Arial,sans-serif" font-size="18" fill="#243b53">La sucursal mantiene su disponibilidad. Los consumidores</text>
+<text x="756" y="926" font-family="Arial,sans-serif" font-size="18" fill="#243b53">pueden identificar al paciente y la cita sin compartir</text>
+<text x="756" y="951" font-family="Arial,sans-serif" font-size="18" fill="#243b53">entidades internas.</text>
+<rect x="36" y="1077" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="1111" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Verification Metrics · Verificación</text>
+<text x="56" y="1149" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Verificar consultas y reserva con US05/US06; probar rechazo de</text>
+<text x="56" y="1174" font-family="Arial,sans-serif" font-size="18" fill="#243b53">horarios ocupados y consistencia del identificador persistido.</text>
+<rect x="736" y="1077" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="1111" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Open Questions · Decisiones pendientes</text>
+<text x="756" y="1149" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Decidir vigencia de disponibilidad, política de cancelación y</text>
+<text x="756" y="1174" font-family="Arial,sans-serif" font-size="18" fill="#243b53">anticipación de recordatorios. Diferenciar reglas propuestas</text>
+<text x="756" y="1199" font-family="Arial,sans-serif" font-size="18" fill="#243b53">de las implementadas.</text>
+<text x="36" y="1350" font-family="Arial,sans-serif" font-size="16" fill="#243b53">Diseño integral hasta TB1 · Referencia metodológica: DDD Crew · Las métricas son criterios de verificación, no resultados.</text>
+</svg>

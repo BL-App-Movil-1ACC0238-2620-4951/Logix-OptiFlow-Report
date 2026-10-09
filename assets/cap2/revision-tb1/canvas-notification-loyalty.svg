@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1370" viewBox="0 0 1440 1370" role="img"><title>Bounded Context Canvas · Notification &amp; Loyalty</title><desc>Canvas del diseño de OptiFlow con diez dimensiones, basado en DDD Crew.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="36" y="45" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#12364a">Bounded Context Canvas · Notification &amp; Loyalty</text>
+<rect x="36" y="85" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="119" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Purpose · Propósito</text>
+<text x="56" y="157" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Comunicar hitos relevantes al paciente y apoyar el seguimiento</text>
+<text x="56" y="182" font-family="Arial,sans-serif" font-size="18" fill="#243b53">posterior a la atención.</text>
+<rect x="736" y="85" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="119" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Strategic Classification · Clasificación</text>
+<text x="756" y="157" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Supporting Domain; comunicación y apoyo a la relación con el</text>
+<text x="756" y="182" font-family="Arial,sans-serif" font-size="18" fill="#243b53">paciente.</text>
+<rect x="36" y="333" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="367" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Domain Roles · Responsabilidades</text>
+<text x="56" y="405" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Reacción a eventos, preferencias de comunicación y</text>
+<text x="56" y="430" font-family="Arial,sans-serif" font-size="18" fill="#243b53">programación temporal.</text>
+<rect x="736" y="333" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="367" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Ubiquitous Language · Lenguaje</text>
+<text x="756" y="405" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Notification: aviso. Preferences: canales elegidos.</text>
+<text x="756" y="430" font-family="Arial,sans-serif" font-size="18" fill="#243b53">OrderProgress: avance. Survey: encuesta. Campaign:</text>
+<text x="756" y="455" font-family="Arial,sans-serif" font-size="18" fill="#243b53">reactivación.</text>
+<rect x="36" y="581" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="615" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Business Decisions · Reglas</text>
+<text x="56" y="653" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Respetar preferencias y permisos. Evitar duplicados. El estado</text>
+<text x="56" y="678" font-family="Arial,sans-serif" font-size="18" fill="#243b53">de fabricación pertenece a producción; este contexto lo</text>
+<text x="56" y="703" font-family="Arial,sans-serif" font-size="18" fill="#243b53">comunica.</text>
+<rect x="736" y="581" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="615" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Inbound Communication · Entradas</text>
+<text x="756" y="653" font-family="Arial,sans-serif" font-size="18" fill="#243b53">AppointmentBooked, WorkOrderStatusUpdated y</text>
+<text x="756" y="678" font-family="Arial,sans-serif" font-size="18" fill="#243b53">OrderWasMarkedAsDelivered. Preferencias del usuario;</text>
+<text x="756" y="703" font-family="Arial,sans-serif" font-size="18" fill="#243b53">disparadores de calendario.</text>
+<rect x="36" y="829" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="863" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Outbound Communication · Salidas</text>
+<text x="56" y="901" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Notificaciones al paciente y propuestas de encuesta/campaña.</text>
+<text x="56" y="926" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Adaptadores de mensajería externos según el canal elegido.</text>
+<rect x="736" y="829" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="863" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Assumptions · Supuestos</text>
+<text x="756" y="901" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Existe un destinatario identificable. Persistir el aviso no</text>
+<text x="756" y="926" font-family="Arial,sans-serif" font-size="18" fill="#243b53">demuestra que un proveedor haya entregado un push o mensaje</text>
+<text x="756" y="951" font-family="Arial,sans-serif" font-size="18" fill="#243b53">externo.</text>
+<rect x="36" y="1077" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="56" y="1111" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Verification Metrics · Verificación</text>
+<text x="56" y="1149" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Comprobar reacción al evento y persistencia del aviso;</text>
+<text x="56" y="1174" font-family="Arial,sans-serif" font-size="18" fill="#243b53">verificar separadamente entrega del canal y prevención de</text>
+<text x="56" y="1199" font-family="Arial,sans-serif" font-size="18" fill="#243b53">duplicados.</text>
+<rect x="736" y="1077" width="668" height="228" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
+<text x="756" y="1111" font-family="Arial,sans-serif" font-size="19" fill="#243b53" font-weight="bold">Open Questions · Decisiones pendientes</text>
+<text x="756" y="1149" font-family="Arial,sans-serif" font-size="18" fill="#243b53">Definir anticipación de recordatorios, reintentos y</text>
+<text x="756" y="1174" font-family="Arial,sans-serif" font-size="18" fill="#243b53">consentimiento. Los canales externos deben validarse antes de</text>
+<text x="756" y="1199" font-family="Arial,sans-serif" font-size="18" fill="#243b53">afirmar entrega.</text>
+<text x="36" y="1350" font-family="Arial,sans-serif" font-size="16" fill="#243b53">Diseño integral hasta TB1 · Referencia metodológica: DDD Crew · Las métricas son criterios de verificación, no resultados.</text>
+</svg>

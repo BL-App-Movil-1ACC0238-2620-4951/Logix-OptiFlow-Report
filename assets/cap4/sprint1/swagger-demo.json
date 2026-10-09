@@ -1,0 +1,13 @@
+{
+  "environment": "local H2",
+  "storeId": "22222222-2222-2222-2222-222222222222",
+  "booking": {
+    "patientId": "e6848a91-54dd-4e0b-963f-1195468cf3f2",
+    "opticalStoreId": "22222222-2222-2222-2222-222222222222",
+    "timeSlotId": "6be54eb9-ac24-4394-bb7e-e88e74919838"
+  },
+  "verifiedStatuses": [
+    201,
+    409
+  ]
+}

@@ -1,8 +1,10 @@
+<div style="break-before: page; page-break-before: always;"></div>
+
 # Capítulo III: Solution UI/UX Design
 
 ## 3.1. Product design
 
-El diseño del producto se plantea considerando las necesidades identificadas durante el análisis del dominio y de los usuarios, como la búsqueda de ópticas, consulta de disponibilidad, reserva de citas, seguimiento de pedidos, gestión de recetas ópticas y administración de información clínica y comercial. Se busca mantener una experiencia visual uniforme en las diferentes funcionalidades de la solución, utilizando elementos gráficos, componentes y patrones de interacción consistentes.
+El diseño de OptiFlow responde a las necesidades identificadas en las entrevistas y el modelado del dominio: búsqueda y reserva de citas para el paciente, junto con consulta de recetas, seguimiento de pedidos y gestión interna para el personal. Este capítulo presenta la experiencia propuesta y sus criterios visuales. Los wireframes y prototipos abarcan un alcance mayor que el incremento implementado en TB1, cuya evidencia se presenta en el capítulo IV.
 
 ### 3.1.1. Style Guidelines
 
@@ -20,14 +22,27 @@ Las principales características consideradas para el diseño son:
 
  **Tipografía**
 
+
+La evidencia de 3.1.1.1. General Style Guidelines se presenta en [Figura 3-001](#figura-3-001).
+
 <p align="center">
   <img src="assets/cap3/styles/Tipografia.png">
 </p>
 
-La tipografía debe facilitar la lectura de la información presentada en OptiFlow, especialmente en elementos relacionados con citas, recetas ópticas, pedidos, órdenes de trabajo y registros de pacientes.
+<a id="figura-3-001"></a>
+**Figura 3-001. Evidencia visual de 3.1.1.1. General Style Guidelines.**
+
+
+La tipografía de OptiFlow debe facilitar la lectura en pantallas pequeñas y mantener una jerarquía clara entre títulos, etiquetas y contenido. Este criterio es especialmente relevante al consultar horarios, recetas, pedidos y datos del paciente, donde la legibilidad favorece una interpretación precisa de la información.
 
 Se propone utilizar una tipografía **sans-serif**, debido a que permite una lectura clara tanto en dispositivos móviles como en interfaces administrativas.
 
+
+
+<a id="tabla-3-001"></a>
+La [Tabla 3-001](#tabla-3-001) presenta detalle de 3.1.1.1. General Style Guidelines y permite revisar los elementos documentados en esta sección.
+
+**Tabla 3-001. Detalle de 3.1.1.1. General Style Guidelines.**
 
 | Elemento                | Uso                                               |
 | ----------------------- | ------------------------------------------------- |
@@ -40,14 +55,27 @@ Se propone utilizar una tipografía **sans-serif**, debido a que permite una lec
 
 **Colores**
 
+
+La evidencia de 3.1.1.1. General Style Guidelines se presenta en [Figura 3-002](#figura-3-002).
+
 <p align="center">
   <img src="assets/cap3/styles/colores.png">
 </p>
+
+<a id="figura-3-002"></a>
+**Figura 3-002. Evidencia visual de 3.1.1.1. General Style Guidelines.**
+
 
 
 La paleta de colores debe transmitir una apariencia relacionada con los conceptos de **salud visual, confianza, claridad y tecnología**.
 
 Se considera una paleta compuesta por colores principales, secundarios y colores destinados a comunicar estados del sistema.
+
+
+<a id="tabla-3-002"></a>
+La [Tabla 3-002](#tabla-3-002) presenta detalle de 3.1.1.1. General Style Guidelines y permite revisar los elementos documentados en esta sección.
+
+**Tabla 3-002. Detalle de 3.1.1.1. General Style Guidelines.**
 
 | Elemento | Color actual | Uso |
 | :---: | :---: | :---: |
@@ -63,9 +91,16 @@ Se considera una paleta compuesta por colores principales, secundarios y colores
 
 **Botones**
 
+
+La evidencia de 3.1.1.1. General Style Guidelines se presenta en [Figura 3-003](#figura-3-003).
+
 <p align="center">
   <img src="assets/cap3/styles/botones.png">
 </p>
+
+<a id="figura-3-003"></a>
+**Figura 3-003. Evidencia visual de 3.1.1.1. General Style Guidelines.**
+
 
 Los botones deben diferenciar claramente las acciones principales de las acciones secundarias.
 
@@ -78,9 +113,16 @@ Los botones deben diferenciar claramente las acciones principales de las accione
 
 **Tarjetas**
 
+
+La evidencia de 3.1.1.1. General Style Guidelines se presenta en [Figura 3-004](#figura-3-004).
+
 <p align="center">
   <img src="assets/cap3/styles/tarjetas.png">
 </p>
+
+<a id="figura-3-004"></a>
+**Figura 3-004. Evidencia visual de 3.1.1.1. General Style Guidelines.**
+
 
 En el caso de los pacientes, podrán utilizarse para presentar:
 
@@ -102,11 +144,24 @@ Para el personal de la óptica, las tarjetas podrán presentar:
 
 **Iconografía**
 
+
+La evidencia de 3.1.1.1. General Style Guidelines se presenta en [Figura 3-005](#figura-3-005).
+
 <p align="center">
   <img src="assets/cap3/styles/iconos.png">
 </p>
 
+<a id="figura-3-005"></a>
+**Figura 3-005. Evidencia visual de 3.1.1.1. General Style Guidelines.**
+
+
 Los iconos se utilizarán como elementos complementarios para facilitar el reconocimiento de acciones y funcionalidades.
+
+
+<a id="tabla-3-003"></a>
+La [Tabla 3-003](#tabla-3-003) presenta detalle de 3.1.1.1. General Style Guidelines y permite revisar los elementos documentados en esta sección.
+
+**Tabla 3-003. Detalle de 3.1.1.1. General Style Guidelines.**
 
 | Icono / representación | Funcionalidad              |
 | ---------------------- | -------------------------- |
@@ -125,9 +180,16 @@ Los iconos no deberán utilizarse como único medio para comunicar información 
 
 **Formularios**
 
+
+La evidencia de 3.1.1.1. General Style Guidelines se presenta en [Figura 3-006](#figura-3-006).
+
 <p align="center">
   <img src="assets/cap3/styles/formularios.png">
 </p>
+
+<a id="figura-3-006"></a>
+**Figura 3-006. Evidencia visual de 3.1.1.1. General Style Guidelines.**
+
 
 * Etiqueta del campo.
 * Campo de entrada.
@@ -135,15 +197,28 @@ Los iconos no deberán utilizarse como único medio para comunicar información 
 * Mensaje de validación.
 * Indicador de campo obligatorio cuando corresponda.
 
-Las validaciones deberán mostrarse cerca del campo correspondiente para facilitar la corrección de errores. Por ejemplo, al realizar una reserva de cita, el sistema deberá indicar claramente la óptica, fecha, horario seleccionado y cualquier información necesaria antes de permitir la confirmación.
+Las validaciones se presentan junto al campo correspondiente y explican cómo corregir el dato. Antes de confirmar una reserva, la interfaz debe permitir revisar la óptica, la fecha y el horario elegidos. Los mensajes deben indicar el resultado de la operación y ofrecer una acción de recuperación cuando la solicitud no pueda completarse.
 
 **Estados de la interfaz**
+
+
+La evidencia de 3.1.1.1. General Style Guidelines se presenta en [Figura 3-007](#figura-3-007).
 
 <p align="center">
   <img src="assets/cap3/styles/estados.png">
 </p>
 
+<a id="figura-3-007"></a>
+**Figura 3-007. Evidencia visual de 3.1.1.1. General Style Guidelines.**
+
+
 Los componentes de OptiFlow deberán contemplar diferentes estados para proporcionar retroalimentación al usuario.
+
+
+<a id="tabla-3-004"></a>
+La [Tabla 3-004](#tabla-3-004) presenta detalle de 3.1.1.1. General Style Guidelines y permite revisar los elementos documentados en esta sección.
+
+**Tabla 3-004. Detalle de 3.1.1.1. General Style Guidelines.**
 
 | Estado   | Descripción                                                  |
 | -------- | ------------------------------------------------------------ |
@@ -159,9 +234,16 @@ Los componentes de OptiFlow deberán contemplar diferentes estados para proporci
 
 **Diseño responsivo**
 
+
+La evidencia de 3.1.1.1. General Style Guidelines se presenta en [Figura 3-008](#figura-3-008).
+
 <p align="center">
   <img src="assets/cap3/styles/Diseño_Responsivo.png">
 </p>
+
+<a id="figura-3-008"></a>
+**Figura 3-008. Evidencia visual de 3.1.1.1. General Style Guidelines.**
+
 
 La interfaz deberá adaptarse a los diferentes tamaños de pantalla en los que se utilice OptiFlow. En la aplicación orientada a pacientes, el diseño priorizará dispositivos móviles, considerando:
 
@@ -174,12 +256,19 @@ La interfaz deberá adaptarse a los diferentes tamaños de pantalla en los que s
 En las interfaces destinadas al personal de la óptica se podrá aprovechar un espacio de pantalla mayor para mostrar tablas, indicadores, filtros y diferentes bloques de información simultáneamente.
 
 **Accesibilidad**
+
+La evidencia de 3.1.1.1. General Style Guidelines se presenta en [Figura 3-009](#figura-3-009).
+
 <p align="center">
   <img src="assets/cap3/styles/accesibilidad.png">
 </p>
 
+<a id="figura-3-009"></a>
+**Figura 3-009. Evidencia visual de 3.1.1.1. General Style Guidelines.**
 
-El diseño deberá considerar principios básicos de accesibilidad para facilitar el uso de la aplicación por diferentes usuarios.
+
+
+El diseño contempla legibilidad, contraste, identificación de controles y mensajes comprensibles para facilitar el uso por personas con distintas necesidades. Estos criterios orientan la interfaz y deben comprobarse durante la evaluación de usabilidad; su inclusión en el diseño no equivale a una certificación de accesibilidad.
 
 Se considerarán los siguientes aspectos:
 
@@ -193,7 +282,7 @@ Se considerarán los siguientes aspectos:
 
 ### 3.1.2. Information Architecture
 
-La arquitectura de información de **OptiFlow** establece la forma en que se organiza, estructura y presenta la información dentro de la solución. Su objetivo es facilitar que los usuarios puedan encontrar rápidamente las funcionalidades y datos que necesitan de acuerdo con su rol y actividad dentro del sistema.
+La arquitectura de información organiza los contenidos y funciones de OptiFlow según las tareas de cada rol. Su propósito es facilitar la localización de la información, reducir recorridos innecesarios y ofrecer una estructura consistente entre las pantallas.
 
 La arquitectura se define considerando los dos principales tipos de usuarios identificados: **pacientes** y **personal de la óptica**. Cada perfil dispone de funcionalidades específicas, evitando presentar información que no corresponda a sus necesidades.
 
@@ -213,9 +302,16 @@ La estructura general de OptiFlow parte de las funcionalidades principales y pos
 
 Para el **paciente**, la organización principal se plantea de la siguiente manera:
 
+
+La evidencia de 3.1.2.1. Organization Systems se presenta en [Figura 3-010](#figura-3-010).
+
 <p align="center">
   <img src="assets/cap3/organization/organizacion_paciente.png">
 </p>
+
+<a id="figura-3-010"></a>
+**Figura 3-010. Evidencia visual de 3.1.2.1. Organization Systems.**
+
 
 ```text
 OptiFlow
@@ -244,9 +340,16 @@ OptiFlow
 
 Para el **personal de la óptica**, la organización se adapta a las actividades administrativas, clínicas y operativas:
 
+
+La evidencia de 3.1.2.1. Organization Systems se presenta en [Figura 3-011](#figura-3-011).
+
 <p align="center">
   <img src="assets/cap3/organization/organizacion_personal.png">
 </p>
+
+<a id="figura-3-011"></a>
+**Figura 3-011. Evidencia visual de 3.1.2.1. Organization Systems.**
+
 
 
 ```text
@@ -287,6 +390,12 @@ Esta separación permite que cada usuario tenga acceso a las funcionalidades cor
 
 Las funcionalidades también se agrupan según la actividad que representan.
 
+
+<a id="tabla-3-005"></a>
+La [Tabla 3-005](#tabla-3-005) presenta detalle de 3.1.2.1. Organization Systems y permite revisar los elementos documentados en esta sección.
+
+**Tabla 3-005. Detalle de 3.1.2.1. Organization Systems.**
+
 | Categoría                     | Funcionalidades principales                               | Usuario             |
 | ----------------------------- | --------------------------------------------------------- | ------------------- |
 | Búsqueda y reserva            | Buscar ópticas, consultar disponibilidad y reservar citas | Paciente            |
@@ -302,16 +411,30 @@ Esta clasificación permite relacionar las funcionalidades de la interfaz con lo
 
 Algunas funcionalidades de OptiFlow requieren que el usuario complete una serie de pasos en un orden determinado. Para la **reserva de una cita**, el flujo de información se organiza de la siguiente manera:
 
+
+La evidencia de 3.1.2.1. Organization Systems se presenta en [Figura 3-012](#figura-3-012).
+
 <p align="center">
   <img src="assets/cap3/organization/Flujo_paciente.png">
 </p>
 
+<a id="figura-3-012"></a>
+**Figura 3-012. Evidencia visual de 3.1.2.1. Organization Systems.**
+
+
 
 Para el **seguimiento de una orden de trabajo**, la información se presenta de acuerdo con el avance del proceso:
+
+
+La evidencia de 3.1.2.1. Organization Systems se presenta en [Figura 3-013](#figura-3-013).
 
 <p align="center">
   <img src="assets/cap3/organization/Flujo_personal.png">
 </p>
+
+<a id="figura-3-013"></a>
+**Figura 3-013. Evidencia visual de 3.1.2.1. Organization Systems.**
+
 
 Esta organización permite que el usuario comprenda en qué etapa se encuentra una actividad y cuáles son los siguientes pasos disponibles.
 
@@ -319,9 +442,16 @@ Esta organización permite que el usuario comprenda en qué etapa se encuentra u
 
 La estructura anterior puede representarse mediante un **diagrama de arquitectura de información o sitemap**, mostrando la relación entre las funcionalidades principales y sus subfuncionalidades.
 
+
+La evidencia de 3.1.2.1. Organization Systems se presenta en [Figura 3-014](#figura-3-014).
+
 <p align="center">
   <img src="assets/cap3/organization/Diagrama_organizacion.png">
 </p>
+
+<a id="figura-3-014"></a>
+**Figura 3-014. Evidencia visual de 3.1.2.1. Organization Systems.**
+
 
 #### 3.1.2.2. Labeling Systems
 
@@ -329,6 +459,12 @@ El sistema de etiquetado establece los nombres utilizados para identificar las f
 
 
 **Etiquetas principales**
+
+
+<a id="tabla-3-006"></a>
+La [Tabla 3-006](#tabla-3-006) presenta detalle de 3.1.2.2. Labeling Systems y permite revisar los elementos documentados en esta sección.
+
+**Tabla 3-006. Detalle de 3.1.2.2. Labeling Systems.**
 
 | Etiqueta           | Descripción                                                | Usuario             |
 | ------------------ | ---------------------------------------------------------- | ------------------- |
@@ -354,6 +490,12 @@ El sistema de etiquetado establece los nombres utilizados para identificar las f
 
 Las acciones utilizarán verbos directos que indiquen claramente la operación que realizará el usuario.
 
+
+<a id="tabla-3-007"></a>
+La [Tabla 3-007](#tabla-3-007) presenta detalle de 3.1.2.2. Labeling Systems y permite revisar los elementos documentados en esta sección.
+
+**Tabla 3-007. Detalle de 3.1.2.2. Labeling Systems.**
+
 | Acción       | Uso                                                 |
 | ------------ | --------------------------------------------------- |
 | Buscar       | Realizar una búsqueda                               |
@@ -373,6 +515,12 @@ Las acciones utilizarán verbos directos que indiquen claramente la operación q
 
 Los estados de los procesos también deberán mantener una nomenclatura consistente.
 
+
+<a id="tabla-3-008"></a>
+La [Tabla 3-008](#tabla-3-008) presenta detalle de 3.1.2.2. Labeling Systems y permite revisar los elementos documentados en esta sección.
+
+**Tabla 3-008. Detalle de 3.1.2.2. Labeling Systems.**
+
 | Estado             | Aplicación                                 |
 | ------------------ | ------------------------------------------ |
 | Pendiente          | Actividad que todavía no ha sido atendida  |
@@ -391,7 +539,13 @@ El uso de etiquetas consistentes permite que los usuarios puedan reconocer rápi
 
 Las etiquetas SEO y meta etiquetas de OptiFlow se aplicarán principalmente a la **Landing Page**, debido a que esta constituye el principal punto de acceso público a la solución. Su finalidad es facilitar la identificación del producto por los motores de búsqueda y proporcionar información relevante sobre el contenido de la página.
 
-Las etiquetas se plantean considerando el propósito de como una solución orientada a la gestión de citas, ópticas, pacientes y seguimiento de pedidos.
+Las etiquetas se plantean para describir a OptiFlow como una solución de búsqueda de ópticas, reserva de citas y seguimiento de pedidos, manteniendo coherencia entre el contenido de la Landing Page y la información que se comparte con buscadores y redes sociales.
+
+
+<a id="tabla-3-009"></a>
+La [Tabla 3-009](#tabla-3-009) presenta detalle de 3.1.2.3. SEO Tags and Meta Tags y permite revisar los elementos documentados en esta sección.
+
+**Tabla 3-009. Detalle de 3.1.2.3. SEO Tags and Meta Tags.**
 
 | Elemento | Propuesta |
 |---|---|
@@ -405,11 +559,11 @@ Las etiquetas se plantean considerando el propósito de como una solución orien
 
 El **Title** permite identificar el propósito principal de la plataforma en los resultados de búsqueda, mientras que la **Meta Description** proporciona una descripción breve de los servicios ofrecidos. Las palabras clave propuestas se relacionan con las principales funcionalidades y conceptos del sistema, como la búsqueda de ópticas, reserva de citas, gestión de pacientes y seguimiento de pedidos.
 
-Por otro lado, las etiquetas **Open Graph** permiten definir la información que se mostrará cuando la Landing Page sea compartida mediante plataformas y redes sociales. La configuración de `robots` mediante `index, follow` permitirá que los motores de búsqueda puedan redirigir la Landing Page y seguir los enlaces disponibles en ella.
+Las etiquetas **Open Graph** definen el título y la descripción utilizados al compartir la Landing Page en plataformas compatibles. La directiva `robots` con `index, follow` permite la indexación de la página y el seguimiento de sus enlaces por los rastreadores; no garantiza su posición en los resultados de búsqueda.
 
 ##### 3.1.2.4. Searching Systems
 
-El sistema de búsqueda de OptiFlow permite al paciente localizar ópticas de acuerdo con diferentes criterios y consultar rápidamente su disponibilidad. La interfaz está diseñada para facilitar la búsqueda desde un dispositivo móvil, mostrando los resultados de manera clara y priorizando la información necesaria para seleccionar una óptica.
+El sistema de búsqueda propuesto permite al paciente localizar ópticas y consultar su disponibilidad mediante una interfaz móvil. El diseño organiza los resultados y prioriza los datos necesarios para elegir un establecimiento. Los filtros y el mapa descritos a continuación pertenecen a la experiencia diseñada; su presencia en el prototipo no implica que todas estas opciones estén implementadas en el Sprint 1.
 
 La pantalla de búsqueda cuenta con una barra que permite ingresar diferentes criterios relacionados con la óptica, como el nombre, dirección o estilo. Además, se presentan accesos rápidos para facilitar la búsqueda según las necesidades del usuario.
 
@@ -438,11 +592,18 @@ Seleccionar óptica
 Consultar información y disponibilidad
 ```
 
-Figura Buscar Optica. Interfaz del sistema de búsqueda de ópticas.
+Figura Buscar óptica. Interfaz propuesta para la búsqueda de establecimientos.
+
+
+La evidencia de 3.1.2.4. Searching Systems se presenta en [Figura 3-015](#figura-3-015).
 
 <p align="center">
   <img src="assets/cap3/organization/buscar_optica.png">
 </p> 
+
+<a id="figura-3-015"></a>
+**Figura 3-015. Evidencia visual de 3.1.2.4. Searching Systems.**
+
 
 ##### 3.1.2.5. Navigation Systems
 
@@ -452,6 +613,12 @@ Para la aplicación móvil del paciente se utiliza una **barra de navegación in
 
 La navegación principal está compuesta por las siguientes opciones:
 
+
+<a id="tabla-3-010"></a>
+La [Tabla 3-010](#tabla-3-010) presenta detalle de 3.1.2.5. Navigation Systems y permite revisar los elementos documentados en esta sección.
+
+**Tabla 3-010. Detalle de 3.1.2.5. Navigation Systems.**
+
 | Opción | Funcionalidad |
 |---|---|
 | **Inicio** | Permite acceder a la pantalla principal y consultar información relevante para el paciente. |
@@ -460,20 +627,231 @@ La navegación principal está compuesta por las siguientes opciones:
 | **Receta** | Permite consultar la receta óptica registrada y su información asociada. |
 | **Perfil** | Permite consultar y administrar la información personal y preferencias del usuario. |
 
-La navegación principal en nuestra app visualmente:
+La siguiente vista muestra la distribución propuesta de la navegación principal:
+
+
+La evidencia de 3.1.2.5. Navigation Systems se presenta en [Figura 3-016](#figura-3-016).
 
 <p align="center">
   <img src="assets/cap3/navigation/pantalla_inicio.png">
 </p> 
 
+<a id="figura-3-016"></a>
+**Figura 3-016. Evidencia visual de 3.1.2.5. Navigation Systems.**
+
+
 
 ### 3.1.3. Landing Page UI Design
+
+La Landing Page presenta la propuesta de valor de OptiFlow a los propietarios de ópticas y a sus pacientes. Su diseño organiza la información del producto, los beneficios y las acciones principales para que cada visitante comprenda el propósito de la solución y encuentre el siguiente paso de interacción.
+
 #### 3.1.3.1. Landing Page Wireframe
+
+Los wireframes definen la jerarquía del contenido, la navegación y las áreas de interacción de la Landing Page. La distribución busca comunicar con claridad los beneficios para el paciente y para el establecimiento antes de aplicar el estilo visual definitivo.
+
+Presentación inicial de OptiFlow con el mensaje principal y los datos destacados de la propuesta.
+
+
+La evidencia de 3.1.3.1. Landing Page Wireframe se presenta en [Figura 3-017](#figura-3-017).
+
+![Landing page inicio.png](assets/cap3/wireframes/wireframe_landing_1.png)
+
+<a id="figura-3-017"></a>
+**Figura 3-017. Evidencia visual de 3.1.3.1. Landing Page Wireframe.**
+
+
+Se presentan los objetivos y beneficios de OptiFlow.
+
+
+La evidencia de 3.1.3.1. Landing Page Wireframe se presenta en [Figura 3-018](#figura-3-018).
+
+![Landing page mision.png](assets/cap3/wireframes/wireframe_landing_2.png)
+
+<a id="figura-3-018"></a>
+**Figura 3-018. Evidencia visual de 3.1.3.1. Landing Page Wireframe.**
+
+
+Se presenta la distribución de la sección de precios y de los integrantes del equipo.
+
+
+La evidencia de 3.1.3.1. Landing Page Wireframe se presenta en [Figura 3-019](#figura-3-019).
+
+![Landing page precios.png](assets/cap3/wireframes/wireframe_landing_3.png)
+
+<a id="figura-3-019"></a>
+**Figura 3-019. Evidencia visual de 3.1.3.1. Landing Page Wireframe.**
+
+
+Se muestra el espacio previsto para reseñas y la sección final de la página. Su inclusión en el wireframe representa una decisión de diseño y no evidencia, por sí sola, testimonios de usuarios reales.
+
+
+La evidencia de 3.1.3.1. Landing Page Wireframe se presenta en [Figura 3-020](#figura-3-020).
+
+![Landing page reseñas.png](assets/cap3/wireframes/wireframe_landing_4.png)
+
+<a id="figura-3-020"></a>
+**Figura 3-020. Evidencia visual de 3.1.3.1. Landing Page Wireframe.**
+
+
 #### 3.1.3.2. Landing Page Mock-up
+
+El mock-up aplica la identidad visual de OptiFlow a la estructura definida en los wireframes. Permite revisar colores, tipografía, componentes y jerarquía de información antes de su implementación en la Landing Page.
+
+
+La evidencia de 3.1.3.2. Landing Page Mock-up se presenta en [Figura 3-021](#figura-3-021).
+
+![Landing page mockup.png](assets/cap3/mockups/Landing%20page%20mockup.png)
+
+<a id="figura-3-021"></a>
+**Figura 3-021. Evidencia visual de 3.1.3.2. Landing Page Mock-up.**
+
+
 ### 3.1.4. Mobile Applications UX/UI Design
+
+El diseño UX/UI móvil organiza las tareas de pacientes y personal de la óptica mediante pantallas, componentes y recorridos consistentes. Las vistas siguientes representan la propuesta de interacción; el alcance funcional implementado en TB1 se especifica en las evidencias del Sprint 1.
+
 #### 3.1.4.1. Mobile Applications Wireframes
+
+Los wireframes móviles definen la distribución de componentes, la jerarquía del contenido y las acciones de cada pantalla antes de aplicar el estilo visual definitivo. Se utilizan para revisar la secuencia de tareas y la relación entre las vistas.
+
+**Sección Autenticación y Selección de Rol**
+
+
+La evidencia de 3.1.4.1. Mobile Applications Wireframes se presenta en [Figura 3-022](#figura-3-022).
+
+![Wireframes del flujo de inicio de sesión y selección de rol.](assets/cap3/wireframe-movil/registro.png)
+
+<a id="figura-3-022"></a>
+**Figura 3-022. Wireframes del flujo de inicio de sesión y selección de rol.**
+
+
+El contenedor central implementa un conmutador de navegación segmentada para alternar entre "Iniciar sesión" y "Registrarme". A continuación, se disponen tarjetas interactivas de selección de rol ("Paciente: Mis citas, receta y monturas" y "Personal clínico: Catálogo, agenda y pacientes"). La base del contenedor organiza los campos de entrada de datos para correo electrónico y contraseña (con botón de visibilidad y enlace de recuperación "¿Olvidaste tu contraseña?"), finalizando con el botón de acción principal de ancho completo ("Entrar a mi cuenta").
+
+**Sección Inicio y Consulta de Receta Óptica (Paciente)**
+
+
+La evidencia de 3.1.4.1. Mobile Applications Wireframes se presenta en [Figura 3-023](#figura-3-023).
+
+![Wireframes de pantalla de inicio del paciente y ficha de receta óptica.](assets/cap3/wireframe-movil/receta.png)
+
+<a id="figura-3-023"></a>
+**Figura 3-023. Wireframes de pantalla de inicio del paciente y ficha de receta óptica.**
+
+
+El diseño de inicio del paciente propone accesos a citas, recetas, pedidos e historial, además de un espacio para una futura prueba virtual de monturas. Las vistas de receta organizan las medidas, las observaciones y los datos de la prescripción. La visualización por el paciente debe distinguirse de las acciones de registro o edición clínica, reservadas al personal autorizado según su rol. La representación en estos wireframes no constituye evidencia de implementación de realidad aumentada ni de edición clínica por el paciente.
+
+**Sección Búsqueda y Exploración de Monturas (Paciente)**
+
+
+La evidencia de 3.1.4.1. Mobile Applications Wireframes se presenta en [Figura 3-024](#figura-3-024).
+
+![Wireframes del módulo de búsqueda y catálogo de armazones.](assets/cap3/wireframe-movil/buscar.png)
+
+<a id="figura-3-024"></a>
+**Figura 3-024. Wireframes del módulo de búsqueda y catálogo de armazones.**
+
+
+Esta imagen muestra el flujo de localización de ópticas y descubrimiento de armazones en cuatro vistas. La pantalla inicial presenta una barra de búsqueda multifunción, accesos rápidos de filtrado y un bloque de mapa geolocalizado con lista de resultados cercanos que detallan distancias y horarios disponibles. Finalmente, las pantallas de detalle despliegan el carrusel de imágenes del producto, especificaciones técnicas (materiales, dimensiones, estilo unisex), disponibilidad de stock físico inmediato y el botón de acción para localizar las ópticas más cercanas con existencia en tienda.
+
+**Sección Gestión y Reserva de Citas (Paciente)**
+
+
+La evidencia de 3.1.4.1. Mobile Applications Wireframes se presenta en [Figura 3-025](#figura-3-025).
+
+![Wireframes del flujo de gestión, reprogramación y reserva de citas.](assets/cap3/wireframe-movil/citas_paciente.png)
+
+<a id="figura-3-025"></a>
+**Figura 3-025. Wireframes del flujo de gestión, reprogramación y reserva de citas.**
+
+
+Esta imagen detalla el flujo integral de agendamiento y control de citas médicas en siete pantallas secuenciales. Inicia con la vista "Mis citas", seguida del detalle de cita con información del profesional tratante, sede y recordatorios. El proceso de nueva reserva se guía mediante un indicador de pasos superior (stepper del 1 al 4).
+
+**Sección Seguimiento de Pedidos y Montaje (Paciente)**
+
+
+La evidencia de 3.1.4.1. Mobile Applications Wireframes se presenta en [Figura 3-026](#figura-3-026).
+
+![Wireframes del módulo de seguimiento de pedidos en taller y entrega.](assets/cap3/wireframe-movil/pedido.png)
+
+<a id="figura-3-026"></a>
+**Figura 3-026. Wireframes del módulo de seguimiento de pedidos en taller y entrega.**
+
+
+El diseño de seguimiento incluye un selector de pedidos en curso y entregados, una tarjeta con progreso y fecha estimada de entrega, y una vista de detalle con una línea de tiempo. Esta secuencia representa los hitos de fabricación que se propone comunicar al paciente; el wireframe no acredita una actualización en tiempo real del sistema.
+
+**Sección Perfil de Usuario, Historial y Configuración (Paciente)**
+
+
+La evidencia de 3.1.4.1. Mobile Applications Wireframes se presenta en [Figura 3-027](#figura-3-027).
+
+![Wireframes del perfil de paciente, historial clínico y panel de ajustes.](assets/cap3/wireframe-movil/perfil.png)
+
+<a id="figura-3-027"></a>
+**Figura 3-027. Wireframes del perfil de paciente, historial clínico y panel de ajustes.**
+
+
+Esta imagen ilustra la gestión de cuenta y antecedentes médicos del paciente distribuida en cuatro pantallas.
+
+**Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
+
+
+La evidencia de 3.1.4.1. Mobile Applications Wireframes se presenta en [Figura 3-028](#figura-3-028).
+
+![Wireframes del directorio de pacientes, ficha médica, refracción y orden de trabajo.](assets/cap3/wireframe-movil/paciente.png)
+
+<a id="figura-3-028"></a>
+**Figura 3-028. Wireframes del directorio de pacientes, ficha médica, refracción y orden de trabajo.**
+
+
+Esta imagen detalla el flujo de trabajo clínico del optómetra y asesor de óptica en seis pantallas. Inicia con el directorio clínico de expedientes con métricas de resumen (total de pacientes, nuevos del mes, fichas en taller), buscador y filtros por estado. Continúa con el formulario modal de registro rápido de nuevo cliente con datos demográficos y motivo de consulta. Las pantallas clínicas finales estructuran la evaluación visual y la pantalla de confirmación de venta y pago registrado.
+
+**Sección Agenda y Control de Atención Clínica (Personal Óptico)**
+
+
+La evidencia de 3.1.4.1. Mobile Applications Wireframes se presenta en [Figura 3-029](#figura-3-029).
+
+![Wireframes de la agenda diaria, control de sala de espera y flujo de atención.](assets/cap3/wireframe-movil/citas_optica.png)
+
+<a id="figura-3-029"></a>
+**Figura 3-029. Wireframes de la agenda diaria, control de sala de espera y flujo de atención.**
+
+
+El diseño de agenda organiza la atención en cuatro vistas: resumen diario con calendario y filtros, consulta de citas, registro manual y actualización del estado de atención con notas. Su objetivo es facilitar el seguimiento de los turnos por el personal; la disponibilidad operativa de estas funciones se evalúa en la implementación correspondiente.
+
+**Sección Control de Stock e Inventario (Personal Óptico)**
+
+
+La evidencia de 3.1.4.1. Mobile Applications Wireframes se presenta en [Figura 3-030](#figura-3-030).
+
+![Wireframes de gestión de inventario, escáner de códigos y ajuste de existencias.](assets/cap3/wireframe-movil/inventario.png)
+
+<a id="figura-3-030"></a>
+**Figura 3-030. Wireframes de gestión de inventario, escáner de códigos y ajuste de existencias.**
+
+
+Esta imagen presenta la arquitectura de administración física de existencias en cinco pantallas interactivas. El panel principal resume las métricas de stock en vitrina y productos en taller/laboratorio. La segunda pantalla habilita el escáner de productos mediante cámara para lectura instantánea de códigos de barras o QR. La tercera pantalla desglosa la ficha de producto con galería fotográfica, precios y especificaciones. La cuarta pantalla detalla la distribución de stock multisede. La última pantalla proporciona el formulario para registrar nuevos movimientos.
+
+**Sección Operaciones, Producción y Reportes (Personal Óptico)**
+
+
+La evidencia de 3.1.4.1. Mobile Applications Wireframes se presenta en [Figura 3-031](#figura-3-031).
+
+![Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes.](assets/cap3/wireframe-movil/herramientas.png)
+
+<a id="figura-3-031"></a>
+**Figura 3-031. Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes.**
+
+
+El diseño reúne las herramientas operativas y analíticas en seis pantallas: confirmación de venta, cotizaciones vinculadas a recetas, tablero Kanban de producción, alertas y reportes. Las vistas permiten revisar la organización del flujo comercial y del taller, junto con los indicadores propuestos de facturación y atención. Estas funciones forman parte del diseño integral y no se presentan como funcionalidades móviles verificadas en el Sprint 1.
+
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
+
+
+
 #### 3.1.4.3. Mobile Applications Mock-ups
+
+
+
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 #### 3.1.4.5 Mobile Applications Prototyping
 

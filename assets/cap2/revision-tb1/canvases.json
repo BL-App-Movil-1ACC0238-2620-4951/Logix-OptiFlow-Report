@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "search-booking",
+    "name": "Search & Booking",
+    "purpose": "Facilitar que el paciente encuentre una óptica y reserve un horario disponible.",
+    "classification": "Core Domain; experiencia de descubrimiento y ejecución de reservas.",
+    "roles": "Consulta de establecimientos y coordinación del ciclo de vida de las citas.",
+    "language": "Patient: solicitante. OpticalStore: sucursal. TimeSlot: horario. Appointment: reserva identificable.",
+    "rules": "No duplicar reservas sobre la misma disponibilidad. Exigir datos válidos del paciente, sucursal y horario. Una consulta no crea una reserva.",
+    "inbound": "App del paciente: SearchOpticalStores y GetAvailableTimeSlots (consultas); BookAppointment (comando).",
+    "outbound": "App: resultados, disponibilidad y confirmación. Clinical & Commercial y Notification & Loyalty: AppointmentBooked.",
+    "assumptions": "La sucursal mantiene su disponibilidad. Los consumidores pueden identificar al paciente y la cita sin compartir entidades internas.",
+    "metrics": "Verificar consultas y reserva con US05/US06; probar rechazo de horarios ocupados y consistencia del identificador persistido.",
+    "questions": "Decidir vigencia de disponibilidad, política de cancelación y anticipación de recordatorios. Diferenciar reglas propuestas de las implementadas."
+  },
+  {
+    "slug": "clinical-commercial",
+    "name": "Clinical & Commercial",
+    "purpose": "Organizar la evaluación visual y transformar una cotización aprobada en una venta trazable.",
+    "classification": "Core Domain; ejecución de atención y conversión comercial.",
+    "roles": "Registro clínico y control de las transiciones comerciales.",
+    "language": "ClinicalRecord: atención. OpticalPrescription: prescripción. Quotation: propuesta económica. Sale: venta. Receipt: comprobante.",
+    "rules": "Solo una cotización aprobada genera una venta; máximo una venta por cotización. Registrar pago antes del cierre. Cada venta tiene como máximo un comprobante.",
+    "inbound": "Personal: registro clínico, cotización, aprobación, registro de venta y pago (comandos). Search & Booking: AppointmentBooked.",
+    "outbound": "Consultas: expediente, cotización y venta. Production & Tracking: SaleWasClosed. Inventario: integración propuesta al cierre.",
+    "assumptions": "El expediente identifica al paciente. El pago registrado no implica una integración bancaria externa implementada.",
+    "metrics": "Verificar rechazo de cotización no aprobada y venta duplicada; comprobar UNIQUE en sales.quotation_id y vínculo del comprobante.",
+    "questions": "Definir revisiones de cotización y tratamiento de anulaciones. TB1 no modela ventas parciales múltiples desde una misma cotización."
+  },
+  {
+    "slug": "production-tracking",
+    "name": "Production & Tracking",
+    "purpose": "Coordinar la fabricación y facilitar el seguimiento de cada orden hasta su entrega.",
+    "classification": "Core Domain; ejecución y trazabilidad de órdenes.",
+    "roles": "Gestión del flujo de taller, asignaciones y avance del pedido.",
+    "language": "WorkOrder: orden. Technician: técnico. Laboratory: taller. Status: etapa. EstimatedDeliveryDate: fecha estimada.",
+    "rules": "Vincular la orden con una venta cerrada. Respetar las transiciones válidas. Comunicar cambios sin delegar a notificaciones la decisión del estado.",
+    "inbound": "Clinical & Commercial: SaleWasClosed. Personal: asignación y cambio de estado (comandos). Paciente: consulta del pedido.",
+    "outbound": "Consultas: estado y fecha estimada. Notification & Loyalty: WorkOrderStatusUpdated y OrderWasMarkedAsDelivered.",
+    "assumptions": "El taller registra avances oportunamente. El modelo conceptual documental no obliga a usar MongoDB en TB1: el backend usa persistencia JPA.",
+    "metrics": "Verificar vínculo venta-orden y transiciones; comprobar que los eventos identifican pedido, paciente y estado.",
+    "questions": "Precisar tratamiento de demoras, reapertura y cambios de laboratorio. No confundir fecha estimada con garantía de entrega."
+  },
+  {
+    "slug": "notification-loyalty",
+    "name": "Notification & Loyalty",
+    "purpose": "Comunicar hitos relevantes al paciente y apoyar el seguimiento posterior a la atención.",
+    "classification": "Supporting Domain; comunicación y apoyo a la relación con el paciente.",
+    "roles": "Reacción a eventos, preferencias de comunicación y programación temporal.",
+    "language": "Notification: aviso. Preferences: canales elegidos. OrderProgress: avance. Survey: encuesta. Campaign: reactivación.",
+    "rules": "Respetar preferencias y permisos. Evitar duplicados. El estado de fabricación pertenece a producción; este contexto lo comunica.",
+    "inbound": "AppointmentBooked, WorkOrderStatusUpdated y OrderWasMarkedAsDelivered. Preferencias del usuario; disparadores de calendario.",
+    "outbound": "Notificaciones al paciente y propuestas de encuesta/campaña. Adaptadores de mensajería externos según el canal elegido.",
+    "assumptions": "Existe un destinatario identificable. Persistir el aviso no demuestra que un proveedor haya entregado un push o mensaje externo.",
+    "metrics": "Comprobar reacción al evento y persistencia del aviso; verificar separadamente entrega del canal y prevención de duplicados.",
+    "questions": "Definir anticipación de recordatorios, reintentos y consentimiento. Los canales externos deben validarse antes de afirmar entrega."
+  },
+  {
+    "slug": "store-inventory",
+    "name": "Store Management & Inventory",
+    "purpose": "Mantener el catálogo, las existencias y la información operativa de la óptica.",
+    "classification": "Supporting Domain; control de recursos del establecimiento.",
+    "roles": "Gestión de catálogo, disponibilidad física y reposición.",
+    "language": "Frame: montura. SKU: código de producto. Stock: existencias. Supplier: proveedor. Replenishment: reposición.",
+    "rules": "Consultar stock no lo modifica. Registrar movimientos con producto y cantidad. Evitar existencias negativas y movimientos duplicados.",
+    "inbound": "Personal: gestión de catálogo y movimientos. Clinical & Commercial: cierre de venta como integración propuesta para actualizar stock.",
+    "outbound": "Consulta de productos, precios y stock; alertas de reposición para el personal autorizado.",
+    "assumptions": "Los códigos identifican productos y la óptica registra movimientos. El módulo completo de inventario no está implementado en TB1.",
+    "metrics": "En la implementación futura, contrastar movimientos con saldo e impedir descuento duplicado por venta.",
+    "questions": "Decidir política de reserva de stock, ajustes, múltiples sucursales y reconciliación ante pérdida de conexión."
+  }
+]
