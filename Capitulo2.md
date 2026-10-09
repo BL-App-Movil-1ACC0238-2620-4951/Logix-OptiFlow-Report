@@ -1071,8 +1071,8 @@ El Bounded Context Canvas del Search & Booking Context se detalla en la Tabla 17
 | **Strategic Classification** | Core Domain |
 | **Domain Roles** | Gestión del proceso inicial del paciente: descubrimiento de sucursales, exploración del catálogo de monturas, gestión de preferencias e identidades, y reserva formal de citas según disponibilidad de horarios. |
 | **Ubiquitous Language** | Patient, Time Slot, Optical Store, Store Catalog, Favorite Store, Store Rating, Appointment, Booking. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `RegisterPatient`<br>- `LogIn`<br>- `PublishAvailableTimeSlots`<br>- `SearchOpticalStores`<br>- `FilterOpticalStores`<br>- `SaveFavoriteOpticalStore`<br>- `ExploreFrameCatalog`<br>- `RateOpticalStore`<br>- `BookAppointment` |
-| **Outbound Communication** | **Events (Publicados):**<br>- `PatientRegistered`<br>- `PatientLoggedIn`<br>- `OpticalStoresPublished`<br>- `OpticalStoresFiltered`<br>- `FavoriteOpticalStoreSaved`<br>- `FrameCatalogExplored`<br>- `OpticalStoreRated`<br>- `AppointmentBooked` |
+| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `RegisterPatient`<br>- `LogIn`<br>- `PublishAvailableTimeSlots`<br>- `SaveFavoriteOpticalStore`<br>- `RateOpticalStore`<br>- `BookAppointment`<br><br>**Queries (vía API Gateway):**<br>- `SearchOpticalStores`<br>- `FilterOpticalStores`<br>- `ExploreFrameCatalog` |
+| **Outbound Communication** | **Events (Publicados):**<br>- `PatientRegistered`<br>- `PatientLoggedIn`<br>- `OpticalStoresPublished`<br>- `FavoriteOpticalStoreSaved`<br>- `OpticalStoreRated`<br>- `AppointmentBooked` |
 
 **Canvas 2: Clinical & Commercial Context**
 
@@ -1155,8 +1155,8 @@ El Bounded Context Canvas del Store Management & Inventory Context se presenta e
 | **Strategic Classification** | Supporting Domain |
 | **Domain Roles** | Control de existencias físicas multitienda, administración del catálogo de modelos de monturas, actualización de precios, reabastecimiento y gestión de proveedores (Suppliers). |
 | **Ubiquitous Language** | Frame Model, Catalog, Price, Stock, Inventory, Low Stock Alert, Supplier, Replenishment. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `AddNewFrameModel`<br>- `UpdateFrameModelPrice`<br>- `ConsultStock`<br>- `ReplenishStock`<br>- `RegisterSupplier`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
-| **Outbound Communication** | **Events (Publicados):**<br>- `NewFrameModelAdded`<br>- `FrameModelPriceUpdated`<br>- `StockWasConsulted`<br>- `StockWasReplenished`<br>- `LowStockAlertGenerated`<br>- `InventoryWasUpdated`<br>- `SupplierRegistered` |
+| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `AddNewFrameModel`<br>- `UpdateFrameModelPrice`<br>- `ReplenishStock`<br>- `RegisterSupplier`<br><br>**Queries (vía API Gateway):**<br>- `ConsultStock`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
+| **Outbound Communication** | **Events (Publicados):**<br>- `NewFrameModelAdded`<br>- `FrameModelPriceUpdated`<br>- `StockWasReplenished`<br>- `LowStockAlertGenerated`<br>- `InventoryWasUpdated`<br>- `SupplierRegistered` |
 
 ##### Canvases completos y precisiones del contrato
 
@@ -1682,9 +1682,7 @@ Los eventos de dominio representan hechos relevantes ocurridos dentro del contex
 | `PatientRegistered` | Se genera cuando un nuevo paciente completa su registro |
 | `PatientLoggedIn` | Se genera cuando un paciente inicia sesión correctamente |
 | `OpticalStoresPublished` | Se genera cuando las ópticas disponibles son publicadas |
-| `OpticalStoresFiltered` | Se genera cuando una búsqueda de ópticas es filtrada |
 | `FavoriteOpticalStoreSaved` | Se genera cuando un paciente guarda una óptica como favorita |
-| `FrameCatalogExplored` | Se genera cuando un paciente explora el catálogo de monturas |
 | `OpticalStoreRated` | Se genera cuando un paciente registra una valoración |
 | `AppointmentBooked` | Se genera cuando una cita es reservada correctamente |
 
@@ -2712,7 +2710,6 @@ Los Domain Events del Store Management & Inventory Context se presentan en la Ta
 |---|---|
 | `NewFrameModelAdded` | Indica que un nuevo modelo de montura fue agregado al catálogo. |
 | `FrameModelPriceUpdated` | Indica que el precio de un modelo de montura fue actualizado. |
-| `StockWasConsulted` | Indica que se realizó una consulta sobre las existencias. |
 | `StockWasReplenished` | Indica que las existencias fueron reabastecidas. |
 | `LowStockAlertGenerated` | Indica que se generó una alerta debido a un nivel bajo de stock. |
 | `InventoryWasUpdated` | Indica que la información del inventario fue actualizada. |
