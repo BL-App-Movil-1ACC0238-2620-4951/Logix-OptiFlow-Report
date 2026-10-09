@@ -1,12 +1,10 @@
 <div align="center">
 
 
-La evidencia de README se presenta en [Figura P-001](#figura-p-001).
-
 <img src="assets/UPC_logo_transparente.png" alt="Logo-UPC" width="150"> 
 
 <a id="figura-p-001"></a>
-**Figura P-001. Logo-UPC.**
+
 
 
 **Universidad Peruana de Ciencias Aplicadas**<br>
@@ -31,23 +29,38 @@ Proyecto<br>
 
 <br>**Integrantes** 
 
-<div align="center"> 
+<div align="center">
+  <h4>Integrantes</h4>
 
+  <table style="border: none; border-collapse: collapse;">
+    <tr>
+      <th style="border: ;">Código</th>
+      <th style="border:;">Apellidos y Nombres</th>
+    </tr>
+    <tr>
+      <td style="border: none;">U20241d317</td>
+      <td style="border: none;">Atoche Gonzáles, Nicolás Fernando</td>
+    </tr>
+    <tr>
+      <td style="border: none;">U20211b387</td>
+      <td style="border: none;">Becerra Ttito, Felix Orlando</td>
+    </tr>
+    <tr>
+      <td style="border: none;">U201911249</td>
+      <td style="border: none;">Celis Berrospi, Eslander</td>
+    </tr>
+    <tr>
+      <td style="border: none;">U202411521</td>
+      <td style="border: none;">Morocho Pinedo, Mariana</td>
+    </tr>
+    <tr>
+      <td style="border: none;">U202417405</td>
+      <td style="border: none;">Quispe llacsahuanga, Cesar Agusto</td>
+    </tr>
+  </table>
 
-<a id="tabla-p-001"></a>
-La [Tabla P-001](#tabla-p-001) presenta detalle de README y permite revisar los elementos documentados en esta sección.
-
-**Tabla P-001. Detalle de README.**
-
-| Código|Apellidos y Nombres|
-|-------------| --------------------------------- |
-| U20241d317| Atoche Gonzáles, Nicolás Fernando
-| U20211b387| Becerra Ttito, Felix Orlando|
-| U201911249| Celis Berrospi, Eslander|
-| U202411521| Morocho Pinedo, Mariana|
-| U202417405| Quispe llacsahuanga, Cesar Agusto| 
-
-</div> 
+  
+</div>
 
 **Período 202620**  
 
