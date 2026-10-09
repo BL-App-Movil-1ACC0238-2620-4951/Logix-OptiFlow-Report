@@ -1430,7 +1430,9 @@ https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d317_upc_edu_pe/IQBMU94R
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-En esta sección se presenta la evaluación de la experiencia de usuario de OptiFlow a partir de las sesiones de validación. Se consideran heurísticas de **usabilidad**, principios de **arquitectura de información** y principios de **diseño inclusivo**, siguiendo el formato de evaluación indicado para el proyecto.
+En esta sección se presenta la evaluación de la experiencia de usuario de OptiFlow a partir de las sesiones de validación. Se consideran heurísticas de **usabilidad**, principios de **arquitectura de información** y principios de **diseño inclusivo**, siguiendo el formato de evaluación indicado para el proyecto (Anexo E del enunciado).
+
+Para la evaluación, el equipo recorrió las mismas tareas que realizaron los entrevistados: la Landing Page publicada en GitHub Pages, revisada en escritorio y en un ancho de celular, y la aplicación Android, ejecutada en un emulador Pixel 8 con los roles de paciente y de personal clínico. Cada problema encontrado se registra con su nivel de severidad, la heurística o principio que incumple, una captura de pantalla y una recomendación de mejora.
 
 | | |
 | :--- | :--- |
@@ -1439,26 +1441,30 @@ En esta sección se presenta la evaluación de la experiencia de usuario de Opti
 | **NRC** | 4951 |
 | **PROFESOR** | Jorge Luis Mayta Guillermo |
 | **AUDITOR** | Logix |
-| **CLIENTE(S)** | [Nombres de las personas que participan en la sesión] |
+| **CLIENTE(S)** | Camila Gutiérrez Zosa, Marcos Ruiz Coba y Yanel |
 
 **SITE o APP A EVALUAR:**
-OptiFlow: Landing Page y aplicación móvil.
+OptiFlow: Landing Page ([https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-lading-page/](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-lading-page/)) y aplicación móvil Android (versión 1.0.0).
 
 **TAREAS A EVALUAR:**
 El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
 
 1. Conocer la propuesta de valor de OptiFlow desde la Landing Page.
-2. Registrarse e iniciar sesión en la aplicación móvil según el rol (paciente o personal clínico).
-3. Buscar una óptica y consultar sus horarios disponibles.
-4. Reservar una cita de atención optométrica.
-5. Consultar la receta óptica y el historial clínico.
-6. Revisar el estado y el seguimiento de un pedido de lentes.
-7. Configurar las notificaciones y los recordatorios de control visual.
-8. Registrar un paciente nuevo desde el rol de personal clínico.
-9. Consultar el stock de una montura mediante el escáner.
-10. Generar una cotización vinculada a la receta del paciente.
-11. Actualizar el estado de una orden de trabajo en el tablero de producción.
-12. Revisar los reportes y las alertas de stock crítico.
+2. Revisar los planes y las preguntas frecuentes, y solicitar una demo desde la Landing Page.
+3. Iniciar sesión desde la Landing Page.
+4. Registrarse e iniciar sesión en la aplicación móvil según el rol (paciente o personal clínico).
+5. Buscar una óptica y consultar sus horarios disponibles.
+6. Reservar una cita de atención optométrica.
+7. Cancelar o reprogramar una cita.
+8. Consultar la receta óptica y el historial clínico.
+9. Revisar el estado y el seguimiento de un pedido de lentes.
+10. Configurar las notificaciones y los recordatorios de control visual, y consultar la ayuda.
+11. Registrar un paciente nuevo desde el rol de personal clínico.
+12. Agendar una cita desde el rol de personal clínico.
+13. Consultar el stock de una montura mediante el escáner.
+14. Generar una cotización vinculada a la receta del paciente.
+15. Actualizar el estado de una orden de trabajo en el tablero de producción.
+16. Revisar los reportes y las alertas de stock crítico.
 
 No están incluidas en esta versión de la evaluación las siguientes tareas:
 
@@ -1469,7 +1475,13 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 5. Operaciones sin conexión a internet.
 
 **ESCALA DE SEVERIDAD:**
-Los errores serán puntuados tomando en cuenta la siguiente escala de severidad:
+Los errores serán puntuados tomando en cuenta la escala de severidad de la Tabla 120.
+
+<a id="tabla-120"></a>
+
+**Tabla 120**
+
+*Escala de severidad de los problemas de usabilidad*
 
 | Nivel | Descripción |
 | :---: | :--- |
@@ -1477,3 +1489,355 @@ Los errores serán puntuados tomando en cuenta la siguiente escala de severidad:
 | 2 | **Problema menor:** puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja resolverlo de cara al siguiente *release*. |
 | 3 | **Problema mayor:** ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante que sea corregido y se le debe asignar una prioridad alta. |
 | 4 | **Problema muy grave:** un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+
+**TABLA RESUMEN:**
+
+Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplicación móvil (problemas 7 al 15) se resumen en la Tabla 121.
+
+<a id="tabla-121"></a>
+
+**Tabla 121**
+
+*Resumen de problemas identificados en la evaluación heurística*
+
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
+| :---: | :--- | :---: | :--- |
+| 1 | La Landing Page no ofrece un acceso para pacientes: todos los botones de llamada a la acción llevan al formulario de demo para ópticas. | 3 | Information Architecture: Is it findable? |
+| 2 | La opción "Iniciar sesión" pide correo y contraseña, pero no permite ingresar y responde con el mensaje "Solicitud lista". | 3 | Information Architecture: Is it usable? |
+| 3 | Los diálogos de demo y de inicio de sesión no tienen un botón para cerrarlos. | 2 | Usability: Libertad y control del usuario |
+| 4 | El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis". | 2 | Usability: Consistencia y estándares |
+| 5 | La pregunta frecuente "¿Necesito instalar algo?" indica que no, aunque la solución se usa mediante una aplicación Android. | 2 | Information Architecture: Is it credible? |
+| 6 | En celular, las etiquetas de las estadísticas se muestran con 8 px y los fondos decorativos desplazan el contenido. | 2 | Inclusive Design: Proporciona experiencias comparables |
+| 7 | "Cancelar cita" cancela la reserva con un solo toque, sin confirmación ni opción para deshacer. | 3 | Usability: Prevención de errores |
+| 8 | En "Nueva cita" del personal clínico, el servicio, la sucursal y la fecha están fijos y no se pueden cambiar. | 3 | Usability: Libertad y control del usuario |
+| 9 | El registro de pacientes usa ejemplos de teléfono (+56) y de identificación (RUT) de Chile. | 2 | Usability: Correspondencia entre el sistema y el mundo real |
+| 10 | La misma entidad se llama "paciente" y "cliente" en el flujo de registro. | 1 | Usability: Consistencia y estándares |
+| 11 | Las opciones de ayuda y documentación no muestran contenido. | 2 | Usability: Ayuda y documentación |
+| 12 | La pantalla de inicio muestra recetas y pedidos que el paciente no tiene, y no coinciden con su perfil. | 3 | Usability: Visibilidad del estado del sistema |
+| 13 | Un paciente puede cambiar a la vista del personal clínico desde su perfil sin credenciales. | 3 | Information Architecture: Is it credible? |
+| 14 | Los botones que solo muestran un ícono (notificaciones, volver y configuración) no tienen etiqueta accesible para lectores de pantalla. | 2 | Inclusive Design: Proporciona experiencias comparables |
+| 15 | Las cotizaciones y los reportes muestran montos en "$" con formato chileno, mientras la Landing Page cobra en soles (S/). | 2 | Usability: Correspondencia entre el sistema y el mundo real |
+
+**DESCRIPCIÓN DE PROBLEMAS:**
+
+**PROBLEMA #1:** La Landing Page no ofrece un acceso para pacientes
+
+**Severidad:** 3
+
+**Heurística violada:** Information Architecture - Is it findable?
+
+**Problema:**
+
+El título principal, "Tu cita óptica ideal, en tu bolsillo", está dirigido a los pacientes, pero todos los botones de llamada a la acción ("Solicitar Demo", "Empezar gratis", "Elegir Profesional" y "Contactar ventas") abren el formulario de demo para ópticas. No existe un enlace para descargar la aplicación ni para registrarse como paciente, por lo que el segundo segmento objetivo no encuentra cómo empezar a usar OptiFlow (ver Figura 154).
+
+<a id="figura-154"></a>
+
+**Figura 154**
+
+*Sección principal de la Landing Page con un único botón dirigido a ópticas*
+
+![Sección principal de la Landing Page](assets/cap4/heuristicas/p01-landing-sin-acceso-paciente.jpg)
+
+**Recomendación:**
+
+Agregar en la sección principal y en la barra de navegación un botón por segmento, por ejemplo "Soy paciente: descarga la app" y "Tengo una óptica: solicita una demo", con enlace a la descarga de la aplicación.
+
+**PROBLEMA #2:** La opción "Iniciar sesión" no permite ingresar
+
+**Severidad:** 3
+
+**Heurística violada:** Information Architecture - Is it usable?
+
+**Problema:**
+
+En el pie de página, la opción "Iniciar sesión" abre el formulario "Entra a tu óptica", que solicita correo y contraseña. Al presionar "Continuar", el usuario recibe un diálogo titulado "Solicitud lista" que indica que el acceso todavía no valida contraseñas. El usuario completa datos para una función que no está disponible y el título del mensaje no corresponde a la acción que realizó (ver Figura 155).
+
+<a id="figura-155"></a>
+
+**Figura 155**
+
+*Mensaje mostrado después de intentar iniciar sesión desde la Landing Page*
+
+![Mensaje de inicio de sesión no disponible](assets/cap4/heuristicas/p02-landing-login-no-funcional.jpg)
+
+**Recomendación:**
+
+Reemplazar la opción por un enlace a la aplicación móvil hasta que el acceso web esté conectado a los Web Services. Si se mantiene, avisar antes de pedir credenciales y usar un título acorde, como "Acceso no disponible".
+
+**PROBLEMA #3:** Los diálogos de demo y de inicio de sesión no tienen botón para cerrar
+
+**Severidad:** 2
+
+**Heurística violada:** Usabilidad - Libertad y control del usuario
+
+**Problema:**
+
+Los diálogos "Solicita OptiFlow para tu óptica" y "Entra a tu óptica" solo se cierran con la tecla Esc o al hacer clic fuera de ellos. No muestran un botón "Cerrar" ni un ícono ×, a diferencia de los diálogos de privacidad y de términos. En un celular, donde no existe la tecla Esc, el usuario puede no saber cómo salir sin enviar el formulario (ver Figura 156).
+
+<a id="figura-156"></a>
+
+**Figura 156**
+
+*Diálogo de solicitud de demo sin control para cerrarlo*
+
+![Diálogo de solicitud de demo](assets/cap4/heuristicas/p03-landing-dialogo-sin-cerrar.jpg)
+
+**Recomendación:**
+
+Añadir un botón de cierre visible (×) en la esquina superior de todos los diálogos y un botón "Cancelar" junto a la acción principal.
+
+**PROBLEMA #4:** El plan Básico ofrece "Empezar gratis" aunque es de pago
+
+**Severidad:** 2
+
+**Heurística violada:** Usabilidad - Consistencia y estándares
+
+**Problema:**
+
+El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis" y la página no explica si existe un periodo de prueba ni su duración. Además, el botón abre el mismo formulario de demo que los otros planes. El texto genera una expectativa que la página no cumple (ver Figura 157).
+
+<a id="figura-157"></a>
+
+**Figura 157**
+
+*Sección de planes con el botón "Empezar gratis" en un plan de pago*
+
+![Sección de planes](assets/cap4/heuristicas/p04-landing-plan-empezar-gratis.jpg)
+
+**Recomendación:**
+
+Cambiar el texto a "Elegir Básico" o, si se ofrece una prueba gratuita, indicar su duración junto al precio (por ejemplo, "14 días gratis").
+
+**PROBLEMA #5:** La sección de preguntas frecuentes contradice el uso de la aplicación
+
+**Severidad:** 2
+
+**Heurística violada:** Information Architecture - Is it credible?
+
+**Problema:**
+
+La respuesta a "¿Necesito instalar algo?" indica que no, porque OptiFlow funciona desde el celular y el navegador. Sin embargo, los beneficios de la página y la solución se basan en una aplicación Android que se debe instalar. La contradicción resta credibilidad a la información y no responde cómo obtener la aplicación (ver Figura 158).
+
+<a id="figura-158"></a>
+
+**Figura 158**
+
+*Respuesta de la sección de preguntas frecuentes sobre la instalación*
+
+![Preguntas frecuentes de la Landing Page](assets/cap4/heuristicas/p05-landing-faq-instalacion.jpg)
+
+**Recomendación:**
+
+Corregir la respuesta para indicar que pacientes y personal usan la aplicación Android, y agregar preguntas sobre cómo descargarla y cómo reservar una cita como paciente.
+
+**PROBLEMA #6:** Textos de 8 px y contenido desplazado en celular
+
+**Severidad:** 2
+
+**Heurística violada:** Inclusive Design - Proporciona experiencias comparables
+
+**Problema:**
+
+En un ancho de 375 px, las etiquetas de las estadísticas ("Sin recordatorios", "Menos ausentismo" y "Menos tiempo") se muestran con un tamaño de 8 px, difícil de leer para personas mayores o con baja visión. Además, los fondos decorativos sobresalen del ancho de la pantalla, lo que deja una franja vacía a la derecha y descentra el contenido (ver Figura 159).
+
+<a id="figura-159"></a>
+
+**Figura 159**
+
+*Sección de estadísticas de la Landing Page en un ancho de celular*
+
+<p align="center"><img src="assets/cap4/heuristicas/p06-landing-movil-texto-pequeno.jpg" alt="Estadísticas de la Landing Page en celular" width="300"></p>
+
+**Recomendación:**
+
+Usar un tamaño mínimo de 12 px (idealmente 14 px) en textos secundarios y recortar los elementos decorativos con `overflow-x: hidden` en el elemento `html` para evitar el desplazamiento horizontal.
+
+**PROBLEMA #7:** Cancelar una cita no pide confirmación
+
+**Severidad:** 3
+
+**Heurística violada:** Usabilidad - Prevención de errores
+
+**Problema:**
+
+En "Detalle de cita", el texto "Cancelar cita" cancela la reserva con un solo toque, muestra el mensaje breve "Cita cancelada" y regresa a "Mis citas". No hay un diálogo de confirmación ni una opción para deshacer la acción, por lo que un toque accidental libera el horario y el paciente pierde su cita (ver Figura 160).
+
+<a id="figura-160"></a>
+
+**Figura 160**
+
+*Detalle de la cita antes de cancelar (izquierda) y resultado inmediato después de un toque (derecha)*
+
+<p align="center"><img src="assets/cap4/heuristicas/p07-app-detalle-cita.png" alt="Detalle de cita" width="250"> <img src="assets/cap4/heuristicas/p07-app-cita-cancelada.png" alt="Cita cancelada" width="250"></p>
+
+**Recomendación:**
+
+Mostrar un diálogo de confirmación con la fecha y hora de la cita y las opciones "Cancelar cita" y "Mantener cita". Presentar la acción como un botón con color de advertencia para diferenciarla de "Reprogramar cita".
+
+**PROBLEMA #8:** La nueva cita del personal clínico tiene datos fijos
+
+**Severidad:** 3
+
+**Heurística violada:** Usabilidad - Libertad y control del usuario
+
+**Problema:**
+
+En "Nueva cita" del rol de personal clínico, los campos "Servicio", "Óptica / sucursal" y "Fecha" muestran una flecha de selección, pero no responden al tocarlos. La fecha permanece fija en "Miércoles, 20 de junio" (junio de 2025), por lo que el usuario solo puede elegir la hora y no puede agendar una cita en otra fecha, sede o servicio (ver Figura 161).
+
+<a id="figura-161"></a>
+
+**Figura 161**
+
+*Pantalla "Nueva cita" del personal clínico con servicio, sucursal y fecha fijos*
+
+<p align="center"><img src="assets/cap4/heuristicas/p08-app-nueva-cita-fija.png" alt="Nueva cita del personal clínico" width="250"></p>
+
+**Recomendación:**
+
+Implementar selectores reales: lista de servicios, sucursales obtenidas de los Web Services y un calendario con la disponibilidad de la óptica. Quitar la flecha de los campos que no sean editables.
+
+**PROBLEMA #9:** El registro de pacientes usa formatos de Chile
+
+**Severidad:** 2
+
+**Heurística violada:** Usabilidad - Correspondencia entre el sistema y el mundo real
+
+**Problema:**
+
+El formulario "Registro rápido de paciente" muestra como ejemplos el teléfono "+56 9 8745 9210" y la identificación "RUT 18.942.105-K", que son formatos de Chile. Las ópticas y los pacientes de OptiFlow están en el Perú, donde se usa el prefijo +51 y el DNI de 8 dígitos, por lo que los ejemplos pueden inducir a registrar datos con un formato incorrecto (ver Figura 162).
+
+<a id="figura-162"></a>
+
+**Figura 162**
+
+*Formulario de registro de pacientes del personal clínico*
+
+<p align="center"><img src="assets/cap4/heuristicas/p09-app-registro-paciente.png" alt="Registro de pacientes" width="250"></p>
+
+**Recomendación:**
+
+Usar ejemplos locales ("+51 987 654 321" y "DNI / CE") y validar 9 dígitos para el celular y 8 dígitos para el DNI.
+
+**PROBLEMA #10:** La misma entidad se llama "paciente" y "cliente"
+
+**Severidad:** 1
+
+**Heurística violada:** Usabilidad - Consistencia y estándares
+
+**Problema:**
+
+En la pantalla de inicio del personal, el acceso rápido se llama "Nuevo paciente", pero la pantalla que abre se titula "Nuevo Cliente" y su encabezado dice "Registro rápido de paciente". Usar dos términos para la misma entidad genera dudas sobre si se registra a un paciente o a un cliente comercial (ver Figura 162).
+
+**Recomendación:**
+
+Usar el término "paciente" en todo el flujo, de acuerdo con el lenguaje ubicuo del proyecto.
+
+**PROBLEMA #11:** Las opciones de ayuda no muestran contenido
+
+**Severidad:** 2
+
+**Heurística violada:** Usabilidad - Ayuda y documentación
+
+**Problema:**
+
+En "Mi Perfil", la opción "Ayuda y soporte" lleva a la pantalla "Configuración", y allí "Ayuda y documentación" no abre ningún contenido. Lo mismo ocurre con "Privacidad y seguridad", "Idioma" y "Términos y privacidad", y con "Ayuda y documentación" en el menú "Más" del personal clínico. Todas muestran una flecha que sugiere que llevan a otra pantalla (ver Figura 163).
+
+<a id="figura-163"></a>
+
+**Figura 163**
+
+*Pantalla "Configuración" con opciones de ayuda sin contenido*
+
+<p align="center"><img src="assets/cap4/heuristicas/p11-app-ayuda-sin-contenido.png" alt="Configuración del paciente" width="250"></p>
+
+**Recomendación:**
+
+Crear una pantalla de ayuda con preguntas frecuentes y datos de contacto de la óptica (WhatsApp o correo). Mientras no exista, ocultar las opciones que no tienen contenido.
+
+**PROBLEMA #12:** La pantalla de inicio muestra datos que no corresponden al paciente
+
+**Severidad:** 3
+
+**Heurística violada:** Usabilidad - Visibilidad del estado del sistema
+
+**Problema:**
+
+Una cuenta de paciente recién creada, sin recetas ni pedidos registrados, muestra en "Accesos rápidos" los indicadores "Mis recetas · 2 activas" y "Mis pedidos · 1 en camino". En "Mi Perfil", la misma cuenta indica "1 recetas disponibles". La información sobre el estado del paciente no corresponde a sus datos y no coincide entre pantallas (ver Figura 164).
+
+<a id="figura-164"></a>
+
+**Figura 164**
+
+*Inicio (izquierda) y perfil (derecha) de una cuenta de paciente recién creada*
+
+<p align="center"><img src="assets/cap4/heuristicas/p12-app-inicio-paciente-nuevo.png" alt="Inicio del paciente nuevo" width="250"> <img src="assets/cap4/heuristicas/p12-app-perfil-paciente-nuevo.png" alt="Perfil del paciente nuevo" width="250"></p>
+
+**Recomendación:**
+
+Obtener los indicadores de recetas y pedidos desde los Web Services (historias clínicas y órdenes de trabajo del paciente) y mostrar un estado vacío cuando no existan registros, por ejemplo "Aún no tienes recetas".
+
+**PROBLEMA #13:** Un paciente puede cambiar a la vista del personal clínico sin credenciales
+
+**Severidad:** 3
+
+**Heurística violada:** Information Architecture - Is it credible?
+
+**Problema:**
+
+En "Mi Perfil", la opción "Vista personal de óptica" cambia a la experiencia del personal clínico (agenda, pacientes, inventario y ventas) sin pedir credenciales ni validar el rol. Un paciente puede acceder a información de la óptica, y la elección de rol al iniciar sesión pierde sentido, lo que afecta la confianza en el manejo de los datos (ver Figura 165).
+
+<a id="figura-165"></a>
+
+**Figura 165**
+
+*Vista del personal clínico abierta desde el perfil de un paciente*
+
+<p align="center"><img src="assets/cap4/heuristicas/p13-app-vista-personal.png" alt="Vista del personal clínico" width="250"></p>
+
+**Recomendación:**
+
+Retirar la opción del perfil del paciente. El acceso a la experiencia del personal clínico debe darse solo al iniciar sesión con una cuenta de personal autorizada.
+
+**PROBLEMA #14:** Los botones de solo ícono no tienen etiqueta accesible
+
+**Severidad:** 2
+
+**Heurística violada:** Inclusive Design - Proporciona experiencias comparables
+
+**Problema:**
+
+Los botones que solo muestran un ícono, como el de notificaciones (campana) de la pantalla de inicio, la flecha para volver y el engranaje de configuración, no tienen descripción de contenido (*content description*) en el árbol de accesibilidad de Android. Un usuario que navega con un lector de pantalla, como TalkBack, escucha un botón sin nombre y no sabe qué acción realiza (ver Figura 166).
+
+<a id="figura-166"></a>
+
+**Figura 166**
+
+*Pantalla de inicio del paciente con el botón de notificaciones sin etiqueta accesible*
+
+<p align="center"><img src="assets/cap4/heuristicas/p14-app-inicio-sin-etiquetas.png" alt="Inicio del paciente" width="250"></p>
+
+**Recomendación:**
+
+Añadir una `contentDescription` a cada botón de solo ícono (por ejemplo, "Notificaciones", "Volver" y "Configuración") para que el lector de pantalla anuncie su función.
+
+**PROBLEMA #15:** Los montos se muestran en una moneda que no corresponde al Perú
+
+**Severidad:** 2
+
+**Heurística violada:** Usabilidad - Correspondencia entre el sistema y el mundo real
+
+**Problema:**
+
+En el rol de personal clínico, la pantalla "Nueva cotización" muestra precios como "$89.900" y la pantalla "Reportes" muestra ventas totales de "$8.460.200", con el símbolo de dólar y el punto como separador de miles, formato propio del peso chileno. La Landing Page presenta los planes en soles (S/), y las ópticas y pacientes de OptiFlow pagan en soles, por lo que los montos pueden interpretarse de forma incorrecta (ver Figura 167).
+
+<a id="figura-167"></a>
+
+**Figura 167**
+
+*Montos en las pantallas "Nueva cotización" (izquierda) y "Reportes" (derecha)*
+
+<p align="center"><img src="assets/cap4/heuristicas/p15-app-cotizacion-moneda.png" alt="Nueva cotización" width="250"> <img src="assets/cap4/heuristicas/p15-app-reportes-moneda.png" alt="Reportes" width="250"></p>
+
+**Recomendación:**
+
+Mostrar todos los montos en soles con el formato peruano (por ejemplo, "S/ 899.00"), usando un formateador de moneda con la configuración regional `es-PE`, igual que en la Landing Page.
