@@ -476,3 +476,11 @@ La navegación principal en nuestra app visualmente:
 #### 3.1.4.3. Mobile Applications Mock-ups
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 #### 3.1.4.5 Mobile Applications Prototyping
+
+##### Landing Page Prototyping:
+
+![Captura de video - prototipado.png](assets/cap3/prototyping/Captura%20de%20video%20-%20prototipado.png)
+
+Enlace:
+
+https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d317_upc_edu_pe/IQAKxGCxZTVuSLOdpO75JvDhATmlGtw5gxUwVA8Y_6RYOno?e=scNfBH&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
