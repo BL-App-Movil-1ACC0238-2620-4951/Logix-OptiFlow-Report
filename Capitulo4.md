@@ -118,10 +118,10 @@ Los repositorios del proyecto se detallan en la Tabla 101.
 
 | Producto | Repositorio |
 |---|---|
-| Informe del proyecto | [URL] |
-| Landing Page | [URL] |
-| Web Services | [URL] |
-| Aplicación móvil | [URL] |
+| Informe del proyecto | [Logix-OptiFlow-Report](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report) |
+| Landing Page | [Logix-OptiFlow-lading-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-lading-page) |
+| Web Services | [Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) |
+| Aplicación móvil | [Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) |
 
 ##### Flujo de trabajo con GitFlow
 
