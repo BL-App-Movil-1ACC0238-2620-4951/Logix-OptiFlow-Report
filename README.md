@@ -90,7 +90,7 @@ Para el desarrollo del **Project Report**, el equipo utiliza un repositorio dent
 
 **Repositorio del informe del proyecto:** [https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report)
 
-- **Total de commits:** 96 commits en `develop` al 8 de octubre de 2026, sin contar los commits de *merge*.
+- **Total de commits:** 115 commits en `develop` al 9 de octubre de 2026, sin contar los commits de *merge*.
 - **Autores contribuyentes:**
   - Atoche Gonzales, Nicolas Fernando (`THECOMAX`)
   - Becerra Ttito, Felix Orlando (`Felixb14`)
@@ -167,10 +167,10 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
 
 ## TB1 – Semana 7
 
-Durante TB1, el equipo corrigió las observaciones del docente sobre el AV1 y desarrolló los capítulos III y IV del informe. Cada integrante trabajó en ramas creadas desde `develop` e integró sus cambios mediante *pull requests*. Entre el 18 de septiembre y el 8 de octubre de 2026 se registraron 33 commits en `develop`, sin contar los commits de *merge*. El trabajo se distribuyó de la siguiente manera:
+Durante TB1, el equipo corrigió las observaciones del docente sobre el AV1 y desarrolló los capítulos III y IV del informe. Cada integrante trabajó en ramas creadas desde `develop` e integró sus cambios mediante *pull requests*. Entre el 18 de septiembre y el 9 de octubre de 2026 se registraron 52 commits en `develop`, sin contar los commits de *merge*. El trabajo se distribuyó de la siguiente manera:
 
 - **Atoche Gonzales, Nicolas Fernando:** configuración del entorno de desarrollo, gestión del código fuente y configuración de despliegue del Capítulo IV; wireframe, mock-up y prototipo de la Landing Page; corrección del EventStorming y diseño de las entrevistas de validación.
-- **Becerra Ttito, Felix Orlando:** evidencias de documentación de los Web Services, de despliegue y de colaboración del Sprint 1, y formatos del registro de entrevistas y de la evaluación heurística.
+- **Becerra Ttito, Felix Orlando:** evidencias de documentación de los Web Services, de despliegue y de colaboración del Sprint 1; formato del registro de entrevistas; y evaluación heurística de la Landing Page y la aplicación móvil.
 - **Celis Berrospi, Eslander:** Sprint Planning, Aspect Leaders and Collaborators, Sprint Backlog y evidencias de desarrollo, pruebas y ejecución del Sprint 1, además de la corrección de las observaciones del AV1.
 - **Morocho Pinedo, Mariana:** wireframes de la Landing Page y de la aplicación móvil, y wireflows y mock-ups de la aplicación móvil.
 - **Quispe Llacsahuanga, César Augusto:** Capítulo III, con las Style Guidelines, la Information Architecture, los SEO tags y los Navigation Systems.
@@ -208,11 +208,11 @@ Las contribuciones por integrante al repositorio del informe durante TB1 se pres
 
 | Integrante | Usuario GitHub | Commits | Adiciones | Eliminaciones |
 |---|---|---:|---:|---:|
-| Atoche Gonzales, Nicolas Fernando | `THECOMAX` | 9 | 263 | 37 |
-| Becerra Ttito, Felix Orlando | `Felixb14` | 6 | 548 | 2 |
-| Celis Berrospi, Eslander | `Eslander-Celis` | 5 | 3515 | 205 |
-| Morocho Pinedo, Mariana | `Patto04` | 8 | 300 | 3 |
-| Quispe Llacsahuanga, César Augusto | `user20-bit` | 5 | 569 | 92 |
+| Atoche Gonzales, Nicolas Fernando | `THECOMAX` | 10 | 270 | 38 |
+| Becerra Ttito, Felix Orlando | `Felixb14` | 18 | 3186 | 1511 |
+| Celis Berrospi, Eslander | `Eslander-Celis` | 6 | 3515 | 209 |
+| Morocho Pinedo, Mariana | `Patto04` | 11 | 487 | 6 |
+| Quispe Llacsahuanga, César Augusto | `user20-bit` | 7 | 629 | 203 |
 
 
 # Tabla de Contenidos
