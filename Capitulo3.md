@@ -964,7 +964,106 @@ A continuación, en este flujo se refleja la transparencia del servicio posventa
 
 #### 3.1.4.3. Mobile Applications Mock-ups
 
+En esta sección se presentan los mockups de alta fidelidad de la aplicación móvil de OptiFlow. Estos diseños consolidan la identidad visual, tipografía, paleta cromática, ofreciendo una experiencia moderna, intuitiva y accesible para pacientes y personal clínico.
 
+**Sección Inicio y Dashboard (Paciente / Personal)**
+
+La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-032](#figura-3-032).
+
+![Mockups de la pantalla de inicio y panel principal.](assets/cap3/mockups_movil/inicio.png)
+
+<a id="figura-3-032"></a>
+**Figura 3-032. Mockups de la pantalla de inicio y panel principal.**
+
+Representa la interfaz principal de bienvenida personalizada de la aplicación. Aplica el sistema visual corporativo con encabezados legibles y tarjetas de navegación rápida. Muestra el banner interactivo para prueba de monturas, el resumen dinámico de la próxima cita médica agendada con hora, sede y especialista, junto con los accesos directos a recetas, seguimiento de pedidos e historial de atenciones.
+
+**Sección Búsqueda y Exploración de Monturas (Paciente)**
+
+La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-033](#figura-3-033).
+
+![Mockups del módulo de búsqueda y catálogo de armazones.](assets/cap3/mockups_movil/buscar.png)
+
+<a id="figura-3-033"></a>
+**Figura 3-033. Mockups del módulo de búsqueda y catálogo de armazones.**
+
+Exhibe el catálogo digital de armazones y el buscador de ópticas. Integra barras de búsqueda multifunción, filtros por marca, material y precio, y una cuadrícula de productos con fotografías de alta resolución, especificaciones dimensionales y etiquetas de disponibilidad. Además, incluye la vista de mapa geolocalizado para identificar establecimientos cercanos con existencias en tienda y horarios de atención.
+
+**Sección Gestión y Reserva de Citas (Paciente)**
+
+La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-034](#figura-3-034).
+
+![Mockups del flujo de gestión y reserva de citas.](assets/cap3/mockups_movil/citas.png)
+
+<a id="figura-3-034"></a>
+**Figura 3-034. Mockups del flujo de gestión y reserva de citas.**
+
+Presenta el flujo guiado de agendamiento médico estructurado mediante un indicador de pasos (stepper). El paciente selecciona la sede óptica, el especialista tratante y el tipo de servicio requerido (evaluación visual, consulta optometría o control). La interfaz despliega un calendario interactivo con bloques horarios disponibles y concluye con la pantalla de confirmación, resumen de la cita y recordatorio.
+
+**Sección Consulta de Receta Óptica (Paciente)**
+
+La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-035](#figura-3-035).
+
+![Mockups del visor de recetas ópticas y prescripción médica.](assets/cap3/mockups_movil/receta.png)
+
+<a id="figura-3-035"></a>
+**Figura 3-035. Mockups del visor de recetas ópticas y prescripción médica.**
+
+Detalla la ficha clínica de prescripción médica en alta fidelidad. Organiza los datos refractivos de ambos ojos en una tabla clara (esfera, cilindro, eje, adición y distancia pupilar), indicando el profesional emisor, la fecha de vigencia y las observaciones sobre tratamientos de lunas recomendados (antirreflejante, filtro azul o protección UV).
+
+**Sección Seguimiento de Pedidos y Montaje (Paciente)**
+
+La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-036](#figura-3-036).
+
+![Mockups del módulo de seguimiento de pedidos en taller y entrega.](assets/cap3/mockups_movil/pedido.png)
+
+<a id="figura-3-036"></a>
+**Figura 3-036. Mockups del módulo de seguimiento de pedidos en taller y entrega.**
+
+Muestra la experiencia posventa y trazabilidad de fabricación de lentes. La pantalla inicial organiza las órdenes activas e históricas con barras de progreso porcentual y fecha estimada de entrega. La vista detallada expone una línea de tiempo vertical que informa el avance del pedido por etapas: orden recibida, corte de lunas, montaje en taller, control de calidad y listo para retiro en sede.
+
+**Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
+
+La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-037](#figura-3-037).
+
+![Mockups del directorio de pacientes, ficha médica y registro de consulta.](assets/cap3/mockups_movil/paciente.png)
+
+<a id="figura-3-037"></a>
+**Figura 3-037. Mockups del directorio de pacientes, ficha médica y registro de consulta.**
+
+Presenta la herramienta operativa para optometristas y personal de atención. Dispone de un buscador en tiempo real y filtros por estado de expediente. Permite abrir la ficha integral del paciente para registrar datos demográficos, antecedentes clínicos, mediciones de agudeza visual y refracción, culminando en la generación de la orden de trabajo clínica.
+
+**Sección Agenda Diaria y Control de Atención (Personal Óptico)**
+
+La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-038](#figura-3-038).
+
+![Mockups de la agenda diaria, control de sala de espera y flujo de turnos.](assets/cap3/mockups_movil/citas_optica.png)
+
+<a id="figura-3-038"></a>
+**Figura 3-038. Mockups de la agenda diaria, control de sala de espera y flujo de turnos.**
+
+Exhibe la interfaz de gestión operativa de consultas. Organiza los turnos del día en tarjetas cronológicas diferenciadas por estado (en espera, en consulta, atendido y reprogramado). Facilita al personal clínico actualizar la condición del paciente con un solo toque y registrar notas breves de transición en sala de espera.
+
+**Sección Control de Stock e Inventario (Personal Óptico)**
+
+La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-039](#figura-3-039).
+
+![Mockups de gestión de inventario, escáner de códigos y fichas de producto.](assets/cap3/mockups_movil/inventario.png)
+
+<a id="figura-3-039"></a>
+**Figura 3-039. Mockups de gestión de inventario, escáner de códigos y fichas de producto.**
+
+Ilustra la administración de existencias y catálogo de la óptica. Presenta indicadores de productos en tienda y almacén, integra el módulo de escaneo por cámara de códigos de barras y QR para búsqueda inmediata, y permite visualizar fichas técnicas con precios, disponibilidad multisede y registro de movimientos de stock.
+
+**Sección Operaciones, Producción en Taller y Reportes (Personal Óptico)**
+
+La evidencia de 3.1.4.3. Mobile Applications Mock-ups se presenta en [Figura 3-040](#figura-3-040).
+
+![Mockups del centro de herramientas, cotizaciones, taller y analítica.](assets/cap3/mockups_movil/herramienta.png)
+
+<a id="figura-3-040"></a>
+**Figura 3-040. Mockups del centro de herramientas, cotizaciones, taller y analítica.**
+
+Reúne las herramientas de gestión avanzada del negocio óptico: emisión de cotizaciones vinculadas a prescripciones vigentes, tablero visual para el control de órdenes de montaje en laboratorio y un panel de analítica con gráficos de atenciones realizadas, ventas mensuales e indicadores clave de rendimiento comercial.
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 #### 3.1.4.5 Mobile Applications Prototyping
