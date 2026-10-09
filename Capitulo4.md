@@ -8,7 +8,7 @@
 
 #### 4.1.1. Software Development Environment Configuration
 
-Esta sección describe las herramientas del entorno de trabajo y su función en el diseño, desarrollo, documentación y validación de OptiFlow. La configuración general se complementa con las evidencias específicas del Sprint 1, donde se distinguen las actividades ejecutadas de las decisiones previstas para entregas posteriores.
+Esta sección describe las herramientas del entorno de trabajo y su función en el diseño, desarrollo, documentación y validación de OptiFlow.
 
 ##### Figma
 
@@ -24,7 +24,7 @@ El logo de Figma se presenta en la Figura 102.
 ![Logo de Figma](assets/cap4/ExternalAppsForDesign/figma%20lockup.png)
 
 
-Se utiliza para definir el diseño de la Landing Page y de la aplicación móvil: wireframes, mock-ups y prototipo interactivo con la simulación de navegación entre pantallas.
+Se utiliza para definir el diseño de la Landing Page y de la aplicación móvil: wireframes, mock-ups y prototipo interactivo con la simulación de navegación entre pantallas (Figma, s. f.).
 
 Ruta de referencia: https://www.figma.com
 
@@ -42,7 +42,7 @@ El logo de Android Studio se observa en la Figura 103.
 ![android-studio-logo.png](assets/cap4/ExternalAppsForDesign/android-studio-logo.png)
 
 
-Es el entorno de desarrollo integrado (IDE) para la programación de la aplicación móvil. Además, se emplean el Android SDK, Gradle para la gestión de dependencias y la compilación, el Android Emulator para pruebas durante el desarrollo y un dispositivo físico con depuración USB para validar el funcionamiento real de la aplicación.
+Es el entorno de desarrollo integrado (IDE) para la programación de la aplicación móvil. Además, se emplean el Android SDK, Gradle para la gestión de dependencias y la compilación, el Android Emulator para pruebas durante el desarrollo y un dispositivo físico con depuración USB para validar el funcionamiento real de la aplicación. La aplicación se desarrolla en Kotlin, cuya adopción en proyectos Android resulta costo-efectiva frente a Java sin afectar la calidad percibida por los usuarios (Coppola et al., 2025), y su interfaz se construye con Jetpack Compose (Google, s. f.-b). El proyecto fija una versión mínima del SDK (API 26), porque la evolución de la API de Android genera problemas de compatibilidad que deben controlarse durante el desarrollo (Mahmud et al., 2024).
 
 Ruta de descarga: https://developer.android.com/studio
 
@@ -102,7 +102,7 @@ Ruta de referencia: https://miro.com
 
 #### 4.1.2. Source Code Management
 
-El equipo utiliza **Git** para el control de versiones y **GitHub** para alojar los repositorios y colaborar sobre el código y la documentación. Los productos se agrupan en la organización [BL-App-Movil-1ACC0238-2620-4951](https://github.com/BL-App-Movil-1ACC0238-2620-4951). Los historiales de commits permiten relacionar los cambios registrados con sus autores y fechas.
+El equipo utiliza **Git** para el control de versiones y **GitHub** para alojar los repositorios y colaborar sobre el código y la documentación (GitHub, s. f.). Los productos se agrupan en la organización [BL-App-Movil-1ACC0238-2620-4951](https://github.com/BL-App-Movil-1ACC0238-2620-4951). Los historiales de commits permiten relacionar los cambios registrados con sus autores y fechas.
 
 ##### Repositorios del proyecto
 
@@ -155,7 +155,7 @@ La convención propuesta para los mensajes utiliza un tipo y una descripción br
 
 #### 4.1.3. Source Code Style Guide & Conventions
 
-Las guías de estilo buscan mantener el código legible y consistente entre los integrantes. Los identificadores de clases, funciones, variables, archivos y ramas se definen en **inglés**. La documentación y la explicación del cuerpo de los commits pueden redactarse en español para describir con claridad el propósito del cambio.
+Las guías de estilo buscan mantener el código legible y consistente entre los integrantes, lo que favorece la mantenibilidad, una de las características de calidad del producto de software (International Organization for Standardization, 2023). Los identificadores de clases, funciones, variables, archivos y ramas se definen en **inglés**. La documentación y la explicación del cuerpo de los commits pueden redactarse en español para describir con claridad el propósito del cambio.
 
 ##### Guías de estilo por lenguaje
 
@@ -247,7 +247,7 @@ El Deployment Diagram distingue los nodos de publicación y ejecución descritos
 ### 4.2.1. Sprint 1
 Durante el Sprint 1, el equipo inició la implementación de OptiFlow con dos prioridades: publicar la Landing Page y desarrollar el flujo del paciente para buscar ópticas y reservar una cita de atención optométrica. Este incremento establece una primera integración entre la aplicación móvil y los Web Services, cuyo comportamiento se documenta mediante evidencias de desarrollo, pruebas y ejecución.
 
-El trabajo del Sprint se organiza mediante reuniones virtuales realizadas a través de Discord, seguimiento de actividades mediante el Sprint Backlog y control de versiones a través de los repositorios de GitHub de la organización del equipo.
+Siguiendo el marco de trabajo Scrum (Schwaber & Sutherland, 2020), el trabajo del Sprint se organiza mediante reuniones virtuales realizadas a través de Discord, seguimiento de actividades mediante el Sprint Backlog y control de versiones a través de los repositorios de GitHub de la organización del equipo.
 
 Con fecha de revisión del 2026-10-07, los historiales locales contienen avances de implementación de la Landing Page, los Web Services y la aplicación móvil. El alcance funcional documentado en esta sección se concentra en US05 y US06; las funcionalidades adicionales presentes en los repositorios no se consideran automáticamente parte del compromiso del Sprint.
 #### 4.2.1.1. Sprint Planning 1

@@ -1009,7 +1009,7 @@ Este modelo evidencia que **Search & Booking** y **Clinical & Commercial** actú
 
 ##### Escenarios y notación de Domain Message Flow Modeling
 
-Se utiliza como referencia la técnica de [DDD Crew: Domain Message Flow Modelling](https://github.com/ddd-crew/domain-message-flow-modelling) (DDD Crew, s. f.-a). Los diagramas siguientes separan tres escenarios e identifican el orden, tipo de mensaje, emisor, receptor y datos significativos. Una **consulta** recupera información, un **comando** solicita una acción y un **evento** comunica un hecho ocurrido. Las consultas incluyen su respuesta esperada.
+Se utiliza como referencia la técnica de [DDD Crew: Domain Message Flow Modelling](https://github.com/ddd-crew/domain-message-flow-modelling) (DDD Crew, s. f.-b). Los diagramas siguientes separan tres escenarios e identifican el orden, tipo de mensaje, emisor, receptor y datos significativos. Una **consulta** recupera información, un **comando** solicita una acción y un **evento** comunica un hecho ocurrido. Las consultas incluyen su respuesta esperada.
 
 **Escenario 1: búsqueda y reserva.** El paciente consulta ópticas y horarios antes de solicitar la reserva. Solo una reserva confirmada produce `AppointmentBooked`; un conflicto de horario debe detener ese camino. Los consumidores clínico y de notificaciones representan responsabilidades separadas dentro del backend (ver Figura 19).
 
@@ -1160,7 +1160,7 @@ El Bounded Context Canvas del Store Management & Inventory Context se presenta e
 
 ##### Canvases completos y precisiones del contrato
 
-Los siguientes canvases complementan las tablas existentes con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-b). La comunicación se clasifica como consulta, comando o evento según su efecto. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información.
+Los siguientes canvases complementan las tablas existentes con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-a). La comunicación se clasifica como consulta, comando o evento según su efecto. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información.
 
 **Search & Booking.** Facilitar que el paciente encuentre una óptica y reserve un horario disponible. Regla destacada: No duplicar reservas sobre la misma disponibilidad. Exigir datos válidos del paciente, sucursal y horario. Una consulta no crea una reserva (ver Figura 22).
 
