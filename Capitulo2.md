@@ -1391,79 +1391,27 @@ La evidencia de 2.5.3.1. Software Architecture Context Level Diagrams se present
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-La vista corregida muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.).
+La vista corregida, elaborada con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.).
 
 
 La evidencia de 2.5.3.2. Software Architecture Container Level Diagrams se presenta en [Figura 2-040](#figura-2-040).
 
-![C4 nivel 2 corregido: backend único](assets/cap2/revision-tb1/c4-container-tb1.svg)
+![Diagrama de contenedores de OptiFlow](assets/cap2/C4/containers-structurizr.svg)
 
 <a id="figura-2-040"></a>
 **Figura 2-040. C4 nivel 2 corregido: backend único.**
 
 
-**Diseño inicial conservado como antecedente.** La imagen siguiente muestra la propuesta anterior de microservicios y bases por contexto. Se conserva por trazabilidad, pero la vista corregida anterior es la referencia de arquitectura para TB1. En particular, MongoDB y un bus externo no se presentan como infraestructura implementada del incremento.
 
-
-
-La evidencia de 2.5.3.2. Software Architecture Container Level Diagrams se presenta en [Figura 2-041](#figura-2-041).
-
-![container.svg](assets/cap2/C4/container.svg)
-
-<a id="figura-2-041"></a>
-**Figura 2-041. Evidencia visual de 2.5.3.2. Software Architecture Container Level Diagrams.**
 
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-##### Clinical & Commercial
+El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en el Sprint 1. La Landing Page se publica como sitio estático en GitHub Pages; el backend se ejecuta en un contenedor Docker en Render y accede a una base de datos PostgreSQL mediante JPA; y la aplicación móvil se distribuye con Firebase App Distribution para instalarse en los dispositivos Android, desde donde consume el backend por HTTPS. La configuración de cada entorno se detalla en la sección 4.1.4.
 
-La evidencia de Clinical & Commercial se presenta en [Figura 2-042](#figura-2-042).
+**Figura 2-900. Deployment Diagram de OptiFlow en el Sprint 1.**
 
-![Clinical & Commercial component.svg](assets/cap2/C4/Clinical%20%26%20Commercial%20component.svg)
-
-<a id="figura-2-042"></a>
-**Figura 2-042. Evidencia visual de Clinical & Commercial.**
-
-
-##### Notification & Loyalty
-
-La evidencia de Notification & Loyalty se presenta en [Figura 2-043](#figura-2-043).
-
-![Notification & Loyalty component.svg](assets/cap2/C4/Notification%20%26%20Loyalty%20component.svg)
-
-<a id="figura-2-043"></a>
-**Figura 2-043. Evidencia visual de Notification & Loyalty.**
-
-
-##### Production & Tracking
-
-La evidencia de Production & Tracking se presenta en [Figura 2-044](#figura-2-044).
-
-![Production & Tracking component.svg](assets/cap2/C4/Production%20%26%20Tracking%20component.svg)
-
-<a id="figura-2-044"></a>
-**Figura 2-044. Evidencia visual de Production & Tracking.**
-
-
-##### Search & Booking
-
-La evidencia de Search & Booking se presenta en [Figura 2-045](#figura-2-045).
-
-![Search & Booking component.svg](assets/cap2/C4/Search%20%26%20Booking%20component.svg)
-
-<a id="figura-2-045"></a>
-**Figura 2-045. Evidencia visual de Search & Booking.**
-
-
-##### Store Management & Inventory
-
-La evidencia de Store Management & Inventory se presenta en [Figura 2-046](#figura-2-046).
-
-![Store Management & Inventory component.svg](assets/cap2/C4/Store%20Management%20%26%20Inventory%20component.svg)
-
-<a id="figura-2-046"></a>
-**Figura 2-046. Evidencia visual de Store Management & Inventory.**
+![Deployment Diagram de OptiFlow](assets/cap2/revision-tb1/deployment-sprint1.svg)
 
 
 <a id="Tactical-Level Domain-Driven Design"></a>
@@ -2126,19 +2074,12 @@ La evidencia de 2.6.2.6.2. Bounded Context Database Design Diagram se presenta e
 **Figura 2-052. Modelo corregido de persistencia Clinical & Commercial.**
 
 
-**Diseño inicial conservado como antecedente.** La imagen original se mantiene a continuación. Sus conectores de cotización–venta y venta–comprobante se interpretan según las cardinalidades corregidas de la figura anterior y las restricciones de la migración, que constituyen la referencia vigente para TB1.
+
 
 Las relaciones se establecen mediante Primary Keys, Foreign Keys y restricciones de unicidad para mantener la integridad de los agregados y sus entidades persistentes.
 
 
-La evidencia de 2.6.2.6.2. Bounded Context Database Design Diagram se presenta en [Figura 2-053](#figura-2-053).
 
-<div align="center">
-  <img src="assets/cap2/DB-Clinical & Commercial.png" alt="Clinical and Commercial Database Design Diagram" width="1000">
-</div>
-
-<a id="figura-2-053"></a>
-**Figura 2-053. Clinical and Commercial Database Design Diagram.**
 
 
 <a id="2.6.3. Bounded Context: Production & Tracking Context"></a>

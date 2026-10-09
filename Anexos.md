@@ -104,24 +104,26 @@ La evidencia de E.1. Context Level Diagram se presenta en [Figura A-003](#figura
 
 ### E.2. Container Level Diagram
 
-La referencia vigente para TB1 es el nivel 2 corregido de la sección 2.5.3.2: un único contenedor backend y persistencia relacional. Se reproduce a continuación; la imagen original permanece como antecedente del diseño inicial.
+Se reproduce el Container Level Diagram de la sección 2.5.3.2, con un único contenedor backend y persistencia relacional.
 
 
 La evidencia de E.2. Container Level Diagram se presenta en [Figura A-004](#figura-a-004).
 
-![Container Level Diagram corregido para TB1](assets/cap2/revision-tb1/c4-container-tb1.svg)
+![Diagrama de contenedores de OptiFlow](assets/cap2/C4/containers-structurizr.svg)
 
 <a id="figura-a-004"></a>
-**Figura A-004. Container Level Diagram corregido para TB1.**
+**Figura A-004. Container Level Diagram de OptiFlow elaborado en Structurizr.**
+
+
+La leyenda de los elementos del diagrama se presenta a continuación.
+
+**Figura A-901. Leyenda del Container Level Diagram.**
+
+![Leyenda del diagrama de contenedores](assets/cap2/C4/containers-structurizr-key.svg)
 
 
 
-La evidencia de E.2. Container Level Diagram se presenta en [Figura A-005](#figura-a-005).
 
-![Container Level Diagram](assets/cap2/C4/container.svg)
-
-<a id="figura-a-005"></a>
-**Figura A-005. Container Level Diagram.**
 
 
 ### E.3. Component Diagrams
