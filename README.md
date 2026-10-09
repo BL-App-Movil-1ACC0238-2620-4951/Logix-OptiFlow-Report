@@ -34,7 +34,7 @@ Proyecto<br>
     </tr>
     <tr>
       <td style="border: none;">U20241d317</td>
-      <td style="border: none;">Atoche Gonzáles, Nicolás Fernando</td>
+      <td style="border: none;">Atoche Gonzales, Nicolas Fernando</td>
     </tr>
     <tr>
       <td style="border: none;">U20211b387</td>
@@ -80,8 +80,8 @@ El registro de versiones del informe se detalla en la Tabla 1.
 
 | Versión | Fecha | Autores | Descripción de modificación |
 | ----------- | --------- |----------- |--------------------|
-| AV1 | 17/09/2026 | Atoche Nicolás Fernando <br><br> Becerra Felix Orlando <br><br> Celis Eslander <br><br> Morocho Pinedo Mariana <br><br> Quispe César Augusto | Desarrollo del avance inicial del informe de OptiFlow, incluyendo el análisis de antecedentes y problemática, análisis de competidores, entrevistas y levantamiento de requisitos. Elaboración y priorización de User Stories y Product Backlog. Desarrollo del análisis estratégico del dominio mediante EventStorming, Candidate Context Discovery, Domain Message Flows, Bounded Context Canvases y Context Mapping. Definición de los Bounded Contexts: Search & Booking, Clinical & Commercial, Production & Tracking, Store Management & Inventory y Notification & Loyalty. Desarrollo inicial del diseño táctico de los Bounded Contexts y de la arquitectura de software mediante diagramas C4 de Context, Container y Component. Elaboración de diagramas de diseño de dominio y base de datos para los contextos desarrollados, además de la organización de conclusiones y anexos del informe. |
-| TB1 | 08/10/2026 | Atoche Nicolás Fernando <br><br> Becerra Felix Orlando <br><br> Celis Eslander <br><br> Morocho Pinedo Mariana <br><br> Quispe César Augusto | Corrección de las observaciones del AV1: saltos de página entre capítulos, descripción del Student Outcome, objetivos SMART, referencia de figuras y tablas, detalle del proceso de EventStorming, Domain Message Flows, Bounded Context Canvases, diagrama de contenedores con un único backend y relación entre cotización y venta en Clinical & Commercial. Desarrollo del Capítulo III con las Style Guidelines, la Information Architecture, el wireframe, mock-up y prototipo de la Landing Page, y los wireframes, wireflows y mock-ups de la aplicación móvil. Desarrollo del Capítulo IV con la configuración del entorno, la gestión del código fuente, las guías de estilo, la configuración de despliegue y el Sprint 1: planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de los Web Services, despliegue en GitHub Pages, Render y Firebase App Distribution, y colaboración del equipo. Diseño de las entrevistas de validación. Actualización del Student Outcome y de Project Report Collaboration Insights, y aplicación del formato APA 7 a figuras, tablas y bibliografía. |
+| AV1 | 17/09/2026 | Atoche Nicolas Fernando <br><br> Becerra Felix Orlando <br><br> Celis Eslander <br><br> Morocho Pinedo Mariana <br><br> Quispe César Augusto | Desarrollo del avance inicial del informe de OptiFlow, incluyendo el análisis de antecedentes y problemática, análisis de competidores, entrevistas y levantamiento de requisitos. Elaboración y priorización de User Stories y Product Backlog. Desarrollo del análisis estratégico del dominio mediante EventStorming, Candidate Context Discovery, Domain Message Flows, Bounded Context Canvases y Context Mapping. Definición de los Bounded Contexts: Search & Booking, Clinical & Commercial, Production & Tracking, Store Management & Inventory y Notification & Loyalty. Desarrollo inicial del diseño táctico de los Bounded Contexts y de la arquitectura de software mediante diagramas C4 de Context, Container y Component. Elaboración de diagramas de diseño de dominio y base de datos para los contextos desarrollados, además de la organización de conclusiones y anexos del informe. |
+| TB1 | 08/10/2026 | Atoche Nicolas Fernando <br><br> Becerra Felix Orlando <br><br> Celis Eslander <br><br> Morocho Pinedo Mariana <br><br> Quispe César Augusto | Corrección de las observaciones del AV1: saltos de página entre capítulos, descripción del Student Outcome, objetivos SMART, referencia de figuras y tablas, detalle del proceso de EventStorming, Domain Message Flows, Bounded Context Canvases, diagrama de contenedores con un único backend y relación entre cotización y venta en Clinical & Commercial. Desarrollo del Capítulo III con las Style Guidelines, la Information Architecture, el wireframe, mock-up y prototipo de la Landing Page, y los wireframes, wireflows y mock-ups de la aplicación móvil. Desarrollo del Capítulo IV con la configuración del entorno, la gestión del código fuente, las guías de estilo, la configuración de despliegue y el Sprint 1: planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de los Web Services, despliegue en GitHub Pages, Render y Firebase App Distribution, y colaboración del equipo. Diseño de las entrevistas de validación. Actualización del Student Outcome y de Project Report Collaboration Insights, y aplicación del formato APA 7 a figuras, tablas y bibliografía. |
 <div style="page-break-after: always;"></div>
 
 # Project Report Collaboration Insights
@@ -92,7 +92,7 @@ Para el desarrollo del **Project Report**, el equipo utiliza un repositorio dent
 
 - **Total de commits:** 96 commits en `develop` al 8 de octubre de 2026, sin contar los commits de *merge*.
 - **Autores contribuyentes:**
-  - Atoche Gonzáles, Nicolás Fernando (`THECOMAX`)
+  - Atoche Gonzales, Nicolas Fernando (`THECOMAX`)
   - Becerra Ttito, Felix Orlando (`Felixb14`)
   - Celis Berrospi, Eslander (`Eslander-Celis`)
   - Morocho Pinedo, Mariana (`Patto04`)
@@ -158,7 +158,7 @@ Las contribuciones por integrante al repositorio del informe durante AV1 se pres
 
 | Integrante | Usuario GitHub | Commits | Adiciones | Eliminaciones |
 |---|---|---:|---:|---:|
-| Atoche Gonzáles, Nicolás Fernando | `THECOMAX` | 15 | 510 | 110 |
+| Atoche Gonzales, Nicolas Fernando | `THECOMAX` | 15 | 510 | 110 |
 | Becerra Ttito, Felix Orlando | `Felixb14` | 10 | 362 | 2 |
 | Celis Berrospi, Eslander | `Eslander-Celis` | 7 | 557 | 104 |
 | Morocho Pinedo, Mariana | `Patto04` | 10 | 127 | 68 |
@@ -170,7 +170,7 @@ La colaboración fue activa y equitativa, con aportes sustanciales de todos los 
 
 Durante TB1, el equipo corrigió las observaciones del docente sobre el AV1 y desarrolló los capítulos III y IV del informe. Cada integrante trabajó en ramas creadas desde `develop` e integró sus cambios mediante *pull requests*. Entre el 18 de septiembre y el 8 de octubre de 2026 se registraron 33 commits en `develop`, sin contar los commits de *merge*. El trabajo se distribuyó de la siguiente manera:
 
-- **Atoche Gonzáles, Nicolás Fernando:** configuración del entorno de desarrollo, gestión del código fuente y configuración de despliegue del Capítulo IV; wireframe, mock-up y prototipo de la Landing Page; corrección del EventStorming y diseño de las entrevistas de validación.
+- **Atoche Gonzales, Nicolas Fernando:** configuración del entorno de desarrollo, gestión del código fuente y configuración de despliegue del Capítulo IV; wireframe, mock-up y prototipo de la Landing Page; corrección del EventStorming y diseño de las entrevistas de validación.
 - **Becerra Ttito, Felix Orlando:** evidencias de documentación de los Web Services, de despliegue y de colaboración del Sprint 1, y formatos del registro de entrevistas y de la evaluación heurística.
 - **Celis Berrospi, Eslander:** Sprint Planning, Aspect Leaders and Collaborators, Sprint Backlog y evidencias de desarrollo, pruebas y ejecución del Sprint 1, además de la corrección de las observaciones del AV1.
 - **Morocho Pinedo, Mariana:** wireframes de la Landing Page y de la aplicación móvil, y wireflows y mock-ups de la aplicación móvil.
@@ -209,7 +209,7 @@ Las contribuciones por integrante al repositorio del informe durante TB1 se pres
 
 | Integrante | Usuario GitHub | Commits | Adiciones | Eliminaciones |
 |---|---|---:|---:|---:|
-| Atoche Gonzáles, Nicolás Fernando | `THECOMAX` | 9 | 263 | 37 |
+| Atoche Gonzales, Nicolas Fernando | `THECOMAX` | 9 | 263 | 37 |
 | Becerra Ttito, Felix Orlando | `Felixb14` | 6 | 548 | 2 |
 | Celis Berrospi, Eslander | `Eslander-Celis` | 5 | 3515 | 205 |
 | Morocho Pinedo, Mariana | `Patto04` | 8 | 300 | 3 |
@@ -436,10 +436,10 @@ En OptiFlow, este aprendizaje se relaciona con la investigación del dominio, la
     <th>Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.</th>
     <td>
 
-<b>Atoche Nicolás Fernando: AV1</b><br>
+<b>Atoche Nicolas Fernando: AV1</b><br>
 Durante el desarrollo del AV1, actualicé mis conocimientos relacionados con el análisis y diseño de soluciones de software mediante la investigación y aplicación de conceptos como Lean UX, User Personas, User Journey Mapping, Empathy Mapping y Big Picture EventStorming. Asimismo, reforcé conocimientos relacionados con la identificación de necesidades de los usuarios y la representación de sus experiencias, permitiéndome aplicar estos conceptos de manera adecuada dentro del proyecto.<br><br>
 
-<b>Atoche Nicolás Fernando: TB1</b><br>
+<b>Atoche Nicolas Fernando: TB1</b><br>
 Durante el TB1, actualicé mis conocimientos sobre la configuración de entornos de desarrollo, GitFlow y la configuración de despliegue al documentar las herramientas, los repositorios y las convenciones del proyecto en el Capítulo IV. Además, utilicé Figma para elaborar el wireframe y el mock-up de la Landing Page, y revisé el proceso de EventStorming para corregir las observaciones del AV1.<br><br>
 
 <b>Becerra Felix Orlando: AV1</b><br>
@@ -475,10 +475,10 @@ Durante el TB1, el equipo actualizó sus conocimientos sobre diseño UX/UI, arqu
     <th>Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.</th>
     <td>
 
-<b>Atoche Nicolás Fernando: AV1</b><br>
+<b>Atoche Nicolas Fernando: AV1</b><br>
 Durante el desarrollo del AV1, reconocí la importancia de mantener un aprendizaje permanente debido a la necesidad de comprender y aplicar herramientas como Lean UX, User Journey Mapping, Empathy Mapping y EventStorming. La revisión de documentación y materiales de apoyo fue necesaria para desarrollar correctamente estas actividades, permitiéndome comprender que en el desarrollo profesional es fundamental continuar adquiriendo nuevos conocimientos y adaptarse a diferentes metodologías de trabajo.<br><br>
 
-<b>Atoche Nicolás Fernando: TB1</b><br>
+<b>Atoche Nicolas Fernando: TB1</b><br>
 Durante el TB1, reconocí que cada herramienta de control de versiones y de despliegue tiene configuraciones propias que debo revisar en su documentación antes de utilizarlas. Documentar el entorno del proyecto me mostró que necesito actualizar mis conocimientos de forma constante para mantener un flujo de trabajo ordenado en equipo.<br><br>
 
 <b>Becerra Felix Orlando: AV1</b><br>
@@ -519,7 +519,7 @@ Durante el TB1, el equipo reconoció que pasar del diseño a la implementación 
 
 Cada integrante formula dos objetivos SMART para su desarrollo profesional después de graduarse. Los objetivos parten de los intereses de cada uno y de las responsabilidades que asumió en OptiFlow, y definen qué se logrará, cómo se medirá y en qué plazo.
 
-## Atoche Gonzáles, Nicolás Fernando
+## Atoche Gonzales, Nicolas Fernando
 
 **Objetivo 1.** En los 12 meses posteriores a mi graduación, obtendré la certificación AWS Certified Developer – Associate y automatizaré el despliegue de dos proyectos personales mediante pipelines de integración y despliegue continuos en GitHub Actions. Dedicaré cinco horas semanales al estudio y mediré el avance con exámenes de práctica hasta superar el 80 % en tres intentos consecutivos. Este objetivo amplía la experiencia que obtuve al configurar el entorno, el control de versiones y el despliegue de OptiFlow.
 

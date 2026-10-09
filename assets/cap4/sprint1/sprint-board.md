@@ -4,11 +4,11 @@ Tablero preparado para la revisión del 7 de octubre de 2026 a partir de las tar
 
 | To-do | In-Process | To-Review | Done |
 |---|---|---|---|
-| — | — | — | **T01 · —**<br>Create initial project structure<br>Quispe Llacsahuanga, César Agusto<br>4 h |
-| — | — | — | **T02 · —**<br>Implement base styles<br>Quispe Llacsahuanga, César Agusto<br>6 h |
-| — | — | — | **T03 · —**<br>Configure Three.js environment<br>Quispe Llacsahuanga, César Agusto<br>4 h |
-| — | — | — | **T04 · —**<br>Implement Landing Page sections<br>Quispe Llacsahuanga, César Agusto<br>8 h |
-| — | — | — | **T05 · —**<br>Implement responsive navigation<br>Quispe Llacsahuanga, César Agusto<br>6 h |
+| — | — | — | **T01 · —**<br>Create initial project structure<br>Quispe Llacsahuanga, César Augusto<br>4 h |
+| — | — | — | **T02 · —**<br>Implement base styles<br>Quispe Llacsahuanga, César Augusto<br>6 h |
+| — | — | — | **T03 · —**<br>Configure Three.js environment<br>Quispe Llacsahuanga, César Augusto<br>4 h |
+| — | — | — | **T04 · —**<br>Implement Landing Page sections<br>Quispe Llacsahuanga, César Augusto<br>8 h |
+| — | — | — | **T05 · —**<br>Implement responsive navigation<br>Quispe Llacsahuanga, César Augusto<br>6 h |
 | — | — | — | **T06 · US05**<br>Implement optical store search screen<br>Atoche Gonzales, Nicolas Fernando<br>6 h |
 | — | — | — | **T07 · US05**<br>Implement optical store results<br>Atoche Gonzales, Nicolas Fernando<br>6 h |
 | — | — | — | **T08 · US05**<br>Implement optical store search service<br>Becerra Ttito, Felix Orlando<br>8 h |
