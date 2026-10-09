@@ -60,7 +60,7 @@ El logo de Docker se muestra en la Figura 104.
 ![docker logo.png](assets/cap4/ExternalAppsForDesign/docker%20logo.png)
 
 
-Se utiliza para empaquetar en contenedores el backend (Web Services) y la Landing Page, de modo que el despliegue sea reproducible y no dependa de la configuración de cada equipo.
+Se utiliza para empaquetar el backend (Web Services) en una imagen construida a partir de un `Dockerfile` de dos etapas, de modo que el despliegue sea reproducible y no dependa de la configuración de cada equipo (Docker, s. f.).
 
 Ruta de descarga: https://www.docker.com/products/docker-desktop
 
@@ -202,36 +202,32 @@ Las convenciones de nomenclatura se detallan en la Tabla 104.
 El código se organiza siguiendo las capas de Domain-Driven Design definidas en el Capítulo II (Domain, Application, Interface e Infrastructure), de modo que cada clase se ubique en el paquete que corresponde a su responsabilidad.
 
 #### 4.1.4. Software Deployment Configuration
-[VERSION PRELIMINAR]
-
-La configuración de despliegue debe distinguir los mecanismos previstos de los utilizados en el Sprint 1. Según la evidencia de la sección 4.2.1.8, la Landing Page se publica en **GitHub Pages**, los Web Services se despliegan en **Render** mediante Docker y la aplicación móvil se distribuye a través de **Firebase App Distribution**. Las instrucciones siguientes se conservan como referencia preliminar y no sustituyen la evidencia de cada entorno.
+La Landing Page se publica en **GitHub Pages**, los Web Services se despliegan en **Render** mediante Docker (Render, s. f.) y la aplicación móvil se distribuye a través de **Firebase App Distribution** (Google, s. f.-a). A continuación se describe la configuración de cada producto; la evidencia de cada despliegue se presenta en la sección 4.2.1.8.
 
 ##### Landing Page
 
 1. Se parte de la rama `main` del repositorio de la Landing Page.
-2. Se construye una imagen de Docker que sirve los archivos estáticos (HTML, CSS y JavaScript) mediante un servidor web [Nginx u otro].
-3. La imagen se publica en [registro de imágenes, por ejemplo Docker Hub o GitHub Container Registry].
-4. El contenedor se despliega en [proveedor de hosting] y queda accesible en [URL pública].
+2. En **Settings → Pages** se configura la publicación desde la rama `main` y la carpeta raíz (`/root`).
+3. Cada integración en `main` ejecuta el workflow `pages build and deployment`, que publica los archivos estáticos (HTML, CSS y JavaScript).
+4. El sitio queda disponible en [https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-lading-page/](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-lading-page/).
 
 ##### Web Services
 
-1. Se parte de la rama `main` del repositorio de los Web Services.
-2. Se compila el proyecto y se construye la imagen de Docker a partir del `Dockerfile` del repositorio.
-3. La imagen se publica en [registro de imágenes].
-4. Se despliega el contenedor en [proveedor cloud], configurando como variables de entorno los datos sensibles (credenciales de las bases de datos PostgreSQL y MongoDB, claves de servicios externos), sin incluirlos en el repositorio.
-5. Se verifica el despliegue accediendo a la documentación OpenAPI/Swagger publicada en [URL de Swagger].
+1. Se parte de la rama `develop` del repositorio de los Web Services; Render vuelve a desplegar el servicio cada vez que esta rama se actualiza.
+2. Render construye la imagen con el `Dockerfile` del repositorio: compila el proyecto con Maven y ejecuta el JAR generado sobre Java 21.
+3. El servicio se conecta a una base de datos PostgreSQL 16 administrada por Render. Las credenciales se registran como variables de entorno (`SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME` y `SPRING_DATASOURCE_PASSWORD`) y no se incluyen en el repositorio.
+4. Se verifica el despliegue en la documentación OpenAPI publicada con Swagger UI (SmartBear Software, s. f.): [https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html).
 
 ##### Aplicación móvil
 
-1. Se parte de la rama `main` del repositorio de la aplicación.
-2. En Android Studio se genera el archivo de instalación (APK o Android App Bundle) firmado.
-3. El archivo se sube a **Firebase App Distribution** en el proyecto de Firebase del equipo.
-4. Se invita por correo electrónico a los evaluadores, quienes reciben el enlace y pueden instalar la aplicación en sus dispositivos.
-5. Para las demostraciones, la aplicación se instala previamente en un dispositivo físico.
+1. Se parte de la rama `develop` del repositorio de la aplicación móvil.
+2. En Android Studio se selecciona la variante `prodDebug`, que consume los Web Services desplegados en Render, y se genera el APK.
+3. El APK se carga en **Firebase App Distribution** dentro del proyecto Optiflow.
+4. Los evaluadores se registran en el grupo `optiflow-testers` o se unen mediante el vínculo de invitación, y reciben el enlace para instalar la aplicación en sus dispositivos Android.
 
 ##### Deployment Diagram
 
-El Deployment Diagram distingue los nodos de publicación y ejecución descritos para el Sprint 1: GitHub Pages para la Landing Page, Render para el backend y Firebase App Distribution para distribuir la aplicación al dispositivo Android. El nodo de persistencia es lógico y no afirma que PostgreSQL se ejecute dentro del mismo contenedor Docker. La evidencia de los entornos utilizados se presenta en la sección 4.2.1.8 (ver Figura 107).
+El Deployment Diagram muestra los nodos de publicación y ejecución del Sprint 1: GitHub Pages para la Landing Page, Render para el backend y su base de datos PostgreSQL, y Firebase App Distribution para distribuir la aplicación a los dispositivos Android. La evidencia de los entornos utilizados se presenta en la sección 4.2.1.8 (ver Figura 107).
 
 
 <a id="figura-107"></a>
@@ -249,7 +245,7 @@ Durante el Sprint 1, el equipo inició la implementación de OptiFlow con dos pr
 
 Siguiendo el marco de trabajo Scrum (Schwaber & Sutherland, 2020), el trabajo del Sprint se organiza mediante reuniones virtuales realizadas a través de Discord, seguimiento de actividades mediante el Sprint Backlog y control de versiones a través de los repositorios de GitHub de la organización del equipo.
 
-Con fecha de revisión del 2026-10-07, los historiales locales contienen avances de implementación de la Landing Page, los Web Services y la aplicación móvil. El alcance funcional documentado en esta sección se concentra en US05 y US06; las funcionalidades adicionales presentes en los repositorios no se consideran automáticamente parte del compromiso del Sprint.
+El alcance funcional comprometido en el Sprint 1 se concentra en las User Stories US05 y US06.
 #### 4.2.1.1. Sprint Planning 1
 El Sprint Planning 1 tuvo como finalidad establecer el objetivo de la primera iteración, seleccionar las User Stories que contribuyen directamente a dicho objetivo, determinar la capacidad inicial del equipo y distribuir las principales responsabilidades de implementación.
 
