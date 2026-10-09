@@ -146,7 +146,6 @@ OptiFlow fue diseñado para permitir que el paciente pueda buscar, comparar y re
 > - El flujo de búsqueda y reserva de cita debe completarse en pocos pasos, sin fricciones, y ser operable a una sola mano.
 > - Las notificaciones deben ser claras, oportunas y accionables (por ejemplo, permitir confirmar, reprogramar o delegar una cita con un solo tap).
 
----
 
 **Business Assumptions**
 

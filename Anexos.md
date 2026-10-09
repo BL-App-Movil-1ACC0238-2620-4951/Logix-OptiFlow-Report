@@ -2,8 +2,6 @@
 
 # Anexos
 
-<div style="break-before: page; page-break-before: always;"></div>
-
 ## Anexo A: EventStorming del dominio de OptiFlow
 
 En este anexo se presenta la evidencia correspondiente al modelado del dominio mediante **EventStorming**, utilizado para identificar los principales eventos, comandos, actores y agrupaciones funcionales de la solución OptiFlow (ver Figura A1).
@@ -18,7 +16,6 @@ En este anexo se presenta la evidencia correspondiente al modelado del dominio m
 ![EventStorming del dominio de OptiFlow](assets/cap2/DDD/Event-Storming%20pasos%201-3.jpg)
 
 
----
 
 <div style="break-before: page; page-break-before: always;"></div>
 
@@ -36,7 +33,6 @@ La siguiente evidencia corresponde a la identificación de los cinco Bounded Con
 
 Estos contextos fueron delimitados a partir de las agrupaciones funcionales identificadas durante el análisis del dominio.
 
----
 
 <div style="break-before: page; page-break-before: always;"></div>
 
@@ -69,7 +65,6 @@ La relación entre eventos, contextos receptores y comandos se detalla en la Tab
 
 Estos flujos permiten evidenciar la comunicación entre los contextos sin necesidad de compartir directamente sus modelos de datos.
 
----
 
 <div style="break-before: page; page-break-before: always;"></div>
 
@@ -89,7 +84,6 @@ En este anexo se presenta el **Context Map Final** de OptiFlow, donde se represe
 </div>
 
 
----
 
 <div style="break-before: page; page-break-before: always;"></div>
 
@@ -209,7 +203,6 @@ El Store Management & Inventory Component Diagram se muestra en la Figura E8.
 ![Store Management & Inventory Component Diagram](assets/cap2/C4/Store%20Management%20%26%20Inventory%20component.svg)
 
 
----
 
 <div style="break-before: page; page-break-before: always;"></div>
 
@@ -249,13 +242,11 @@ El Production & Tracking Database Design Diagram se observa en la Figura F2.
 ![Production & Tracking Database Design Diagram](assets/cap2/ProductionTrackingDatabaseDesignDiagram.png)
 
 
----
 
 ### F.2. Notification & Loyalty
 
 El diseño táctico de este contexto contempla elementos como `NotificationPreferences`, `PatientBirthday`, `BirthdayDiscount`, `SatisfactionSurvey` y `ReactivationCampaign`, además de consumidores de eventos y adaptadores para servicios externos de mensajería.
 
----
 
 <div style="break-before: page; page-break-before: always;"></div>
 
