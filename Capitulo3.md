@@ -1265,16 +1265,200 @@ Los mockups del centro de herramientas, cotizaciones, taller y analítica se obs
 Los mockups reúnen las herramientas de gestión avanzada del negocio óptico: emisión de cotizaciones vinculadas a prescripciones vigentes, tablero visual para el control de órdenes de montaje en laboratorio y un panel de analítica con gráficos de atenciones realizadas, ventas mensuales e indicadores clave de rendimiento comercial.
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
-#### 3.1.4.5 Mobile Applications Prototyping
 
-##### Landing Page Prototyping:
+Un user flow o trayectoria del usuario es un diagrama que consiste en mostrar el trayecto del usuario representado por un diagrama de flujo e indica el camino que debe seguir el usuario para cumplir con un objetivo específico en la aplicación. Además, el user flow permite determinar cada uno de los pasos, decisiones y rutas principales (happy paths) y alternas (unhappy paths) para completar una experiencia digital satisfactoria.
 
+A continuación, se presentan los user flows desarrollados para los flujos representativos de OptiFlow:
 
-La captura del video del prototipo de la Landing Page se muestra en la Figura 101.
+**User Goal 1: Paciente desea reservar una cita de evaluación visual u optometría**
+
+*Happy Path*
+
+En esta ruta esperada, el paciente accede a la sección de reservas, selecciona la sede óptica más cercana, escoge la especialidad (evaluación visual u optometría) y el especialista tratante. A continuación, selecciona una fecha y franja horaria disponible en el calendario interactivo, revisa el resumen de su cita y confirma la reserva exitosamente, recibiendo el comprobante y recordatorio en su perfil (ver Figura 101).
 
 <a id="figura-101"></a>
 
 **Figura 101**
+
+*User flow de reserva de una cita*
+
+![User flow de reserva de una cita.](assets/cap3/userflow/01_reservar_una_cita.png)
+
+*Unhappy Paths*
+
+En esta ruta alterna, el usuario intenta reservar en un horario que fue ocupado simultáneamente por otro paciente o experimenta un problema de conectividad antes de confirmar. El sistema notifica la indisponibilidad del turno ("Horario ya no disponible"), manteniendo los datos previamente ingresados y solicitando seleccionar una nueva franja horaria para completar el agendamiento.
+
+**User Goal 2: Paciente desea buscar y encontrar una montura en el catálogo**
+
+*Happy Path*
+
+En esta ruta esperada, el paciente navega por el catálogo digital de armazones, aplicando filtros según marca, forma de rostro, material y rango de precio. Al encontrar el modelo de su preferencia, accede a la ficha técnica para consultar las medidas, especificaciones de lunas y la disponibilidad de stock físico en tiendas cercanas para programar su prueba o reserva (ver Figura 102).
+
+<a id="figura-102"></a>
+
+**Figura 102**
+
+*User flow de búsqueda y selección de monturas*
+
+![User flow de búsqueda y selección de monturas.](assets/cap3/userflow/02_buscar_y_encontrar_una_montura.png)
+
+*Unhappy Paths*
+
+En esta ruta alterna, la combinación de filtros aplicada por el usuario es demasiado restrictiva y no produce resultados coincidentes, o el modelo seleccionado se encuentra agotado en la sede elegida. La aplicación alerta la ausencia de existencias ("Sin stock en esta sede") y ofrece recomendaciones de modelos similares o la opción de consultar disponibilidad en otras sedes de la cadena.
+
+**User Goal 3: Paciente desea consultar el estado y avance de sus pedidos de lentes**
+
+*Happy Path*
+
+En esta ruta esperada, el paciente ingresa a la sección "Mis Pedidos", selecciona su orden activa y visualiza en tiempo real la línea de tiempo del ensamblaje en taller (orden recibida, corte de lunas, biselado, control de calidad y listo para entrega), permitiéndole conocer la fecha exacta para acercarse a la óptica a retirar sus lentes (ver Figura 103).
+
+<a id="figura-103"></a>
+
+**Figura 103**
+
+*User flow de seguimiento de pedidos*
+
+![User flow de seguimiento de pedidos.](assets/cap3/userflow/03_seguimiento_de_pedidos.png)
+
+*Unhappy Paths*
+
+En esta ruta alterna, el pedido experimenta una observación durante el control de calidad en laboratorio que requiere reprocesar el biselado o tratamiento de la luna. El sistema actualiza el estado con una alerta informativa ("En ajuste de calidad"), ajustando automáticamente la fecha estimada de entrega y habilitando un canal directo de consulta con soporte.
+
+**User Goal 4: Paciente desea consultar su receta óptica y recomendaciones clínicas**
+
+*Happy Path*
+
+En esta ruta esperada, el paciente accede al módulo de salud visual para consultar su prescripción médica vigente. La interfaz presenta con claridad los valores de refracción de ambos ojos (esfera, cilindro, eje, adición y distancia pupilar), la fecha de emisión, el optómetra tratante y las recomendaciones de cuidado visual y tipos de lunas sugeridas (ver Figura 104).
+
+<a id="figura-104"></a>
+
+**Figura 104**
+
+*User flow de consulta de receta óptica*
+
+![User flow de consulta de receta óptica.](assets/cap3/userflow/04_receta_optica.png)
+
+*Unhappy Paths*
+
+En esta ruta alterna, el paciente no cuenta con un historial de recetas registrado en la plataforma o su última prescripción supera el tiempo de vigencia recomendado (más de 12 meses). El sistema muestra un estado preventivo ("Receta vencida o no registrada") y sugiere agendar un nuevo examen visual mediante un acceso directo.
+
+**User Goal 5: Personal clínico desea gestionar la agenda diaria y la atención en sala de espera**
+
+*Happy Path*
+
+En esta ruta esperada, el optómetra o recepcionista consulta la agenda del día, visualiza a los pacientes citados organizados por franja horaria y cambia el estado del turno a "En consulta" al ingresar el paciente al consultorio. Al concluir la evaluación, registra las anotaciones clínicas y marca el turno como "Atendido" de manera secuencial (ver Figura 105).
+
+<a id="figura-105"></a>
+
+**Figura 105**
+
+*User flow de gestión de agenda y atención clínica*
+
+![User flow de gestión de agenda y atención clínica.](assets/cap3/userflow/05_agenda_y_atencion_clinica.png)
+
+*Unhappy Paths*
+
+En esta ruta alterna, el paciente citado no se presenta a la hora programada o solicita una reprogramación de emergencia mientras otros turnos están en espera. El personal actualiza el estado a "No asistió" o "Reprogramado", liberando la franja horaria en la agenda operativa y recalculando los tiempos estimados de atención de la sala de espera.
+
+**User Goal 6: Personal óptico desea agendar una nueva cita directamente para un paciente**
+
+*Happy Path*
+
+En esta ruta esperada, el asesor busca al paciente en el directorio de clientes por su número de documento o nombre, selecciona la opción rápida de agendamiento y define la sede, especialidad y horario disponible sin reingresar los datos personales, confirmando la cita y enviando la notificación al cliente (ver Figura 106).
+
+<a id="figura-106"></a>
+
+**Figura 106**
+
+*User flow de agendamiento de cita por el personal*
+
+![User flow de agendamiento de cita por el personal.](assets/cap3/userflow/06_nueva_cita_desde_el_staff.png)
+
+*Unhappy Paths*
+
+En esta ruta alterna, el personal intenta agendar una cita en un horario bloqueado por mantenimiento de consultorio o fuera de la jornada del especialista. El sistema detecta el conflicto de horario, muestra una advertencia visual en rojo y previene la duplicidad de registros, exigiendo seleccionar un turno disponible.
+
+**User Goal 7: Optómetra desea registrar a un nuevo paciente y realizar la evaluación visual**
+
+*Happy Path*
+
+En esta ruta esperada, el especialista crea la ficha médica con los datos demográficos y antecedentes del nuevo paciente, realiza las pruebas de agudeza visual y refracción computarizada, ingresa los parámetros clínicos validados y guarda la prescripción y orden de trabajo en el historial médico (ver Figura 107).
+
+<a id="figura-107"></a>
+
+**Figura 107**
+
+*User flow de registro de paciente y evaluación visual*
+
+![User flow de registro de paciente y evaluación visual.](assets/cap3/userflow/07_registro_de_paciente_y_evaluacion_visual.png)
+
+*Unhappy Paths*
+
+En esta ruta alterna, el especialista intenta guardar la ficha clínica omitiendo campos obligatorios (como el documento de identidad o los valores refractivos mínimos). La aplicación resalta los campos faltantes con indicadores de error y deshabilita el guardado hasta que se corrijan las omisiones clínicas.
+
+**User Goal 8: Personal comercial desea generar una cotización y registrar una venta**
+
+*Happy Path*
+
+En esta ruta esperada, el asesor selecciona los armazones y tratamientos de lunas vinculados a la receta del cliente, genera la proforma con el desglose de precios e impuestos, el cliente acepta las condiciones y se procesa el registro del pago, emitiendo el comprobante comercial y la orden de taller (ver Figura 108).
+
+<a id="figura-108"></a>
+
+**Figura 108**
+
+*User flow de cotización y confirmación de venta*
+
+![User flow de cotización y confirmación de venta.](assets/cap3/userflow/08_cotizacion_y_venta.png)
+
+*Unhappy Paths / Alternative Paths*
+
+En esta ruta alterna, el cliente decide no proceder con la compra debido al costo o desea evaluar otras opciones. El asesor marca la cotización como "Rechazada" o "Pendiente", registrando el motivo en el sistema, lo cual cancela la reserva temporal de los armazones y los reintegra de inmediato al inventario disponible.
+
+**User Goal 9: Personal de tienda desea gestionar el inventario y escanear productos**
+
+*Happy Path*
+
+En esta ruta esperada, el encargado de almacén utiliza la cámara del dispositivo móvil para escanear el código de barras o QR de una montura o insumo, accede a la ficha técnica en tiempo real con niveles de existencias multisede y registra un ingreso, salida o transferencia entre sucursales exitosamente (ver Figura 109).
+
+<a id="figura-109"></a>
+
+**Figura 109**
+
+*User flow de control de inventario y escaneo de productos*
+
+![User flow de control de inventario y escaneo de productos.](assets/cap3/userflow/09_inventario.png)
+
+*Unhappy Paths*
+
+En esta ruta alterna, el código físico está dañado o la cámara no logra enfocar adecuadamente, o bien el producto no está registrado en el catálogo maestro. El sistema despliega un mensaje de error ("Código no identificado") y habilita un buscador manual alternativo por SKU, nombre de modelo o marca para no detener la operación.
+
+**User Goal 10: Administrador u operador desea supervisar la producción en taller, alertas y reportes**
+
+*Happy Path*
+
+En esta ruta esperada, el administrador supervisa el tablero Kanban de órdenes en laboratorio, verifica que las etapas de corte, biselado y montaje se cumplan dentro de los tiempos estándar, y consulta los reportes de rendimiento y facturación comercial para la toma de decisiones estratégicas (ver Figura 110).
+
+<a id="figura-110"></a>
+
+**Figura 110**
+
+*User flow de supervisión de producción, alertas y reportes*
+
+![User flow de supervisión de producción, alertas y reportes.](assets/cap3/userflow/10_produccion_alertas_y_reportes.png)
+
+*Unhappy Paths*
+
+En esta ruta alterna, una orden de trabajo sobrepasa el umbral máximo de tiempo en una estación técnica de laboratorio (por ejemplo, falta de insumos de biselado). El sistema dispara una alerta visual prioritaria en el centro de notificaciones, permitiendo al administrador reasignar la orden a otra estación o contactar al proveedor de lunas.
+
+#### 3.1.4.5 Mobile Applications Prototyping
+
+##### Landing Page Prototyping:
+
+La captura del video del prototipo de la Landing Page se muestra en la Figura 111.
+
+<a id="figura-111"></a>
+
+**Figura 111**
 
 *Captura del video del prototipo de la Landing Page*
 
