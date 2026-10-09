@@ -1705,7 +1705,6 @@ Los Factories del Search & Booking Context se resumen en la Tabla 32.
 | `AppointmentFactory` | Centraliza la creación de nuevas instancias válidas de `Appointment` |
 | `PatientFactory` | Centraliza la creación de nuevos pacientes cumpliendo las reglas del dominio |
 
----
 
 <a id="2.6.1.2. Interface Layer"></a>
 #### 2.6.1.2. Interface Layer
@@ -1783,7 +1782,6 @@ Los Assemblers del Search & Booking Context se resumen en la Tabla 35.
 | `FromBookAppointmentRequestAssembler` | `BookAppointmentRequest` → `BookAppointmentCommand` |
 | `FromRateOpticalStoreRequestAssembler` | `RateOpticalStoreRequest` → `RateOpticalStoreCommand` |
 
----
 
 <a id="2.6.1.3. Application Layer"></a>
 #### 2.6.1.3. Application Layer
@@ -1872,7 +1870,6 @@ Los Application Services del Search & Booking Context se resumen en la Tabla 39.
 | `AppointmentApplicationService` | Coordina las operaciones relacionadas con la creación, consulta, confirmación, cancelación y reprogramación de citas |
 | `OpticalStoreApplicationService` | Coordina las operaciones de búsqueda, filtrado, favoritos, catálogo y valoración de ópticas |
 
----
 
 <a id="2.6.1.4. Infrastructure Layer"></a>
 #### 2.6.1.4. Infrastructure Layer
@@ -1979,7 +1976,6 @@ Las clases de configuración del Search & Booking Context se presentan en la Tab
 | `EventPublisherConfig` | Configura la publicación de eventos del contexto |
 | `ApiConfig` | Configura los puntos de entrada utilizados por la Interface Layer |
 
----
 
 <a id="2.6.1.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
@@ -2343,7 +2339,6 @@ El Repository del Production & Tracking Context se resume en la Tabla 53.
 
 La interacción principal del dominio con otros contextos comienza cuando **Clinical & Commercial** publica el evento `SaleWasClosed`. Production & Tracking recibe este evento y ejecuta el comando `GenerateWorkOrder`, iniciando así el ciclo de producción de la orden.
 
----
 
 <a id="2.6.3.2. Interface Layer"></a>
 #### 2.6.3.2. Interface Layer
@@ -2430,7 +2425,6 @@ Los Assemblers del Production & Tracking Context se detallan en la Tabla 57.
 | `FromNotifyDeliveryDelayRequestAssembler` | `NotifyDeliveryDelayRequest` → `NotifyDeliveryDelayCommand` |
 | `FromMarkOrderAsDeliveredRequestAssembler` | `MarkOrderAsDeliveredRequest` → `MarkOrderAsDeliveredCommand` |
 
----
 
 <a id="2.6.3.3. Application Layer"></a>
 #### 2.6.3.3. Application Layer
@@ -2495,7 +2489,6 @@ Los Application Services del Production & Tracking Context se detallan en la Tab
 
 La Application Layer permite mantener separados los casos de uso del sistema respecto de las reglas internas del dominio y de los mecanismos utilizados para persistir o comunicar información.
 
----
 
 <a id="2.6.3.4. Infrastructure Layer"></a>
 #### 2.6.3.4. Infrastructure Layer
@@ -2562,7 +2555,6 @@ Production & Tracking utiliza una **Anti-Corruption Layer (ACL)** en su relació
 
 La relación se encuentra definida en el Context Mapping de la sección 2.5.2 mediante el patrón **Customer / Supplier**, donde **Clinical & Commercial** actúa como upstream y **Production & Tracking** como downstream.
 
----
 
 <a id="2.6.3.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
@@ -2733,7 +2725,6 @@ El Repository del Store Management & Inventory Context se resume en la Tabla 67.
 | `FrameModelRepository` | Abstrae el acceso y persistencia de los modelos de monturas registrados en el catálogo. |
 | `SupplierRepository` | Abstrae el acceso y persistencia de los proveedores registrados. |
 
----
 
 <a id="2.6.4.2. Interface Layer"></a>
 #### 2.6.4.2. Interface Layer
@@ -2822,7 +2813,6 @@ Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 
 | `FromReplenishStockRequestAssembler` | `ReplenishStockRequest` → `ReplenishStockCommand` |
 | `FromRegisterSupplierRequestAssembler` | `RegisterSupplierRequest` → `RegisterSupplierCommand` |
 
----
 
 <a id="2.6.4.3. Application Layer"></a>
 #### 2.6.4.3. Application Layer
@@ -2887,7 +2877,6 @@ Los Application Services del Store Management & Inventory Context se detallan en
 
 La Application Layer permite mantener separados los casos de uso de las reglas de negocio del dominio y de los mecanismos utilizados para persistir la información o comunicarse con otros contextos.
 
----
 
 <a id="2.6.4.4. Infrastructure Layer"></a>
 #### 2.6.4.4. Infrastructure Layer
