@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1080" viewBox="0 0 1480 1080" role="img"><title>Clinical &amp; Commercial · Persistencia y cardinalidades corregidas</title><desc>Esquema respaldado por la migración V2: cotización a venta uno a cero o uno.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1080" viewBox="0 0 1480 1080" role="img"><title>Clinical &amp; Commercial · Modelo de persistencia</title><desc>Esquema respaldado por la migración V2: cotización a venta uno a cero o uno.</desc>
 <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10" fill="#475569"/></marker></defs>
 <rect width="100%" height="100%" fill="#fff"/>
-<text x="36" y="45" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#12364a">Clinical &amp; Commercial · Persistencia y cardinalidades corregidas</text>
+<text x="36" y="45" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#12364a">Clinical &amp; Commercial · Modelo de persistencia</text>
 <rect x="45" y="110" width="400" height="205" rx="8" fill="#f1f6fa" stroke="#98afbf" stroke-width="1.5"/>
 <text x="63" y="145" font-family="Arial,sans-serif" font-size="22" fill="#243b53" font-weight="bold">clinical_records</text>
 <text x="63" y="183" font-family="Arial,sans-serif" font-size="15" fill="#243b53">id UUID · PK</text>

@@ -1158,9 +1158,9 @@ El Bounded Context Canvas del Store Management & Inventory Context se presenta e
 | **Inbound Communication** | **Commands (vía API Gateway):**<br>- `AddNewFrameModel`<br>- `UpdateFrameModelPrice`<br>- `ReplenishStock`<br>- `RegisterSupplier`<br><br>**Queries (vía API Gateway):**<br>- `ConsultStock`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
 | **Outbound Communication** | **Events (Publicados):**<br>- `NewFrameModelAdded`<br>- `FrameModelPriceUpdated`<br>- `StockWasReplenished`<br>- `LowStockAlertGenerated`<br>- `InventoryWasUpdated`<br>- `SupplierRegistered` |
 
-##### Canvases completos y precisiones del contrato
+##### Canvases detallados de los bounded contexts
 
-Los siguientes canvases complementan las tablas existentes con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-a). La comunicación se clasifica como consulta, comando o evento según su efecto. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información.
+Los siguientes canvases complementan las tablas anteriores con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-a). La comunicación se clasifica como consulta, comando o evento según su efecto. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información.
 
 **Search & Booking.** Facilitar que el paciente encuentre una óptica y reserve un horario disponible. Regla destacada: No duplicar reservas sobre la misma disponibilidad. Exigir datos válidos del paciente, sucursal y horario. Una consulta no crea una reserva (ver Figura 22).
 
@@ -1169,9 +1169,9 @@ Los siguientes canvases complementan las tablas existentes con propósito, regla
 
 **Figura 22**
 
-*Bounded Context Canvas completo del Search & Booking Context*
+*Bounded Context Canvas detallado del Search & Booking Context*
 
-![Bounded Context Canvas completo: Search & Booking](assets/cap2/revision-tb1/canvas-search-booking.svg)
+![Bounded Context Canvas: Search & Booking](assets/cap2/revision-tb1/canvas-search-booking.svg)
 
 
 **Clinical & Commercial.** Organizar la evaluación visual y transformar una cotización aprobada en una venta trazable. Regla destacada: Solo una cotización aprobada genera una venta; máximo una venta por cotización. Registrar pago antes del cierre. Cada venta tiene como máximo un comprobante (ver Figura 23).
@@ -1181,9 +1181,9 @@ Los siguientes canvases complementan las tablas existentes con propósito, regla
 
 **Figura 23**
 
-*Bounded Context Canvas completo del Clinical & Commercial Context*
+*Bounded Context Canvas detallado del Clinical & Commercial Context*
 
-![Bounded Context Canvas completo: Clinical & Commercial](assets/cap2/revision-tb1/canvas-clinical-commercial.svg)
+![Bounded Context Canvas: Clinical & Commercial](assets/cap2/revision-tb1/canvas-clinical-commercial.svg)
 
 
 **Production & Tracking.** Coordinar la fabricación y facilitar el seguimiento de cada orden hasta su entrega. Regla destacada: Vincular la orden con una venta cerrada. Respetar las transiciones válidas. Comunicar cambios sin delegar a notificaciones la decisión del estado (ver Figura 24).
@@ -1193,9 +1193,9 @@ Los siguientes canvases complementan las tablas existentes con propósito, regla
 
 **Figura 24**
 
-*Bounded Context Canvas completo del Production & Tracking Context*
+*Bounded Context Canvas detallado del Production & Tracking Context*
 
-![Bounded Context Canvas completo: Production & Tracking](assets/cap2/revision-tb1/canvas-production-tracking.svg)
+![Bounded Context Canvas: Production & Tracking](assets/cap2/revision-tb1/canvas-production-tracking.svg)
 
 
 **Notification & Loyalty.** Comunicar hitos relevantes al paciente y apoyar el seguimiento posterior a la atención. Regla destacada: Respetar preferencias y permisos. Evitar duplicados. El estado de fabricación pertenece a producción; este contexto lo comunica (ver Figura 25).
@@ -1205,9 +1205,9 @@ Los siguientes canvases complementan las tablas existentes con propósito, regla
 
 **Figura 25**
 
-*Bounded Context Canvas completo del Notification & Loyalty Context*
+*Bounded Context Canvas detallado del Notification & Loyalty Context*
 
-![Bounded Context Canvas completo: Notification & Loyalty](assets/cap2/revision-tb1/canvas-notification-loyalty.svg)
+![Bounded Context Canvas: Notification & Loyalty](assets/cap2/revision-tb1/canvas-notification-loyalty.svg)
 
 
 **Store Management & Inventory.** Mantener el catálogo, las existencias y la información operativa de la óptica. Regla destacada: Consultar stock no lo modifica. Registrar movimientos con producto y cantidad. Evitar existencias negativas y movimientos duplicados (ver Figura 26).
@@ -1217,9 +1217,9 @@ Los siguientes canvases complementan las tablas existentes con propósito, regla
 
 **Figura 26**
 
-*Bounded Context Canvas completo del Store Management & Inventory Context*
+*Bounded Context Canvas detallado del Store Management & Inventory Context*
 
-![Bounded Context Canvas completo: Store Management & Inventory](assets/cap2/revision-tb1/canvas-store-inventory.svg)
+![Bounded Context Canvas: Store Management & Inventory](assets/cap2/revision-tb1/canvas-store-inventory.svg)
 
 
 El [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los límites, mientras que el [Anexo D](Anexos.md#anexo-d-context-mapping) permite contrastar los colaboradores con el Context Map.
@@ -1424,7 +1424,7 @@ El Context Map final de OptiFlow se muestra en la Figura 34.
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relacionados. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias; el nivel 2 corregido identifica cuáles corresponden al incremento de TB1 (ver Figura 35).
+El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relacionados. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias; el diagrama de contenedores identifica cuáles corresponden al incremento de TB1 (ver Figura 35).
 
 
 <a id="figura-35"></a>
@@ -1438,7 +1438,7 @@ El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relaci
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-La vista corregida, elaborada con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 36).
+El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 36).
 
 
 <a id="figura-36"></a>
@@ -1467,7 +1467,7 @@ El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en e
 <a id="Tactical-Level Domain-Driven Design"></a>
 ## 2.6. Tactical-Level Domain-Driven Design
 
-Los modelos tácticos describen las entidades, reglas y adaptadores de los contextos. El [Anexo F](Anexos.md#anexo-f-diagramas-de-diseño-táctico) conserva diagramas complementarios. Las propuestas documentales de MongoDB en producción y notificaciones corresponden al diseño inicial; el incremento TB1 utiliza persistencia relacional mediante JPA, como se refleja en el nivel 2 corregido.
+Los modelos tácticos describen las entidades, reglas y adaptadores de los contextos. El [Anexo F](Anexos.md#anexo-f-diagramas-de-diseño-táctico) conserva diagramas complementarios. Las propuestas documentales de MongoDB en producción y notificaciones corresponden al diseño inicial; el incremento TB1 utiliza persistencia relacional mediante JPA, como se refleja en el diagrama de contenedores.
 
 <a id="2.6.1. Bounded Context: Search & Booking Context"></a>
 ### 2.6.1. Bounded Context: Search & Booking Context
@@ -2215,9 +2215,9 @@ Esta regla está implementada en `RegisterSaleHandler`: comprueba la aprobación
 
 **Figura 43**
 
-*Modelo de persistencia corregido del Clinical & Commercial Context*
+*Modelo de persistencia del Clinical & Commercial Context*
 
-![Modelo corregido de persistencia Clinical & Commercial](assets/cap2/revision-tb1/clinical-commercial-db-tb1.svg)
+![Modelo de persistencia del Clinical & Commercial Context](assets/cap2/revision-tb1/clinical-commercial-db-tb1.svg)
 
 
 Las relaciones se establecen mediante Primary Keys, Foreign Keys y restricciones de unicidad para mantener la integridad de los agregados y sus entidades persistentes.

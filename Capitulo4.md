@@ -1418,7 +1418,7 @@ Tareas del Landing Page: explorar libremente la página, buscar cómo reservar u
 
 ### 4.3.2. Registro de entrevistas
 
-En esta sección se registran las entrevistas de validación realizadas con usuarios de los dos segmentos objetivo de OptiFlow, quienes interactuaron con la Landing Page y con la aplicación móvil. La evidencia audiovisual completa se encuentra en el [Anexo H](Anexos.md#anexo-h-entrevistas-de-validacion).
+En esta sección se registran las entrevistas de validación realizadas con usuarios de los dos segmentos objetivo de OptiFlow, quienes interactuaron con la Landing Page y con la aplicación móvil. La evidencia audiovisual completa se encuentra en el [Anexo H](Anexos.md#anexo-h-entrevistas-de-validación).
 
 **Video de entrevistas de validación:**
 

@@ -21,7 +21,7 @@ En este anexo se presenta la evidencia correspondiente al modelado del dominio m
 
 ## Anexo B: Bounded Contexts identificados
 
-Los cinco canvases completos de [2.5.1.3](Capitulo2.md#2513-bounded-context-canvases) especifican responsabilidades, reglas, contratos, supuestos y criterios de verificación para los contextos resumidos en este anexo.
+Los cinco canvases detallados de [2.5.1.3](Capitulo2.md#2513-bounded-context-canvases) especifican responsabilidades, reglas, contratos, supuestos y criterios de verificación para los contextos resumidos en este anexo.
 
 La siguiente evidencia corresponde a la identificación de los cinco Bounded Contexts que estructuran el dominio de OptiFlow:
 
