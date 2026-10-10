@@ -796,7 +796,7 @@ Los Wireframes del flujo de inicio de sesión y selección de rol se observan en
 ![Wireframes del flujo de inicio de sesión y selección de rol.](assets/cap3/wireframe-movil/registro.png)
 
 
-El contenedor central implementa un conmutador de navegación segmentada para alternar entre "Iniciar sesión" y "Registrarme". A continuación, se disponen tarjetas interactivas de selección de rol ("Paciente: Mis citas, receta y monturas" y "Personal clínico: Catálogo, agenda y pacientes"). La base del contenedor organiza los campos de entrada de datos para correo electrónico y contraseña (con botón de visibilidad y enlace de recuperación "¿Olvidaste tu contraseña?"), finalizando con el botón de acción principal de ancho completo ("Entrar a mi cuenta").
+El wireframe reúne las vistas de acceso y selección de perfil, junto con los campos para iniciar sesión o registrarse.
 
 **Sección Inicio y Consulta de Receta Óptica (Paciente)**
 
@@ -812,7 +812,7 @@ Los Wireframes de pantalla de inicio del paciente y ficha de receta óptica se m
 ![Wireframes de pantalla de inicio del paciente y ficha de receta óptica.](assets/cap3/wireframe-movil/receta.png)
 
 
-El diseño de inicio del paciente propone accesos a citas, recetas, pedidos e historial, además de un espacio para una futura prueba virtual de monturas. Las vistas de receta organizan las medidas, las observaciones y los datos de la prescripción. La visualización por el paciente debe distinguirse de las acciones de registro o edición clínica, reservadas al personal autorizado según su rol.
+La propuesta combina accesos a las funciones del paciente con una vista para consultar los datos de su receta óptica.
 
 **Sección Búsqueda y Exploración de Monturas (Paciente)**
 
@@ -828,7 +828,7 @@ Los Wireframes del módulo de búsqueda y catálogo de armazones se presentan en
 ![Wireframes del módulo de búsqueda y catálogo de armazones.](assets/cap3/wireframe-movil/buscar.png)
 
 
-Esta imagen muestra el flujo de localización de ópticas y descubrimiento de armazones en cuatro vistas. La pantalla inicial presenta una barra de búsqueda multifunción, accesos rápidos de filtrado y un bloque de mapa geolocalizado con lista de resultados cercanos que detallan distancias y horarios disponibles. Finalmente, las pantallas de detalle despliegan el carrusel de imágenes del producto, especificaciones técnicas (materiales, dimensiones, estilo unisex), disponibilidad de stock físico inmediato y el botón de acción para localizar las ópticas más cercanas con existencia en tienda.
+Las vistas representan la búsqueda de ópticas y la exploración de armazones, con filtros y consulta de información de los productos.
 
 **Sección Gestión y Reserva de Citas (Paciente)**
 
@@ -844,7 +844,7 @@ Los Wireframes del flujo de gestión, reprogramación y reserva de citas se obse
 ![Wireframes del flujo de gestión, reprogramación y reserva de citas.](assets/cap3/wireframe-movil/citas_paciente.png)
 
 
-Esta imagen detalla el flujo integral de agendamiento y control de citas médicas en siete pantallas secuenciales. Inicia con la vista "Mis citas", seguida del detalle de cita con información del profesional tratante, sede y recordatorios. El proceso de nueva reserva se guía mediante un indicador de pasos superior (stepper del 1 al 4).
+La secuencia reúne las vistas para consultar, reprogramar y reservar citas.
 
 **Sección Seguimiento de Pedidos y Montaje (Paciente)**
 
@@ -860,7 +860,7 @@ Los Wireframes del módulo de seguimiento de pedidos en taller y entrega se mues
 ![Wireframes del módulo de seguimiento de pedidos en taller y entrega.](assets/cap3/wireframe-movil/pedido.png)
 
 
-El diseño de seguimiento incluye un selector de pedidos en curso y entregados, una tarjeta con progreso y fecha estimada de entrega, y una vista de detalle con una línea de tiempo. Esta secuencia representa los hitos de fabricación que se propone comunicar al paciente; el wireframe no acredita una actualización en tiempo real del sistema.
+La propuesta resume el avance del pedido y sus etapas hasta la entrega; el wireframe no implica actualización en tiempo real.
 
 **Sección Perfil de Usuario, Historial y Configuración (Paciente)**
 
@@ -876,7 +876,7 @@ Los Wireframes del perfil de paciente, historial clínico y panel de ajustes se 
 ![Wireframes del perfil de paciente, historial clínico y panel de ajustes.](assets/cap3/wireframe-movil/perfil.png)
 
 
-Esta imagen ilustra la gestión de cuenta y antecedentes médicos del paciente distribuida en cuatro pantallas.
+Las pantallas agrupan información del perfil, antecedentes visuales y opciones de configuración.
 
 **Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
 
@@ -892,7 +892,7 @@ Los Wireframes del directorio de pacientes, ficha médica, refracción y orden d
 ![Wireframes del directorio de pacientes, ficha médica, refracción y orden de trabajo.](assets/cap3/wireframe-movil/paciente.png)
 
 
-Esta imagen detalla el flujo de trabajo clínico del optómetra y asesor de óptica en seis pantallas. Inicia con el directorio clínico de expedientes con métricas de resumen (total de pacientes, nuevos del mes, fichas en taller), buscador y filtros por estado. Continúa con el formulario modal de registro rápido de nuevo cliente con datos demográficos y motivo de consulta. Las pantallas clínicas finales estructuran la evaluación visual y la pantalla de confirmación de venta y pago registrado.
+El wireframe reúne el directorio de pacientes y vistas para registrar información clínica y consultar órdenes de trabajo.
 
 **Sección Agenda y Control de Atención Clínica (Personal Óptico)**
 
@@ -908,7 +908,7 @@ Los Wireframes de la agenda diaria, control de sala de espera y flujo de atenci�
 ![Wireframes de la agenda diaria, control de sala de espera y flujo de atención.](assets/cap3/wireframe-movil/citas_optica.png)
 
 
-El diseño de agenda organiza la atención en cuatro vistas: resumen diario con calendario y filtros, consulta de citas, registro manual y actualización del estado de atención con notas. Su objetivo es facilitar el seguimiento de los turnos por el personal; la disponibilidad operativa de estas funciones se evalúa en la implementación correspondiente.
+La propuesta reúne vistas para consultar la agenda y dar seguimiento a la atención de pacientes.
 
 **Sección Control de Stock e Inventario (Personal Óptico)**
 
@@ -924,7 +924,7 @@ Los Wireframes de gestión de inventario, escáner de códigos y ajuste de exist
 ![Wireframes de gestión de inventario, escáner de códigos y ajuste de existencias.](assets/cap3/wireframe-movil/inventario.png)
 
 
-Esta imagen presenta la arquitectura de administración física de existencias en cinco pantallas interactivas. El panel principal resume las métricas de stock en vitrina y productos en taller/laboratorio. La segunda pantalla habilita el escáner de productos mediante cámara para lectura instantánea de códigos de barras o QR. La tercera pantalla desglosa la ficha de producto con galería fotográfica, precios y especificaciones. La cuarta pantalla detalla la distribución de stock multisede. La última pantalla proporciona el formulario para registrar nuevos movimientos.
+El wireframe agrupa vistas para consultar existencias, buscar productos y registrar movimientos de inventario; representa una propuesta de interfaz.
 
 **Sección Operaciones, Producción y Reportes (Personal Óptico)**
 
@@ -940,7 +940,7 @@ Los Wireframes del centro de herramientas, cotizaciones, taller de producción y
 ![Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes.](assets/cap3/wireframe-movil/herramientas.png)
 
 
-El diseño reúne las herramientas operativas y analíticas en seis pantallas: confirmación de venta, cotizaciones vinculadas a recetas, tablero Kanban de producción, alertas y reportes. Las vistas permiten revisar la organización del flujo comercial y del taller, junto con los indicadores propuestos de facturación y atención.
+Las vistas reúnen herramientas propuestas para cotizaciones, seguimiento de órdenes de trabajo y consulta de reportes.
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
@@ -967,7 +967,7 @@ Luego, se muestra el resultado de la traducción de las acciones a pantallas (ve
 
 ![Wireflow de ingreso o registro de usuario.](assets/cap3/wireflow/INGRESO%20O%20REGISTRO.png)
 
-En este flujo se ilustra el proceso de autenticación y enrolamiento en la plataforma OptiFlow, permitiendo al usuario navegar entre las vistas de login y registro según su rol, gestionar la recuperación de credenciales y acceder a la experiencia personalizada de la aplicación.
+El diagrama representa las rutas de inicio de sesión y registro para los perfiles contemplados en la aplicación.
 
 **User Goal 2: Personal clínico u óptico desea registrar a un nuevo paciente en el sistema**
 
@@ -988,7 +988,7 @@ Luego, se muestra el resultado de la traducción de las acciones a pantallas (ve
 
 ![Wireflow de registro de nuevo paciente.](assets/cap3/wireflow/wireflow_REGISTRO%20NUEVO%20PACIENTE.png)
 
-En este flujo se observa el recorrido del personal óptico para dar de alta a un paciente de manera ágil, validando los campos obligatorios del expediente clínico y dejando la ficha lista para asociarle citas o recetas.
+El flujo representa el registro de un paciente por parte del personal óptico.
 
 **User Goal 3: Usuario desea agendar una nueva cita de evaluación visual u optometría**
 
@@ -1009,7 +1009,7 @@ Luego, se muestra el resultado de la traducción de las acciones a pantallas (ve
 
 ![Wireflow de registro de nueva cita.](assets/cap3/wireflow/wireflow_REGISTRO%20DE%20NUEVA%20CITA.png)
 
-En este flujo se detalla el proceso paso a paso (stepper) mediante el cual el usuario concreta una reserva de cita médica, visualizando la disponibilidad en tiempo real y asegurando el turno correspondiente.
+El diagrama representa los pasos propuestos para seleccionar y confirmar una cita.
 
 **User Goal 4: Personal óptico desea programar una cita directamente desde la tarjeta de un paciente**
 
@@ -1030,7 +1030,7 @@ Luego, se muestra el resultado de la traducción de las acciones a pantallas (ve
 
 ![Wireflow de nueva cita desde la tarjeta de un cliente.](assets/cap3/wireflow/wireflow_NUEVA%20CITA%20DESDE%20LA%20TARJETA%20DE%20UN%20CLIENTE.png)
 
-En este flujo se presenta la optimización del flujo de recepción y atención clínica, permitiendo al asesor agendar visitas recurrentes o controles posventa directamente desde la ficha activa del cliente.
+El flujo muestra la propuesta para agendar una cita desde la ficha del paciente.
 
 **User Goal 5: Optómetra o especialista desea registrar la atención clínica y la prescripción óptica**
 
@@ -1051,7 +1051,7 @@ Luego, se muestra el resultado de la traducción de las acciones a pantallas (ve
 
 ![Wireflow del proceso de atención a paciente.](assets/cap3/wireflow/wireflow_PROCESO%20DE%20ATENCION%20A%20PACIENTE.png)
 
-En este flujo se describe la interacción técnica del profesional de la salud visual en cabina, asegurando la captura integral de los parámetros refractivos y la emisión digital de la receta médica.
+El diagrama representa el registro de la atención clínica y de la prescripción óptica.
 
 **User Goal 6: Personal de taller o asesor desea verificar y actualizar el estado de producción de los lentes**
 
@@ -1072,14 +1072,14 @@ Luego, se muestra el resultado de la traducción de las acciones a pantallas (ve
 
 ![Wireflow de verificación del proceso de producción de los lentes del cliente.](assets/cap3/wireflow/wireflow_VERIFICACION%20DEL%20PROCESO%20DE%20PRODUCCION%20DE%20LOS%20LENTES%20DEL%20CLIENTE.png)
 
-En este flujo se expone el seguimiento técnico de fabricación y ensamblaje óptico en laboratorio, garantizando la trazabilidad de cada fase del pedido hasta su liberación final.
+El flujo representa la consulta y actualización propuesta de las etapas de producción de una orden.
 
 **User Goal 7: Paciente desea explorar el catálogo de monturas y reservar armazones en una óptica cercana**
 
 Primero, se definen las tareas típicas que realizaría el paciente para completar este objetivo:
 - Ingresar a la sección de catálogo y búsqueda de productos.
 - Filtrar por marca, material, forma de armazón, rango de precio o sedes con disponibilidad.
-- Visualizar el detalle técnico de la montura seleccionada (dimensiones, colores, stock en tiempo real).
+- Visualizar el detalle técnico de la montura seleccionada (dimensiones, colores y stock disponible).
 - Seleccionar la opción de reserva física en tienda o vincular el armazón a su próxima cita presencial.
 
 Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 90).
@@ -1093,7 +1093,7 @@ Luego, se muestra el resultado de la traducción de las acciones a pantallas (ve
 
 ![Wireflow de catálogo y reserva de monturas.](assets/cap3/wireflow/Wireflow%20%C2%B7%20Cat%C3%A1logo%20y%20reserva.png)
 
-En este flujo se muestra la experiencia omnicanal del paciente, quien explora el catálogo digital de armazones y concreta la reserva en la sede óptica más conveniente.
+El diagrama representa la búsqueda de monturas y la propuesta de reserva en una óptica.
 
 **User Goal 8: Paciente desea consultar el estado y avance de sus pedidos de lentes**
 
@@ -1114,7 +1114,7 @@ Luego, se muestra el resultado de la traducción de las acciones a pantallas (ve
 
 ![Wireflow de consulta de pedidos.](assets/cap3/wireflow/Wireflow%20%C2%B7%20Consulta%20de%20pedidos.png)
 
-En este flujo se refleja la transparencia del servicio posventa, permitiendo al cliente conocer en todo momento el avance de confección de sus lentes y el momento exacto para su recojo.
+El flujo representa la consulta del estado del pedido y de la información prevista para su entrega.
 
 #### 3.1.4.3. Mobile Applications Mock-ups
 
@@ -1134,7 +1134,7 @@ Los mockups de la pantalla de inicio y panel principal se muestran en la Figura 
 ![Mockups de la pantalla de inicio y panel principal.](assets/cap3/mockups_movil/inicio.png)
 
 
-Los mockups representan la interfaz principal de bienvenida personalizada de la aplicación. Aplica el sistema visual corporativo con encabezados legibles y tarjetas de navegación rápida. Muestra el banner interactivo para prueba de monturas, el resumen dinámico de la próxima cita médica agendada con hora, sede y especialista, junto con los accesos directos a recetas, seguimiento de pedidos e historial de atenciones.
+El mockup presenta la pantalla principal y sus accesos a las funciones del paciente.
 
 **Sección Búsqueda y Exploración de Monturas (Paciente)**
 
@@ -1150,7 +1150,7 @@ Los mockups del módulo de búsqueda y catálogo de armazones se presentan en la
 ![Mockups del módulo de búsqueda y catálogo de armazones.](assets/cap3/mockups_movil/buscar.png)
 
 
-Los mockups exhiben el catálogo digital de armazones y el buscador de ópticas. Integra barras de búsqueda multifunción, filtros por marca, material y precio, y una cuadrícula de productos con fotografías de alta resolución, especificaciones dimensionales y etiquetas de disponibilidad. Además, incluye la vista de mapa geolocalizado para identificar establecimientos cercanos con existencias en tienda y horarios de atención.
+El mockup reúne la búsqueda de ópticas y la exploración del catálogo de armazones.
 
 **Sección Gestión y Reserva de Citas (Paciente)**
 
@@ -1166,7 +1166,7 @@ Los mockups del flujo de gestión y reserva de citas se observan en la Figura 94
 ![Mockups del flujo de gestión y reserva de citas.](assets/cap3/mockups_movil/citas.png)
 
 
-Los mockups presentan el flujo guiado de agendamiento médico estructurado mediante un indicador de pasos (stepper). El paciente selecciona la sede óptica, el especialista tratante y el tipo de servicio requerido (evaluación visual, consulta optometría o control). La interfaz despliega un calendario interactivo con bloques horarios disponibles y concluye con la pantalla de confirmación, resumen de la cita y recordatorio.
+El mockup representa el proceso propuesto para consultar opciones y reservar una cita.
 
 **Sección Consulta de Receta Óptica (Paciente)**
 
@@ -1182,7 +1182,7 @@ Los mockups del visor de recetas ópticas y prescripción médica se muestran en
 ![Mockups del visor de recetas ópticas y prescripción médica.](assets/cap3/mockups_movil/receta.png)
 
 
-Los mockups detallan la ficha clínica de prescripción médica en alta fidelidad. Organiza los datos refractivos de ambos ojos en una tabla clara (esfera, cilindro, eje, adición y distancia pupilar), indicando el profesional emisor, la fecha de vigencia y las observaciones sobre tratamientos de lunas recomendados (antirreflejante, filtro azul o protección UV).
+El mockup presenta la consulta de la receta óptica y sus datos principales.
 
 **Sección Seguimiento de Pedidos y Montaje (Paciente)**
 
@@ -1198,7 +1198,7 @@ Los mockups del módulo de seguimiento de pedidos en taller y entrega se present
 ![Mockups del módulo de seguimiento de pedidos en taller y entrega.](assets/cap3/mockups_movil/pedido.png)
 
 
-Los mockups muestran la experiencia posventa y trazabilidad de fabricación de lentes. La pantalla inicial organiza las órdenes activas e históricas con barras de progreso porcentual y fecha estimada de entrega. La vista detallada expone una línea de tiempo vertical que informa el avance del pedido por etapas: orden recibida, corte de lunas, montaje en taller, control de calidad y listo para retiro en sede.
+El mockup representa la consulta de pedidos y las etapas de seguimiento propuestas hasta la entrega.
 
 **Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
 
@@ -1214,7 +1214,7 @@ Los mockups del directorio de pacientes, ficha médica y registro de consulta se
 ![Mockups del directorio de pacientes, ficha médica y registro de consulta.](assets/cap3/mockups_movil/paciente.png)
 
 
-Los mockups presentan la herramienta operativa para optometristas y personal de atención. Dispone de un buscador en tiempo real y filtros por estado de expediente. Permite abrir la ficha integral del paciente para registrar datos demográficos, antecedentes clínicos, mediciones de agudeza visual y refracción, culminando en la generación de la orden de trabajo clínica.
+El mockup reúne el directorio de pacientes y las vistas propuestas para consultar y registrar información clínica.
 
 **Sección Agenda Diaria y Control de Atención (Personal Óptico)**
 
@@ -1230,7 +1230,7 @@ Los mockups de la agenda diaria, control de sala de espera y flujo de turnos se 
 ![Mockups de la agenda diaria, control de sala de espera y flujo de turnos.](assets/cap3/mockups_movil/citas_optica.png)
 
 
-Los mockups exhiben la interfaz de gestión operativa de consultas. Organiza los turnos del día en tarjetas cronológicas diferenciadas por estado (en espera, en consulta, atendido y reprogramado). Facilita al personal clínico actualizar la condición del paciente con un solo toque y registrar notas breves de transición en sala de espera.
+El mockup presenta la agenda diaria y los estados propuestos para dar seguimiento a la atención.
 
 **Sección Control de Stock e Inventario (Personal Óptico)**
 
@@ -1246,7 +1246,7 @@ Los mockups de gestión de inventario, escáner de códigos y fichas de producto
 ![Mockups de gestión de inventario, escáner de códigos y fichas de producto.](assets/cap3/mockups_movil/inventario.png)
 
 
-Los mockups ilustran la administración de existencias y catálogo de la óptica. Presenta indicadores de productos en tienda y almacén, integra el módulo de escaneo por cámara de códigos de barras y QR para búsqueda inmediata, y permite visualizar fichas técnicas con precios, disponibilidad multisede y registro de movimientos de stock.
+El mockup reúne la consulta del catálogo, las existencias y las vistas propuestas para gestionar inventario.
 
 **Sección Operaciones, Producción en Taller y Reportes (Personal Óptico)**
 
@@ -1262,11 +1262,11 @@ Los mockups del centro de herramientas, cotizaciones, taller y analítica se obs
 ![Mockups del centro de herramientas, cotizaciones, taller y analítica.](assets/cap3/mockups_movil/herramienta.png)
 
 
-Los mockups reúnen las herramientas de gestión avanzada del negocio óptico: emisión de cotizaciones vinculadas a prescripciones vigentes, tablero visual para el control de órdenes de montaje en laboratorio y un panel de analítica con gráficos de atenciones realizadas, ventas mensuales e indicadores clave de rendimiento comercial.
+El mockup reúne las vistas propuestas para cotizaciones, seguimiento de órdenes y consulta de reportes.
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
-Un user flow o trayectoria del usuario es un diagrama que consiste en mostrar el trayecto del usuario representado por un diagrama de flujo e indica el camino que debe seguir el usuario para cumplir con un objetivo específico en la aplicación. Además, el user flow permite determinar cada uno de los pasos, decisiones y rutas principales (happy paths) y alternas (unhappy paths) para completar una experiencia digital satisfactoria.
+Un user flow representa los pasos y decisiones propuestos para que el usuario alcance un objetivo en la aplicación. Los diagramas incluyen rutas esperadas y alternas; describen el diseño previsto y no constituyen evidencia de que todas las funciones estén implementadas en TB1.
 
 A continuación, se presentan los user flows desarrollados para los flujos representativos de OptiFlow:
 
@@ -1274,7 +1274,7 @@ A continuación, se presentan los user flows desarrollados para los flujos repre
 
 *Happy Path*
 
-En esta ruta esperada, el paciente accede a la sección de reservas, selecciona la sede óptica más cercana, escoge la especialidad (evaluación visual u optometría) y el especialista tratante. A continuación, selecciona una fecha y franja horaria disponible en el calendario interactivo, revisa el resumen de su cita y confirma la reserva exitosamente, recibiendo el comprobante y recordatorio en su perfil (ver Figura 101).
+El recorrido propuesto cubre la selección de una óptica, un horario y la confirmación de la cita (ver Figura 101).
 
 <a id="figura-101"></a>
 
@@ -1286,13 +1286,13 @@ En esta ruta esperada, el paciente accede a la sección de reservas, selecciona 
 
 *Unhappy Paths*
 
-En esta ruta alterna, el usuario intenta reservar en un horario que fue ocupado simultáneamente por otro paciente o experimenta un problema de conectividad antes de confirmar. El sistema notifica la indisponibilidad del turno ("Horario ya no disponible"), manteniendo los datos previamente ingresados y solicitando seleccionar una nueva franja horaria para completar el agendamiento.
+Como alternativas, se consideran la pérdida de disponibilidad del horario y un problema de conexión antes de confirmar la reserva.
 
 **User Goal 2: Paciente desea buscar y encontrar una montura en el catálogo**
 
 *Happy Path*
 
-En esta ruta esperada, el paciente navega por el catálogo digital de armazones, aplicando filtros según marca, forma de rostro, material y rango de precio. Al encontrar el modelo de su preferencia, accede a la ficha técnica para consultar las medidas, especificaciones de lunas y la disponibilidad de stock físico en tiendas cercanas para programar su prueba o reserva (ver Figura 102).
+El recorrido propuesto muestra la búsqueda de una montura y la consulta de su información para evaluar su disponibilidad (ver Figura 102).
 
 <a id="figura-102"></a>
 
@@ -1304,13 +1304,13 @@ En esta ruta esperada, el paciente navega por el catálogo digital de armazones,
 
 *Unhappy Paths*
 
-En esta ruta alterna, la combinación de filtros aplicada por el usuario es demasiado restrictiva y no produce resultados coincidentes, o el modelo seleccionado se encuentra agotado en la sede elegida. La aplicación alerta la ausencia de existencias ("Sin stock en esta sede") y ofrece recomendaciones de modelos similares o la opción de consultar disponibilidad en otras sedes de la cadena.
+Como alternativas, se consideran una búsqueda sin resultados y la falta de existencias en la sede seleccionada.
 
 **User Goal 3: Paciente desea consultar el estado y avance de sus pedidos de lentes**
 
 *Happy Path*
 
-En esta ruta esperada, el paciente ingresa a la sección "Mis Pedidos", selecciona su orden activa y visualiza en tiempo real la línea de tiempo del ensamblaje en taller (orden recibida, corte de lunas, biselado, control de calidad y listo para entrega), permitiéndole conocer la fecha exacta para acercarse a la óptica a retirar sus lentes (ver Figura 103).
+El recorrido propuesto representa la consulta del estado de un pedido y de la información prevista para su entrega (ver Figura 103).
 
 <a id="figura-103"></a>
 
@@ -1322,13 +1322,13 @@ En esta ruta esperada, el paciente ingresa a la sección "Mis Pedidos", seleccio
 
 *Unhappy Paths*
 
-En esta ruta alterna, el pedido experimenta una observación durante el control de calidad en laboratorio que requiere reprocesar el biselado o tratamiento de la luna. El sistema actualiza el estado con una alerta informativa ("En ajuste de calidad"), ajustando automáticamente la fecha estimada de entrega y habilitando un canal directo de consulta con soporte.
+Como alternativa, se contempla que una observación de calidad requiera ajustar el estado del pedido y su fecha estimada de entrega.
 
 **User Goal 4: Paciente desea consultar su receta óptica y recomendaciones clínicas**
 
 *Happy Path*
 
-En esta ruta esperada, el paciente accede al módulo de salud visual para consultar su prescripción médica vigente. La interfaz presenta con claridad los valores de refracción de ambos ojos (esfera, cilindro, eje, adición y distancia pupilar), la fecha de emisión, el optómetra tratante y las recomendaciones de cuidado visual y tipos de lunas sugeridas (ver Figura 104).
+El recorrido propuesto permite consultar la receta óptica y sus datos principales (ver Figura 104).
 
 <a id="figura-104"></a>
 
@@ -1340,13 +1340,13 @@ En esta ruta esperada, el paciente accede al módulo de salud visual para consul
 
 *Unhappy Paths*
 
-En esta ruta alterna, el paciente no cuenta con un historial de recetas registrado en la plataforma o su última prescripción supera el tiempo de vigencia recomendado (más de 12 meses). El sistema muestra un estado preventivo ("Receta vencida o no registrada") y sugiere agendar un nuevo examen visual mediante un acceso directo.
+Como alternativas, se consideran la ausencia de una receta registrada y la necesidad de actualizar una receta vencida.
 
 **User Goal 5: Personal clínico desea gestionar la agenda diaria y la atención en sala de espera**
 
 *Happy Path*
 
-En esta ruta esperada, el optómetra o recepcionista consulta la agenda del día, visualiza a los pacientes citados organizados por franja horaria y cambia el estado del turno a "En consulta" al ingresar el paciente al consultorio. Al concluir la evaluación, registra las anotaciones clínicas y marca el turno como "Atendido" de manera secuencial (ver Figura 105).
+El recorrido propuesto muestra la consulta de la agenda y la actualización del estado de atención (ver Figura 105).
 
 <a id="figura-105"></a>
 
@@ -1358,13 +1358,13 @@ En esta ruta esperada, el optómetra o recepcionista consulta la agenda del día
 
 *Unhappy Paths*
 
-En esta ruta alterna, el paciente citado no se presenta a la hora programada o solicita una reprogramación de emergencia mientras otros turnos están en espera. El personal actualiza el estado a "No asistió" o "Reprogramado", liberando la franja horaria en la agenda operativa y recalculando los tiempos estimados de atención de la sala de espera.
+Como alternativas, se consideran la inasistencia del paciente y la reprogramación de una cita.
 
 **User Goal 6: Personal óptico desea agendar una nueva cita directamente para un paciente**
 
 *Happy Path*
 
-En esta ruta esperada, el asesor busca al paciente en el directorio de clientes por su número de documento o nombre, selecciona la opción rápida de agendamiento y define la sede, especialidad y horario disponible sin reingresar los datos personales, confirmando la cita y enviando la notificación al cliente (ver Figura 106).
+El recorrido propuesto muestra cómo el personal agenda una cita desde el registro del paciente (ver Figura 106).
 
 <a id="figura-106"></a>
 
@@ -1376,13 +1376,13 @@ En esta ruta esperada, el asesor busca al paciente en el directorio de clientes 
 
 *Unhappy Paths*
 
-En esta ruta alterna, el personal intenta agendar una cita en un horario bloqueado por mantenimiento de consultorio o fuera de la jornada del especialista. El sistema detecta el conflicto de horario, muestra una advertencia visual en rojo y previene la duplicidad de registros, exigiendo seleccionar un turno disponible.
+Como alternativa, se contempla que el horario elegido no esté disponible.
 
 **User Goal 7: Optómetra desea registrar a un nuevo paciente y realizar la evaluación visual**
 
 *Happy Path*
 
-En esta ruta esperada, el especialista crea la ficha médica con los datos demográficos y antecedentes del nuevo paciente, realiza las pruebas de agudeza visual y refracción computarizada, ingresa los parámetros clínicos validados y guarda la prescripción y orden de trabajo en el historial médico (ver Figura 107).
+El recorrido propuesto representa el registro de un paciente y de la información de su evaluación visual (ver Figura 107).
 
 <a id="figura-107"></a>
 
@@ -1394,13 +1394,13 @@ En esta ruta esperada, el especialista crea la ficha médica con los datos demog
 
 *Unhappy Paths*
 
-En esta ruta alterna, el especialista intenta guardar la ficha clínica omitiendo campos obligatorios (como el documento de identidad o los valores refractivos mínimos). La aplicación resalta los campos faltantes con indicadores de error y deshabilita el guardado hasta que se corrijan las omisiones clínicas.
+Como alternativa, se considera el intento de guardar una ficha clínica con datos obligatorios incompletos.
 
 **User Goal 8: Personal comercial desea generar una cotización y registrar una venta**
 
 *Happy Path*
 
-En esta ruta esperada, el asesor selecciona los armazones y tratamientos de lunas vinculados a la receta del cliente, genera la proforma con el desglose de precios e impuestos, el cliente acepta las condiciones y se procesa el registro del pago, emitiendo el comprobante comercial y la orden de taller (ver Figura 108).
+El recorrido propuesto representa la elaboración de una cotización y su conversión en venta (ver Figura 108).
 
 <a id="figura-108"></a>
 
@@ -1412,13 +1412,13 @@ En esta ruta esperada, el asesor selecciona los armazones y tratamientos de luna
 
 *Unhappy Paths / Alternative Paths*
 
-En esta ruta alterna, el cliente decide no proceder con la compra debido al costo o desea evaluar otras opciones. El asesor marca la cotización como "Rechazada" o "Pendiente", registrando el motivo en el sistema, lo cual cancela la reserva temporal de los armazones y los reintegra de inmediato al inventario disponible.
+Como alternativas, se consideran el rechazo de la cotización y la decisión de dejarla pendiente.
 
 **User Goal 9: Personal de tienda desea gestionar el inventario y escanear productos**
 
 *Happy Path*
 
-En esta ruta esperada, el encargado de almacén utiliza la cámara del dispositivo móvil para escanear el código de barras o QR de una montura o insumo, accede a la ficha técnica en tiempo real con niveles de existencias multisede y registra un ingreso, salida o transferencia entre sucursales exitosamente (ver Figura 109).
+El recorrido propuesto representa la consulta de un producto mediante escaneo y la gestión de sus movimientos de inventario (ver Figura 109).
 
 <a id="figura-109"></a>
 
@@ -1430,13 +1430,13 @@ En esta ruta esperada, el encargado de almacén utiliza la cámara del dispositi
 
 *Unhappy Paths*
 
-En esta ruta alterna, el código físico está dañado o la cámara no logra enfocar adecuadamente, o bien el producto no está registrado en el catálogo maestro. El sistema despliega un mensaje de error ("Código no identificado") y habilita un buscador manual alternativo por SKU, nombre de modelo o marca para no detener la operación.
+Como alternativas, se consideran un código ilegible y un producto que no figure en el catálogo.
 
 **User Goal 10: Administrador u operador desea supervisar la producción en taller, alertas y reportes**
 
 *Happy Path*
 
-En esta ruta esperada, el administrador supervisa el tablero Kanban de órdenes en laboratorio, verifica que las etapas de corte, biselado y montaje se cumplan dentro de los tiempos estándar, y consulta los reportes de rendimiento y facturación comercial para la toma de decisiones estratégicas (ver Figura 110).
+El recorrido propuesto reúne la supervisión de órdenes de producción y la consulta de reportes (ver Figura 110).
 
 <a id="figura-110"></a>
 
@@ -1448,7 +1448,7 @@ En esta ruta esperada, el administrador supervisa el tablero Kanban de órdenes 
 
 *Unhappy Paths*
 
-En esta ruta alterna, una orden de trabajo sobrepasa el umbral máximo de tiempo en una estación técnica de laboratorio (por ejemplo, falta de insumos de biselado). El sistema dispara una alerta visual prioritaria en el centro de notificaciones, permitiendo al administrador reasignar la orden a otra estación o contactar al proveedor de lunas.
+Como alternativa, se contempla una demora en producción que requiera revisar la orden y tomar medidas.
 
 #### 3.1.4.5 Mobile Applications Prototyping
 

@@ -1418,15 +1418,11 @@ Tareas del Landing Page: explorar libremente la página, buscar cómo reservar u
 
 ### 4.3.2. Registro de entrevistas
 
-En esta sección se registran las entrevistas de validación realizadas con usuarios de los dos segmentos objetivo de OptiFlow, quienes interactuaron con la Landing Page y con la aplicación móvil. Todas las entrevistas se encuentran en un solo video, publicado en el OneDrive facilitado por el docente.
+En esta sección se registran las entrevistas de validación realizadas con usuarios de los dos segmentos objetivo de OptiFlow, quienes interactuaron con la Landing Page y con la aplicación móvil. La evidencia audiovisual completa se encuentra en el [Anexo H](Anexos.md#anexo-h-entrevistas-de-validacion).
 
 **Video de entrevistas de validación:**
 
 ![captura entrevistas.png](assets/cap3/entrevistas/captura%20entrevistas.png)
-
-Enlace:
-
-https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d317_upc_edu_pe/IQBMU94REze_ToVH6ypsrwSQAQ8o417Ttlc68_FnccjszWQ?e=k17qUs&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 ### 4.3.3. Evaluaciones según heurísticas
 
