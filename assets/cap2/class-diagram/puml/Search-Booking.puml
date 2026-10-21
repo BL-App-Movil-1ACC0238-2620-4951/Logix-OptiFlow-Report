@@ -1,0 +1,307 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam nodesep 20
+skinparam ranksep 40
+hide circle
+left to right direction
+
+package "searchBooking" {
+
+  package "presentation" as presentation {
+
+    class LoginScreen <<Composable>> {
+      + Content(viewModel: AuthViewModel): void
+    }
+    class RegisterScreen <<Composable>> {
+      + Content(viewModel: AuthViewModel): void
+    }
+    class AuthUiState {
+      - patient: Patient
+      - isLoading: Boolean
+      - errorMessage: String
+    }
+    class AuthViewModel {
+      - uiState: StateFlow<AuthUiState>
+      + login(email: String, password: String): void
+      + register(name: String, email: String, phone: String, password: String): void
+    }
+
+    class OpticalStoreListScreen <<Composable>> {
+      + Content(viewModel: OpticalStoreListViewModel): void
+    }
+    class OpticalStoreListUiState {
+      - stores: List<OpticalStore>
+      - query: String
+      - isLoading: Boolean
+      - errorMessage: String
+    }
+    class OpticalStoreListViewModel {
+      - uiState: StateFlow<OpticalStoreListUiState>
+      + search(query: String): void
+      + applyFilters(filters: Map<String, String>): void
+    }
+
+    class OpticalStoreDetailScreen <<Composable>> {
+      + Content(viewModel: OpticalStoreDetailViewModel): void
+    }
+    class OpticalStoreDetailUiState {
+      - store: OpticalStore
+      - availableTimeSlots: List<TimeSlot>
+      - isFavorite: Boolean
+      - isLoading: Boolean
+    }
+    class OpticalStoreDetailViewModel {
+      - uiState: StateFlow<OpticalStoreDetailUiState>
+      + loadStore(opticalStoreId: String): void
+      + toggleFavorite(): void
+      + rateStore(rating: Double): void
+    }
+
+    class BookingScreen <<Composable>> {
+      + Content(viewModel: BookingViewModel): void
+    }
+    class BookingUiState {
+      - selectedTimeSlot: TimeSlot
+      - appointment: Appointment
+      - isLoading: Boolean
+      - errorMessage: String
+    }
+    class BookingViewModel {
+      - uiState: StateFlow<BookingUiState>
+      + selectTimeSlot(timeSlot: TimeSlot): void
+      + confirmBooking(): void
+    }
+
+    class MyAppointmentsScreen <<Composable>> {
+      + Content(viewModel: MyAppointmentsViewModel): void
+    }
+    class MyAppointmentsUiState {
+      - appointments: List<Appointment>
+      - isLoading: Boolean
+    }
+    class MyAppointmentsViewModel {
+      - uiState: StateFlow<MyAppointmentsUiState>
+      + loadAppointments(): void
+      + cancelAppointment(appointmentId: String): void
+      + rescheduleAppointment(appointmentId: String, timeSlot: TimeSlot): void
+    }
+  }
+
+  package "application" as application {
+    class LoginUseCase {
+      + invoke(email: String, password: String): Result<Patient>
+    }
+    class RegisterPatientUseCase {
+      + invoke(name: String, email: String, phone: String, password: String): Result<Patient>
+    }
+    class SearchOpticalStoresUseCase {
+      + invoke(query: String): Result<List<OpticalStore>>
+    }
+    class FilterOpticalStoresUseCase {
+      + invoke(filters: Map<String, String>): Result<List<OpticalStore>>
+    }
+    class GetOpticalStoreDetailUseCase {
+      + invoke(opticalStoreId: String): Result<OpticalStore>
+    }
+    class GetAvailableTimeSlotsUseCase {
+      + invoke(opticalStoreId: String): Result<List<TimeSlot>>
+    }
+    class SaveFavoriteOpticalStoreUseCase {
+      + invoke(opticalStoreId: String): Result<Unit>
+    }
+    class RateOpticalStoreUseCase {
+      + invoke(opticalStoreId: String, rating: Double): Result<Unit>
+    }
+    class BookAppointmentUseCase {
+      + invoke(opticalStoreId: String, timeSlotId: String): Result<Appointment>
+    }
+    class GetPatientAppointmentsUseCase {
+      + invoke(): Result<List<Appointment>>
+    }
+    class CancelAppointmentUseCase {
+      + invoke(appointmentId: String): Result<Appointment>
+    }
+    class RescheduleAppointmentUseCase {
+      + invoke(appointmentId: String, timeSlotId: String): Result<Appointment>
+    }
+  }
+
+  package "domain" as domain {
+    class Patient {
+      + id: String
+      + name: String
+      + email: String
+      + phone: String
+    }
+    class OpticalStore {
+      + id: String
+      + name: String
+      + address: String
+      + phone: String
+      + rating: Double
+      + status: String
+      + isFavorite: Boolean
+    }
+    class TimeSlot {
+      + id: String
+      + opticalStoreId: String
+      + startDateTime: String
+      + endDateTime: String
+      + status: String
+    }
+    class Appointment {
+      + id: String
+      + patientId: String
+      + opticalStoreId: String
+      + timeSlotId: String
+      + status: String
+      + createdAt: String
+      + isReschedulable(): Boolean
+    }
+    interface PatientRepository {
+      + login(email: String, password: String): Patient
+      + register(name: String, email: String, phone: String, password: String): Patient
+    }
+    interface OpticalStoreRepository {
+      + search(query: String): List<OpticalStore>
+      + filter(filters: Map<String, String>): List<OpticalStore>
+      + getById(opticalStoreId: String): OpticalStore
+      + saveFavorite(opticalStoreId: String): Unit
+      + rate(opticalStoreId: String, rating: Double): Unit
+    }
+    interface AppointmentRepository {
+      + getAvailableTimeSlots(opticalStoreId: String): List<TimeSlot>
+      + book(opticalStoreId: String, timeSlotId: String): Appointment
+      + getByPatient(): List<Appointment>
+      + cancel(appointmentId: String): Appointment
+      + reschedule(appointmentId: String, timeSlotId: String): Appointment
+    }
+  }
+
+  package "infrastructure" as infrastructure {
+    package "remote" as remote {
+      interface SearchBookingApiService <<Retrofit>> {
+        + login(request: LoginRequestDto): PatientDto
+        + register(request: RegisterPatientRequestDto): PatientDto
+        + searchOpticalStores(query: String): List<OpticalStoreDto>
+        + filterOpticalStores(filters: Map<String, String>): List<OpticalStoreDto>
+        + getOpticalStore(opticalStoreId: String): OpticalStoreDto
+        + saveFavorite(opticalStoreId: String): Unit
+        + rateStore(opticalStoreId: String, rating: Double): Unit
+        + getAvailableTimeSlots(opticalStoreId: String): List<TimeSlotDto>
+        + bookAppointment(request: BookAppointmentRequestDto): AppointmentDto
+        + getPatientAppointments(): List<AppointmentDto>
+        + cancelAppointment(appointmentId: String): AppointmentDto
+        + rescheduleAppointment(appointmentId: String, timeSlotId: String): AppointmentDto
+      }
+      class SearchBookingRemoteDataSource {
+        - api: SearchBookingApiService
+        + login(email: String, password: String): Patient
+        + register(name: String, email: String, phone: String, password: String): Patient
+        + searchStores(query: String): List<OpticalStore>
+        + fetchStore(opticalStoreId: String): OpticalStore
+        + fetchTimeSlots(opticalStoreId: String): List<TimeSlot>
+        + book(opticalStoreId: String, timeSlotId: String): Appointment
+        + fetchAppointments(): List<Appointment>
+      }
+    }
+    package "local" as local {
+      class SessionLocalDataSource <<DataStore>> {
+        + saveAuthToken(token: String): void
+        + getAuthToken(): String
+        + clearSession(): void
+      }
+    }
+    package "repository" as repository {
+      class PatientRepositoryImpl {
+        - remoteDataSource: SearchBookingRemoteDataSource
+        - sessionLocalDataSource: SessionLocalDataSource
+        + login(email: String, password: String): Patient
+        + register(name: String, email: String, phone: String, password: String): Patient
+      }
+      class OpticalStoreRepositoryImpl {
+        - remoteDataSource: SearchBookingRemoteDataSource
+        + search(query: String): List<OpticalStore>
+        + filter(filters: Map<String, String>): List<OpticalStore>
+        + getById(opticalStoreId: String): OpticalStore
+        + saveFavorite(opticalStoreId: String): Unit
+        + rate(opticalStoreId: String, rating: Double): Unit
+      }
+      class AppointmentRepositoryImpl {
+        - remoteDataSource: SearchBookingRemoteDataSource
+        + getAvailableTimeSlots(opticalStoreId: String): List<TimeSlot>
+        + book(opticalStoreId: String, timeSlotId: String): Appointment
+        + getByPatient(): List<Appointment>
+        + cancel(appointmentId: String): Appointment
+        + reschedule(appointmentId: String, timeSlotId: String): Appointment
+      }
+    }
+  }
+}
+
+' -- Relaciones Presentation --
+LoginScreen --> AuthViewModel : observa
+RegisterScreen --> AuthViewModel : observa
+AuthViewModel "1" --> "1" AuthUiState : expone
+AuthViewModel --> LoginUseCase : invoca
+AuthViewModel --> RegisterPatientUseCase : invoca
+AuthUiState "1" o-- "0..1" Patient : contiene
+
+OpticalStoreListScreen --> OpticalStoreListViewModel : observa
+OpticalStoreListViewModel "1" --> "1" OpticalStoreListUiState : expone
+OpticalStoreListViewModel --> SearchOpticalStoresUseCase : invoca
+OpticalStoreListViewModel --> FilterOpticalStoresUseCase : invoca
+OpticalStoreListUiState "1" o-- "0..*" OpticalStore : contiene
+
+OpticalStoreDetailScreen --> OpticalStoreDetailViewModel : observa
+OpticalStoreDetailViewModel "1" --> "1" OpticalStoreDetailUiState : expone
+OpticalStoreDetailViewModel --> GetOpticalStoreDetailUseCase : invoca
+OpticalStoreDetailViewModel --> GetAvailableTimeSlotsUseCase : invoca
+OpticalStoreDetailViewModel --> SaveFavoriteOpticalStoreUseCase : invoca
+OpticalStoreDetailViewModel --> RateOpticalStoreUseCase : invoca
+OpticalStoreDetailUiState "1" o-- "1" OpticalStore : contiene
+OpticalStoreDetailUiState "1" o-- "0..*" TimeSlot : contiene
+
+BookingScreen --> BookingViewModel : observa
+BookingViewModel "1" --> "1" BookingUiState : expone
+BookingViewModel --> BookAppointmentUseCase : invoca
+BookingUiState "1" o-- "1" TimeSlot : contiene
+BookingUiState "1" o-- "0..1" Appointment : contiene
+
+MyAppointmentsScreen --> MyAppointmentsViewModel : observa
+MyAppointmentsViewModel "1" --> "1" MyAppointmentsUiState : expone
+MyAppointmentsViewModel --> GetPatientAppointmentsUseCase : invoca
+MyAppointmentsViewModel --> CancelAppointmentUseCase : invoca
+MyAppointmentsViewModel --> RescheduleAppointmentUseCase : invoca
+MyAppointmentsUiState "1" o-- "0..*" Appointment : contiene
+
+' -- Relaciones Application -> Domain --
+LoginUseCase --> PatientRepository : usa
+RegisterPatientUseCase --> PatientRepository : usa
+SearchOpticalStoresUseCase --> OpticalStoreRepository : usa
+FilterOpticalStoresUseCase --> OpticalStoreRepository : usa
+GetOpticalStoreDetailUseCase --> OpticalStoreRepository : usa
+SaveFavoriteOpticalStoreUseCase --> OpticalStoreRepository : usa
+RateOpticalStoreUseCase --> OpticalStoreRepository : usa
+GetAvailableTimeSlotsUseCase --> AppointmentRepository : usa
+BookAppointmentUseCase --> AppointmentRepository : usa
+GetPatientAppointmentsUseCase --> AppointmentRepository : usa
+CancelAppointmentUseCase --> AppointmentRepository : usa
+RescheduleAppointmentUseCase --> AppointmentRepository : usa
+
+' -- Relaciones dentro del dominio --
+Appointment "0..*" --> "1" TimeSlot : reserva
+Appointment "0..*" --> "1" OpticalStore : selecciona
+TimeSlot "0..*" --> "1" OpticalStore : pertenece a
+
+' -- Relaciones Infrastructure -> Domain (implementación) --
+PatientRepositoryImpl ..|> PatientRepository : implementa
+OpticalStoreRepositoryImpl ..|> OpticalStoreRepository : implementa
+AppointmentRepositoryImpl ..|> AppointmentRepository : implementa
+PatientRepositoryImpl --> SearchBookingRemoteDataSource : usa
+PatientRepositoryImpl --> SessionLocalDataSource : usa
+OpticalStoreRepositoryImpl --> SearchBookingRemoteDataSource : usa
+AppointmentRepositoryImpl --> SearchBookingRemoteDataSource : usa
+SearchBookingRemoteDataSource --> SearchBookingApiService : usa
+@enduml

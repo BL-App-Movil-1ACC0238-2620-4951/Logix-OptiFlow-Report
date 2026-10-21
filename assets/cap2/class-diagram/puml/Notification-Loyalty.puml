@@ -1,0 +1,243 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam nodesep 20
+skinparam ranksep 40
+hide circle
+left to right direction
+
+package "notificationLoyalty" {
+
+  package "presentation" as presentation {
+
+    class NotificationCenterScreen <<Composable>> {
+      + Content(viewModel: NotificationCenterViewModel): void
+    }
+    class NotificationCenterUiState {
+      - notifications: List<InAppNotification>
+      - isLoading: Boolean
+    }
+    class NotificationCenterViewModel {
+      - uiState: StateFlow<NotificationCenterUiState>
+      + loadNotifications(): void
+      + markAsRead(notificationId: String): void
+    }
+
+    class NotificationPreferencesScreen <<Composable>> {
+      + Content(viewModel: NotificationPreferencesViewModel): void
+    }
+    class NotificationPreferencesUiState {
+      - preferences: NotificationPreferences
+      - isLoading: Boolean
+    }
+    class NotificationPreferencesViewModel {
+      - uiState: StateFlow<NotificationPreferencesUiState>
+      + loadPreferences(): void
+      + updatePreferences(preferences: NotificationPreferences): void
+    }
+
+    class SatisfactionSurveyScreen <<Composable>> {
+      + Content(viewModel: SatisfactionSurveyViewModel): void
+    }
+    class SatisfactionSurveyUiState {
+      - survey: SatisfactionSurvey
+      - isLoading: Boolean
+      - isSubmitted: Boolean
+    }
+    class SatisfactionSurveyViewModel {
+      - uiState: StateFlow<SatisfactionSurveyUiState>
+      + loadSurvey(surveyId: String): void
+      + submitAnswers(answers: Map<String, String>): void
+    }
+
+    class LoyaltyBenefitsScreen <<Composable>> {
+      + Content(viewModel: LoyaltyBenefitsViewModel): void
+    }
+    class LoyaltyBenefitsUiState {
+      - birthdayDiscount: BirthdayDiscount
+      - isLoading: Boolean
+    }
+    class LoyaltyBenefitsViewModel {
+      - uiState: StateFlow<LoyaltyBenefitsUiState>
+      + loadBenefits(): void
+    }
+  }
+
+  package "application" as application {
+    class GetNotificationsUseCase {
+      + invoke(): Result<List<InAppNotification>>
+    }
+    class MarkNotificationAsReadUseCase {
+      + invoke(notificationId: String): Result<Unit>
+    }
+    class GetNotificationPreferencesUseCase {
+      + invoke(): Result<NotificationPreferences>
+    }
+    class ConfigureNotificationPreferencesUseCase {
+      + invoke(preferences: NotificationPreferences): Result<NotificationPreferences>
+    }
+    class GetSatisfactionSurveyUseCase {
+      + invoke(surveyId: String): Result<SatisfactionSurvey>
+    }
+    class SubmitSatisfactionSurveyUseCase {
+      + invoke(surveyId: String, answers: Map<String, String>): Result<SatisfactionSurvey>
+    }
+    class GetLoyaltyBenefitsUseCase {
+      + invoke(): Result<BirthdayDiscount>
+    }
+    class RegisterDeviceForPushNotificationsUseCase {
+      + invoke(deviceToken: String): Result<Unit>
+    }
+  }
+
+  package "domain" as domain {
+    class InAppNotification {
+      + id: String
+      + title: String
+      + message: String
+      + type: String
+      + isRead: Boolean
+      + createdAt: String
+    }
+    class NotificationPreferences {
+      + pushEnabled: Boolean
+      + whatsappEnabled: Boolean
+      + emailEnabled: Boolean
+    }
+    class SatisfactionSurvey {
+      + id: String
+      + workOrderId: String
+      + questions: List<String>
+      + answers: Map<String, String>
+      + isCompleted: Boolean
+    }
+    class BirthdayDiscount {
+      + id: String
+      + patientId: String
+      + discountValue: Double
+      + expirationDate: String
+    }
+    class OrderProgress {
+      + workOrderId: String
+      + status: String
+      + message: String
+    }
+    interface NotificationRepository {
+      + getNotifications(): List<InAppNotification>
+      + markAsRead(notificationId: String): Unit
+      + registerDeviceToken(deviceToken: String): Unit
+    }
+    interface NotificationPreferencesRepository {
+      + getPreferences(): NotificationPreferences
+      + updatePreferences(preferences: NotificationPreferences): NotificationPreferences
+    }
+    interface SatisfactionSurveyRepository {
+      + getSurvey(surveyId: String): SatisfactionSurvey
+      + submitAnswers(surveyId: String, answers: Map<String, String>): SatisfactionSurvey
+    }
+    interface LoyaltyRepository {
+      + getBirthdayDiscount(): BirthdayDiscount
+    }
+  }
+
+  package "infrastructure" as infrastructure {
+    package "remote" as remote {
+      interface NotificationLoyaltyApiService <<Retrofit>> {
+        + getNotifications(): List<InAppNotificationDto>
+        + markAsRead(notificationId: String): Unit
+        + registerDeviceToken(request: RegisterDeviceTokenRequestDto): Unit
+        + getPreferences(): NotificationPreferencesDto
+        + updatePreferences(request: NotificationPreferencesDto): NotificationPreferencesDto
+        + getSurvey(surveyId: String): SatisfactionSurveyDto
+        + submitAnswers(surveyId: String, request: SubmitSurveyRequestDto): SatisfactionSurveyDto
+        + getBirthdayDiscount(): BirthdayDiscountDto
+      }
+      class NotificationLoyaltyRemoteDataSource {
+        - api: NotificationLoyaltyApiService
+        + fetchNotifications(): List<InAppNotification>
+        + fetchPreferences(): NotificationPreferences
+        + fetchSurvey(surveyId: String): SatisfactionSurvey
+        + fetchBirthdayDiscount(): BirthdayDiscount
+      }
+    }
+    package "push" as push {
+      class FirebaseMessagingService <<FCM>> {
+        + onNewToken(token: String): void
+        + onMessageReceived(message: RemoteMessage): void
+      }
+    }
+    package "repository" as repository {
+      class NotificationRepositoryImpl {
+        - remoteDataSource: NotificationLoyaltyRemoteDataSource
+        + getNotifications(): List<InAppNotification>
+        + markAsRead(notificationId: String): Unit
+        + registerDeviceToken(deviceToken: String): Unit
+      }
+      class NotificationPreferencesRepositoryImpl {
+        - remoteDataSource: NotificationLoyaltyRemoteDataSource
+        + getPreferences(): NotificationPreferences
+        + updatePreferences(preferences: NotificationPreferences): NotificationPreferences
+      }
+      class SatisfactionSurveyRepositoryImpl {
+        - remoteDataSource: NotificationLoyaltyRemoteDataSource
+        + getSurvey(surveyId: String): SatisfactionSurvey
+        + submitAnswers(surveyId: String, answers: Map<String, String>): SatisfactionSurvey
+      }
+      class LoyaltyRepositoryImpl {
+        - remoteDataSource: NotificationLoyaltyRemoteDataSource
+        + getBirthdayDiscount(): BirthdayDiscount
+      }
+    }
+  }
+}
+
+' -- Relaciones Presentation --
+NotificationCenterScreen --> NotificationCenterViewModel : observa
+NotificationCenterViewModel "1" --> "1" NotificationCenterUiState : expone
+NotificationCenterViewModel --> GetNotificationsUseCase : invoca
+NotificationCenterViewModel --> MarkNotificationAsReadUseCase : invoca
+NotificationCenterUiState "1" o-- "0..*" InAppNotification : contiene
+
+NotificationPreferencesScreen --> NotificationPreferencesViewModel : observa
+NotificationPreferencesViewModel "1" --> "1" NotificationPreferencesUiState : expone
+NotificationPreferencesViewModel --> GetNotificationPreferencesUseCase : invoca
+NotificationPreferencesViewModel --> ConfigureNotificationPreferencesUseCase : invoca
+NotificationPreferencesUiState "1" o-- "1" NotificationPreferences : contiene
+
+SatisfactionSurveyScreen --> SatisfactionSurveyViewModel : observa
+SatisfactionSurveyViewModel "1" --> "1" SatisfactionSurveyUiState : expone
+SatisfactionSurveyViewModel --> GetSatisfactionSurveyUseCase : invoca
+SatisfactionSurveyViewModel --> SubmitSatisfactionSurveyUseCase : invoca
+SatisfactionSurveyUiState "1" o-- "0..1" SatisfactionSurvey : contiene
+
+LoyaltyBenefitsScreen --> LoyaltyBenefitsViewModel : observa
+LoyaltyBenefitsViewModel "1" --> "1" LoyaltyBenefitsUiState : expone
+LoyaltyBenefitsViewModel --> GetLoyaltyBenefitsUseCase : invoca
+LoyaltyBenefitsUiState "1" o-- "0..1" BirthdayDiscount : contiene
+
+' -- Relaciones Application -> Domain --
+GetNotificationsUseCase --> NotificationRepository : usa
+MarkNotificationAsReadUseCase --> NotificationRepository : usa
+RegisterDeviceForPushNotificationsUseCase --> NotificationRepository : usa
+GetNotificationPreferencesUseCase --> NotificationPreferencesRepository : usa
+ConfigureNotificationPreferencesUseCase --> NotificationPreferencesRepository : usa
+GetSatisfactionSurveyUseCase --> SatisfactionSurveyRepository : usa
+SubmitSatisfactionSurveyUseCase --> SatisfactionSurveyRepository : usa
+GetLoyaltyBenefitsUseCase --> LoyaltyRepository : usa
+
+' -- Relaciones dentro del dominio --
+InAppNotification "0..*" o-- "0..1" OrderProgress : incluye
+SatisfactionSurvey "0..*" --> "1" OrderProgress : referencia
+
+' -- Relaciones Infrastructure -> Domain (implementación) --
+NotificationRepositoryImpl ..|> NotificationRepository : implementa
+NotificationPreferencesRepositoryImpl ..|> NotificationPreferencesRepository : implementa
+SatisfactionSurveyRepositoryImpl ..|> SatisfactionSurveyRepository : implementa
+LoyaltyRepositoryImpl ..|> LoyaltyRepository : implementa
+NotificationRepositoryImpl --> NotificationLoyaltyRemoteDataSource : usa
+NotificationPreferencesRepositoryImpl --> NotificationLoyaltyRemoteDataSource : usa
+SatisfactionSurveyRepositoryImpl --> NotificationLoyaltyRemoteDataSource : usa
+LoyaltyRepositoryImpl --> NotificationLoyaltyRemoteDataSource : usa
+NotificationLoyaltyRemoteDataSource --> NotificationLoyaltyApiService : usa
+FirebaseMessagingService --> NotificationRepository : usa
+@enduml

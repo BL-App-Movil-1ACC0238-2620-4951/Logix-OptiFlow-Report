@@ -1,0 +1,15 @@
+{
+  "environment": "local H2",
+  "httpStatus": 200,
+  "appointment": {
+    "id": "537787f8-d78f-4181-9d0e-e51c2266f02f",
+    "patientId": "016ece44-feba-4640-b503-1e66860b3eb2",
+    "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+    "timeSlotId": "bc6b367c-4efa-4510-8652-f9e490f80639",
+    "status": "CONFIRMED",
+    "startDateTime": "2026-10-08T15:00:00Z",
+    "endDateTime": "2026-10-08T15:30:00Z",
+    "createdAt": "2026-10-08T04:22:12.258253Z",
+    "updatedAt": "2026-10-08T04:22:12.258253Z"
+  }
+}

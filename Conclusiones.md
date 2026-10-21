@@ -1,1 +1,15 @@
+<div style="break-before: page; page-break-before: always;"></div>
+
 # Conclusiones
+
+Hasta TB1, el desarrollo de **OptiFlow** articula la investigación de necesidades, la especificación de requisitos, el modelado del dominio, el diseño UX/UI y un primer incremento funcional. Las entrevistas orientan la propuesta hacia dos segmentos: el personal de la óptica, que necesita organizar la atención y el seguimiento, y el paciente, que requiere información accesible para reservar citas y conocer el estado del servicio.
+
+El diseño estratégico organiza la solución en cinco Bounded Contexts: **Search & Booking, Clinical & Commercial, Production & Tracking, Store Management & Inventory y Notification & Loyalty**. EventStorming y los mapas de contexto permiten delimitar responsabilidades y proponer intercambios de información mediante comandos y eventos. Por ejemplo, `AppointmentBooked` comunica una reserva y `SaleWasClosed` vincula el cierre comercial con procesos posteriores. Estas relaciones describen el diseño integral; su implementación debe comprobarse en cada incremento.
+
+El diseño táctico distribuye las responsabilidades entre **Domain, Interface, Application e Infrastructure Layers**. La separación de reglas de negocio, coordinación de casos de uso y adaptadores de persistencia facilita la evolución de los contextos. Las capas anticorrupción propuestas para servicios externos buscan proteger el modelo interno frente a formatos ajenos, sin implicar que todas esas integraciones se encuentren operativas en TB1.
+
+Los wireframes, mock-ups y recorridos de navegación traducen las necesidades de los usuarios en una experiencia móvil organizada por rol. La consistencia visual, la legibilidad y la retroalimentación guían las decisiones de interfaz. El alcance de los prototipos es mayor que el del Sprint 1; por ello, las funciones representadas en el diseño se distinguen de las funcionalidades implementadas y verificadas.
+
+El Sprint 1 concentra el compromiso funcional en **US05 y US06**, correspondientes a la búsqueda de ópticas y la reserva de citas. El informe reúne evidencias de la Landing Page, la documentación de los Web Services y la ejecución del flujo móvil, incluida la comprobación de la reserva en el backend. Los escenarios Gherkin y su ejecución automatizada complementan las capturas al expresar condiciones y resultados verificables. Los resultados de las pruebas se mantienen asociados a la versión y fecha de ejecución documentadas, incluyendo las incidencias detectadas en la revisión posterior.
+
+La entrega establece una base para continuar la implementación y evaluar la solución con usuarios de ambos segmentos. Las siguientes iteraciones deberán contrastar las hipótesis de mejora con medidas de uso y operación, completar los componentes priorizados y comprobar las integraciones previstas. La publicación de los productos y la evidencia del flujo inicial constituyen avances concretos, mientras que las metas de reducción de tiempos, errores y consultas requieren validación posterior.
