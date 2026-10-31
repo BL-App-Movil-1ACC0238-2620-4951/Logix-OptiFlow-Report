@@ -217,6 +217,8 @@ Las contribuciones por integrante al repositorio del informe durante TB1 se pres
 
 # Tabla de Contenidos
 
+- [Modelado de datos](#modelado-de-datos)
+
 - [Student Outcome](#student-outcome)
 - [Objetivos SMART](#objetivos-smart)
 
@@ -535,3 +537,61 @@ Cada integrante formula dos objetivos SMART para su desarrollo profesional despu
 **Objetivo 1.** En los 12 meses posteriores a mi graduación, publicaré en Google Play una aplicación Android desarrollada con Kotlin y Jetpack Compose e integrada con un backend propio. La mantendré con al menos cuatro actualizaciones y buscaré una calificación promedio de 4,0 o más. Dedicaré cinco horas semanales y revisaré cada mes los reportes de errores y las reseñas. Este objetivo continúa la integración entre la aplicación móvil y los Web Services que desarrollé en OptiFlow.
 
 **Objetivo 2.** En los 18 meses posteriores a mi graduación, obtendré la certificación Oracle Database SQL Certified Associate. Dedicaré tres horas semanales al estudio y mediré mi preparación con simuladores del examen hasta superar el 80 % en tres intentos consecutivos. La certificación fortalece mis conocimientos de bases de datos, base de los modelos de persistencia que diseñé para el proyecto.
+
+<div style="break-before: page; page-break-before: always;"></div>
+
+# Modelado de datos
+
+OptiFlow utiliza una sola base de datos PostgreSQL para los contextos implementados del backend. La separación por Bounded Context organiza las responsabilidades del sistema, pero no implica que cada contexto tenga una base de datos propia. La aplicación móvil consulta la información mediante los servicios del backend.
+
+Las migraciones V1 a V4 definen 20 tablas: seis de Search & Booking, siete de Clinical & Commercial, cinco de Production & Tracking y dos de Notification & Loyalty. El perfil local utiliza H2 en memoria para desarrollo y pruebas; el entorno desplegado trabaja con PostgreSQL. MongoDB no forma parte de la persistencia implementada.
+
+## Search & Booking
+
+La migración V1 contiene las tablas `patients`, `optical_stores`, `time_slots`, `appointments`, `favorite_stores` y `store_ratings`. Los horarios pertenecen a una óptica y las citas se relacionan mediante claves foráneas con el paciente, la óptica y el horario seleccionado.
+
+Los favoritos y las valoraciones utilizan una clave primaria compuesta por `patient_id` y `optical_store_id`. Esto permite registrar una sola entrada por cada combinación de paciente y óptica en cada tabla. Los favoritos también guardan la fecha de registro; las valoraciones contienen la puntuación, el comentario y la fecha de creación.
+
+El diagrama debe conservar los nombres y tipos de V1: `patients.full_name`, `password_hash`, `favorite_stores.saved_at` y `store_ratings.score`, entre otros. La puntuación utiliza `NUMERIC(3,2)`. Las fechas y horas utilizan `TIMESTAMP WITH TIME ZONE`. La migración no declara una restricción de unicidad sobre `appointments.time_slot_id`; las reglas de disponibilidad de la aplicación deben distinguirse de las restricciones de la base de datos.
+
+## Clinical & Commercial
+
+La migración V2 define `clinical_records`, `medical_histories`, `optical_prescriptions`, `quotations`, `quotation_items`, `sales` y `electronic_receipts`. El registro clínico puede tener una historia y una prescripción, identificadas por `clinical_record_id`, que funciona como clave primaria y foránea en ambas tablas.
+
+Cada cotización pertenece a un registro clínico y puede contener varios ítems. La combinación de cotización y número de línea es única. Los descuentos y el motivo de rechazo forman parte de la cotización; los datos del pago se almacenan en la venta.
+
+Una cotización puede generar cero o una venta. La columna `sales.quotation_id` es obligatoria, única y una clave foránea hacia `quotations`. Una venta puede tener cero o un comprobante, porque `electronic_receipts.sale_id` también es obligatorio y único. El backend exige que la cotización esté aprobada antes de registrar la venta.
+
+Los identificadores de paciente y cita del registro clínico, y el identificador de paciente de la venta, no tienen claves foráneas declaradas en V2. El diagrama debe diferenciarlos de las relaciones físicas que sí establece la migración.
+
+## Production & Tracking
+
+La migración V3 utiliza cinco tablas relacionales: `work_orders`, `work_order_lenses`, `work_order_status_history`, `technicians` y `laboratories`.
+
+La orden guarda la venta asociada, el paciente, la óptica, el estado de producción, las fechas y los datos de la asignación. Las lentes se almacenan en `work_order_lenses` y los cambios de estado en `work_order_status_history`. Ambas tablas tienen una clave foránea hacia `work_orders`. El historial utiliza la clave primaria compuesta por `work_order_id` y `sequence_number`.
+
+Aunque existen catálogos de técnicos y laboratorios, la orden conserva también una copia de sus identificadores y nombres. V3 no declara claves foráneas para esas asignaciones. Tampoco las declara para la venta, el paciente o la óptica de la orden; `sale_id` sí es obligatorio y único.
+
+La demora se representa mediante las columnas `delay_reason`, `delay_reported_at` y `delay_new_estimated_date`. Las lentes, el historial y la demora no se almacenan como documentos MongoDB. Las fechas estimadas utilizan `DATE` y los momentos de creación, cambio o entrega utilizan `TIMESTAMP WITH TIME ZONE`.
+
+## Notification & Loyalty
+
+La migración V4 define únicamente `notifications` y `loyalty_accounts`. La cuenta de fidelización utiliza `patient_id` como clave primaria y foránea hacia `patients`; guarda el saldo, el año del último beneficio de cumpleaños y la fecha de actualización.
+
+Las notificaciones contienen el paciente, tipo, título, mensaje, referencias opcionales a una cita u orden, estado y fechas de creación y lectura. `patient_id` tiene una clave foránea hacia `patients`. Los campos `appointment_id` y `work_order_id` no tienen claves foráneas declaradas.
+
+La migración incluye un índice único sobre `patient_id` y `appointment_id` cuando la cita no es nula. También limita los estados a `UNREAD` y `READ`, y los tipos a recordatorios de cita, progreso de lentes, beneficios de cumpleaños y demoras de entrega.
+
+Las preferencias, encuestas, campañas y asignaciones de personal pertenecen al diseño ampliado de la solución. No se representan como colecciones ni como tablas implementadas en V4.
+
+## Store Management & Inventory
+
+Este contexto permanece como diseño propuesto. La versión revisada del backend no contiene una migración ni entidades JPA o repositorios implementados para inventario. Las tablas planteadas para catálogo, existencias, proveedores y reposición no forman parte de las 20 tablas actuales.
+
+Su implementación requerirá una migración posterior en PostgreSQL. No se asigna al Sprint 2 mientras ese trabajo no esté comprometido en el backlog.
+
+## Correspondencia con los diagramas
+
+Los diagramas de datos deben mostrar las columnas, tipos, obligatoriedad y restricciones de V1 a V4. Una columna con un identificador no constituye por sí sola una clave foránea: las relaciones físicas deben coincidir con las restricciones SQL. Las demás referencias pueden representarse por separado, con una leyenda que indique que no tienen una FK declarada.
+
+La actualización gráfica comprende las Figuras 40, 43, 46 y 52 del capítulo II, y la Figura F2 del anexo. La Figura 49 debe identificarse como diseño de inventario no implementado. Las imágenes existentes se mantienen hasta que el equipo actualice esos diagramas.
