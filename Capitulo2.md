@@ -1477,7 +1477,7 @@ El modelo de datos se basa en las migraciones `V1__search_booking_schema.sql`, `
 
 Las relaciones físicas del modelo corresponden a las claves foráneas declaradas en las migraciones. Los identificadores que no tienen una restricción `FOREIGN KEY` se documentan como referencias lógicas. Los objetos de valor y las claves compuestas de JPA no implican que la información se almacene como documentos MongoDB.
 
-Los diagramas que muestran el diseño documental anterior requieren una actualización gráfica. En cada sección se indica la diferencia entre esas imágenes y las tablas implementadas. Para describir la persistencia actual se toman como referencia las migraciones y las restricciones detalladas en el texto.
+Los diagramas de base de datos de las Figuras 40, 43, 46 y 52 se elaboraron directamente a partir de las migraciones V1–V4: muestran cada tabla con sus columnas, tipos, nulabilidad, claves primarias, claves foráneas, restricciones `UNIQUE` y `CHECK` e índices. Los identificadores sin `FOREIGN KEY` se marcan como `REF` y no se dibujan como relaciones. La Figura 49 corresponde a Store Management & Inventory, que es un diseño propuesto, y se identifica visualmente como no implementado.
 
 <a id="2.6.1. Bounded Context: Search & Booking Context"></a>
 ### 2.6.1. Bounded Context: Search & Booking Context
@@ -2045,7 +2045,7 @@ El diagrama también incorpora los **Domain Services** relacionados con la dispo
 
 `favorite_stores` utiliza la PK compuesta (`patient_id`, `optical_store_id`), ambas columnas también FKs, y registra `saved_at`. `store_ratings` utiliza la misma combinación como PK y FKs, y contiene `score NUMERIC(3,2)`, `comment VARCHAR(280)` y `created_at`; su `CHECK` limita `score` al intervalo de 1 a 5.
 
-Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 40 conserva el dibujo anterior y requiere actualizar nombres, columnas, tipos y restricciones con V1; no debe usarse como esquema físico definitivo hasta ese ajuste.**
+Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 40 representa las seis tablas de V1 con todos sus campos, tipos, nulabilidad, PK, FK, `CHECK` e índices tal como están declarados en la migración.**
 
 <a id="figura-40"></a>
 
@@ -2054,7 +2054,7 @@ Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los est
 *Diagrama de base de datos del Search & Booking Context*
 
 <div align="center">
-  <img src="assets/cap2/Database Design Diagram.png" alt="Search and Booking Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/search-booking-v1.png" alt="Search and Booking Database Design Diagram" width="1000">
 </div>
 
 
@@ -2216,15 +2216,17 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 
 Una cotización puede generar **cero o una venta**, y cada venta pertenece a exactamente una cotización: `sales.quotation_id` es `NOT NULL UNIQUE` y FK hacia `quotations.id`. `RegisterSaleHandler` exige una cotización aprobada y rechaza una venta duplicada con HTTP 409. Los datos de pago se almacenan en columnas de `sales`; no existe una tabla adicional de pagos en V2. `sales.patient_id` es una referencia lógica sin FK declarada.
 
-Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 43 conserva la cardinalidad corregida, pero es una vista resumida: debe completarse con todas las columnas, tipos, nulabilidad y restricciones de V2 para representar el modelo físico.**
+Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 43 representa las siete tablas de V2 con todas sus columnas, tipos, nulabilidad, PK, FK, `UNIQUE`, `CHECK` e índices. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) se marcan como `REF` y no se dibujan como relaciones.**
 
 <a id="figura-43"></a>
 
 **Figura 43**
 
-*Modelo de persistencia del Clinical & Commercial Context*
+*Diagrama de base de datos del Clinical & Commercial Context*
 
-![Modelo de persistencia del Clinical & Commercial Context](assets/cap2/revision-tb1/clinical-commercial-db-tb1.svg)
+<div align="center">
+  <img src="assets/cap2/db/clinical-commercial-v2.png" alt="Clinical and Commercial Database Design Diagram" width="1000">
+</div>
 
 
 Las relaciones se establecen mediante Primary Keys, Foreign Keys y restricciones de unicidad para mantener la integridad de los agregados y sus entidades persistentes.
@@ -2631,7 +2633,7 @@ El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persisten
 
 Las fechas estimadas usan `DATE`, mientras que los momentos de creación, cambio, demora y entrega usan `TIMESTAMP WITH TIME ZONE`. La demora se almacena en las columnas `delay_reason`, `delay_reported_at` y `delay_new_estimated_date`; no es un documento ni una tabla separada. `WorkOrderRepositoryImpl` reconstruye el agregado a partir de las filas de orden, lentes e historial.
 
-**La Figura 46 todavía corresponde al diseño documental anterior. La actualización gráfica debe representar las cinco tablas relacionales de V3. Su contenido MongoDB no describe la persistencia implementada.**
+**La Figura 46 representa las cinco tablas relacionales de V3. Los identificadores `sale_id`, `patient_id`, `optical_store_id`, `technician_id` y `laboratory_id` de `work_orders` se marcan como `REF` (referencias lógicas sin FK); `technicians` y `laboratories` aparecen sin relación física con la orden.**
 
 <a id="figura-46"></a>
 
@@ -2640,7 +2642,7 @@ Las fechas estimadas usan `DATE`, mientras que los momentos de creación, cambio
 *Diagrama de base de datos del Production & Tracking Context*
 
 <div align="center">
-  <img src="assets/cap2/ProductionTrackingDatabaseDesignDiagram.png" alt="Production and Tracking Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/production-tracking-v3.png" alt="Production and Tracking Database Design Diagram" width="1000">
 </div>
 
 
@@ -3020,7 +3022,7 @@ La propuesta contempla `frame_models`, `inventories`, `inventory_stocks`, `suppl
 
 La tecnología propuesta es PostgreSQL dentro de la base compartida del backend. Su implementación requerirá una migración posterior con columnas, PK, FK, índices y reglas de integridad revisados. No se asigna un Sprint de ejecución sin un compromiso explícito del backlog.
 
-**La Figura 49 representa exclusivamente este diseño propuesto. Debe identificarse visualmente como no implementado y mantenerse separada de los cuatro modelos físicos derivados de las migraciones.**
+**La Figura 49 representa exclusivamente este diseño propuesto. Se identifica visualmente como no implementado (borde punteado y aviso superior) y se mantiene separada de los cuatro modelos físicos derivados de las migraciones.**
 
 <a id="figura-49"></a>
 
@@ -3029,7 +3031,7 @@ La tecnología propuesta es PostgreSQL dentro de la base compartida del backend.
 *Diagrama de base de datos del Store Management & Inventory Context*
 
 <div align="center">
-  <img src="assets/cap2/StoreManagementInventoryDatabaseDesignDiagram.png" alt="Store Management and Inventory Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/store-inventory-proposal.png" alt="Store Management and Inventory Database Design Diagram" width="1000">
 </div>
 
 
@@ -3403,7 +3405,7 @@ El Domain Layer incluye también las interfaces de repositorio necesarias para a
 
 Los tipos permitidos son `APPOINTMENT_REMINDER`, `LENS_ORDER_PROGRESS`, `BIRTHDAY_DISCOUNT` y `DELIVERY_DELAY`; los estados admitidos son `UNREAD` y `READ`. La migración crea un índice único parcial sobre (`patient_id`, `appointment_id`) cuando `appointment_id IS NOT NULL`. Esta regla se documenta junto al diagrama, aunque el importador gráfico no represente índices parciales.
 
-`NotificationEntity` y `LoyaltyAccountEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. Los conceptos de preferencias, encuestas, delegación y campañas pertenecen al diseño funcional ampliado y no implican persistencia implementada. **La Figura 52 corresponde al diseño documental anterior. Su actualización debe mostrar las dos tablas de V4 y sus relaciones declaradas con `patients` de V1.**
+`NotificationEntity` y `LoyaltyAccountEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. Los conceptos de preferencias, encuestas, delegación y campañas pertenecen al diseño funcional ampliado y no implican persistencia implementada. **La Figura 52 muestra las dos tablas de V4 y sus FKs hacia `patients`, tabla de V1 que se incluye como referencia. `appointment_id` y `work_order_id` de `notifications` se marcan como `REF` (referencias lógicas sin FK).**
 
 <a id="figura-52"></a>
 
@@ -3412,5 +3414,5 @@ Los tipos permitidos son `APPOINTMENT_REMINDER`, `LENS_ORDER_PROGRESS`, `BIRTHDA
 *Diagrama de base de datos del Notification & Loyalty Context*
 
 <div align="center">
-  <img src="assets/cap2/NotificationLoyaltyDatabaseDesignDiagram.png" alt="Notification and Loyalty Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/notification-loyalty-v4.png" alt="Notification and Loyalty Database Design Diagram" width="1000">
 </div>

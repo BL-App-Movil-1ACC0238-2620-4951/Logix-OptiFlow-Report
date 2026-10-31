@@ -212,7 +212,7 @@ El Store Management & Inventory Component Diagram se muestra en la Figura E8.
 
 La cardinalidad vigente de cotización–venta se especifica en [2.6.2.6.2](Capitulo2.md#26262-bounded-context-database-design-diagram): una cotización genera como máximo una venta, respaldada por la restricción de unicidad del backend.
 
-Los diagramas de este anexo complementan el diseño táctico. Las secciones 2.6.1.6.2 a 2.6.5.6.2 describen el modelo físico actual: una base PostgreSQL compartida, con 20 tablas definidas en V1–V4. Las imágenes del diseño documental anterior deben actualizarse para que coincidan con esas migraciones.
+Los diagramas de este anexo complementan el diseño táctico. Las secciones 2.6.1.6.2 a 2.6.5.6.2 describen el modelo físico actual: una base PostgreSQL compartida, con 20 tablas definidas en V1–V4. Los diagramas de base de datos de este anexo y del capítulo II se elaboraron a partir de esas migraciones.
 
 ### F.1. Production & Tracking
 
@@ -233,7 +233,7 @@ El Production & Tracking Domain Layer Class Diagram se presenta en la Figura F1.
 #### Database Design Diagram
 
 
-La Figura F2 reproduce el diseño documental anterior y debe sustituirse por el modelo relacional de V3: `work_orders`, `work_order_lenses`, `work_order_status_history`, `technicians` y `laboratories`. La sección 2.6.3.6.2 especifica las claves físicas y las referencias lógicas; la imagen conservada no describe el esquema implementado.
+La Figura F2 reproduce el modelo físico relacional de la migración V3: `work_orders`, `work_order_lenses`, `work_order_status_history`, `technicians` y `laboratories`. La sección 2.6.3.6.2 especifica las claves físicas y las referencias lógicas.
 
 <a id="figura-f2"></a>
 
@@ -241,7 +241,7 @@ La Figura F2 reproduce el diseño documental anterior y debe sustituirse por el 
 
 *Production & Tracking Database Design Diagram*
 
-![Production & Tracking Database Design Diagram](assets/cap2/ProductionTrackingDatabaseDesignDiagram.png)
+![Production & Tracking Database Design Diagram](assets/cap2/db/production-tracking-v3.png)
 
 
 
