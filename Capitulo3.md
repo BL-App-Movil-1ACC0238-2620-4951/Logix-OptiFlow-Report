@@ -23,11 +23,11 @@ Las principales características consideradas para el diseño son:
  **Tipografía**
 
 
-La tipografía de OptiFlow se presenta en la Figura 53.
+La tipografía de OptiFlow se presenta en la Figura 56.
 
-<a id="figura-53"></a>
+<a id="figura-56"></a>
 
-**Figura 53**
+**Figura 56**
 
 *Tipografía de OptiFlow*
 
@@ -38,12 +38,12 @@ La tipografía de OptiFlow se presenta en la Figura 53.
 
 La tipografía de OptiFlow debe facilitar la lectura en pantallas pequeñas y mantener una jerarquía clara entre títulos, etiquetas y contenido. Este criterio es especialmente relevante al consultar horarios, recetas, pedidos y datos del paciente, donde la legibilidad favorece una interpretación precisa de la información.
 
-Se propone utilizar una tipografía **sans-serif**, debido a que permite una lectura clara tanto en dispositivos móviles como en interfaces administrativas (ver Tabla 91).
+Se propone utilizar una tipografía **sans-serif**, debido a que permite una lectura clara tanto en dispositivos móviles como en interfaces administrativas (ver Tabla 92).
 
 
-<a id="tabla-91"></a>
+<a id="tabla-92"></a>
 
-**Tabla 91**
+**Tabla 92**
 
 *Uso de la tipografía en la interfaz*
 
@@ -60,11 +60,11 @@ Se propone utilizar una tipografía **sans-serif**, debido a que permite una lec
 **Colores**
 
 
-La paleta de colores de OptiFlow se observa en la Figura 54.
+La paleta de colores de OptiFlow se observa en la Figura 57.
 
-<a id="figura-54"></a>
+<a id="figura-57"></a>
 
-**Figura 54**
+**Figura 57**
 
 *Paleta de colores de OptiFlow*
 
@@ -75,12 +75,12 @@ La paleta de colores de OptiFlow se observa en la Figura 54.
 
 La paleta de colores debe transmitir una apariencia relacionada con los conceptos de **salud visual, confianza, claridad y tecnología**.
 
-Se considera una paleta compuesta por colores principales, secundarios y colores destinados a comunicar estados del sistema (ver Tabla 92).
+Se considera una paleta compuesta por colores principales, secundarios y colores destinados a comunicar estados del sistema (ver Tabla 93).
 
 
-<a id="tabla-92"></a>
+<a id="tabla-93"></a>
 
-**Tabla 92**
+**Tabla 93**
 
 *Colores de la interfaz y su uso*
 
@@ -100,11 +100,11 @@ Se considera una paleta compuesta por colores principales, secundarios y colores
 **Botones**
 
 
-Los estilos de botones se muestran en la Figura 55.
+Los estilos de botones se muestran en la Figura 58.
 
-<a id="figura-55"></a>
+<a id="figura-58"></a>
 
-**Figura 55**
+**Figura 58**
 
 *Estilos de botones*
 
@@ -125,11 +125,11 @@ Los botones deben diferenciar claramente las acciones principales de las accione
 **Tarjetas**
 
 
-Los estilos de tarjetas se presentan en la Figura 56.
+Los estilos de tarjetas se presentan en la Figura 59.
 
-<a id="figura-56"></a>
+<a id="figura-59"></a>
 
-**Figura 56**
+**Figura 59**
 
 *Estilos de tarjetas*
 
@@ -159,11 +159,11 @@ Para el personal de la óptica, las tarjetas podrán presentar:
 **Iconografía**
 
 
-La iconografía de la aplicación se observa en la Figura 57.
+La iconografía de la aplicación se observa en la Figura 60.
 
-<a id="figura-57"></a>
+<a id="figura-60"></a>
 
-**Figura 57**
+**Figura 60**
 
 *Iconografía de la aplicación*
 
@@ -172,12 +172,12 @@ La iconografía de la aplicación se observa en la Figura 57.
 </p>
 
 
-Los iconos se utilizarán como elementos complementarios para facilitar el reconocimiento de acciones y funcionalidades (ver Tabla 93).
+Los iconos se utilizarán como elementos complementarios para facilitar el reconocimiento de acciones y funcionalidades (ver Tabla 94).
 
 
-<a id="tabla-93"></a>
+<a id="tabla-94"></a>
 
-**Tabla 93**
+**Tabla 94**
 
 *Íconos y funcionalidad asociada*
 
@@ -200,11 +200,11 @@ Los iconos no deberán utilizarse como único medio para comunicar información 
 **Formularios**
 
 
-Los estilos de formularios se muestran en la Figura 58.
+Los estilos de formularios se muestran en la Figura 61.
 
-<a id="figura-58"></a>
+<a id="figura-61"></a>
 
-**Figura 58**
+**Figura 61**
 
 *Estilos de formularios*
 
@@ -224,11 +224,11 @@ Las validaciones se presentan junto al campo correspondiente y explican cómo co
 **Estados de la interfaz**
 
 
-Los estados visuales de la interfaz se presentan en la Figura 59.
+Los estados visuales de la interfaz se presentan en la Figura 62.
 
-<a id="figura-59"></a>
+<a id="figura-62"></a>
 
-**Figura 59**
+**Figura 62**
 
 *Estados visuales de la interfaz*
 
@@ -237,12 +237,12 @@ Los estados visuales de la interfaz se presentan en la Figura 59.
 </p>
 
 
-Los componentes de OptiFlow deberán contemplar diferentes estados para proporcionar retroalimentación al usuario (ver Tabla 94).
+Los componentes de OptiFlow deberán contemplar diferentes estados para proporcionar retroalimentación al usuario (ver Tabla 95).
 
 
-<a id="tabla-94"></a>
+<a id="tabla-95"></a>
 
-**Tabla 94**
+**Tabla 95**
 
 *Estados visuales y su descripción*
 
@@ -262,11 +262,11 @@ Los componentes de OptiFlow deberán contemplar diferentes estados para proporci
 **Diseño responsivo**
 
 
-El diseño responsivo de OptiFlow se observa en la Figura 60.
+El diseño responsivo de OptiFlow se observa en la Figura 63.
 
-<a id="figura-60"></a>
+<a id="figura-63"></a>
 
-**Figura 60**
+**Figura 63**
 
 *Diseño responsivo de OptiFlow*
 
@@ -288,11 +288,11 @@ En las interfaces destinadas al personal de la óptica se podrá aprovechar un e
 **Accesibilidad**
 
 
-Los criterios de accesibilidad de la interfaz se muestran en la Figura 61.
+Los criterios de accesibilidad de la interfaz se muestran en la Figura 64.
 
-<a id="figura-61"></a>
+<a id="figura-64"></a>
 
-**Figura 61**
+**Figura 64**
 
 *Criterios de accesibilidad de la interfaz*
 
@@ -336,11 +336,11 @@ La estructura general de OptiFlow parte de las funcionalidades principales y pos
 Para el **paciente**, la organización principal se plantea de la siguiente manera:
 
 
-El sistema de organización para el paciente se presenta en la Figura 62.
+El sistema de organización para el paciente se presenta en la Figura 65.
 
-<a id="figura-62"></a>
+<a id="figura-65"></a>
 
-**Figura 62**
+**Figura 65**
 
 *Sistema de organización para el paciente*
 
@@ -377,11 +377,11 @@ OptiFlow
 Para el **personal de la óptica**, la organización se adapta a las actividades administrativas, clínicas y operativas:
 
 
-El sistema de organización para el personal de la óptica se observa en la Figura 63.
+El sistema de organización para el personal de la óptica se observa en la Figura 66.
 
-<a id="figura-63"></a>
+<a id="figura-66"></a>
 
-**Figura 63**
+**Figura 66**
 
 *Sistema de organización para el personal de la óptica*
 
@@ -426,12 +426,12 @@ Esta separación permite que cada usuario tenga acceso a las funcionalidades cor
 
 **Organización por categorías**
 
-Las funcionalidades también se agrupan según la actividad que representan (ver Tabla 95).
+Las funcionalidades también se agrupan según la actividad que representan (ver Tabla 96).
 
 
-<a id="tabla-95"></a>
+<a id="tabla-96"></a>
 
-**Tabla 95**
+**Tabla 96**
 
 *Categorías de funcionalidades por tipo de usuario*
 
@@ -452,11 +452,11 @@ Esta clasificación permite relacionar las funcionalidades de la interfaz con lo
 Algunas funcionalidades de OptiFlow requieren que el usuario complete una serie de pasos en un orden determinado. Para la **reserva de una cita**, el flujo de información se organiza de la siguiente manera:
 
 
-El flujo de organización del paciente se muestra en la Figura 64.
+El flujo de organización del paciente se muestra en la Figura 67.
 
-<a id="figura-64"></a>
+<a id="figura-67"></a>
 
-**Figura 64**
+**Figura 67**
 
 *Flujo de organización del paciente*
 
@@ -468,11 +468,11 @@ El flujo de organización del paciente se muestra en la Figura 64.
 Para el **seguimiento de una orden de trabajo**, la información se presenta de acuerdo con el avance del proceso:
 
 
-El flujo de organización del personal de la óptica se presenta en la Figura 65.
+El flujo de organización del personal de la óptica se presenta en la Figura 68.
 
-<a id="figura-65"></a>
+<a id="figura-68"></a>
 
-**Figura 65**
+**Figura 68**
 
 *Flujo de organización del personal de la óptica*
 
@@ -485,12 +485,12 @@ Esta organización permite que el usuario comprenda en qué etapa se encuentra u
 
 **Diagrama de organización de la información**
 
-La estructura anterior puede representarse mediante un **diagrama de arquitectura de información o sitemap**, mostrando la relación entre las funcionalidades principales y sus subfuncionalidades (ver Figura 66).
+La estructura anterior puede representarse mediante un **diagrama de arquitectura de información o sitemap**, mostrando la relación entre las funcionalidades principales y sus subfuncionalidades (ver Figura 69).
 
 
-<a id="figura-66"></a>
+<a id="figura-69"></a>
 
-**Figura 66**
+**Figura 69**
 
 *Diagrama de organización de la información*
 
@@ -507,11 +507,11 @@ El sistema de etiquetado establece los nombres utilizados para identificar las f
 **Etiquetas principales**
 
 
-Las etiquetas de navegación por tipo de usuario se resumen en la Tabla 96.
+Las etiquetas de navegación por tipo de usuario se resumen en la Tabla 97.
 
-<a id="tabla-96"></a>
+<a id="tabla-97"></a>
 
-**Tabla 96**
+**Tabla 97**
 
 *Etiquetas de navegación por tipo de usuario*
 
@@ -538,12 +538,12 @@ Las etiquetas de navegación por tipo de usuario se resumen en la Tabla 96.
 
 **Etiquetas para acciones**
 
-Las acciones utilizarán verbos directos que indiquen claramente la operación que realizará el usuario (ver Tabla 97).
+Las acciones utilizarán verbos directos que indiquen claramente la operación que realizará el usuario (ver Tabla 98).
 
 
-<a id="tabla-97"></a>
+<a id="tabla-98"></a>
 
-**Tabla 97**
+**Tabla 98**
 
 *Etiquetas de acciones*
 
@@ -565,12 +565,12 @@ Las acciones utilizarán verbos directos que indiquen claramente la operación q
 
 **Etiquetas para estados**
 
-Los estados de los procesos también deberán mantener una nomenclatura consistente (ver Tabla 98).
+Los estados de los procesos también deberán mantener una nomenclatura consistente (ver Tabla 99).
 
 
-<a id="tabla-98"></a>
+<a id="tabla-99"></a>
 
-**Tabla 98**
+**Tabla 99**
 
 *Etiquetas de estados de la aplicación*
 
@@ -593,12 +593,12 @@ El uso de etiquetas consistentes permite que los usuarios puedan reconocer rápi
 
 Las etiquetas SEO y meta etiquetas de OptiFlow se aplicarán principalmente a la **Landing Page**, debido a que esta constituye el principal punto de acceso público a la solución. Su finalidad es facilitar la identificación del producto por los motores de búsqueda y proporcionar información relevante sobre el contenido de la página.
 
-Las etiquetas se plantean para describir a OptiFlow como una solución de búsqueda de ópticas, reserva de citas y seguimiento de pedidos, manteniendo coherencia entre el contenido de la Landing Page y la información que se comparte con buscadores y redes sociales (ver Tabla 99).
+Las etiquetas se plantean para describir a OptiFlow como una solución de búsqueda de ópticas, reserva de citas y seguimiento de pedidos, manteniendo coherencia entre el contenido de la Landing Page y la información que se comparte con buscadores y redes sociales (ver Tabla 100).
 
 
-<a id="tabla-99"></a>
+<a id="tabla-100"></a>
 
-**Tabla 99**
+**Tabla 100**
 
 *SEO tags y meta tags de la Landing Page*
 
@@ -648,12 +648,12 @@ Seleccionar óptica
 Consultar información y disponibilidad
 ```
 
-La interfaz propuesta para la búsqueda de establecimientos se muestra a continuación (ver Figura 67).
+La interfaz propuesta para la búsqueda de establecimientos se muestra a continuación (ver Figura 70).
 
 
-<a id="figura-67"></a>
+<a id="figura-70"></a>
 
-**Figura 67**
+**Figura 70**
 
 *Interfaz de búsqueda de ópticas*
 
@@ -671,11 +671,11 @@ Para la aplicación móvil del paciente se utiliza una **barra de navegación in
 La navegación principal está compuesta por las siguientes opciones:
 
 
-Las opciones de la barra de navegación se detallan en la Tabla 100.
+Las opciones de la barra de navegación se detallan en la Tabla 101.
 
-<a id="tabla-100"></a>
+<a id="tabla-101"></a>
 
-**Tabla 100**
+**Tabla 101**
 
 *Opciones de la barra de navegación*
 
@@ -691,11 +691,11 @@ Las opciones de la barra de navegación se detallan en la Tabla 100.
 La siguiente vista muestra la distribución propuesta de la navegación principal:
 
 
-La pantalla de inicio con la barra de navegación se presenta en la Figura 68.
+La pantalla de inicio con la barra de navegación se presenta en la Figura 71.
 
-<a id="figura-68"></a>
+<a id="figura-71"></a>
 
-**Figura 68**
+**Figura 71**
 
 *Pantalla de inicio con la barra de navegación*
 
@@ -712,48 +712,48 @@ La Landing Page presenta la propuesta de valor de OptiFlow a los propietarios de
 
 Los wireframes definen la jerarquía del contenido, la navegación y las áreas de interacción de la Landing Page. La distribución busca comunicar con claridad los beneficios para el paciente y para el establecimiento antes de aplicar el estilo visual definitivo.
 
-Presentación inicial de OptiFlow con el mensaje principal y los datos destacados de la propuesta (ver Figura 69).
+Presentación inicial de OptiFlow con el mensaje principal y los datos destacados de la propuesta (ver Figura 72).
 
 
-<a id="figura-69"></a>
+<a id="figura-72"></a>
 
-**Figura 69**
+**Figura 72**
 
 *Wireframe de la sección de inicio de la Landing Page*
 
 ![Landing page inicio.png](assets/cap3/wireframes/wireframe_landing_1.png)
 
 
-Se presentan los objetivos y beneficios de OptiFlow (ver Figura 70).
+Se presentan los objetivos y beneficios de OptiFlow (ver Figura 73).
 
 
-<a id="figura-70"></a>
+<a id="figura-73"></a>
 
-**Figura 70**
+**Figura 73**
 
 *Wireframe de la sección de misión de la Landing Page*
 
 ![Landing page mision.png](assets/cap3/wireframes/wireframe_landing_2.png)
 
 
-Se presenta la distribución de la sección de precios y de los integrantes del equipo (ver Figura 71).
+Se presenta la distribución de la sección de precios y de los integrantes del equipo (ver Figura 74).
 
 
-<a id="figura-71"></a>
+<a id="figura-74"></a>
 
-**Figura 71**
+**Figura 74**
 
 *Wireframe de la sección de precios de la Landing Page*
 
 ![Landing page precios.png](assets/cap3/wireframes/wireframe_landing_3.png)
 
 
-Se muestra el espacio previsto para reseñas y la sección final de la página (ver Figura 72).
+Se muestra el espacio previsto para reseñas y la sección final de la página (ver Figura 75).
 
 
-<a id="figura-72"></a>
+<a id="figura-75"></a>
 
-**Figura 72**
+**Figura 75**
 
 *Wireframe de la sección de reseñas de la Landing Page*
 
@@ -762,12 +762,12 @@ Se muestra el espacio previsto para reseñas y la sección final de la página (
 
 #### 3.1.3.2. Landing Page Mock-up
 
-El mock-up aplica la identidad visual de OptiFlow a la estructura definida en los wireframes. Permite revisar colores, tipografía, componentes y jerarquía de información antes de su implementación en la Landing Page (ver Figura 73).
+El mock-up aplica la identidad visual de OptiFlow a la estructura definida en los wireframes. Permite revisar colores, tipografía, componentes y jerarquía de información antes de su implementación en la Landing Page (ver Figura 76).
 
 
-<a id="figura-73"></a>
+<a id="figura-76"></a>
 
-**Figura 73**
+**Figura 76**
 
 *Mock-up de la Landing Page*
 
@@ -785,11 +785,11 @@ Los wireframes móviles definen la distribución de componentes, la jerarquía d
 **Sección Autenticación y Selección de Rol**
 
 
-Los Wireframes del flujo de inicio de sesión y selección de rol se observan en la Figura 74.
+Los Wireframes del flujo de inicio de sesión y selección de rol se observan en la Figura 77.
 
-<a id="figura-74"></a>
+<a id="figura-77"></a>
 
-**Figura 74**
+**Figura 77**
 
 *Wireframes del flujo de inicio de sesión y selección de rol*
 
@@ -801,11 +801,11 @@ El wireframe reúne las vistas de acceso y selección de perfil, junto con los c
 **Sección Inicio y Consulta de Receta Óptica (Paciente)**
 
 
-Los Wireframes de pantalla de inicio del paciente y ficha de receta óptica se muestran en la Figura 75.
+Los Wireframes de pantalla de inicio del paciente y ficha de receta óptica se muestran en la Figura 78.
 
-<a id="figura-75"></a>
+<a id="figura-78"></a>
 
-**Figura 75**
+**Figura 78**
 
 *Wireframes de pantalla de inicio del paciente y ficha de receta óptica*
 
@@ -817,11 +817,11 @@ La propuesta combina accesos a las funciones del paciente con una vista para con
 **Sección Búsqueda y Exploración de Monturas (Paciente)**
 
 
-Los Wireframes del módulo de búsqueda y catálogo de armazones se presentan en la Figura 76.
+Los Wireframes del módulo de búsqueda y catálogo de armazones se presentan en la Figura 79.
 
-<a id="figura-76"></a>
+<a id="figura-79"></a>
 
-**Figura 76**
+**Figura 79**
 
 *Wireframes del módulo de búsqueda y catálogo de armazones*
 
@@ -833,11 +833,11 @@ Las vistas representan la búsqueda de ópticas y la exploración de armazones, 
 **Sección Gestión y Reserva de Citas (Paciente)**
 
 
-Los Wireframes del flujo de gestión, reprogramación y reserva de citas se observan en la Figura 77.
+Los Wireframes del flujo de gestión, reprogramación y reserva de citas se observan en la Figura 80.
 
-<a id="figura-77"></a>
+<a id="figura-80"></a>
 
-**Figura 77**
+**Figura 80**
 
 *Wireframes del flujo de gestión, reprogramación y reserva de citas*
 
@@ -849,11 +849,11 @@ La secuencia reúne las vistas para consultar, reprogramar y reservar citas.
 **Sección Seguimiento de Pedidos y Montaje (Paciente)**
 
 
-Los Wireframes del módulo de seguimiento de pedidos en taller y entrega se muestran en la Figura 78.
+Los Wireframes del módulo de seguimiento de pedidos en taller y entrega se muestran en la Figura 81.
 
-<a id="figura-78"></a>
+<a id="figura-81"></a>
 
-**Figura 78**
+**Figura 81**
 
 *Wireframes del módulo de seguimiento de pedidos en taller y entrega*
 
@@ -865,11 +865,11 @@ La propuesta resume el avance del pedido y sus etapas hasta la entrega; el wiref
 **Sección Perfil de Usuario, Historial y Configuración (Paciente)**
 
 
-Los Wireframes del perfil de paciente, historial clínico y panel de ajustes se presentan en la Figura 79.
+Los Wireframes del perfil de paciente, historial clínico y panel de ajustes se presentan en la Figura 82.
 
-<a id="figura-79"></a>
+<a id="figura-82"></a>
 
-**Figura 79**
+**Figura 82**
 
 *Wireframes del perfil de paciente, historial clínico y panel de ajustes*
 
@@ -881,11 +881,11 @@ Las pantallas agrupan información del perfil, antecedentes visuales y opciones 
 **Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
 
 
-Los Wireframes del directorio de pacientes, ficha médica, refracción y orden de trabajo se observan en la Figura 80.
+Los Wireframes del directorio de pacientes, ficha médica, refracción y orden de trabajo se observan en la Figura 83.
 
-<a id="figura-80"></a>
+<a id="figura-83"></a>
 
-**Figura 80**
+**Figura 83**
 
 *Wireframes del directorio de pacientes, ficha médica, refracción y orden de trabajo*
 
@@ -897,11 +897,11 @@ El wireframe reúne el directorio de pacientes y vistas para registrar informaci
 **Sección Agenda y Control de Atención Clínica (Personal Óptico)**
 
 
-Los Wireframes de la agenda diaria, control de sala de espera y flujo de atención se muestran en la Figura 81.
+Los Wireframes de la agenda diaria, control de sala de espera y flujo de atención se muestran en la Figura 84.
 
-<a id="figura-81"></a>
+<a id="figura-84"></a>
 
-**Figura 81**
+**Figura 84**
 
 *Wireframes de la agenda diaria, control de sala de espera y flujo de atención*
 
@@ -913,11 +913,11 @@ La propuesta reúne vistas para consultar la agenda y dar seguimiento a la atenc
 **Sección Control de Stock e Inventario (Personal Óptico)**
 
 
-Los Wireframes de gestión de inventario, escáner de códigos y ajuste de existencias se presentan en la Figura 82.
+Los Wireframes de gestión de inventario, escáner de códigos y ajuste de existencias se presentan en la Figura 85.
 
-<a id="figura-82"></a>
+<a id="figura-85"></a>
 
-**Figura 82**
+**Figura 85**
 
 *Wireframes de gestión de inventario, escáner de códigos y ajuste de existencias*
 
@@ -929,11 +929,11 @@ El wireframe agrupa vistas para consultar existencias, buscar productos y regist
 **Sección Operaciones, Producción y Reportes (Personal Óptico)**
 
 
-Los Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes se observan en la Figura 83.
+Los Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes se observan en la Figura 86.
 
-<a id="figura-83"></a>
+<a id="figura-86"></a>
 
-**Figura 83**
+**Figura 86**
 
 *Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes*
 
@@ -956,12 +956,12 @@ Primero, se definen las tareas típicas que realizaría el usuario para completa
 - Introducir las credenciales requeridas (correo electrónico y contraseña) o completar los campos de registro.
 - Validar la información ingresada y confirmar el acceso al dashboard principal de la cuenta.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 84).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 87).
 
 
-<a id="figura-84"></a>
+<a id="figura-87"></a>
 
-**Figura 84**
+**Figura 87**
 
 *Wireflow de ingreso o registro de usuario*
 
@@ -977,12 +977,12 @@ Primero, se definen las tareas típicas que realizaría el personal para complet
 - Completar el formulario clínico con datos personales, número de identificación, contacto y motivo de consulta inicial.
 - Guardar la ficha del paciente y verificar su inclusión en la base de datos para futuras atenciones y refracciones.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 85).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 88).
 
 
-<a id="figura-85"></a>
+<a id="figura-88"></a>
 
-**Figura 85**
+**Figura 88**
 
 *Wireflow de registro de un nuevo paciente*
 
@@ -998,12 +998,12 @@ Primero, se definen las tareas típicas que realizaría el usuario para completa
 - Escoger al especialista disponible, así como la fecha y franja horaria idónea mediante el calendario interactivo.
 - Revisar el resumen de la reserva y confirmar el agendamiento con emisión de comprobante y recordatorio.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 86).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 89).
 
 
-<a id="figura-86"></a>
+<a id="figura-89"></a>
 
-**Figura 86**
+**Figura 89**
 
 *Wireflow de registro de una nueva cita*
 
@@ -1019,12 +1019,12 @@ Primero, se definen las tareas típicas que realizaría el personal para complet
 - Seleccionar la sede, especialidad médica y horario sin necesidad de reingresar la información del paciente.
 - Confirmar la reserva y verificar la actualización automática en el historial de citas del paciente.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 87).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 90).
 
 
-<a id="figura-87"></a>
+<a id="figura-90"></a>
 
-**Figura 87**
+**Figura 90**
 
 *Wireflow de una nueva cita desde la ficha de un paciente*
 
@@ -1040,12 +1040,12 @@ Primero, se definen las tareas típicas que realizaría el especialista para com
 - Añadir observaciones de diagnóstico clínico, recomendaciones de uso y especificaciones técnicas de lentes/monturas.
 - Guardar la prescripción y generar la orden de trabajo clínica correspondiente para su derivación a taller o venta.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 88).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 91).
 
 
-<a id="figura-88"></a>
+<a id="figura-91"></a>
 
-**Figura 88**
+**Figura 91**
 
 *Wireflow del proceso de atención al paciente*
 
@@ -1061,12 +1061,12 @@ Primero, se definen las tareas típicas que realizaría el usuario para completa
 - Comprobar la etapa técnica actual del trabajo (corte de lunas, biselado, tratamiento antirreflejante, montaje, control de calidad).
 - Actualizar el estado de la orden hacia "Listo para entrega" y notificar la disponibilidad del producto.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 89).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 92).
 
 
-<a id="figura-89"></a>
+<a id="figura-92"></a>
 
-**Figura 89**
+**Figura 92**
 
 *Wireflow de verificación de la producción de los lentes*
 
@@ -1082,12 +1082,12 @@ Primero, se definen las tareas típicas que realizaría el paciente para complet
 - Visualizar el detalle técnico de la montura seleccionada (dimensiones, colores y stock disponible).
 - Seleccionar la opción de reserva física en tienda o vincular el armazón a su próxima cita presencial.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 90).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 93).
 
 
-<a id="figura-90"></a>
+<a id="figura-93"></a>
 
-**Figura 90**
+**Figura 93**
 
 *Wireflow de catálogo y reserva de monturas*
 
@@ -1103,12 +1103,12 @@ Primero, se definen las tareas típicas que realizaría el paciente para complet
 - Visualizar la línea de tiempo de seguimiento (en laboratorio, biselado, control de calidad, disponible para retiro).
 - Consultar los detalles de la sede de recojo o comunicarse con soporte ante dudas sobre su entrega.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 91).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 94).
 
 
-<a id="figura-91"></a>
+<a id="figura-94"></a>
 
-**Figura 91**
+**Figura 94**
 
 *Wireflow de consulta de pedidos*
 
@@ -1123,11 +1123,11 @@ En esta sección se presentan los mockups de alta fidelidad de la aplicación m�
 **Sección Inicio y Dashboard (Paciente / Personal)**
 
 
-Los mockups de la pantalla de inicio y panel principal se muestran en la Figura 92.
+Los mockups de la pantalla de inicio y panel principal se muestran en la Figura 95.
 
-<a id="figura-92"></a>
+<a id="figura-95"></a>
 
-**Figura 92**
+**Figura 95**
 
 *Mockups de la pantalla de inicio y panel principal*
 
@@ -1139,11 +1139,11 @@ El mockup presenta la pantalla principal y sus accesos a las funciones del pacie
 **Sección Búsqueda y Exploración de Monturas (Paciente)**
 
 
-Los mockups del módulo de búsqueda y catálogo de armazones se presentan en la Figura 93.
+Los mockups del módulo de búsqueda y catálogo de armazones se presentan en la Figura 96.
 
-<a id="figura-93"></a>
+<a id="figura-96"></a>
 
-**Figura 93**
+**Figura 96**
 
 *Mockups del módulo de búsqueda y catálogo de armazones*
 
@@ -1155,11 +1155,11 @@ El mockup reúne la búsqueda de ópticas y la exploración del catálogo de arm
 **Sección Gestión y Reserva de Citas (Paciente)**
 
 
-Los mockups del flujo de gestión y reserva de citas se observan en la Figura 94.
+Los mockups del flujo de gestión y reserva de citas se observan en la Figura 97.
 
-<a id="figura-94"></a>
+<a id="figura-97"></a>
 
-**Figura 94**
+**Figura 97**
 
 *Mockups del flujo de gestión y reserva de citas*
 
@@ -1171,11 +1171,11 @@ El mockup representa el proceso propuesto para consultar opciones y reservar una
 **Sección Consulta de Receta Óptica (Paciente)**
 
 
-Los mockups del visor de recetas ópticas y prescripción médica se muestran en la Figura 95.
+Los mockups del visor de recetas ópticas y prescripción médica se muestran en la Figura 98.
 
-<a id="figura-95"></a>
+<a id="figura-98"></a>
 
-**Figura 95**
+**Figura 98**
 
 *Mockups del visor de recetas ópticas y prescripción médica*
 
@@ -1187,11 +1187,11 @@ El mockup presenta la consulta de la receta óptica y sus datos principales.
 **Sección Seguimiento de Pedidos y Montaje (Paciente)**
 
 
-Los mockups del módulo de seguimiento de pedidos en taller y entrega se presentan en la Figura 96.
+Los mockups del módulo de seguimiento de pedidos en taller y entrega se presentan en la Figura 99.
 
-<a id="figura-96"></a>
+<a id="figura-99"></a>
 
-**Figura 96**
+**Figura 99**
 
 *Mockups del módulo de seguimiento de pedidos en taller y entrega*
 
@@ -1203,11 +1203,11 @@ El mockup representa la consulta de pedidos y las etapas de seguimiento propuest
 **Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
 
 
-Los mockups del directorio de pacientes, ficha médica y registro de consulta se observan en la Figura 97.
+Los mockups del directorio de pacientes, ficha médica y registro de consulta se observan en la Figura 100.
 
-<a id="figura-97"></a>
+<a id="figura-100"></a>
 
-**Figura 97**
+**Figura 100**
 
 *Mockups del directorio de pacientes, ficha médica y registro de consulta*
 
@@ -1219,11 +1219,11 @@ El mockup reúne el directorio de pacientes y las vistas propuestas para consult
 **Sección Agenda Diaria y Control de Atención (Personal Óptico)**
 
 
-Los mockups de la agenda diaria, control de sala de espera y flujo de turnos se muestran en la Figura 98.
+Los mockups de la agenda diaria, control de sala de espera y flujo de turnos se muestran en la Figura 101.
 
-<a id="figura-98"></a>
+<a id="figura-101"></a>
 
-**Figura 98**
+**Figura 101**
 
 *Mockups de la agenda diaria, control de sala de espera y flujo de turnos*
 
@@ -1235,11 +1235,11 @@ El mockup presenta la agenda diaria y los estados propuestos para dar seguimient
 **Sección Control de Stock e Inventario (Personal Óptico)**
 
 
-Los mockups de gestión de inventario, escáner de códigos y fichas de producto se presentan en la Figura 99.
+Los mockups de gestión de inventario, escáner de códigos y fichas de producto se presentan en la Figura 102.
 
-<a id="figura-99"></a>
+<a id="figura-102"></a>
 
-**Figura 99**
+**Figura 102**
 
 *Mockups de gestión de inventario, escáner de códigos y fichas de producto*
 
@@ -1251,11 +1251,11 @@ El mockup reúne la consulta del catálogo, las existencias y las vistas propues
 **Sección Operaciones, Producción en Taller y Reportes (Personal Óptico)**
 
 
-Los mockups del centro de herramientas, cotizaciones, taller y analítica se observan en la Figura 100.
+Los mockups del centro de herramientas, cotizaciones, taller y analítica se observan en la Figura 103.
 
-<a id="figura-100"></a>
+<a id="figura-103"></a>
 
-**Figura 100**
+**Figura 103**
 
 *Mockups del centro de herramientas, cotizaciones, taller y analítica*
 
@@ -1274,11 +1274,11 @@ A continuación, se presentan los user flows desarrollados para los flujos repre
 
 *Happy Path*
 
-El recorrido propuesto cubre la selección de una óptica, un horario y la confirmación de la cita (ver Figura 101).
+El recorrido propuesto cubre la selección de una óptica, un horario y la confirmación de la cita (ver Figura 104).
 
-<a id="figura-101"></a>
+<a id="figura-104"></a>
 
-**Figura 101**
+**Figura 104**
 
 *User flow de reserva de una cita*
 
@@ -1292,11 +1292,11 @@ Como alternativas, se consideran la pérdida de disponibilidad del horario y un 
 
 *Happy Path*
 
-El recorrido propuesto muestra la búsqueda de una montura y la consulta de su información para evaluar su disponibilidad (ver Figura 102).
+El recorrido propuesto muestra la búsqueda de una montura y la consulta de su información para evaluar su disponibilidad (ver Figura 105).
 
-<a id="figura-102"></a>
+<a id="figura-105"></a>
 
-**Figura 102**
+**Figura 105**
 
 *User flow de búsqueda y selección de monturas*
 
@@ -1310,11 +1310,11 @@ Como alternativas, se consideran una búsqueda sin resultados y la falta de exis
 
 *Happy Path*
 
-El recorrido propuesto representa la consulta del estado de un pedido y de la información prevista para su entrega (ver Figura 103).
+El recorrido propuesto representa la consulta del estado de un pedido y de la información prevista para su entrega (ver Figura 106).
 
-<a id="figura-103"></a>
+<a id="figura-106"></a>
 
-**Figura 103**
+**Figura 106**
 
 *User flow de seguimiento de pedidos*
 
@@ -1328,11 +1328,11 @@ Como alternativa, se contempla que una observación de calidad requiera ajustar 
 
 *Happy Path*
 
-El recorrido propuesto permite consultar la receta óptica y sus datos principales (ver Figura 104).
+El recorrido propuesto permite consultar la receta óptica y sus datos principales (ver Figura 107).
 
-<a id="figura-104"></a>
+<a id="figura-107"></a>
 
-**Figura 104**
+**Figura 107**
 
 *User flow de consulta de receta óptica*
 
@@ -1346,11 +1346,11 @@ Como alternativas, se consideran la ausencia de una receta registrada y la neces
 
 *Happy Path*
 
-El recorrido propuesto muestra la consulta de la agenda y la actualización del estado de atención (ver Figura 105).
+El recorrido propuesto muestra la consulta de la agenda y la actualización del estado de atención (ver Figura 108).
 
-<a id="figura-105"></a>
+<a id="figura-108"></a>
 
-**Figura 105**
+**Figura 108**
 
 *User flow de gestión de agenda y atención clínica*
 
@@ -1364,11 +1364,11 @@ Como alternativas, se consideran la inasistencia del paciente y la reprogramaci�
 
 *Happy Path*
 
-El recorrido propuesto muestra cómo el personal agenda una cita desde el registro del paciente (ver Figura 106).
+El recorrido propuesto muestra cómo el personal agenda una cita desde el registro del paciente (ver Figura 109).
 
-<a id="figura-106"></a>
+<a id="figura-109"></a>
 
-**Figura 106**
+**Figura 109**
 
 *User flow de agendamiento de cita por el personal*
 
@@ -1382,11 +1382,11 @@ Como alternativa, se contempla que el horario elegido no esté disponible.
 
 *Happy Path*
 
-El recorrido propuesto representa el registro de un paciente y de la información de su evaluación visual (ver Figura 107).
+El recorrido propuesto representa el registro de un paciente y de la información de su evaluación visual (ver Figura 110).
 
-<a id="figura-107"></a>
+<a id="figura-110"></a>
 
-**Figura 107**
+**Figura 110**
 
 *User flow de registro de paciente y evaluación visual*
 
@@ -1400,11 +1400,11 @@ Como alternativa, se considera el intento de guardar una ficha clínica con dato
 
 *Happy Path*
 
-El recorrido propuesto representa la elaboración de una cotización y su conversión en venta (ver Figura 108).
+El recorrido propuesto representa la elaboración de una cotización y su conversión en venta (ver Figura 111).
 
-<a id="figura-108"></a>
+<a id="figura-111"></a>
 
-**Figura 108**
+**Figura 111**
 
 *User flow de cotización y confirmación de venta*
 
@@ -1418,11 +1418,11 @@ Como alternativas, se consideran el rechazo de la cotización y la decisión de 
 
 *Happy Path*
 
-El recorrido propuesto representa la consulta de un producto mediante escaneo y la gestión de sus movimientos de inventario (ver Figura 109).
+El recorrido propuesto representa la consulta de un producto mediante escaneo y la gestión de sus movimientos de inventario (ver Figura 112).
 
-<a id="figura-109"></a>
+<a id="figura-112"></a>
 
-**Figura 109**
+**Figura 112**
 
 *User flow de control de inventario y escaneo de productos*
 
@@ -1436,11 +1436,11 @@ Como alternativas, se consideran un código ilegible y un producto que no figure
 
 *Happy Path*
 
-El recorrido propuesto reúne la supervisión de órdenes de producción y la consulta de reportes (ver Figura 110).
+El recorrido propuesto reúne la supervisión de órdenes de producción y la consulta de reportes (ver Figura 113).
 
-<a id="figura-110"></a>
+<a id="figura-113"></a>
 
-**Figura 110**
+**Figura 113**
 
 *User flow de supervisión de producción, alertas y reportes*
 
@@ -1454,11 +1454,11 @@ Como alternativa, se contempla una demora en producción que requiera revisar la
 
 ##### Landing Page Prototyping:
 
-La captura del video del prototipo de la Landing Page se muestra en la Figura 111.
+La captura del video del prototipo de la Landing Page se muestra en la Figura 114.
 
-<a id="figura-111"></a>
+<a id="figura-114"></a>
 
-**Figura 111**
+**Figura 114**
 
 *Captura del video del prototipo de la Landing Page*
 
