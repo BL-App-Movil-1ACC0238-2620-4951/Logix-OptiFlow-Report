@@ -992,7 +992,7 @@ A partir de las agrupaciones funcionales definidas en el Paso 3 del EventStormin
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
-El Domain Message Flow Modeling muestra cómo colaboran los Bounded Contexts de OptiFlow para completar los procesos principales del negocio (DDD Crew, s. f.-b). Cada diagrama representa un escenario de punta a punta e indica qué actor inicia el proceso, desde qué sistema lo hace, qué mensajes intercambian los contextos, en qué orden ocurren y qué datos lleva cada mensaje. Los diagramas se elaboraron en Miro, sobre la plantilla de Domain Message Flow Modelling del tablero de diseño estratégico, a partir de los comandos, eventos y consultas definidos en el diseño estratégico e implementados en el backend.
+El Domain Message Flow Modeling muestra cómo colaboran los Bounded Contexts de OptiFlow para completar los procesos principales del negocio (DDD Crew, s. f.-c). Cada diagrama representa un escenario de punta a punta e indica qué actor inicia el proceso, desde qué sistema lo hace, qué mensajes intercambian los contextos, en qué orden ocurren y qué datos lleva cada mensaje. Los diagramas se elaboraron en Miro, sobre la plantilla de Domain Message Flow Modelling del tablero de diseño estratégico, a partir de los comandos, eventos y consultas definidos en el diseño estratégico e implementados en el backend.
 
 Los diagramas utilizan la siguiente notación, que se repite en la leyenda de cada figura:
 
@@ -1283,212 +1283,191 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 El [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los límites, mientras que el [Anexo D](Anexos.md#anexo-d-context-mapping) permite contrastar los colaboradores con el Context Map.
 
-### 2.5.2 Context Mapping
+### 2.5.2. Context Mapping
 
-Los Context Maps representan las relaciones y dependencias entre los Bounded Contexts de OptiFlow. El diseño identifica quién provee y quién consume información, y propone patrones como **Customer/Supplier**, **Open Host Service**, **Anti-Corruption Layer** y **Conformist** para definir cómo se intercambian datos y se protege el modelo de cada contexto.
+El Context Mapping representa las relaciones estructurales entre los cinco Bounded Contexts de OptiFlow: qué contexto provee información (upstream), qué contexto la consume (downstream) y cómo se protege el modelo de cada uno durante la integración (DDD Crew, s. f.-b). El mapa se elaboró a partir de los resultados del EventStorming, de los eventos identificados en los Domain Message Flows de la sección 2.5.1.2 y de los Bounded Context Canvases de la sección 2.5.1.3.
 
+En el mapa se emplean los siguientes patrones de Domain-Driven Design:
 
-##### Search & Booking → Clinical & Commercial
+- **Customer / Supplier:** el contexto upstream (Supplier) considera las necesidades del contexto downstream (Customer) al definir la información que publica.
+- **Conformist (CF):** el contexto downstream adopta el modelo del upstream tal como lo recibe, sin traducirlo.
+- **Anti-Corruption Layer (ACL):** el contexto downstream traduce la información recibida a su propio modelo, de modo que los cambios del upstream no afectan sus reglas de negocio.
+- **Open Host Service (OHS):** el contexto upstream ofrece un punto de integración estable, formado por sus eventos de dominio y sus servicios de consulta.
+- **Published Language (PL):** los eventos de dominio tienen una estructura documentada y conocida por los contextos que los consumen.
+- **Shared Kernel:** dos o más contextos comparten un subconjunto pequeño del modelo o del código, que solo cambia con el acuerdo de todos.
 
+##### Context map candidato inicial
 
-El Context Map entre Search & Booking y Clinical & Commercial se observa en la Figura 30.
+El primer context map candidato incluía los cinco Bounded Contexts y dos sistemas externos: una pasarela de pagos (POS, Yape y Plin) conectada a Clinical & Commercial y una plataforma de mensajería (WhatsApp y Firebase Cloud Messaging) conectada a Notification & Loyalty, como se muestra en la Figura 30.
 
 <a id="figura-30"></a>
 
 **Figura 30**
 
-*Context Map entre Search & Booking y Clinical & Commercial*
+*Context map candidato inicial de OptiFlow*
 
-<div align="center">
-<img src="assets/cap2/ContextMapping1.png">
-</div>
+![Context map candidato inicial de OptiFlow](assets/cap2/ContextMappingFinal.png)
 
+*Nota.* Elaboración propia.
 
-**Patrón: Customer / Supplier**
+##### Análisis de alternativas
 
-En esta relación, **Search & Booking** actúa como el upstream (U) exponiendo un Open Host Service (OHS) y **Clinical & Commercial** actúa como el downstream (D) mediante una Anti-Corruption Layer (ACL).
+A partir del mapa candidato, el equipo evaluó alternativas de diseño mediante preguntas sobre la ubicación de cada capacidad y la forma de integración entre contextos. Para cada alternativa se analizaron sus consecuencias y se tomó una decisión, como se resume en la Tabla 23.
 
-- **Search & Booking como proveedor:** Gestiona la reserva de turnos, la disponibilidad de horarios y el registro inicial del paciente. Cuando el paciente agenda una cita, este contexto publica el evento `AppointmentBooked` con el identificador del paciente, fecha, hora y sucursal asignada. Search & Booking influye directamente sobre Clinical & Commercial, ya que establece la entrada del flujo presencial en la óptica.
+<a id="tabla-23"></a>
 
-- **Clinical & Commercial como cliente:** Depende de la reserva generada para admitir al paciente en consultorio y ejecutar el comando `ExaminePatient`. Utiliza una capa anticorrupción (ACL) para traducir los datos de la cita y del usuario externo a su propio modelo clínico de historia médica (`Medical History`), protegiendo su lógica de refracción de los cambios de agenda o cancelación de turnos.
+**Tabla 23**
 
+*Alternativas evaluadas para el Context Mapping de OptiFlow*
 
-##### Search & Booking → Notification & Loyalty
+| # | Pregunta | Análisis | Decisión |
+| :-: | :--- | :--- | :--- |
+| 1 | ¿Qué pasaría si partimos Clinical & Commercial en un contexto clínico y otro comercial? | La cotización se genera a partir de la receta y del expediente de la misma atención. Separarlos obligaría a publicar eventos adicionales y a copiar el expediente en el contexto comercial para cada venta. | Se mantiene un solo contexto: la atención clínica y la venta forman parte de la misma visita del paciente. |
+| 2 | ¿Qué pasaría si movemos el recordatorio de citas a Search & Booking? | Search & Booking tendría que gestionar mensajes y avisos, una capacidad que Notification & Loyalty ya cumple para el avance de los pedidos. Se duplicaría la lógica de notificaciones en dos contextos. | Notification & Loyalty programa el recordatorio; Search & Booking solo publica `AppointmentBooked`. |
+| 3 | ¿Qué pasaría si incluimos la receta completa y la cotización dentro de `SaleWasClosed`? | El evento quedaría acoplado al modelo comercial: cualquier cambio en la cotización afectaría a Production & Tracking, que además recibiría precios y pagos que no necesita. | El evento lleva los identificadores de la venta. Production & Tracking obtiene las especificaciones de las lunas mediante su ACL, que traduce la receta y descarta los datos comerciales. |
+| 4 | ¿Qué pasaría si Store Management & Inventory consulta la venta en Clinical & Commercial para saber qué descontar? | Inventory dependería del modelo interno de la cotización y de la disponibilidad de otro contexto en el momento del descuento. | Clinical & Commercial, como Supplier, incluye en `SaleWasClosed` los productos vendidos (`productSku` y `quantity`). Inventory los traduce a movimientos de stock con `UpdateInventory`. |
+| 5 | ¿Qué pasaría si creamos un Shared Kernel con el modelo del paciente para todos los contextos? | Un cambio en el paciente obligaría a coordinar los cinco contextos. Cada contexto solo necesita el identificador del paciente para relacionar su información. | Cada contexto guarda `patientId` como value object propio. El Shared Kernel se limita a contratos técnicos: `DomainEvent`, `DomainEventPublisher` y `DomainException`. |
+| 6 | ¿Qué pasaría si aislamos las capacidades core y movemos notificaciones e inventario a contextos aparte? | Los contextos core (Search & Booking, Clinical & Commercial y Production & Tracking) concentran el flujo principal del paciente. Notificaciones e inventario apoyan ese flujo, pero no lo controlan. | Se adopta: los contextos supporting dependen de los eventos de los contextos core, y ningún contexto core depende de un contexto supporting. |
+| 7 | ¿Qué pasaría si integramos una pasarela de pagos y una plataforma de mensajería externas? | Requieren contratos con proveedores, credenciales y validación de cada canal. En la óptica, el pago se registra con su referencia (`RecordPayment`) y el paciente consulta sus avisos en la aplicación (`GetNotificationsByPatient`). | Los sistemas externos no forman parte del mapa: el registro del pago y los avisos se resuelven dentro de OptiFlow. |
+| 8 | ¿Qué pasaría si Notification & Loyalty traduce los eventos con una ACL en lugar de adoptarlos como Conformist? | Notification & Loyalty solo usa identificadores y estados para redactar los avisos. Una capa de traducción no protegería ninguna regla de negocio propia. | Notification & Loyalty adopta los eventos tal como se publican (Conformist). |
 
+##### Context map final
 
-El Context Map entre Search & Booking y Notification & Loyalty se muestra en la Figura 31.
+Como resultado del análisis, el context map final conserva los cinco Bounded Contexts y cinco relaciones basadas en eventos de dominio, como se muestra en la Figura 31. Los contextos core aparecen en azul y los contextos supporting en naranja; en cada extremo de una relación se indica el rol upstream (U) o downstream (D) y los patrones que aplica.
 
 <a id="figura-31"></a>
 
 **Figura 31**
 
-*Context Map entre Search & Booking y Notification & Loyalty*
+*Context map final de OptiFlow*
 
-<div align="center">
-<img src="assets/cap2/ContextMapping2.png">
-</div>
+![Context map final de OptiFlow](assets/cap2/context-mapping/context-map-final.png)
 
+*Nota.* Elaboración propia.
 
-**Patrón: Customer / Supplier**
+La Tabla 24 resume cada relación del mapa final, los eventos que la conectan y el componente del backend que la implementa.
 
-En esta relación, **Search & Booking** actúa como el upstream (U) y **Notification & Loyalty** actúa como el downstream (D) bajo una relación Conformist (CF).
+<a id="tabla-24"></a>
 
-- **Search & Booking como proveedor:** Al confirmarse una reserva en la plataforma, emite el evento `AppointmentBooked`. Search & Booking no tiene conocimiento de los mecanismos de comunicación ni de las plantillas de mensaje; únicamente notifica que un turno ha sido programado.
+**Tabla 24**
 
-- **Notification & Loyalty como cliente:** Depende de este evento para ejecutar `SendAppointmentReminder`. Como contexto de soporte, adopta directamente el identificador del paciente y la marca de tiempo de la reserva provista por el upstream (Conformist) para programar los recordatorios preventivos de asistencia hacia el paciente sin alterar la semántica original de la reserva.
+*Relaciones del context map final de OptiFlow*
 
+| Upstream | Downstream | Relación | Patrones | Eventos | Comando ejecutado | Implementación en el backend |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Search & Booking | Clinical & Commercial | Customer / Supplier | OHS, PL / ACL | `AppointmentBooked` | `ExaminePatient` | `SearchBookingAppointmentAdapter` (ACL) |
+| Search & Booking | Notification & Loyalty | Conformist | OHS, PL / CF | `AppointmentBooked` | `ScheduleAppointmentReminder` | `AppointmentBookedEventHandler` |
+| Clinical & Commercial | Production & Tracking | Customer / Supplier | OHS, PL / ACL | `SaleWasClosed` | `GenerateWorkOrder` | `ClinicalCommercialSaleAdapter` (ACL) |
+| Clinical & Commercial | Store Management & Inventory | Customer / Supplier | OHS, PL / ACL | `SaleWasClosed` | `UpdateInventory` | `SaleWasClosedEventHandler` (ACL) |
+| Production & Tracking | Notification & Loyalty | Conformist | OHS, PL / CF | `WorkOrderStatusUpdated`, `DeliveryDelayNotified`, `OrderWasMarkedAsDelivered` | `NotifyLensOrderProgress`, `SendDeliveryDelayNotification`, `SendSatisfactionSurvey` | `WorkOrderStatusUpdatedEventHandler`, `ProductionDeliveryDelayNotifiedEventHandler`, `OrderWasMarkedAsDeliveredEventHandler` |
 
-##### Clinical & Commercial → Production & Tracking
+A continuación se detalla cada relación del mapa final.
 
+##### Search & Booking → Clinical & Commercial
 
-El Context Map entre Clinical & Commercial y Production & Tracking se presenta en la Figura 32.
+La relación entre Search & Booking y Clinical & Commercial se muestra en la Figura 32.
 
 <a id="figura-32"></a>
 
 **Figura 32**
 
-*Context Map entre Clinical & Commercial y Production & Tracking*
+*Context map entre Search & Booking y Clinical & Commercial*
 
-<div align="center">
-<img src="assets/cap2/ContextMapping3.png">
-</div>
+![Context map entre Search & Booking y Clinical & Commercial](assets/cap2/context-mapping/context-map-1-search-booking-clinical.png)
 
+*Nota.* Elaboración propia.
 
-**Patrón: Customer / Supplier**
+**Patrón: Customer / Supplier, con Open Host Service y Published Language en el upstream y Anti-Corruption Layer en el downstream.**
 
-En esta relación, **Clinical & Commercial** actúa como el upstream (U) exponiendo un Open Host Service (OHS) y **Production & Tracking** actúa como el downstream (D) protegido por una Anti-Corruption Layer (ACL).
+- **Search & Booking como upstream:** registra la reserva y publica el evento `AppointmentBooked` con `appointmentId`, `patientId`, `opticalStoreId` y `timeSlotId`. También ofrece la consulta de la cita para los contextos que necesitan confirmar su estado.
+- **Clinical & Commercial como downstream:** al recibir el evento ejecuta `ExaminePatient` y abre el expediente clínico de la atención. Su ACL (`SearchBookingAppointmentAdapter`) traduce la cita al modelo clínico (`BookedAppointment`), con lo que los cambios en la agenda o en los estados de la reserva no alteran las reglas del expediente.
 
-- **Clinical & Commercial como proveedor:** Gestiona la evaluación optométrica, la emisión de la receta médica (`Optical Prescription`) y el cierre de la transacción comercial. Al completarse el cobro y registrarse el evento `SaleWasClosed`, este contexto proporciona las especificaciones técnicas completas de las lunas (esferas, cilindros, ejes, adición, tratamientos y tipo de montura seleccionada).
+##### Search & Booking → Notification & Loyalty
 
-- **Production & Tracking como cliente:** No puede iniciar ningún trabajo técnico sin la aprobación médica y comercial. Al recibir el evento, activa el comando `GenerateWorkOrder` para alimentar el tablero Kanban del taller. Implementa una ACL para aislar su modelo operativo de fabricación y control de calidad de las fluctuaciones comerciales, descuentos o métodos de facturación utilizados en la venta.
-
-
-##### Clinical & Commercial → Store Management & Inventory
-
-
-El Context Map entre Clinical & Commercial y Store Management & Inventory se observa en la Figura 33.
+La relación entre Search & Booking y Notification & Loyalty se muestra en la Figura 33.
 
 <a id="figura-33"></a>
 
 **Figura 33**
 
-*Context Map entre Clinical & Commercial y Store Management & Inventory*
+*Context map entre Search & Booking y Notification & Loyalty*
 
-<div align="center">
-<img src="assets/cap2/ContextMapping4.png">
-</div>
+![Context map entre Search & Booking y Notification & Loyalty](assets/cap2/context-mapping/context-map-2-search-booking-notification.png)
 
+*Nota.* Elaboración propia.
 
-**Patrón: Customer / Supplier**
+**Patrón: Conformist, con Open Host Service y Published Language en el upstream.**
 
-En esta relación, **Clinical & Commercial** actúa como el upstream (U) y **Store Management & Inventory** actúa como el downstream (D) bajo una relación Conformist (CF).
+- **Search & Booking como upstream:** publica `AppointmentBooked` sin conocer cómo se redactan ni se muestran los avisos al paciente.
+- **Notification & Loyalty como downstream:** adopta el evento tal como se publica y usa `patientId` y `appointmentId` para ejecutar `ScheduleAppointmentReminder`, que registra el recordatorio de la cita en la aplicación.
 
-- **Clinical & Commercial como proveedor:** Al formalizar la venta mediante `SaleWasClosed`, emite la lista exacta de códigos SKU correspondientes a las monturas y accesorios físicos vendidos en el mostrador.
+##### Clinical & Commercial → Production & Tracking
 
-- **Store Management & Inventory como cliente:** Depende de este evento comercial para deducir el stock real de existencias en almacén y verificar si se ha alcanzado el umbral crítico de reabastecimiento (`LowStockAlertGenerated`). Actúa como un modelo conformista que acepta los códigos de producto y cantidades transaccionadas tal como fueron despachados desde el salón de venta.
-
-
-##### Production & Tracking → Notification & Loyalty
-
-
-El Context Map entre Production & Tracking y Notification & Loyalty se muestra en la Figura 34.
+La relación entre Clinical & Commercial y Production & Tracking se muestra en la Figura 34.
 
 <a id="figura-34"></a>
 
 **Figura 34**
 
-*Context Map entre Production & Tracking y Notification & Loyalty*
+*Context map entre Clinical & Commercial y Production & Tracking*
 
-<div align="center">
-<img src="assets/cap2/ContextMapping5.png">
-</div>
+![Context map entre Clinical & Commercial y Production & Tracking](assets/cap2/context-mapping/context-map-3-clinical-production.png)
 
+*Nota.* Elaboración propia.
 
-**Patrón: Customer / Supplier**
+**Patrón: Customer / Supplier, con Open Host Service y Published Language en el upstream y Anti-Corruption Layer en el downstream.**
 
-En esta relación, **Production & Tracking** actúa como el upstream (U) mediante un Open Host Service (OHS) y **Notification & Loyalty** actúa como el downstream (D) bajo una relación Conformist (CF).
+- **Clinical & Commercial como upstream:** al cerrar la venta publica `SaleWasClosed` con `saleId`, `quotationId`, `clinicalRecordId`, `patientId`, `totalAmount` y los productos vendidos. También ofrece la consulta de la venta, la cotización y el expediente clínico.
+- **Production & Tracking como downstream:** al recibir el evento ejecuta `GenerateWorkOrder`. Su ACL (`ClinicalCommercialSaleAdapter`) consulta la venta y traduce la receta óptica en especificaciones de lunas (esfera, cilindro, eje, adición y tratamiento), descartando precios, pagos y datos de facturación que la fabricación no necesita.
 
-- **Production & Tracking como proveedor:** Registra la trazabilidad del pedido en el laboratorio. Cada vez que el técnico actualiza el flujo logístico (tallado, biselado o montaje final) emite `WorkOrderStatusUpdated`, y al completar la fase de calidad genera `OrderWasMarkedAsDelivered`. Es el único contexto con conocimiento del estado real de fabricación de las lunas.
+##### Clinical & Commercial → Store Management & Inventory
 
-- **Notification & Loyalty como cliente:** No posee criterio técnico para evaluar el proceso de biselado ni los tiempos de secado de lunas. Simplemente reacciona a los eventos del laboratorio ejecutando los comandos `NotifyLensOrderProgress` y `SendSatisfactionSurvey`, consumiendo el identificador de orden y el estado logístico tal como el taller los publica.
-
-
-##### Payment Gateway → Clinical & Commercial
-
-
-El Context Map entre Payment Gateway y Clinical & Commercial se presenta en la Figura 35.
+La relación entre Clinical & Commercial y Store Management & Inventory se muestra en la Figura 35.
 
 <a id="figura-35"></a>
 
 **Figura 35**
 
-*Context Map entre Payment Gateway y Clinical & Commercial*
+*Context map entre Clinical & Commercial y Store Management & Inventory*
 
-<div align="center">
-<img src="assets/cap2/ContextMapping6.png">
-</div>
+![Context map entre Clinical & Commercial y Store Management & Inventory](assets/cap2/context-mapping/context-map-4-clinical-inventory.png)
 
+*Nota.* Elaboración propia.
 
-**Patrón: Customer / Supplier**
+**Patrón: Customer / Supplier, con Open Host Service y Published Language en el upstream y Anti-Corruption Layer en el downstream.**
 
-En esta relación, la **Pasarela de Pagos Externa (POS / Yape / Plin)** actúa como el upstream (U) exponiendo un Open Host Service (OHS) y **Clinical & Commercial** actúa como el downstream (D) utilizando una Anti-Corruption Layer (ACL).
+- **Clinical & Commercial como upstream:** a pedido de Store Management & Inventory, incluye en `SaleWasClosed` la lista de productos vendidos con su `productSku` y `quantity`. Esta adaptación del contrato a las necesidades del cliente caracteriza la relación Customer / Supplier.
+- **Store Management & Inventory como downstream:** al recibir el evento ejecuta `UpdateInventory`. Su ACL traduce cada producto vendido en un movimiento de salida de stock y descarta los productos que no controla, como los servicios. Luego verifica si alguna existencia llegó a su nivel mínimo para generar la alerta de reabastecimiento.
 
-- **Payment Gateway como proveedor:** Proveedor externo bancario y de billeteras móviles que procesa las transferencias monetarias y emite tokens de confirmación de transacción bancaria.
+##### Production & Tracking → Notification & Loyalty
 
-- **Clinical & Commercial como cliente:** Depende de la autorización externa para registrar formalmente el evento `PaymentReceived`. Implementa una capa anticorrupción (ACL) para mapear los formatos propietarios y respuestas JSON de la pasarela bancaria externa hacia la entidad interna de recibo electrónico (`Electronic Receipt`) del dominio de OptiFlow, evitando que cambios en las APIs de los bancos alteren el sistema contable interno.
-
-
-##### Third-Party Messaging → Notification & Loyalty
-
-
-El Context Map entre Third-Party Messaging y Notification & Loyalty se observa en la Figura 36.
+La relación entre Production & Tracking y Notification & Loyalty se muestra en la Figura 36.
 
 <a id="figura-36"></a>
 
 **Figura 36**
 
-*Context Map entre Third-Party Messaging y Notification & Loyalty*
+*Context map entre Production & Tracking y Notification & Loyalty*
 
-<div align="center">
-<img src="assets/cap2/ContextMapping7.png">
-</div>
+![Context map entre Production & Tracking y Notification & Loyalty](assets/cap2/context-mapping/context-map-5-production-notification.png)
 
+*Nota.* Elaboración propia.
 
-**Patrón: Customer / Supplier**
+**Patrón: Conformist, con Open Host Service y Published Language en el upstream.**
 
-En esta relación, la plataforma de mensajería externa (**Meta WhatsApp Cloud API / Firebase Cloud Messaging**) actúa como el upstream (U) mediante un Open Host Service (OHS) y **Notification & Loyalty** actúa como el downstream (D) mediante una Anti-Corruption Layer (ACL).
-
-- **Third-Party Messaging como proveedor:** Provee la infraestructura de entrega masiva de mensajes push y notificaciones de chat hacia los dispositivos móviles de los pacientes.
-
-- **Notification & Loyalty como cliente:** Consume los servicios de entrega de mensajería. Utiliza una ACL para desacoplar las plantillas de mensaje y eventos de negocio de OptiFlow de la estructura de carga útil (*payloads* y cabeceras HTTP) requerida por las APIs de Meta y Google.
-
-
-##### Context Map Final
-
-
-El Context Map final de OptiFlow se muestra en la Figura 37.
-
-<a id="figura-37"></a>
-
-**Figura 37**
-
-*Context Map final de OptiFlow*
-
-<div align="center">
-<img src="assets/cap2/ContextMappingFinal.png">
-</div>
-
+- **Production & Tracking como upstream:** es el único contexto que conoce el estado real de fabricación. Publica `WorkOrderStatusUpdated` en cada cambio de estado, `DeliveryDelayNotified` cuando se registra una demora y `OrderWasMarkedAsDelivered` cuando el paciente recibe sus lentes.
+- **Notification & Loyalty como downstream:** adopta los eventos tal como se publican y ejecuta `NotifyLensOrderProgress`, `SendDeliveryDelayNotification` y `SendSatisfactionSurvey`, respectivamente. El paciente consulta estos avisos en la aplicación mediante `GetNotificationsByPatient`.
 
 ### 2.5.3. Software Architecture
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relacionados. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias; el diagrama de contenedores identifica cuáles corresponden al incremento de TB1 (ver Figura 38).
+El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relacionados. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias; el diagrama de contenedores identifica cuáles corresponden al incremento de TB1 (ver Figura 37).
 
 
-<a id="figura-38"></a>
+<a id="figura-37"></a>
 
-**Figura 38**
+**Figura 37**
 
 *Diagrama de contexto C4 de OptiFlow*
 
@@ -1497,12 +1476,12 @@ El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relaci
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 39).
+El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 38).
 
 
-<a id="figura-39"></a>
+<a id="figura-38"></a>
 
-**Figura 39**
+**Figura 38**
 
 *Diagrama de contenedores C4 con un único backend*
 
@@ -1511,12 +1490,12 @@ El diagrama de contenedores, elaborado con Structurizr, muestra el backend como 
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en el Sprint 1. La Landing Page se publica como sitio estático en GitHub Pages; el backend se ejecuta en un contenedor Docker en Render y accede a una base de datos PostgreSQL mediante JPA; y la aplicación móvil se distribuye con Firebase App Distribution para instalarse en los dispositivos Android, desde donde consume el backend por HTTPS. La configuración de cada entorno se detalla en la sección 4.1.4 (ver Figura 40).
+El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en el Sprint 1. La Landing Page se publica como sitio estático en GitHub Pages; el backend se ejecuta en un contenedor Docker en Render y accede a una base de datos PostgreSQL mediante JPA; y la aplicación móvil se distribuye con Firebase App Distribution para instalarse en los dispositivos Android, desde donde consume el backend por HTTPS. La configuración de cada entorno se detalla en la sección 4.1.4 (ver Figura 39).
 
 
-<a id="figura-40"></a>
+<a id="figura-39"></a>
 
-**Figura 40**
+**Figura 39**
 
 *Deployment Diagram de OptiFlow en el Sprint 1*
 
@@ -1542,12 +1521,12 @@ Esta capa no depende de frameworks, bases de datos ni servicios externos, permit
 
 La entidad `Appointment` representa la reserva formal realizada por un paciente para recibir atención en una óptica dentro de un horario determinado. Se considera el **Aggregate Root** principal del proceso de reserva, debido a que concentra las reglas necesarias para mantener la consistencia de una cita.
 
-Cuando un paciente selecciona una óptica y un horario disponible, el agregado valida la información correspondiente y permite crear la reserva. Asimismo, controla las operaciones relacionadas con la confirmación, cancelación y reprogramación de una cita (ver Tabla 23).
+Cuando un paciente selecciona una óptica y un horario disponible, el agregado valida la información correspondiente y permite crear la reserva. Asimismo, controla las operaciones relacionadas con la confirmación, cancelación y reprogramación de una cita (ver Tabla 25).
 
 
-<a id="tabla-23"></a>
+<a id="tabla-25"></a>
 
-**Tabla 23**
+**Tabla 25**
 
 *Atributos del aggregate root Appointment*
 
@@ -1565,11 +1544,11 @@ Cuando un paciente selecciona una óptica y un horario disponible, el agregado v
 ##### Métodos principales
 
 
-Los métodos principales del aggregate root Appointment se presentan en la Tabla 24.
+Los métodos principales del aggregate root Appointment se presentan en la Tabla 26.
 
-<a id="tabla-24"></a>
+<a id="tabla-26"></a>
 
-**Tabla 24**
+**Tabla 26**
 
 *Métodos principales del aggregate root Appointment*
 
@@ -1584,12 +1563,12 @@ Los métodos principales del aggregate root Appointment se presentan en la Tabla
 
 ##### Entidad: `Patient`
 
-La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar ópticas, consultar disponibilidad y reservar citas. Dentro de este contexto, la información del paciente se utiliza principalmente para identificar al usuario y relacionarlo con sus reservas y preferencias (ver Tabla 25).
+La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar ópticas, consultar disponibilidad y reservar citas. Dentro de este contexto, la información del paciente se utiliza principalmente para identificar al usuario y relacionarlo con sus reservas y preferencias (ver Tabla 27).
 
 
-<a id="tabla-25"></a>
+<a id="tabla-27"></a>
 
-**Tabla 25**
+**Tabla 27**
 
 *Atributos de la entidad Patient*
 
@@ -1604,12 +1583,12 @@ La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar óp
 
 ##### Entidad: `OpticalStore`
 
-La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma (ver Tabla 26).
+La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma (ver Tabla 28).
 
 
-<a id="tabla-26"></a>
+<a id="tabla-28"></a>
 
-**Tabla 26**
+**Tabla 28**
 
 *Atributos de la entidad OpticalStore*
 
@@ -1625,12 +1604,12 @@ La entidad `OpticalStore` representa una sucursal óptica disponible para ser en
 
 ##### Entidad: `TimeSlot`
 
-`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica (ver Tabla 27).
+`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica (ver Tabla 29).
 
 
-<a id="tabla-27"></a>
+<a id="tabla-29"></a>
 
-**Tabla 27**
+**Tabla 29**
 
 *Atributos de la entidad TimeSlot*
 
@@ -1646,11 +1625,11 @@ La entidad `OpticalStore` representa una sucursal óptica disponible para ser en
 ##### Value Objects
 
 
-Los Value Objects del Search & Booking Context se resumen en la Tabla 28.
+Los Value Objects del Search & Booking Context se resumen en la Tabla 30.
 
-<a id="tabla-28"></a>
+<a id="tabla-30"></a>
 
-**Tabla 28**
+**Tabla 30**
 
 *Value Objects del Search & Booking Context*
 
@@ -1672,11 +1651,11 @@ Los Value Objects del Search & Booking Context se resumen en la Tabla 28.
 ##### Enumerations
 
 
-Las enumeraciones del Search & Booking Context se detallan en la Tabla 29.
+Las enumeraciones del Search & Booking Context se detallan en la Tabla 31.
 
-<a id="tabla-29"></a>
+<a id="tabla-31"></a>
 
-**Tabla 29**
+**Tabla 31**
 
 *Enumeraciones del Search & Booking Context*
 
@@ -1690,11 +1669,11 @@ Las enumeraciones del Search & Booking Context se detallan en la Tabla 29.
 ##### Domain Services
 
 
-Los Domain Services del Search & Booking Context se presentan en la Tabla 30.
+Los Domain Services del Search & Booking Context se presentan en la Tabla 32.
 
-<a id="tabla-30"></a>
+<a id="tabla-32"></a>
 
-**Tabla 30**
+**Tabla 32**
 
 *Domain Services del Search & Booking Context*
 
@@ -1707,12 +1686,12 @@ Los Domain Services del Search & Booking Context se presentan en la Tabla 30.
 
 ##### Repository Interfaces
 
-Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades (ver Tabla 31).
+Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades (ver Tabla 33).
 
 
-<a id="tabla-31"></a>
+<a id="tabla-33"></a>
 
-**Tabla 31**
+**Tabla 33**
 
 *Repository Interfaces del Search & Booking Context*
 
@@ -1726,12 +1705,12 @@ Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persi
 
 ##### Domain Events
 
-Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto (ver Tabla 32).
+Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto (ver Tabla 34).
 
 
-<a id="tabla-32"></a>
+<a id="tabla-34"></a>
 
-**Tabla 32**
+**Tabla 34**
 
 *Domain Events del Search & Booking Context*
 
@@ -1750,11 +1729,11 @@ Los eventos anteriores corresponden a los eventos publicados definidos para el *
 ##### Factories
 
 
-Los Factories del Search & Booking Context se resumen en la Tabla 33.
+Los Factories del Search & Booking Context se resumen en la Tabla 35.
 
-<a id="tabla-33"></a>
+<a id="tabla-35"></a>
 
-**Tabla 33**
+**Tabla 35**
 
 *Factories del Search & Booking Context*
 
@@ -1775,11 +1754,11 @@ Esta capa permite exponer las capacidades de búsqueda, consulta de disponibilid
 ##### Controllers
 
 
-Los Controllers del Search & Booking Context se detallan en la Tabla 34.
+Los Controllers del Search & Booking Context se detallan en la Tabla 36.
 
-<a id="tabla-34"></a>
+<a id="tabla-36"></a>
 
-**Tabla 34**
+**Tabla 36**
 
 *Controllers del Search & Booking Context*
 
@@ -1797,11 +1776,11 @@ Los Controllers del Search & Booking Context se detallan en la Tabla 34.
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 35.
+Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 37.
 
-<a id="tabla-35"></a>
+<a id="tabla-37"></a>
 
-**Tabla 35**
+**Tabla 37**
 
 *Resources / DTOs del Search & Booking Context*
 
@@ -1823,11 +1802,11 @@ Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 35.
 ##### Assemblers
 
 
-Los Assemblers del Search & Booking Context se resumen en la Tabla 36.
+Los Assemblers del Search & Booking Context se resumen en la Tabla 38.
 
-<a id="tabla-36"></a>
+<a id="tabla-38"></a>
 
-**Tabla 36**
+**Tabla 38**
 
 *Assemblers del Search & Booking Context*
 
@@ -1852,11 +1831,11 @@ Se utiliza una separación entre **Commands**, orientados a modificar el estado 
 ##### Command Handlers
 
 
-Los Command Handlers del Search & Booking Context se detallan en la Tabla 37.
+Los Command Handlers del Search & Booking Context se detallan en la Tabla 39.
 
-<a id="tabla-37"></a>
+<a id="tabla-39"></a>
 
-**Tabla 37**
+**Tabla 39**
 
 *Command Handlers del Search & Booking Context*
 
@@ -1873,11 +1852,11 @@ Los Command Handlers del Search & Booking Context se detallan en la Tabla 37.
 ##### Query Services
 
 
-Los Query Services del Search & Booking Context se presentan en la Tabla 38.
+Los Query Services del Search & Booking Context se presentan en la Tabla 40.
 
-<a id="tabla-38"></a>
+<a id="tabla-40"></a>
 
-**Tabla 38**
+**Tabla 40**
 
 *Query Services del Search & Booking Context*
 
@@ -1893,12 +1872,12 @@ Los Query Services del Search & Booking Context se presentan en la Tabla 38.
 
 ##### Event Handlers
 
-Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno (ver Tabla 39).
+Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno (ver Tabla 41).
 
 
-<a id="tabla-39"></a>
+<a id="tabla-41"></a>
 
-**Tabla 39**
+**Tabla 41**
 
 *Event Handlers del Search & Booking Context*
 
@@ -1913,11 +1892,11 @@ En el diseño estratégico, `AppointmentBooked` comunica la creación de una res
 ##### Application Services
 
 
-Los Application Services del Search & Booking Context se resumen en la Tabla 40.
+Los Application Services del Search & Booking Context se resumen en la Tabla 42.
 
-<a id="tabla-40"></a>
+<a id="tabla-42"></a>
 
-**Tabla 40**
+**Tabla 42**
 
 *Application Services del Search & Booking Context*
 
@@ -1940,11 +1919,11 @@ La infraestructura se mantiene separada del dominio para evitar que las reglas d
 ##### Repository Implementations
 
 
-Los Repository Implementations del Search & Booking Context se detallan en la Tabla 41.
+Los Repository Implementations del Search & Booking Context se detallan en la Tabla 43.
 
-<a id="tabla-41"></a>
+<a id="tabla-43"></a>
 
-**Tabla 41**
+**Tabla 43**
 
 *Repository Implementations del Search & Booking Context*
 
@@ -1959,11 +1938,11 @@ Los Repository Implementations del Search & Booking Context se detallan en la Ta
 ##### Persistence Entities
 
 
-Los Persistence Entities del Search & Booking Context se presentan en la Tabla 42.
+Los Persistence Entities del Search & Booking Context se presentan en la Tabla 44.
 
-<a id="tabla-42"></a>
+<a id="tabla-44"></a>
 
-**Tabla 42**
+**Tabla 44**
 
 *Persistence Entities del Search & Booking Context*
 
@@ -1980,11 +1959,11 @@ Los Persistence Entities del Search & Booking Context se presentan en la Tabla 4
 ##### Mappers
 
 
-Los Mappers del Search & Booking Context se resumen en la Tabla 43.
+Los Mappers del Search & Booking Context se resumen en la Tabla 45.
 
-<a id="tabla-43"></a>
+<a id="tabla-45"></a>
 
-**Tabla 43**
+**Tabla 45**
 
 *Mappers del Search & Booking Context*
 
@@ -2001,11 +1980,11 @@ Los Mappers del Search & Booking Context se resumen en la Tabla 43.
 ##### External Service Adapters
 
 
-Los External Service Adapters del Search & Booking Context se detallan en la Tabla 44.
+Los External Service Adapters del Search & Booking Context se detallan en la Tabla 46.
 
-<a id="tabla-44"></a>
+<a id="tabla-46"></a>
 
-**Tabla 44**
+**Tabla 46**
 
 *External Service Adapters del Search & Booking Context*
 
@@ -2019,11 +1998,11 @@ Los External Service Adapters del Search & Booking Context se detallan en la Tab
 ##### Configuration
 
 
-Las clases de configuración del Search & Booking Context se presentan en la Tabla 45.
+Las clases de configuración del Search & Booking Context se presentan en la Tabla 47.
 
-<a id="tabla-45"></a>
+<a id="tabla-47"></a>
 
-**Tabla 45**
+**Tabla 47**
 
 *Clases de configuración del Search & Booking Context*
 
@@ -2047,11 +2026,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Proporciona las implementaciones técnicas concretas, incluyendo los repositorios sobre PostgreSQL/JPA (`AppointmentRepositoryImpl`, `PatientRepositoryImpl`, etc.), las entidades de persistencia (`AppointmentEntity`, etc.), los Mappers, el `EventPublisherAdapter` para la publicación asíncrona de eventos hacia el Event Bus (RabbitMQ/Kafka), y los adaptadores de integración externa (`AuthenticationAdapter`, `NotificationIntegrationAdapter`).
 
 
-El diagrama de componentes del Search & Booking Context en Spring Boot se observa en la Figura 41.
+El diagrama de componentes del Search & Booking Context en Spring Boot se observa en la Figura 40.
 
-<a id="figura-41"></a>
+<a id="figura-40"></a>
 
-**Figura 41**
+**Figura 40**
 
 *Diagrama de componentes del Search & Booking Context en Spring Boot*
 
@@ -2071,12 +2050,12 @@ El siguiente UML Class Diagram representa la estructura del **Domain Layer** cor
 
 El modelo tiene como elemento principal al Aggregate Root `Appointment`, encargado de representar el proceso de reserva de una cita. Este se relaciona con las Entities `Patient`, `OpticalStore` y `TimeSlot`, las cuales representan respectivamente al paciente que realiza la reserva, la óptica seleccionada y el horario disponible para la atención.
 
-El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 42).
+El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 41).
 
 
-<a id="figura-42"></a>
+<a id="figura-41"></a>
 
-**Figura 42**
+**Figura 41**
 
 *Diagrama de clases del Domain Layer del Search & Booking Context*
 
@@ -2097,12 +2076,12 @@ Por otro lado, `favorite_stores` representa la relación entre los pacientes y l
 
 De manera similar, `store_ratings` representa las valoraciones realizadas por los pacientes hacia las ópticas. Esta tabla utiliza una Primary Key compuesta por `patient_id` y `optical_store_id`, permitiendo identificar la valoración correspondiente a cada relación entre paciente y óptica.
 
-El modelo utiliza **Primary Keys, Foreign Keys, restricciones de unicidad y restricciones de validación** para mantener la integridad de los datos y representar correctamente las reglas necesarias para el proceso de búsqueda y reserva (ver Figura 43).
+El modelo utiliza **Primary Keys, Foreign Keys, restricciones de unicidad y restricciones de validación** para mantener la integridad de los datos y representar correctamente las reglas necesarias para el proceso de búsqueda y reserva (ver Figura 42).
 
 
-<a id="figura-43"></a>
+<a id="figura-42"></a>
 
-**Figura 43**
+**Figura 42**
 
 *Diagrama de base de datos del Search & Booking Context*
 
@@ -2117,12 +2096,12 @@ El modelo utiliza **Primary Keys, Foreign Keys, restricciones de unicidad y rest
 <a id="2.6.2.1. Domain Layer"></a>
 #### 2.6.2.1. Domain Layer
 
-El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio (ver Tabla 46).
+El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio (ver Tabla 48).
 
 
-<a id="tabla-46"></a>
+<a id="tabla-48"></a>
 
-**Tabla 46**
+**Tabla 48**
 
 *Clases del Domain Layer del Clinical & Commercial Context*
 
@@ -2150,11 +2129,11 @@ Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHi
 #### 2.6.2.2. Interface Layer
 
 
-Las clases del Interface Layer del Clinical & Commercial Context se detallan en la Tabla 47.
+Las clases del Interface Layer del Clinical & Commercial Context se detallan en la Tabla 49.
 
-<a id="tabla-47"></a>
+<a id="tabla-49"></a>
 
-**Tabla 47**
+**Tabla 49**
 
 *Clases del Interface Layer del Clinical & Commercial Context*
 
@@ -2170,11 +2149,11 @@ Las clases del Interface Layer del Clinical & Commercial Context se detallan en 
 #### 2.6.2.3. Application Layer
 
 
-Las clases del Application Layer del Clinical & Commercial Context se presentan en la Tabla 48.
+Las clases del Application Layer del Clinical & Commercial Context se presentan en la Tabla 50.
 
-<a id="tabla-48"></a>
+<a id="tabla-50"></a>
 
-**Tabla 48**
+**Tabla 50**
 
 *Clases del Application Layer del Clinical & Commercial Context*
 
@@ -2195,11 +2174,11 @@ Las clases del Application Layer del Clinical & Commercial Context se presentan 
 #### 2.6.2.4. Infrastructure Layer
 
 
-Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen en la Tabla 49.
+Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen en la Tabla 51.
 
-<a id="tabla-49"></a>
+<a id="tabla-51"></a>
 
-**Tabla 49**
+**Tabla 51**
 
 *Clases del Infrastructure Layer del Clinical & Commercial Context*
 
@@ -2223,11 +2202,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Resuelve la persistencia de datos mediante `ClinicalRecordRepositoryImpl`, `QuotationRepositoryImpl` y `SaleRepositoryImpl` sobre PostgreSQL utilizando JPA/Hibernate, publica eventos de dominio hacia el Event Bus mediante `DomainEventPublisher`, y provee la `PaymentGatewayAdapter` (Anti-Corruption Layer) para comunicarse de forma desacoplada con pasarelas de pago externas (POS, billeteras digitales).
 
 
-El diagrama de componentes del Clinical & Commercial Context en Spring Boot se muestra en la Figura 44.
+El diagrama de componentes del Clinical & Commercial Context en Spring Boot se muestra en la Figura 43.
 
-<a id="figura-44"></a>
+<a id="figura-43"></a>
 
-**Figura 44**
+**Figura 43**
 
 *Diagrama de componentes del Clinical & Commercial Context en Spring Boot*
 
@@ -2244,12 +2223,12 @@ La estructura modular permite que el registro clínico, la prescripción optomé
 <a id="2.6.2.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 45).
+El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 44).
 
 
-<a id="figura-45"></a>
+<a id="figura-44"></a>
 
-**Figura 45**
+**Figura 44**
 
 *Diagrama de clases del Domain Layer del Clinical & Commercial Context*
 
@@ -2267,12 +2246,12 @@ Las cotizaciones se almacenan mediante `quotations`, mientras que sus elementos 
 
 Una cotización puede generar **cero o una venta**, y cada venta pertenece a **exactamente una cotización**. Para registrarla, la cotización debe estar aprobada y no tener una venta previa. Por tanto, en el alcance de TB1 una cotización no puede producir varias ventas. Los datos del pago forman parte de `sales`; una venta puede tener cero o un comprobante en `electronic_receipts`.
 
-Esta regla está implementada en `RegisterSaleHandler`: comprueba la aprobación y `existsByQuotationId`, y rechaza una segunda venta con HTTP `409 Conflict`. La migración `V2__clinical_commercial_schema.sql` refuerza la integridad con `sales.quotation_id UUID NOT NULL UNIQUE` y su Foreign Key hacia `quotations.id`. Asimismo, `electronic_receipts.sale_id` es `NOT NULL UNIQUE`. Varios ítems de una cotización no implican varias ventas, y el modelo actual no contempla dividirla en ventas parciales (ver Figura 46).
+Esta regla está implementada en `RegisterSaleHandler`: comprueba la aprobación y `existsByQuotationId`, y rechaza una segunda venta con HTTP `409 Conflict`. La migración `V2__clinical_commercial_schema.sql` refuerza la integridad con `sales.quotation_id UUID NOT NULL UNIQUE` y su Foreign Key hacia `quotations.id`. Asimismo, `electronic_receipts.sale_id` es `NOT NULL UNIQUE`. Varios ítems de una cotización no implican varias ventas, y el modelo actual no contempla dividirla en ventas parciales (ver Figura 45).
 
 
-<a id="figura-46"></a>
+<a id="figura-45"></a>
 
-**Figura 46**
+**Figura 45**
 
 *Modelo de persistencia del Clinical & Commercial Context*
 
@@ -2293,11 +2272,11 @@ La **Domain Layer** concentra las reglas de negocio relacionadas con la producci
 El modelo de dominio se estructura alrededor de los principales conceptos definidos en el lenguaje ubicuo del contexto:
 
 
-Los conceptos del Domain Layer del Production & Tracking Context se presentan en la Tabla 50.
+Los conceptos del Domain Layer del Production & Tracking Context se presentan en la Tabla 52.
 
-<a id="tabla-50"></a>
+<a id="tabla-52"></a>
 
-**Tabla 50**
+**Tabla 52**
 
 *Conceptos del Domain Layer del Production & Tracking Context*
 
@@ -2315,11 +2294,11 @@ Los conceptos del Domain Layer del Production & Tracking Context se presentan en
 El flujo de estados definido para la `Work Order` utiliza las siguientes etapas:
 
 
-Los estados de la orden de trabajo se resumen en la Tabla 51.
+Los estados de la orden de trabajo se resumen en la Tabla 53.
 
-<a id="tabla-51"></a>
+<a id="tabla-53"></a>
 
-**Tabla 51**
+**Tabla 53**
 
 *Estados de la orden de trabajo*
 
@@ -2336,11 +2315,11 @@ Los estados de la orden de trabajo se resumen en la Tabla 51.
 Los principales comandos definidos para el contexto son:
 
 
-Los Domain Commands del Production & Tracking Context se detallan en la Tabla 52.
+Los Domain Commands del Production & Tracking Context se detallan en la Tabla 54.
 
-<a id="tabla-52"></a>
+<a id="tabla-54"></a>
 
-**Tabla 52**
+**Tabla 54**
 
 *Domain Commands del Production & Tracking Context*
 
@@ -2360,11 +2339,11 @@ Los Domain Commands del Production & Tracking Context se detallan en la Tabla 52
 Los eventos publicados por este contexto son:
 
 
-Los Domain Events del Production & Tracking Context se presentan en la Tabla 53.
+Los Domain Events del Production & Tracking Context se presentan en la Tabla 55.
 
-<a id="tabla-53"></a>
+<a id="tabla-55"></a>
 
-**Tabla 53**
+**Tabla 55**
 
 *Domain Events del Production & Tracking Context*
 
@@ -2383,11 +2362,11 @@ Los Domain Events del Production & Tracking Context se presentan en la Tabla 53.
 ##### Repository
 
 
-El Repository del Production & Tracking Context se resume en la Tabla 54.
+El Repository del Production & Tracking Context se resume en la Tabla 56.
 
-<a id="tabla-54"></a>
+<a id="tabla-56"></a>
 
-**Tabla 54**
+**Tabla 56**
 
 *Repository del Production & Tracking Context*
 
@@ -2409,11 +2388,11 @@ Los comandos definidos en el Bounded Context se exponen mediante la API Gateway,
 ##### Controllers
 
 
-Los Controllers del Production & Tracking Context se detallan en la Tabla 55.
+Los Controllers del Production & Tracking Context se detallan en la Tabla 57.
 
-<a id="tabla-55"></a>
+<a id="tabla-57"></a>
 
-**Tabla 55**
+**Tabla 57**
 
 *Controllers del Production & Tracking Context*
 
@@ -2425,11 +2404,11 @@ Los Controllers del Production & Tracking Context se detallan en la Tabla 55.
 ##### Event Consumers
 
 
-Los Event Consumers del Production & Tracking Context se presentan en la Tabla 56.
+Los Event Consumers del Production & Tracking Context se presentan en la Tabla 58.
 
-<a id="tabla-56"></a>
+<a id="tabla-58"></a>
 
-**Tabla 56**
+**Tabla 58**
 
 *Event Consumers del Production & Tracking Context*
 
@@ -2441,11 +2420,11 @@ Los Event Consumers del Production & Tracking Context se presentan en la Tabla 5
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 57.
+Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 59.
 
-<a id="tabla-57"></a>
+<a id="tabla-59"></a>
 
-**Tabla 57**
+**Tabla 59**
 
 *Resources / DTOs del Production & Tracking Context*
 
@@ -2465,11 +2444,11 @@ Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 57
 ##### Assemblers
 
 
-Los Assemblers del Production & Tracking Context se detallan en la Tabla 58.
+Los Assemblers del Production & Tracking Context se detallan en la Tabla 60.
 
-<a id="tabla-58"></a>
+<a id="tabla-60"></a>
 
-**Tabla 58**
+**Tabla 60**
 
 *Assemblers del Production & Tracking Context*
 
@@ -2495,11 +2474,11 @@ Los casos de uso principales corresponden a las operaciones definidas en el Boun
 ##### Command Handlers
 
 
-Los Command Handlers del Production & Tracking Context se presentan en la Tabla 59.
+Los Command Handlers del Production & Tracking Context se presentan en la Tabla 61.
 
-<a id="tabla-59"></a>
+<a id="tabla-61"></a>
 
-**Tabla 59**
+**Tabla 61**
 
 *Command Handlers del Production & Tracking Context*
 
@@ -2517,11 +2496,11 @@ Los Command Handlers del Production & Tracking Context se presentan en la Tabla 
 ##### Event Handler
 
 
-El Event Handler del Production & Tracking Context se resume en la Tabla 60.
+El Event Handler del Production & Tracking Context se resume en la Tabla 62.
 
-<a id="tabla-60"></a>
+<a id="tabla-62"></a>
 
-**Tabla 60**
+**Tabla 62**
 
 *Event Handler del Production & Tracking Context*
 
@@ -2533,11 +2512,11 @@ El Event Handler del Production & Tracking Context se resume en la Tabla 60.
 ##### Application Services
 
 
-Los Application Services del Production & Tracking Context se detallan en la Tabla 61.
+Los Application Services del Production & Tracking Context se detallan en la Tabla 63.
 
-<a id="tabla-61"></a>
+<a id="tabla-63"></a>
 
-**Tabla 61**
+**Tabla 63**
 
 *Application Services del Production & Tracking Context*
 
@@ -2559,11 +2538,11 @@ Esta capa implementa las abstracciones definidas en el dominio y permite que las
 ##### Repositories
 
 
-Los Repositories del Production & Tracking Context se presentan en la Tabla 62.
+Los Repositories del Production & Tracking Context se presentan en la Tabla 64.
 
-<a id="tabla-62"></a>
+<a id="tabla-64"></a>
 
-**Tabla 62**
+**Tabla 64**
 
 *Repositories del Production & Tracking Context*
 
@@ -2575,11 +2554,11 @@ Los Repositories del Production & Tracking Context se presentan en la Tabla 62.
 ##### Persistence
 
 
-Los componentes de persistencia del Production & Tracking Context se resumen en la Tabla 63.
+Los componentes de persistencia del Production & Tracking Context se resumen en la Tabla 65.
 
-<a id="tabla-63"></a>
+<a id="tabla-65"></a>
 
-**Tabla 63**
+**Tabla 65**
 
 *Componentes de persistencia del Production & Tracking Context*
 
@@ -2592,11 +2571,11 @@ Los componentes de persistencia del Production & Tracking Context se resumen en 
 ##### Messaging
 
 
-Los componentes de mensajería del Production & Tracking Context se detallan en la Tabla 64.
+Los componentes de mensajería del Production & Tracking Context se detallan en la Tabla 66.
 
-<a id="tabla-64"></a>
+<a id="tabla-66"></a>
 
-**Tabla 64**
+**Tabla 66**
 
 *Componentes de mensajería del Production & Tracking Context*
 
@@ -2626,11 +2605,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Implementa la persistencia documental mediante `WorkOrderRepositoryImpl`, `WorkOrderEntity` y `WorkOrderMapper` sobre MongoDB, la mensajería asíncrona mediante `DomainEventPublisher` y `SaleWasClosedConsumer` conectados al Event Bus (RabbitMQ/Kafka), y una Anti-Corruption Layer (ACL) que aísla el modelo de fabricación respecto a los datos comerciales y de facturación.
 
 
-El diagrama de componentes del Production & Tracking Context en Spring Boot se presenta en la Figura 47.
+El diagrama de componentes del Production & Tracking Context en Spring Boot se presenta en la Figura 46.
 
-<a id="figura-47"></a>
+<a id="figura-46"></a>
 
-**Figura 47**
+**Figura 46**
 
 *Diagrama de componentes del Production & Tracking Context en Spring Boot*
 
@@ -2653,12 +2632,12 @@ El modelo se organiza alrededor de `WorkOrder`, que representa el Aggregate Root
 
 El estado actual de la orden es representado mediante `WorkOrderStatus`, el cual permite identificar las diferentes etapas del flujo de producción: pendiente, en taller, control de calidad y listo para entrega. Asimismo, `DeliveryDate` representa la fecha estimada de entrega del pedido, mientras que `DeliveryDelay` permite representar situaciones relacionadas con retrasos durante el proceso de fabricación.
 
-El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 48).
+El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 47).
 
 
-<a id="figura-48"></a>
+<a id="figura-47"></a>
 
-**Figura 48**
+**Figura 47**
 
 *Diagrama de clases del Domain Layer del Production & Tracking Context*
 
@@ -2674,12 +2653,12 @@ El modelo se organiza alrededor de la colección `work_orders`, correspondiente 
 
 Dentro del documento de una orden pueden representarse la información del técnico asignado, el laboratorio, las lentes asociadas, el estado actual de producción, la fecha estimada de entrega y la información relacionada con posibles retrasos.
 
-Debido al uso de MongoDB, los elementos que forman parte del agregado pueden representarse mediante documentos embebidos y arreglos internos, evitando la necesidad de utilizar relaciones mediante Primary Keys y Foreign Keys propias de un modelo relacional (ver Figura 49).
+Debido al uso de MongoDB, los elementos que forman parte del agregado pueden representarse mediante documentos embebidos y arreglos internos, evitando la necesidad de utilizar relaciones mediante Primary Keys y Foreign Keys propias de un modelo relacional (ver Figura 48).
 
 
-<a id="figura-49"></a>
+<a id="figura-48"></a>
 
-**Figura 49**
+**Figura 48**
 
 *Diagrama de base de datos del Production & Tracking Context*
 
@@ -2701,11 +2680,11 @@ El modelo de dominio se organiza alrededor de los conceptos definidos en el leng
 ##### Domain Concepts
 
 
-Los Domain Concepts del Store Management & Inventory Context se resumen en la Tabla 65.
+Los Domain Concepts del Store Management & Inventory Context se resumen en la Tabla 67.
 
-<a id="tabla-65"></a>
+<a id="tabla-67"></a>
 
-**Tabla 65**
+**Tabla 67**
 
 *Domain Concepts del Store Management & Inventory Context*
 
@@ -2726,11 +2705,11 @@ Los Domain Concepts del Store Management & Inventory Context se resumen en la Ta
 Los comandos definidos para el contexto son:
 
 
-Los Domain Commands del Store Management & Inventory Context se detallan en la Tabla 66.
+Los Domain Commands del Store Management & Inventory Context se detallan en la Tabla 68.
 
-<a id="tabla-66"></a>
+<a id="tabla-68"></a>
 
-**Tabla 66**
+**Tabla 68**
 
 *Domain Commands del Store Management & Inventory Context*
 
@@ -2748,11 +2727,11 @@ Los Domain Commands del Store Management & Inventory Context se detallan en la T
 Los principales eventos publicados por el contexto son:
 
 
-Los Domain Events del Store Management & Inventory Context se presentan en la Tabla 67.
+Los Domain Events del Store Management & Inventory Context se presentan en la Tabla 69.
 
-<a id="tabla-67"></a>
+<a id="tabla-69"></a>
 
-**Tabla 67**
+**Tabla 69**
 
 *Domain Events del Store Management & Inventory Context*
 
@@ -2769,11 +2748,11 @@ Los Domain Events del Store Management & Inventory Context se presentan en la Ta
 ##### Repository
 
 
-El Repository del Store Management & Inventory Context se resume en la Tabla 68.
+El Repository del Store Management & Inventory Context se resume en la Tabla 70.
 
-<a id="tabla-68"></a>
+<a id="tabla-70"></a>
 
-**Tabla 68**
+**Tabla 70**
 
 *Repository del Store Management & Inventory Context*
 
@@ -2795,11 +2774,11 @@ Las solicitudes externas son recibidas mediante la API Gateway y posteriormente 
 ##### Controllers
 
 
-Los Controllers del Store Management & Inventory Context se detallan en la Tabla 69.
+Los Controllers del Store Management & Inventory Context se detallan en la Tabla 71.
 
-<a id="tabla-69"></a>
+<a id="tabla-71"></a>
 
-**Tabla 69**
+**Tabla 71**
 
 *Controllers del Store Management & Inventory Context*
 
@@ -2813,11 +2792,11 @@ Los Controllers del Store Management & Inventory Context se detallan en la Tabla
 ##### Event Consumers
 
 
-Los Event Consumers del Store Management & Inventory Context se presentan en la Tabla 70.
+Los Event Consumers del Store Management & Inventory Context se presentan en la Tabla 72.
 
-<a id="tabla-70"></a>
+<a id="tabla-72"></a>
 
-**Tabla 70**
+**Tabla 72**
 
 *Event Consumers del Store Management & Inventory Context*
 
@@ -2831,11 +2810,11 @@ La recepción de `SaleWasClosed` forma parte del flujo de integración definido 
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Store Management & Inventory Context se resumen en la Tabla 71.
+Los Resources / DTOs del Store Management & Inventory Context se resumen en la Tabla 73.
 
-<a id="tabla-71"></a>
+<a id="tabla-73"></a>
 
-**Tabla 71**
+**Tabla 73**
 
 *Resources / DTOs del Store Management & Inventory Context*
 
@@ -2855,11 +2834,11 @@ Los Resources / DTOs del Store Management & Inventory Context se resumen en la T
 ##### Assemblers
 
 
-Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 72.
+Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 74.
 
-<a id="tabla-72"></a>
+<a id="tabla-74"></a>
 
-**Tabla 72**
+**Tabla 74**
 
 *Assemblers del Store Management & Inventory Context*
 
@@ -2883,11 +2862,11 @@ Los casos de uso se ejecutan mediante handlers que reciben los comandos provenie
 ##### Command Handlers
 
 
-Los Command Handlers del Store Management & Inventory Context se presentan en la Tabla 73.
+Los Command Handlers del Store Management & Inventory Context se presentan en la Tabla 75.
 
-<a id="tabla-73"></a>
+<a id="tabla-75"></a>
 
-**Tabla 73**
+**Tabla 75**
 
 *Command Handlers del Store Management & Inventory Context*
 
@@ -2903,11 +2882,11 @@ Los Command Handlers del Store Management & Inventory Context se presentan en la
 ##### Event Handler
 
 
-El Event Handler del Store Management & Inventory Context se resume en la Tabla 74.
+El Event Handler del Store Management & Inventory Context se resume en la Tabla 76.
 
-<a id="tabla-74"></a>
+<a id="tabla-76"></a>
 
-**Tabla 74**
+**Tabla 76**
 
 *Event Handler del Store Management & Inventory Context*
 
@@ -2919,11 +2898,11 @@ El Event Handler del Store Management & Inventory Context se resume en la Tabla 
 ##### Application Services
 
 
-Los Application Services del Store Management & Inventory Context se detallan en la Tabla 75.
+Los Application Services del Store Management & Inventory Context se detallan en la Tabla 77.
 
-<a id="tabla-75"></a>
+<a id="tabla-77"></a>
 
-**Tabla 75**
+**Tabla 77**
 
 *Application Services del Store Management & Inventory Context*
 
@@ -2945,11 +2924,11 @@ La **Infrastructure Layer** contiene las implementaciones técnicas necesarias p
 ##### Repositories
 
 
-Los Repositories del Store Management & Inventory Context se presentan en la Tabla 76.
+Los Repositories del Store Management & Inventory Context se presentan en la Tabla 78.
 
-<a id="tabla-76"></a>
+<a id="tabla-78"></a>
 
-**Tabla 76**
+**Tabla 78**
 
 *Repositories del Store Management & Inventory Context*
 
@@ -2963,11 +2942,11 @@ Los Repositories del Store Management & Inventory Context se presentan en la Tab
 ##### Persistence
 
 
-Los componentes de persistencia del Store Management & Inventory Context se resumen en la Tabla 77.
+Los componentes de persistencia del Store Management & Inventory Context se resumen en la Tabla 79.
 
-<a id="tabla-77"></a>
+<a id="tabla-79"></a>
 
-**Tabla 77**
+**Tabla 79**
 
 *Componentes de persistencia del Store Management & Inventory Context*
 
@@ -2984,11 +2963,11 @@ Los componentes de persistencia del Store Management & Inventory Context se resu
 ##### Messaging
 
 
-Los componentes de mensajería del Store Management & Inventory Context se detallan en la Tabla 78.
+Los componentes de mensajería del Store Management & Inventory Context se detallan en la Tabla 80.
 
-<a id="tabla-78"></a>
+<a id="tabla-80"></a>
 
-**Tabla 78**
+**Tabla 80**
 
 *Componentes de mensajería del Store Management & Inventory Context*
 
@@ -3012,11 +2991,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Provee la implementación de persistencia relacional (`InventoryRepositoryImpl`, `FrameModelRepositoryImpl`, `SupplierRepositoryImpl`) sobre PostgreSQL, las entidades de persistencia (`InventoryEntity`, `FrameModelEntity`, `SupplierEntity`), los Mappers, el publicador de eventos `DomainEventPublisher` y el consumidor `SaleWasClosedConsumer` sobre el Event Bus.
 
 
-El diagrama de componentes del Store Management & Inventory Context en Spring Boot se presenta en la Figura 50.
+El diagrama de componentes del Store Management & Inventory Context en Spring Boot se presenta en la Figura 49.
 
-<a id="figura-50"></a>
+<a id="figura-49"></a>
 
-**Figura 50**
+**Figura 49**
 
 *Diagrama de componentes del Store Management & Inventory Context en Spring Boot*
 
@@ -3041,12 +3020,12 @@ El modelo se organiza principalmente alrededor de `FrameModel` e `Inventory`. `F
 
 El proceso de abastecimiento se representa mediante `Replenishment`, el cual relaciona el inventario, el producto y el `Supplier` responsable del suministro. Asimismo, `LowStockAlert` representa la información generada cuando la cantidad disponible de un producto alcanza o se encuentra por debajo del nivel mínimo establecido.
 
-El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository` y `SupplierRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 51).
+El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository` y `SupplierRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 50).
 
 
-<a id="figura-51"></a>
+<a id="figura-50"></a>
 
-**Figura 51**
+**Figura 50**
 
 *Diagrama de clases del Domain Layer del Store Management & Inventory Context*
 
@@ -3066,12 +3045,12 @@ La tabla `inventories` representa los inventarios administrados por el contexto,
 
 La tabla `suppliers` almacena los proveedores responsables del abastecimiento de productos. Por otro lado, `replenishments` registra las operaciones de reposición de stock, relacionando un inventario, un modelo de montura y el proveedor involucrado en el abastecimiento.
 
-Las relaciones entre las tablas se establecen mediante Primary Keys y Foreign Keys, permitiendo mantener la integridad referencial de la información relacionada con catálogo, existencias, proveedores y operaciones de reabastecimiento (ver Figura 52).
+Las relaciones entre las tablas se establecen mediante Primary Keys y Foreign Keys, permitiendo mantener la integridad referencial de la información relacionada con catálogo, existencias, proveedores y operaciones de reabastecimiento (ver Figura 51).
 
 
-<a id="figura-52"></a>
+<a id="figura-51"></a>
 
-**Figura 52**
+**Figura 51**
 
 *Diagrama de base de datos del Store Management & Inventory Context*
 
@@ -3091,11 +3070,11 @@ La capa de dominio del **Notification & Loyalty Context** concentra las reglas r
 ##### Domain Concepts
 
 
-Los Domain Concepts del Notification & Loyalty Context se resumen en la Tabla 79.
+Los Domain Concepts del Notification & Loyalty Context se resumen en la Tabla 81.
 
-<a id="tabla-79"></a>
+<a id="tabla-81"></a>
 
-**Tabla 79**
+**Tabla 81**
 
 *Domain Concepts del Notification & Loyalty Context*
 
@@ -3114,11 +3093,11 @@ Los Domain Concepts del Notification & Loyalty Context se resumen en la Tabla 79
 ##### Commands
 
 
-Los Commands del Notification & Loyalty Context se detallan en la Tabla 80.
+Los Commands del Notification & Loyalty Context se detallan en la Tabla 82.
 
-<a id="tabla-80"></a>
+<a id="tabla-82"></a>
 
-**Tabla 80**
+**Tabla 82**
 
 *Commands del Notification & Loyalty Context*
 
@@ -3137,11 +3116,11 @@ Los Commands del Notification & Loyalty Context se detallan en la Tabla 80.
 ##### Domain Events
 
 
-Los Domain Events del Notification & Loyalty Context se presentan en la Tabla 81.
+Los Domain Events del Notification & Loyalty Context se presentan en la Tabla 83.
 
-<a id="tabla-81"></a>
+<a id="tabla-83"></a>
 
-**Tabla 81**
+**Tabla 83**
 
 *Domain Events del Notification & Loyalty Context*
 
@@ -3169,11 +3148,11 @@ La Interface Layer expone los puntos de entrada necesarios para ejecutar las ope
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Notification & Loyalty Context se resumen en la Tabla 82.
+Los Resources / DTOs del Notification & Loyalty Context se resumen en la Tabla 84.
 
-<a id="tabla-82"></a>
+<a id="tabla-84"></a>
 
-**Tabla 82**
+**Tabla 84**
 
 *Resources / DTOs del Notification & Loyalty Context*
 
@@ -3192,11 +3171,11 @@ Los Resources / DTOs del Notification & Loyalty Context se resumen en la Tabla 8
 ##### Controllers
 
 
-Los Controllers del Notification & Loyalty Context se detallan en la Tabla 83.
+Los Controllers del Notification & Loyalty Context se detallan en la Tabla 85.
 
-<a id="tabla-83"></a>
+<a id="tabla-85"></a>
 
-**Tabla 83**
+**Tabla 85**
 
 *Controllers del Notification & Loyalty Context*
 
@@ -3213,11 +3192,11 @@ Los Controllers del Notification & Loyalty Context se detallan en la Tabla 83.
 ##### Assemblers
 
 
-Los Assemblers del Notification & Loyalty Context se presentan en la Tabla 84.
+Los Assemblers del Notification & Loyalty Context se presentan en la Tabla 86.
 
-<a id="tabla-84"></a>
+<a id="tabla-86"></a>
 
-**Tabla 84**
+**Tabla 86**
 
 *Assemblers del Notification & Loyalty Context*
 
@@ -3242,11 +3221,11 @@ La Application Layer coordina los casos de uso definidos para el contexto de not
 ##### Command Handlers
 
 
-Los Command Handlers del Notification & Loyalty Context se resumen en la Tabla 85.
+Los Command Handlers del Notification & Loyalty Context se resumen en la Tabla 87.
 
-<a id="tabla-85"></a>
+<a id="tabla-87"></a>
 
-**Tabla 85**
+**Tabla 87**
 
 *Command Handlers del Notification & Loyalty Context*
 
@@ -3265,11 +3244,11 @@ Los Command Handlers del Notification & Loyalty Context se resumen en la Tabla 8
 ##### Event Consumers
 
 
-Los Event Consumers del Notification & Loyalty Context se detallan en la Tabla 86.
+Los Event Consumers del Notification & Loyalty Context se detallan en la Tabla 88.
 
-<a id="tabla-86"></a>
+<a id="tabla-88"></a>
 
-**Tabla 86**
+**Tabla 88**
 
 *Event Consumers del Notification & Loyalty Context*
 
@@ -3283,11 +3262,11 @@ Los Event Consumers del Notification & Loyalty Context se detallan en la Tabla 8
 ##### Application Services
 
 
-Los Application Services del Notification & Loyalty Context se presentan en la Tabla 87.
+Los Application Services del Notification & Loyalty Context se presentan en la Tabla 89.
 
-<a id="tabla-87"></a>
+<a id="tabla-89"></a>
 
-**Tabla 87**
+**Tabla 89**
 
 *Application Services del Notification & Loyalty Context*
 
@@ -3310,11 +3289,11 @@ La Infrastructure Layer implementa los mecanismos técnicos requeridos para pers
 ##### Repositories
 
 
-Los Repositories del Notification & Loyalty Context se resumen en la Tabla 88.
+Los Repositories del Notification & Loyalty Context se resumen en la Tabla 90.
 
-<a id="tabla-88"></a>
+<a id="tabla-90"></a>
 
-**Tabla 88**
+**Tabla 90**
 
 *Repositories del Notification & Loyalty Context*
 
@@ -3330,11 +3309,11 @@ Los Repositories del Notification & Loyalty Context se resumen en la Tabla 88.
 ##### Persistence
 
 
-Los componentes de persistencia del Notification & Loyalty Context se detallan en la Tabla 89.
+Los componentes de persistencia del Notification & Loyalty Context se detallan en la Tabla 91.
 
-<a id="tabla-89"></a>
+<a id="tabla-91"></a>
 
-**Tabla 89**
+**Tabla 91**
 
 *Componentes de persistencia del Notification & Loyalty Context*
 
@@ -3350,11 +3329,11 @@ Los componentes de persistencia del Notification & Loyalty Context se detallan e
 ##### Messaging
 
 
-Los componentes de mensajería del Notification & Loyalty Context se presentan en la Tabla 90.
+Los componentes de mensajería del Notification & Loyalty Context se presentan en la Tabla 92.
 
-<a id="tabla-90"></a>
+<a id="tabla-92"></a>
 
-**Tabla 90**
+**Tabla 92**
 
 *Componentes de mensajería del Notification & Loyalty Context*
 
@@ -3369,11 +3348,11 @@ Los componentes de mensajería del Notification & Loyalty Context se presentan e
 ##### External Messaging / ACL
 
 
-Los componentes de mensajería externa y ACL del Notification & Loyalty Context se resumen en la Tabla 91.
+Los componentes de mensajería externa y ACL del Notification & Loyalty Context se resumen en la Tabla 93.
 
-<a id="tabla-91"></a>
+<a id="tabla-93"></a>
 
-**Tabla 91**
+**Tabla 93**
 
 *Componentes de mensajería externa y ACL del Notification & Loyalty Context*
 
@@ -3398,11 +3377,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Resuelve la persistencia orientada a documentos sobre MongoDB (`NotificationRepositoryImpl`, `NotificationPreferencesRepositoryImpl`, etc.), la mensajería asíncrona mediante el `DomainEventPublisher` y los consumidores de eventos, y los adaptadores de integración externa (`WhatsAppMessagingAdapter`, `FirebaseMessagingAdapter`) mediados por la `MessagingAntiCorruptionLayer` (ACL) para desacoplar el dominio de los proveedores externos de mensajería (Meta WhatsApp Cloud API, Firebase Cloud Messaging).
 
 
-El diagrama de componentes del Notification & Loyalty Context en Spring Boot se muestra en la Figura 53.
+El diagrama de componentes del Notification & Loyalty Context en Spring Boot se muestra en la Figura 52.
 
-<a id="figura-53"></a>
+<a id="figura-52"></a>
 
-**Figura 53**
+**Figura 52**
 
 *Diagrama de componentes del Notification & Loyalty Context en Spring Boot*
 
@@ -3427,12 +3406,12 @@ El modelo se organiza principalmente alrededor de `NotificationPreferences`, que
 
 `InAppNotification` representa los mensajes mostrados directamente dentro de la aplicación y puede utilizar información de `OrderProgress` para comunicar los cambios producidos durante la fabricación de un pedido. Asimismo, `StaffMember` representa al personal responsable de gestionar las comunicaciones cuando corresponda.
 
-El Domain Layer incluye también las interfaces de repositorio necesarias para abstraer la persistencia de notificaciones, preferencias de comunicación, encuestas, miembros del personal y campañas de reactivación. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las diferentes operaciones de notificación y fidelización (ver Figura 54).
+El Domain Layer incluye también las interfaces de repositorio necesarias para abstraer la persistencia de notificaciones, preferencias de comunicación, encuestas, miembros del personal y campañas de reactivación. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las diferentes operaciones de notificación y fidelización (ver Figura 53).
 
 
-<a id="figura-54"></a>
+<a id="figura-53"></a>
 
-**Figura 54**
+**Figura 53**
 
 *Diagrama de clases del Domain Layer del Notification & Loyalty Context*
 
@@ -3450,12 +3429,12 @@ La colección `notification_preferences` almacena la configuración de comunicac
 
 Por otro lado, `satisfaction_surveys` almacena las encuestas enviadas a los pacientes después de la entrega de sus pedidos, mientras que `staff_members` mantiene la información del personal que puede ser asignado a la gestión de notificaciones. Finalmente, `reactivation_campaigns` registra las campañas utilizadas para incentivar futuros controles visuales.
 
-Debido al uso de MongoDB, las relaciones entre los elementos del dominio pueden representarse mediante documentos embebidos o referencias lógicas, sin utilizar Primary Keys y Foreign Keys propias de un modelo relacional (ver Figura 55).
+Debido al uso de MongoDB, las relaciones entre los elementos del dominio pueden representarse mediante documentos embebidos o referencias lógicas, sin utilizar Primary Keys y Foreign Keys propias de un modelo relacional (ver Figura 54).
 
 
-<a id="figura-55"></a>
+<a id="figura-54"></a>
 
-**Figura 55**
+**Figura 54**
 
 *Diagrama de base de datos del Notification & Loyalty Context*
 

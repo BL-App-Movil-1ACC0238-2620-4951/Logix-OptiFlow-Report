@@ -52,8 +52,8 @@ La relación entre eventos, contextos receptores y comandos se detalla en la Tab
 |---|---|---|---|---|---|
 | Search & Booking | `BookAppointment` | `AppointmentBooked` | appointmentId, patientId, opticalStoreId, timeSlotId | Clinical & Commercial | `ExaminePatient` |
 | Search & Booking | `BookAppointment` | `AppointmentBooked` | appointmentId, patientId, opticalStoreId, timeSlotId | Notification & Loyalty | `ScheduleAppointmentReminder` |
-| Clinical & Commercial | `CloseSale` | `SaleWasClosed` | saleId, quotationId, clinicalRecordId, patientId, totalAmount | Production & Tracking | `GenerateWorkOrder` |
-| Clinical & Commercial | `CloseSale` | `SaleWasClosed` | saleId, quotationId, clinicalRecordId, patientId, totalAmount | Store Management & Inventory | `UpdateInventory` |
+| Clinical & Commercial | `CloseSale` | `SaleWasClosed` | saleId, quotationId, clinicalRecordId, patientId, totalAmount, items (productSku, quantity) | Production & Tracking | `GenerateWorkOrder` |
+| Clinical & Commercial | `CloseSale` | `SaleWasClosed` | saleId, quotationId, clinicalRecordId, patientId, totalAmount, items (productSku, quantity) | Store Management & Inventory | `UpdateInventory` |
 | Production & Tracking | `UpdateWorkOrderStatus` | `WorkOrderStatusUpdated` | workOrderId, patientId, previousStatus, status | Notification & Loyalty | `NotifyLensOrderProgress` |
 | Production & Tracking | `NotifyDeliveryDelay` | `DeliveryDelayNotified` | workOrderId, patientId, delay | Notification & Loyalty | `SendDeliveryDelayNotification` |
 | Production & Tracking | `MarkOrderAsDelivered` | `OrderWasMarkedAsDelivered` | workOrderId, saleId, patientId | Notification & Loyalty | `SendSatisfactionSurvey` |
@@ -65,18 +65,18 @@ Ningún contexto accede directamente a los datos de otro: cada uno reacciona a l
 
 ## Anexo D: Context Mapping
 
-En este anexo se presenta el **Context Map Final** de OptiFlow, donde se representan las relaciones entre los diferentes Bounded Contexts y sus mecanismos de integración (ver Figura D1).
+En este anexo se presenta el context map final de OptiFlow, con las relaciones entre los Bounded Contexts y los patrones de integración que aplica cada una (ver Figura D1). El proceso de elaboración, las alternativas evaluadas y el detalle de cada relación se presentan en la sección [2.5.2](Capitulo2.md#252-context-mapping).
 
 
 <a id="figura-d1"></a>
 
 **Figura D1**
 
-*Context Map de OptiFlow*
+*Context map final de OptiFlow*
 
-<div align="center">
-<img src="assets/cap2/ContextMappingFinal.png">
-</div>
+![Context map final de OptiFlow](assets/cap2/context-mapping/context-map-final.png)
+
+*Nota.* Elaboración propia.
 
 
 
