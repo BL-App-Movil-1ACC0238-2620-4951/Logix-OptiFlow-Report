@@ -92,8 +92,8 @@ Entidad encargada de realizar procesos especializados relacionados con la fabric
 ### Métricas Operativas
 Indicadores utilizados para evaluar el funcionamiento de la óptica, como cantidad de atenciones, citas, ventas, pedidos, inventario y otras operaciones registradas.
 
-### MongoDB
-Sistema de gestión de bases de datos orientado a documentos utilizado para la persistencia de información en determinados Bounded Contexts de OptiFlow.
+### Modelo relacional
+Organización de la persistencia mediante tablas, columnas, claves y restricciones. Es el modelo implementado en los cuatro contextos con migraciones V1–V4 de OptiFlow; una referencia UUID solo constituye una FK cuando su restricción está declarada en SQL.
 
 ### Montura
 Producto físico utilizado como soporte para los lentes oftálmicos y que forma parte del catálogo comercial de la óptica.
@@ -135,7 +135,7 @@ Reglas que determinan las acciones y módulos que un usuario puede utilizar dent
 Empleado de la óptica al que se le asignan permisos para realizar determinadas actividades de gestión dentro de OptiFlow, como administrar citas, pacientes, inventario, ventas o notificaciones.
 
 ### PostgreSQL
-Sistema de gestión de bases de datos relacional utilizado para la persistencia de información en determinados Bounded Contexts de OptiFlow.
+Sistema de gestión relacional utilizado como una única base compartida por los contextos implementados del backend de OptiFlow. Las migraciones V1–V4 definen el esquema desplegado; H2 se utiliza en el perfil local y en pruebas.
 
 ### Precio
 Valor monetario asociado a un producto o modelo de montura disponible para su comercialización.
