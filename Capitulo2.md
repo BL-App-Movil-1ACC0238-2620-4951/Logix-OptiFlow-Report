@@ -1171,10 +1171,8 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 22**
 
-*Bounded Context Canvas detallado del Search & Booking Context*
-
-![Bounded Context Canvas: Search & Booking](assets/cap2/revision-tb1/canvas-search-booking.svg)
-
+*Bounded Context Canvas Search & Booking Context*
+![canvas-search-booking.png](assets/cap2/bounded-context-canvases/canvas-search-booking.png)
 
 **Clinical & Commercial.** Organizar la evaluación visual y transformar una cotización aprobada en una venta trazable. Regla destacada: Solo una cotización aprobada genera una venta; máximo una venta por cotización. Registrar pago antes del cierre. Cada venta tiene como máximo un comprobante (ver Figura 23).
 
@@ -1183,9 +1181,8 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 23**
 
-*Bounded Context Canvas detallado del Clinical & Commercial Context*
-
-![Bounded Context Canvas: Clinical & Commercial](assets/cap2/revision-tb1/canvas-clinical-commercial.svg)
+*Bounded Context Canvas Clinical & Commercial Context*
+![canvas-clinical-commercial.png](assets/cap2/bounded-context-canvases/canvas-clinical-commercial.png)
 
 
 **Production & Tracking.** Coordinar la fabricación y facilitar el seguimiento de cada orden hasta su entrega. Regla destacada: Vincular la orden con una venta cerrada. Respetar las transiciones válidas. Comunicar cambios sin delegar a notificaciones la decisión del estado (ver Figura 24).
@@ -1196,8 +1193,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 **Figura 24**
 
 *Bounded Context Canvas detallado del Production & Tracking Context*
-
-![Bounded Context Canvas: Production & Tracking](assets/cap2/revision-tb1/canvas-production-tracking.svg)
+![canvas-production-tracking.png](assets/cap2/bounded-context-canvases/canvas-production-tracking.png)
 
 
 **Notification & Loyalty.** Comunicar hitos relevantes al paciente y apoyar el seguimiento posterior a la atención. Regla destacada: Respetar preferencias y permisos. Evitar duplicados. El estado de fabricación pertenece a producción; este contexto lo comunica (ver Figura 25).
@@ -1208,8 +1204,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 **Figura 25**
 
 *Bounded Context Canvas detallado del Notification & Loyalty Context*
-
-![Bounded Context Canvas: Notification & Loyalty](assets/cap2/revision-tb1/canvas-notification-loyalty.svg)
+![canvas-notification-loyalty.png](assets/cap2/bounded-context-canvases/canvas-notification-loyalty.png)
 
 
 **Store Management & Inventory.** Mantener el catálogo, las existencias y la información operativa de la óptica. Regla destacada: Consultar stock no lo modifica. Registrar movimientos con producto y cantidad. Evitar existencias negativas y movimientos duplicados (ver Figura 26).
@@ -1220,11 +1215,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 **Figura 26**
 
 *Bounded Context Canvas detallado del Store Management & Inventory Context*
-
-![Bounded Context Canvas: Store Management & Inventory](assets/cap2/revision-tb1/canvas-store-inventory.svg)
-
-
-El [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los límites, mientras que el [Anexo D](Anexos.md#anexo-d-context-mapping) permite contrastar los colaboradores con el Context Map.
+![canvas-store-inventory.png](assets/cap2/bounded-context-canvases/canvas-store-inventory.png)
 
 ### 2.5.2 Context Mapping
 
