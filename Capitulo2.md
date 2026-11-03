@@ -1022,7 +1022,7 @@ La Tabla 17 resume los eventos que conectan a los Bounded Contexts y el comando 
 | 6 | Production & Tracking | `DeliveryDelayNotified` | Notification & Loyalty | `SendDeliveryDelayNotification` | 5 |
 | 7 | Production & Tracking | `OrderWasMarkedAsDelivered` | Notification & Loyalty | `SendSatisfactionSurvey` | 6 |
 
-El escenario 2 no aparece en la tabla porque sus mensajes se resuelven dentro de Clinical & Commercial y no publica eventos hacia otros contextos. Además de estos flujos entre contextos, Notification & Loyalty gestiona internamente el descuento de cumpleaños: el comando `GrantBirthdayDiscount` registra el beneficio y publica el evento `BirthdayDiscountWasSent`, sin intervención de otros contextos.
+La tabla solo incluye eventos. Además, dos contextos consultan información de otro: Clinical & Commercial consulta la cita a Search & Booking (`GetAppointment`, escenario 2) y Production & Tracking consulta la venta cerrada a Clinical & Commercial (`GetClosedSale`, escenario 3). Además de estos flujos entre contextos, Notification & Loyalty gestiona internamente el descuento de cumpleaños: el comando `GrantBirthdayDiscount` registra el beneficio y publica el evento `BirthdayDiscountWasSent`, sin intervención de otros contextos.
 
 **Escenario 1: Búsqueda y reserva de cita**
 
@@ -1040,7 +1040,7 @@ El paciente busca una óptica desde App OptiFlow y consulta sus horarios disponi
 
 **Escenario 2: Atención clínica del paciente**
 
-El optómetra consulta los registros clínicos previos del paciente (`GetClinicalRecordsByPatientId`) y luego registra la atención, su historia médica y la receta óptica (`RegisterClinicalRecord`, `RecordMedicalHistory` y `GenerateOpticalPrescription`). Todos estos mensajes se resuelven dentro de Clinical & Commercial, como se muestra en la Figura 20.
+El optómetra consulta los registros clínicos previos del paciente (`GetClinicalRecordsByPatientId`) y registra la atención (`RegisterClinicalRecord`). Para hacerlo, Clinical & Commercial consulta a Search & Booking la cita reservada (`GetAppointment`) y confirma a qué paciente pertenece y que no fue cancelada. Luego, el optómetra registra la historia médica y la receta óptica (`RecordMedicalHistory` y `GenerateOpticalPrescription`), como se muestra en la Figura 20.
 
 <a id="figura-20"></a>
 
@@ -1054,7 +1054,7 @@ El optómetra consulta los registros clínicos previos del paciente (`GetClinica
 
 **Escenario 3: Cotización y venta**
 
-El asesor comercial genera la cotización a partir de la receta, la aprueba con el paciente, registra la venta y el pago, y cierra la venta (`GenerateQuotation`, `ApproveQuotation`, `RegisterSale`, `RecordPayment` y `CloseSale`). El cierre publica el evento `SaleWasClosed` hacia Production & Tracking y Store Management & Inventory, como se muestra en la Figura 21. Al recibirlo, Production & Tracking genera la orden de trabajo de los lentes (`GenerateWorkOrder`) y Store Management & Inventory descuenta del stock los productos vendidos (`UpdateInventory`).
+El asesor comercial genera la cotización a partir de la receta, la aprueba con el paciente, registra la venta y el pago, y cierra la venta (`GenerateQuotation`, `ApproveQuotation`, `RegisterSale`, `RecordPayment` y `CloseSale`). El cierre publica el evento `SaleWasClosed` hacia Production & Tracking y Store Management & Inventory, como se muestra en la Figura 21. Al recibirlo, Production & Tracking genera la orden de trabajo de los lentes (`GenerateWorkOrder`) y Store Management & Inventory descuenta del stock los productos vendidos (`UpdateInventory`). Para preparar la orden, Production & Tracking consulta a Clinical & Commercial la venta cerrada (`GetClosedSale`) y obtiene las especificaciones de las lunas.
 
 <a id="figura-21"></a>
 
@@ -1317,7 +1317,7 @@ A partir del mapa candidato, el equipo evaluó alternativas de diseño mediante 
 | :-: | :--- | :--- | :--- |
 | 1 | ¿Qué pasaría si partimos Clinical & Commercial en un contexto clínico y otro comercial? | La cotización se genera a partir de la receta y del expediente de la misma atención. Separarlos obligaría a publicar eventos adicionales y a copiar el expediente en el contexto comercial para cada venta. | Se mantiene un solo contexto: la atención clínica y la venta forman parte de la misma visita del paciente. |
 | 2 | ¿Qué pasaría si movemos el recordatorio de citas a Search & Booking? | Search & Booking tendría que gestionar mensajes y avisos, una capacidad que Notification & Loyalty ya cumple para el avance de los pedidos. Se duplicaría la lógica de notificaciones en dos contextos. | Notification & Loyalty programa el recordatorio; Search & Booking solo publica `AppointmentBooked`. |
-| 3 | ¿Qué pasaría si incluimos la receta completa y la cotización dentro de `SaleWasClosed`? | El evento quedaría acoplado al modelo comercial: cualquier cambio en la cotización afectaría a Production & Tracking, que además recibiría precios y pagos que no necesita. | El evento lleva los identificadores de la venta. Production & Tracking obtiene las especificaciones de las lunas mediante su ACL, que traduce la receta y descarta los datos comerciales. |
+| 3 | ¿Qué pasaría si incluimos la receta completa y la cotización dentro de `SaleWasClosed`? | El evento quedaría acoplado al modelo comercial: cualquier cambio en la cotización afectaría a Production & Tracking, que además recibiría precios y pagos que no necesita. | El evento lleva los identificadores de la venta. Production & Tracking obtiene las especificaciones de las lunas con la consulta `GetClosedSale`, mediante su ACL, que traduce la receta y descarta los datos comerciales. |
 | 4 | ¿Qué pasaría si Store Management & Inventory consulta la venta en Clinical & Commercial para saber qué descontar? | Inventory dependería del modelo interno de la cotización y de la disponibilidad de otro contexto en el momento del descuento. | Clinical & Commercial, como Supplier, incluye en `SaleWasClosed` los productos vendidos (`productSku` y `quantity`). Inventory los traduce a movimientos de stock con `UpdateInventory`. |
 | 5 | ¿Qué pasaría si creamos un Shared Kernel con el modelo del paciente para todos los contextos? | Un cambio en el paciente obligaría a coordinar los cinco contextos. Cada contexto solo necesita el identificador del paciente para relacionar su información. | Cada contexto guarda `patientId` como value object propio. El Shared Kernel se limita a contratos técnicos: `DomainEvent`, `DomainEventPublisher` y `DomainException`. |
 | 6 | ¿Qué pasaría si aislamos las capacidades core y movemos notificaciones e inventario a contextos aparte? | Los contextos core (Search & Booking, Clinical & Commercial y Production & Tracking) concentran el flujo principal del paciente. Notificaciones e inventario apoyan ese flujo, pero no lo controlan. | Se adopta: los contextos supporting dependen de los eventos de los contextos core, y ningún contexto core depende de un contexto supporting. |
@@ -1338,7 +1338,7 @@ Como resultado del análisis, el context map final conserva los cinco Bounded Co
 
 *Nota.* Elaboración propia.
 
-La Tabla 24 resume cada relación del mapa final, los eventos que la conectan y el componente del backend que la implementa.
+La Tabla 24 resume cada relación del mapa final, los mensajes que la conectan (eventos y consultas) y el componente del backend que la implementa.
 
 <a id="tabla-24"></a>
 
@@ -1346,11 +1346,11 @@ La Tabla 24 resume cada relación del mapa final, los eventos que la conectan y 
 
 *Relaciones del context map final de OptiFlow*
 
-| Upstream | Downstream | Relación | Patrones | Eventos | Comando ejecutado | Implementación en el backend |
+| Upstream | Downstream | Relación | Patrones | Mensajes | Comando ejecutado | Implementación en el backend |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Search & Booking | Clinical & Commercial | Customer / Supplier | OHS, PL / ACL | `AppointmentBooked` | `ExaminePatient` | `SearchBookingAppointmentAdapter` (ACL) |
+| Search & Booking | Clinical & Commercial | Customer / Supplier | OHS, PL / ACL | `AppointmentBooked` (evento), `GetAppointment` (consulta) | `ExaminePatient` | `SearchBookingAppointmentAdapter` (ACL) |
 | Search & Booking | Notification & Loyalty | Conformist | OHS, PL / CF | `AppointmentBooked` | `ScheduleAppointmentReminder` | `AppointmentBookedEventHandler` |
-| Clinical & Commercial | Production & Tracking | Customer / Supplier | OHS, PL / ACL | `SaleWasClosed` | `GenerateWorkOrder` | `ClinicalCommercialSaleAdapter` (ACL) |
+| Clinical & Commercial | Production & Tracking | Customer / Supplier | OHS, PL / ACL | `SaleWasClosed` (evento), `GetClosedSale` (consulta) | `GenerateWorkOrder` | `ClinicalCommercialSaleAdapter` (ACL) |
 | Clinical & Commercial | Store Management & Inventory | Customer / Supplier | OHS, PL / ACL | `SaleWasClosed` | `UpdateInventory` | `SaleWasClosedEventHandler` (ACL) |
 | Production & Tracking | Notification & Loyalty | Conformist | OHS, PL / CF | `WorkOrderStatusUpdated`, `DeliveryDelayNotified`, `OrderWasMarkedAsDelivered` | `NotifyLensOrderProgress`, `SendDeliveryDelayNotification`, `SendSatisfactionSurvey` | `WorkOrderStatusUpdatedEventHandler`, `ProductionDeliveryDelayNotifiedEventHandler`, `OrderWasMarkedAsDeliveredEventHandler` |
 
@@ -1372,8 +1372,8 @@ La relación entre Search & Booking y Clinical & Commercial se muestra en la Fig
 
 **Patrón: Customer / Supplier, con Open Host Service y Published Language en el upstream y Anti-Corruption Layer en el downstream.**
 
-- **Search & Booking como upstream:** registra la reserva y publica el evento `AppointmentBooked` con `appointmentId`, `patientId`, `opticalStoreId` y `timeSlotId`. También ofrece la consulta de la cita para los contextos que necesitan confirmar su estado.
-- **Clinical & Commercial como downstream:** al recibir el evento ejecuta `ExaminePatient` y abre el expediente clínico de la atención. Su ACL (`SearchBookingAppointmentAdapter`) traduce la cita al modelo clínico (`BookedAppointment`), con lo que los cambios en la agenda o en los estados de la reserva no alteran las reglas del expediente.
+- **Search & Booking como upstream:** registra la reserva y publica el evento `AppointmentBooked` con `appointmentId`, `patientId`, `opticalStoreId` y `timeSlotId`. También responde la consulta `GetAppointment`, que devuelve el paciente y el estado de una cita.
+- **Clinical & Commercial como downstream:** al recibir el evento ejecuta `ExaminePatient` y abre el expediente clínico de la atención. Al registrar la atención, consulta la cita con `GetAppointment`; su ACL (`SearchBookingAppointmentAdapter`) traduce la respuesta al modelo clínico (`BookedAppointment`), con lo que los cambios en la agenda o en los estados de la reserva no alteran las reglas del expediente.
 
 ##### Search & Booking → Notification & Loyalty
 
@@ -1410,8 +1410,8 @@ La relación entre Clinical & Commercial y Production & Tracking se muestra en l
 
 **Patrón: Customer / Supplier, con Open Host Service y Published Language en el upstream y Anti-Corruption Layer en el downstream.**
 
-- **Clinical & Commercial como upstream:** al cerrar la venta publica `SaleWasClosed` con `saleId`, `quotationId`, `clinicalRecordId`, `patientId`, `totalAmount` y los productos vendidos. También ofrece la consulta de la venta, la cotización y el expediente clínico.
-- **Production & Tracking como downstream:** al recibir el evento ejecuta `GenerateWorkOrder`. Su ACL (`ClinicalCommercialSaleAdapter`) consulta la venta y traduce la receta óptica en especificaciones de lunas (esfera, cilindro, eje, adición y tratamiento), descartando precios, pagos y datos de facturación que la fabricación no necesita.
+- **Clinical & Commercial como upstream:** al cerrar la venta publica `SaleWasClosed` con `saleId`, `quotationId`, `clinicalRecordId`, `patientId`, `totalAmount` y los productos vendidos. También responde la consulta `GetClosedSale`, que reúne los datos de la venta, la cotización y el expediente clínico.
+- **Production & Tracking como downstream:** al recibir el evento ejecuta `GenerateWorkOrder`. Su ACL (`ClinicalCommercialSaleAdapter`) consulta la venta con `GetClosedSale` y traduce la receta óptica en especificaciones de lunas (esfera, cilindro, eje, adición y tratamiento), descartando precios, pagos y datos de facturación que la fabricación no necesita.
 
 ##### Clinical & Commercial → Store Management & Inventory
 
