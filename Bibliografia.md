@@ -28,7 +28,9 @@ Las referencias se organizan en las tres categorías establecidas para el inform
 
 <p style="padding-left: 0.5in; text-indent: -0.5in;">DDD Crew. (s. f.-a). <i>The bounded context canvas</i> [Repositorio de GitHub]. https://github.com/ddd-crew/bounded-context-canvas</p>
 
-<p style="padding-left: 0.5in; text-indent: -0.5in;">DDD Crew. (s. f.-b). <i>Domain message flow modelling</i> [Repositorio de GitHub]. https://github.com/ddd-crew/domain-message-flow-modelling</p>
+<p style="padding-left: 0.5in; text-indent: -0.5in;">DDD Crew. (s. f.-b). <i>Context mapping</i> [Repositorio de GitHub]. https://github.com/ddd-crew/context-mapping</p>
+
+<p style="padding-left: 0.5in; text-indent: -0.5in;">DDD Crew. (s. f.-c). <i>Domain message flow modelling</i> [Repositorio de GitHub]. https://github.com/ddd-crew/domain-message-flow-modelling</p>
 
 <p style="padding-left: 0.5in; text-indent: -0.5in;">International Organization for Standardization. (2019). <i>Ergonomics of human-system interaction — Part 210: Human-centred design for interactive systems</i> (ISO Standard No. 9241-210:2019). https://www.iso.org/standard/77520.html</p>
 

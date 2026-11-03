@@ -38,12 +38,7 @@ Estos contextos fueron delimitados a partir de las agrupaciones funcionales iden
 
 ## Anexo C: Domain Message Flows
 
-Los diagramas por escenario y sus datos significativos se encuentran en [2.5.1.2](Capitulo2.md#2512-domain-message-flows-modeling). En la integración con inventario, consultar por escaneo no modifica el stock: el descuento de existencias corresponde a una actualización posterior al cierre de venta. La tabla siguiente conserva el resumen inicial y debe leerse con esa precisión.
-
-En este anexo se presenta la evidencia del flujo de comunicación entre los Bounded Contexts mediante comandos y eventos de dominio.
-
-Los principales flujos identificados incluyen:
-
+En este anexo se resume la comunicación entre los Bounded Contexts de OptiFlow mediante eventos de dominio. Para cada evento se indica el comando que lo origina, los datos que transporta, el contexto que lo recibe y el comando que este ejecuta. Los diagramas de cada escenario se presentan en la sección [2.5.1.2](Capitulo2.md#2512-domain-message-flows-modeling).
 
 La relación entre eventos, contextos receptores y comandos se detalla en la Tabla C1.
 
@@ -53,35 +48,35 @@ La relación entre eventos, contextos receptores y comandos se detalla en la Tab
 
 *Relación entre eventos, contextos receptores y comandos*
 
+| Contexto emisor | Comando de origen | Evento | Datos del evento | Contexto receptor | Comando ejecutado |
+|---|---|---|---|---|---|
+| Search & Booking | `BookAppointment` | `AppointmentBooked` | appointmentId, patientId, opticalStoreId, timeSlotId | Clinical & Commercial | `ExaminePatient` |
+| Search & Booking | `BookAppointment` | `AppointmentBooked` | appointmentId, patientId, opticalStoreId, timeSlotId | Notification & Loyalty | `ScheduleAppointmentReminder` |
+| Clinical & Commercial | `CloseSale` | `SaleWasClosed` | saleId, quotationId, clinicalRecordId, patientId, totalAmount, items (productSku, quantity) | Production & Tracking | `GenerateWorkOrder` |
+| Clinical & Commercial | `CloseSale` | `SaleWasClosed` | saleId, quotationId, clinicalRecordId, patientId, totalAmount, items (productSku, quantity) | Store Management & Inventory | `UpdateInventory` |
+| Production & Tracking | `UpdateWorkOrderStatus` | `WorkOrderStatusUpdated` | workOrderId, patientId, previousStatus, status | Notification & Loyalty | `NotifyLensOrderProgress` |
+| Production & Tracking | `NotifyDeliveryDelay` | `DeliveryDelayNotified` | workOrderId, patientId, delay | Notification & Loyalty | `SendDeliveryDelayNotification` |
+| Production & Tracking | `MarkOrderAsDelivered` | `OrderWasMarkedAsDelivered` | workOrderId, saleId, patientId | Notification & Loyalty | `SendSatisfactionSurvey` |
 
-| Contexto emisor | Comando | Evento | Contexto receptor | Comando disparado |
-|---|---|---|---|---|
-| Search & Booking | `BookAppointment` | `AppointmentBooked` | Clinical & Commercial | `ExaminePatient` |
-| Search & Booking | `BookAppointment` | `AppointmentBooked` | Notification & Loyalty | `SendAppointmentReminder` |
-| Clinical & Commercial | `CloseSale` | `SaleWasClosed` | Production & Tracking | `GenerateWorkOrder` |
-| Clinical & Commercial | `CloseSale` | `SaleWasClosed` | Store Management & Inventory | `ScanQRBarcodeToCheckStock` |
-| Production & Tracking | `UpdateWorkOrderStatus` | `WorkOrderStatusUpdated` | Notification & Loyalty | `NotifyLensOrderProgress` |
-| Production & Tracking | `DeliverLensesToPatient` | `OrderWasMarkedAsDelivered` | Notification & Loyalty | `SendSatisfactionSurvey` |
-
-Estos flujos permiten evidenciar la comunicación entre los contextos sin necesidad de compartir directamente sus modelos de datos.
+Ningún contexto accede directamente a los datos de otro: cada uno reacciona a los eventos que recibe y actualiza solo su propio modelo.
 
 
 <div style="break-before: page; page-break-before: always;"></div>
 
 ## Anexo D: Context Mapping
 
-En este anexo se presenta el **Context Map Final** de OptiFlow, donde se representan las relaciones entre los diferentes Bounded Contexts y sus mecanismos de integración (ver Figura D1).
+En este anexo se presenta el context map final de OptiFlow, con las relaciones entre los Bounded Contexts y los patrones de integración que aplica cada una (ver Figura D1). El proceso de elaboración, las alternativas evaluadas y el detalle de cada relación se presentan en la sección [2.5.2](Capitulo2.md#252-context-mapping).
 
 
 <a id="figura-d1"></a>
 
 **Figura D1**
 
-*Context Map de OptiFlow*
+*Context map final de OptiFlow*
 
-<div align="center">
-<img src="assets/cap2/ContextMappingFinal.png">
-</div>
+![Context map final de OptiFlow](assets/cap2/context-mapping/context-map-final.png)
+
+*Nota.* Elaboración propia.
 
 
 
