@@ -988,7 +988,7 @@ A partir de las agrupaciones funcionales definidas en el Paso 3 del EventStormin
 
 **Notification & Loyalty Context:** Gestiona la comunicación proactiva con el paciente, incluyendo alertas de cumpleaños (Detect patient's birthday), encuestas de satisfacción y campañas de reactivación.
 
-**Store Management & Inventory Context:** Controla el catálogo de productos físicos (Add new frame model), precios, abastecimiento de proveedores (Suppliers) y alertas de bajo stock, soportando las 15 entidades del modelo de datos de inventario.
+**Store Management & Inventory Context:** Controla el catálogo de productos físicos (Add new frame model), precios, abastecimiento de proveedores (Suppliers) y alertas de bajo stock, como parte de un diseño pendiente de implementación y migración SQL.
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
@@ -1219,6 +1219,8 @@ El Bounded Context Canvas del Store Management & Inventory Context se presenta e
 
 ##### Canvases detallados de los bounded contexts
 
+Los canvases muestran el diseño integral del dominio. Para el modelo físico vigente deben consultarse las migraciones V1–V4: cuatro contextos implementados sobre una base PostgreSQL compartida; inventario es una propuesta. Los conceptos funcionales de un canvas no se convierten automáticamente en tablas, colecciones o bases independientes.
+
 Los siguientes canvases complementan las tablas anteriores con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-a). La comunicación se clasifica como consulta, comando o evento según su efecto. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información.
 
 **Search & Booking.** Facilitar que el paciente encuentre una óptica y reserve un horario disponible. Regla destacada: No duplicar reservas sobre la misma disponibilidad. Exigir datos válidos del paciente, sucursal y horario. Una consulta no crea una reserva (ver Figura 25).
@@ -1228,10 +1230,8 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 25**
 
-*Bounded Context Canvas detallado del Search & Booking Context*
-
-![Bounded Context Canvas: Search & Booking](assets/cap2/revision-tb1/canvas-search-booking.svg)
-
+*Bounded Context Canvas Search & Booking Context*
+![canvas-search-booking.png](assets/cap2/bounded-context-canvases/canvas-search-booking.png)
 
 **Clinical & Commercial.** Organizar la evaluación visual y transformar una cotización aprobada en una venta trazable. Regla destacada: Solo una cotización aprobada genera una venta; máximo una venta por cotización. Registrar pago antes del cierre. Cada venta tiene como máximo un comprobante (ver Figura 26).
 
@@ -1240,9 +1240,8 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 26**
 
-*Bounded Context Canvas detallado del Clinical & Commercial Context*
-
-![Bounded Context Canvas: Clinical & Commercial](assets/cap2/revision-tb1/canvas-clinical-commercial.svg)
+*Bounded Context Canvas Clinical & Commercial Context*
+![canvas-clinical-commercial.png](assets/cap2/bounded-context-canvases/canvas-clinical-commercial.png)
 
 
 **Production & Tracking.** Coordinar la fabricación y facilitar el seguimiento de cada orden hasta su entrega. Regla destacada: Vincular la orden con una venta cerrada. Respetar las transiciones válidas. Comunicar cambios sin delegar a notificaciones la decisión del estado (ver Figura 27).
@@ -1253,8 +1252,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 **Figura 27**
 
 *Bounded Context Canvas detallado del Production & Tracking Context*
-
-![Bounded Context Canvas: Production & Tracking](assets/cap2/revision-tb1/canvas-production-tracking.svg)
+![canvas-production-tracking.png](assets/cap2/bounded-context-canvases/canvas-production-tracking.png)
 
 
 **Notification & Loyalty.** Comunicar hitos relevantes al paciente y apoyar el seguimiento posterior a la atención. Regla destacada: Respetar preferencias y permisos. Evitar duplicados. El estado de fabricación pertenece a producción; este contexto lo comunica (ver Figura 28).
@@ -1265,8 +1263,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 **Figura 28**
 
 *Bounded Context Canvas detallado del Notification & Loyalty Context*
-
-![Bounded Context Canvas: Notification & Loyalty](assets/cap2/revision-tb1/canvas-notification-loyalty.svg)
+![canvas-notification-loyalty.png](assets/cap2/bounded-context-canvases/canvas-notification-loyalty.png)
 
 
 **Store Management & Inventory.** Mantener el catálogo, las existencias y la información operativa de la óptica. Regla destacada: Consultar stock no lo modifica. Registrar movimientos con producto y cantidad. Evitar existencias negativas y movimientos duplicados (ver Figura 29).
@@ -1277,11 +1274,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 **Figura 29**
 
 *Bounded Context Canvas detallado del Store Management & Inventory Context*
-
-![Bounded Context Canvas: Store Management & Inventory](assets/cap2/revision-tb1/canvas-store-inventory.svg)
-
-
-El [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los límites, mientras que el [Anexo D](Anexos.md#anexo-d-context-mapping) permite contrastar los colaboradores con el Context Map.
+![canvas-store-inventory.png](assets/cap2/bounded-context-canvases/canvas-store-inventory.png)
 
 ### 2.5.2. Context Mapping
 
@@ -1505,7 +1498,15 @@ El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en e
 <a id="Tactical-Level Domain-Driven Design"></a>
 ## 2.6. Tactical-Level Domain-Driven Design
 
-Los modelos tácticos describen las entidades, reglas y adaptadores de los contextos. El [Anexo F](Anexos.md#anexo-f-diagramas-de-diseño-táctico) conserva diagramas complementarios. Las propuestas documentales de MongoDB en producción y notificaciones corresponden al diseño inicial; el incremento TB1 utiliza persistencia relacional mediante JPA, como se refleja en el diagrama de contenedores.
+Los cuatro contextos implementados de OptiFlow comparten una sola base de datos PostgreSQL. El backend accede a ella mediante JPA/Hibernate. La separación por Bounded Context organiza las responsabilidades y las reglas del negocio, sin crear una base de datos por contexto. Las migraciones V1 a V4 definen 20 tablas: seis de Search & Booking, siete de Clinical & Commercial, cinco de Production & Tracking y dos de Notification & Loyalty.
+
+El perfil `postgres` valida el mapeo JPA y aplica las migraciones con Flyway. El perfil `local` utiliza H2 en memoria para desarrollo; ello no implica persistencia NoSQL. La app móvil consume contratos HTTP del backend y no define el esquema físico PostgreSQL.
+
+El modelo de datos se basa en las migraciones `V1__search_booking_schema.sql`, `V2__clinical_commercial_schema.sql`, `V3__production_tracking_schema.sql` y `V4__notification_loyalty_schema.sql` del backend. Las secciones siguientes describen las tablas y restricciones de cada contexto. Store Management & Inventory se presenta por separado porque todavía no tiene una migración implementada.
+
+Las relaciones físicas del modelo corresponden a las claves foráneas declaradas en las migraciones. Los identificadores que no tienen una restricción `FOREIGN KEY` se documentan como referencias lógicas. Los objetos de valor y las claves compuestas de JPA no implican que la información se almacene como documentos MongoDB.
+
+Los diagramas de base de datos de las Figuras 40, 43, 46 y 52 se elaboraron directamente a partir de las migraciones V1–V4: muestran cada tabla con sus columnas, tipos, nulabilidad, claves primarias, claves foráneas, restricciones `UNIQUE` y `CHECK` e índices. Los identificadores sin `FOREIGN KEY` se marcan como `REF` y no se dibujan como relaciones. La Figura 49 corresponde a Store Management & Inventory, que es un diseño propuesto, y se identifica visualmente como no implementado.
 
 <a id="2.6.1. Bounded Context: Search & Booking Context"></a>
 ### 2.6.1. Bounded Context: Search & Booking Context
@@ -2023,7 +2024,7 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Interface / Presentation Layer:** Agrupa los controladores REST (`SearchBookingController`, `PatientController`, `OpticalStoreController`, `TimeSlotController`) que reciben las solicitudes HTTP/JSON desde las aplicaciones móviles y web a través del API Gateway, así como los DTOs de entrada/salida y los Assemblers responsables de transformar los requests en comandos y queries internos.
 * **Application Layer:** Contiene los Command Handlers (`BookAppointmentCommandHandler`, `LoginCommandHandler`, `PublishAvailableTimeSlotsCommandHandler`, `SaveFavoriteOpticalStoreCommandHandler`, `RateOpticalStoreCommandHandler`) encargados de orquestar las mutaciones de estado, los Query Services (`SearchOpticalStoresQueryService`, `GetAvailableTimeSlotsQueryService`, `GetPatientAppointmentsQueryService`, etc.) para consultas optimizadas, los Event Handlers (`AppointmentBookedEventHandler`, `AppointmentBookedNotificationHandler`) y los Application Services que actúan como fachada de coordinación.
 * **Domain Layer:** Núcleo libre de dependencias de infraestructura que encapsula las entidades y agregados principales (`Appointment`, `Patient`, `OpticalStore`, `TimeSlot`, `FavoriteStore`, `StoreRating`), los Domain Services, Factories y las interfaces de repositorio (`AppointmentRepository`, `PatientRepository`, `OpticalStoreRepository`, `TimeSlotRepository`) junto con la definición de eventos de dominio (`AppointmentBooked`, etc.).
-* **Infrastructure Layer:** Proporciona las implementaciones técnicas concretas, incluyendo los repositorios sobre PostgreSQL/JPA (`AppointmentRepositoryImpl`, `PatientRepositoryImpl`, etc.), las entidades de persistencia (`AppointmentEntity`, etc.), los Mappers, el `EventPublisherAdapter` para la publicación asíncrona de eventos hacia el Event Bus (RabbitMQ/Kafka), y los adaptadores de integración externa (`AuthenticationAdapter`, `NotificationIntegrationAdapter`).
+* **Infrastructure Layer:** Proporciona las implementaciones técnicas concretas, incluyendo los repositorios sobre PostgreSQL/JPA (`AppointmentRepositoryImpl`, `PatientRepositoryImpl`, etc.), las entidades de persistencia (`AppointmentEntity`, etc.), los Mappers, el `EventPublisherAdapter` para publicar eventos internos mediante `ApplicationEventPublisher` de Spring, y los adaptadores de integración externa (`AuthenticationAdapter`, `NotificationIntegrationAdapter`).
 
 
 El diagrama de componentes del Search & Booking Context en Spring Boot se observa en la Figura 40.
@@ -2064,20 +2065,16 @@ El diagrama también incorpora los **Domain Services** relacionados con la dispo
 
 <a id="2.6.1.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
-El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Search & Booking**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza una base de datos relacional independiente implementada mediante **PostgreSQL**.
 
-El modelo está compuesto por las tablas `patients`, `optical_stores`, `time_slots`, `appointments`, `favorite_stores` y `store_ratings`.
+**Modelo físico implementado: PostgreSQL compartido, migración V1.** Search & Booking utiliza seis tablas de la misma base del backend: `patients`, `optical_stores`, `time_slots`, `appointments`, `favorite_stores` y `store_ratings`. No dispone de una base independiente.
 
-La tabla `patients` almacena la información de los pacientes registrados, mientras que `optical_stores` contiene la información correspondiente a las ópticas disponibles dentro de la plataforma. Cada óptica puede disponer de múltiples registros en `time_slots`, los cuales representan los horarios disponibles para realizar una reserva.
+`patients` contiene `id`, `full_name`, `email`, `phone`, `password_hash` y `created_at`; el correo es único. `optical_stores` contiene `id`, `name`, `address`, `phone`, `rating` y `status`. Las longitudes son, respectivamente, `VARCHAR(80)` para el nombre completo del paciente, `VARCHAR(120)` para su correo, `VARCHAR(20)` para su teléfono, `VARCHAR(100)` para el hash de contraseña, y `VARCHAR(120)`, `VARCHAR(200)` y `VARCHAR(20)` para nombre, dirección y teléfono de la óptica. El `rating` de la óptica es `NUMERIC(3,2)`.
 
-La tabla `appointments` representa las citas registradas en el sistema y mantiene relaciones mediante Foreign Keys con `patients`, `optical_stores` y `time_slots`. De esta manera, cada cita puede asociarse con el paciente que realizó la reserva, la óptica seleccionada y el horario correspondiente.
+`time_slots.optical_store_id` es una FK hacia `optical_stores.id`; una óptica puede tener cero o muchos horarios. `appointments` tiene FKs obligatorias hacia `patients`, `optical_stores` y `time_slots`. V1 no declara `UNIQUE` sobre `appointments.time_slot_id`: el diagrama físico no debe inventar una relación uno a uno o una restricción adicional de reserva única. Las validaciones de disponibilidad de la aplicación se distinguen de las restricciones SQL.
 
-Por otro lado, `favorite_stores` representa la relación entre los pacientes y las ópticas marcadas como favoritas. Para evitar que un mismo paciente registre repetidamente una misma óptica como favorita, se utiliza una **Primary Key compuesta** formada por `patient_id` y `optical_store_id`. Ambas columnas también funcionan como Foreign Keys hacia las tablas `patients` y `optical_stores`.
+`favorite_stores` utiliza la PK compuesta (`patient_id`, `optical_store_id`), ambas columnas también FKs, y registra `saved_at`. `store_ratings` utiliza la misma combinación como PK y FKs, y contiene `score NUMERIC(3,2)`, `comment VARCHAR(280)` y `created_at`; su `CHECK` limita `score` al intervalo de 1 a 5.
 
-De manera similar, `store_ratings` representa las valoraciones realizadas por los pacientes hacia las ópticas. Esta tabla utiliza una Primary Key compuesta por `patient_id` y `optical_store_id`, permitiendo identificar la valoración correspondiente a cada relación entre paciente y óptica.
-
-El modelo utiliza **Primary Keys, Foreign Keys, restricciones de unicidad y restricciones de validación** para mantener la integridad de los datos y representar correctamente las reglas necesarias para el proceso de búsqueda y reserva (ver Figura 42).
-
+Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 40 representa las seis tablas de V1 con todos sus campos, tipos, nulabilidad, PK, FK, `CHECK` e índices tal como están declarados en la migración.**
 
 <a id="figura-42"></a>
 
@@ -2086,7 +2083,7 @@ El modelo utiliza **Primary Keys, Foreign Keys, restricciones de unicidad y rest
 *Diagrama de base de datos del Search & Booking Context*
 
 <div align="center">
-  <img src="assets/cap2/Database Design Diagram.png" alt="Search and Booking Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/search-booking-v1.png" alt="Search and Booking Database Design Diagram" width="1000">
 </div>
 
 
@@ -2143,7 +2140,7 @@ Las clases del Interface Layer del Clinical & Commercial Context se detallan en 
 | `ClinicalRecordController` | REST Controller | Expone `ExaminePatient`, `RecordMedicalHistory`, `RegisterClinicalRecord` y `GenerateOpticalPrescription`. |
 | `QuotationController` | REST Controller | Expone `ApplyPromotionOrDiscount`, `ApproveQuotation` y `RejectQuotation`. |
 | `SaleController` | REST Controller | Expone `RecordPayment` y `CloseSale`. |
-| `AppointmentBookedConsumer` | Event Consumer | Se suscribe al evento externo `AppointmentBooked` (proveniente de Search & Booking vía Event Bus) y lo traduce al comando interno `ExaminePatient`, actuando como puerto de entrada de la Anti-Corruption Layer documentada en el Context Mapping (2.5.2). |
+| `AppointmentBookedConsumer` | Event Consumer | Se suscribe al evento externo `AppointmentBooked` (proveniente de Search & Booking; en el backend actual se comunica mediante eventos de Spring) y lo traduce al comando interno `ExaminePatient`, actuando como puerto de entrada de la Anti-Corruption Layer documentada en el Context Mapping (2.5.2). |
 
 <a id="2.6.2.3. Application Layer"></a>
 #### 2.6.2.3. Application Layer
@@ -2188,7 +2185,7 @@ Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen
 | `ClinicalRecordRepositoryImpl` | Repository (impl) | Implementa `ClinicalRecordRepository` sobre JPA/PostgreSQL. |
 | `QuotationRepositoryImpl` | Repository (impl) | Implementa `QuotationRepository` sobre JPA/PostgreSQL. |
 | `SaleRepositoryImpl` | Repository (impl) | Implementa `SaleRepository` sobre JPA/PostgreSQL. |
-| `DomainEventPublisher` | Messaging | Publica los eventos de dominio del contexto hacia el Event Bus (RabbitMQ/Kafka). |
+| `DomainEventPublisher` | Messaging | Publica los eventos de dominio mediante el adaptador compartido de eventos de Spring. |
 | `PaymentGatewayAdapter` | Anti-Corruption Layer | Traduce las respuestas de la Pasarela de Pagos externa (POS bancario, Yape, Plin) al modelo interno de `Payment` y `ElectronicReceipt`, aislando al dominio de los formatos propietarios del proveedor bancario (patrón Customer/Supplier documentado en 2.5.2). |
 
 <a id="2.6.2.5. Bounded Context Software Architecture Component Level Diagrams"></a>
@@ -2199,7 +2196,7 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Interface Layer:** Expone los controladores REST (`ClinicalRecordController`, `QuotationController`, `SaleController`) para gestionar atenciones optométricas, cotizaciones y ventas, además del `AppointmentBookedConsumer`, que actúa como puerto de entrada para procesar eventos provenientes de Search & Booking.
 * **Application Layer:** Orquesta los casos de uso clínicos y comerciales a través de Command Handlers especializados (`ExaminePatientHandler`, `RecordMedicalHistoryHandler`, `RegisterClinicalRecordHandler`, `GenerateOpticalPrescriptionHandler`, `ApplyPromotionOrDiscountHandler`, `ApproveQuotationHandler`, `RecordPaymentHandler`, `CloseSaleHandler`) y el `AppointmentBookedEventHandler`.
 * **Domain Layer:** Encapsula la lógica de negocio y las invariantes de los agregados `ClinicalRecord`, `Quotation` y `Sale`, las entidades `MedicalHistory`, `QuotationItem` y `ElectronicReceipt`, los Value Objects (`OpticalPrescription`, `Discount`, `Payment`), y define las interfaces de persistencia (`ClinicalRecordRepository`, `QuotationRepository`, `SaleRepository`).
-* **Infrastructure Layer:** Resuelve la persistencia de datos mediante `ClinicalRecordRepositoryImpl`, `QuotationRepositoryImpl` y `SaleRepositoryImpl` sobre PostgreSQL utilizando JPA/Hibernate, publica eventos de dominio hacia el Event Bus mediante `DomainEventPublisher`, y provee la `PaymentGatewayAdapter` (Anti-Corruption Layer) para comunicarse de forma desacoplada con pasarelas de pago externas (POS, billeteras digitales).
+* **Infrastructure Layer:** Resuelve la persistencia de datos mediante `ClinicalRecordRepositoryImpl`, `QuotationRepositoryImpl` y `SaleRepositoryImpl` sobre PostgreSQL utilizando JPA/Hibernate, publica eventos internos de Spring mediante `DomainEventPublisher`, y provee la `PaymentGatewayAdapter` (Anti-Corruption Layer) para comunicarse de forma desacoplada con pasarelas de pago externas (POS, billeteras digitales).
 
 
 El diagrama de componentes del Clinical & Commercial Context en Spring Boot se muestra en la Figura 43.
@@ -2238,24 +2235,27 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 <a id="2.6.2.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-El siguiente Database Design Diagram representa el modelo de persistencia del Bounded Context **Clinical & Commercial**, implementado mediante PostgreSQL.
+**Modelo físico implementado: PostgreSQL compartido, migración V2.** Clinical & Commercial comprende siete tablas: `clinical_records`, `medical_histories`, `optical_prescriptions`, `quotations`, `quotation_items`, `sales` y `electronic_receipts`.
 
-El esquema se organiza alrededor de `clinical_records`, que almacena la información principal de cada atención clínica. Las tablas `medical_histories` y `optical_prescriptions` dependen de dicho registro y permiten persistir los antecedentes clínicos y la receta óptica correspondiente.
+`clinical_records` identifica la atención con `id`, `patient_id`, `appointment_id`, `examination_date`, `observations` y `status`. `appointment_id` es obligatorio y único; ni esa columna ni `patient_id` tienen una FK declarada en V2 hacia Search & Booking. Se representan como referencias lógicas a la cita y al paciente.
 
-Las cotizaciones se almacenan mediante `quotations`, mientras que sus elementos son registrados en `quotation_items`. Los datos correspondientes al descuento se mantienen dentro de la cotización debido a que `Discount` forma parte de su estado y no posee identidad independiente.
+`medical_histories.clinical_record_id` y `optical_prescriptions.clinical_record_id` son, en cada tabla, PK y FK hacia `clinical_records.id`. Por ello, cada registro clínico puede tener cero o una historia y cero o una prescripción. La receta incluye medidas OD/OS, ejes, adición, tratamiento y tipo de montura recomendado; los ejes tienen un `CHECK` entre 0 y 180. Los tipos y la nulabilidad de cada campo se mantienen como en V2.
 
-Una cotización puede generar **cero o una venta**, y cada venta pertenece a **exactamente una cotización**. Para registrarla, la cotización debe estar aprobada y no tener una venta previa. Por tanto, en el alcance de TB1 una cotización no puede producir varias ventas. Los datos del pago forman parte de `sales`; una venta puede tener cero o un comprobante en `electronic_receipts`.
+`quotations.clinical_record_id` es una FK obligatoria: un registro clínico puede tener varias cotizaciones. La cotización conserva tipo, valor y motivo del descuento, total, estado y `rejection_reason`. `quotation_items` tiene una FK obligatoria hacia la cotización, `line_number`, `item_type`, `product_sku`, descripción, precio unitario y cantidad. La pareja (`quotation_id`, `line_number`) es única; las validaciones de importes, cantidad y tipos de ítem son las declaradas en la migración.
 
-Esta regla está implementada en `RegisterSaleHandler`: comprueba la aprobación y `existsByQuotationId`, y rechaza una segunda venta con HTTP `409 Conflict`. La migración `V2__clinical_commercial_schema.sql` refuerza la integridad con `sales.quotation_id UUID NOT NULL UNIQUE` y su Foreign Key hacia `quotations.id`. Asimismo, `electronic_receipts.sale_id` es `NOT NULL UNIQUE`. Varios ítems de una cotización no implican varias ventas, y el modelo actual no contempla dividirla en ventas parciales (ver Figura 45).
+Una cotización puede generar **cero o una venta**, y cada venta pertenece a exactamente una cotización: `sales.quotation_id` es `NOT NULL UNIQUE` y FK hacia `quotations.id`. `RegisterSaleHandler` exige una cotización aprobada y rechaza una venta duplicada con HTTP 409. Los datos de pago se almacenan en columnas de `sales`; no existe una tabla adicional de pagos en V2. `sales.patient_id` es una referencia lógica sin FK declarada.
 
+Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 43 representa las siete tablas de V2 con todas sus columnas, tipos, nulabilidad, PK, FK, `UNIQUE`, `CHECK` e índices. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) se marcan como `REF` y no se dibujan como relaciones.**
 
 <a id="figura-45"></a>
 
 **Figura 45**
 
-*Modelo de persistencia del Clinical & Commercial Context*
+*Diagrama de base de datos del Clinical & Commercial Context*
 
-![Modelo de persistencia del Clinical & Commercial Context](assets/cap2/revision-tb1/clinical-commercial-db-tb1.svg)
+<div align="center">
+  <img src="assets/cap2/db/clinical-commercial-v2.png" alt="Clinical and Commercial Database Design Diagram" width="1000">
+</div>
 
 
 Las relaciones se establecen mediante Primary Keys, Foreign Keys y restricciones de unicidad para mantener la integridad de los agregados y sus entidades persistentes.
@@ -2547,9 +2547,11 @@ Los Repositories del Production & Tracking Context se presentan en la Tabla 64.
 *Repositories del Production & Tracking Context*
 
 
-| Clase | Tipo | Responsabilidad |
-|---|---|---|
-| `WorkOrderRepositoryImpl` | Repository Implementation | Implementa `WorkOrderRepository` y permite persistir y recuperar las órdenes de trabajo. |
+| Clase | Responsabilidad |
+|---|---|
+| `WorkOrderRepositoryImpl` | Persiste y reconstruye órdenes con sus lentes e historial mediante repositorios JPA. |
+| `TechnicianRepositoryImpl` | Consulta y persiste el catálogo de técnicos en PostgreSQL. |
+| `LaboratoryRepositoryImpl` | Consulta y persiste el catálogo de laboratorios en PostgreSQL. |
 
 ##### Persistence
 
@@ -2565,8 +2567,11 @@ Los componentes de persistencia del Production & Tracking Context se resumen en 
 
 | Componente | Responsabilidad |
 |---|---|
-| `WorkOrderEntity` | Representa la persistencia de la orden de trabajo en la base de datos. |
-| `WorkOrderMapper` | Transforma el modelo de persistencia de la orden de trabajo hacia el modelo utilizado por el dominio y viceversa. |
+| `WorkOrderEntity` | Mapea `work_orders`, incluidos los datos copiados de la asignación y las columnas de demora. |
+| `WorkOrderLensEntity` | Mapea las filas de `work_order_lenses`. |
+| `WorkOrderStatusChangeEntity` y `WorkOrderStatusChangeKey` | Mapean `work_order_status_history` y su PK compuesta; `@Embeddable` representa una clave JPA, no un documento NoSQL. |
+| `TechnicianEntity` y `LaboratoryEntity` | Mapean los catálogos `technicians` y `laboratories`. |
+| `WorkOrderMapper` y `ProductionCatalogMapper` | Transforman las entidades JPA y los modelos del dominio. |
 
 ##### Messaging
 
@@ -2582,7 +2587,7 @@ Los componentes de mensajería del Production & Tracking Context se detallan en 
 
 | Componente | Responsabilidad |
 |---|---|
-| `DomainEventPublisher` | Publica los eventos generados por Production & Tracking hacia el Event Bus. |
+| `DomainEventPublisher` | Publica los eventos de producción mediante el publicador interno de Spring. |
 | `SaleWasClosedConsumer` | Consume el evento `SaleWasClosed` proveniente de Clinical & Commercial. |
 
 La comunicación mediante eventos permite desacoplar Production & Tracking de los demás Bounded Contexts. En particular, el contexto recibe `SaleWasClosed` desde **Clinical & Commercial** y publica eventos como `WorkOrderStatusUpdated` y `OrderWasMarkedAsDelivered`, que son consumidos por **Notification & Loyalty**.
@@ -2602,7 +2607,7 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Interface Layer:** Provee el `WorkOrderController` para la interacción síncrona vía REST (generación, asignación a técnicos, envío a laboratorio, actualización de estados Kanban y entrega), el `SaleWasClosedConsumer` para la recepción de eventos de venta desde Clinical & Commercial, además de los DTOs de solicitud/respuesta y sus respectivos Assemblers.
 * **Application Layer:** Coordina el flujo de fabricación óptica mediante los Command Handlers (`GenerateWorkOrderHandler`, `AssignWorkOrderToTechnicianHandler`, `SendWorkOrderToLaboratoryHandler`, `UpdateWorkOrderStatusHandler`, `CompleteLensesHandler`, `NotifyDeliveryDelayHandler`, `MarkOrderAsDeliveredHandler`), el `SaleWasClosedEventHandler` y el servicio de aplicación `WorkOrderApplicationService`.
 * **Domain Layer:** Contiene el Aggregate Root `WorkOrder` que modela el ciclo de vida de la orden, las entidades `Technician`, `Laboratory` y `Lenses`, los Value Objects (`WorkOrderStatus`, `DeliveryDate`, `DeliveryDelay`), las interfaces `WorkOrderRepository` y los eventos de dominio (`WorkOrderStatusUpdated`, `OrderWasMarkedAsDelivered`, etc.).
-* **Infrastructure Layer:** Implementa la persistencia documental mediante `WorkOrderRepositoryImpl`, `WorkOrderEntity` y `WorkOrderMapper` sobre MongoDB, la mensajería asíncrona mediante `DomainEventPublisher` y `SaleWasClosedConsumer` conectados al Event Bus (RabbitMQ/Kafka), y una Anti-Corruption Layer (ACL) que aísla el modelo de fabricación respecto a los datos comerciales y de facturación.
+* **Infrastructure Layer:** Implementa la persistencia relacional de Production & Tracking con JPA/PostgreSQL. `WorkOrderRepositoryImpl` coordina la orden, sus lentes y su historial; `TechnicianRepositoryImpl` y `LaboratoryRepositoryImpl` acceden a los catálogos. Los mappers reconstruyen el agregado desde las filas SQL. Los eventos se comunican mediante el publicador de Spring y manejadores internos; no se requiere un broker externo para esta implementación.
 
 
 El diagrama de componentes del Production & Tracking Context en Spring Boot se presenta en la Figura 46.
@@ -2647,14 +2652,17 @@ El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persisten
 <a id="2.6.3.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Production & Tracking**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza **MongoDB** como mecanismo de persistencia.
+**Modelo físico implementado: PostgreSQL compartido, migración V3.** Production & Tracking utiliza cinco tablas relacionales: `work_orders`, `work_order_lenses`, `work_order_status_history`, `technicians` y `laboratories`. No utiliza MongoDB ni una colección de documentos.
 
-El modelo se organiza alrededor de la colección `work_orders`, correspondiente a la representación persistente de `WorkOrderEntity`. Cada documento almacena la información necesaria para representar la orden de trabajo y los conceptos asociados a su proceso de fabricación.
+`work_orders` concentra el identificador de la orden, `sale_id`, `patient_id`, `optical_store_id`, el estado, la fecha estimada de entrega, las marcas de creación/actualización/entrega y los campos de demora. `sale_id` es obligatorio y único, pero no tiene FK declarada hacia `sales`. Los identificadores del paciente y la óptica también se conservan como referencias lógicas, sin FKs hacia otros contextos.
 
-Dentro del documento de una orden pueden representarse la información del técnico asignado, el laboratorio, las lentes asociadas, el estado actual de producción, la fecha estimada de entrega y la información relacionada con posibles retrasos.
+`technicians` y `laboratories` son tablas de catálogo con `id UUID` como PK y `name VARCHAR(120) NOT NULL`. La orden guarda `technician_id`, `technician_name`, `laboratory_id` y `laboratory_name` como una copia de los datos de la asignación. V3 no declara FKs desde esos campos hacia los catálogos; el diagrama no debe dibujarlas como relaciones físicas.
 
-Debido al uso de MongoDB, los elementos que forman parte del agregado pueden representarse mediante documentos embebidos y arreglos internos, evitando la necesidad de utilizar relaciones mediante Primary Keys y Foreign Keys propias de un modelo relacional (ver Figura 48).
+`work_order_lenses` almacena las lentes de la orden, con `id` como PK, `work_order_id` como FK obligatoria, `line_number`, `specifications` y `completed`. La pareja (`work_order_id`, `line_number`) es única. `work_order_status_history` almacena los cambios de estado; su PK es (`work_order_id`, `sequence_number`) y `work_order_id` es también FK hacia `work_orders.id`. Ambas tablas pueden contener varias filas por orden.
 
+Las fechas estimadas usan `DATE`, mientras que los momentos de creación, cambio, demora y entrega usan `TIMESTAMP WITH TIME ZONE`. La demora se almacena en las columnas `delay_reason`, `delay_reported_at` y `delay_new_estimated_date`; no es un documento ni una tabla separada. `WorkOrderRepositoryImpl` reconstruye el agregado a partir de las filas de orden, lentes e historial.
+
+**La Figura 46 representa las cinco tablas relacionales de V3. Los identificadores `sale_id`, `patient_id`, `optical_store_id`, `technician_id` y `laboratory_id` de `work_orders` se marcan como `REF` (referencias lógicas sin FK); `technicians` y `laboratories` aparecen sin relación física con la orden.**
 
 <a id="figura-48"></a>
 
@@ -2663,12 +2671,14 @@ Debido al uso de MongoDB, los elementos que forman parte del agregado pueden rep
 *Diagrama de base de datos del Production & Tracking Context*
 
 <div align="center">
-  <img src="assets/cap2/ProductionTrackingDatabaseDesignDiagram.png" alt="Production and Tracking Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/production-tracking-v3.png" alt="Production and Tracking Database Design Diagram" width="1000">
 </div>
 
 
 <a id="2.6.4. Bounded Context: Store Management & Inventory Contexty"></a>
 ### 2.6.4. Bounded Context: Store Management & Inventory Context
+
+**Estado: diseño propuesto, no implementado.** Las clases, repositorios, controladores y tablas de esta sección son una propuesta del dominio; no existen como implementación funcional en el backend revisado. Su base física se especificará cuando se incorpore una migración. La Figura 49 no representa el esquema desplegado.
 
 <a id="2.6.4.1. Domain Layer"></a>
 #### 2.6.4.1. Domain Layer
@@ -2988,7 +2998,7 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Interface Layer:** Proporciona los controladores REST (`InventoryController`, `FrameModelController`, `SupplierController`) expuestos a través del API Gateway para la administración del catálogo, stock y proveedores, el consumidor `SaleWasClosedConsumer` que procesa las deducciones de existencias originadas por ventas, y los DTOs y Assemblers correspondientes.
 * **Application Layer:** Coordina la lógica de aplicación mediante Command Handlers (`AddNewFrameModelHandler`, `UpdateFrameModelPriceHandler`, `ReplenishStockHandler`, `RegisterSupplierHandler`), el `SaleWasClosedEventHandler`, servicios de consulta y los servicios de aplicación `InventoryApplicationService`, `FrameModelApplicationService` y `SupplierApplicationService`.
 * **Domain Layer:** Concentra el modelo de negocio con los agregados y entidades `Inventory`, `FrameModel`, `Stock`, `Supplier` y `Catalog`, los Value Objects `Price`, `LowStockAlert` y `Replenishment`, las interfaces de repositorio (`InventoryRepository`, `FrameModelRepository`, `SupplierRepository`) y los eventos de dominio (`FrameModelAdded`, `StockReplenished`, `LowStockAlertTriggered`).
-* **Infrastructure Layer:** Provee la implementación de persistencia relacional (`InventoryRepositoryImpl`, `FrameModelRepositoryImpl`, `SupplierRepositoryImpl`) sobre PostgreSQL, las entidades de persistencia (`InventoryEntity`, `FrameModelEntity`, `SupplierEntity`), los Mappers, el publicador de eventos `DomainEventPublisher` y el consumidor `SaleWasClosedConsumer` sobre el Event Bus.
+* **Infrastructure Layer (propuesta):** Plantea adaptadores JPA/PostgreSQL para inventario, monturas y proveedores dentro de la base compartida. No hay entidades, repositorios o migraciones implementados para este contexto en la versión revisada; las clases y comunicaciones del diagrama son elementos de diseño.
 
 
 El diagrama de componentes del Store Management & Inventory Context en Spring Boot se presenta en la Figura 49.
@@ -3004,7 +3014,7 @@ El diagrama de componentes del Store Management & Inventory Context en Spring Bo
 </div>
 
 
-La articulación de estos componentes garantiza el control de inventario multitienda, la detección temprana de niveles críticos de existencias mediante alertas automáticas y la actualización precisa de stock tras cada venta concretada.
+La propuesta busca organizar el control de inventario, las alertas y los movimientos de stock. Estos beneficios son objetivos del diseño: el contexto aún no tiene implementación de persistencia ni integración operativa con ventas.
 
 <a id="2.6.4.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
@@ -3035,18 +3045,13 @@ El Domain Layer también incluye las interfaces `FrameModelRepository`, `Invento
 <a id="2.6.4.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Store Management & Inventory**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza **PostgreSQL** como sistema de gestión de base de datos relacional.
+**Diseño propuesto; sin implementación de persistencia.** Store Management & Inventory no tiene migración SQL, entidades JPA ni repositorios implementados en la versión del backend revisada. Solo existen paquetes que reservan su organización por capas. Por tanto, este contexto no añade tablas a las 20 existentes en V1–V4.
 
-El modelo se organiza alrededor de las tablas `frame_models`, `inventories`, `inventory_stocks`, `suppliers` y `replenishments`.
+La propuesta contempla `frame_models`, `inventories`, `inventory_stocks`, `suppliers` y `replenishments` para organizar catálogo, existencias y abastecimiento. `inventory_stocks` se plantea con una clave compuesta por inventario y modelo de montura. Son decisiones de diseño pendientes de implementación y validación; no deben confundirse con tablas desplegadas ni incorporarse al SQL del esquema actual.
 
-La tabla `frame_models` almacena la información correspondiente a los modelos de monturas registrados en el catálogo, incluyendo sus principales características y la información de precio. Debido a que `Price` forma parte del estado de un modelo de montura y no posee identidad independiente, sus datos se almacenan directamente dentro de `frame_models`.
+La tecnología propuesta es PostgreSQL dentro de la base compartida del backend. Su implementación requerirá una migración posterior con columnas, PK, FK, índices y reglas de integridad revisados. No se asigna un Sprint de ejecución sin un compromiso explícito del backlog.
 
-La tabla `inventories` representa los inventarios administrados por el contexto, mientras que `inventory_stocks` mantiene las existencias de cada modelo de montura. Esta última utiliza una Primary Key compuesta formada por `inventory_id` y `frame_model_id`, permitiendo mantener un único registro de stock para cada modelo dentro de un inventario.
-
-La tabla `suppliers` almacena los proveedores responsables del abastecimiento de productos. Por otro lado, `replenishments` registra las operaciones de reposición de stock, relacionando un inventario, un modelo de montura y el proveedor involucrado en el abastecimiento.
-
-Las relaciones entre las tablas se establecen mediante Primary Keys y Foreign Keys, permitiendo mantener la integridad referencial de la información relacionada con catálogo, existencias, proveedores y operaciones de reabastecimiento (ver Figura 51).
-
+**La Figura 49 representa exclusivamente este diseño propuesto. Se identifica visualmente como no implementado (borde punteado y aviso superior) y se mantiene separada de los cuatro modelos físicos derivados de las migraciones.**
 
 <a id="figura-51"></a>
 
@@ -3055,12 +3060,14 @@ Las relaciones entre las tablas se establecen mediante Primary Keys y Foreign Ke
 *Diagrama de base de datos del Store Management & Inventory Context*
 
 <div align="center">
-  <img src="assets/cap2/StoreManagementInventoryDatabaseDesignDiagram.png" alt="Store Management and Inventory Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/store-inventory-proposal.png" alt="Store Management and Inventory Database Design Diagram" width="1000">
 </div>
 
 
 <a id="2.6.5. Bounded Context: Notification & Loyalty Context"></a>
 ### 2.6.5. Bounded Context: Notification & Loyalty Context
+
+**Alcance del diseño y de la implementación.** El diseño funcional ampliado de preferencias, encuestas, campañas y canales externos se distingue del modelo implementado, cuyas entidades son `Notification` y `LoyaltyAccount`, con los repositorios `NotificationRepository` y `LoyaltyAccountRepository`. La persistencia real se documenta en 2.6.5.4 y 2.6.5.6.2. Las vistas de clases y componentes conservadas expresan también funciones propuestas, y no acreditan tablas, endpoints o integraciones multicanal implementadas.
 
 <a id="2.6.5.1. Domain Layer"></a>
 #### 2.6.5.1. Domain Layer
@@ -3284,7 +3291,7 @@ Los Application Services del Notification & Loyalty Context se presentan en la T
 <a id="2.6.5.4. Infrastructure Layere"></a>
 #### 2.6.5.4. Infrastructure Layer
 
-La Infrastructure Layer implementa los mecanismos técnicos requeridos para persistir información y comunicarse con servicios externos de mensajería. El contexto utiliza una **Anti-Corruption Layer (ACL)** para evitar que los formatos propios de Meta WhatsApp Cloud API o Firebase Cloud Messaging se propaguen hacia el modelo interno de OptiFlow.
+La Infrastructure Layer implementada persiste notificaciones y cuentas de fidelización mediante JPA/PostgreSQL. Los adaptadores externos y la ACL del diseño ampliado son propuestas y no implican que existan colecciones, tablas adicionales o una entrega de mensajes validada mediante WhatsApp o Firebase.
 
 ##### Repositories
 
@@ -3300,11 +3307,8 @@ Los Repositories del Notification & Loyalty Context se resumen en la Tabla 90.
 
 | Repository | Responsabilidad |
 |---|---|
-| `NotificationRepository` | Persistencia de las notificaciones generadas. |
-| `NotificationPreferencesRepository` | Persistencia de las preferencias de comunicación. |
-| `SatisfactionSurveyRepository` | Persistencia de las encuestas y sus respuestas. |
-| `StaffMemberRepository` | Persistencia de los miembros del personal responsables de las notificaciones. |
-| `ReactivationCampaignRepository` | Persistencia de las campañas de reactivación. |
+| `NotificationRepository` / `NotificationRepositoryImpl` | Abstracción del dominio y adaptador JPA para las filas de `notifications`. |
+| `LoyaltyAccountRepository` / `LoyaltyAccountRepositoryImpl` | Abstracción del dominio y adaptador JPA para `loyalty_accounts`. |
 
 ##### Persistence
 
@@ -3320,11 +3324,10 @@ Los componentes de persistencia del Notification & Loyalty Context se detallan e
 
 | Componente | Responsabilidad |
 |---|---|
-| `NotificationEntity` | Representación persistente de una notificación. |
-| `NotificationPreferencesEntity` | Representación persistente de las preferencias del paciente. |
-| `SatisfactionSurveyEntity` | Representación persistente de una encuesta de satisfacción. |
-| `StaffMemberEntity` | Representación persistente del personal asignado. |
-| `ReactivationCampaignEntity` | Representación persistente de una campaña de reactivación. |
+| `NotificationEntity` | Mapea la tabla relacional `notifications`. |
+| `LoyaltyAccountEntity` | Mapea `loyalty_accounts`, identificada por `patient_id`. |
+| `NotificationMapper` y `LoyaltyAccountMapper` | Convierten entidades JPA en objetos de dominio y viceversa. |
+| `NotificationJpaRepository` y `LoyaltyAccountJpaRepository` | Ejecutan el acceso a persistencia mediante Spring Data JPA. |
 
 ##### Messaging
 
@@ -3340,10 +3343,10 @@ Los componentes de mensajería del Notification & Loyalty Context se presentan e
 
 | Componente | Responsabilidad |
 |---|---|
-| `AppointmentBookedConsumer` | Consume eventos de reservas confirmadas. |
-| `WorkOrderStatusUpdatedConsumer` | Consume eventos de actualización del estado de las órdenes. |
-| `OrderWasMarkedAsDeliveredConsumer` | Consume eventos de entrega de pedidos. |
-| `DomainEventPublisher` | Publica los eventos generados por el contexto. |
+| `AppointmentBookedEventHandler` | Reacciona a la reserva mediante un evento de la aplicación Spring. |
+| `WorkOrderStatusUpdatedEventHandler` | Genera el aviso de progreso a partir del estado comunicado por producción. |
+| `ProductionDeliveryDelayNotifiedEventHandler` | Genera el aviso asociado a una demora de producción. |
+| `EventPublisherAdapter` | Adaptador compartido de `DomainEventPublisher` sobre `ApplicationEventPublisher`, sin broker externo. |
 
 ##### External Messaging / ACL
 
@@ -3356,6 +3359,8 @@ Los componentes de mensajería externa y ACL del Notification & Loyalty Context 
 
 *Componentes de mensajería externa y ACL del Notification & Loyalty Context*
 
+**Diseño propuesto.** La Tabla 90 enumera adaptadores externos previstos; no son tablas SQL ni acreditan envío de mensajes a proveedores externos en la implementación revisada.
+
 
 | Componente | Responsabilidad |
 |---|---|
@@ -3363,18 +3368,18 @@ Los componentes de mensajería externa y ACL del Notification & Loyalty Context 
 | `FirebaseMessagingAdapter` | Adaptación de las notificaciones internas hacia Firebase Cloud Messaging. |
 | `MessagingAntiCorruptionLayer` | Aísla el modelo de notificaciones de OptiFlow de los formatos externos de mensajería. |
 
-La comunicación con **Third-Party Messaging** se realiza siguiendo el patrón **Customer / Supplier**, donde la plataforma externa actúa como proveedor y Notification & Loyalty como cliente. La ACL permite desacoplar las plantillas y eventos propios de OptiFlow de los payloads y cabeceras requeridos por los servicios externos.
+La integración propuesta con **Third-Party Messaging** sigue el patrón **Customer / Supplier** y plantea una ACL para adaptar formatos externos. Esta relación pertenece al diseño; no modifica el modelo físico de dos tablas de V4 ni demuestra la entrega de mensajes por WhatsApp o Firebase.
 
 
 <a id="2.6.5.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Notification & Loyalty Service** en sus bloques de componentes estructurados en cuatro capas:
+El siguiente Component Diagram representa el diseño ampliado del módulo **Notification & Loyalty** dentro del único backend. La persistencia de referencia es JPA/PostgreSQL; las operaciones de preferencias, encuestas, campañas y canales externos dibujadas requieren implementación y validación adicionales.
 
 * **Interface Layer:** Expone los controladores REST (`BirthdayNotificationController`, `SatisfactionSurveyController`, `NotificationController`, `NotificationPreferencesController`, `OrderProgressNotificationController`, `ReactivationCampaignController`), los consumidores de eventos entrantes (`AppointmentBookedConsumer`, `WorkOrderStatusUpdatedConsumer`, `OrderWasMarkedAsDeliveredConsumer`), además de los DTOs y Assemblers para el mapeo de peticiones.
 * **Application Layer:** Orquesta los casos de uso de comunicación y fidelización mediante Command Handlers (`DetectPatientBirthdayCommandHandler`, `SendBirthdayDiscountCommandHandler`, `SendSatisfactionSurveyCommandHandler`, `AssignStaffMemberToManageNotificationsCommandHandler`, `ConfigureNotificationPreferencesCommandHandler`, `NotifyPatientInAppCommandHandler`, `NotifyLensOrderProgressCommandHandler`, `SendReactivationCampaignCommandHandler`) y los servicios de aplicación (`BirthdayNotificationService`, `SatisfactionSurveyService`, `NotificationService`, `NotificationPreferenceService`, `OrderProgressNotificationService`, `ReactivationCampaignService`).
 * **Domain Layer:** Encapsula las reglas y modelos de fidelización: `NotificationPreferences`, `PatientBirthday`, `BirthdayDiscount`, `SatisfactionSurvey`, `InAppNotification`, `OrderProgress`, `ReactivationCampaign`, `StaffMember`, junto con las interfaces de repositorio (`NotificationRepository`, `NotificationPreferencesRepository`, `SatisfactionSurveyRepository`, `StaffMemberRepository`, `ReactivationCampaignRepository`) y los eventos de dominio.
-* **Infrastructure Layer:** Resuelve la persistencia orientada a documentos sobre MongoDB (`NotificationRepositoryImpl`, `NotificationPreferencesRepositoryImpl`, etc.), la mensajería asíncrona mediante el `DomainEventPublisher` y los consumidores de eventos, y los adaptadores de integración externa (`WhatsAppMessagingAdapter`, `FirebaseMessagingAdapter`) mediados por la `MessagingAntiCorruptionLayer` (ACL) para desacoplar el dominio de los proveedores externos de mensajería (Meta WhatsApp Cloud API, Firebase Cloud Messaging).
+* **Infrastructure Layer:** Implementa `NotificationRepositoryImpl` y `LoyaltyAccountRepositoryImpl` sobre JPA/PostgreSQL, mediante `NotificationEntity`, `LoyaltyAccountEntity` y sus mappers. Recibe eventos internos de la aplicación Spring para generar notificaciones persistidas. Los adaptadores de WhatsApp y Firebase del diseño son propuestas de integración y no describen la persistencia ni una entrega externa verificada.
 
 
 El diagrama de componentes del Notification & Loyalty Context en Spring Boot se muestra en la Figura 52.
@@ -3390,7 +3395,7 @@ El diagrama de componentes del Notification & Loyalty Context en Spring Boot se 
 </div>
 
 
-Esta arquitectura basada en componentes y eventos permite que las notificaciones multicanal (in-app, WhatsApp, push) y las estrategias de fidelización se ejecuten de manera reactiva ante los eventos clave del ciclo de atención y producción de OptiFlow.
+La implementación persiste avisos y cuentas de fidelización en PostgreSQL y reacciona a eventos de reservas y producción. Las notificaciones multicanal, encuestas y campañas representadas en la vista de componentes forman parte del diseño ampliado; su representación no demuestra que estén implementadas.
 
 <a id="2.6.5.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
@@ -3421,16 +3426,15 @@ El Domain Layer incluye también las interfaces de repositorio necesarias para a
 <a id="2.6.5.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-El siguiente Database Design Diagram representa el modelo de persistencia correspondiente al Bounded Context **Notification & Loyalty**. De acuerdo con la arquitectura definida para OptiFlow, este contexto utiliza **MongoDB** como sistema de persistencia NoSQL orientado a documentos.
+**Modelo físico implementado: PostgreSQL compartido, migración V4.** Notification & Loyalty persiste únicamente dos tablas: `notifications` y `loyalty_accounts`. No utiliza colecciones MongoDB ni tablas de preferencias, encuestas, personal o campañas en esta versión.
 
-El modelo está compuesto por las colecciones `notification_preferences`, `notifications`, `satisfaction_surveys`, `staff_members` y `reactivation_campaigns`, correspondientes a los principales elementos persistentes identificados en la Infrastructure Layer.
+`loyalty_accounts` utiliza `patient_id UUID` como PK y FK hacia `patients.id`, y conserva `balance INT NOT NULL`, `last_birthday_discount_year INT` y `updated_at TIMESTAMP WITH TIME ZONE NOT NULL`. Un paciente puede tener cero o una cuenta; el saldo no puede ser negativo. La cuenta registra el saldo de puntos y el año del último beneficio de cumpleaños.
 
-La colección `notification_preferences` almacena la configuración de comunicación asociada a cada paciente, permitiendo determinar los canales habilitados para el envío de mensajes. La colección `notifications` almacena las notificaciones generadas dentro del contexto y puede contener información embebida de `OrderProgress` cuando la comunicación está relacionada con el avance de una orden de trabajo.
+`notifications` contiene `id`, `patient_id`, `type`, `title`, `body`, `appointment_id`, `work_order_id`, `status`, `created_at` y `read_at`. Su PK es `id` y su única FK es `patient_id` hacia `patients.id`. Un paciente puede tener varias notificaciones. Los identificadores de cita y orden son opcionales y no tienen FKs declaradas en V4; no se representan como relaciones físicas con sus tablas.
 
-Por otro lado, `satisfaction_surveys` almacena las encuestas enviadas a los pacientes después de la entrega de sus pedidos, mientras que `staff_members` mantiene la información del personal que puede ser asignado a la gestión de notificaciones. Finalmente, `reactivation_campaigns` registra las campañas utilizadas para incentivar futuros controles visuales.
+Los tipos permitidos son `APPOINTMENT_REMINDER`, `LENS_ORDER_PROGRESS`, `BIRTHDAY_DISCOUNT` y `DELIVERY_DELAY`; los estados admitidos son `UNREAD` y `READ`. La migración crea un índice único parcial sobre (`patient_id`, `appointment_id`) cuando `appointment_id IS NOT NULL`. Esta regla se documenta junto al diagrama, aunque el importador gráfico no represente índices parciales.
 
-Debido al uso de MongoDB, las relaciones entre los elementos del dominio pueden representarse mediante documentos embebidos o referencias lógicas, sin utilizar Primary Keys y Foreign Keys propias de un modelo relacional (ver Figura 54).
-
+`NotificationEntity` y `LoyaltyAccountEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. Los conceptos de preferencias, encuestas, delegación y campañas pertenecen al diseño funcional ampliado y no implican persistencia implementada. **La Figura 52 muestra las dos tablas de V4 y sus FKs hacia `patients`, tabla de V1 que se incluye como referencia. `appointment_id` y `work_order_id` de `notifications` se marcan como `REF` (referencias lógicas sin FK).**
 
 <a id="figura-54"></a>
 
@@ -3439,7 +3443,5 @@ Debido al uso de MongoDB, las relaciones entre los elementos del dominio pueden 
 *Diagrama de base de datos del Notification & Loyalty Context*
 
 <div align="center">
-  <img src="assets/cap2/NotificationLoyaltyDatabaseDesignDiagram.png" alt="Notification and Loyalty Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/notification-loyalty-v4.png" alt="Notification and Loyalty Database Design Diagram" width="1000">
 </div>
-
-

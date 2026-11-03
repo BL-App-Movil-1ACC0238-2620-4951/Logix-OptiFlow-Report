@@ -1286,7 +1286,7 @@ La disponibilidad de horarios obtenida de Render se observa en la Figura 159.
 
 <img src="assets/cap4/sprint1/deploy-mobile-availability.png" alt="Disponibilidad de horarios" width="300">
 
-Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /optical-stores/{id}/availability` de la [Figura 152](#figura-153).
+Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /optical-stores/{id}/availability` de la [Figura 152](#figura-152).
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 

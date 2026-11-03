@@ -128,6 +128,8 @@ La leyenda de los elementos del diagrama se presenta a continuación (ver Figura
 
 ### E.3. Component Diagrams
 
+Las vistas conservadas documentan el diseño de componentes. Las bases documentales o adaptadores adicionales que aparezcan en esas imágenes no acreditan su implementación: la persistencia vigente es la única base PostgreSQL y los módulos con migraciones V1–V4. Inventory permanece como diseño propuesto.
+
 #### Clinical & Commercial
 
 
@@ -205,7 +207,7 @@ El Store Management & Inventory Component Diagram se muestra en la Figura E8.
 
 La cardinalidad vigente de cotización–venta se especifica en [2.6.2.6.2](Capitulo2.md#26262-bounded-context-database-design-diagram): una cotización genera como máximo una venta, respaldada por la restricción de unicidad del backend.
 
-En este anexo se presentan evidencias complementarias de los diagramas desarrollados para representar la estructura interna de los Bounded Contexts a nivel táctico.
+Los diagramas de este anexo complementan el diseño táctico. Las secciones 2.6.1.6.2 a 2.6.5.6.2 describen el modelo físico actual: una base PostgreSQL compartida, con 20 tablas definidas en V1–V4. Los diagramas de base de datos de este anexo y del capítulo II se elaboraron a partir de esas migraciones.
 
 ### F.1. Production & Tracking
 
@@ -226,7 +228,7 @@ El Production & Tracking Domain Layer Class Diagram se presenta en la Figura F1.
 #### Database Design Diagram
 
 
-El Production & Tracking Database Design Diagram se observa en la Figura F2.
+La Figura F2 reproduce el modelo físico relacional de la migración V3: `work_orders`, `work_order_lenses`, `work_order_status_history`, `technicians` y `laboratories`. La sección 2.6.3.6.2 especifica las claves físicas y las referencias lógicas.
 
 <a id="figura-f2"></a>
 
@@ -234,13 +236,13 @@ El Production & Tracking Database Design Diagram se observa en la Figura F2.
 
 *Production & Tracking Database Design Diagram*
 
-![Production & Tracking Database Design Diagram](assets/cap2/ProductionTrackingDatabaseDesignDiagram.png)
+![Production & Tracking Database Design Diagram](assets/cap2/db/production-tracking-v3.png)
 
 
 
 ### F.2. Notification & Loyalty
 
-El diseño táctico de este contexto contempla elementos como `NotificationPreferences`, `PatientBirthday`, `BirthdayDiscount`, `SatisfactionSurvey` y `ReactivationCampaign`, además de consumidores de eventos y adaptadores para servicios externos de mensajería.
+La persistencia implementada de Notification & Loyalty utiliza `notifications` y `loyalty_accounts` en PostgreSQL, según V4. Las preferencias, encuestas, campañas y adaptadores multicanal representados en el diseño ampliado no añaden tablas implementadas. La sección 2.6.5.6.2 detalla las columnas y restricciones reales.
 
 
 <div style="break-before: page; page-break-before: always;"></div>
