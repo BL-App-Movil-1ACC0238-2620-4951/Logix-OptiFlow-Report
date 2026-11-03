@@ -1289,23 +1289,9 @@ En el mapa se emplean los siguientes patrones de Domain-Driven Design:
 - **Published Language (PL):** los eventos de dominio tienen una estructura documentada y conocida por los contextos que los consumen.
 - **Shared Kernel:** dos o más contextos comparten un subconjunto pequeño del modelo o del código, que solo cambia con el acuerdo de todos.
 
-##### Context map candidato inicial
-
-El primer context map candidato incluía los cinco Bounded Contexts y dos sistemas externos: una pasarela de pagos (POS, Yape y Plin) conectada a Clinical & Commercial y una plataforma de mensajería (WhatsApp y Firebase Cloud Messaging) conectada a Notification & Loyalty, como se muestra en la Figura 30.
-
-<a id="figura-30"></a>
-
-**Figura 30**
-
-*Context map candidato inicial de OptiFlow*
-
-![Context map candidato inicial de OptiFlow](assets/cap2/ContextMappingFinal.png)
-
-*Nota.* Elaboración propia.
-
 ##### Análisis de alternativas
 
-A partir del mapa candidato, el equipo evaluó alternativas de diseño mediante preguntas sobre la ubicación de cada capacidad y la forma de integración entre contextos. Para cada alternativa se analizaron sus consecuencias y se tomó una decisión, como se resume en la Tabla 23.
+El primer diseño candidato incluía los cinco Bounded Contexts y dos sistemas externos: una pasarela de pagos (POS, Yape y Plin) conectada a Clinical & Commercial y una plataforma de mensajería (WhatsApp y Firebase Cloud Messaging) conectada a Notification & Loyalty. A partir de ese diseño, el equipo evaluó alternativas de diseño mediante preguntas sobre la ubicación de cada capacidad y la forma de integración entre contextos. Para cada alternativa se analizaron sus consecuencias y se tomó una decisión, como se resume en la Tabla 23.
 
 <a id="tabla-23"></a>
 
@@ -1326,11 +1312,11 @@ A partir del mapa candidato, el equipo evaluó alternativas de diseño mediante 
 
 ##### Context map final
 
-Como resultado del análisis, el context map final conserva los cinco Bounded Contexts y cinco relaciones basadas en eventos de dominio, como se muestra en la Figura 31. Los contextos core aparecen en azul y los contextos supporting en naranja; en cada extremo de una relación se indica el rol upstream (U) o downstream (D) y los patrones que aplica.
+Como resultado del análisis, el context map final conserva los cinco Bounded Contexts y cinco relaciones basadas en eventos de dominio, como se muestra en la Figura 30. Los contextos core aparecen en azul y los contextos supporting en naranja; en cada extremo de una relación se indica el rol upstream (U) o downstream (D) y los patrones que aplica.
 
-<a id="figura-31"></a>
+<a id="figura-30"></a>
 
-**Figura 31**
+**Figura 30**
 
 *Context map final de OptiFlow*
 
@@ -1358,11 +1344,11 @@ A continuación se detalla cada relación del mapa final.
 
 ##### Search & Booking → Clinical & Commercial
 
-La relación entre Search & Booking y Clinical & Commercial se muestra en la Figura 32.
+La relación entre Search & Booking y Clinical & Commercial se muestra en la Figura 31.
 
-<a id="figura-32"></a>
+<a id="figura-31"></a>
 
-**Figura 32**
+**Figura 31**
 
 *Context map entre Search & Booking y Clinical & Commercial*
 
@@ -1377,11 +1363,11 @@ La relación entre Search & Booking y Clinical & Commercial se muestra en la Fig
 
 ##### Search & Booking → Notification & Loyalty
 
-La relación entre Search & Booking y Notification & Loyalty se muestra en la Figura 33.
+La relación entre Search & Booking y Notification & Loyalty se muestra en la Figura 32.
 
-<a id="figura-33"></a>
+<a id="figura-32"></a>
 
-**Figura 33**
+**Figura 32**
 
 *Context map entre Search & Booking y Notification & Loyalty*
 
@@ -1396,11 +1382,11 @@ La relación entre Search & Booking y Notification & Loyalty se muestra en la Fi
 
 ##### Clinical & Commercial → Production & Tracking
 
-La relación entre Clinical & Commercial y Production & Tracking se muestra en la Figura 34.
+La relación entre Clinical & Commercial y Production & Tracking se muestra en la Figura 33.
 
-<a id="figura-34"></a>
+<a id="figura-33"></a>
 
-**Figura 34**
+**Figura 33**
 
 *Context map entre Clinical & Commercial y Production & Tracking*
 
@@ -1415,11 +1401,11 @@ La relación entre Clinical & Commercial y Production & Tracking se muestra en l
 
 ##### Clinical & Commercial → Store Management & Inventory
 
-La relación entre Clinical & Commercial y Store Management & Inventory se muestra en la Figura 35.
+La relación entre Clinical & Commercial y Store Management & Inventory se muestra en la Figura 34.
 
-<a id="figura-35"></a>
+<a id="figura-34"></a>
 
-**Figura 35**
+**Figura 34**
 
 *Context map entre Clinical & Commercial y Store Management & Inventory*
 
@@ -1434,11 +1420,11 @@ La relación entre Clinical & Commercial y Store Management & Inventory se muest
 
 ##### Production & Tracking → Notification & Loyalty
 
-La relación entre Production & Tracking y Notification & Loyalty se muestra en la Figura 36.
+La relación entre Production & Tracking y Notification & Loyalty se muestra en la Figura 35.
 
-<a id="figura-36"></a>
+<a id="figura-35"></a>
 
-**Figura 36**
+**Figura 35**
 
 *Context map entre Production & Tracking y Notification & Loyalty*
 
@@ -1455,12 +1441,12 @@ La relación entre Production & Tracking y Notification & Loyalty se muestra en 
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relacionados. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias; el diagrama de contenedores identifica cuáles corresponden al incremento de TB1 (ver Figura 37).
+El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relacionados. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias; el diagrama de contenedores identifica cuáles corresponden al incremento de TB1 (ver Figura 36).
 
 
-<a id="figura-37"></a>
+<a id="figura-36"></a>
 
-**Figura 37**
+**Figura 36**
 
 *Diagrama de contexto C4 de OptiFlow*
 
@@ -1469,12 +1455,12 @@ El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relaci
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 38).
+El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 37).
 
 
-<a id="figura-38"></a>
+<a id="figura-37"></a>
 
-**Figura 38**
+**Figura 37**
 
 *Diagrama de contenedores C4 con un único backend*
 
@@ -1483,12 +1469,12 @@ El diagrama de contenedores, elaborado con Structurizr, muestra el backend como 
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en el Sprint 1. La Landing Page se publica como sitio estático en GitHub Pages; el backend se ejecuta en un contenedor Docker en Render y accede a una base de datos PostgreSQL mediante JPA; y la aplicación móvil se distribuye con Firebase App Distribution para instalarse en los dispositivos Android, desde donde consume el backend por HTTPS. La configuración de cada entorno se detalla en la sección 4.1.4 (ver Figura 39).
+El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en el Sprint 1. La Landing Page se publica como sitio estático en GitHub Pages; el backend se ejecuta en un contenedor Docker en Render y accede a una base de datos PostgreSQL mediante JPA; y la aplicación móvil se distribuye con Firebase App Distribution para instalarse en los dispositivos Android, desde donde consume el backend por HTTPS. La configuración de cada entorno se detalla en la sección 4.1.4 (ver Figura 38).
 
 
-<a id="figura-39"></a>
+<a id="figura-38"></a>
 
-**Figura 39**
+**Figura 38**
 
 *Deployment Diagram de OptiFlow en el Sprint 1*
 
@@ -1506,7 +1492,7 @@ El modelo de datos se basa en las migraciones `V1__search_booking_schema.sql`, `
 
 Las relaciones físicas del modelo corresponden a las claves foráneas declaradas en las migraciones. Los identificadores que no tienen una restricción `FOREIGN KEY` se documentan como referencias lógicas. Los objetos de valor y las claves compuestas de JPA no implican que la información se almacene como documentos MongoDB.
 
-Los diagramas de base de datos de las Figuras 40, 43, 46 y 52 se elaboraron directamente a partir de las migraciones V1–V4: muestran cada tabla con sus columnas, tipos, nulabilidad, claves primarias, claves foráneas, restricciones `UNIQUE` y `CHECK` e índices. Los identificadores sin `FOREIGN KEY` se marcan como `REF` y no se dibujan como relaciones. La Figura 49 corresponde a Store Management & Inventory, que es un diseño propuesto, y se identifica visualmente como no implementado.
+Los diagramas de base de datos de las Figuras 39, 42, 45 y 51 se elaboraron directamente a partir de las migraciones V1–V4: muestran cada tabla con sus columnas, tipos, nulabilidad, claves primarias, claves foráneas, restricciones `UNIQUE` y `CHECK` e índices. Los identificadores sin `FOREIGN KEY` se marcan como `REF` y no se dibujan como relaciones. La Figura 48 corresponde a Store Management & Inventory, que es un diseño propuesto, y se identifica visualmente como no implementado.
 
 <a id="2.6.1. Bounded Context: Search & Booking Context"></a>
 ### 2.6.1. Bounded Context: Search & Booking Context
@@ -2027,11 +2013,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Proporciona las implementaciones técnicas concretas, incluyendo los repositorios sobre PostgreSQL/JPA (`AppointmentRepositoryImpl`, `PatientRepositoryImpl`, etc.), las entidades de persistencia (`AppointmentEntity`, etc.), los Mappers, el `EventPublisherAdapter` para publicar eventos internos mediante `ApplicationEventPublisher` de Spring, y los adaptadores de integración externa (`AuthenticationAdapter`, `NotificationIntegrationAdapter`).
 
 
-El diagrama de componentes del Search & Booking Context en Spring Boot se observa en la Figura 40.
+El diagrama de componentes del Search & Booking Context en Spring Boot se observa en la Figura 39.
 
-<a id="figura-40"></a>
+<a id="figura-39"></a>
 
-**Figura 40**
+**Figura 39**
 
 *Diagrama de componentes del Search & Booking Context en Spring Boot*
 
@@ -2051,12 +2037,12 @@ El siguiente UML Class Diagram representa la estructura del **Domain Layer** cor
 
 El modelo tiene como elemento principal al Aggregate Root `Appointment`, encargado de representar el proceso de reserva de una cita. Este se relaciona con las Entities `Patient`, `OpticalStore` y `TimeSlot`, las cuales representan respectivamente al paciente que realiza la reserva, la óptica seleccionada y el horario disponible para la atención.
 
-El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 41).
+El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 40).
 
 
-<a id="figura-41"></a>
+<a id="figura-40"></a>
 
-**Figura 41**
+**Figura 40**
 
 *Diagrama de clases del Domain Layer del Search & Booking Context*
 
@@ -2074,11 +2060,11 @@ El diagrama también incorpora los **Domain Services** relacionados con la dispo
 
 `favorite_stores` utiliza la PK compuesta (`patient_id`, `optical_store_id`), ambas columnas también FKs, y registra `saved_at`. `store_ratings` utiliza la misma combinación como PK y FKs, y contiene `score NUMERIC(3,2)`, `comment VARCHAR(280)` y `created_at`; su `CHECK` limita `score` al intervalo de 1 a 5.
 
-Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 40 representa las seis tablas de V1 con todos sus campos, tipos, nulabilidad, PK, FK, `CHECK` e índices tal como están declarados en la migración.**
+Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 39 representa las seis tablas de V1 con todos sus campos, tipos, nulabilidad, PK, FK, `CHECK` e índices tal como están declarados en la migración.**
 
-<a id="figura-42"></a>
+<a id="figura-41"></a>
 
-**Figura 42**
+**Figura 41**
 
 *Diagrama de base de datos del Search & Booking Context*
 
@@ -2199,11 +2185,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Resuelve la persistencia de datos mediante `ClinicalRecordRepositoryImpl`, `QuotationRepositoryImpl` y `SaleRepositoryImpl` sobre PostgreSQL utilizando JPA/Hibernate, publica eventos internos de Spring mediante `DomainEventPublisher`, y provee la `PaymentGatewayAdapter` (Anti-Corruption Layer) para comunicarse de forma desacoplada con pasarelas de pago externas (POS, billeteras digitales).
 
 
-El diagrama de componentes del Clinical & Commercial Context en Spring Boot se muestra en la Figura 43.
+El diagrama de componentes del Clinical & Commercial Context en Spring Boot se muestra en la Figura 42.
 
-<a id="figura-43"></a>
+<a id="figura-42"></a>
 
-**Figura 43**
+**Figura 42**
 
 *Diagrama de componentes del Clinical & Commercial Context en Spring Boot*
 
@@ -2220,12 +2206,12 @@ La estructura modular permite que el registro clínico, la prescripción optomé
 <a id="2.6.2.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 44).
+El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 43).
 
 
-<a id="figura-44"></a>
+<a id="figura-43"></a>
 
-**Figura 44**
+**Figura 43**
 
 *Diagrama de clases del Domain Layer del Clinical & Commercial Context*
 
@@ -2245,11 +2231,11 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 
 Una cotización puede generar **cero o una venta**, y cada venta pertenece a exactamente una cotización: `sales.quotation_id` es `NOT NULL UNIQUE` y FK hacia `quotations.id`. `RegisterSaleHandler` exige una cotización aprobada y rechaza una venta duplicada con HTTP 409. Los datos de pago se almacenan en columnas de `sales`; no existe una tabla adicional de pagos en V2. `sales.patient_id` es una referencia lógica sin FK declarada.
 
-Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 43 representa las siete tablas de V2 con todas sus columnas, tipos, nulabilidad, PK, FK, `UNIQUE`, `CHECK` e índices. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) se marcan como `REF` y no se dibujan como relaciones.**
+Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 42 representa las siete tablas de V2 con todas sus columnas, tipos, nulabilidad, PK, FK, `UNIQUE`, `CHECK` e índices. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) se marcan como `REF` y no se dibujan como relaciones.**
 
-<a id="figura-45"></a>
+<a id="figura-44"></a>
 
-**Figura 45**
+**Figura 44**
 
 *Diagrama de base de datos del Clinical & Commercial Context*
 
@@ -2610,11 +2596,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer:** Implementa la persistencia relacional de Production & Tracking con JPA/PostgreSQL. `WorkOrderRepositoryImpl` coordina la orden, sus lentes y su historial; `TechnicianRepositoryImpl` y `LaboratoryRepositoryImpl` acceden a los catálogos. Los mappers reconstruyen el agregado desde las filas SQL. Los eventos se comunican mediante el publicador de Spring y manejadores internos; no se requiere un broker externo para esta implementación.
 
 
-El diagrama de componentes del Production & Tracking Context en Spring Boot se presenta en la Figura 46.
+El diagrama de componentes del Production & Tracking Context en Spring Boot se presenta en la Figura 45.
 
-<a id="figura-46"></a>
+<a id="figura-45"></a>
 
-**Figura 46**
+**Figura 45**
 
 *Diagrama de componentes del Production & Tracking Context en Spring Boot*
 
@@ -2637,12 +2623,12 @@ El modelo se organiza alrededor de `WorkOrder`, que representa el Aggregate Root
 
 El estado actual de la orden es representado mediante `WorkOrderStatus`, el cual permite identificar las diferentes etapas del flujo de producción: pendiente, en taller, control de calidad y listo para entrega. Asimismo, `DeliveryDate` representa la fecha estimada de entrega del pedido, mientras que `DeliveryDelay` permite representar situaciones relacionadas con retrasos durante el proceso de fabricación.
 
-El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 47).
+El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 46).
 
 
-<a id="figura-47"></a>
+<a id="figura-46"></a>
 
-**Figura 47**
+**Figura 46**
 
 *Diagrama de clases del Domain Layer del Production & Tracking Context*
 
@@ -2662,11 +2648,11 @@ El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persisten
 
 Las fechas estimadas usan `DATE`, mientras que los momentos de creación, cambio, demora y entrega usan `TIMESTAMP WITH TIME ZONE`. La demora se almacena en las columnas `delay_reason`, `delay_reported_at` y `delay_new_estimated_date`; no es un documento ni una tabla separada. `WorkOrderRepositoryImpl` reconstruye el agregado a partir de las filas de orden, lentes e historial.
 
-**La Figura 46 representa las cinco tablas relacionales de V3. Los identificadores `sale_id`, `patient_id`, `optical_store_id`, `technician_id` y `laboratory_id` de `work_orders` se marcan como `REF` (referencias lógicas sin FK); `technicians` y `laboratories` aparecen sin relación física con la orden.**
+**La Figura 45 representa las cinco tablas relacionales de V3. Los identificadores `sale_id`, `patient_id`, `optical_store_id`, `technician_id` y `laboratory_id` de `work_orders` se marcan como `REF` (referencias lógicas sin FK); `technicians` y `laboratories` aparecen sin relación física con la orden.**
 
-<a id="figura-48"></a>
+<a id="figura-47"></a>
 
-**Figura 48**
+**Figura 47**
 
 *Diagrama de base de datos del Production & Tracking Context*
 
@@ -2678,7 +2664,7 @@ Las fechas estimadas usan `DATE`, mientras que los momentos de creación, cambio
 <a id="2.6.4. Bounded Context: Store Management & Inventory Contexty"></a>
 ### 2.6.4. Bounded Context: Store Management & Inventory Context
 
-**Estado: diseño propuesto, no implementado.** Las clases, repositorios, controladores y tablas de esta sección son una propuesta del dominio; no existen como implementación funcional en el backend revisado. Su base física se especificará cuando se incorpore una migración. La Figura 49 no representa el esquema desplegado.
+**Estado: diseño propuesto, no implementado.** Las clases, repositorios, controladores y tablas de esta sección son una propuesta del dominio; no existen como implementación funcional en el backend revisado. Su base física se especificará cuando se incorpore una migración. La Figura 48 no representa el esquema desplegado.
 
 <a id="2.6.4.1. Domain Layer"></a>
 #### 2.6.4.1. Domain Layer
@@ -3001,11 +2987,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el contai
 * **Infrastructure Layer (propuesta):** Plantea adaptadores JPA/PostgreSQL para inventario, monturas y proveedores dentro de la base compartida. No hay entidades, repositorios o migraciones implementados para este contexto en la versión revisada; las clases y comunicaciones del diagrama son elementos de diseño.
 
 
-El diagrama de componentes del Store Management & Inventory Context en Spring Boot se presenta en la Figura 49.
+El diagrama de componentes del Store Management & Inventory Context en Spring Boot se presenta en la Figura 48.
 
-<a id="figura-49"></a>
+<a id="figura-48"></a>
 
-**Figura 49**
+**Figura 48**
 
 *Diagrama de componentes del Store Management & Inventory Context en Spring Boot*
 
@@ -3030,12 +3016,12 @@ El modelo se organiza principalmente alrededor de `FrameModel` e `Inventory`. `F
 
 El proceso de abastecimiento se representa mediante `Replenishment`, el cual relaciona el inventario, el producto y el `Supplier` responsable del suministro. Asimismo, `LowStockAlert` representa la información generada cuando la cantidad disponible de un producto alcanza o se encuentra por debajo del nivel mínimo establecido.
 
-El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository` y `SupplierRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 50).
+El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository` y `SupplierRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 49).
 
 
-<a id="figura-50"></a>
+<a id="figura-49"></a>
 
-**Figura 50**
+**Figura 49**
 
 *Diagrama de clases del Domain Layer del Store Management & Inventory Context*
 
@@ -3051,11 +3037,11 @@ La propuesta contempla `frame_models`, `inventories`, `inventory_stocks`, `suppl
 
 La tecnología propuesta es PostgreSQL dentro de la base compartida del backend. Su implementación requerirá una migración posterior con columnas, PK, FK, índices y reglas de integridad revisados. No se asigna un Sprint de ejecución sin un compromiso explícito del backlog.
 
-**La Figura 49 representa exclusivamente este diseño propuesto. Se identifica visualmente como no implementado (borde punteado y aviso superior) y se mantiene separada de los cuatro modelos físicos derivados de las migraciones.**
+**La Figura 48 representa exclusivamente este diseño propuesto. Se identifica visualmente como no implementado (borde punteado y aviso superior) y se mantiene separada de los cuatro modelos físicos derivados de las migraciones.**
 
-<a id="figura-51"></a>
+<a id="figura-50"></a>
 
-**Figura 51**
+**Figura 50**
 
 *Diagrama de base de datos del Store Management & Inventory Context*
 
@@ -3382,11 +3368,11 @@ El siguiente Component Diagram representa el diseño ampliado del módulo **Noti
 * **Infrastructure Layer:** Implementa `NotificationRepositoryImpl` y `LoyaltyAccountRepositoryImpl` sobre JPA/PostgreSQL, mediante `NotificationEntity`, `LoyaltyAccountEntity` y sus mappers. Recibe eventos internos de la aplicación Spring para generar notificaciones persistidas. Los adaptadores de WhatsApp y Firebase del diseño son propuestas de integración y no describen la persistencia ni una entrega externa verificada.
 
 
-El diagrama de componentes del Notification & Loyalty Context en Spring Boot se muestra en la Figura 52.
+El diagrama de componentes del Notification & Loyalty Context en Spring Boot se muestra en la Figura 51.
 
-<a id="figura-52"></a>
+<a id="figura-51"></a>
 
-**Figura 52**
+**Figura 51**
 
 *Diagrama de componentes del Notification & Loyalty Context en Spring Boot*
 
@@ -3411,12 +3397,12 @@ El modelo se organiza principalmente alrededor de `NotificationPreferences`, que
 
 `InAppNotification` representa los mensajes mostrados directamente dentro de la aplicación y puede utilizar información de `OrderProgress` para comunicar los cambios producidos durante la fabricación de un pedido. Asimismo, `StaffMember` representa al personal responsable de gestionar las comunicaciones cuando corresponda.
 
-El Domain Layer incluye también las interfaces de repositorio necesarias para abstraer la persistencia de notificaciones, preferencias de comunicación, encuestas, miembros del personal y campañas de reactivación. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las diferentes operaciones de notificación y fidelización (ver Figura 53).
+El Domain Layer incluye también las interfaces de repositorio necesarias para abstraer la persistencia de notificaciones, preferencias de comunicación, encuestas, miembros del personal y campañas de reactivación. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las diferentes operaciones de notificación y fidelización (ver Figura 52).
 
 
-<a id="figura-53"></a>
+<a id="figura-52"></a>
 
-**Figura 53**
+**Figura 52**
 
 *Diagrama de clases del Domain Layer del Notification & Loyalty Context*
 
@@ -3434,11 +3420,11 @@ El Domain Layer incluye también las interfaces de repositorio necesarias para a
 
 Los tipos permitidos son `APPOINTMENT_REMINDER`, `LENS_ORDER_PROGRESS`, `BIRTHDAY_DISCOUNT` y `DELIVERY_DELAY`; los estados admitidos son `UNREAD` y `READ`. La migración crea un índice único parcial sobre (`patient_id`, `appointment_id`) cuando `appointment_id IS NOT NULL`. Esta regla se documenta junto al diagrama, aunque el importador gráfico no represente índices parciales.
 
-`NotificationEntity` y `LoyaltyAccountEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. Los conceptos de preferencias, encuestas, delegación y campañas pertenecen al diseño funcional ampliado y no implican persistencia implementada. **La Figura 52 muestra las dos tablas de V4 y sus FKs hacia `patients`, tabla de V1 que se incluye como referencia. `appointment_id` y `work_order_id` de `notifications` se marcan como `REF` (referencias lógicas sin FK).**
+`NotificationEntity` y `LoyaltyAccountEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. Los conceptos de preferencias, encuestas, delegación y campañas pertenecen al diseño funcional ampliado y no implican persistencia implementada. **La Figura 51 muestra las dos tablas de V4 y sus FKs hacia `patients`, tabla de V1 que se incluye como referencia. `appointment_id` y `work_order_id` de `notifications` se marcan como `REF` (referencias lógicas sin FK).**
 
-<a id="figura-54"></a>
+<a id="figura-53"></a>
 
-**Figura 54**
+**Figura 53**
 
 *Diagrama de base de datos del Notification & Loyalty Context*
 

@@ -13,11 +13,11 @@ Esta sección describe las herramientas del entorno de trabajo y su función en 
 ##### Figma
 
 
-El logo de Figma se presenta en la Figura 114.
+El logo de Figma se presenta en la Figura 113.
 
-<a id="figura-114"></a>
+<a id="figura-113"></a>
 
-**Figura 114**
+**Figura 113**
 
 *Logo de Figma*
 
@@ -31,11 +31,11 @@ Ruta de referencia: https://www.figma.com
 ##### Android Studio
 
 
-El logo de Android Studio se observa en la Figura 115.
+El logo de Android Studio se observa en la Figura 114.
 
-<a id="figura-115"></a>
+<a id="figura-114"></a>
 
-**Figura 115**
+**Figura 114**
 
 *Logo de Android Studio*
 
@@ -49,11 +49,11 @@ Ruta de descarga: https://developer.android.com/studio
 ##### Docker
 
 
-El logo de Docker se muestra en la Figura 116.
+El logo de Docker se muestra en la Figura 115.
 
-<a id="figura-116"></a>
+<a id="figura-115"></a>
 
-**Figura 116**
+**Figura 115**
 
 *Logo de Docker*
 
@@ -67,11 +67,11 @@ Ruta de descarga: https://www.docker.com/products/docker-desktop
 ##### Structurizr
 
 
-El logo de Structurizr se presenta en la Figura 117.
+El logo de Structurizr se presenta en la Figura 116.
 
-<a id="figura-117"></a>
+<a id="figura-116"></a>
 
-**Figura 117**
+**Figura 116**
 
 *Logo de Structurizr*
 
@@ -85,11 +85,11 @@ Ruta de referencia: https://structurizr.com
 ##### Miro
 
 
-El logo de Miro se observa en la Figura 118.
+El logo de Miro se observa en la Figura 117.
 
-<a id="figura-118"></a>
+<a id="figura-117"></a>
 
-**Figura 118**
+**Figura 117**
 
 *Logo de Miro*
 
@@ -227,12 +227,12 @@ La Landing Page se publica en **GitHub Pages**, los Web Services se despliegan e
 
 ##### Deployment Diagram
 
-El Deployment Diagram muestra los nodos de publicación y ejecución del Sprint 1: GitHub Pages para la Landing Page, Render para el backend y su base de datos PostgreSQL, y Firebase App Distribution para distribuir la aplicación a los dispositivos Android. La evidencia de los entornos utilizados se presenta en la sección 4.2.1.8 (ver Figura 119).
+El Deployment Diagram muestra los nodos de publicación y ejecución del Sprint 1: GitHub Pages para la Landing Page, Render para el backend y su base de datos PostgreSQL, y Firebase App Distribution para distribuir la aplicación a los dispositivos Android. La evidencia de los entornos utilizados se presenta en la sección 4.2.1.8 (ver Figura 118).
 
 
-<a id="figura-119"></a>
+<a id="figura-118"></a>
 
-**Figura 119**
+**Figura 118**
 
 *Deployment Diagram de OptiFlow en el Sprint 1*
 
@@ -306,12 +306,12 @@ Cada aspecto cuenta con un líder y colaboradores. La matriz expresa la distribu
 
 El Sprint Backlog reúne las tareas de búsqueda de ópticas y reserva de citas correspondientes a US05 y US06, junto con las actividades adicionales de la Landing Page. La tabla conserva las estimaciones y responsabilidades del registro de planificación. Las 13 tareas se encuentran en estado Done, ya que la Landing Page está publicada y la búsqueda de ópticas y la reserva de citas funcionan en la aplicación móvil y en los Web Services, como se evidencia en las secciones 4.2.1.6 a 4.2.1.8.
 
-**Board del Sprint:** [Tablero del Sprint 1 en GitHub](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report/blob/develop/assets/cap4/sprint1/sprint-board.md) · [Vista del tablero local](assets/cap4/sprint1/sprint-board.html). El tablero adjunto se elaboró para esta revisión a partir de las tareas del informe y sus evidencias (ver Figura 120).
+**Board del Sprint:** [Tablero del Sprint 1 en GitHub](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report/blob/develop/assets/cap4/sprint1/sprint-board.md) · [Vista del tablero local](assets/cap4/sprint1/sprint-board.html). El tablero adjunto se elaboró para esta revisión a partir de las tareas del informe y sus evidencias (ver Figura 119).
 
 
-<a id="figura-120"></a>
+<a id="figura-119"></a>
 
-**Figura 120**
+**Figura 119**
 
 *Tablero de revisión del Sprint 1*
 
@@ -433,12 +433,12 @@ El 2026-10-07 a las 23:09:57 (America/Lima) se ejecutó `mvn test` sobre el back
 
 Los casos parametrizados se contabilizan como ejecuciones individuales. La ejecución utilizó Java 25.0.3 con release 21 configurado en Maven. Las pruebas BDD emplean una base H2 independiente (`optiflow_bdd`), pacientes con correos únicos y horarios nuevos para los escenarios de reserva, sin acceder a datos de producción.
 
-**Evidencias:** [resumen de Maven Surefire](assets/cap4/sprint1/test-results.txt), [reporte HTML de Cucumber](assets/cap4/sprint1/testing/cucumber.html) y [resultados JSON](assets/cap4/sprint1/testing/cucumber.json) (ver Figura 121).
+**Evidencias:** [resumen de Maven Surefire](assets/cap4/sprint1/test-results.txt), [reporte HTML de Cucumber](assets/cap4/sprint1/testing/cucumber.html) y [resultados JSON](assets/cap4/sprint1/testing/cucumber.json) (ver Figura 120).
 
 
-<a id="figura-121"></a>
+<a id="figura-120"></a>
 
-**Figura 121**
+**Figura 120**
 
 *Resultado de los escenarios de aceptación en Cucumber*
 
@@ -560,47 +560,47 @@ La ejecución del incremento permitió visualizar la Landing Page en escritorio 
 
 La Landing Page presenta la propuesta de valor de OptiFlow y permite navegar entre sus secciones informativas. Las capturas se obtuvieron desde la clonación local en Chrome, con viewports de 1440 × 1000 píxeles para escritorio y 390 × 844 píxeles para móvil. Se utilizó el control Saltar para finalizar la introducción y acceder a la vista principal.
 
-**Landing Page en escritorio.** Se visualizan la identidad de OptiFlow, la propuesta de valor y los accesos de navegación (ver Figura 122).
+**Landing Page en escritorio.** Se visualizan la identidad de OptiFlow, la propuesta de valor y los accesos de navegación (ver Figura 121).
 
 
-<a id="figura-122"></a>
+<a id="figura-121"></a>
 
-**Figura 122**
+**Figura 121**
 
 *Landing Page en escritorio*
 
 ![Landing Page en escritorio](assets/cap4/sprint1/landing-desktop.png)
 
 
-**Landing Page en móvil.** La presentación se adapta a una distribución vertical y la navegación utiliza un menú compacto (ver Figura 123).
+**Landing Page en móvil.** La presentación se adapta a una distribución vertical y la navegación utiliza un menú compacto (ver Figura 122).
 
 
-<a id="figura-123"></a>
+<a id="figura-122"></a>
 
-**Figura 123**
+**Figura 122**
 
 *Landing Page en móvil*
 
 <img src="assets/cap4/sprint1/landing-mobile.png" alt="Landing Page en móvil" width="390">
 
 
-**Menú y navegación móvil.** Se abrió el menú y se seleccionó Beneficios para comprobar el acceso a la sección correspondiente (ver Figura 124).
+**Menú y navegación móvil.** Se abrió el menú y se seleccionó Beneficios para comprobar el acceso a la sección correspondiente (ver Figura 123).
 
 
-<a id="figura-124"></a>
+<a id="figura-123"></a>
 
-**Figura 124**
+**Figura 123**
 
 *Menú móvil de la Landing Page*
 
 <img src="assets/cap4/sprint1/landing-mobile-menu.png" alt="Menú móvil de la Landing Page" width="390">
 
 
-El navegación móvil a Beneficios se presenta en la Figura 125.
+El navegación móvil a Beneficios se presenta en la Figura 124.
 
-<a id="figura-125"></a>
+<a id="figura-124"></a>
 
-**Figura 125**
+**Figura 124**
 
 *Navegación móvil a Beneficios*
 
@@ -611,48 +611,48 @@ El navegación móvil a Beneficios se presenta en la Figura 125.
 
 Los Web Services se ejecutaron en `http://127.0.0.1:8080` con el perfil local. La documentación OpenAPI se visualizó en [Swagger UI local](http://localhost:8080/swagger-ui/index.html), que permitió ejecutar consultas y solicitudes con datos de demostración. El README de la aplicación también referencia [Swagger del backend desplegado](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html); las evidencias de esta revisión corresponden al entorno local.
 
-**Vista general de Swagger.** La documentación organiza las operaciones de pacientes, ópticas, disponibilidad y citas dentro de Search & Booking (ver Figura 126).
+**Vista general de Swagger.** La documentación organiza las operaciones de pacientes, ópticas, disponibilidad y citas dentro de Search & Booking (ver Figura 125).
 
 
-<a id="figura-126"></a>
+<a id="figura-125"></a>
 
-**Figura 126**
+**Figura 125**
 
 *Swagger UI de OptiFlow*
 
 ![Swagger UI de OptiFlow](assets/cap4/sprint1/swagger-overview.png)
 
 
-**Consulta de ópticas.** La ejecución de GET /optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado (ver Figura 127).
+**Consulta de ópticas.** La ejecución de GET /optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado (ver Figura 126).
 
 
-<a id="figura-127"></a>
+<a id="figura-126"></a>
 
-**Figura 127**
+**Figura 126**
 
 *Consulta de ópticas en Swagger*
 
 ![Consulta de ópticas en Swagger](assets/cap4/sprint1/swagger-optical-stores.png)
 
 
-**Reserva confirmada.** POST /appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED (ver Figura 128).
+**Reserva confirmada.** POST /appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED (ver Figura 127).
 
 
-<a id="figura-128"></a>
+<a id="figura-127"></a>
 
-**Figura 128**
+**Figura 127**
 
 *Reserva confirmada en Swagger*
 
 ![Reserva confirmada en Swagger](assets/cap4/sprint1/swagger-booking-confirmed.png)
 
 
-**Prevención de doble reserva.** Al repetir la solicitud sobre el mismo horario, el servicio devuelve HTTP 409 e informa que el horario seleccionado ya no está disponible (ver Figura 129).
+**Prevención de doble reserva.** Al repetir la solicitud sobre el mismo horario, el servicio devuelve HTTP 409 e informa que el horario seleccionado ya no está disponible (ver Figura 128).
 
 
-<a id="figura-129"></a>
+<a id="figura-128"></a>
 
-**Figura 129**
+**Figura 128**
 
 *Rechazo de doble reserva en Swagger*
 
@@ -665,60 +665,60 @@ La aplicación se compiló desde la rama develop mediante assembleLocalDebug y G
 
 El recorrido utilizó el paciente ficticio Paciente Demo Informe. Tras el inicio de sesión se consultaron las ópticas disponibles, se abrió la sucursal de Miraflores, se solicitaron sus horarios y se confirmó una reserva. Las fechas y horas visibles corresponden a la zona horaria del emulador, configurado en UTC durante esta demostración.
 
-**Acceso del paciente.** Inicio de sesión con una cuenta ficticia del backend local (ver Figura 130).
+**Acceso del paciente.** Inicio de sesión con una cuenta ficticia del backend local (ver Figura 129).
 
 
-<a id="figura-130"></a>
+<a id="figura-129"></a>
 
-**Figura 130**
+**Figura 129**
 
 *Acceso del paciente de demostración*
 
 <img src="assets/cap4/sprint1/mobile-access.png" alt="Acceso del paciente de demostración" width="390">
 
 
-**Búsqueda de ópticas (US05).** La app muestra establecimientos obtenidos del backend, con sus direcciones, teléfonos, valoraciones y controles de búsqueda (ver Figura 131).
+**Búsqueda de ópticas (US05).** La app muestra establecimientos obtenidos del backend, con sus direcciones, teléfonos, valoraciones y controles de búsqueda (ver Figura 130).
 
 
-<a id="figura-131"></a>
+<a id="figura-130"></a>
 
-**Figura 131**
+**Figura 130**
 
 *Búsqueda de ópticas en la aplicación*
 
 <img src="assets/cap4/sprint1/mobile-search.png" alt="Búsqueda de ópticas en la aplicación" width="390">
 
 
-**Disponibilidad de atención.** Se consultan los horarios disponibles de la sucursal de Miraflores antes de solicitar la reserva (ver Figura 132).
+**Disponibilidad de atención.** Se consultan los horarios disponibles de la sucursal de Miraflores antes de solicitar la reserva (ver Figura 131).
 
 
-<a id="figura-132"></a>
+<a id="figura-131"></a>
 
-**Figura 132**
+**Figura 131**
 
 *Disponibilidad de horarios en la aplicación*
 
 <img src="assets/cap4/sprint1/mobile-availability.png" alt="Disponibilidad de horarios en la aplicación" width="390">
 
 
-**Reserva confirmada (US06).** La app muestra el identificador de la cita creada y su estado CONFIRMED (ver Figura 133).
+**Reserva confirmada (US06).** La app muestra el identificador de la cita creada y su estado CONFIRMED (ver Figura 132).
 
 
-<a id="figura-133"></a>
+<a id="figura-132"></a>
 
-**Figura 133**
+**Figura 132**
 
 *Confirmación de la reserva desde la aplicación*
 
 <img src="assets/cap4/sprint1/mobile-booking-confirmed.png" alt="Confirmación de la reserva desde la aplicación" width="390">
 
 
-**Verificación de la cita móvil en el backend.** GET /appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend (ver Figura 134).
+**Verificación de la cita móvil en el backend.** GET /appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend (ver Figura 133).
 
 
-<a id="figura-134"></a>
+<a id="figura-133"></a>
 
-**Figura 134**
+**Figura 133**
 
 *Consulta en Swagger de la cita creada desde la app*
 
@@ -890,84 +890,84 @@ Los Endpoints del Production & Tracking Context se resumen en la Tabla 119.
 
 Las capturas del 2026-10-08 registran la documentación publicada en Render. Se presentan primero las operaciones agrupadas por contexto y, después, las respuestas de consultas ejecutadas sobre datos de demostración. Estas evidencias muestran la disponibilidad de la documentación y el resultado de las operaciones consultadas; la cobertura automatizada se detalla en la sección 4.2.1.5.
 
-**Endpoints de Search & Booking: pacientes y ópticas.** Swagger UI desplegado en Render con las operaciones de registro, inicio de sesión, citas del paciente y búsqueda de ópticas (ver Figura 135).
+**Endpoints de Search & Booking: pacientes y ópticas.** Swagger UI desplegado en Render con las operaciones de registro, inicio de sesión, citas del paciente y búsqueda de ópticas (ver Figura 134).
 
 
-<a id="figura-135"></a>
+<a id="figura-134"></a>
 
-**Figura 135**
+**Figura 134**
 
 *Endpoints de pacientes y ópticas en Swagger*
 
 ![Endpoints de pacientes y ópticas en Swagger](assets/cap4/sprint1/swagger-render-search-booking-1.png)
 
 
-**Endpoints de Search & Booking**: Disponibilidad, citas, favoritos y calificaciones (ver Figura 136).
+**Endpoints de Search & Booking**: Disponibilidad, citas, favoritos y calificaciones (ver Figura 135).
 
 
-<a id="figura-136"></a>
+<a id="figura-135"></a>
 
-**Figura 136**
+**Figura 135**
 
 *Endpoints de disponibilidad y citas en Swagger*
 
 ![Endpoints de disponibilidad y citas en Swagger](assets/cap4/sprint1/swagger-render-search-booking-2.png)
 
 
-**Endpoints de Clinical & Commercial.** Operaciones de expediente clínico, receta, cotizaciones y ventas (ver Figura 137).
+**Endpoints de Clinical & Commercial.** Operaciones de expediente clínico, receta, cotizaciones y ventas (ver Figura 136).
 
 
-<a id="figura-137"></a>
+<a id="figura-136"></a>
 
-**Figura 137**
+**Figura 136**
 
 *Endpoints de Clinical & Commercial en Swagger*
 
 ![Endpoints de Clinical & Commercial en Swagger](assets/cap4/sprint1/swagger-render-clinical-commercial.png)
 
 
-**Endpoints de Production & Tracking.** Operaciones de órdenes de trabajo, técnicos y laboratorios (ver Figura 138).
+**Endpoints de Production & Tracking.** Operaciones de órdenes de trabajo, técnicos y laboratorios (ver Figura 137).
 
 
-<a id="figura-138"></a>
+<a id="figura-137"></a>
 
-**Figura 138**
+**Figura 137**
 
 *Endpoints de Production & Tracking en Swagger*
 
 ![Endpoints de Production & Tracking en Swagger](assets/cap4/sprint1/swagger-render-production-tracking.png)
 
 
-**Consulta de ópticas en el entorno desplegado.** GET /optical-stores devuelve HTTP 200 con las sucursales de Miraflores y San Isidro (ver Figura 139).
+**Consulta de ópticas en el entorno desplegado.** GET /optical-stores devuelve HTTP 200 con las sucursales de Miraflores y San Isidro (ver Figura 138).
 
 
-<a id="figura-139"></a>
+<a id="figura-138"></a>
 
-**Figura 139**
+**Figura 138**
 
 *Consulta de ópticas en Render*
 
 ![Consulta de ópticas en Render](assets/cap4/sprint1/swagger-render-optical-stores.png)
 
 
-**Consulta de disponibilidad.** GET /optical-stores/{id}/availability devuelve HTTP 200 con los horarios disponibles de la sucursal de Miraflores (ver Figura 140).
+**Consulta de disponibilidad.** GET /optical-stores/{id}/availability devuelve HTTP 200 con los horarios disponibles de la sucursal de Miraflores (ver Figura 139).
 
 
-<a id="figura-140"></a>
+<a id="figura-139"></a>
 
-**Figura 140**
+**Figura 139**
 
 *Disponibilidad de horarios en Render*
 
 ![Disponibilidad de horarios en Render](assets/cap4/sprint1/swagger-render-availability.png)
 
 
-**Consulta de técnicos de Production & Tracking.** GET /technicians devuelve HTTP 200 con los técnicos registrados para asignar órdenes de trabajo (ver Figura 141).
+**Consulta de técnicos de Production & Tracking.** GET /technicians devuelve HTTP 200 con los técnicos registrados para asignar órdenes de trabajo (ver Figura 140).
 
 
-<a id="figura-141"></a>
+<a id="figura-140"></a>
 
-**Figura 141**
+**Figura 140**
 
 *Técnicos en Swagger desplegado*
 
@@ -1019,12 +1019,12 @@ Desde el repositorio de la Landing Page en la organización de GitHub se ingres�
 
 **Paso 2: Configuración de la fuente de publicación.**
 
-Se seleccionó *Deploy from a branch* como fuente, la rama `main` y la carpeta raíz (`/root`). Con esta configuración GitHub Pages publica el sitio en la URL de la organización y fuerza el uso de HTTPS (ver Figura 142).
+Se seleccionó *Deploy from a branch* como fuente, la rama `main` y la carpeta raíz (`/root`). Con esta configuración GitHub Pages publica el sitio en la URL de la organización y fuerza el uso de HTTPS (ver Figura 141).
 
 
-<a id="figura-142"></a>
+<a id="figura-141"></a>
 
-**Figura 142**
+**Figura 141**
 
 *Configuración de GitHub Pages del repositorio de la Landing Page*
 
@@ -1032,12 +1032,12 @@ Se seleccionó *Deploy from a branch* como fuente, la rama `main` y la carpeta r
 
 **Paso 3: Verificación del workflow de despliegue.**
 
-Cada integración en `main` ejecuta el workflow `pages build and deployment`. La ejecución #10, lanzada por `Patto04` con el commit `54caeae`, terminó con estado *Success* en 45 segundos tras completar los jobs `build`, `report-build-status` y `deploy` (ver Figura 143).
+Cada integración en `main` ejecuta el workflow `pages build and deployment`. La ejecución #10, lanzada por `Patto04` con el commit `54caeae`, terminó con estado *Success* en 45 segundos tras completar los jobs `build`, `report-build-status` y `deploy` (ver Figura 142).
 
 
-<a id="figura-143"></a>
+<a id="figura-142"></a>
 
-**Figura 143**
+**Figura 142**
 
 *Ejecución del workflow pages build and deployment*
 
@@ -1045,12 +1045,12 @@ Cada integración en `main` ejecuta el workflow `pages build and deployment`. La
 
 **Paso 4: Verificación del sitio publicado.**
 
-Se ingresó a la URL pública generada por GitHub Pages y se comprobó que la Landing Page carga correctamente (ver Figura 144).
+Se ingresó a la URL pública generada por GitHub Pages y se comprobó que la Landing Page carga correctamente (ver Figura 143).
 
 
-<a id="figura-144"></a>
+<a id="figura-143"></a>
 
-**Figura 144**
+**Figura 143**
 
 *Landing Page publicada en GitHub Pages*
 
@@ -1062,12 +1062,12 @@ El código del backend se encuentra en el repositorio [Logix-OptiFlow-Back-End](
 
 **Paso 1: Creación del proyecto y sus recursos.**
 
-En Render se creó el proyecto **OptiFlow-Back-end** con un entorno *Production* que agrupa dos recursos en la región Frankfurt: el Web Service `Logix-OptiFlow-Back-End`, con runtime Docker, y la base de datos `Postgres Backend`, con PostgreSQL 16 (ver Figura 145).
+En Render se creó el proyecto **OptiFlow-Back-end** con un entorno *Production* que agrupa dos recursos en la región Frankfurt: el Web Service `Logix-OptiFlow-Back-End`, con runtime Docker, y la base de datos `Postgres Backend`, con PostgreSQL 16 (ver Figura 144).
 
 
-<a id="figura-145"></a>
+<a id="figura-144"></a>
 
-**Figura 145**
+**Figura 144**
 
 *Recursos del proyecto OptiFlow-Back-end en Render*
 
@@ -1097,12 +1097,12 @@ El backend define dos perfiles de Spring: `local`, con base de datos H2 en memor
 
 **Paso 4: Verificación del despliegue.**
 
-Render vuelve a desplegar el servicio cada vez que se actualiza `develop`. El último despliegue corresponde al commit `6c388bc` y se encuentra en estado *Live* en [https://logix-optiflow-back-end.onrender.com](https://logix-optiflow-back-end.onrender.com). Como el servicio utiliza el plan gratuito, se suspende tras un periodo sin tráfico y la primera solicitud posterior puede demorar alrededor de un minuto. Swagger UI responde en la URL pública con los endpoints de los tres bounded contexts (ver sección 4.2.1.7) (ver Figura 146).
+Render vuelve a desplegar el servicio cada vez que se actualiza `develop`. El último despliegue corresponde al commit `6c388bc` y se encuentra en estado *Live* en [https://logix-optiflow-back-end.onrender.com](https://logix-optiflow-back-end.onrender.com). Como el servicio utiliza el plan gratuito, se suspende tras un periodo sin tráfico y la primera solicitud posterior puede demorar alrededor de un minuto. Swagger UI responde en la URL pública con los endpoints de los tres bounded contexts (ver sección 4.2.1.7) (ver Figura 145).
 
 
-<a id="figura-146"></a>
+<a id="figura-145"></a>
 
-**Figura 146**
+**Figura 145**
 
 *Web Service en estado Live y su historial de despliegues*
 
@@ -1114,12 +1114,12 @@ La aplicación móvil se desarrolla en **Kotlin con Jetpack Compose** en el repo
 
 **Paso 1: Creación del proyecto en Firebase.**
 
-Se creó el proyecto **Optiflow** en la consola de Firebase, con el plan Spark sin costo (ver Figura 147).
+Se creó el proyecto **Optiflow** en la consola de Firebase, con el plan Spark sin costo (ver Figura 146).
 
 
-<a id="figura-147"></a>
+<a id="figura-146"></a>
 
-**Figura 147**
+**Figura 146**
 
 *Proyecto Optiflow en la consola de Firebase*
 
@@ -1135,11 +1135,11 @@ Nombre del paquete: com.logix.optiflow
 ```
 
 
-El aplicación Android registrada en Firebase se muestra en la Figura 148.
+El aplicación Android registrada en Firebase se muestra en la Figura 147.
 
-<a id="figura-148"></a>
+<a id="figura-147"></a>
 
-**Figura 148**
+**Figura 147**
 
 *Aplicación Android registrada en Firebase*
 
@@ -1147,23 +1147,23 @@ El aplicación Android registrada en Firebase se muestra en la Figura 148.
 
 **Paso 3: Generación del APK desde Android Studio.**
 
-En Android Studio se seleccionó la variante `prodDebug` en **Build Variants** y se generó el APK desde el menú **Build → Generate App Bundles or APKs → Generate APKs** (ver Figura 149).
+En Android Studio se seleccionó la variante `prodDebug` en **Build Variants** y se generó el APK desde el menú **Build → Generate App Bundles or APKs → Generate APKs** (ver Figura 148).
 
 
-<a id="figura-149"></a>
+<a id="figura-148"></a>
 
-**Figura 149**
+**Figura 148**
 
 *Variante prodDebug seleccionada en Build Variants*
 
 <img src="assets/cap4/sprint1/deploy-mobile-build-variants.png" alt="Build Variants" width="420">
 
 
-La generación del APK en Android Studio se presenta en la Figura 150.
+La generación del APK en Android Studio se presenta en la Figura 149.
 
-<a id="figura-150"></a>
+<a id="figura-149"></a>
 
-**Figura 150**
+**Figura 149**
 
 *Generación del APK en Android Studio*
 
@@ -1178,11 +1178,11 @@ app/build/outputs/apk/prod/debug/app-prod-debug.apk
 ```
 
 
-El APK generado en la carpeta de salida del proyecto se observa en la Figura 151.
+El APK generado en la carpeta de salida del proyecto se observa en la Figura 150.
 
-<a id="figura-151"></a>
+<a id="figura-150"></a>
 
-**Figura 151**
+**Figura 150**
 
 *APK generado en la carpeta de salida del proyecto*
 
@@ -1190,12 +1190,12 @@ El APK generado en la carpeta de salida del proyecto se observa en la Figura 151
 
 **Paso 5: Carga del APK en Firebase App Distribution.**
 
-Se ingresó al módulo **App Distribution** y se cargó el APK, que se registró como la versión **1.0 (1)** (ver Figura 152).
+Se ingresó al módulo **App Distribution** y se cargó el APK, que se registró como la versión **1.0 (1)** (ver Figura 151).
 
 
-<a id="figura-152"></a>
+<a id="figura-151"></a>
 
-**Figura 152**
+**Figura 151**
 
 *Versión 1.0 (1) cargada en Firebase App Distribution*
 
@@ -1203,12 +1203,12 @@ Se ingresó al módulo **App Distribution** y se cargó el APK, que se registró
 
 **Paso 6: Registro de evaluadores.**
 
-Se creó el grupo `optiflow-testers` con seis evaluadores y se le distribuyó la versión 1.0 (1) con la nota "Sprint 1 – versión inicial de OptiFlow" (ver Figura 153).
+Se creó el grupo `optiflow-testers` con seis evaluadores y se le distribuyó la versión 1.0 (1) con la nota "Sprint 1 – versión inicial de OptiFlow" (ver Figura 152).
 
 
-<a id="figura-153"></a>
+<a id="figura-152"></a>
 
-**Figura 153**
+**Figura 152**
 
 *Grupo de evaluadores optiflow-testers*
 
@@ -1216,12 +1216,12 @@ Se creó el grupo `optiflow-testers` con seis evaluadores y se le distribuyó la
 
 **Paso 7: Creación del vínculo de invitación.**
 
-Se generó un vínculo de invitación asociado al grupo `optiflow-testers`. Cualquier persona que lo abra desde un dispositivo Android puede iniciar sesión con su cuenta de Google, unirse al grupo y descargar la aplicación: [https://appdistribution.firebase.dev/i/69aa930a1cd1ad63](https://appdistribution.firebase.dev/i/69aa930a1cd1ad63) (ver Figura 154).
+Se generó un vínculo de invitación asociado al grupo `optiflow-testers`. Cualquier persona que lo abra desde un dispositivo Android puede iniciar sesión con su cuenta de Google, unirse al grupo y descargar la aplicación: [https://appdistribution.firebase.dev/i/69aa930a1cd1ad63](https://appdistribution.firebase.dev/i/69aa930a1cd1ad63) (ver Figura 153).
 
 
-<a id="figura-154"></a>
+<a id="figura-153"></a>
 
-**Figura 154**
+**Figura 153**
 
 *Vínculo de invitación de Firebase App Distribution*
 
@@ -1229,12 +1229,12 @@ Se generó un vínculo de invitación asociado al grupo `optiflow-testers`. Cual
 
 **Paso 8: Instalación en un dispositivo.**
 
-Desde un dispositivo Android se abrió el vínculo de invitación y se instaló la versión 1.0 (1) mediante Firebase App Tester (ver Figura 155).
+Desde un dispositivo Android se abrió el vínculo de invitación y se instaló la versión 1.0 (1) mediante Firebase App Tester (ver Figura 154).
 
 
-<a id="figura-155"></a>
+<a id="figura-154"></a>
 
-**Figura 155**
+**Figura 154**
 
 *Versión 1.0 (1) instalada desde Firebase App Tester*
 
@@ -1242,51 +1242,51 @@ Desde un dispositivo Android se abrió el vínculo de invitación y se instaló 
 
 **Paso 9: Verificación de la aplicación contra el backend desplegado.**
 
-Se comprobó que la aplicación instalada se comunica con el backend desplegado en Render: el registro e inicio de sesión del paciente, la búsqueda de ópticas y la consulta de disponibilidad devolvieron los mismos datos que Swagger UI (ver Figura 156).
+Se comprobó que la aplicación instalada se comunica con el backend desplegado en Render: el registro e inicio de sesión del paciente, la búsqueda de ópticas y la consulta de disponibilidad devolvieron los mismos datos que Swagger UI (ver Figura 155).
 
 
-<a id="figura-156"></a>
+<a id="figura-155"></a>
 
-**Figura 156**
+**Figura 155**
 
 *Pantalla de inicio del paciente en el dispositivo*
 
 <img src="assets/cap4/sprint1/deploy-mobile-home-device.png" alt="Inicio del paciente" width="300">
 
 
-El inicio de sesión del paciente contra el backend desplegado se muestra en la Figura 157.
+El inicio de sesión del paciente contra el backend desplegado se muestra en la Figura 156.
 
-<a id="figura-157"></a>
+<a id="figura-156"></a>
 
-**Figura 157**
+**Figura 156**
 
 *Inicio de sesión del paciente contra el backend desplegado*
 
 <img src="assets/cap4/sprint1/deploy-mobile-login.png" alt="Inicio de sesión" width="300">
 
 
-La búsqueda de ópticas obtenida de Render se presenta en la Figura 158.
+La búsqueda de ópticas obtenida de Render se presenta en la Figura 157.
 
-<a id="figura-158"></a>
+<a id="figura-157"></a>
 
-**Figura 158**
+**Figura 157**
 
 *Búsqueda de ópticas obtenida de Render*
 
 <img src="assets/cap4/sprint1/deploy-mobile-search.png" alt="Búsqueda de ópticas" width="300">
 
 
-La disponibilidad de horarios obtenida de Render se observa en la Figura 159.
+La disponibilidad de horarios obtenida de Render se observa en la Figura 158.
 
-<a id="figura-159"></a>
+<a id="figura-158"></a>
 
-**Figura 159**
+**Figura 158**
 
 *Disponibilidad de horarios obtenida de Render*
 
 <img src="assets/cap4/sprint1/deploy-mobile-availability.png" alt="Disponibilidad de horarios" width="300">
 
-Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /optical-stores/{id}/availability` de la [Figura 152](#figura-152).
+Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /optical-stores/{id}/availability` de la [Figura 150](#figura-151).
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
@@ -1312,23 +1312,23 @@ Las siguientes figuras muestran la actividad de cada repositorio según **GitHub
 
 ##### Landing Page
 
-En la rama `main` del repositorio de la Landing Page se registran contribuciones de los cinco integrantes: `Patto04` (8 commits), `user20-bit` (3), `Felixb14` (3), `Eslander-Celis` (3) y `THECOMAX` (2) (ver Figura 160).
+En la rama `main` del repositorio de la Landing Page se registran contribuciones de los cinco integrantes: `Patto04` (8 commits), `user20-bit` (3), `Felixb14` (3), `Eslander-Celis` (3) y `THECOMAX` (2) (ver Figura 159).
 
 
-<a id="figura-160"></a>
+<a id="figura-159"></a>
 
-**Figura 160**
+**Figura 159**
 
 *Contribuidores del repositorio de la Landing Page*
 
 ![Contributors de la Landing Page](assets/cap4/sprint1/insights-contributors-landing.png)
 
 
-Los commits por semana del repositorio de la Landing Page se muestran en la Figura 161.
+Los commits por semana del repositorio de la Landing Page se muestran en la Figura 160.
 
-<a id="figura-161"></a>
+<a id="figura-160"></a>
 
-**Figura 161**
+**Figura 160**
 
 *Commits por semana del repositorio de la Landing Page*
 
@@ -1336,23 +1336,23 @@ Los commits por semana del repositorio de la Landing Page se muestran en la Figu
 
 ##### Web Services
 
-En la rama `develop` del backend se registran 14 commits de `Felixb14`, 5 de `user20-bit` y 3 de `Eslander-Celis`, correspondientes a la implementación de los bounded contexts, los perfiles de base de datos y la configuración del despliegue (ver Figura 162).
+En la rama `develop` del backend se registran 14 commits de `Felixb14`, 5 de `user20-bit` y 3 de `Eslander-Celis`, correspondientes a la implementación de los bounded contexts, los perfiles de base de datos y la configuración del despliegue (ver Figura 161).
 
 
-<a id="figura-162"></a>
+<a id="figura-161"></a>
 
-**Figura 162**
+**Figura 161**
 
 *Contribuidores del repositorio de los Web Services*
 
 ![Contributors del backend](assets/cap4/sprint1/insights-contributors-backend.png)
 
 
-Los commits por semana del repositorio de los Web Services se presentan en la Figura 163.
+Los commits por semana del repositorio de los Web Services se presentan en la Figura 162.
 
-<a id="figura-163"></a>
+<a id="figura-162"></a>
 
-**Figura 163**
+**Figura 162**
 
 *Commits por semana del repositorio de los Web Services*
 
@@ -1360,23 +1360,23 @@ Los commits por semana del repositorio de los Web Services se presentan en la Fi
 
 ##### Aplicación móvil
 
-En la rama `develop` de la aplicación móvil se registran 15 commits de `user20-bit` y 5 de `Felixb14`, correspondientes a la estructura base del proyecto, la integración con los Web Services y las pantallas de los roles de paciente y personal clínico (ver Figura 164).
+En la rama `develop` de la aplicación móvil se registran 15 commits de `user20-bit` y 5 de `Felixb14`, correspondientes a la estructura base del proyecto, la integración con los Web Services y las pantallas de los roles de paciente y personal clínico (ver Figura 163).
 
 
-<a id="figura-164"></a>
+<a id="figura-163"></a>
 
-**Figura 164**
+**Figura 163**
 
 *Contribuidores del repositorio de la aplicación móvil*
 
 ![Contributors de la app móvil](assets/cap4/sprint1/insights-contributors-mobile.png)
 
 
-Los commits por semana del repositorio de la aplicación móvil se observan en la Figura 165.
+Los commits por semana del repositorio de la aplicación móvil se observan en la Figura 164.
 
-<a id="figura-165"></a>
+<a id="figura-164"></a>
 
-**Figura 165**
+**Figura 164**
 
 *Commits por semana del repositorio de la aplicación móvil*
 
@@ -1524,11 +1524,11 @@ Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplica
 
 **Problema:**
 
-El título principal, "Tu cita óptica ideal, en tu bolsillo", está dirigido a los pacientes, pero todos los botones de llamada a la acción ("Solicitar Demo", "Empezar gratis", "Elegir Profesional" y "Contactar ventas") abren el formulario de demo para ópticas. No existe un enlace para descargar la aplicación ni para registrarse como paciente, por lo que el segundo segmento objetivo no encuentra cómo empezar a usar OptiFlow (ver Figura 166).
+El título principal, "Tu cita óptica ideal, en tu bolsillo", está dirigido a los pacientes, pero todos los botones de llamada a la acción ("Solicitar Demo", "Empezar gratis", "Elegir Profesional" y "Contactar ventas") abren el formulario de demo para ópticas. No existe un enlace para descargar la aplicación ni para registrarse como paciente, por lo que el segundo segmento objetivo no encuentra cómo empezar a usar OptiFlow (ver Figura 165).
 
-<a id="figura-166"></a>
+<a id="figura-165"></a>
 
-**Figura 166**
+**Figura 165**
 
 *Sección principal de la Landing Page con un único botón dirigido a ópticas*
 
@@ -1546,11 +1546,11 @@ Agregar en la sección principal y en la barra de navegación un botón por segm
 
 **Problema:**
 
-En el pie de página, la opción "Iniciar sesión" abre el formulario "Entra a tu óptica", que solicita correo y contraseña. Al presionar "Continuar", el usuario recibe un diálogo titulado "Solicitud lista" que indica que el acceso todavía no valida contraseñas. El usuario completa datos para una función que no está disponible y el título del mensaje no corresponde a la acción que realizó (ver Figura 167).
+En el pie de página, la opción "Iniciar sesión" abre el formulario "Entra a tu óptica", que solicita correo y contraseña. Al presionar "Continuar", el usuario recibe un diálogo titulado "Solicitud lista" que indica que el acceso todavía no valida contraseñas. El usuario completa datos para una función que no está disponible y el título del mensaje no corresponde a la acción que realizó (ver Figura 166).
 
-<a id="figura-167"></a>
+<a id="figura-166"></a>
 
-**Figura 167**
+**Figura 166**
 
 *Mensaje mostrado después de intentar iniciar sesión desde la Landing Page*
 
@@ -1568,11 +1568,11 @@ Reemplazar la opción por un enlace a la aplicación móvil hasta que el acceso 
 
 **Problema:**
 
-Los diálogos "Solicita OptiFlow para tu óptica" y "Entra a tu óptica" solo se cierran con la tecla Esc o al hacer clic fuera de ellos. No muestran un botón "Cerrar" ni un ícono ×, a diferencia de los diálogos de privacidad y de términos. En un celular, donde no existe la tecla Esc, el usuario puede no saber cómo salir sin enviar el formulario (ver Figura 168).
+Los diálogos "Solicita OptiFlow para tu óptica" y "Entra a tu óptica" solo se cierran con la tecla Esc o al hacer clic fuera de ellos. No muestran un botón "Cerrar" ni un ícono ×, a diferencia de los diálogos de privacidad y de términos. En un celular, donde no existe la tecla Esc, el usuario puede no saber cómo salir sin enviar el formulario (ver Figura 167).
 
-<a id="figura-168"></a>
+<a id="figura-167"></a>
 
-**Figura 168**
+**Figura 167**
 
 *Diálogo de solicitud de demo sin control para cerrarlo*
 
@@ -1590,11 +1590,11 @@ Añadir un botón de cierre visible (×) en la esquina superior de todos los di�
 
 **Problema:**
 
-El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis" y la página no explica si existe un periodo de prueba ni su duración. Además, el botón abre el mismo formulario de demo que los otros planes. El texto genera una expectativa que la página no cumple (ver Figura 169).
+El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis" y la página no explica si existe un periodo de prueba ni su duración. Además, el botón abre el mismo formulario de demo que los otros planes. El texto genera una expectativa que la página no cumple (ver Figura 168).
 
-<a id="figura-169"></a>
+<a id="figura-168"></a>
 
-**Figura 169**
+**Figura 168**
 
 *Sección de planes con el botón "Empezar gratis" en un plan de pago*
 
@@ -1612,11 +1612,11 @@ Cambiar el texto a "Elegir Básico" o, si se ofrece una prueba gratuita, indicar
 
 **Problema:**
 
-La respuesta a "¿Necesito instalar algo?" indica que no, porque OptiFlow funciona desde el celular y el navegador. Sin embargo, los beneficios de la página y la solución se basan en una aplicación Android que se debe instalar. La contradicción resta credibilidad a la información y no responde cómo obtener la aplicación (ver Figura 170).
+La respuesta a "¿Necesito instalar algo?" indica que no, porque OptiFlow funciona desde el celular y el navegador. Sin embargo, los beneficios de la página y la solución se basan en una aplicación Android que se debe instalar. La contradicción resta credibilidad a la información y no responde cómo obtener la aplicación (ver Figura 169).
 
-<a id="figura-170"></a>
+<a id="figura-169"></a>
 
-**Figura 170**
+**Figura 169**
 
 *Respuesta de la sección de preguntas frecuentes sobre la instalación*
 
@@ -1634,11 +1634,11 @@ Corregir la respuesta para indicar que pacientes y personal usan la aplicación 
 
 **Problema:**
 
-En un ancho de 375 px, las etiquetas de las estadísticas ("Sin recordatorios", "Menos ausentismo" y "Menos tiempo") se muestran con un tamaño de 8 px, difícil de leer para personas mayores o con baja visión. Además, los fondos decorativos sobresalen del ancho de la pantalla, lo que deja una franja vacía a la derecha y descentra el contenido (ver Figura 171).
+En un ancho de 375 px, las etiquetas de las estadísticas ("Sin recordatorios", "Menos ausentismo" y "Menos tiempo") se muestran con un tamaño de 8 px, difícil de leer para personas mayores o con baja visión. Además, los fondos decorativos sobresalen del ancho de la pantalla, lo que deja una franja vacía a la derecha y descentra el contenido (ver Figura 170).
 
-<a id="figura-171"></a>
+<a id="figura-170"></a>
 
-**Figura 171**
+**Figura 170**
 
 *Sección de estadísticas de la Landing Page en un ancho de celular*
 
@@ -1656,11 +1656,11 @@ Usar un tamaño mínimo de 12 px (idealmente 14 px) en textos secundarios y reco
 
 **Problema:**
 
-En "Detalle de cita", el texto "Cancelar cita" cancela la reserva con un solo toque, muestra el mensaje breve "Cita cancelada" y regresa a "Mis citas". No hay un diálogo de confirmación ni una opción para deshacer la acción, por lo que un toque accidental libera el horario y el paciente pierde su cita (ver Figura 172).
+En "Detalle de cita", el texto "Cancelar cita" cancela la reserva con un solo toque, muestra el mensaje breve "Cita cancelada" y regresa a "Mis citas". No hay un diálogo de confirmación ni una opción para deshacer la acción, por lo que un toque accidental libera el horario y el paciente pierde su cita (ver Figura 171).
 
-<a id="figura-172"></a>
+<a id="figura-171"></a>
 
-**Figura 172**
+**Figura 171**
 
 *Detalle de la cita antes de cancelar (izquierda) y resultado inmediato después de un toque (derecha)*
 
@@ -1678,11 +1678,11 @@ Mostrar un diálogo de confirmación con la fecha y hora de la cita y las opcion
 
 **Problema:**
 
-En "Nueva cita" del rol de personal clínico, los campos "Servicio", "Óptica / sucursal" y "Fecha" muestran una flecha de selección, pero no responden al tocarlos. La fecha permanece fija en "Miércoles, 20 de junio" (junio de 2025), por lo que el usuario solo puede elegir la hora y no puede agendar una cita en otra fecha, sede o servicio (ver Figura 173).
+En "Nueva cita" del rol de personal clínico, los campos "Servicio", "Óptica / sucursal" y "Fecha" muestran una flecha de selección, pero no responden al tocarlos. La fecha permanece fija en "Miércoles, 20 de junio" (junio de 2025), por lo que el usuario solo puede elegir la hora y no puede agendar una cita en otra fecha, sede o servicio (ver Figura 172).
 
-<a id="figura-173"></a>
+<a id="figura-172"></a>
 
-**Figura 173**
+**Figura 172**
 
 *Pantalla "Nueva cita" del personal clínico con servicio, sucursal y fecha fijos*
 
@@ -1700,11 +1700,11 @@ Implementar selectores reales: lista de servicios, sucursales obtenidas de los W
 
 **Problema:**
 
-El formulario "Registro rápido de paciente" muestra como ejemplos el teléfono "+56 9 8745 9210" y la identificación "RUT 18.942.105-K", que son formatos de Chile. Las ópticas y los pacientes de OptiFlow están en el Perú, donde se usa el prefijo +51 y el DNI de 8 dígitos, por lo que los ejemplos pueden inducir a registrar datos con un formato incorrecto (ver Figura 174).
+El formulario "Registro rápido de paciente" muestra como ejemplos el teléfono "+56 9 8745 9210" y la identificación "RUT 18.942.105-K", que son formatos de Chile. Las ópticas y los pacientes de OptiFlow están en el Perú, donde se usa el prefijo +51 y el DNI de 8 dígitos, por lo que los ejemplos pueden inducir a registrar datos con un formato incorrecto (ver Figura 173).
 
-<a id="figura-174"></a>
+<a id="figura-173"></a>
 
-**Figura 174**
+**Figura 173**
 
 *Formulario de registro de pacientes del personal clínico*
 
@@ -1722,7 +1722,7 @@ Usar ejemplos locales ("+51 987 654 321" y "DNI / CE") y validar 9 dígitos para
 
 **Problema:**
 
-En la pantalla de inicio del personal, el acceso rápido se llama "Nuevo paciente", pero la pantalla que abre se titula "Nuevo Cliente" y su encabezado dice "Registro rápido de paciente". Usar dos términos para la misma entidad genera dudas sobre si se registra a un paciente o a un cliente comercial (ver Figura 174).
+En la pantalla de inicio del personal, el acceso rápido se llama "Nuevo paciente", pero la pantalla que abre se titula "Nuevo Cliente" y su encabezado dice "Registro rápido de paciente". Usar dos términos para la misma entidad genera dudas sobre si se registra a un paciente o a un cliente comercial (ver Figura 173).
 
 **Recomendación:**
 
@@ -1736,11 +1736,11 @@ Usar el término "paciente" en todo el flujo, de acuerdo con el lenguaje ubicuo 
 
 **Problema:**
 
-En "Mi Perfil", la opción "Ayuda y soporte" lleva a la pantalla "Configuración", y allí "Ayuda y documentación" no abre ningún contenido. Lo mismo ocurre con "Privacidad y seguridad", "Idioma" y "Términos y privacidad", y con "Ayuda y documentación" en el menú "Más" del personal clínico. Todas muestran una flecha que sugiere que llevan a otra pantalla (ver Figura 175).
+En "Mi Perfil", la opción "Ayuda y soporte" lleva a la pantalla "Configuración", y allí "Ayuda y documentación" no abre ningún contenido. Lo mismo ocurre con "Privacidad y seguridad", "Idioma" y "Términos y privacidad", y con "Ayuda y documentación" en el menú "Más" del personal clínico. Todas muestran una flecha que sugiere que llevan a otra pantalla (ver Figura 174).
 
-<a id="figura-175"></a>
+<a id="figura-174"></a>
 
-**Figura 175**
+**Figura 174**
 
 *Pantalla "Configuración" con opciones de ayuda sin contenido*
 
@@ -1758,11 +1758,11 @@ Crear una pantalla de ayuda con preguntas frecuentes y datos de contacto de la �
 
 **Problema:**
 
-Una cuenta de paciente recién creada, sin recetas ni pedidos registrados, muestra en "Accesos rápidos" los indicadores "Mis recetas · 2 activas" y "Mis pedidos · 1 en camino". En "Mi Perfil", la misma cuenta indica "1 recetas disponibles". La información sobre el estado del paciente no corresponde a sus datos y no coincide entre pantallas (ver Figura 176).
+Una cuenta de paciente recién creada, sin recetas ni pedidos registrados, muestra en "Accesos rápidos" los indicadores "Mis recetas · 2 activas" y "Mis pedidos · 1 en camino". En "Mi Perfil", la misma cuenta indica "1 recetas disponibles". La información sobre el estado del paciente no corresponde a sus datos y no coincide entre pantallas (ver Figura 175).
 
-<a id="figura-176"></a>
+<a id="figura-175"></a>
 
-**Figura 176**
+**Figura 175**
 
 *Inicio (izquierda) y perfil (derecha) de una cuenta de paciente recién creada*
 
@@ -1780,11 +1780,11 @@ Obtener los indicadores de recetas y pedidos desde los Web Services (historias c
 
 **Problema:**
 
-En "Mi Perfil", la opción "Vista personal de óptica" cambia a la experiencia del personal clínico (agenda, pacientes, inventario y ventas) sin pedir credenciales ni validar el rol. Un paciente puede acceder a información de la óptica, y la elección de rol al iniciar sesión pierde sentido, lo que afecta la confianza en el manejo de los datos (ver Figura 177).
+En "Mi Perfil", la opción "Vista personal de óptica" cambia a la experiencia del personal clínico (agenda, pacientes, inventario y ventas) sin pedir credenciales ni validar el rol. Un paciente puede acceder a información de la óptica, y la elección de rol al iniciar sesión pierde sentido, lo que afecta la confianza en el manejo de los datos (ver Figura 176).
 
-<a id="figura-177"></a>
+<a id="figura-176"></a>
 
-**Figura 177**
+**Figura 176**
 
 *Vista del personal clínico abierta desde el perfil de un paciente*
 
@@ -1802,11 +1802,11 @@ Retirar la opción del perfil del paciente. El acceso a la experiencia del perso
 
 **Problema:**
 
-Los botones que solo muestran un ícono, como el de notificaciones (campana) de la pantalla de inicio, la flecha para volver y el engranaje de configuración, no tienen descripción de contenido (*content description*) en el árbol de accesibilidad de Android. Un usuario que navega con un lector de pantalla, como TalkBack, escucha un botón sin nombre y no sabe qué acción realiza (ver Figura 178).
+Los botones que solo muestran un ícono, como el de notificaciones (campana) de la pantalla de inicio, la flecha para volver y el engranaje de configuración, no tienen descripción de contenido (*content description*) en el árbol de accesibilidad de Android. Un usuario que navega con un lector de pantalla, como TalkBack, escucha un botón sin nombre y no sabe qué acción realiza (ver Figura 177).
 
-<a id="figura-178"></a>
+<a id="figura-177"></a>
 
-**Figura 178**
+**Figura 177**
 
 *Pantalla de inicio del paciente con el botón de notificaciones sin etiqueta accesible*
 
@@ -1824,11 +1824,11 @@ Añadir una `contentDescription` a cada botón de solo ícono (por ejemplo, "Not
 
 **Problema:**
 
-En el rol de personal clínico, la pantalla "Nueva cotización" muestra precios como "$89.900" y la pantalla "Reportes" muestra ventas totales de "$8.460.200", con el símbolo de dólar y el punto como separador de miles, formato propio del peso chileno. La Landing Page presenta los planes en soles (S/), y las ópticas y pacientes de OptiFlow pagan en soles, por lo que los montos pueden interpretarse de forma incorrecta (ver Figura 179).
+En el rol de personal clínico, la pantalla "Nueva cotización" muestra precios como "$89.900" y la pantalla "Reportes" muestra ventas totales de "$8.460.200", con el símbolo de dólar y el punto como separador de miles, formato propio del peso chileno. La Landing Page presenta los planes en soles (S/), y las ópticas y pacientes de OptiFlow pagan en soles, por lo que los montos pueden interpretarse de forma incorrecta (ver Figura 178).
 
-<a id="figura-179"></a>
+<a id="figura-178"></a>
 
-**Figura 179**
+**Figura 178**
 
 *Montos en las pantallas "Nueva cotización" (izquierda) y "Reportes" (derecha)*
 
