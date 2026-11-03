@@ -1478,7 +1478,7 @@ El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en e
 
 *Deployment Diagram de OptiFlow en el Sprint 1*
 
-![Deployment Diagram de OptiFlow](assets/cap2/revision-tb1/deployment-sprint1.svg)
+![Deployment Diagram de OptiFlow](assets/cap2/C4/OptiFlow-Deployment.png)
 
 
 <a id="Tactical-Level Domain-Driven Design"></a>
