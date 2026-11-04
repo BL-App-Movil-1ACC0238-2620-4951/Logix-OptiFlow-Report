@@ -2137,12 +2137,12 @@ Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los est
 <a id="2.6.2.1. Domain Layer"></a>
 #### 2.6.2.1. Domain Layer
 
-El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio (ver Tabla 48).
+El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio (ver Tabla 50).
 
 
-<a id="tabla-48"></a>
+<a id="tabla-50"></a>
 
-**Tabla 48**
+**Tabla 50**
 
 *Clases del Domain Layer del Clinical & Commercial Context*
 
@@ -2155,46 +2155,48 @@ El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord`
 | `Quotation` | Aggregate Root | Propuesta comercial derivada de la receta, sujeta a aprobación del paciente. | `id`, `clinicalRecordId`, `discount: Discount`, `total: Money`, `status: QuotationStatus` | `+addItem(item)`, `+applyPromotionOrDiscount(d)`, `+approve()`, `+reject(reason)`, `+calculateTotal()` |
 | `QuotationItem` | Entity | Línea de detalle de una cotización (producto o servicio cotizado). | `id`, `description: String`, `unitPrice: Money`, `quantity: Integer` | `+subtotal()` |
 | `Discount` | Value Object | Encapsula una promoción o descuento aplicado a una cotización. | `type: DiscountType`, `value: Decimal`, `reason: String` | — |
-| `Sale` | Aggregate Root | Venta concretada a partir de una cotización aprobada. | `id`, `quotationId`, `patientId`, `status: SaleStatus`, `closedAt: DateTime` | `+recordPayment(p)`, `+close()` |
-| `Payment` | Value Object | Detalle del cobro asociado a la venta. | `method: PaymentMethod`, `amount: Money`, `transactionReference: String`, `paidAt: DateTime` | — |
+| `Sale` | Aggregate Root | Venta concretada a partir de una cotización aprobada. | `id`, `quotationId`, `patientId`, `status: SaleStatus` (PENDING_PAYMENT, PAID, CLOSED), `paymentPreferenceId: String`, `closedAt: DateTime` | `+attachPaymentPreference(id)`, `+recordPayment(p)`, `+rejectPayment(reason)`, `+close()` |
+| `Payment` | Value Object | Detalle del cobro asociado a la venta, aprobado por la Pasarela de Pagos o registrado en caja. | `method: PaymentMethod` (CARD, YAPE o CASH), `amount: Money`, `transactionReference: String` (id del pago en la pasarela), `status: PaymentStatus` (APPROVED o REJECTED), `paidAt: DateTime` | — |
 | `ElectronicReceipt` | Entity | Comprobante electrónico emitido al cierre de la venta. | `id`, `receiptNumber`, `saleId`, `issueDate`, `taxAmount: Money`, `totalAmount: Money` | `+issue()` |
 | `ClinicalRecordRepository` | Interface (Repository) | Abstracción de persistencia para `ClinicalRecord`. | — | `+save(record)`, `+findById(id)` |
 | `QuotationRepository` | Interface (Repository) | Abstracción de persistencia para `Quotation`. | — | `+save(quotation)`, `+findById(id)` |
 | `SaleRepository` | Interface (Repository) | Abstracción de persistencia para `Sale`. | — | `+save(sale)`, `+findById(id)` |
 
-Relaciones principales: `ClinicalRecord` compone 1 `MedicalHistory` y 0..1 `OpticalPrescription`, y origina 0..* `Quotation`; `Quotation` compone 1..* `QuotationItem`, agrega 0..1 `Discount` y concreta 0..1 `Sale`; `Sale` compone 1 `Payment` y da lugar a 0..1 `ElectronicReceipt`.
+Relaciones principales: `ClinicalRecord` compone 1 `MedicalHistory` y 0..1 `OpticalPrescription`, y origina 0..* `Quotation`; `Quotation` compone 1..* `QuotationItem`, agrega 0..1 `Discount` y concreta 0..1 `Sale`; `Sale` compone 0..1 `Payment` y da lugar a 0..1 `ElectronicReceipt`. Una venta nace en `PENDING_PAYMENT`, pasa a `PAID` cuando se registra un pago aprobado y a `CLOSED` cuando el asesor la cierra; un pago rechazado no cambia su estado.
 
-Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHistoryRecorded`, `ClinicalRecordRegistered`, `OpticalPrescriptionGenerated`, `PromotionOrDiscountApplied`, `QuotationApproved`, `QuotationRejected`, `PaymentRecorded`, `SaleWasClosed`, `ElectronicReceiptIssued`.
+Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHistoryRecorded`, `ClinicalRecordRegistered`, `OpticalPrescriptionGenerated`, `PromotionOrDiscountApplied`, `QuotationApproved`, `QuotationRejected`, `PaymentRecorded`, `PaymentRejected`, `SaleWasClosed`, `ElectronicReceiptIssued`.
 
 <a id="2.6.2.2. Interface Layer"></a>
 #### 2.6.2.2. Interface Layer
 
 
-Las clases del Interface Layer del Clinical & Commercial Context se detallan en la Tabla 49.
+Las clases del Interface Layer del Clinical & Commercial Context se detallan en la Tabla 51.
 
-<a id="tabla-49"></a>
+<a id="tabla-51"></a>
 
-**Tabla 49**
+**Tabla 51**
 
 *Clases del Interface Layer del Clinical & Commercial Context*
 
 
 | Clase | Tipo | Responsabilidad |
 | :--- | :--- | :--- |
-| `ClinicalRecordController` | REST Controller | Expone `ExaminePatient`, `RecordMedicalHistory`, `RegisterClinicalRecord` y `GenerateOpticalPrescription`. |
-| `QuotationController` | REST Controller | Expone `ApplyPromotionOrDiscount`, `ApproveQuotation` y `RejectQuotation`. |
-| `SaleController` | REST Controller | Expone `RecordPayment` y `CloseSale`. |
+| `ClinicalRecordController` | REST Controller | `POST /clinical-records` (`RegisterClinicalRecord`), `GET /clinical-records/{id}`, `GET /patients/{patientId}/clinical-records`, `PUT /clinical-records/{id}/medical-history` (`RecordMedicalHistory`), `POST /clinical-records/{id}/prescription` (`GenerateOpticalPrescription`) y `GET /clinical-records/{id}/prescription`. |
+| `QuotationController` | REST Controller | `POST /quotations` (`GenerateQuotation`), `GET /quotations/{id}`, `PATCH /quotations/{id}/discount` (`ApplyPromotionOrDiscount`), `PATCH /quotations/{id}/approve` (`ApproveQuotation`) y `PATCH /quotations/{id}/reject` (`RejectQuotation`). |
+| `SaleController` | REST Controller | `POST /sales` (`RegisterSale`), `GET /sales/{id}` (estado de la venta y del pago; con la venta cerrada responde `GetClosedSale` para Production & Tracking), `GET /patients/{patientId}/sales` (ventas del paciente, incluidas las pendientes de pago), `POST /sales/{id}/payment-preference` (`CreatePaymentPreference`, solo el paciente dueño de la venta), `POST /sales/{id}/payments` (`RecordPayment` en efectivo) y `PATCH /sales/{id}/close` (`CloseSale`). |
+| `PaymentWebhookController` | REST Controller | `POST /payments/webhook`: ruta pública que recibe las notificaciones de la Pasarela de Pagos, las entrega al `PaymentGatewayAdapter` para validar su firma y traducirlas, y ejecuta `RecordPayment`; responde HTTP 200 para que el proveedor no reintente. |
+| `SalesReportController` | REST Controller | `GET /reports/sales?from&to` (`GetSalesMetrics`) y `GET /reports/sales/export?from&to` (CSV), solo para `ADMIN`. |
 | `AppointmentBookedConsumer` | Event Consumer | Se suscribe al evento externo `AppointmentBooked` (proveniente de Search & Booking; en el backend actual se comunica mediante eventos de Spring) y lo traduce al comando interno `ExaminePatient`, actuando como puerto de entrada de la Anti-Corruption Layer documentada en el Context Mapping (2.5.2). |
 
 <a id="2.6.2.3. Application Layer"></a>
 #### 2.6.2.3. Application Layer
 
 
-Las clases del Application Layer del Clinical & Commercial Context se presentan en la Tabla 50.
+Las clases del Application Layer del Clinical & Commercial Context se presentan en la Tabla 52.
 
-<a id="tabla-50"></a>
+<a id="tabla-52"></a>
 
-**Tabla 50**
+**Tabla 52**
 
 *Clases del Application Layer del Clinical & Commercial Context*
 
@@ -2207,19 +2209,26 @@ Las clases del Application Layer del Clinical & Commercial Context se presentan 
 | `GenerateOpticalPrescriptionHandler` | Command Handler | Genera la `OpticalPrescription` a partir de la evaluación. |
 | `ApplyPromotionOrDiscountHandler` | Command Handler | Aplica un `Discount` a la cotización vigente. |
 | `ApproveQuotationHandler` / `RejectQuotationHandler` | Command Handler | Resuelven el estado de la cotización. |
-| `RecordPaymentHandler` | Command Handler | Registra el `Payment` sobre la venta. |
-| `CloseSaleHandler` | Command Handler | Cierra la venta y solicita la emisión del recibo. |
+| `GenerateQuotationHandler` | Command Handler | Genera la `Quotation` a partir de la receta del expediente clínico. |
+| `RegisterSaleHandler` | Command Handler | Registra la venta de una cotización aprobada. |
+| `CreatePaymentPreferenceHandler` | Command Handler | Verifica que la venta pertenezca al paciente y esté pendiente de pago, crea la preferencia en la pasarela mediante `PaymentGatewayAdapter` y devuelve el enlace de pago. |
+| `RecordPaymentHandler` | Command Handler | Registra el `Payment` de una venta pendiente. Lo invocan el webhook de la pasarela (pago aprobado: publica `PaymentRecorded`; rechazado: publica `PaymentRejected`) y el asesor para los pagos en efectivo. Ignora las notificaciones repetidas de un mismo pago. |
+| `CloseSaleHandler` | Command Handler | Cierra una venta pagada, solicita la emisión del recibo y publica `SaleWasClosed`. |
+| `ClinicalRecordQueryService` | Query Service | Resuelve `GetClinicalRecordById`, `GetClinicalRecordsByPatientId` y `GetOpticalPrescription`. |
+| `QuotationQueryService` | Query Service | Resuelve `GetQuotationById`. |
+| `SaleQueryService` | Query Service | Resuelve `GetSaleById`, `GetSalesByPatientId` y `GetClosedSale` (venta cerrada con el paciente, la óptica y las especificaciones de las lunas). |
+| `SalesMetricsQueryService` | Query Service | Resuelve `GetSalesMetrics`: número de atenciones, cotizaciones aprobadas y rechazadas, ventas cerradas, monto total y ticket promedio del periodo, y genera su exportación en CSV. |
 | `AppointmentBookedEventHandler` | Event Handler | Reacciona a la notificación entrante del `AppointmentBookedConsumer` invocando `ExaminePatientHandler`. |
 
 <a id="2.6.2.4. Infrastructure Layer"></a>
 #### 2.6.2.4. Infrastructure Layer
 
 
-Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen en la Tabla 51.
+Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen en la Tabla 53.
 
-<a id="tabla-51"></a>
+<a id="tabla-53"></a>
 
-**Tabla 51**
+**Tabla 53**
 
 *Clases del Infrastructure Layer del Clinical & Commercial Context*
 
@@ -2230,7 +2239,7 @@ Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen
 | `QuotationRepositoryImpl` | Repository (impl) | Implementa `QuotationRepository` sobre JPA/PostgreSQL. |
 | `SaleRepositoryImpl` | Repository (impl) | Implementa `SaleRepository` sobre JPA/PostgreSQL. |
 | `DomainEventPublisher` | Messaging | Publica los eventos de dominio mediante el adaptador compartido de eventos de Spring. |
-| `PaymentGatewayAdapter` | Anti-Corruption Layer | Traduce las respuestas de la Pasarela de Pagos externa (POS bancario, Yape, Plin) al modelo interno de `Payment` y `ElectronicReceipt`, aislando al dominio de los formatos propietarios del proveedor bancario (patrón Customer/Supplier documentado en 2.5.2). |
+| `PaymentGatewayAdapter` | Anti-Corruption Layer | Implementa la integración con Mercado Pago Checkout Pro: crea la preferencia de pago (monto, referencia externa `saleId`, URLs de retorno a la aplicación y URL del webhook), valida la firma de cada notificación, consulta el pago notificado y lo traduce al modelo interno de `Payment`, aislando al dominio de los estados y códigos del proveedor (relación documentada en 2.5.2). El token de acceso y el secreto del webhook se leen desde variables de entorno. |
 
 <a id="2.6.2.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
