@@ -1468,14 +1468,14 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 2. Registro de pagos y emisión de comprobantes.
 3. Generación y exportación de reportes.
 4. Gestión de permisos por roles.
-5. Operaciones sin conexión a internet.
+5. Consulta de información sin conexión a internet.
 
 **ESCALA DE SEVERIDAD:**
-Los errores serán puntuados tomando en cuenta la escala de severidad de la Tabla 123.
+Los errores serán puntuados tomando en cuenta la escala de severidad de la Tabla 125.
 
-<a id="tabla-123"></a>
+<a id="tabla-125"></a>
 
-**Tabla 123**
+**Tabla 125**
 
 *Escala de severidad de los problemas de usabilidad*
 
@@ -1488,11 +1488,11 @@ Los errores serán puntuados tomando en cuenta la escala de severidad de la Tabl
 
 **TABLA RESUMEN:**
 
-Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplicación móvil (problemas 7 al 15) se resumen en la Tabla 124.
+Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplicación móvil (problemas 7 al 15) se resumen en la Tabla 126.
 
-<a id="tabla-124"></a>
+<a id="tabla-126"></a>
 
-**Tabla 124**
+**Tabla 126**
 
 *Resumen de problemas identificados en la evaluación heurística*
 
@@ -1524,11 +1524,11 @@ Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplica
 
 **Problema:**
 
-El título principal, "Tu cita óptica ideal, en tu bolsillo", está dirigido a los pacientes, pero todos los botones de llamada a la acción ("Solicitar Demo", "Empezar gratis", "Elegir Profesional" y "Contactar ventas") abren el formulario de demo para ópticas. No existe un enlace para descargar la aplicación ni para registrarse como paciente, por lo que el segundo segmento objetivo no encuentra cómo empezar a usar OptiFlow (ver Figura 165).
+El título principal, "Tu cita óptica ideal, en tu bolsillo", está dirigido a los pacientes, pero todos los botones de llamada a la acción ("Solicitar Demo", "Empezar gratis", "Elegir Profesional" y "Contactar ventas") abren el formulario de demo para ópticas. No existe un enlace para descargar la aplicación ni para registrarse como paciente, por lo que el segundo segmento objetivo no encuentra cómo empezar a usar OptiFlow (ver Figura 167).
 
-<a id="figura-165"></a>
+<a id="figura-167"></a>
 
-**Figura 165**
+**Figura 167**
 
 *Sección principal de la Landing Page con un único botón dirigido a ópticas*
 
@@ -1546,11 +1546,11 @@ Agregar en la sección principal y en la barra de navegación un botón por segm
 
 **Problema:**
 
-En el pie de página, la opción "Iniciar sesión" abre el formulario "Entra a tu óptica", que solicita correo y contraseña. Al presionar "Continuar", el usuario recibe un diálogo titulado "Solicitud lista" que indica que el acceso todavía no valida contraseñas. El usuario completa datos para una función que no está disponible y el título del mensaje no corresponde a la acción que realizó (ver Figura 166).
+En el pie de página, la opción "Iniciar sesión" abre el formulario "Entra a tu óptica", que solicita correo y contraseña. Al presionar "Continuar", el usuario recibe un diálogo titulado "Solicitud lista" que indica que el acceso todavía no valida contraseñas. El usuario completa datos para una función que no está disponible y el título del mensaje no corresponde a la acción que realizó (ver Figura 168).
 
-<a id="figura-166"></a>
+<a id="figura-168"></a>
 
-**Figura 166**
+**Figura 168**
 
 *Mensaje mostrado después de intentar iniciar sesión desde la Landing Page*
 
@@ -1568,11 +1568,11 @@ Reemplazar la opción por un enlace a la aplicación móvil hasta que el acceso 
 
 **Problema:**
 
-Los diálogos "Solicita OptiFlow para tu óptica" y "Entra a tu óptica" solo se cierran con la tecla Esc o al hacer clic fuera de ellos. No muestran un botón "Cerrar" ni un ícono ×, a diferencia de los diálogos de privacidad y de términos. En un celular, donde no existe la tecla Esc, el usuario puede no saber cómo salir sin enviar el formulario (ver Figura 167).
+Los diálogos "Solicita OptiFlow para tu óptica" y "Entra a tu óptica" solo se cierran con la tecla Esc o al hacer clic fuera de ellos. No muestran un botón "Cerrar" ni un ícono ×, a diferencia de los diálogos de privacidad y de términos. En un celular, donde no existe la tecla Esc, el usuario puede no saber cómo salir sin enviar el formulario (ver Figura 169).
 
-<a id="figura-167"></a>
+<a id="figura-169"></a>
 
-**Figura 167**
+**Figura 169**
 
 *Diálogo de solicitud de demo sin control para cerrarlo*
 
@@ -1590,11 +1590,11 @@ Añadir un botón de cierre visible (×) en la esquina superior de todos los di�
 
 **Problema:**
 
-El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis" y la página no explica si existe un periodo de prueba ni su duración. Además, el botón abre el mismo formulario de demo que los otros planes. El texto genera una expectativa que la página no cumple (ver Figura 168).
+El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis" y la página no explica si existe un periodo de prueba ni su duración. Además, el botón abre el mismo formulario de demo que los otros planes. El texto genera una expectativa que la página no cumple (ver Figura 170).
 
-<a id="figura-168"></a>
+<a id="figura-170"></a>
 
-**Figura 168**
+**Figura 170**
 
 *Sección de planes con el botón "Empezar gratis" en un plan de pago*
 
@@ -1612,11 +1612,11 @@ Cambiar el texto a "Elegir Básico" o, si se ofrece una prueba gratuita, indicar
 
 **Problema:**
 
-La respuesta a "¿Necesito instalar algo?" indica que no, porque OptiFlow funciona desde el celular y el navegador. Sin embargo, los beneficios de la página y la solución se basan en una aplicación Android que se debe instalar. La contradicción resta credibilidad a la información y no responde cómo obtener la aplicación (ver Figura 169).
+La respuesta a "¿Necesito instalar algo?" indica que no, porque OptiFlow funciona desde el celular y el navegador. Sin embargo, los beneficios de la página y la solución se basan en una aplicación Android que se debe instalar. La contradicción resta credibilidad a la información y no responde cómo obtener la aplicación (ver Figura 171).
 
-<a id="figura-169"></a>
+<a id="figura-171"></a>
 
-**Figura 169**
+**Figura 171**
 
 *Respuesta de la sección de preguntas frecuentes sobre la instalación*
 
@@ -1634,11 +1634,11 @@ Corregir la respuesta para indicar que pacientes y personal usan la aplicación 
 
 **Problema:**
 
-En un ancho de 375 px, las etiquetas de las estadísticas ("Sin recordatorios", "Menos ausentismo" y "Menos tiempo") se muestran con un tamaño de 8 px, difícil de leer para personas mayores o con baja visión. Además, los fondos decorativos sobresalen del ancho de la pantalla, lo que deja una franja vacía a la derecha y descentra el contenido (ver Figura 170).
+En un ancho de 375 px, las etiquetas de las estadísticas ("Sin recordatorios", "Menos ausentismo" y "Menos tiempo") se muestran con un tamaño de 8 px, difícil de leer para personas mayores o con baja visión. Además, los fondos decorativos sobresalen del ancho de la pantalla, lo que deja una franja vacía a la derecha y descentra el contenido (ver Figura 172).
 
-<a id="figura-170"></a>
+<a id="figura-172"></a>
 
-**Figura 170**
+**Figura 172**
 
 *Sección de estadísticas de la Landing Page en un ancho de celular*
 
@@ -1656,11 +1656,11 @@ Usar un tamaño mínimo de 12 px (idealmente 14 px) en textos secundarios y reco
 
 **Problema:**
 
-En "Detalle de cita", el texto "Cancelar cita" cancela la reserva con un solo toque, muestra el mensaje breve "Cita cancelada" y regresa a "Mis citas". No hay un diálogo de confirmación ni una opción para deshacer la acción, por lo que un toque accidental libera el horario y el paciente pierde su cita (ver Figura 171).
+En "Detalle de cita", el texto "Cancelar cita" cancela la reserva con un solo toque, muestra el mensaje breve "Cita cancelada" y regresa a "Mis citas". No hay un diálogo de confirmación ni una opción para deshacer la acción, por lo que un toque accidental libera el horario y el paciente pierde su cita (ver Figura 173).
 
-<a id="figura-171"></a>
+<a id="figura-173"></a>
 
-**Figura 171**
+**Figura 173**
 
 *Detalle de la cita antes de cancelar (izquierda) y resultado inmediato después de un toque (derecha)*
 
@@ -1678,11 +1678,11 @@ Mostrar un diálogo de confirmación con la fecha y hora de la cita y las opcion
 
 **Problema:**
 
-En "Nueva cita" del rol de personal clínico, los campos "Servicio", "Óptica / sucursal" y "Fecha" muestran una flecha de selección, pero no responden al tocarlos. La fecha permanece fija en "Miércoles, 20 de junio" (junio de 2025), por lo que el usuario solo puede elegir la hora y no puede agendar una cita en otra fecha, sede o servicio (ver Figura 172).
+En "Nueva cita" del rol de personal clínico, los campos "Servicio", "Óptica / sucursal" y "Fecha" muestran una flecha de selección, pero no responden al tocarlos. La fecha permanece fija en "Miércoles, 20 de junio" (junio de 2025), por lo que el usuario solo puede elegir la hora y no puede agendar una cita en otra fecha, sede o servicio (ver Figura 174).
 
-<a id="figura-172"></a>
+<a id="figura-174"></a>
 
-**Figura 172**
+**Figura 174**
 
 *Pantalla "Nueva cita" del personal clínico con servicio, sucursal y fecha fijos*
 
@@ -1700,11 +1700,11 @@ Implementar selectores reales: lista de servicios, sucursales obtenidas de los W
 
 **Problema:**
 
-El formulario "Registro rápido de paciente" muestra como ejemplos el teléfono "+56 9 8745 9210" y la identificación "RUT 18.942.105-K", que son formatos de Chile. Las ópticas y los pacientes de OptiFlow están en el Perú, donde se usa el prefijo +51 y el DNI de 8 dígitos, por lo que los ejemplos pueden inducir a registrar datos con un formato incorrecto (ver Figura 173).
+El formulario "Registro rápido de paciente" muestra como ejemplos el teléfono "+56 9 8745 9210" y la identificación "RUT 18.942.105-K", que son formatos de Chile. Las ópticas y los pacientes de OptiFlow están en el Perú, donde se usa el prefijo +51 y el DNI de 8 dígitos, por lo que los ejemplos pueden inducir a registrar datos con un formato incorrecto (ver Figura 175).
 
-<a id="figura-173"></a>
+<a id="figura-175"></a>
 
-**Figura 173**
+**Figura 175**
 
 *Formulario de registro de pacientes del personal clínico*
 
@@ -1722,7 +1722,7 @@ Usar ejemplos locales ("+51 987 654 321" y "DNI / CE") y validar 9 dígitos para
 
 **Problema:**
 
-En la pantalla de inicio del personal, el acceso rápido se llama "Nuevo paciente", pero la pantalla que abre se titula "Nuevo Cliente" y su encabezado dice "Registro rápido de paciente". Usar dos términos para la misma entidad genera dudas sobre si se registra a un paciente o a un cliente comercial (ver Figura 173).
+En la pantalla de inicio del personal, el acceso rápido se llama "Nuevo paciente", pero la pantalla que abre se titula "Nuevo Cliente" y su encabezado dice "Registro rápido de paciente". Usar dos términos para la misma entidad genera dudas sobre si se registra a un paciente o a un cliente comercial (ver Figura 175).
 
 **Recomendación:**
 
@@ -1736,11 +1736,11 @@ Usar el término "paciente" en todo el flujo, de acuerdo con el lenguaje ubicuo 
 
 **Problema:**
 
-En "Mi Perfil", la opción "Ayuda y soporte" lleva a la pantalla "Configuración", y allí "Ayuda y documentación" no abre ningún contenido. Lo mismo ocurre con "Privacidad y seguridad", "Idioma" y "Términos y privacidad", y con "Ayuda y documentación" en el menú "Más" del personal clínico. Todas muestran una flecha que sugiere que llevan a otra pantalla (ver Figura 174).
+En "Mi Perfil", la opción "Ayuda y soporte" lleva a la pantalla "Configuración", y allí "Ayuda y documentación" no abre ningún contenido. Lo mismo ocurre con "Privacidad y seguridad", "Idioma" y "Términos y privacidad", y con "Ayuda y documentación" en el menú "Más" del personal clínico. Todas muestran una flecha que sugiere que llevan a otra pantalla (ver Figura 176).
 
-<a id="figura-174"></a>
+<a id="figura-176"></a>
 
-**Figura 174**
+**Figura 176**
 
 *Pantalla "Configuración" con opciones de ayuda sin contenido*
 
@@ -1758,11 +1758,11 @@ Crear una pantalla de ayuda con preguntas frecuentes y datos de contacto de la �
 
 **Problema:**
 
-Una cuenta de paciente recién creada, sin recetas ni pedidos registrados, muestra en "Accesos rápidos" los indicadores "Mis recetas · 2 activas" y "Mis pedidos · 1 en camino". En "Mi Perfil", la misma cuenta indica "1 recetas disponibles". La información sobre el estado del paciente no corresponde a sus datos y no coincide entre pantallas (ver Figura 175).
+Una cuenta de paciente recién creada, sin recetas ni pedidos registrados, muestra en "Accesos rápidos" los indicadores "Mis recetas · 2 activas" y "Mis pedidos · 1 en camino". En "Mi Perfil", la misma cuenta indica "1 recetas disponibles". La información sobre el estado del paciente no corresponde a sus datos y no coincide entre pantallas (ver Figura 177).
 
-<a id="figura-175"></a>
+<a id="figura-177"></a>
 
-**Figura 175**
+**Figura 177**
 
 *Inicio (izquierda) y perfil (derecha) de una cuenta de paciente recién creada*
 
@@ -1780,11 +1780,11 @@ Obtener los indicadores de recetas y pedidos desde los Web Services (historias c
 
 **Problema:**
 
-En "Mi Perfil", la opción "Vista personal de óptica" cambia a la experiencia del personal clínico (agenda, pacientes, inventario y ventas) sin pedir credenciales ni validar el rol. Un paciente puede acceder a información de la óptica, y la elección de rol al iniciar sesión pierde sentido, lo que afecta la confianza en el manejo de los datos (ver Figura 176).
+En "Mi Perfil", la opción "Vista personal de óptica" cambia a la experiencia del personal clínico (agenda, pacientes, inventario y ventas) sin pedir credenciales ni validar el rol. Un paciente puede acceder a información de la óptica, y la elección de rol al iniciar sesión pierde sentido, lo que afecta la confianza en el manejo de los datos (ver Figura 178).
 
-<a id="figura-176"></a>
+<a id="figura-178"></a>
 
-**Figura 176**
+**Figura 178**
 
 *Vista del personal clínico abierta desde el perfil de un paciente*
 
@@ -1802,11 +1802,11 @@ Retirar la opción del perfil del paciente. El acceso a la experiencia del perso
 
 **Problema:**
 
-Los botones que solo muestran un ícono, como el de notificaciones (campana) de la pantalla de inicio, la flecha para volver y el engranaje de configuración, no tienen descripción de contenido (*content description*) en el árbol de accesibilidad de Android. Un usuario que navega con un lector de pantalla, como TalkBack, escucha un botón sin nombre y no sabe qué acción realiza (ver Figura 177).
+Los botones que solo muestran un ícono, como el de notificaciones (campana) de la pantalla de inicio, la flecha para volver y el engranaje de configuración, no tienen descripción de contenido (*content description*) en el árbol de accesibilidad de Android. Un usuario que navega con un lector de pantalla, como TalkBack, escucha un botón sin nombre y no sabe qué acción realiza (ver Figura 179).
 
-<a id="figura-177"></a>
+<a id="figura-179"></a>
 
-**Figura 177**
+**Figura 179**
 
 *Pantalla de inicio del paciente con el botón de notificaciones sin etiqueta accesible*
 
@@ -1824,11 +1824,11 @@ Añadir una `contentDescription` a cada botón de solo ícono (por ejemplo, "Not
 
 **Problema:**
 
-En el rol de personal clínico, la pantalla "Nueva cotización" muestra precios como "$89.900" y la pantalla "Reportes" muestra ventas totales de "$8.460.200", con el símbolo de dólar y el punto como separador de miles, formato propio del peso chileno. La Landing Page presenta los planes en soles (S/), y las ópticas y pacientes de OptiFlow pagan en soles, por lo que los montos pueden interpretarse de forma incorrecta (ver Figura 178).
+En el rol de personal clínico, la pantalla "Nueva cotización" muestra precios como "$89.900" y la pantalla "Reportes" muestra ventas totales de "$8.460.200", con el símbolo de dólar y el punto como separador de miles, formato propio del peso chileno. La Landing Page presenta los planes en soles (S/), y las ópticas y pacientes de OptiFlow pagan en soles, por lo que los montos pueden interpretarse de forma incorrecta (ver Figura 180).
 
-<a id="figura-178"></a>
+<a id="figura-180"></a>
 
-**Figura 178**
+**Figura 180**
 
 *Montos en las pantallas "Nueva cotización" (izquierda) y "Reportes" (derecha)*
 
