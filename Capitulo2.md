@@ -1137,10 +1137,10 @@ El Bounded Context Canvas del Search & Booking Context se detalla en la Tabla 18
 | :--- | :--- |
 | **Name** | Search & Booking Context |
 | **Strategic Classification** | Core Domain |
-| **Domain Roles** | Gestión del proceso inicial del paciente: descubrimiento de sucursales, exploración del catálogo de monturas, gestión de preferencias e identidades, y reserva formal de citas según disponibilidad de horarios. |
-| **Ubiquitous Language** | Patient, Time Slot, Optical Store, Store Catalog, Favorite Store, Store Rating, Appointment, Booking. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `RegisterPatient`<br>- `LogIn`<br>- `PublishAvailableTimeSlots`<br>- `SaveFavoriteOpticalStore`<br>- `RateOpticalStore`<br>- `BookAppointment`<br><br>**Queries (vía API Gateway):**<br>- `SearchOpticalStores`<br>- `FilterOpticalStores`<br>- `ExploreFrameCatalog` |
-| **Outbound Communication** | **Events (Publicados):**<br>- `PatientRegistered`<br>- `PatientLoggedIn`<br>- `OpticalStoresPublished`<br>- `FavoriteOpticalStoreSaved`<br>- `OpticalStoreRated`<br>- `AppointmentBooked` |
+| **Domain Roles** | Gestión del proceso inicial del paciente y del acceso a la plataforma: registro e inicio de sesión de pacientes y personal con roles, descubrimiento de sucursales cercanas, ópticas favoritas y calificaciones, y reserva formal de citas según disponibilidad de horarios. |
+| **Ubiquitous Language** | Patient, Staff Member, User Role, Time Slot, Optical Store, Store Location, Favorite Store, Store Rating, Appointment, Booking. |
+| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `RegisterPatient`<br>- `LogIn`<br>- `RegisterStaffMember`<br>- `AssignStaffRole`<br>- `PublishAvailableTimeSlots`<br>- `SaveFavoriteOpticalStore`<br>- `RateOpticalStore`<br>- `BookAppointment`<br><br>**Queries (vía API Gateway):**<br>- `SearchOpticalStores`<br>- `FilterOpticalStores`<br>- `GetNearbyOpticalStores`<br>- `GetAvailableTimeSlots`<br>- `GetPatientAppointments`<br>- `GetAppointment`<br>- `GetStaffMembers`<br><br>**Queries (internas):**<br>- `GetPatientsByBirthday` (Notification & Loyalty) |
+| **Outbound Communication** | **Events (Publicados):**<br>- `PatientRegistered`<br>- `PatientLoggedIn`<br>- `StaffMemberRegistered`<br>- `StaffMemberRoleAssigned`<br>- `OpticalStoresPublished`<br>- `FavoriteOpticalStoreSaved`<br>- `OpticalStoreRated`<br>- `AppointmentBooked` |
 
 **Canvas 2: Clinical & Commercial Context**
 
@@ -1158,10 +1158,10 @@ El Bounded Context Canvas del Clinical & Commercial Context se presenta en la Ta
 | :--- | :--- |
 | **Name** | Clinical & Commercial Context |
 | **Strategic Classification** | Core Domain |
-| **Domain Roles** | Control de la atención clínica presencial y conversión comercial: registro de refracción/receta optométrica, evaluación de cotizaciones, aplicación de descuentos o promociones y procesamiento del cobro de la venta. |
+| **Domain Roles** | Control de la atención clínica presencial y conversión comercial: registro de refracción/receta optométrica, evaluación de cotizaciones, aplicación de descuentos o promociones y cobro de la venta mediante la Pasarela de Pagos externa (tarjeta o Yape, pagados por el paciente desde la aplicación) o en efectivo. |
 | **Ubiquitous Language** | Patient, Medical History, Clinical Record, Optical Prescription, Quotation, Promotion, Discount, Payment, Sale, Electronic Receipt. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `ExaminePatient`<br>- `RecordMedicalHistory`<br>- `RegisterClinicalRecord`<br>- `GenerateOpticalPrescription`<br>- `ApplyPromotionOrDiscount`<br>- `ApproveQuotation`<br>- `RejectQuotation`<br>- `RecordPayment`<br>- `CloseSale`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked` |
-| **Outbound Communication** | **Events (Publicados):**<br>- `PatientExamined`<br>- `MedicalHistoryRecorded`<br>- `ClinicalRecordRegistered`<br>- `OpticalPrescriptionGenerated`<br>- `PromotionOrDiscountApplied`<br>- `QuotationApproved`<br>- `QuotationRejected`<br>- `PaymentRecorded`<br>- `SaleWasClosed`<br>- `ElectronicReceiptIssued` |
+| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `ExaminePatient`<br>- `RecordMedicalHistory`<br>- `RegisterClinicalRecord`<br>- `GenerateOpticalPrescription`<br>- `GenerateQuotation`<br>- `ApplyPromotionOrDiscount`<br>- `ApproveQuotation`<br>- `RejectQuotation`<br>- `RegisterSale`<br>- `CreatePaymentPreference` (App del paciente)<br>- `RecordPayment`<br>- `CloseSale`<br><br>**Queries (vía API Gateway):**<br>- `GetClosedSale`<br>- `GetSalesMetrics`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked`<br><br>**Sistema externo:**<br>- Notificación de pago de la Pasarela de Pagos (webhook) |
+| **Outbound Communication** | **Events (Publicados):**<br>- `PatientExamined`<br>- `MedicalHistoryRecorded`<br>- `ClinicalRecordRegistered`<br>- `OpticalPrescriptionGenerated`<br>- `PromotionOrDiscountApplied`<br>- `QuotationApproved`<br>- `QuotationRejected`<br>- `PaymentRecorded`<br>- `PaymentRejected`<br>- `SaleWasClosed`<br>- `ElectronicReceiptIssued`<br><br>**Sistema externo:**<br>- Creación de la preferencia de pago en la Pasarela de Pagos |
 
 **Canvas 3: Production & Tracking Context**
 
@@ -1179,9 +1179,9 @@ El Bounded Context Canvas del Production & Tracking Context se resume en la Tabl
 | :--- | :--- |
 | **Name** | Production & Tracking Context |
 | **Strategic Classification** | Core Domain |
-| **Domain Roles** | Trazabilidad del proceso de fabricación de lentes y monturas: generación de órdenes de trabajo, asignación a técnicos de laboratorio, control del flujo de estado (Kanban logístico), cálculo de fechas estimadas y gestión de retrasos. |
+| **Domain Roles** | Trazabilidad del proceso de fabricación de lentes y monturas: generación de órdenes de trabajo, asignación a técnicos de laboratorio, control del flujo de estado (Kanban logístico), cálculo de fechas estimadas, gestión de retrasos, seguimiento del pedido por el paciente y métricas de producción. |
 | **Ubiquitous Language** | Work Order, Technician, Laboratory, Work Order Status, Lenses, Delivery Date, Delivery Delay. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `GenerateWorkOrder`<br>- `AssignWorkOrderToTechnician`<br>- `SendWorkOrderToLaboratory`<br>- `UpdateWorkOrderStatus`<br>- `CompleteLenses`<br>- `NotifyDeliveryDelay`<br>- `MarkOrderAsDelivered`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
+| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `GenerateWorkOrder`<br>- `AssignWorkOrderToTechnician`<br>- `SendWorkOrderToLaboratory`<br>- `UpdateWorkOrderStatus`<br>- `CompleteLenses`<br>- `NotifyDeliveryDelay`<br>- `MarkOrderAsDelivered`<br><br>**Queries (vía API Gateway):**<br>- `GetWorkOrders`<br>- `GetWorkOrderById`<br>- `GetWorkOrdersByPatientId`<br>- `GetProductionMetrics`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed`<br><br>**Consulta a otro contexto:**<br>- `GetClosedSale` (Clinical & Commercial) |
 | **Outbound Communication** | **Events (Publicados):**<br>- `WorkOrderGenerated`<br>- `WorkOrderAssigned`<br>- `WorkOrderSentToLaboratory`<br>- `WorkOrderStatusUpdated`<br>- `LensesWereCompleted`<br>- `EstimatedDeliveryDateCalculated`<br>- `DeliveryDelayNotified`<br>- `OrderWasMarkedAsDelivered` |
 
 **Canvas 4: Notification & Loyalty Context**
@@ -1200,10 +1200,10 @@ El Bounded Context Canvas del Notification & Loyalty Context se detalla en la Ta
 | :--- | :--- |
 | **Name** | Notification & Loyalty Context |
 | **Strategic Classification** | Supporting Domain |
-| **Domain Roles** | Gestión proactiva de la relación con el paciente: notificaciones push automáticas del estado del pedido, alertas de cumpleaños, envío y recolección de encuestas de satisfacción, campañas de reactivación y asignación de staff para delegación. |
-| **Ubiquitous Language** | Patient Birthday, Birthday Discount, Satisfaction Survey, Staff Member, Notification Preferences, In-App Notification, Order Progress, Reactivation Campaign. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `DetectPatientBirthday`<br>- `SendBirthdayDiscount`<br>- `SendSatisfactionSurvey`<br>- `AssignStaffMemberToManageNotifications`<br>- `ConfigureNotificationPreferences`<br>- `NotifyPatientInApp`<br>- `NotifyLensOrderProgress`<br>- `SendReactivationCampaign`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked`<br>- `WorkOrderStatusUpdated`<br>- `OrderWasMarkedAsDelivered` |
-| **Outbound Communication** | **Events (Publicados):**<br>- `PatientBirthdayDetected`<br>- `BirthdayDiscountWasSent`<br>- `SatisfactionSurveyWasSent`<br>- `SatisfactionSurveyCompleted`<br>- `StaffMemberAssigned`<br>- `NotificationPreferencesConfigured`<br>- `InAppNotificationSent`<br>- `LensOrderProgressNotified`<br>- `ReactivationCampaignSent` |
+| **Domain Roles** | Gestión proactiva de la relación con el paciente: notificaciones push automáticas del estado del pedido mediante Firebase Cloud Messaging, recordatorios de citas y de control anual, beneficio de cumpleaños en la cuenta de fidelización y envío y recolección de encuestas de satisfacción. |
+| **Ubiquitous Language** | Notification, Appointment Reminder, Annual Check-up Reminder, Order Progress, Satisfaction Survey, Push Notification, Device Token, Loyalty Account, Loyalty Points, Birthday Discount. |
+| **Inbound Communication** | **Commands (App del paciente, vía API Gateway):**<br>- `RegisterDeviceToken`<br>- `MarkNotificationAsRead`<br>- `AnswerSatisfactionSurvey`<br><br>**Commands (internos, por evento o tarea programada):**<br>- `ScheduleAppointmentReminder`<br>- `NotifyLensOrderProgress`<br>- `SendDeliveryDelayNotification`<br>- `SendSatisfactionSurvey`<br>- `GrantBirthdayDiscount`<br>- `SendPushNotification`<br><br>**Queries (vía API Gateway):**<br>- `GetNotificationsByPatient`<br>- `GetNotificationById`<br>- `GetLoyaltyAccountByPatient`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked`<br>- `WorkOrderStatusUpdated`<br>- `DeliveryDelayNotified`<br>- `OrderWasMarkedAsDelivered` |
+| **Outbound Communication** | **Events (Publicados):**<br>- `BirthdayDiscountWasSent`<br>- `AppointmentReminderScheduled`<br>- `SatisfactionSurveyWasSent`<br>- `SatisfactionSurveyCompleted`<br>- `DeviceTokenRegistered`<br>- `InAppNotificationSent`<br>- `PushNotificationSent`<br>- `LensOrderProgressNotified`<br><br>**Sistema externo:**<br>- Notificación push a Firebase Cloud Messaging |
 
 **Canvas 5: Store Management & Inventory Context**
 
@@ -1221,14 +1221,14 @@ El Bounded Context Canvas del Store Management & Inventory Context se presenta e
 | :--- | :--- |
 | **Name** | Store Management & Inventory Context |
 | **Strategic Classification** | Supporting Domain |
-| **Domain Roles** | Control de existencias físicas multitienda, administración del catálogo de modelos de monturas, actualización de precios, reabastecimiento y gestión de proveedores (Suppliers). |
-| **Ubiquitous Language** | Frame Model, Catalog, Price, Stock, Inventory, Low Stock Alert, Supplier, Replenishment. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `AddNewFrameModel`<br>- `UpdateFrameModelPrice`<br>- `ReplenishStock`<br>- `RegisterSupplier`<br><br>**Queries (vía API Gateway):**<br>- `ConsultStock`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
+| **Domain Roles** | Control de existencias físicas multitienda, administración del catálogo de modelos de monturas, actualización de precios, consulta por código escaneado, reabastecimiento, historial de movimientos, alertas de stock crítico, gestión de proveedores (Suppliers) y métricas de inventario. |
+| **Ubiquitous Language** | Frame Model, SKU, Catalog, Price, Stock, Inventory, Stock Movement, Low Stock Alert, Supplier, Replenishment, Virtual Try-On. |
+| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `AddNewFrameModel`<br>- `UpdateFrameModelPrice`<br>- `ReplenishStock`<br>- `UpdateInventory`<br>- `RegisterSupplier`<br><br>**Queries (vía API Gateway):**<br>- `ConsultStock`<br>- `GetFrameModelBySku`<br>- `GetFrameCatalog`<br>- `GetInventoryMovements`<br>- `GetLowStockAlerts`<br>- `GetInventoryMetrics`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
 | **Outbound Communication** | **Events (Publicados):**<br>- `NewFrameModelAdded`<br>- `FrameModelPriceUpdated`<br>- `StockWasReplenished`<br>- `LowStockAlertGenerated`<br>- `InventoryWasUpdated`<br>- `SupplierRegistered` |
 
-##### Canvases detallados de los bounded contexts
+##### Canvases de los bounded contexts
 
-Los canvases muestran el diseño integral del dominio. Para el modelo físico vigente deben consultarse las migraciones V1–V4: cuatro contextos implementados sobre una base PostgreSQL compartida; inventario es una propuesta. Los conceptos funcionales de un canvas no se convierten automáticamente en tablas, colecciones o bases independientes.
+Los canvases muestran el diseño integral del dominio. Para el modelo físico vigente deben consultarse las migraciones del backend: cinco contextos sobre una base PostgreSQL compartida. Los conceptos funcionales de un canvas no se convierten automáticamente en tablas, colecciones o bases independientes.
 
 Los siguientes canvases complementan las tablas anteriores con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-a). La comunicación se clasifica como consulta, comando o evento según su efecto. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información.
 
@@ -1239,7 +1239,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 25**
 
-*Bounded Context Canvas Search & Booking Context*
+*Bounded Context Canvas del Search & Booking Context*
 ![canvas-search-booking.png](assets/cap2/bounded-context-canvases/canvas-search-booking.png)
 
 **Clinical & Commercial.** Organizar la evaluación visual y transformar una cotización aprobada en una venta trazable. Regla destacada: Solo una cotización aprobada genera una venta; máximo una venta por cotización. Registrar pago antes del cierre. Cada venta tiene como máximo un comprobante (ver Figura 26).
@@ -1249,7 +1249,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 26**
 
-*Bounded Context Canvas Clinical & Commercial Context*
+*Bounded Context Canvas del Clinical & Commercial Context*
 ![canvas-clinical-commercial.png](assets/cap2/bounded-context-canvases/canvas-clinical-commercial.png)
 
 
@@ -1260,7 +1260,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 27**
 
-*Bounded Context Canvas detallado del Production & Tracking Context*
+*Bounded Context Canvas del Production & Tracking Context*
 ![canvas-production-tracking.png](assets/cap2/bounded-context-canvases/canvas-production-tracking.png)
 
 
@@ -1271,7 +1271,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 28**
 
-*Bounded Context Canvas detallado del Notification & Loyalty Context*
+*Bounded Context Canvas del Notification & Loyalty Context*
 ![canvas-notification-loyalty.png](assets/cap2/bounded-context-canvases/canvas-notification-loyalty.png)
 
 
@@ -1282,7 +1282,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 29**
 
-*Bounded Context Canvas detallado del Store Management & Inventory Context*
+*Bounded Context Canvas del Store Management & Inventory Context*
 ![canvas-store-inventory.png](assets/cap2/bounded-context-canvases/canvas-store-inventory.png)
 
 ### 2.5.2. Context Mapping
