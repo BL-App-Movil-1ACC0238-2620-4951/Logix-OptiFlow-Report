@@ -1491,30 +1491,38 @@ La relación entre Firebase Cloud Messaging y Notification & Loyalty se muestra 
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relacionados. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias; el diagrama de contenedores identifica cuáles corresponden al incremento de TB1 (ver Figura 36).
+El diagrama de contexto, elaborado con Structurizr, ubica a OptiFlow frente a sus usuarios y a los cuatro sistemas externos con los que se integra: la **Pasarela de Pagos** (Mercado Pago Checkout Pro), en la que el paciente paga con tarjeta o Yape; **Firebase Cloud Messaging**, que entrega las notificaciones push al paciente; **Google Maps Platform**, que muestra las ópticas cercanas en un mapa; y el **servicio de filtros faciales AR**, que permite probar virtualmente las monturas. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias (ver Figura 38).
 
 
-<a id="figura-36"></a>
+<a id="figura-38"></a>
 
-**Figura 36**
+**Figura 38**
 
 *Diagrama de contexto C4 de OptiFlow*
 
 ![context.svg](assets/cap2/C4/context.svg)
 
 
+
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 37).
+El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, su base de datos local, la Landing Page y la base de datos del backend se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 39).
+
+- **Aplicación móvil (Kotlin, Jetpack Compose):** consume la API REST del backend, guarda en la base de datos local la última información consultada para mostrarla sin conexión, usa la cámara del dispositivo (CameraX) en el escáner de monturas y en el probador virtual, muestra las ópticas cercanas con Google Maps SDK, aplica el probador virtual con el servicio de filtros faciales AR y recibe las notificaciones push de Firebase Cloud Messaging.
+- **Base de datos local (Room, SQLite):** almacena en el dispositivo una copia de solo lectura de la última información consultada (citas, pedidos, avisos y catálogo) y la reemplaza con la respuesta del backend en cada consulta con conexión; las operaciones que modifican datos requieren conexión.
+- **Backend OptiFlow (Java 21, Spring Boot):** crea las preferencias de pago en Mercado Pago Checkout Pro, recibe sus notificaciones de pago en una ruta pública (webhook), emite los tokens JWT de sesión y envía las notificaciones push mediante Firebase Cloud Messaging.
+- **Base de datos (PostgreSQL 16):** persistencia relacional de los cinco módulos del backend.
+- **Landing Page (HTML5, CSS3, JavaScript):** presenta la propuesta de valor e incluye el enlace de descarga de la aplicación desde Firebase App Distribution.
 
 
-<a id="figura-37"></a>
+<a id="figura-39"></a>
 
-**Figura 37**
+**Figura 39**
 
 *Diagrama de contenedores C4 con un único backend*
 
 ![Diagrama de contenedores de OptiFlow](assets/cap2/C4/containers-structurizr.svg)
+
 
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams

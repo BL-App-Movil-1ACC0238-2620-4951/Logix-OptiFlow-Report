@@ -102,7 +102,7 @@ El Context Level Diagram se presenta en la Figura E1.
 
 ### E.2. Container Level Diagram
 
-Se reproduce el Container Level Diagram de la sección 2.5.3.2, con un único contenedor backend y persistencia relacional (ver Figura E2).
+Se reproduce el Container Level Diagram de la sección 2.5.3.2, con un único contenedor backend, la base de datos local de la aplicación móvil, la persistencia relacional y los sistemas externos (ver Figura E2).
 
 
 <a id="figura-e2"></a>
