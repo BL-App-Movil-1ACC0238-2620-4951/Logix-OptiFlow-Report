@@ -13,11 +13,11 @@ Esta sección describe las herramientas del entorno de trabajo y su función en 
 ##### Figma
 
 
-El logo de Figma se presenta en la Figura 113.
+El logo de Figma se presenta en la Figura 115.
 
-<a id="figura-113"></a>
+<a id="figura-115"></a>
 
-**Figura 113**
+**Figura 115**
 
 *Logo de Figma*
 
@@ -31,29 +31,29 @@ Ruta de referencia: https://www.figma.com
 ##### Android Studio
 
 
-El logo de Android Studio se observa en la Figura 114.
+El logo de Android Studio se observa en la Figura 116.
 
-<a id="figura-114"></a>
+<a id="figura-116"></a>
 
-**Figura 114**
+**Figura 116**
 
 *Logo de Android Studio*
 
 ![android-studio-logo.png](assets/cap4/ExternalAppsForDesign/android-studio-logo.png)
 
 
-Es el entorno de desarrollo integrado (IDE) para la programación de la aplicación móvil. Además, se emplean el Android SDK, Gradle para la gestión de dependencias y la compilación, el Android Emulator para pruebas durante el desarrollo y un dispositivo físico con depuración USB para validar el funcionamiento real de la aplicación. La aplicación se desarrolla en Kotlin, cuya adopción en proyectos Android resulta costo-efectiva frente a Java sin afectar la calidad percibida por los usuarios (Coppola et al., 2025), y su interfaz se construye con Jetpack Compose (Google, s. f.-b). El proyecto fija una versión mínima del SDK (API 26), porque la evolución de la API de Android genera problemas de compatibilidad que deben controlarse durante el desarrollo (Mahmud et al., 2024).
+Es el entorno de desarrollo integrado (IDE) para la programación de la aplicación móvil. Además, se emplean el Android SDK, Gradle para la gestión de dependencias y la compilación, el Android Emulator para pruebas durante el desarrollo y un dispositivo físico con depuración USB para validar el funcionamiento real de la aplicación. La aplicación se desarrolla en Kotlin, cuya adopción en proyectos Android resulta costo-efectiva frente a Java sin afectar la calidad percibida por los usuarios (Coppola et al., 2025), y su interfaz se construye con Jetpack Compose (Google, s. f.-d). El proyecto fija una versión mínima del SDK (API 26), porque la evolución de la API de Android genera problemas de compatibilidad que deben controlarse durante el desarrollo (Mahmud et al., 2024).
 
 Ruta de descarga: https://developer.android.com/studio
 
 ##### Docker
 
 
-El logo de Docker se muestra en la Figura 115.
+El logo de Docker se muestra en la Figura 117.
 
-<a id="figura-115"></a>
+<a id="figura-117"></a>
 
-**Figura 115**
+**Figura 117**
 
 *Logo de Docker*
 
@@ -67,11 +67,11 @@ Ruta de descarga: https://www.docker.com/products/docker-desktop
 ##### Structurizr
 
 
-El logo de Structurizr se presenta en la Figura 116.
+El logo de Structurizr se presenta en la Figura 118.
 
-<a id="figura-116"></a>
+<a id="figura-118"></a>
 
-**Figura 116**
+**Figura 118**
 
 *Logo de Structurizr*
 
@@ -85,11 +85,11 @@ Ruta de referencia: https://structurizr.com
 ##### Miro
 
 
-El logo de Miro se observa en la Figura 117.
+El logo de Miro se observa en la Figura 119.
 
-<a id="figura-117"></a>
+<a id="figura-119"></a>
 
-**Figura 117**
+**Figura 119**
 
 *Logo de Miro*
 
@@ -107,11 +107,11 @@ El equipo utiliza **Git** para el control de versiones y **GitHub** para alojar 
 ##### Repositorios del proyecto
 
 
-Los repositorios del proyecto se detallan en la Tabla 104.
+Los repositorios del proyecto se detallan en la Tabla 106.
 
-<a id="tabla-104"></a>
+<a id="tabla-106"></a>
 
-**Tabla 104**
+**Tabla 106**
 
 *Repositorios del proyecto*
 
@@ -128,11 +128,11 @@ Los repositorios del proyecto se detallan en la Tabla 104.
 Se adoptó **GitFlow** como flujo de trabajo para organizar el desarrollo en ramas con responsabilidades definidas:
 
 
-Las ramas del flujo de trabajo GitFlow se presentan en la Tabla 105.
+Las ramas del flujo de trabajo GitFlow se presentan en la Tabla 107.
 
-<a id="tabla-105"></a>
+<a id="tabla-107"></a>
 
-**Tabla 105**
+**Tabla 107**
 
 *Ramas del flujo de trabajo GitFlow*
 
@@ -160,11 +160,11 @@ Las guías de estilo buscan mantener el código legible y consistente entre los 
 ##### Guías de estilo por lenguaje
 
 
-Las guías de estilo por lenguaje se resumen en la Tabla 106.
+Las guías de estilo por lenguaje se resumen en la Tabla 108.
 
-<a id="tabla-106"></a>
+<a id="tabla-108"></a>
 
-**Tabla 106**
+**Tabla 108**
 
 *Guías de estilo por lenguaje*
 
@@ -179,11 +179,11 @@ Las guías de estilo por lenguaje se resumen en la Tabla 106.
 ##### Convenciones de nomenclatura
 
 
-Las convenciones de nomenclatura se detallan en la Tabla 107.
+Las convenciones de nomenclatura se detallan en la Tabla 109.
 
-<a id="tabla-107"></a>
+<a id="tabla-109"></a>
 
-**Tabla 107**
+**Tabla 109**
 
 *Convenciones de nomenclatura*
 
@@ -202,7 +202,7 @@ Las convenciones de nomenclatura se detallan en la Tabla 107.
 El código se organiza siguiendo las capas de Domain-Driven Design definidas en el Capítulo II (Domain, Application, Interface e Infrastructure), de modo que cada clase se ubique en el paquete que corresponde a su responsabilidad.
 
 #### 4.1.4. Software Deployment Configuration
-La Landing Page se publica en **GitHub Pages**, los Web Services se despliegan en **Render** mediante Docker (Render, s. f.) y la aplicación móvil se distribuye a través de **Firebase App Distribution** (Google, s. f.-a). A continuación se describe la configuración de cada producto; la evidencia de cada despliegue se presenta en la sección 4.2.1.8.
+La Landing Page se publica en **GitHub Pages**, los Web Services se despliegan en **Render** mediante Docker (Render, s. f.) y la aplicación móvil se distribuye a través de **Firebase App Distribution** (Google, s. f.-b). Además, el backend se integra con la Pasarela de Pagos y con **Firebase Cloud Messaging** (Google, s. f.-c), y la aplicación móvil con **Google Maps Platform** (Google, s. f.-e), la base de datos local Room (Google, s. f.-f), la cámara mediante CameraX (Google, s. f.-a) y el servicio de filtros faciales AR. A continuación se describe la configuración de cada producto; la evidencia de cada despliegue se presenta en la sección 4.2.1.8.
 
 ##### Landing Page
 
@@ -210,29 +210,34 @@ La Landing Page se publica en **GitHub Pages**, los Web Services se despliegan e
 2. En **Settings → Pages** se configura la publicación desde la rama `main` y la carpeta raíz (`/root`).
 3. Cada integración en `main` ejecuta el workflow `pages build and deployment`, que publica los archivos estáticos (HTML, CSS y JavaScript).
 4. El sitio queda disponible en [https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/).
+5. El botón "Descargar la app" de la Landing Page enlaza al vínculo de invitación de Firebase App Distribution.
 
 ##### Web Services
 
 1. Se parte de la rama `develop` del repositorio de los Web Services; Render vuelve a desplegar el servicio cada vez que esta rama se actualiza.
 2. Render construye la imagen con el `Dockerfile` del repositorio: compila el proyecto con Maven y ejecuta el JAR generado sobre Java 21.
 3. El servicio se conecta a una base de datos PostgreSQL 16 administrada por Render. Las credenciales se registran como variables de entorno (`SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME` y `SPRING_DATASOURCE_PASSWORD`) y no se incluyen en el repositorio.
-4. Se verifica el despliegue en la documentación OpenAPI publicada con Swagger UI (SmartBear Software, s. f.): [https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html).
+4. La clave de firma de los tokens de sesión se registra como `JWT_SECRET`, junto con su tiempo de expiración (`JWT_EXPIRATION_MINUTES`).
+5. Las credenciales de los servicios externos también se registran como variables de entorno: el token de acceso de prueba de Mercado Pago Checkout Pro (`MERCADOPAGO_ACCESS_TOKEN`; Mercado Pago, s. f.), la clave secreta con la que se valida la firma de sus notificaciones (`MERCADOPAGO_WEBHOOK_SECRET`) y la cuenta de servicio de Firebase (`FIREBASE_CREDENTIALS`) que el backend usa para enviar notificaciones con Firebase Cloud Messaging.
+6. En el panel de desarrolladores de Mercado Pago se registra como URL de notificaciones la ruta pública `https://logix-optiflow-back-end.onrender.com/payments/webhook`. Las URL de retorno de cada preferencia de pago usan el deep link `optiflow://payment-result`, que devuelve al paciente a la aplicación.
+7. Se verifica el despliegue en la documentación OpenAPI publicada con Swagger UI (SmartBear Software, s. f.): [https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html).
 
 ##### Aplicación móvil
 
 1. Se parte de la rama `develop` del repositorio de la aplicación móvil.
-2. En Android Studio se selecciona la variante `prodDebug`, que consume los Web Services desplegados en Render, y se genera el APK.
-3. El APK se carga en **Firebase App Distribution** dentro del proyecto Optiflow.
-4. Los evaluadores se registran en el grupo `optiflow-testers` o se unen mediante el vínculo de invitación, y reciben el enlace para instalar la aplicación en sus dispositivos Android.
+2. Se configuran los servicios que usa la aplicación: el archivo `google-services.json` del proyecto de Firebase para recibir notificaciones de Firebase Cloud Messaging, la clave de Maps SDK for Android (restringida al paquete de la aplicación) y la clave del servicio de filtros faciales AR. Las claves se leen desde `local.properties` y no se incluyen en el repositorio. El `AndroidManifest.xml` declara un `intent-filter` para el deep link `optiflow://payment-result`, que abre la pantalla del resultado del pago al volver de Mercado Pago Checkout Pro.
+3. En Android Studio se selecciona la variante `prodDebug`, que consume los Web Services desplegados en Render, y se genera el APK.
+4. El APK se carga en **Firebase App Distribution** dentro del proyecto Optiflow.
+5. Los evaluadores se registran en el grupo `optiflow-testers` o se unen mediante el vínculo de invitación, y reciben el enlace para instalar la aplicación en sus dispositivos Android.
 
 ##### Deployment Diagram
 
-El Deployment Diagram muestra los nodos de publicación y ejecución del Sprint 1: GitHub Pages para la Landing Page, Render para el backend y su base de datos PostgreSQL, y Firebase App Distribution para distribuir la aplicación a los dispositivos Android. La evidencia de los entornos utilizados se presenta en la sección 4.2.1.8 (ver Figura 118).
+El Deployment Diagram muestra los nodos de publicación y ejecución de OptiFlow: GitHub Pages para la Landing Page, Render para el backend y su base de datos PostgreSQL, Firebase App Distribution para distribuir la aplicación a los dispositivos Android, y los servicios externos con los que se integran el backend (Pasarela de Pagos y Firebase Cloud Messaging) y la aplicación móvil (Google Maps Platform y el servicio de filtros faciales AR). Es el mismo diagrama de la sección 2.5.3.3. La evidencia de los entornos utilizados se presenta en la sección 4.2.1.8 (ver Figura 120).
 
 
-<a id="figura-118"></a>
+<a id="figura-120"></a>
 
-**Figura 118**
+**Figura 120**
 
 *Deployment Diagram de OptiFlow en el Sprint 1*
 

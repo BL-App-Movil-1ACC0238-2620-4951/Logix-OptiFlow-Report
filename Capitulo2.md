@@ -734,9 +734,9 @@ Esta fase inicial modela el comportamiento del paciente frente a la necesidad de
 - **Punto Crítico 1 (Ausentismo en Citas):** Ubicado tras la confirmación de la cita, refleja el ausentismo no alertado debido al olvido del turno pactado por parte del paciente, generando tiempos muertos en el consultorio y desaprovechamiento de los horarios médicos.
 
 **2. Evaluación Clínica, Presupuesto y Conversión Comercial (Optómetra y Asesor de Ventas y Caja)**
-Comprende la atención presencial dentro de la óptica. El optómetra ejecuta la refracción en cabina y genera la receta médica digital (EHR). Posteriormente, el asesor comercial asiste en la elección de la montura, valida existencias en inventario, calcula la cotización y concreta la venta tras registrar el cobro (efectivo, tarjeta o billeteras digitales Yape/Plin).
+Comprende la atención presencial dentro de la óptica. El optómetra ejecuta la refracción en cabina y genera la receta médica digital (EHR). Posteriormente, el asesor comercial asiste en la elección de la montura, valida existencias en inventario, calcula la cotización y concreta la venta tras confirmar el cobro (efectivo en caja, o tarjeta o Yape pagados por el paciente desde su aplicación).
 - **Punto Crítico 2 (Pérdida de Historial Clínico):** Ubicado tras la generación de la receta médica, responde a la dificultad histórica de los pacientes para conservar recetas de papel anteriores y recordar especificaciones de tratamientos (antirreflejo o filtros), obligando a repetir consultas previas.
-- **Punto Crítico 3 (Desfase de Stock y Contingencia Offline):** Ubicado tras el cálculo de la cotización, señala el riesgo de prescribir monturas exhibidas en vitrina que no cuentan con existencia real en almacén, así como la vulnerabilidad de las ventas ante cortes imprevistos de internet en el salón, lo cual exige una arquitectura con soporte local (*Offline-First*).
+- **Punto Crítico 3 (Desfase de Stock y Contingencia Offline):** Ubicado tras el cálculo de la cotización, señala el riesgo de prescribir monturas exhibidas en vitrina que no cuentan con existencia real en almacén, así como la vulnerabilidad de la atención ante cortes imprevistos de internet en el salón, lo cual exige que la aplicación conserve localmente la última información consultada para seguir mostrándola sin conexión.
 
 **3. Fabricación en Taller, Control de Calidad y Cierre Postventa (Técnico de Laboratorio y Mostrador y Fidelización)**
 Engloba la trazabilidad técnica posterior al cierre comercial. Se apertura la orden de trabajo para el taller, se inicia el tallado y montaje de lunas, y se somete la pieza a inspección de calidad antes de enviarla a mostrador. Finalmente, se entrega el producto terminado al paciente y se activan los flujos de fidelización (encuestas de atención, saludos de cumpleaños y recordatorios anuales).
@@ -748,7 +748,7 @@ Las fronteras funcionales y semánticas descubiertas durante el Big Picture Even
 - **Clinical & Commercial Context:** Centraliza el historial clínico electrónico (EHR), recetas médicas, cotizaciones y cobros comerciales.
 - **Production & Tracking Context:** Administra la orden de trabajo en taller, el tablero Kanban y la trazabilidad de fabricación.
 - **Store Management & Inventory Context:** Controla el catálogo de monturas, precios, reabastecimiento y stock físico.
-- **Notification & Loyalty Context:** Gestiona los avisos de recojo por WhatsApp/Push, encuestas de satisfacción y recordatorios preventivos de salud visual.
+- **Notification & Loyalty Context:** Gestiona los avisos de recojo mediante notificaciones push (Firebase Cloud Messaging), encuestas de satisfacción y recordatorios preventivos de salud visual.
 
 ### 2.3.6. Ubiquitous Language
 
@@ -792,7 +792,7 @@ El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre 
     </tr>
     <tr>
       <td><strong>Sale (Venta)</strong></td>
-      <td>Transacción comercial cerrada mediante pago (efectivo, tarjeta o billeteras móviles Yape/Plin) que confirma el pedido.</td>
+      <td>Transacción comercial registrada por el asesor a partir de una cotización aprobada. Queda pendiente de pago hasta que el paciente paga desde la aplicación (tarjeta o Yape, mediante la pasarela de pagos) o en caja (efectivo), y el asesor la cierra para confirmar el pedido.</td>
       <td style="text-align:center;">Clinical & Commercial Context</td>
     </tr>
     <tr>
@@ -816,18 +816,23 @@ El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre 
       <td style="text-align:center;">Store Management & Inventory</td>
     </tr>
     <tr>
+      <td><strong>Virtual Try-On (Probador Virtual)</strong></td>
+      <td>Prueba de una montura del catálogo sobre el rostro del paciente, en tiempo real, mediante la cámara frontal del celular y un servicio de filtros faciales de realidad aumentada.</td>
+      <td style="text-align:center;">Store Management & Inventory</td>
+    </tr>
+    <tr>
       <td><strong>Low Stock Alert (Alerta de Stock Crítico)</strong></td>
       <td>Notificación automática generada cuando las unidades de una montura caen por debajo del umbral mínimo configurado.</td>
       <td style="text-align:center;">Store Management & Inventory</td>
     </tr>
     <tr>
       <td><strong>Order Progress Notification (Notificación de Avance)</strong></td>
-      <td>Mensaje automático (push o WhatsApp) despachado al paciente al cambiar el estado de su orden en el taller.</td>
+      <td>Notificación push enviada mediante Firebase Cloud Messaging al dispositivo del paciente al cambiar el estado de su orden en el taller.</td>
       <td style="text-align:center;">Notification & Loyalty Context</td>
     </tr>
     <tr>
-      <td><strong>Reactivation Campaign (Campaña de Reactivación)</strong></td>
-      <td>Recordatorio preventivo enviado anualmente al paciente para incentivar el control de su graduación visual.</td>
+      <td><strong>Annual Check-up Reminder (Recordatorio de Control Anual)</strong></td>
+      <td>Recordatorio enviado al paciente doce meses después de su cita para incentivar el control de su graduación visual.</td>
       <td style="text-align:center;">Notification & Loyalty Context</td>
     </tr>
   </tbody>
@@ -1132,10 +1137,10 @@ El Bounded Context Canvas del Search & Booking Context se detalla en la Tabla 18
 | :--- | :--- |
 | **Name** | Search & Booking Context |
 | **Strategic Classification** | Core Domain |
-| **Domain Roles** | Gestión del proceso inicial del paciente: descubrimiento de sucursales, exploración del catálogo de monturas, gestión de preferencias e identidades, y reserva formal de citas según disponibilidad de horarios. |
-| **Ubiquitous Language** | Patient, Time Slot, Optical Store, Store Catalog, Favorite Store, Store Rating, Appointment, Booking. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `RegisterPatient`<br>- `LogIn`<br>- `PublishAvailableTimeSlots`<br>- `SaveFavoriteOpticalStore`<br>- `RateOpticalStore`<br>- `BookAppointment`<br><br>**Queries (vía API Gateway):**<br>- `SearchOpticalStores`<br>- `FilterOpticalStores`<br>- `ExploreFrameCatalog` |
-| **Outbound Communication** | **Events (Publicados):**<br>- `PatientRegistered`<br>- `PatientLoggedIn`<br>- `OpticalStoresPublished`<br>- `FavoriteOpticalStoreSaved`<br>- `OpticalStoreRated`<br>- `AppointmentBooked` |
+| **Domain Roles** | Gestión del proceso inicial del paciente y del acceso a la plataforma: registro e inicio de sesión de pacientes y personal con roles, descubrimiento de sucursales cercanas, ópticas favoritas y calificaciones, y reserva formal de citas según disponibilidad de horarios. |
+| **Ubiquitous Language** | Patient, Staff Member, User Role, Time Slot, Optical Store, Store Location, Favorite Store, Store Rating, Appointment, Booking. |
+| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `RegisterPatient`<br>- `LogIn`<br>- `RegisterStaffMember`<br>- `AssignStaffRole`<br>- `PublishAvailableTimeSlots`<br>- `SaveFavoriteOpticalStore`<br>- `RateOpticalStore`<br>- `BookAppointment`<br><br>**Queries (vía API Gateway):**<br>- `SearchOpticalStores`<br>- `FilterOpticalStores`<br>- `GetNearbyOpticalStores`<br>- `GetAvailableTimeSlots`<br>- `GetPatientAppointments`<br>- `GetAppointment`<br>- `GetStaffMembers`<br><br>**Queries (internas):**<br>- `GetPatientsByBirthday` (Notification & Loyalty) |
+| **Outbound Communication** | **Events (Publicados):**<br>- `PatientRegistered`<br>- `PatientLoggedIn`<br>- `StaffMemberRegistered`<br>- `StaffMemberRoleAssigned`<br>- `OpticalStoresPublished`<br>- `FavoriteOpticalStoreSaved`<br>- `OpticalStoreRated`<br>- `AppointmentBooked` |
 
 **Canvas 2: Clinical & Commercial Context**
 
@@ -1153,10 +1158,10 @@ El Bounded Context Canvas del Clinical & Commercial Context se presenta en la Ta
 | :--- | :--- |
 | **Name** | Clinical & Commercial Context |
 | **Strategic Classification** | Core Domain |
-| **Domain Roles** | Control de la atención clínica presencial y conversión comercial: registro de refracción/receta optométrica, evaluación de cotizaciones, aplicación de descuentos o promociones y procesamiento del cobro de la venta. |
+| **Domain Roles** | Control de la atención clínica presencial y conversión comercial: registro de refracción/receta optométrica, evaluación de cotizaciones, aplicación de descuentos o promociones y cobro de la venta mediante la Pasarela de Pagos externa (tarjeta o Yape, pagados por el paciente desde la aplicación) o en efectivo. |
 | **Ubiquitous Language** | Patient, Medical History, Clinical Record, Optical Prescription, Quotation, Promotion, Discount, Payment, Sale, Electronic Receipt. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `ExaminePatient`<br>- `RecordMedicalHistory`<br>- `RegisterClinicalRecord`<br>- `GenerateOpticalPrescription`<br>- `ApplyPromotionOrDiscount`<br>- `ApproveQuotation`<br>- `RejectQuotation`<br>- `RecordPayment`<br>- `CloseSale`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked` |
-| **Outbound Communication** | **Events (Publicados):**<br>- `PatientExamined`<br>- `MedicalHistoryRecorded`<br>- `ClinicalRecordRegistered`<br>- `OpticalPrescriptionGenerated`<br>- `PromotionOrDiscountApplied`<br>- `QuotationApproved`<br>- `QuotationRejected`<br>- `PaymentRecorded`<br>- `SaleWasClosed`<br>- `ElectronicReceiptIssued` |
+| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `ExaminePatient`<br>- `RecordMedicalHistory`<br>- `RegisterClinicalRecord`<br>- `GenerateOpticalPrescription`<br>- `GenerateQuotation`<br>- `ApplyPromotionOrDiscount`<br>- `ApproveQuotation`<br>- `RejectQuotation`<br>- `RegisterSale`<br>- `CreatePaymentPreference` (App del paciente)<br>- `RecordPayment`<br>- `CloseSale`<br><br>**Queries (vía API Gateway):**<br>- `GetClosedSale`<br>- `GetSalesMetrics`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked`<br><br>**Sistema externo:**<br>- Notificación de pago de la Pasarela de Pagos (webhook) |
+| **Outbound Communication** | **Events (Publicados):**<br>- `PatientExamined`<br>- `MedicalHistoryRecorded`<br>- `ClinicalRecordRegistered`<br>- `OpticalPrescriptionGenerated`<br>- `PromotionOrDiscountApplied`<br>- `QuotationApproved`<br>- `QuotationRejected`<br>- `PaymentRecorded`<br>- `PaymentRejected`<br>- `SaleWasClosed`<br>- `ElectronicReceiptIssued`<br><br>**Sistema externo:**<br>- Creación de la preferencia de pago en la Pasarela de Pagos |
 
 **Canvas 3: Production & Tracking Context**
 
@@ -1174,9 +1179,9 @@ El Bounded Context Canvas del Production & Tracking Context se resume en la Tabl
 | :--- | :--- |
 | **Name** | Production & Tracking Context |
 | **Strategic Classification** | Core Domain |
-| **Domain Roles** | Trazabilidad del proceso de fabricación de lentes y monturas: generación de órdenes de trabajo, asignación a técnicos de laboratorio, control del flujo de estado (Kanban logístico), cálculo de fechas estimadas y gestión de retrasos. |
+| **Domain Roles** | Trazabilidad del proceso de fabricación de lentes y monturas: generación de órdenes de trabajo, asignación a técnicos de laboratorio, control del flujo de estado (Kanban logístico), cálculo de fechas estimadas, gestión de retrasos, seguimiento del pedido por el paciente y métricas de producción. |
 | **Ubiquitous Language** | Work Order, Technician, Laboratory, Work Order Status, Lenses, Delivery Date, Delivery Delay. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `GenerateWorkOrder`<br>- `AssignWorkOrderToTechnician`<br>- `SendWorkOrderToLaboratory`<br>- `UpdateWorkOrderStatus`<br>- `CompleteLenses`<br>- `NotifyDeliveryDelay`<br>- `MarkOrderAsDelivered`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
+| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `GenerateWorkOrder`<br>- `AssignWorkOrderToTechnician`<br>- `SendWorkOrderToLaboratory`<br>- `UpdateWorkOrderStatus`<br>- `CompleteLenses`<br>- `NotifyDeliveryDelay`<br>- `MarkOrderAsDelivered`<br><br>**Queries (vía API Gateway):**<br>- `GetWorkOrders`<br>- `GetWorkOrderById`<br>- `GetWorkOrdersByPatientId`<br>- `GetProductionMetrics`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed`<br><br>**Consulta a otro contexto:**<br>- `GetClosedSale` (Clinical & Commercial) |
 | **Outbound Communication** | **Events (Publicados):**<br>- `WorkOrderGenerated`<br>- `WorkOrderAssigned`<br>- `WorkOrderSentToLaboratory`<br>- `WorkOrderStatusUpdated`<br>- `LensesWereCompleted`<br>- `EstimatedDeliveryDateCalculated`<br>- `DeliveryDelayNotified`<br>- `OrderWasMarkedAsDelivered` |
 
 **Canvas 4: Notification & Loyalty Context**
@@ -1195,10 +1200,10 @@ El Bounded Context Canvas del Notification & Loyalty Context se detalla en la Ta
 | :--- | :--- |
 | **Name** | Notification & Loyalty Context |
 | **Strategic Classification** | Supporting Domain |
-| **Domain Roles** | Gestión proactiva de la relación con el paciente: notificaciones push automáticas del estado del pedido, alertas de cumpleaños, envío y recolección de encuestas de satisfacción, campañas de reactivación y asignación de staff para delegación. |
-| **Ubiquitous Language** | Patient Birthday, Birthday Discount, Satisfaction Survey, Staff Member, Notification Preferences, In-App Notification, Order Progress, Reactivation Campaign. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `DetectPatientBirthday`<br>- `SendBirthdayDiscount`<br>- `SendSatisfactionSurvey`<br>- `AssignStaffMemberToManageNotifications`<br>- `ConfigureNotificationPreferences`<br>- `NotifyPatientInApp`<br>- `NotifyLensOrderProgress`<br>- `SendReactivationCampaign`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked`<br>- `WorkOrderStatusUpdated`<br>- `OrderWasMarkedAsDelivered` |
-| **Outbound Communication** | **Events (Publicados):**<br>- `PatientBirthdayDetected`<br>- `BirthdayDiscountWasSent`<br>- `SatisfactionSurveyWasSent`<br>- `SatisfactionSurveyCompleted`<br>- `StaffMemberAssigned`<br>- `NotificationPreferencesConfigured`<br>- `InAppNotificationSent`<br>- `LensOrderProgressNotified`<br>- `ReactivationCampaignSent` |
+| **Domain Roles** | Gestión proactiva de la relación con el paciente: notificaciones push automáticas del estado del pedido mediante Firebase Cloud Messaging, recordatorios de citas y de control anual, beneficio de cumpleaños en la cuenta de fidelización y envío y recolección de encuestas de satisfacción. |
+| **Ubiquitous Language** | Notification, Appointment Reminder, Annual Check-up Reminder, Order Progress, Satisfaction Survey, Push Notification, Device Token, Loyalty Account, Loyalty Points, Birthday Discount. |
+| **Inbound Communication** | **Commands (App del paciente, vía API Gateway):**<br>- `RegisterDeviceToken`<br>- `MarkNotificationAsRead`<br>- `AnswerSatisfactionSurvey`<br><br>**Commands (internos, por evento o tarea programada):**<br>- `ScheduleAppointmentReminder`<br>- `NotifyLensOrderProgress`<br>- `SendDeliveryDelayNotification`<br>- `SendSatisfactionSurvey`<br>- `GrantBirthdayDiscount`<br>- `SendPushNotification`<br><br>**Queries (vía API Gateway):**<br>- `GetNotificationsByPatient`<br>- `GetNotificationById`<br>- `GetLoyaltyAccountByPatient`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked`<br>- `WorkOrderStatusUpdated`<br>- `DeliveryDelayNotified`<br>- `OrderWasMarkedAsDelivered` |
+| **Outbound Communication** | **Events (Publicados):**<br>- `BirthdayDiscountWasSent`<br>- `AppointmentReminderScheduled`<br>- `SatisfactionSurveyWasSent`<br>- `SatisfactionSurveyCompleted`<br>- `DeviceTokenRegistered`<br>- `InAppNotificationSent`<br>- `PushNotificationSent`<br>- `LensOrderProgressNotified`<br><br>**Sistema externo:**<br>- Notificación push a Firebase Cloud Messaging |
 
 **Canvas 5: Store Management & Inventory Context**
 
@@ -1216,14 +1221,14 @@ El Bounded Context Canvas del Store Management & Inventory Context se presenta e
 | :--- | :--- |
 | **Name** | Store Management & Inventory Context |
 | **Strategic Classification** | Supporting Domain |
-| **Domain Roles** | Control de existencias físicas multitienda, administración del catálogo de modelos de monturas, actualización de precios, reabastecimiento y gestión de proveedores (Suppliers). |
-| **Ubiquitous Language** | Frame Model, Catalog, Price, Stock, Inventory, Low Stock Alert, Supplier, Replenishment. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `AddNewFrameModel`<br>- `UpdateFrameModelPrice`<br>- `ReplenishStock`<br>- `RegisterSupplier`<br><br>**Queries (vía API Gateway):**<br>- `ConsultStock`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
+| **Domain Roles** | Control de existencias físicas multitienda, administración del catálogo de modelos de monturas, actualización de precios, consulta por código escaneado, reabastecimiento, historial de movimientos, alertas de stock crítico, gestión de proveedores (Suppliers) y métricas de inventario. |
+| **Ubiquitous Language** | Frame Model, SKU, Catalog, Price, Stock, Inventory, Stock Movement, Low Stock Alert, Supplier, Replenishment, Virtual Try-On. |
+| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `AddNewFrameModel`<br>- `UpdateFrameModelPrice`<br>- `ReplenishStock`<br>- `UpdateInventory`<br>- `RegisterSupplier`<br><br>**Queries (vía API Gateway):**<br>- `ConsultStock`<br>- `GetFrameModelBySku`<br>- `GetFrameCatalog`<br>- `GetInventoryMovements`<br>- `GetLowStockAlerts`<br>- `GetInventoryMetrics`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
 | **Outbound Communication** | **Events (Publicados):**<br>- `NewFrameModelAdded`<br>- `FrameModelPriceUpdated`<br>- `StockWasReplenished`<br>- `LowStockAlertGenerated`<br>- `InventoryWasUpdated`<br>- `SupplierRegistered` |
 
-##### Canvases detallados de los bounded contexts
+##### Canvases de los bounded contexts
 
-Los canvases muestran el diseño integral del dominio. Para el modelo físico vigente deben consultarse las migraciones V1–V4: cuatro contextos implementados sobre una base PostgreSQL compartida; inventario es una propuesta. Los conceptos funcionales de un canvas no se convierten automáticamente en tablas, colecciones o bases independientes.
+Los canvases muestran el diseño integral del dominio. Para el modelo físico vigente deben consultarse las migraciones del backend: cinco contextos sobre una base PostgreSQL compartida. Los conceptos funcionales de un canvas no se convierten automáticamente en tablas, colecciones o bases independientes.
 
 Los siguientes canvases complementan las tablas anteriores con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-a). La comunicación se clasifica como consulta, comando o evento según su efecto. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información.
 
@@ -1234,7 +1239,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 25**
 
-*Bounded Context Canvas Search & Booking Context*
+*Bounded Context Canvas del Search & Booking Context*
 ![canvas-search-booking.png](assets/cap2/bounded-context-canvases/canvas-search-booking.png)
 
 **Clinical & Commercial.** Organizar la evaluación visual y transformar una cotización aprobada en una venta trazable. Regla destacada: Solo una cotización aprobada genera una venta; máximo una venta por cotización. Registrar pago antes del cierre. Cada venta tiene como máximo un comprobante (ver Figura 26).
@@ -1244,7 +1249,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 26**
 
-*Bounded Context Canvas Clinical & Commercial Context*
+*Bounded Context Canvas del Clinical & Commercial Context*
 ![canvas-clinical-commercial.png](assets/cap2/bounded-context-canvases/canvas-clinical-commercial.png)
 
 
@@ -1255,7 +1260,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 27**
 
-*Bounded Context Canvas detallado del Production & Tracking Context*
+*Bounded Context Canvas del Production & Tracking Context*
 ![canvas-production-tracking.png](assets/cap2/bounded-context-canvases/canvas-production-tracking.png)
 
 
@@ -1266,7 +1271,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 28**
 
-*Bounded Context Canvas detallado del Notification & Loyalty Context*
+*Bounded Context Canvas del Notification & Loyalty Context*
 ![canvas-notification-loyalty.png](assets/cap2/bounded-context-canvases/canvas-notification-loyalty.png)
 
 
@@ -1277,7 +1282,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 
 **Figura 29**
 
-*Bounded Context Canvas detallado del Store Management & Inventory Context*
+*Bounded Context Canvas del Store Management & Inventory Context*
 ![canvas-store-inventory.png](assets/cap2/bounded-context-canvases/canvas-store-inventory.png)
 
 ### 2.5.2. Context Mapping
@@ -1486,30 +1491,38 @@ La relación entre Firebase Cloud Messaging y Notification & Loyalty se muestra 
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto ubica a OptiFlow frente a sus usuarios y sistemas relacionados. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias; el diagrama de contenedores identifica cuáles corresponden al incremento de TB1 (ver Figura 36).
+El diagrama de contexto, elaborado con Structurizr, ubica a OptiFlow frente a sus usuarios y a los cuatro sistemas externos con los que se integra: la **Pasarela de Pagos** (Mercado Pago Checkout Pro), en la que el paciente paga con tarjeta o Yape; **Firebase Cloud Messaging**, que entrega las notificaciones push al paciente; **Google Maps Platform**, que muestra las ópticas cercanas en un mapa; y el **servicio de filtros faciales AR**, que permite probar virtualmente las monturas. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias (ver Figura 38).
 
 
-<a id="figura-36"></a>
+<a id="figura-38"></a>
 
-**Figura 36**
+**Figura 38**
 
 *Diagrama de contexto C4 de OptiFlow*
 
 ![context.svg](assets/cap2/C4/context.svg)
 
 
+
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, la Landing Page y la persistencia se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 37).
+El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, su base de datos local, la Landing Page y la base de datos del backend se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 39).
+
+- **Aplicación móvil (Kotlin, Jetpack Compose):** consume la API REST del backend, guarda en la base de datos local la última información consultada para mostrarla sin conexión, usa la cámara del dispositivo (CameraX) en el escáner de monturas y en el probador virtual, muestra las ópticas cercanas con Google Maps SDK, aplica el probador virtual con el servicio de filtros faciales AR y recibe las notificaciones push de Firebase Cloud Messaging.
+- **Base de datos local (Room, SQLite):** almacena en el dispositivo una copia de solo lectura de la última información consultada (citas, pedidos, avisos y catálogo) y la reemplaza con la respuesta del backend en cada consulta con conexión; las operaciones que modifican datos requieren conexión.
+- **Backend OptiFlow (Java 21, Spring Boot):** crea las preferencias de pago en Mercado Pago Checkout Pro, recibe sus notificaciones de pago en una ruta pública (webhook), emite los tokens JWT de sesión y envía las notificaciones push mediante Firebase Cloud Messaging.
+- **Base de datos (PostgreSQL 16):** persistencia relacional de los cinco módulos del backend.
+- **Landing Page (HTML5, CSS3, JavaScript):** presenta la propuesta de valor e incluye el enlace de descarga de la aplicación desde Firebase App Distribution.
 
 
-<a id="figura-37"></a>
+<a id="figura-39"></a>
 
-**Figura 37**
+**Figura 39**
 
 *Diagrama de contenedores C4 con un único backend*
 
 ![Diagrama de contenedores de OptiFlow](assets/cap2/C4/containers-structurizr.svg)
+
 
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
@@ -2124,12 +2137,12 @@ Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los est
 <a id="2.6.2.1. Domain Layer"></a>
 #### 2.6.2.1. Domain Layer
 
-El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio (ver Tabla 48).
+El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio (ver Tabla 50).
 
 
-<a id="tabla-48"></a>
+<a id="tabla-50"></a>
 
-**Tabla 48**
+**Tabla 50**
 
 *Clases del Domain Layer del Clinical & Commercial Context*
 
@@ -2142,46 +2155,48 @@ El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord`
 | `Quotation` | Aggregate Root | Propuesta comercial derivada de la receta, sujeta a aprobación del paciente. | `id`, `clinicalRecordId`, `discount: Discount`, `total: Money`, `status: QuotationStatus` | `+addItem(item)`, `+applyPromotionOrDiscount(d)`, `+approve()`, `+reject(reason)`, `+calculateTotal()` |
 | `QuotationItem` | Entity | Línea de detalle de una cotización (producto o servicio cotizado). | `id`, `description: String`, `unitPrice: Money`, `quantity: Integer` | `+subtotal()` |
 | `Discount` | Value Object | Encapsula una promoción o descuento aplicado a una cotización. | `type: DiscountType`, `value: Decimal`, `reason: String` | — |
-| `Sale` | Aggregate Root | Venta concretada a partir de una cotización aprobada. | `id`, `quotationId`, `patientId`, `status: SaleStatus`, `closedAt: DateTime` | `+recordPayment(p)`, `+close()` |
-| `Payment` | Value Object | Detalle del cobro asociado a la venta. | `method: PaymentMethod`, `amount: Money`, `transactionReference: String`, `paidAt: DateTime` | — |
+| `Sale` | Aggregate Root | Venta concretada a partir de una cotización aprobada. | `id`, `quotationId`, `patientId`, `status: SaleStatus` (PENDING_PAYMENT, PAID, CLOSED), `paymentPreferenceId: String`, `closedAt: DateTime` | `+attachPaymentPreference(id)`, `+recordPayment(p)`, `+rejectPayment(reason)`, `+close()` |
+| `Payment` | Value Object | Detalle del cobro asociado a la venta, aprobado por la Pasarela de Pagos o registrado en caja. | `method: PaymentMethod` (CARD, YAPE o CASH), `amount: Money`, `transactionReference: String` (id del pago en la pasarela), `status: PaymentStatus` (APPROVED o REJECTED), `paidAt: DateTime` | — |
 | `ElectronicReceipt` | Entity | Comprobante electrónico emitido al cierre de la venta. | `id`, `receiptNumber`, `saleId`, `issueDate`, `taxAmount: Money`, `totalAmount: Money` | `+issue()` |
 | `ClinicalRecordRepository` | Interface (Repository) | Abstracción de persistencia para `ClinicalRecord`. | — | `+save(record)`, `+findById(id)` |
 | `QuotationRepository` | Interface (Repository) | Abstracción de persistencia para `Quotation`. | — | `+save(quotation)`, `+findById(id)` |
 | `SaleRepository` | Interface (Repository) | Abstracción de persistencia para `Sale`. | — | `+save(sale)`, `+findById(id)` |
 
-Relaciones principales: `ClinicalRecord` compone 1 `MedicalHistory` y 0..1 `OpticalPrescription`, y origina 0..* `Quotation`; `Quotation` compone 1..* `QuotationItem`, agrega 0..1 `Discount` y concreta 0..1 `Sale`; `Sale` compone 1 `Payment` y da lugar a 0..1 `ElectronicReceipt`.
+Relaciones principales: `ClinicalRecord` compone 1 `MedicalHistory` y 0..1 `OpticalPrescription`, y origina 0..* `Quotation`; `Quotation` compone 1..* `QuotationItem`, agrega 0..1 `Discount` y concreta 0..1 `Sale`; `Sale` compone 0..1 `Payment` y da lugar a 0..1 `ElectronicReceipt`. Una venta nace en `PENDING_PAYMENT`, pasa a `PAID` cuando se registra un pago aprobado y a `CLOSED` cuando el asesor la cierra; un pago rechazado no cambia su estado.
 
-Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHistoryRecorded`, `ClinicalRecordRegistered`, `OpticalPrescriptionGenerated`, `PromotionOrDiscountApplied`, `QuotationApproved`, `QuotationRejected`, `PaymentRecorded`, `SaleWasClosed`, `ElectronicReceiptIssued`.
+Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHistoryRecorded`, `ClinicalRecordRegistered`, `OpticalPrescriptionGenerated`, `PromotionOrDiscountApplied`, `QuotationApproved`, `QuotationRejected`, `PaymentRecorded`, `PaymentRejected`, `SaleWasClosed`, `ElectronicReceiptIssued`.
 
 <a id="2.6.2.2. Interface Layer"></a>
 #### 2.6.2.2. Interface Layer
 
 
-Las clases del Interface Layer del Clinical & Commercial Context se detallan en la Tabla 49.
+Las clases del Interface Layer del Clinical & Commercial Context se detallan en la Tabla 51.
 
-<a id="tabla-49"></a>
+<a id="tabla-51"></a>
 
-**Tabla 49**
+**Tabla 51**
 
 *Clases del Interface Layer del Clinical & Commercial Context*
 
 
 | Clase | Tipo | Responsabilidad |
 | :--- | :--- | :--- |
-| `ClinicalRecordController` | REST Controller | Expone `ExaminePatient`, `RecordMedicalHistory`, `RegisterClinicalRecord` y `GenerateOpticalPrescription`. |
-| `QuotationController` | REST Controller | Expone `ApplyPromotionOrDiscount`, `ApproveQuotation` y `RejectQuotation`. |
-| `SaleController` | REST Controller | Expone `RecordPayment` y `CloseSale`. |
+| `ClinicalRecordController` | REST Controller | `POST /clinical-records` (`RegisterClinicalRecord`), `GET /clinical-records/{id}`, `GET /patients/{patientId}/clinical-records`, `PUT /clinical-records/{id}/medical-history` (`RecordMedicalHistory`), `POST /clinical-records/{id}/prescription` (`GenerateOpticalPrescription`) y `GET /clinical-records/{id}/prescription`. |
+| `QuotationController` | REST Controller | `POST /quotations` (`GenerateQuotation`), `GET /quotations/{id}`, `PATCH /quotations/{id}/discount` (`ApplyPromotionOrDiscount`), `PATCH /quotations/{id}/approve` (`ApproveQuotation`) y `PATCH /quotations/{id}/reject` (`RejectQuotation`). |
+| `SaleController` | REST Controller | `POST /sales` (`RegisterSale`), `GET /sales/{id}` (estado de la venta y del pago; con la venta cerrada responde `GetClosedSale` para Production & Tracking), `GET /patients/{patientId}/sales` (ventas del paciente, incluidas las pendientes de pago), `POST /sales/{id}/payment-preference` (`CreatePaymentPreference`, solo el paciente dueño de la venta), `POST /sales/{id}/payments` (`RecordPayment` en efectivo) y `PATCH /sales/{id}/close` (`CloseSale`). |
+| `PaymentWebhookController` | REST Controller | `POST /payments/webhook`: ruta pública que recibe las notificaciones de la Pasarela de Pagos, las entrega al `PaymentGatewayAdapter` para validar su firma y traducirlas, y ejecuta `RecordPayment`; responde HTTP 200 para que el proveedor no reintente. |
+| `SalesReportController` | REST Controller | `GET /reports/sales?from&to` (`GetSalesMetrics`) y `GET /reports/sales/export?from&to` (CSV), solo para `ADMIN`. |
 | `AppointmentBookedConsumer` | Event Consumer | Se suscribe al evento externo `AppointmentBooked` (proveniente de Search & Booking; en el backend actual se comunica mediante eventos de Spring) y lo traduce al comando interno `ExaminePatient`, actuando como puerto de entrada de la Anti-Corruption Layer documentada en el Context Mapping (2.5.2). |
 
 <a id="2.6.2.3. Application Layer"></a>
 #### 2.6.2.3. Application Layer
 
 
-Las clases del Application Layer del Clinical & Commercial Context se presentan en la Tabla 50.
+Las clases del Application Layer del Clinical & Commercial Context se presentan en la Tabla 52.
 
-<a id="tabla-50"></a>
+<a id="tabla-52"></a>
 
-**Tabla 50**
+**Tabla 52**
 
 *Clases del Application Layer del Clinical & Commercial Context*
 
@@ -2194,19 +2209,26 @@ Las clases del Application Layer del Clinical & Commercial Context se presentan 
 | `GenerateOpticalPrescriptionHandler` | Command Handler | Genera la `OpticalPrescription` a partir de la evaluación. |
 | `ApplyPromotionOrDiscountHandler` | Command Handler | Aplica un `Discount` a la cotización vigente. |
 | `ApproveQuotationHandler` / `RejectQuotationHandler` | Command Handler | Resuelven el estado de la cotización. |
-| `RecordPaymentHandler` | Command Handler | Registra el `Payment` sobre la venta. |
-| `CloseSaleHandler` | Command Handler | Cierra la venta y solicita la emisión del recibo. |
+| `GenerateQuotationHandler` | Command Handler | Genera la `Quotation` a partir de la receta del expediente clínico. |
+| `RegisterSaleHandler` | Command Handler | Registra la venta de una cotización aprobada. |
+| `CreatePaymentPreferenceHandler` | Command Handler | Verifica que la venta pertenezca al paciente y esté pendiente de pago, crea la preferencia en la pasarela mediante `PaymentGatewayAdapter` y devuelve el enlace de pago. |
+| `RecordPaymentHandler` | Command Handler | Registra el `Payment` de una venta pendiente. Lo invocan el webhook de la pasarela (pago aprobado: publica `PaymentRecorded`; rechazado: publica `PaymentRejected`) y el asesor para los pagos en efectivo. Ignora las notificaciones repetidas de un mismo pago. |
+| `CloseSaleHandler` | Command Handler | Cierra una venta pagada, solicita la emisión del recibo y publica `SaleWasClosed`. |
+| `ClinicalRecordQueryService` | Query Service | Resuelve `GetClinicalRecordById`, `GetClinicalRecordsByPatientId` y `GetOpticalPrescription`. |
+| `QuotationQueryService` | Query Service | Resuelve `GetQuotationById`. |
+| `SaleQueryService` | Query Service | Resuelve `GetSaleById`, `GetSalesByPatientId` y `GetClosedSale` (venta cerrada con el paciente, la óptica y las especificaciones de las lunas). |
+| `SalesMetricsQueryService` | Query Service | Resuelve `GetSalesMetrics`: número de atenciones, cotizaciones aprobadas y rechazadas, ventas cerradas, monto total y ticket promedio del periodo, y genera su exportación en CSV. |
 | `AppointmentBookedEventHandler` | Event Handler | Reacciona a la notificación entrante del `AppointmentBookedConsumer` invocando `ExaminePatientHandler`. |
 
 <a id="2.6.2.4. Infrastructure Layer"></a>
 #### 2.6.2.4. Infrastructure Layer
 
 
-Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen en la Tabla 51.
+Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen en la Tabla 53.
 
-<a id="tabla-51"></a>
+<a id="tabla-53"></a>
 
-**Tabla 51**
+**Tabla 53**
 
 *Clases del Infrastructure Layer del Clinical & Commercial Context*
 
@@ -2217,7 +2239,7 @@ Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen
 | `QuotationRepositoryImpl` | Repository (impl) | Implementa `QuotationRepository` sobre JPA/PostgreSQL. |
 | `SaleRepositoryImpl` | Repository (impl) | Implementa `SaleRepository` sobre JPA/PostgreSQL. |
 | `DomainEventPublisher` | Messaging | Publica los eventos de dominio mediante el adaptador compartido de eventos de Spring. |
-| `PaymentGatewayAdapter` | Anti-Corruption Layer | Traduce las respuestas de la Pasarela de Pagos externa (POS bancario, Yape, Plin) al modelo interno de `Payment` y `ElectronicReceipt`, aislando al dominio de los formatos propietarios del proveedor bancario (patrón Customer/Supplier documentado en 2.5.2). |
+| `PaymentGatewayAdapter` | Anti-Corruption Layer | Implementa la integración con Mercado Pago Checkout Pro: crea la preferencia de pago (monto, referencia externa `saleId`, URLs de retorno a la aplicación y URL del webhook), valida la firma de cada notificación, consulta el pago notificado y lo traduce al modelo interno de `Payment`, aislando al dominio de los estados y códigos del proveedor (relación documentada en 2.5.2). El token de acceso y el secreto del webhook se leen desde variables de entorno. |
 
 <a id="2.6.2.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams

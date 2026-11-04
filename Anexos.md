@@ -21,7 +21,7 @@ En este anexo se presenta la evidencia correspondiente al modelado del dominio m
 
 ## Anexo B: Bounded Contexts identificados
 
-Los cinco canvases detallados de [2.5.1.3](Capitulo2.md#2513-bounded-context-canvases) especifican responsabilidades, reglas, contratos, supuestos y criterios de verificación para los contextos resumidos en este anexo.
+Los cinco canvases de [2.5.1.3](Capitulo2.md#2513-bounded-context-canvases) especifican responsabilidades, reglas, contratos, supuestos y criterios de verificación para los contextos resumidos en este anexo.
 
 La siguiente evidencia corresponde a la identificación de los cinco Bounded Contexts que estructuran el dominio de OptiFlow:
 
@@ -102,7 +102,7 @@ El Context Level Diagram se presenta en la Figura E1.
 
 ### E.2. Container Level Diagram
 
-Se reproduce el Container Level Diagram de la sección 2.5.3.2, con un único contenedor backend y persistencia relacional (ver Figura E2).
+Se reproduce el Container Level Diagram de la sección 2.5.3.2, con un único contenedor backend, la base de datos local de la aplicación móvil, la persistencia relacional y los sistemas externos (ver Figura E2).
 
 
 <a id="figura-e2"></a>

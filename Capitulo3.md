@@ -706,54 +706,54 @@ La pantalla de inicio con la barra de navegación se presenta en la Figura 69.
 
 ### 3.1.3. Landing Page UI Design
 
-La Landing Page presenta la propuesta de valor de OptiFlow a los propietarios de ópticas y a sus pacientes. Su diseño organiza la información del producto, los beneficios y las acciones principales para que cada visitante comprenda el propósito de la solución y encuentre el siguiente paso de interacción.
+La Landing Page presenta la propuesta de valor de OptiFlow a los propietarios de ópticas y a sus pacientes. Su diseño organiza la información del producto, los beneficios y las acciones principales para que cada visitante comprenda el propósito de la solución y encuentre el siguiente paso de interacción. El botón "Descargar la app" de la sección de inicio enlaza al vínculo de invitación de Firebase App Distribution para instalar la aplicación Android.
 
 #### 3.1.3.1. Landing Page Wireframe
 
 Los wireframes definen la jerarquía del contenido, la navegación y las áreas de interacción de la Landing Page. La distribución busca comunicar con claridad los beneficios para el paciente y para el establecimiento antes de aplicar el estilo visual definitivo.
 
-Presentación inicial de OptiFlow con el mensaje principal y los datos destacados de la propuesta (ver Figura 70).
-
-
-<a id="figura-70"></a>
-
-**Figura 70**
-
-*Wireframe de la sección de inicio de la Landing Page*
-
-![Landing page inicio.png](assets/cap3/wireframes/wireframe_landing_1.png)
-
-
-Se presentan los objetivos y beneficios de OptiFlow (ver Figura 71).
-
-
-<a id="figura-71"></a>
-
-**Figura 71**
-
-*Wireframe de la sección de misión de la Landing Page*
-
-![Landing page mision.png](assets/cap3/wireframes/wireframe_landing_2.png)
-
-
-Se presenta la distribución de la sección de precios y de los integrantes del equipo (ver Figura 72).
+Presentación inicial de OptiFlow con el mensaje principal y los datos destacados de la propuesta (ver Figura 72).
 
 
 <a id="figura-72"></a>
 
 **Figura 72**
 
-*Wireframe de la sección de precios de la Landing Page*
+*Wireframe de la sección de inicio de la Landing Page*
 
-![Landing page precios.png](assets/cap3/wireframes/wireframe_landing_3.png)
+![Landing page inicio.png](assets/cap3/wireframes/wireframe_landing_1.png)
 
 
-Se muestra el espacio previsto para reseñas y la sección final de la página (ver Figura 73).
+Se presentan los objetivos y beneficios de OptiFlow (ver Figura 73).
 
 
 <a id="figura-73"></a>
 
 **Figura 73**
+
+*Wireframe de la sección de misión de la Landing Page*
+
+![Landing page mision.png](assets/cap3/wireframes/wireframe_landing_2.png)
+
+
+Se presenta la distribución de la sección de precios y de los integrantes del equipo (ver Figura 74).
+
+
+<a id="figura-74"></a>
+
+**Figura 74**
+
+*Wireframe de la sección de precios de la Landing Page*
+
+![Landing page precios.png](assets/cap3/wireframes/wireframe_landing_3.png)
+
+
+Se muestra el espacio previsto para reseñas y la sección final de la página (ver Figura 75).
+
+
+<a id="figura-75"></a>
+
+**Figura 75**
 
 *Wireframe de la sección de reseñas de la Landing Page*
 
@@ -762,12 +762,12 @@ Se muestra el espacio previsto para reseñas y la sección final de la página (
 
 #### 3.1.3.2. Landing Page Mock-up
 
-El mock-up aplica la identidad visual de OptiFlow a la estructura definida en los wireframes. Permite revisar colores, tipografía, componentes y jerarquía de información antes de su implementación en la Landing Page (ver Figura 74).
+El mock-up aplica la identidad visual de OptiFlow a la estructura definida en los wireframes. Permite revisar colores, tipografía, componentes y jerarquía de información antes de su implementación en la Landing Page (ver Figura 76).
 
 
-<a id="figura-74"></a>
+<a id="figura-76"></a>
 
-**Figura 74**
+**Figura 76**
 
 *Mock-up de la Landing Page*
 
