@@ -48,11 +48,21 @@ Las referencias se organizan en las tres categorías establecidas para el inform
 
 <p style="padding-left: 0.5in; text-indent: -0.5in;">GitHub. (s. f.). <i>GitHub Docs</i>. https://docs.github.com/</p>
 
-<p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-a). <i>Firebase App Distribution</i>. Firebase. https://firebase.google.com/docs/app-distribution</p>
+<p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-a). <i>CameraX overview</i>. Android Developers. https://developer.android.com/media/camera/camerax</p>
 
-<p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-b). <i>Jetpack Compose</i>. Android Developers. https://developer.android.com/compose</p>
+<p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-b). <i>Firebase App Distribution</i>. Firebase. https://firebase.google.com/docs/app-distribution</p>
+
+<p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-c). <i>Firebase Cloud Messaging</i>. Firebase. https://firebase.google.com/docs/cloud-messaging</p>
+
+<p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-d). <i>Jetpack Compose</i>. Android Developers. https://developer.android.com/compose</p>
+
+<p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-e). <i>Maps SDK for Android overview</i>. Google Maps Platform. https://developers.google.com/maps/documentation/android-sdk/overview</p>
+
+<p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-f). <i>Save data in a local database using Room</i>. Android Developers. https://developer.android.com/training/data-storage/room</p>
 
 <p style="padding-left: 0.5in; text-indent: -0.5in;">Mahmud, T., Che, M., &amp; Yang, G. (2024). An empirical study on compatibility issues in Android API field evolution. <i>Information and Software Technology, 175</i>, Artículo 107530. https://doi.org/10.1016/j.infsof.2024.107530</p>
+
+<p style="padding-left: 0.5in; text-indent: -0.5in;">Mercado Pago. (s. f.). <i>Checkout Pro</i>. Mercado Pago Developers. https://www.mercadopago.com.pe/developers/es/docs/checkout-pro/overview</p>
 
 <p style="padding-left: 0.5in; text-indent: -0.5in;">Render. (s. f.). <i>Render documentation</i>. https://render.com/docs</p>
 

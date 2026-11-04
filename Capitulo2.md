@@ -986,9 +986,9 @@ A partir de las agrupaciones funcionales definidas en el Paso 3 del EventStormin
 
 **Production & Tracking Context:** Maneja el ciclo de vida de la orden de trabajo desde su generación, asignación a técnicos (Assign work order), envío al laboratorio y actualización de estados hasta la entrega final.
 
-**Notification & Loyalty Context:** Gestiona la comunicación proactiva con el paciente, incluyendo alertas de cumpleaños (Detect patient's birthday), encuestas de satisfacción y campañas de reactivación.
+**Notification & Loyalty Context:** Gestiona la comunicación proactiva con el paciente, incluyendo el beneficio de cumpleaños, los recordatorios de cita y de control anual, los avisos del avance y la demora del pedido y las encuestas de satisfacción.
 
-**Store Management & Inventory Context:** Controla el catálogo de productos físicos (Add new frame model), precios, abastecimiento de proveedores (Suppliers) y alertas de bajo stock, como parte de un diseño pendiente de implementación y migración SQL.
+**Store Management & Inventory Context:** Controla el catálogo de productos físicos (Add new frame model), precios, abastecimiento de proveedores (Suppliers) y alertas de bajo stock, con persistencia en las tablas de la migración V6.
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
@@ -997,7 +997,7 @@ El Domain Message Flow Modeling muestra cómo colaboran los Bounded Contexts de 
 Los diagramas utilizan la siguiente notación, que se repite en la leyenda de cada figura:
 
 - **Actor:** persona que inicia el proceso o consulta su resultado, como el paciente, el optómetra, el asesor comercial o el técnico de laboratorio.
-- **Sistema:** la aplicación móvil App OptiFlow, desde la cual el actor envía sus comandos y consultas.
+- **Sistema:** la aplicación móvil App OptiFlow, desde la cual el actor envía sus comandos y consultas, y los sistemas externos que participan en el proceso: la Pasarela de Pagos y Firebase Cloud Messaging.
 - **Bounded Context:** nube con el nombre del contexto y su clasificación estratégica, Core o Supporting.
 - **Mensajes:** tarjetas con un número que indica el orden en que ocurren: celeste para los comandos, naranja para los eventos y verde para las consultas. La cabecera de cada tarjeta lleva el nombre del mensaje y la parte inferior, los datos que transporta; en las consultas se distinguen los datos de la solicitud (Req) y de la respuesta (Res).
 - **Dirección del mensaje:** flecha punteada que va del emisor al receptor. Cada mensaje se ubica junto a la flecha que lo transporta.
@@ -1022,11 +1022,11 @@ La Tabla 17 resume los eventos que conectan a los Bounded Contexts y el comando 
 | 6 | Production & Tracking | `DeliveryDelayNotified` | Notification & Loyalty | `SendDeliveryDelayNotification` | 5 |
 | 7 | Production & Tracking | `OrderWasMarkedAsDelivered` | Notification & Loyalty | `SendSatisfactionSurvey` | 6 |
 
-La tabla solo incluye eventos. Además, dos contextos consultan información de otro: Clinical & Commercial consulta la cita a Search & Booking (`GetAppointment`, escenario 2) y Production & Tracking consulta la venta cerrada a Clinical & Commercial (`GetClosedSale`, escenario 3). Además de estos flujos entre contextos, Notification & Loyalty gestiona internamente el descuento de cumpleaños: el comando `GrantBirthdayDiscount` registra el beneficio y publica el evento `BirthdayDiscountWasSent`, sin intervención de otros contextos.
+La tabla solo incluye eventos. Los dos sistemas externos participan en los escenarios 3 a 6: Clinical & Commercial crea en la Pasarela de Pagos la preferencia de pago que el paciente paga desde la aplicación y recibe de ella la notificación del resultado, y Notification & Loyalty envía cada aviso como notificación push mediante Firebase Cloud Messaging. Además, dos contextos consultan información de otro: Clinical & Commercial consulta la cita a Search & Booking (`GetAppointment`, escenario 2) y Production & Tracking consulta la venta cerrada a Clinical & Commercial (`GetClosedSale`, escenario 3). Además de estos flujos entre contextos, Notification & Loyalty gestiona internamente el descuento de cumpleaños: el comando `GrantBirthdayDiscount` registra el beneficio y publica el evento `BirthdayDiscountWasSent`, sin intervención de otros contextos.
 
 **Escenario 1: Búsqueda y reserva de cita**
 
-El paciente busca una óptica desde App OptiFlow y consulta sus horarios disponibles mediante las consultas `SearchOpticalStores` y `GetAvailableTimeSlots`, cuyas notas muestran los datos enviados (Req) y recibidos (Res). Al elegir un horario, la aplicación envía el comando `BookAppointment` a Search & Booking, que registra la cita y publica el evento `AppointmentBooked` hacia Clinical & Commercial y Notification & Loyalty, como se muestra en la Figura 19. Al recibirlo, Clinical & Commercial abre el expediente clínico de la atención (`ExaminePatient`) y Notification & Loyalty programa el recordatorio de la cita (`ScheduleAppointmentReminder`).
+El paciente busca una óptica desde App OptiFlow y consulta sus horarios disponibles mediante las consultas `SearchOpticalStores` y `GetAvailableTimeSlots`, cuyas notas muestran los datos enviados (Req) y recibidos (Res). Al elegir un horario, la aplicación envía el comando `BookAppointment` a Search & Booking, que registra la cita y publica el evento `AppointmentBooked` hacia Clinical & Commercial y Notification & Loyalty, como se muestra en la Figura 19. Al recibirlo, Clinical & Commercial abre el expediente clínico de la atención (`ExaminePatient`) y Notification & Loyalty programa el recordatorio de la cita (`ScheduleAppointmentReminder`), que se envía como notificación push antes de la atención.
 
 <a id="figura-19"></a>
 
@@ -1054,7 +1054,7 @@ El optómetra consulta los registros clínicos previos del paciente (`GetClinica
 
 **Escenario 3: Cotización y venta**
 
-El asesor comercial genera la cotización a partir de la receta, la aprueba con el paciente, registra la venta y el pago, y cierra la venta (`GenerateQuotation`, `ApproveQuotation`, `RegisterSale`, `RecordPayment` y `CloseSale`). El cierre publica el evento `SaleWasClosed` hacia Production & Tracking y Store Management & Inventory, como se muestra en la Figura 21. Al recibirlo, Production & Tracking genera la orden de trabajo de los lentes (`GenerateWorkOrder`) y Store Management & Inventory descuenta del stock los productos vendidos (`UpdateInventory`). Para preparar la orden, Production & Tracking consulta a Clinical & Commercial la venta cerrada (`GetClosedSale`) y obtiene las especificaciones de las lunas.
+El asesor comercial genera la cotización a partir de la receta, la aprueba con el paciente y registra la venta (`GenerateQuotation`, `ApproveQuotation` y `RegisterSale`), que queda pendiente de pago. El paciente paga desde App OptiFlow: la aplicación solicita la preferencia de pago (`CreatePaymentPreference`), Clinical & Commercial la crea en la Pasarela de Pagos y devuelve el enlace de pago, y el paciente paga con tarjeta o Yape en la página de la pasarela. La pasarela notifica el resultado al backend (`PaymentNotification`); si el pago fue aprobado, Clinical & Commercial lo registra (`RecordPayment`) y publica `PaymentRecorded`. Luego, el asesor cierra la venta (`CloseSale`); solo una venta pagada puede cerrarse. El cierre publica el evento `SaleWasClosed` hacia Production & Tracking y Store Management & Inventory, como se muestra en la Figura 21. Al recibirlo, Production & Tracking genera la orden de trabajo de los lentes (`GenerateWorkOrder`) y Store Management & Inventory descuenta del stock los productos vendidos (`UpdateInventory`). Para preparar la orden, Production & Tracking consulta a Clinical & Commercial la venta cerrada (`GetClosedSale`) y obtiene las especificaciones de las lunas.
 
 <a id="figura-21"></a>
 
@@ -1064,11 +1064,12 @@ El asesor comercial genera la cotización a partir de la receta, la aprueba con 
 
 ![Domain Message Flow: cotización y venta](assets/cap2/domain-message-flows/dmf-3-cotizacion-y-venta.png)
 
+
 *Nota.* Elaboración propia.
 
 **Escenario 4: Avance de la producción**
 
-El técnico de laboratorio asigna la orden de trabajo, la envía al laboratorio y actualiza su estado a medida que avanza la fabricación (`AssignWorkOrderToTechnician`, `SendWorkOrderToLaboratory` y `UpdateWorkOrderStatus`). Cada cambio de estado publica el evento `WorkOrderStatusUpdated` hacia Notification & Loyalty, que registra el aviso de avance (`NotifyLensOrderProgress`). Luego, el paciente revisa sus avisos desde App OptiFlow mediante la consulta `GetNotificationsByPatient`, como se muestra en la Figura 22.
+El técnico de laboratorio asigna la orden de trabajo, la envía al laboratorio y actualiza su estado a medida que avanza la fabricación (`AssignWorkOrderToTechnician`, `SendWorkOrderToLaboratory` y `UpdateWorkOrderStatus`). Cada cambio de estado publica el evento `WorkOrderStatusUpdated` hacia Notification & Loyalty, que registra el aviso de avance (`NotifyLensOrderProgress`) y lo envía como notificación push al dispositivo del paciente mediante Firebase Cloud Messaging (`SendPushNotification`). Luego, el paciente revisa sus avisos desde App OptiFlow mediante la consulta `GetNotificationsByPatient`, como se muestra en la Figura 22.
 
 <a id="figura-22"></a>
 
@@ -1078,11 +1079,12 @@ El técnico de laboratorio asigna la orden de trabajo, la envía al laboratorio 
 
 ![Domain Message Flow: avance de la producción](assets/cap2/domain-message-flows/dmf-4-avance-de-produccion.png)
 
+
 *Nota.* Elaboración propia.
 
 **Escenario 5: Demora en la entrega**
 
-Si la fabricación se retrasa, el técnico registra la demora con su motivo y la nueva fecha estimada de entrega (`NotifyDeliveryDelay`). Production & Tracking publica el evento `DeliveryDelayNotified` hacia Notification & Loyalty, que registra el aviso de demora (`SendDeliveryDelayNotification`). El paciente consulta ese aviso desde App OptiFlow mediante `GetNotificationsByPatient`, como se muestra en la Figura 23.
+Si la fabricación se retrasa, el técnico registra la demora con su motivo y la nueva fecha estimada de entrega (`NotifyDeliveryDelay`). Production & Tracking publica el evento `DeliveryDelayNotified` hacia Notification & Loyalty, que registra el aviso de demora (`SendDeliveryDelayNotification`) y lo envía como notificación push mediante Firebase Cloud Messaging (`SendPushNotification`). El paciente consulta ese aviso desde App OptiFlow mediante `GetNotificationsByPatient`, como se muestra en la Figura 23.
 
 <a id="figura-23"></a>
 
@@ -1092,11 +1094,12 @@ Si la fabricación se retrasa, el técnico registra la demora con su motivo y la
 
 ![Domain Message Flow: demora en la entrega](assets/cap2/domain-message-flows/dmf-5-demora-en-la-entrega.png)
 
+
 *Nota.* Elaboración propia.
 
 **Escenario 6: Entrega del pedido y encuesta de satisfacción**
 
-Cuando el paciente recoge sus lentes, el técnico marca la orden de trabajo como entregada (`MarkOrderAsDelivered`). Production & Tracking publica el evento `OrderWasMarkedAsDelivered` hacia Notification & Loyalty, que registra la encuesta de satisfacción (`SendSatisfactionSurvey`). El paciente consulta la encuesta desde App OptiFlow mediante `GetNotificationsByPatient`, como se muestra en la Figura 24.
+Cuando el paciente recoge sus lentes, el técnico marca la orden de trabajo como entregada (`MarkOrderAsDelivered`). Production & Tracking publica el evento `OrderWasMarkedAsDelivered` hacia Notification & Loyalty, que registra la encuesta de satisfacción (`SendSatisfactionSurvey`) y la envía como notificación push mediante Firebase Cloud Messaging (`SendPushNotification`). El paciente consulta la encuesta desde App OptiFlow mediante `GetNotificationsByPatient` y la responde con una calificación de 1 a 5 y un comentario opcional (`AnswerSatisfactionSurvey`), como se muestra en la Figura 24.
 
 <a id="figura-24"></a>
 
@@ -1105,6 +1108,7 @@ Cuando el paciente recoge sus lentes, el técnico marca la orden de trabajo como
 *Domain Message Flow del escenario de entrega del pedido y encuesta de satisfacción*
 
 ![Domain Message Flow: entrega del pedido y encuesta de satisfacción](assets/cap2/domain-message-flows/dmf-6-entrega-y-encuesta.png)
+
 
 *Nota.* Elaboración propia.
 
@@ -1291,7 +1295,7 @@ En el mapa se emplean los siguientes patrones de Domain-Driven Design:
 
 ##### Análisis de alternativas
 
-El primer diseño candidato incluía los cinco Bounded Contexts y dos sistemas externos: una pasarela de pagos (POS, Yape y Plin) conectada a Clinical & Commercial y una plataforma de mensajería (WhatsApp y Firebase Cloud Messaging) conectada a Notification & Loyalty. A partir de ese diseño, el equipo evaluó alternativas de diseño mediante preguntas sobre la ubicación de cada capacidad y la forma de integración entre contextos. Para cada alternativa se analizaron sus consecuencias y se tomó una decisión, como se resume en la Tabla 23.
+El primer diseño candidato incluía los cinco Bounded Contexts y dos sistemas externos: una pasarela de pagos (POS, tarjeta y billeteras móviles) conectada a Clinical & Commercial y una plataforma de mensajería (WhatsApp y Firebase Cloud Messaging) conectada a Notification & Loyalty. A partir de ese diseño, el equipo evaluó alternativas de diseño mediante preguntas sobre la ubicación de cada capacidad y la forma de integración entre contextos. Para cada alternativa se analizaron sus consecuencias y se tomó una decisión, como se resume en la Tabla 23.
 
 <a id="tabla-23"></a>
 
@@ -1307,12 +1311,13 @@ El primer diseño candidato incluía los cinco Bounded Contexts y dos sistemas e
 | 4 | ¿Qué pasaría si Store Management & Inventory consulta la venta en Clinical & Commercial para saber qué descontar? | Inventory dependería del modelo interno de la cotización y de la disponibilidad de otro contexto en el momento del descuento. | Clinical & Commercial, como Supplier, incluye en `SaleWasClosed` los productos vendidos (`productSku` y `quantity`). Inventory los traduce a movimientos de stock con `UpdateInventory`. |
 | 5 | ¿Qué pasaría si creamos un Shared Kernel con el modelo del paciente para todos los contextos? | Un cambio en el paciente obligaría a coordinar los cinco contextos. Cada contexto solo necesita el identificador del paciente para relacionar su información. | Cada contexto guarda `patientId` como value object propio. El Shared Kernel se limita a contratos técnicos: `DomainEvent`, `DomainEventPublisher` y `DomainException`. |
 | 6 | ¿Qué pasaría si aislamos las capacidades core y movemos notificaciones e inventario a contextos aparte? | Los contextos core (Search & Booking, Clinical & Commercial y Production & Tracking) concentran el flujo principal del paciente. Notificaciones e inventario apoyan ese flujo, pero no lo controlan. | Se adopta: los contextos supporting dependen de los eventos de los contextos core, y ningún contexto core depende de un contexto supporting. |
-| 7 | ¿Qué pasaría si integramos una pasarela de pagos y una plataforma de mensajería externas? | Requieren contratos con proveedores, credenciales y validación de cada canal. En la óptica, el pago se registra con su referencia (`RecordPayment`) y el paciente consulta sus avisos en la aplicación (`GetNotificationsByPatient`). | Los sistemas externos no forman parte del mapa: el registro del pago y los avisos se resuelven dentro de OptiFlow. |
+| 7 | ¿Qué pasaría si el asesor registra el pago a mano en lugar de integrar una pasarela de pagos? | El asesor tendría que validar cada pago fuera de OptiFlow y copiar su referencia, con riesgo de errores y de ventas cerradas sin un pago confirmado. Una pasarela cobra con tarjeta o Yape desde la aplicación del paciente y devuelve una referencia verificable, pero su modelo (preferencias, estados, notificaciones y comisiones) es ajeno al dominio comercial. | Se integra una Pasarela de Pagos externa (Mercado Pago Checkout Pro) como upstream. Clinical & Commercial la consume mediante una ACL (`PaymentGatewayAdapter`), que crea la preferencia de pago y traduce la notificación del proveedor a `Payment`; la venta solo se cierra con un pago aprobado. El pago en efectivo lo registra el asesor. |
 | 8 | ¿Qué pasaría si Notification & Loyalty traduce los eventos con una ACL en lugar de adoptarlos como Conformist? | Notification & Loyalty solo usa identificadores y estados para redactar los avisos. Una capa de traducción no protegería ninguna regla de negocio propia. | Notification & Loyalty adopta los eventos tal como se publican (Conformist). |
+| 9 | ¿Qué pasaría si los avisos se envían por WhatsApp además de las notificaciones push? | WhatsApp Cloud API exige una cuenta empresarial verificada en Meta y la aprobación previa de cada plantilla de mensaje. Firebase Cloud Messaging entrega notificaciones push a la aplicación Android sin costo y ya forma parte del proyecto de Firebase de OptiFlow. | Los avisos se envían solo como notificaciones push mediante Firebase Cloud Messaging. Notification & Loyalty lo consume mediante una ACL (`FirebaseMessagingAdapter`); el paciente también consulta sus avisos en la aplicación (`GetNotificationsByPatient`). |
 
 ##### Context map final
 
-Como resultado del análisis, el context map final conserva los cinco Bounded Contexts y cinco relaciones basadas en eventos de dominio, como se muestra en la Figura 30. Los contextos core aparecen en azul y los contextos supporting en naranja; en cada extremo de una relación se indica el rol upstream (U) o downstream (D) y los patrones que aplica.
+Como resultado del análisis, el context map final conserva los cinco Bounded Contexts y dos sistemas externos, la Pasarela de Pagos y Firebase Cloud Messaging, con siete relaciones: cinco basadas en eventos de dominio entre contextos y dos con los sistemas externos, como se muestra en la Figura 30. Los contextos core aparecen en azul, los contextos supporting en naranja y los sistemas externos en gris; en cada extremo de una relación se indica el rol upstream (U) o downstream (D) y los patrones que aplica.
 
 <a id="figura-30"></a>
 
@@ -1324,7 +1329,7 @@ Como resultado del análisis, el context map final conserva los cinco Bounded Co
 
 *Nota.* Elaboración propia.
 
-La Tabla 24 resume cada relación del mapa final, los mensajes que la conectan (eventos y consultas) y el componente del backend que la implementa.
+La Tabla 24 resume cada relación del mapa final, los mensajes que la conectan (eventos, consultas y solicitudes a los sistemas externos) y el componente del backend que la implementa.
 
 <a id="tabla-24"></a>
 
@@ -1339,6 +1344,8 @@ La Tabla 24 resume cada relación del mapa final, los mensajes que la conectan (
 | Clinical & Commercial | Production & Tracking | Customer / Supplier | OHS, PL / ACL | `SaleWasClosed` (evento), `GetClosedSale` (consulta) | `GenerateWorkOrder` | `ClinicalCommercialSaleAdapter` (ACL) |
 | Clinical & Commercial | Store Management & Inventory | Customer / Supplier | OHS, PL / ACL | `SaleWasClosed` | `UpdateInventory` | `SaleWasClosedEventHandler` (ACL) |
 | Production & Tracking | Notification & Loyalty | Conformist | OHS, PL / CF | `WorkOrderStatusUpdated`, `DeliveryDelayNotified`, `OrderWasMarkedAsDelivered` | `NotifyLensOrderProgress`, `SendDeliveryDelayNotification`, `SendSatisfactionSurvey` | `WorkOrderStatusUpdatedEventHandler`, `ProductionDeliveryDelayNotifiedEventHandler`, `OrderWasMarkedAsDeliveredEventHandler` |
+| Pasarela de Pagos (externo) | Clinical & Commercial | Anti-Corruption Layer | OHS / ACL | Preferencia de pago y notificación del resultado (aprobado o rechazado) | `CreatePaymentPreference`, `RecordPayment` | `PaymentGatewayAdapter` (ACL) |
+| Firebase Cloud Messaging (externo) | Notification & Loyalty | Anti-Corruption Layer | OHS / ACL | Envío de notificación push al token del dispositivo del paciente | `NotifyLensOrderProgress`, `SendDeliveryDelayNotification`, `SendSatisfactionSurvey`, `ScheduleAppointmentReminder` | `FirebaseMessagingAdapter` (ACL) |
 
 A continuación se detalla cada relación del mapa final.
 
@@ -1377,8 +1384,8 @@ La relación entre Search & Booking y Notification & Loyalty se muestra en la Fi
 
 **Patrón: Conformist, con Open Host Service y Published Language en el upstream.**
 
-- **Search & Booking como upstream:** publica `AppointmentBooked` sin conocer cómo se redactan ni se muestran los avisos al paciente.
-- **Notification & Loyalty como downstream:** adopta el evento tal como se publica y usa `patientId` y `appointmentId` para ejecutar `ScheduleAppointmentReminder`, que registra el recordatorio de la cita en la aplicación.
+- **Search & Booking como upstream:** publica `AppointmentBooked` sin conocer cómo se redactan ni se muestran los avisos al paciente, y responde la consulta `GetPatientsByBirthday`, que devuelve los pacientes que cumplen años en una fecha.
+- **Notification & Loyalty como downstream:** adopta el evento tal como se publica y usa `patientId` y `appointmentId` para ejecutar `ScheduleAppointmentReminder`, que programa el recordatorio de la cita y el de control anual. Su `BirthdayDiscountScheduler` usa cada día `GetPatientsByBirthday` para ejecutar `GrantBirthdayDiscount`.
 
 ##### Clinical & Commercial → Production & Tracking
 
@@ -1435,7 +1442,45 @@ La relación entre Production & Tracking y Notification & Loyalty se muestra en 
 **Patrón: Conformist, con Open Host Service y Published Language en el upstream.**
 
 - **Production & Tracking como upstream:** es el único contexto que conoce el estado real de fabricación. Publica `WorkOrderStatusUpdated` en cada cambio de estado, `DeliveryDelayNotified` cuando se registra una demora y `OrderWasMarkedAsDelivered` cuando el paciente recibe sus lentes.
-- **Notification & Loyalty como downstream:** adopta los eventos tal como se publican y ejecuta `NotifyLensOrderProgress`, `SendDeliveryDelayNotification` y `SendSatisfactionSurvey`, respectivamente. El paciente consulta estos avisos en la aplicación mediante `GetNotificationsByPatient`.
+- **Notification & Loyalty como downstream:** adopta los eventos tal como se publican y ejecuta `NotifyLensOrderProgress`, `SendDeliveryDelayNotification` y `SendSatisfactionSurvey`, respectivamente. Cada aviso se envía como notificación push mediante Firebase Cloud Messaging y el paciente también lo consulta en la aplicación mediante `GetNotificationsByPatient`.
+
+##### Pasarela de Pagos → Clinical & Commercial
+
+La relación entre la Pasarela de Pagos y Clinical & Commercial se muestra en la Figura 36.
+
+<a id="figura-36"></a>
+
+**Figura 36**
+
+*Context map entre la Pasarela de Pagos y Clinical & Commercial*
+
+![Context map entre la Pasarela de Pagos y Clinical & Commercial](assets/cap2/context-mapping/context-map-6-payment-gateway-clinical.png)
+
+*Nota.* Elaboración propia.
+
+**Patrón: Anti-Corruption Layer en el downstream, frente al servicio publicado por el proveedor.**
+
+- **Pasarela de Pagos como upstream:** sistema externo (Mercado Pago Checkout Pro) que cobra con tarjeta o Yape en su propia página de pago. Publica su propia API y su propio modelo de preferencias, pagos, estados y notificaciones, que OptiFlow no puede modificar.
+- **Clinical & Commercial como downstream:** cuando el paciente solicita pagar (`CreatePaymentPreference`), su ACL (`PaymentGatewayAdapter`) crea la preferencia de pago con el monto de la venta y devuelve el enlace que abre la aplicación. Cuando la pasarela notifica el resultado al webhook del backend, la ACL valida la firma de la notificación, consulta el pago al proveedor y lo traduce a `Payment`, con su método, monto, referencia de la transacción y estado. Si el pago es aprobado se ejecuta `RecordPayment`, se publica `PaymentRecorded` y la venta puede cerrarse; si es rechazado se publica `PaymentRejected` y la venta permanece pendiente. Un cambio de proveedor solo afecta al adaptador.
+
+##### Firebase Cloud Messaging → Notification & Loyalty
+
+La relación entre Firebase Cloud Messaging y Notification & Loyalty se muestra en la Figura 37.
+
+<a id="figura-37"></a>
+
+**Figura 37**
+
+*Context map entre Firebase Cloud Messaging y Notification & Loyalty*
+
+![Context map entre Firebase Cloud Messaging y Notification & Loyalty](assets/cap2/context-mapping/context-map-7-fcm-notification.png)
+
+*Nota.* Elaboración propia.
+
+**Patrón: Anti-Corruption Layer en el downstream, frente al servicio publicado por el proveedor.**
+
+- **Firebase Cloud Messaging como upstream:** servicio externo de Google que entrega notificaciones push a los dispositivos Android a partir de un token de registro.
+- **Notification & Loyalty como downstream:** registra cada aviso en su modelo (`Notification`) y su ACL (`FirebaseMessagingAdapter`) lo traduce al formato de mensaje de Firebase Cloud Messaging, con el token del dispositivo del paciente (`DeviceToken`). Si el envío falla, la notificación queda registrada y el paciente puede consultarla en la aplicación.
 
 ### 2.5.3. Software Architecture
 

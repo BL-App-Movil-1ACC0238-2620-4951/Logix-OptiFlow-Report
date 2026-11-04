@@ -65,7 +65,7 @@ Ningún contexto accede directamente a los datos de otro: cada uno reacciona a l
 
 ## Anexo D: Context Mapping
 
-En este anexo se presenta el context map final de OptiFlow, con las relaciones entre los Bounded Contexts y los patrones de integración que aplica cada una (ver Figura D1). El proceso de elaboración, las alternativas evaluadas y el detalle de cada relación se presentan en la sección [2.5.2](Capitulo2.md#252-context-mapping).
+En este anexo se presenta el context map final de OptiFlow, con las relaciones entre los Bounded Contexts, los sistemas externos (Pasarela de Pagos y Firebase Cloud Messaging) y los patrones de integración que aplica cada una (ver Figura D1). El proceso de elaboración, las alternativas evaluadas y el detalle de cada relación se presentan en la sección [2.5.2](Capitulo2.md#252-context-mapping).
 
 
 <a id="figura-d1"></a>
