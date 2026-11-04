@@ -734,9 +734,9 @@ Esta fase inicial modela el comportamiento del paciente frente a la necesidad de
 - **Punto Crítico 1 (Ausentismo en Citas):** Ubicado tras la confirmación de la cita, refleja el ausentismo no alertado debido al olvido del turno pactado por parte del paciente, generando tiempos muertos en el consultorio y desaprovechamiento de los horarios médicos.
 
 **2. Evaluación Clínica, Presupuesto y Conversión Comercial (Optómetra y Asesor de Ventas y Caja)**
-Comprende la atención presencial dentro de la óptica. El optómetra ejecuta la refracción en cabina y genera la receta médica digital (EHR). Posteriormente, el asesor comercial asiste en la elección de la montura, valida existencias en inventario, calcula la cotización y concreta la venta tras registrar el cobro (efectivo, tarjeta o billeteras digitales Yape/Plin).
+Comprende la atención presencial dentro de la óptica. El optómetra ejecuta la refracción en cabina y genera la receta médica digital (EHR). Posteriormente, el asesor comercial asiste en la elección de la montura, valida existencias en inventario, calcula la cotización y concreta la venta tras confirmar el cobro (efectivo en caja, o tarjeta o Yape pagados por el paciente desde su aplicación).
 - **Punto Crítico 2 (Pérdida de Historial Clínico):** Ubicado tras la generación de la receta médica, responde a la dificultad histórica de los pacientes para conservar recetas de papel anteriores y recordar especificaciones de tratamientos (antirreflejo o filtros), obligando a repetir consultas previas.
-- **Punto Crítico 3 (Desfase de Stock y Contingencia Offline):** Ubicado tras el cálculo de la cotización, señala el riesgo de prescribir monturas exhibidas en vitrina que no cuentan con existencia real en almacén, así como la vulnerabilidad de las ventas ante cortes imprevistos de internet en el salón, lo cual exige una arquitectura con soporte local (*Offline-First*).
+- **Punto Crítico 3 (Desfase de Stock y Contingencia Offline):** Ubicado tras el cálculo de la cotización, señala el riesgo de prescribir monturas exhibidas en vitrina que no cuentan con existencia real en almacén, así como la vulnerabilidad de la atención ante cortes imprevistos de internet en el salón, lo cual exige que la aplicación conserve localmente la última información consultada para seguir mostrándola sin conexión.
 
 **3. Fabricación en Taller, Control de Calidad y Cierre Postventa (Técnico de Laboratorio y Mostrador y Fidelización)**
 Engloba la trazabilidad técnica posterior al cierre comercial. Se apertura la orden de trabajo para el taller, se inicia el tallado y montaje de lunas, y se somete la pieza a inspección de calidad antes de enviarla a mostrador. Finalmente, se entrega el producto terminado al paciente y se activan los flujos de fidelización (encuestas de atención, saludos de cumpleaños y recordatorios anuales).
@@ -748,7 +748,7 @@ Las fronteras funcionales y semánticas descubiertas durante el Big Picture Even
 - **Clinical & Commercial Context:** Centraliza el historial clínico electrónico (EHR), recetas médicas, cotizaciones y cobros comerciales.
 - **Production & Tracking Context:** Administra la orden de trabajo en taller, el tablero Kanban y la trazabilidad de fabricación.
 - **Store Management & Inventory Context:** Controla el catálogo de monturas, precios, reabastecimiento y stock físico.
-- **Notification & Loyalty Context:** Gestiona los avisos de recojo por WhatsApp/Push, encuestas de satisfacción y recordatorios preventivos de salud visual.
+- **Notification & Loyalty Context:** Gestiona los avisos de recojo mediante notificaciones push (Firebase Cloud Messaging), encuestas de satisfacción y recordatorios preventivos de salud visual.
 
 ### 2.3.6. Ubiquitous Language
 
@@ -792,7 +792,7 @@ El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre 
     </tr>
     <tr>
       <td><strong>Sale (Venta)</strong></td>
-      <td>Transacción comercial cerrada mediante pago (efectivo, tarjeta o billeteras móviles Yape/Plin) que confirma el pedido.</td>
+      <td>Transacción comercial registrada por el asesor a partir de una cotización aprobada. Queda pendiente de pago hasta que el paciente paga desde la aplicación (tarjeta o Yape, mediante la pasarela de pagos) o en caja (efectivo), y el asesor la cierra para confirmar el pedido.</td>
       <td style="text-align:center;">Clinical & Commercial Context</td>
     </tr>
     <tr>
@@ -816,18 +816,23 @@ El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre 
       <td style="text-align:center;">Store Management & Inventory</td>
     </tr>
     <tr>
+      <td><strong>Virtual Try-On (Probador Virtual)</strong></td>
+      <td>Prueba de una montura del catálogo sobre el rostro del paciente, en tiempo real, mediante la cámara frontal del celular y un servicio de filtros faciales de realidad aumentada.</td>
+      <td style="text-align:center;">Store Management & Inventory</td>
+    </tr>
+    <tr>
       <td><strong>Low Stock Alert (Alerta de Stock Crítico)</strong></td>
       <td>Notificación automática generada cuando las unidades de una montura caen por debajo del umbral mínimo configurado.</td>
       <td style="text-align:center;">Store Management & Inventory</td>
     </tr>
     <tr>
       <td><strong>Order Progress Notification (Notificación de Avance)</strong></td>
-      <td>Mensaje automático (push o WhatsApp) despachado al paciente al cambiar el estado de su orden en el taller.</td>
+      <td>Notificación push enviada mediante Firebase Cloud Messaging al dispositivo del paciente al cambiar el estado de su orden en el taller.</td>
       <td style="text-align:center;">Notification & Loyalty Context</td>
     </tr>
     <tr>
-      <td><strong>Reactivation Campaign (Campaña de Reactivación)</strong></td>
-      <td>Recordatorio preventivo enviado anualmente al paciente para incentivar el control de su graduación visual.</td>
+      <td><strong>Annual Check-up Reminder (Recordatorio de Control Anual)</strong></td>
+      <td>Recordatorio enviado al paciente doce meses después de su cita para incentivar el control de su graduación visual.</td>
       <td style="text-align:center;">Notification & Loyalty Context</td>
     </tr>
   </tbody>
