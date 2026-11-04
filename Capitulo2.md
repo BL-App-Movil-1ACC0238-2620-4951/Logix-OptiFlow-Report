@@ -986,9 +986,9 @@ A partir de las agrupaciones funcionales definidas en el Paso 3 del EventStormin
 
 **Production & Tracking Context:** Maneja el ciclo de vida de la orden de trabajo desde su generación, asignación a técnicos (Assign work order), envío al laboratorio y actualización de estados hasta la entrega final.
 
-**Notification & Loyalty Context:** Gestiona la comunicación proactiva con el paciente, incluyendo alertas de cumpleaños (Detect patient's birthday), encuestas de satisfacción y campañas de reactivación.
+**Notification & Loyalty Context:** Gestiona la comunicación proactiva con el paciente, incluyendo el beneficio de cumpleaños, los recordatorios de cita y de control anual, los avisos del avance y la demora del pedido y las encuestas de satisfacción.
 
-**Store Management & Inventory Context:** Controla el catálogo de productos físicos (Add new frame model), precios, abastecimiento de proveedores (Suppliers) y alertas de bajo stock, como parte de un diseño pendiente de implementación y migración SQL.
+**Store Management & Inventory Context:** Controla el catálogo de productos físicos (Add new frame model), precios, abastecimiento de proveedores (Suppliers) y alertas de bajo stock, con persistencia en las tablas de la migración V6.
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
@@ -997,7 +997,7 @@ El Domain Message Flow Modeling muestra cómo colaboran los Bounded Contexts de 
 Los diagramas utilizan la siguiente notación, que se repite en la leyenda de cada figura:
 
 - **Actor:** persona que inicia el proceso o consulta su resultado, como el paciente, el optómetra, el asesor comercial o el técnico de laboratorio.
-- **Sistema:** la aplicación móvil App OptiFlow, desde la cual el actor envía sus comandos y consultas.
+- **Sistema:** la aplicación móvil App OptiFlow, desde la cual el actor envía sus comandos y consultas, y los sistemas externos que participan en el proceso: la Pasarela de Pagos y Firebase Cloud Messaging.
 - **Bounded Context:** nube con el nombre del contexto y su clasificación estratégica, Core o Supporting.
 - **Mensajes:** tarjetas con un número que indica el orden en que ocurren: celeste para los comandos, naranja para los eventos y verde para las consultas. La cabecera de cada tarjeta lleva el nombre del mensaje y la parte inferior, los datos que transporta; en las consultas se distinguen los datos de la solicitud (Req) y de la respuesta (Res).
 - **Dirección del mensaje:** flecha punteada que va del emisor al receptor. Cada mensaje se ubica junto a la flecha que lo transporta.
@@ -1022,11 +1022,11 @@ La Tabla 17 resume los eventos que conectan a los Bounded Contexts y el comando 
 | 6 | Production & Tracking | `DeliveryDelayNotified` | Notification & Loyalty | `SendDeliveryDelayNotification` | 5 |
 | 7 | Production & Tracking | `OrderWasMarkedAsDelivered` | Notification & Loyalty | `SendSatisfactionSurvey` | 6 |
 
-La tabla solo incluye eventos. Además, dos contextos consultan información de otro: Clinical & Commercial consulta la cita a Search & Booking (`GetAppointment`, escenario 2) y Production & Tracking consulta la venta cerrada a Clinical & Commercial (`GetClosedSale`, escenario 3). Además de estos flujos entre contextos, Notification & Loyalty gestiona internamente el descuento de cumpleaños: el comando `GrantBirthdayDiscount` registra el beneficio y publica el evento `BirthdayDiscountWasSent`, sin intervención de otros contextos.
+La tabla solo incluye eventos. Los dos sistemas externos participan en los escenarios 3 a 6: Clinical & Commercial crea en la Pasarela de Pagos la preferencia de pago que el paciente paga desde la aplicación y recibe de ella la notificación del resultado, y Notification & Loyalty envía cada aviso como notificación push mediante Firebase Cloud Messaging. Además, dos contextos consultan información de otro: Clinical & Commercial consulta la cita a Search & Booking (`GetAppointment`, escenario 2) y Production & Tracking consulta la venta cerrada a Clinical & Commercial (`GetClosedSale`, escenario 3). Además de estos flujos entre contextos, Notification & Loyalty gestiona internamente el descuento de cumpleaños: el comando `GrantBirthdayDiscount` registra el beneficio y publica el evento `BirthdayDiscountWasSent`, sin intervención de otros contextos.
 
 **Escenario 1: Búsqueda y reserva de cita**
 
-El paciente busca una óptica desde App OptiFlow y consulta sus horarios disponibles mediante las consultas `SearchOpticalStores` y `GetAvailableTimeSlots`, cuyas notas muestran los datos enviados (Req) y recibidos (Res). Al elegir un horario, la aplicación envía el comando `BookAppointment` a Search & Booking, que registra la cita y publica el evento `AppointmentBooked` hacia Clinical & Commercial y Notification & Loyalty, como se muestra en la Figura 19. Al recibirlo, Clinical & Commercial abre el expediente clínico de la atención (`ExaminePatient`) y Notification & Loyalty programa el recordatorio de la cita (`ScheduleAppointmentReminder`).
+El paciente busca una óptica desde App OptiFlow y consulta sus horarios disponibles mediante las consultas `SearchOpticalStores` y `GetAvailableTimeSlots`, cuyas notas muestran los datos enviados (Req) y recibidos (Res). Al elegir un horario, la aplicación envía el comando `BookAppointment` a Search & Booking, que registra la cita y publica el evento `AppointmentBooked` hacia Clinical & Commercial y Notification & Loyalty, como se muestra en la Figura 19. Al recibirlo, Clinical & Commercial abre el expediente clínico de la atención (`ExaminePatient`) y Notification & Loyalty programa el recordatorio de la cita (`ScheduleAppointmentReminder`), que se envía como notificación push antes de la atención.
 
 <a id="figura-19"></a>
 
@@ -1054,7 +1054,7 @@ El optómetra consulta los registros clínicos previos del paciente (`GetClinica
 
 **Escenario 3: Cotización y venta**
 
-El asesor comercial genera la cotización a partir de la receta, la aprueba con el paciente, registra la venta y el pago, y cierra la venta (`GenerateQuotation`, `ApproveQuotation`, `RegisterSale`, `RecordPayment` y `CloseSale`). El cierre publica el evento `SaleWasClosed` hacia Production & Tracking y Store Management & Inventory, como se muestra en la Figura 21. Al recibirlo, Production & Tracking genera la orden de trabajo de los lentes (`GenerateWorkOrder`) y Store Management & Inventory descuenta del stock los productos vendidos (`UpdateInventory`). Para preparar la orden, Production & Tracking consulta a Clinical & Commercial la venta cerrada (`GetClosedSale`) y obtiene las especificaciones de las lunas.
+El asesor comercial genera la cotización a partir de la receta, la aprueba con el paciente y registra la venta (`GenerateQuotation`, `ApproveQuotation` y `RegisterSale`), que queda pendiente de pago. El paciente paga desde App OptiFlow: la aplicación solicita la preferencia de pago (`CreatePaymentPreference`), Clinical & Commercial la crea en la Pasarela de Pagos y devuelve el enlace de pago, y el paciente paga con tarjeta o Yape en la página de la pasarela. La pasarela notifica el resultado al backend (`PaymentNotification`); si el pago fue aprobado, Clinical & Commercial lo registra (`RecordPayment`) y publica `PaymentRecorded`. Luego, el asesor cierra la venta (`CloseSale`); solo una venta pagada puede cerrarse. El cierre publica el evento `SaleWasClosed` hacia Production & Tracking y Store Management & Inventory, como se muestra en la Figura 21. Al recibirlo, Production & Tracking genera la orden de trabajo de los lentes (`GenerateWorkOrder`) y Store Management & Inventory descuenta del stock los productos vendidos (`UpdateInventory`). Para preparar la orden, Production & Tracking consulta a Clinical & Commercial la venta cerrada (`GetClosedSale`) y obtiene las especificaciones de las lunas.
 
 <a id="figura-21"></a>
 
@@ -1064,11 +1064,12 @@ El asesor comercial genera la cotización a partir de la receta, la aprueba con 
 
 ![Domain Message Flow: cotización y venta](assets/cap2/domain-message-flows/dmf-3-cotizacion-y-venta.png)
 
+
 *Nota.* Elaboración propia.
 
 **Escenario 4: Avance de la producción**
 
-El técnico de laboratorio asigna la orden de trabajo, la envía al laboratorio y actualiza su estado a medida que avanza la fabricación (`AssignWorkOrderToTechnician`, `SendWorkOrderToLaboratory` y `UpdateWorkOrderStatus`). Cada cambio de estado publica el evento `WorkOrderStatusUpdated` hacia Notification & Loyalty, que registra el aviso de avance (`NotifyLensOrderProgress`). Luego, el paciente revisa sus avisos desde App OptiFlow mediante la consulta `GetNotificationsByPatient`, como se muestra en la Figura 22.
+El técnico de laboratorio asigna la orden de trabajo, la envía al laboratorio y actualiza su estado a medida que avanza la fabricación (`AssignWorkOrderToTechnician`, `SendWorkOrderToLaboratory` y `UpdateWorkOrderStatus`). Cada cambio de estado publica el evento `WorkOrderStatusUpdated` hacia Notification & Loyalty, que registra el aviso de avance (`NotifyLensOrderProgress`) y lo envía como notificación push al dispositivo del paciente mediante Firebase Cloud Messaging (`SendPushNotification`). Luego, el paciente revisa sus avisos desde App OptiFlow mediante la consulta `GetNotificationsByPatient`, como se muestra en la Figura 22.
 
 <a id="figura-22"></a>
 
@@ -1078,11 +1079,12 @@ El técnico de laboratorio asigna la orden de trabajo, la envía al laboratorio 
 
 ![Domain Message Flow: avance de la producción](assets/cap2/domain-message-flows/dmf-4-avance-de-produccion.png)
 
+
 *Nota.* Elaboración propia.
 
 **Escenario 5: Demora en la entrega**
 
-Si la fabricación se retrasa, el técnico registra la demora con su motivo y la nueva fecha estimada de entrega (`NotifyDeliveryDelay`). Production & Tracking publica el evento `DeliveryDelayNotified` hacia Notification & Loyalty, que registra el aviso de demora (`SendDeliveryDelayNotification`). El paciente consulta ese aviso desde App OptiFlow mediante `GetNotificationsByPatient`, como se muestra en la Figura 23.
+Si la fabricación se retrasa, el técnico registra la demora con su motivo y la nueva fecha estimada de entrega (`NotifyDeliveryDelay`). Production & Tracking publica el evento `DeliveryDelayNotified` hacia Notification & Loyalty, que registra el aviso de demora (`SendDeliveryDelayNotification`) y lo envía como notificación push mediante Firebase Cloud Messaging (`SendPushNotification`). El paciente consulta ese aviso desde App OptiFlow mediante `GetNotificationsByPatient`, como se muestra en la Figura 23.
 
 <a id="figura-23"></a>
 
@@ -1092,11 +1094,12 @@ Si la fabricación se retrasa, el técnico registra la demora con su motivo y la
 
 ![Domain Message Flow: demora en la entrega](assets/cap2/domain-message-flows/dmf-5-demora-en-la-entrega.png)
 
+
 *Nota.* Elaboración propia.
 
 **Escenario 6: Entrega del pedido y encuesta de satisfacción**
 
-Cuando el paciente recoge sus lentes, el técnico marca la orden de trabajo como entregada (`MarkOrderAsDelivered`). Production & Tracking publica el evento `OrderWasMarkedAsDelivered` hacia Notification & Loyalty, que registra la encuesta de satisfacción (`SendSatisfactionSurvey`). El paciente consulta la encuesta desde App OptiFlow mediante `GetNotificationsByPatient`, como se muestra en la Figura 24.
+Cuando el paciente recoge sus lentes, el técnico marca la orden de trabajo como entregada (`MarkOrderAsDelivered`). Production & Tracking publica el evento `OrderWasMarkedAsDelivered` hacia Notification & Loyalty, que registra la encuesta de satisfacción (`SendSatisfactionSurvey`) y la envía como notificación push mediante Firebase Cloud Messaging (`SendPushNotification`). El paciente consulta la encuesta desde App OptiFlow mediante `GetNotificationsByPatient` y la responde con una calificación de 1 a 5 y un comentario opcional (`AnswerSatisfactionSurvey`), como se muestra en la Figura 24.
 
 <a id="figura-24"></a>
 
@@ -1105,6 +1108,7 @@ Cuando el paciente recoge sus lentes, el técnico marca la orden de trabajo como
 *Domain Message Flow del escenario de entrega del pedido y encuesta de satisfacción*
 
 ![Domain Message Flow: entrega del pedido y encuesta de satisfacción](assets/cap2/domain-message-flows/dmf-6-entrega-y-encuesta.png)
+
 
 *Nota.* Elaboración propia.
 
