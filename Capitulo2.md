@@ -3573,22 +3573,24 @@ El Domain Layer incluye también las interfaces `NotificationRepository`, `Loyal
 <a id="2.6.5.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-**Modelo físico implementado: PostgreSQL compartido, migración V4.** Notification & Loyalty persiste únicamente dos tablas: `notifications` y `loyalty_accounts`. No utiliza colecciones MongoDB ni tablas de preferencias, encuestas, personal o campañas en esta versión.
+**Modelo físico: PostgreSQL compartido, migraciones V4 y V7.** V4 crea `loyalty_accounts` y `notifications`; V7 crea `device_tokens` y agrega a `notifications` las columnas de envío push, programación y encuesta. Notification & Loyalty persiste tres tablas: `notifications`, `loyalty_accounts` y `device_tokens`.
 
 `loyalty_accounts` utiliza `patient_id UUID` como PK y FK hacia `patients.id`, y conserva `balance INT NOT NULL`, `last_birthday_discount_year INT` y `updated_at TIMESTAMP WITH TIME ZONE NOT NULL`. Un paciente puede tener cero o una cuenta; el saldo no puede ser negativo. La cuenta registra el saldo de puntos y el año del último beneficio de cumpleaños.
 
-`notifications` contiene `id`, `patient_id`, `type`, `title`, `body`, `appointment_id`, `work_order_id`, `status`, `created_at` y `read_at`. Su PK es `id` y su única FK es `patient_id` hacia `patients.id`. Un paciente puede tener varias notificaciones. Los identificadores de cita y orden son opcionales y no tienen FKs declaradas en V4; no se representan como relaciones físicas con sus tablas.
+`device_tokens` contiene `id`, `patient_id` (FK hacia `patients.id`), `token` (único), `platform` y `updated_at`; un paciente puede tener varios dispositivos.
 
-Los tipos permitidos son `APPOINTMENT_REMINDER`, `LENS_ORDER_PROGRESS`, `BIRTHDAY_DISCOUNT` y `DELIVERY_DELAY`; los estados admitidos son `UNREAD` y `READ`. La migración crea un índice único parcial sobre (`patient_id`, `appointment_id`) cuando `appointment_id IS NOT NULL`. Esta regla se documenta junto al diagrama, aunque el importador gráfico no represente índices parciales.
+`notifications` contiene `id`, `patient_id`, `type`, `title`, `body`, `appointment_id`, `work_order_id`, `status`, `push_status`, `scheduled_at`, `survey_rating`, `survey_comment`, `answered_at`, `created_at` y `read_at`. `push_status` (`PENDING`, `SENT` o `FAILED`) registra el resultado del envío por Firebase Cloud Messaging; `scheduled_at` es la fecha programada de los recordatorios (nula para los avisos inmediatos); `survey_rating` (`CHECK` entre 1 y 5), `survey_comment` y `answered_at` guardan la respuesta de la encuesta. Su PK es `id` y su única FK es `patient_id` hacia `patients.id`. Un paciente puede tener varias notificaciones. Los identificadores de cita y orden son opcionales y no tienen FKs declaradas en V4; no se representan como relaciones físicas con sus tablas.
 
-`NotificationEntity` y `LoyaltyAccountEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. Los conceptos de preferencias, encuestas, delegación y campañas pertenecen al diseño funcional ampliado y no implican persistencia implementada. **La Figura 51 muestra las dos tablas de V4 y sus FKs hacia `patients`, tabla de V1 que se incluye como referencia. `appointment_id` y `work_order_id` de `notifications` se marcan como `REF` (referencias lógicas sin FK).**
+Los tipos permitidos son `APPOINTMENT_REMINDER`, `ANNUAL_CHECKUP_REMINDER`, `LENS_ORDER_PROGRESS`, `BIRTHDAY_DISCOUNT`, `DELIVERY_DELAY` y `SATISFACTION_SURVEY` (V7 amplía el `CHECK` de V4); los estados admitidos son `UNREAD` y `READ`. V7 reemplaza el índice único parcial de V4 por uno sobre (`patient_id`, `appointment_id`, `type`) cuando `appointment_id IS NOT NULL`, para que una cita tenga un solo recordatorio de cada tipo, y crea un índice sobre (`push_status`, `scheduled_at`) para la búsqueda de avisos pendientes. Esta regla se documenta junto al diagrama, aunque el importador gráfico no represente índices parciales.
 
-<a id="figura-53"></a>
+`NotificationEntity`, `LoyaltyAccountEntity` y `DeviceTokenEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. **La Figura 55 muestra las tres tablas y sus FKs hacia `patients`, tabla de V1 que se incluye como referencia. `appointment_id` y `work_order_id` de `notifications` son referencias lógicas sin FK y no se dibujan como relaciones.**
 
-**Figura 53**
+<a id="figura-55"></a>
+
+**Figura 55**
 
 *Diagrama de base de datos del Notification & Loyalty Context*
 
 <div align="center">
-  <img src="assets/cap2/db/notification-loyalty-v4.png" alt="Notification and Loyalty Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/notification-loyalty.png" alt="Notification and Loyalty Database Design Diagram" width="1000">
 </div>

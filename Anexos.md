@@ -242,7 +242,7 @@ La Figura F2 reproduce el modelo físico relacional de la migración V3: `work_o
 
 ### F.2. Notification & Loyalty
 
-La persistencia implementada de Notification & Loyalty utiliza `notifications` y `loyalty_accounts` en PostgreSQL, según V4. Las preferencias, encuestas, campañas y adaptadores multicanal representados en el diseño ampliado no añaden tablas implementadas. La sección 2.6.5.6.2 detalla las columnas y restricciones reales.
+La persistencia de Notification & Loyalty utiliza `notifications`, `loyalty_accounts` y `device_tokens` en PostgreSQL, según V4 y V7. La sección 2.6.5.6.2 detalla sus columnas y restricciones.
 
 
 <div style="break-before: page; page-break-before: always;"></div>
