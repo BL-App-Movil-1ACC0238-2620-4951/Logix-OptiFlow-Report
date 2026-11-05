@@ -2325,11 +2325,11 @@ La **Domain Layer** concentra las reglas de negocio relacionadas con la producci
 El modelo de dominio se estructura alrededor de los principales conceptos definidos en el lenguaje ubicuo del contexto:
 
 
-Los conceptos del Domain Layer del Production & Tracking Context se presentan en la Tabla 52.
+Los conceptos del Domain Layer del Production & Tracking Context se presentan en la Tabla 54.
 
-<a id="tabla-52"></a>
+<a id="tabla-54"></a>
 
-**Tabla 52**
+**Tabla 54**
 
 *Conceptos del Domain Layer del Production & Tracking Context*
 
@@ -2347,11 +2347,11 @@ Los conceptos del Domain Layer del Production & Tracking Context se presentan en
 El flujo de estados definido para la `Work Order` utiliza las siguientes etapas:
 
 
-Los estados de la orden de trabajo se resumen en la Tabla 53.
+Los estados de la orden de trabajo se resumen en la Tabla 55.
 
-<a id="tabla-53"></a>
+<a id="tabla-55"></a>
 
-**Tabla 53**
+**Tabla 55**
 
 *Estados de la orden de trabajo*
 
@@ -2368,11 +2368,11 @@ Los estados de la orden de trabajo se resumen en la Tabla 53.
 Los principales comandos definidos para el contexto son:
 
 
-Los Domain Commands del Production & Tracking Context se detallan en la Tabla 54.
+Los Domain Commands del Production & Tracking Context se detallan en la Tabla 56.
 
-<a id="tabla-54"></a>
+<a id="tabla-56"></a>
 
-**Tabla 54**
+**Tabla 56**
 
 *Domain Commands del Production & Tracking Context*
 
@@ -2392,11 +2392,11 @@ Los Domain Commands del Production & Tracking Context se detallan en la Tabla 54
 Los eventos publicados por este contexto son:
 
 
-Los Domain Events del Production & Tracking Context se presentan en la Tabla 55.
+Los Domain Events del Production & Tracking Context se presentan en la Tabla 57.
 
-<a id="tabla-55"></a>
+<a id="tabla-57"></a>
 
-**Tabla 55**
+**Tabla 57**
 
 *Domain Events del Production & Tracking Context*
 
@@ -2415,11 +2415,11 @@ Los Domain Events del Production & Tracking Context se presentan en la Tabla 55.
 ##### Repository
 
 
-El Repository del Production & Tracking Context se resume en la Tabla 56.
+El Repository del Production & Tracking Context se resume en la Tabla 58.
 
-<a id="tabla-56"></a>
+<a id="tabla-58"></a>
 
-**Tabla 56**
+**Tabla 58**
 
 *Repository del Production & Tracking Context*
 
@@ -2427,6 +2427,8 @@ El Repository del Production & Tracking Context se resume en la Tabla 56.
 | Repository | Responsabilidad |
 |---|---|
 | `WorkOrderRepository` | Abstrae el acceso y persistencia de las órdenes de trabajo del contexto. |
+| `TechnicianRepository` | Abstrae la consulta del catálogo de técnicos. |
+| `LaboratoryRepository` | Abstrae la consulta del catálogo de laboratorios. |
 
 La interacción principal del dominio con otros contextos comienza cuando **Clinical & Commercial** publica el evento `SaleWasClosed`. Production & Tracking recibe este evento y ejecuta el comando `GenerateWorkOrder`, iniciando así el ciclo de producción de la orden.
 
@@ -2441,27 +2443,29 @@ Los comandos definidos en el Bounded Context se exponen mediante la API Gateway,
 ##### Controllers
 
 
-Los Controllers del Production & Tracking Context se detallan en la Tabla 57.
+Los Controllers del Production & Tracking Context se detallan en la Tabla 59.
 
-<a id="tabla-57"></a>
+<a id="tabla-59"></a>
 
-**Tabla 57**
+**Tabla 59**
 
 *Controllers del Production & Tracking Context*
 
 
 | Controller | Tipo | Responsabilidad |
 |---|---|---|
-| `WorkOrderController` | REST Controller | Expone las operaciones relacionadas con la generación, asignación, envío, actualización y entrega de órdenes de trabajo. |
+| `WorkOrderController` | REST Controller | `GET /work-orders` (tablero Kanban, filtrable por estado), `POST /work-orders` (`GenerateWorkOrder` manual), `GET /work-orders/{id}`, `GET /patients/{patientId}/work-orders` (seguimiento del paciente), `PATCH /work-orders/{id}/technician` (`AssignWorkOrderToTechnician`), `PATCH /work-orders/{id}/laboratory` (`SendWorkOrderToLaboratory`), `PATCH /work-orders/{id}/status` (`UpdateWorkOrderStatus`), `PATCH /work-orders/{id}/lenses/complete` (`CompleteLenses`), `POST /work-orders/{id}/delays` (`NotifyDeliveryDelay`) y `PATCH /work-orders/{id}/deliver` (`MarkOrderAsDelivered`). |
+| `ProductionCatalogController` | REST Controller | `GET /technicians` y `GET /laboratories`, catálogos usados al asignar y enviar las órdenes. |
+| `ProductionReportController` | REST Controller | `GET /reports/production?from&to` (`GetProductionMetrics`) y `GET /reports/production/export?from&to` (CSV), solo para `ADMIN`. |
 
 ##### Event Consumers
 
 
-Los Event Consumers del Production & Tracking Context se presentan en la Tabla 58.
+Los Event Consumers del Production & Tracking Context se presentan en la Tabla 60.
 
-<a id="tabla-58"></a>
+<a id="tabla-60"></a>
 
-**Tabla 58**
+**Tabla 60**
 
 *Event Consumers del Production & Tracking Context*
 
@@ -2473,11 +2477,11 @@ Los Event Consumers del Production & Tracking Context se presentan en la Tabla 5
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 59.
+Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 61.
 
-<a id="tabla-59"></a>
+<a id="tabla-61"></a>
 
-**Tabla 59**
+**Tabla 61**
 
 *Resources / DTOs del Production & Tracking Context*
 
@@ -2497,11 +2501,11 @@ Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 59
 ##### Assemblers
 
 
-Los Assemblers del Production & Tracking Context se detallan en la Tabla 60.
+Los Assemblers del Production & Tracking Context se detallan en la Tabla 62.
 
-<a id="tabla-60"></a>
+<a id="tabla-62"></a>
 
-**Tabla 60**
+**Tabla 62**
 
 *Assemblers del Production & Tracking Context*
 
@@ -2527,11 +2531,11 @@ Los casos de uso principales corresponden a las operaciones definidas en el Boun
 ##### Command Handlers
 
 
-Los Command Handlers del Production & Tracking Context se presentan en la Tabla 61.
+Los Command Handlers del Production & Tracking Context se presentan en la Tabla 63.
 
-<a id="tabla-61"></a>
+<a id="tabla-63"></a>
 
-**Tabla 61**
+**Tabla 63**
 
 *Command Handlers del Production & Tracking Context*
 
@@ -2545,15 +2549,18 @@ Los Command Handlers del Production & Tracking Context se presentan en la Tabla 
 | `CompleteLensesHandler` | Command Handler | Gestiona la finalización del proceso de fabricación de las lentes. |
 | `NotifyDeliveryDelayHandler` | Command Handler | Gestiona el registro y notificación de retrasos en la entrega. |
 | `MarkOrderAsDeliveredHandler` | Command Handler | Coordina el registro de la entrega final de la orden. |
+| `WorkOrderQueryService` | Query Service | Resuelve `GetWorkOrders`, `GetWorkOrderById` y `GetWorkOrdersByPatientId`. |
+| `ProductionCatalogQueryService` | Query Service | Devuelve los técnicos y laboratorios disponibles. |
+| `ProductionMetricsQueryService` | Query Service | Resuelve `GetProductionMetrics`: órdenes por estado, órdenes entregadas, tiempo promedio de fabricación y demoras del periodo, y genera su exportación en CSV. |
 
 ##### Event Handler
 
 
-El Event Handler del Production & Tracking Context se resume en la Tabla 62.
+El Event Handler del Production & Tracking Context se resume en la Tabla 64.
 
-<a id="tabla-62"></a>
+<a id="tabla-64"></a>
 
-**Tabla 62**
+**Tabla 64**
 
 *Event Handler del Production & Tracking Context*
 
@@ -2565,11 +2572,11 @@ El Event Handler del Production & Tracking Context se resume en la Tabla 62.
 ##### Application Services
 
 
-Los Application Services del Production & Tracking Context se detallan en la Tabla 63.
+Los Application Services del Production & Tracking Context se detallan en la Tabla 65.
 
-<a id="tabla-63"></a>
+<a id="tabla-65"></a>
 
-**Tabla 63**
+**Tabla 65**
 
 *Application Services del Production & Tracking Context*
 
@@ -2591,11 +2598,11 @@ Esta capa implementa las abstracciones definidas en el dominio y permite que las
 ##### Repositories
 
 
-Los Repositories del Production & Tracking Context se presentan en la Tabla 64.
+Los Repositories del Production & Tracking Context se presentan en la Tabla 66.
 
-<a id="tabla-64"></a>
+<a id="tabla-66"></a>
 
-**Tabla 64**
+**Tabla 66**
 
 *Repositories del Production & Tracking Context*
 
@@ -2609,11 +2616,11 @@ Los Repositories del Production & Tracking Context se presentan en la Tabla 64.
 ##### Persistence
 
 
-Los componentes de persistencia del Production & Tracking Context se resumen en la Tabla 65.
+Los componentes de persistencia del Production & Tracking Context se resumen en la Tabla 67.
 
-<a id="tabla-65"></a>
+<a id="tabla-67"></a>
 
-**Tabla 65**
+**Tabla 67**
 
 *Componentes de persistencia del Production & Tracking Context*
 
@@ -2629,11 +2636,11 @@ Los componentes de persistencia del Production & Tracking Context se resumen en 
 ##### Messaging
 
 
-Los componentes de mensajería del Production & Tracking Context se detallan en la Tabla 66.
+Los componentes de mensajería del Production & Tracking Context se detallan en la Tabla 68.
 
-<a id="tabla-66"></a>
+<a id="tabla-68"></a>
 
-**Tabla 66**
+**Tabla 68**
 
 *Componentes de mensajería del Production & Tracking Context*
 
