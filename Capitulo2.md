@@ -2185,24 +2185,26 @@ El diagrama también incorpora los **Domain Services** relacionados con la dispo
 <a id="2.6.1.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
-**Modelo físico implementado: PostgreSQL compartido, migración V1.** Search & Booking utiliza seis tablas de la misma base del backend: `patients`, `optical_stores`, `time_slots`, `appointments`, `favorite_stores` y `store_ratings`. No dispone de una base independiente.
+**Modelo físico implementado: PostgreSQL compartido, migraciones V1, V5 y V8.** Search & Booking utiliza siete tablas de la misma base del backend: `patients`, `optical_stores`, `time_slots`, `appointments`, `favorite_stores`, `store_ratings` y `staff_members`. No dispone de una base independiente.
 
-`patients` contiene `id`, `full_name`, `email`, `phone`, `password_hash` y `created_at`; el correo es único. `optical_stores` contiene `id`, `name`, `address`, `phone`, `rating` y `status`. Las longitudes son, respectivamente, `VARCHAR(80)` para el nombre completo del paciente, `VARCHAR(120)` para su correo, `VARCHAR(20)` para su teléfono, `VARCHAR(100)` para el hash de contraseña, y `VARCHAR(120)`, `VARCHAR(200)` y `VARCHAR(20)` para nombre, dirección y teléfono de la óptica. El `rating` de la óptica es `NUMERIC(3,2)`.
+`staff_members` (migración V8) contiene `id`, `optical_store_id` (FK hacia `optical_stores.id`), `full_name`, `email` (único), `password_hash`, `role` (`CHECK` con `OPTOMETRIST`, `SALES_ADVISOR`, `TECHNICIAN` y `ADMIN`), `active` y `created_at`. Una óptica puede tener cero o muchos miembros del personal.
+
+`patients` contiene `id`, `full_name`, `email`, `phone`, `password_hash`, `birth_date` y `created_at`; el correo es único y `birth_date` (`DATE`, nullable) la agrega la migración V8. `optical_stores` contiene `id`, `name`, `address`, `phone`, `latitude`, `longitude`, `rating` y `status`; `latitude` y `longitude` son `NUMERIC(9,6)` y los agrega la migración V5. Las longitudes son, respectivamente, `VARCHAR(80)` para el nombre completo del paciente, `VARCHAR(120)` para su correo, `VARCHAR(20)` para su teléfono, `VARCHAR(100)` para el hash de contraseña, y `VARCHAR(120)`, `VARCHAR(200)` y `VARCHAR(20)` para nombre, dirección y teléfono de la óptica. El `rating` de la óptica es `NUMERIC(3,2)`.
 
 `time_slots.optical_store_id` es una FK hacia `optical_stores.id`; una óptica puede tener cero o muchos horarios. `appointments` tiene FKs obligatorias hacia `patients`, `optical_stores` y `time_slots`. V1 no declara `UNIQUE` sobre `appointments.time_slot_id`: el diagrama físico no debe inventar una relación uno a uno o una restricción adicional de reserva única. Las validaciones de disponibilidad de la aplicación se distinguen de las restricciones SQL.
 
 `favorite_stores` utiliza la PK compuesta (`patient_id`, `optical_store_id`), ambas columnas también FKs, y registra `saved_at`. `store_ratings` utiliza la misma combinación como PK y FKs, y contiene `score NUMERIC(3,2)`, `comment VARCHAR(280)` y `created_at`; su `CHECK` limita `score` al intervalo de 1 a 5.
 
-Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 39 representa las seis tablas de V1 con todos sus campos, tipos, nulabilidad, PK, FK, `CHECK` e índices tal como están declarados en la migración.**
+Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 43 representa las siete tablas de V1, V5 y V8 con todos sus campos, tipos, nulabilidad, PK, FK y `UNIQUE`, tal como están declarados en las migraciones.**
 
-<a id="figura-41"></a>
+<a id="figura-43"></a>
 
-**Figura 41**
+**Figura 43**
 
 *Diagrama de base de datos del Search & Booking Context*
 
 <div align="center">
-  <img src="assets/cap2/db/search-booking-v1.png" alt="Search and Booking Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/search-booking.png" alt="Search and Booking Database Design Diagram" width="1000">
 </div>
 
 
@@ -2364,7 +2366,7 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 <a id="2.6.2.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-**Modelo físico implementado: PostgreSQL compartido, migración V2.** Clinical & Commercial comprende siete tablas: `clinical_records`, `medical_histories`, `optical_prescriptions`, `quotations`, `quotation_items`, `sales` y `electronic_receipts`.
+**Modelo físico implementado: PostgreSQL compartido, migraciones V2 y V9.** Clinical & Commercial comprende siete tablas: `clinical_records`, `medical_histories`, `optical_prescriptions`, `quotations`, `quotation_items`, `sales` y `electronic_receipts`.
 
 `clinical_records` identifica la atención con `id`, `patient_id`, `appointment_id`, `examination_date`, `observations` y `status`. `appointment_id` es obligatorio y único; ni esa columna ni `patient_id` tienen una FK declarada en V2 hacia Search & Booking. Se representan como referencias lógicas a la cita y al paciente.
 
@@ -2372,18 +2374,18 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 
 `quotations.clinical_record_id` es una FK obligatoria: un registro clínico puede tener varias cotizaciones. La cotización conserva tipo, valor y motivo del descuento, total, estado y `rejection_reason`. `quotation_items` tiene una FK obligatoria hacia la cotización, `line_number`, `item_type`, `product_sku`, descripción, precio unitario y cantidad. La pareja (`quotation_id`, `line_number`) es única; las validaciones de importes, cantidad y tipos de ítem son las declaradas en la migración.
 
-Una cotización puede generar **cero o una venta**, y cada venta pertenece a exactamente una cotización: `sales.quotation_id` es `NOT NULL UNIQUE` y FK hacia `quotations.id`. `RegisterSaleHandler` exige una cotización aprobada y rechaza una venta duplicada con HTTP 409. Los datos de pago se almacenan en columnas de `sales`; no existe una tabla adicional de pagos en V2. `sales.patient_id` es una referencia lógica sin FK declarada.
+Una cotización puede generar **cero o una venta**, y cada venta pertenece a exactamente una cotización: `sales.quotation_id` es `NOT NULL UNIQUE` y FK hacia `quotations.id`. `RegisterSaleHandler` exige una cotización aprobada y rechaza una venta duplicada con HTTP 409. Los datos de pago se almacenan en columnas de `sales`; no existe una tabla adicional de pagos. La migración V9 ajusta esas columnas al pago con Checkout Pro: `status` admite `PENDING_PAYMENT`, `PAID` y `CLOSED`; `payment_method` admite `CARD`, `YAPE` y `CASH`; agrega `payment_preference_id` y `payment_status` (`APPROVED` o `REJECTED`); y `transaction_reference`, única cuando no es nula, guarda el id del pago en la pasarela para ignorar notificaciones repetidas. `sales.patient_id` es una referencia lógica sin FK declarada.
 
-Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 42 representa las siete tablas de V2 con todas sus columnas, tipos, nulabilidad, PK, FK, `UNIQUE`, `CHECK` e índices. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) se marcan como `REF` y no se dibujan como relaciones.**
+Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 46 representa las siete tablas de V2 y V9 con todas sus columnas, tipos, nulabilidad, PK, FK y `UNIQUE`. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) no se dibujan como relaciones.**
 
-<a id="figura-44"></a>
+<a id="figura-46"></a>
 
-**Figura 44**
+**Figura 46**
 
 *Diagrama de base de datos del Clinical & Commercial Context*
 
 <div align="center">
-  <img src="assets/cap2/db/clinical-commercial-v2.png" alt="Clinical and Commercial Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/clinical-commercial.png" alt="Clinical and Commercial Database Design Diagram" width="1000">
 </div>
 
 
