@@ -1542,15 +1542,15 @@ El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en e
 <a id="Tactical-Level Domain-Driven Design"></a>
 ## 2.6. Tactical-Level Domain-Driven Design
 
-Los cuatro contextos implementados de OptiFlow comparten una sola base de datos PostgreSQL. El backend accede a ella mediante JPA/Hibernate. La separación por Bounded Context organiza las responsabilidades y las reglas del negocio, sin crear una base de datos por contexto. Las migraciones V1 a V4 definen 20 tablas: seis de Search & Booking, siete de Clinical & Commercial, cinco de Production & Tracking y dos de Notification & Loyalty.
+Los cinco contextos de OptiFlow comparten una sola base de datos PostgreSQL. El backend accede a ella mediante JPA/Hibernate. La separación por Bounded Context organiza las responsabilidades y las reglas del negocio, sin crear una base de datos por contexto. Las migraciones V1 a V9 definen 27 tablas: siete de Search & Booking, siete de Clinical & Commercial, cinco de Production & Tracking, cinco de Store Management & Inventory y tres de Notification & Loyalty.
 
 El perfil `postgres` valida el mapeo JPA y aplica las migraciones con Flyway. El perfil `local` utiliza H2 en memoria para desarrollo; ello no implica persistencia NoSQL. La app móvil consume contratos HTTP del backend y no define el esquema físico PostgreSQL.
 
-El modelo de datos se basa en las migraciones `V1__search_booking_schema.sql`, `V2__clinical_commercial_schema.sql`, `V3__production_tracking_schema.sql` y `V4__notification_loyalty_schema.sql` del backend. Las secciones siguientes describen las tablas y restricciones de cada contexto. Store Management & Inventory se presenta por separado porque todavía no tiene una migración implementada.
+El modelo de datos se basa en las migraciones `V1__search_booking_schema.sql`, `V2__clinical_commercial_schema.sql`, `V3__production_tracking_schema.sql`, `V4__notification_loyalty_schema.sql`, `V5__optical_store_location.sql`, `V6__store_inventory_schema.sql`, `V7__notification_push.sql`, `V8__staff_members.sql` y `V9__sale_checkout_payment.sql` del backend. Las secciones siguientes describen las tablas y restricciones de cada contexto.
 
 Las relaciones físicas del modelo corresponden a las claves foráneas declaradas en las migraciones. Los identificadores que no tienen una restricción `FOREIGN KEY` se documentan como referencias lógicas. Los objetos de valor y las claves compuestas de JPA no implican que la información se almacene como documentos MongoDB.
 
-Los diagramas de base de datos de las Figuras 39, 42, 45 y 51 se elaboraron directamente a partir de las migraciones V1–V4: muestran cada tabla con sus columnas, tipos, nulabilidad, claves primarias, claves foráneas, restricciones `UNIQUE` y `CHECK` e índices. Los identificadores sin `FOREIGN KEY` se marcan como `REF` y no se dibujan como relaciones. La Figura 48 corresponde a Store Management & Inventory, que es un diseño propuesto, y se identifica visualmente como no implementado.
+Los diagramas de base de datos de las Figuras 43, 46, 49 y 55 se elaboraron directamente a partir de las migraciones V1–V9: muestran cada tabla con sus columnas, tipos, nulabilidad, claves primarias, claves foráneas y restricciones `UNIQUE`; los `CHECK` y los índices se describen en el texto de cada contexto. Los identificadores sin `FOREIGN KEY` no se dibujan como relaciones. La Figura 52 corresponde a Store Management & Inventory (migración V6).
 
 <a id="2.6.1. Bounded Context: Search & Booking Context"></a>
 ### 2.6.1. Bounded Context: Search & Booking Context
@@ -2715,11 +2715,11 @@ El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persisten
 
 Las fechas estimadas usan `DATE`, mientras que los momentos de creación, cambio, demora y entrega usan `TIMESTAMP WITH TIME ZONE`. La demora se almacena en las columnas `delay_reason`, `delay_reported_at` y `delay_new_estimated_date`; no es un documento ni una tabla separada. `WorkOrderRepositoryImpl` reconstruye el agregado a partir de las filas de orden, lentes e historial.
 
-**La Figura 45 representa las cinco tablas relacionales de V3. Los identificadores `sale_id`, `patient_id`, `optical_store_id`, `technician_id` y `laboratory_id` de `work_orders` se marcan como `REF` (referencias lógicas sin FK); `technicians` y `laboratories` aparecen sin relación física con la orden.**
+**La Figura 49 representa las cinco tablas relacionales de V3. Los identificadores `sale_id`, `patient_id`, `optical_store_id`, `technician_id` y `laboratory_id` de `work_orders` se marcan como `REF` (referencias lógicas sin FK); `technicians` y `laboratories` aparecen sin relación física con la orden.**
 
-<a id="figura-47"></a>
+<a id="figura-49"></a>
 
-**Figura 47**
+**Figura 49**
 
 *Diagrama de base de datos del Production & Tracking Context*
 

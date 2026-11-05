@@ -207,7 +207,7 @@ El Store Management & Inventory Component Diagram se muestra en la Figura E8.
 
 La cardinalidad vigente de cotización–venta se especifica en [2.6.2.6.2](Capitulo2.md#26262-bounded-context-database-design-diagram): una cotización genera como máximo una venta, respaldada por la restricción de unicidad del backend.
 
-Los diagramas de este anexo complementan el diseño táctico. Las secciones 2.6.1.6.2 a 2.6.5.6.2 describen el modelo físico actual: una base PostgreSQL compartida, con 20 tablas definidas en V1–V4. Los diagramas de base de datos de este anexo y del capítulo II se elaboraron a partir de esas migraciones.
+Los diagramas de este anexo complementan el diseño táctico. Las secciones 2.6.1.6.2 a 2.6.5.6.2 describen el modelo físico actual: una base PostgreSQL compartida, con 27 tablas definidas en V1–V9. Los diagramas de base de datos de este anexo y del capítulo II se elaboraron a partir de esas migraciones.
 
 ### F.1. Production & Tracking
 
