@@ -1626,16 +1626,41 @@ La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar óp
 | `name` | `Name` (VO) | Nombre completo del paciente |
 | `email` | `EmailAddress` (VO) | Correo electrónico del paciente |
 | `phone` | `PhoneNumber` (VO) | Número telefónico del paciente |
+| `passwordHash` | `String` | Hash BCrypt de la contraseña; nunca se expone en las respuestas |
+| `birthDate` | `LocalDate` | Fecha de nacimiento del paciente (opcional); Notification & Loyalty la usa para el beneficio de cumpleaños |
 | `createdAt` | `DateTime` | Fecha de registro del paciente |
 
-##### Entidad: `OpticalStore`
+##### Entidad: `StaffMember`
 
-La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma (ver Tabla 28).
+La entidad `StaffMember` representa a una persona del personal de la óptica que inicia sesión en la aplicación con un rol asignado por el administrador. Search & Booking la gestiona junto con `Patient` porque ambos comparten el inicio de sesión; los demás contextos solo reciben el identificador y el rol dentro del token de acceso (ver Tabla 28).
 
 
 <a id="tabla-28"></a>
 
 **Tabla 28**
+
+*Atributos de la entidad StaffMember*
+
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `StaffMemberId` (VO) | Identificador único del miembro del personal |
+| `opticalStoreId` | `OpticalStoreId` (VO) | Óptica en la que trabaja |
+| `name` | `Name` (VO) | Nombre completo |
+| `email` | `EmailAddress` (VO) | Correo con el que inicia sesión; es único entre pacientes y personal |
+| `passwordHash` | `String` | Hash BCrypt de la contraseña |
+| `role` | `UserRole` (Enum) | Rol que define a qué operaciones puede acceder |
+| `active` | `Boolean` | Indica si puede iniciar sesión |
+| `createdAt` | `DateTime` | Fecha de registro |
+
+##### Entidad: `OpticalStore`
+
+La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma (ver Tabla 29).
+
+
+<a id="tabla-29"></a>
+
+**Tabla 29**
 
 *Atributos de la entidad OpticalStore*
 
@@ -1646,17 +1671,18 @@ La entidad `OpticalStore` representa una sucursal óptica disponible para ser en
 | `name` | `StoreName` (VO) | Nombre de la óptica |
 | `address` | `StoreAddress` (VO) | Dirección física de la sucursal |
 | `phone` | `PhoneNumber` (VO) | Número telefónico de contacto |
+| `location` | `GeoLocation` (VO) | Latitud y longitud de la sucursal, usadas para mostrarla en el mapa |
 | `rating` | `StoreRating` (VO) | Valoración promedio de la óptica |
 | `status` | `StoreStatus` (Enum) | Estado actual de la óptica |
 
 ##### Entidad: `TimeSlot`
 
-`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica (ver Tabla 29).
+`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica (ver Tabla 30).
 
 
-<a id="tabla-29"></a>
+<a id="tabla-30"></a>
 
-**Tabla 29**
+**Tabla 30**
 
 *Atributos de la entidad TimeSlot*
 
@@ -1672,11 +1698,11 @@ La entidad `OpticalStore` representa una sucursal óptica disponible para ser en
 ##### Value Objects
 
 
-Los Value Objects del Search & Booking Context se resumen en la Tabla 30.
+Los Value Objects del Search & Booking Context se resumen en la Tabla 31.
 
-<a id="tabla-30"></a>
+<a id="tabla-31"></a>
 
-**Tabla 30**
+**Tabla 31**
 
 *Value Objects del Search & Booking Context*
 
@@ -1687,22 +1713,24 @@ Los Value Objects del Search & Booking Context se resumen en la Tabla 30.
 | `PatientId` | Identificador único del paciente |
 | `OpticalStoreId` | Identificador único de una óptica |
 | `TimeSlotId` | Identificador único de un horario |
+| `StaffMemberId` | Identificador único de un miembro del personal |
 | `Name` | Representa un nombre válido de paciente |
 | `EmailAddress` | Encapsula y valida el correo electrónico |
 | `PhoneNumber` | Encapsula el número telefónico |
 | `StoreName` | Representa el nombre de una óptica |
 | `StoreAddress` | Representa la dirección de una sucursal |
+| `GeoLocation` | Encapsula y valida la latitud (−90 a 90) y la longitud (−180 a 180) de una sucursal y calcula la distancia a otra ubicación |
 | `StoreRating` | Representa la valoración otorgada a una óptica |
 | `TimeSlot` | Representa un intervalo de tiempo para una atención |
 
 ##### Enumerations
 
 
-Las enumeraciones del Search & Booking Context se detallan en la Tabla 31.
+Las enumeraciones del Search & Booking Context se detallan en la Tabla 32.
 
-<a id="tabla-31"></a>
+<a id="tabla-32"></a>
 
-**Tabla 31**
+**Tabla 32**
 
 *Enumeraciones del Search & Booking Context*
 
@@ -1712,15 +1740,16 @@ Las enumeraciones del Search & Booking Context se detallan en la Tabla 31.
 | `AppointmentStatus` | PENDING, CONFIRMED, CANCELLED, COMPLETED | Representa el estado de una cita |
 | `TimeSlotStatus` | AVAILABLE, RESERVED, BLOCKED | Representa la disponibilidad de un horario |
 | `StoreStatus` | ACTIVE, INACTIVE | Representa el estado operativo de una óptica |
+| `UserRole` | PATIENT, OPTOMETRIST, SALES_ADVISOR, TECHNICIAN, ADMIN | Rol incluido en el token de acceso; `PATIENT` corresponde a `Patient` y los demás a `StaffMember` |
 
 ##### Domain Services
 
 
-Los Domain Services del Search & Booking Context se presentan en la Tabla 32.
+Los Domain Services del Search & Booking Context se presentan en la Tabla 33.
 
-<a id="tabla-32"></a>
+<a id="tabla-33"></a>
 
-**Tabla 32**
+**Tabla 33**
 
 *Domain Services del Search & Booking Context*
 
@@ -1733,12 +1762,12 @@ Los Domain Services del Search & Booking Context se presentan en la Tabla 32.
 
 ##### Repository Interfaces
 
-Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades (ver Tabla 33).
+Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades (ver Tabla 34).
 
 
-<a id="tabla-33"></a>
+<a id="tabla-34"></a>
 
-**Tabla 33**
+**Tabla 34**
 
 *Repository Interfaces del Search & Booking Context*
 
@@ -1746,18 +1775,19 @@ Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persi
 | Interface | Operaciones principales |
 |---|---|
 | `AppointmentRepository` | `save()`, `findById()`, `findByPatientId()`, `findByTimeSlot()` |
-| `PatientRepository` | `save()`, `findById()`, `findByEmail()` |
+| `PatientRepository` | `save()`, `findById()`, `findByEmail()`, `findByBirthday(month, day)` |
+| `StaffMemberRepository` | `save()`, `findById()`, `findByEmail()`, `findByOpticalStoreId()` |
 | `OpticalStoreRepository` | `findById()`, `search()`, `filter()` |
 | `TimeSlotRepository` | `findById()`, `findAvailableByStore()`, `reserve()` |
 
 ##### Domain Events
 
-Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto (ver Tabla 34).
+Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto (ver Tabla 35).
 
 
-<a id="tabla-34"></a>
+<a id="tabla-35"></a>
 
-**Tabla 34**
+**Tabla 35**
 
 *Domain Events del Search & Booking Context*
 
@@ -1765,7 +1795,10 @@ Los eventos de dominio representan hechos relevantes ocurridos dentro del contex
 | Domain Event | Descripción |
 |---|---|
 | `PatientRegistered` | Se genera cuando un nuevo paciente completa su registro |
-| `PatientLoggedIn` | Se genera cuando un paciente inicia sesión correctamente |
+| `PatientLoggedIn` | Se genera cuando un paciente o un miembro del personal inicia sesión correctamente |
+| `StaffMemberRegistered` | Se genera cuando el administrador registra a un miembro del personal |
+| `StaffMemberRoleAssigned` | Se genera cuando el administrador cambia el rol de un miembro del personal |
+| `OpticalStoresFiltered` | Se genera cuando un paciente filtra las ópticas según sus criterios |
 | `OpticalStoresPublished` | Se genera cuando las ópticas disponibles son publicadas |
 | `FavoriteOpticalStoreSaved` | Se genera cuando un paciente guarda una óptica como favorita |
 | `OpticalStoreRated` | Se genera cuando un paciente registra una valoración |
@@ -1776,11 +1809,11 @@ Los eventos anteriores corresponden a los eventos publicados definidos para el *
 ##### Factories
 
 
-Los Factories del Search & Booking Context se resumen en la Tabla 35.
+Los Factories del Search & Booking Context se resumen en la Tabla 36.
 
-<a id="tabla-35"></a>
+<a id="tabla-36"></a>
 
-**Tabla 35**
+**Tabla 36**
 
 *Factories del Search & Booking Context*
 
@@ -1801,19 +1834,20 @@ Esta capa permite exponer las capacidades de búsqueda, consulta de disponibilid
 ##### Controllers
 
 
-Los Controllers del Search & Booking Context se detallan en la Tabla 36.
+Los Controllers del Search & Booking Context se detallan en la Tabla 37.
 
-<a id="tabla-36"></a>
+<a id="tabla-37"></a>
 
-**Tabla 36**
+**Tabla 37**
 
 *Controllers del Search & Booking Context*
 
 
 | Controller | Endpoints | Capabilities soportadas |
 |---|---|---|
-| `PatientController` | `POST /patients`, `POST /login` | Registro e inicio de sesión de pacientes |
-| `OpticalStoreController` | `GET /optical-stores`, `GET /optical-stores/{id}` | Búsqueda y consulta de ópticas |
+| `PatientController` | `POST /patients`, `POST /login`, `GET /patients/{id}/appointments` | Registro de pacientes, inicio de sesión de pacientes y personal (devuelve el token JWT y el rol) y consulta de las citas del paciente |
+| `StaffMemberController` | `POST /staff-members`, `GET /staff-members`, `PATCH /staff-members/{id}/role` | Registro del personal, listado y asignación de rol; solo para `ADMIN` |
+| `OpticalStoreController` | `GET /optical-stores`, `GET /optical-stores/{id}`, `GET /optical-stores/nearby` | Búsqueda y consulta de ópticas, y consulta de las ópticas cercanas a una ubicación |
 | `OpticalStoreFilterController` | `GET /optical-stores/search` | Filtrado de ópticas según criterios del paciente |
 | `TimeSlotController` | `GET /optical-stores/{id}/availability` | Consulta de horarios disponibles |
 | `AppointmentController` | `POST /appointments`, `GET /appointments/{id}` | Creación y consulta de citas |
@@ -1823,37 +1857,41 @@ Los Controllers del Search & Booking Context se detallan en la Tabla 36.
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 37.
+Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 38.
 
-<a id="tabla-37"></a>
+<a id="tabla-38"></a>
 
-**Tabla 37**
+**Tabla 38**
 
 *Resources / DTOs del Search & Booking Context*
 
 
 | DTO | Tipo | Uso |
 |---|---|---|
-| `RegisterPatientRequest` | Input | Datos necesarios para registrar un paciente |
-| `LoginRequest` | Input | Datos necesarios para iniciar sesión |
+| `RegisterPatientRequest` | Input | Nombre, correo, teléfono, contraseña y fecha de nacimiento opcional del paciente |
+| `LoginRequest` | Input | Correo y contraseña para iniciar sesión |
+| `LoginResponse` | Output | Token de acceso JWT, fecha de expiración, identificador del usuario y rol |
+| `RegisterStaffMemberRequest` | Input | Datos del miembro del personal, su óptica y su rol |
+| `AssignStaffRoleRequest` | Input | Nuevo rol del miembro del personal |
+| `StaffMemberResponse` | Output | Información pública del miembro del personal, sin la contraseña |
 | `SearchOpticalStoreRequest` | Input | Parámetros utilizados para buscar ópticas |
 | `FilterOpticalStoreRequest` | Input | Criterios utilizados para filtrar resultados |
 | `BookAppointmentRequest` | Input | Datos necesarios para reservar una cita |
 | `SaveFavoriteStoreRequest` | Input | Datos necesarios para guardar una óptica favorita |
 | `RateOpticalStoreRequest` | Input | Datos de la valoración de una óptica |
 | `PatientResponse` | Output | Información pública del paciente |
-| `OpticalStoreResponse` | Output | Información de una óptica |
+| `OpticalStoreResponse` | Output | Información de una óptica, incluida su latitud y longitud |
 | `TimeSlotResponse` | Output | Información sobre un horario disponible |
 | `AppointmentResponse` | Output | Información de una cita registrada |
 
 ##### Assemblers
 
 
-Los Assemblers del Search & Booking Context se resumen en la Tabla 38.
+Los Assemblers del Search & Booking Context se resumen en la Tabla 39.
 
-<a id="tabla-38"></a>
+<a id="tabla-39"></a>
 
-**Tabla 38**
+**Tabla 39**
 
 *Assemblers del Search & Booking Context*
 
@@ -1866,6 +1904,7 @@ Los Assemblers del Search & Booking Context se resumen en la Tabla 38.
 | `FromFilterOpticalStoreRequestAssembler` | `FilterOpticalStoreRequest` → `FilterOpticalStoresQuery` |
 | `FromBookAppointmentRequestAssembler` | `BookAppointmentRequest` → `BookAppointmentCommand` |
 | `FromRateOpticalStoreRequestAssembler` | `RateOpticalStoreRequest` → `RateOpticalStoreCommand` |
+| `FromRegisterStaffMemberRequestAssembler` | `RegisterStaffMemberRequest` → `RegisterStaffMemberCommand` |
 
 
 <a id="2.6.1.3. Application Layer"></a>
@@ -1878,11 +1917,11 @@ Se utiliza una separación entre **Commands**, orientados a modificar el estado 
 ##### Command Handlers
 
 
-Los Command Handlers del Search & Booking Context se detallan en la Tabla 39.
+Los Command Handlers del Search & Booking Context se detallan en la Tabla 40.
 
-<a id="tabla-39"></a>
+<a id="tabla-40"></a>
 
-**Tabla 39**
+**Tabla 40**
 
 *Command Handlers del Search & Booking Context*
 
@@ -1890,7 +1929,9 @@ Los Command Handlers del Search & Booking Context se detallan en la Tabla 39.
 | Command Handler | Command procesado | Flujo |
 |---|---|---|
 | `RegisterPatientCommandHandler` | `RegisterPatient` | Valida los datos, crea el paciente mediante `PatientFactory`, persiste mediante `PatientRepository` y publica `PatientRegistered` |
-| `LoginCommandHandler` | `LogIn` | Valida las credenciales del paciente y publica `PatientLoggedIn` |
+| `LoginCommandHandler` | `LogIn` | Busca el correo entre pacientes y personal activo, verifica la contraseña con BCrypt, emite el token JWT con el identificador y el rol mediante `JwtTokenService` y publica `PatientLoggedIn` |
+| `RegisterStaffMemberCommandHandler` | `RegisterStaffMember` | Valida que el correo no exista, guarda el hash de la contraseña y el rol, y publica `StaffMemberRegistered` |
+| `AssignStaffRoleCommandHandler` | `AssignStaffRole` | Cambia el rol de un miembro del personal y publica `StaffMemberRoleAssigned`; el cambio rige desde su siguiente inicio de sesión |
 | `PublishAvailableTimeSlotsCommandHandler` | `PublishAvailableTimeSlots` | Registra o actualiza los horarios disponibles de una óptica y publica `OpticalStoresPublished` |
 | `SaveFavoriteOpticalStoreCommandHandler` | `SaveFavoriteOpticalStore` | Registra una óptica como favorita del paciente y publica `FavoriteOpticalStoreSaved` |
 | `RateOpticalStoreCommandHandler` | `RateOpticalStore` | Valida y registra la valoración realizada por el paciente y publica `OpticalStoreRated` |
@@ -1899,11 +1940,11 @@ Los Command Handlers del Search & Booking Context se detallan en la Tabla 39.
 ##### Query Services
 
 
-Los Query Services del Search & Booking Context se presentan en la Tabla 40.
+Los Query Services del Search & Booking Context se presentan en la Tabla 41.
 
-<a id="tabla-40"></a>
+<a id="tabla-41"></a>
 
-**Tabla 40**
+**Tabla 41**
 
 *Query Services del Search & Booking Context*
 
@@ -1913,18 +1954,21 @@ Los Query Services del Search & Booking Context se presentan en la Tabla 40.
 | `SearchOpticalStoresQueryService` | `SearchOpticalStoresQuery` | Lista de ópticas encontradas |
 | `FilterOpticalStoresQueryService` | `FilterOpticalStoresQuery` | Lista de ópticas filtradas |
 | `GetOpticalStoreQueryService` | `GetOpticalStoreQuery` | Información detallada de una óptica |
+| `GetNearbyOpticalStoresQueryService` | `GetNearbyOpticalStoresQuery` | Lista de ópticas activas dentro de un radio, ordenadas por distancia a la ubicación del paciente |
 | `GetAvailableTimeSlotsQueryService` | `GetAvailableTimeSlotsQuery` | Lista de horarios disponibles |
 | `GetPatientAppointmentsQueryService` | `GetPatientAppointmentsQuery` | Lista de citas del paciente |
-| `GetFrameCatalogQueryService` | `ExploreFrameCatalogQuery` | Catálogo de monturas disponible |
+| `GetAppointmentQueryService` | `GetAppointmentQuery` | Detalle de una cita; también lo usa Clinical & Commercial para validar la atención (`GetAppointment`) |
+| `GetStaffMembersQueryService` | `GetStaffMembersQuery` | Lista del personal de una óptica con su rol |
+| `GetPatientsByBirthdayQueryService` | `GetPatientsByBirthdayQuery` | Identificadores de los pacientes cuyo día y mes de nacimiento coinciden con una fecha; lo usa Notification & Loyalty para el beneficio de cumpleaños |
 
 ##### Event Handlers
 
-Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno (ver Tabla 41).
+Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno (ver Tabla 42).
 
 
-<a id="tabla-41"></a>
+<a id="tabla-42"></a>
 
-**Tabla 41**
+**Tabla 42**
 
 *Event Handlers del Search & Booking Context*
 
@@ -1932,18 +1976,18 @@ Los eventos generados por Search & Booking pueden ser publicados para que otros 
 | Event Handler | Evento | Acción |
 |---|---|---|
 | `AppointmentBookedEventHandler` | `AppointmentBooked` | Publica el evento para que **Clinical & Commercial** pueda iniciar el flujo de atención mediante `ExaminePatient` |
-| `AppointmentBookedNotificationHandler` | `AppointmentBooked` | Publica el evento para que **Notification & Loyalty** pueda ejecutar `SendAppointmentReminder` |
+| `AppointmentBookedNotificationHandler` | `AppointmentBooked` | Publica el evento para que **Notification & Loyalty** pueda ejecutar `ScheduleAppointmentReminder` |
 
 En el diseño estratégico, `AppointmentBooked` comunica la creación de una reserva y permite que los contextos clínico y de notificaciones reaccionen sin compartir el modelo interno de Search & Booking. La implementación concreta de los consumidores y su validación deben distinguirse de esta relación conceptual.
 
 ##### Application Services
 
 
-Los Application Services del Search & Booking Context se resumen en la Tabla 42.
+Los Application Services del Search & Booking Context se resumen en la Tabla 43.
 
-<a id="tabla-42"></a>
+<a id="tabla-43"></a>
 
-**Tabla 42**
+**Tabla 43**
 
 *Application Services del Search & Booking Context*
 
@@ -1953,7 +1997,8 @@ Los Application Services del Search & Booking Context se resumen en la Tabla 42.
 | `SearchBookingApplicationService` | Fachada principal del contexto que coordina los casos de uso de búsqueda, disponibilidad y reserva |
 | `PatientApplicationService` | Coordina las operaciones relacionadas con el registro e identificación de pacientes |
 | `AppointmentApplicationService` | Coordina las operaciones relacionadas con la creación, consulta, confirmación, cancelación y reprogramación de citas |
-| `OpticalStoreApplicationService` | Coordina las operaciones de búsqueda, filtrado, favoritos, catálogo y valoración de ópticas |
+| `OpticalStoreApplicationService` | Coordina las operaciones de búsqueda, filtrado, ópticas cercanas, favoritos y valoración de ópticas |
+| `StaffMemberApplicationService` | Coordina el registro del personal y la asignación de roles |
 
 
 <a id="2.6.1.4. Infrastructure Layer"></a>
@@ -1966,11 +2011,11 @@ La infraestructura se mantiene separada del dominio para evitar que las reglas d
 ##### Repository Implementations
 
 
-Los Repository Implementations del Search & Booking Context se detallan en la Tabla 43.
+Los Repository Implementations del Search & Booking Context se detallan en la Tabla 44.
 
-<a id="tabla-43"></a>
+<a id="tabla-44"></a>
 
-**Tabla 43**
+**Tabla 44**
 
 *Repository Implementations del Search & Booking Context*
 
@@ -1981,15 +2026,18 @@ Los Repository Implementations del Search & Booking Context se detallan en la Ta
 | `PatientRepositoryImpl` | `PatientRepository` | Persistencia y consulta de pacientes |
 | `OpticalStoreRepositoryImpl` | `OpticalStoreRepository` | Consulta y filtrado de ópticas |
 | `TimeSlotRepositoryImpl` | `TimeSlotRepository` | Gestión de horarios disponibles y reservados |
+| `FavoriteStoreRepositoryImpl` | `FavoriteStoreRepository` | Persistencia de las ópticas favoritas |
+| `StoreRatingRepositoryImpl` | `StoreRatingRepository` | Persistencia de las valoraciones |
+| `StaffMemberRepositoryImpl` | `StaffMemberRepository` | Persistencia y consulta del personal |
 
 ##### Persistence Entities
 
 
-Los Persistence Entities del Search & Booking Context se presentan en la Tabla 44.
+Los Persistence Entities del Search & Booking Context se presentan en la Tabla 45.
 
-<a id="tabla-44"></a>
+<a id="tabla-45"></a>
 
-**Tabla 44**
+**Tabla 45**
 
 *Persistence Entities del Search & Booking Context*
 
@@ -2002,15 +2050,16 @@ Los Persistence Entities del Search & Booking Context se presentan en la Tabla 4
 | `TimeSlotEntity` | Representa la información persistida de un horario |
 | `FavoriteStoreEntity` | Representa la relación entre un paciente y una óptica favorita |
 | `StoreRatingEntity` | Representa la valoración realizada por un paciente |
+| `StaffMemberEntity` | Representa la información persistida de un miembro del personal |
 
 ##### Mappers
 
 
-Los Mappers del Search & Booking Context se resumen en la Tabla 45.
+Los Mappers del Search & Booking Context se resumen en la Tabla 46.
 
-<a id="tabla-45"></a>
+<a id="tabla-46"></a>
 
-**Tabla 45**
+**Tabla 46**
 
 *Mappers del Search & Booking Context*
 
@@ -2023,43 +2072,66 @@ Los Mappers del Search & Booking Context se resumen en la Tabla 45.
 | `TimeSlotMapper` | `TimeSlot` ↔ `TimeSlotEntity` |
 | `FavoriteStoreMapper` | Modelo de dominio ↔ `FavoriteStoreEntity` |
 | `StoreRatingMapper` | Modelo de dominio ↔ `StoreRatingEntity` |
+| `StaffMemberMapper` | `StaffMember` ↔ `StaffMemberEntity` |
 
 ##### External Service Adapters
 
 
-Los External Service Adapters del Search & Booking Context se detallan en la Tabla 46.
+Los External Service Adapters del Search & Booking Context se detallan en la Tabla 47.
 
-<a id="tabla-46"></a>
+<a id="tabla-47"></a>
 
-**Tabla 46**
+**Tabla 47**
 
 *External Service Adapters del Search & Booking Context*
 
 
 | Adapter | Servicio | Responsabilidad |
 |---|---|---|
-| `EventPublisherAdapter` | Sistema de eventos | Publicar eventos de dominio hacia otros Bounded Contexts |
-| `AuthenticationAdapter` | Servicio de autenticación | Gestionar la autenticación del paciente |
+| `EventPublisherAdapter` | Sistema de eventos | Adaptador compartido (`shared`) que publica los eventos de dominio mediante `ApplicationEventPublisher` de Spring |
+| `AuthenticationAdapter` | Servicio de autenticación | Genera y verifica los hash BCrypt de las contraseñas |
+| `JwtTokenService` | JSON Web Token | Emite y valida los tokens de acceso firmados (HS256) con el identificador del usuario, su rol y su expiración; el secreto se lee de la variable de entorno `JWT_SECRET` |
+| `JwtAuthenticationFilter` | Spring Security | Lee el encabezado `Authorization: Bearer`, valida el token y carga el usuario y su rol en el contexto de seguridad de cada solicitud |
 | `NotificationIntegrationAdapter` | Servicio de notificaciones | Facilitar la integración con el contexto Notification & Loyalty cuando corresponda |
 
 ##### Configuration
 
 
-Las clases de configuración del Search & Booking Context se presentan en la Tabla 47.
+Las clases de configuración del Search & Booking Context se presentan en la Tabla 48.
 
-<a id="tabla-47"></a>
+<a id="tabla-48"></a>
 
-**Tabla 47**
+**Tabla 48**
 
 *Clases de configuración del Search & Booking Context*
 
 
 | Clase de configuración | Propósito |
 |---|---|
-| `SearchBookingContextConfig` | Configura los componentes principales del Bounded Context |
-| `RepositoryConfig` | Configura las implementaciones de los repositorios |
-| `EventPublisherConfig` | Configura la publicación de eventos del contexto |
-| `ApiConfig` | Configura los puntos de entrada utilizados por la Interface Layer |
+| `SearchBookingConfiguration` | Registra los servicios de dominio y las implementaciones de repositorio del contexto |
+| `SecurityConfiguration` | Configura Spring Security sin sesiones: rutas públicas, `JwtAuthenticationFilter` y la autorización por rol de cada ruta del backend |
+| `CorsConfiguration` | Configuración compartida de CORS para la landing y la documentación de la API |
+| `OpenApiConfiguration` | Documentación OpenAPI (Swagger UI) con el esquema de seguridad Bearer |
+
+##### Autorización por rol
+
+El backend aplica los permisos de la US16 en `SecurityConfiguration`: cada ruta exige uno o más roles del token. `POST /patients`, `POST /login`, las consultas de ópticas y horarios, y el webhook de la pasarela de pagos son públicos. Además, un paciente solo puede consultar o modificar sus propios datos (por ejemplo, sus citas, pedidos y notificaciones), y una ruta sin el rol requerido responde HTTP 403. Los permisos se resumen por módulo (ver Tabla 49).
+
+
+<a id="tabla-49"></a>
+
+**Tabla 49**
+
+*Permisos por rol en el backend de OptiFlow*
+
+
+| Rol | Operaciones permitidas |
+|---|---|
+| `PATIENT` | Consultar el catálogo de monturas y usar el probador virtual; reservar y consultar sus citas, favoritos y valoraciones; consultar sus registros clínicos, recetas y pedidos; pagar sus ventas; registrar su dispositivo y consultar sus notificaciones y su cuenta de fidelización |
+| `OPTOMETRIST` | Registrar la atención clínica, la historia médica y la receta; consultar citas y registros clínicos |
+| `SALES_ADVISOR` | Generar y aprobar cotizaciones, registrar ventas y pagos en efectivo, cerrar ventas y consultar el catálogo y el stock (escáner) |
+| `TECHNICIAN` | Gestionar las órdenes de trabajo: asignación, envío al laboratorio, estados, demoras y entrega |
+| `ADMIN` | Todo lo anterior, además del personal y sus roles, el catálogo, el stock, los proveedores, el historial de movimientos, las alertas, el dashboard y los reportes |
 
 
 <a id="2.6.1.5. Bounded Context Software Architecture Component Level Diagrams"></a>
