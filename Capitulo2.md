@@ -3198,22 +3198,21 @@ El Domain Layer también incluye las interfaces `FrameModelRepository`, `Invento
 <a id="2.6.4.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-**Diseño propuesto; sin implementación de persistencia.** Store Management & Inventory no tiene migración SQL, entidades JPA ni repositorios implementados en la versión del backend revisada. Solo existen paquetes que reservan su organización por capas. Por tanto, este contexto no añade tablas a las 20 existentes en V1–V4.
+**Modelo físico: PostgreSQL compartido, migración V6.** Store Management & Inventory comprende cinco tablas en la misma base del backend.
 
-La propuesta contempla `frame_models`, `inventories`, `inventory_stocks`, `suppliers` y `replenishments` para organizar catálogo, existencias y abastecimiento. `inventory_stocks` se plantea con una clave compuesta por inventario y modelo de montura. Son decisiones de diseño pendientes de implementación y validación; no deben confundirse con tablas desplegadas ni incorporarse al SQL del esquema actual.
+Las tablas son `frame_models`, `inventories`, `inventory_stocks`, `suppliers` y `stock_movements`, que organizan el catálogo, las existencias y su historial. `frame_models` contiene `id`, `sku` (único; corresponde al código de barras que lee el escáner), `name`, `material`, `shape`, `color`, `price_amount NUMERIC(10,2)`, `price_currency` y `try_on_model_url` (referencia opcional al modelo del probador virtual). `inventories` contiene `id` y `optical_store_id` (FK hacia `optical_stores.id`, único), de modo que cada óptica tiene un inventario. `suppliers` contiene `id`, `name` y `contact`. `inventory_stocks` usa una clave compuesta por `inventory_id` y `frame_model_id` (FK hacia sus tablas) y guarda `quantity` y `minimum_stock`, ambos mayores o iguales a cero. `stock_movements` contiene `id`, `inventory_id` y `frame_model_id` (FK) y registra cada entrada o salida con `type` (`IN` u `OUT`), `reason` (`REPLENISHMENT`, `SALE` o `ADJUSTMENT`), cantidad, `sale_id` o `supplier_id` según el motivo, el usuario que lo registró (`performed_by`) y `created_at`.
 
-La tecnología propuesta es PostgreSQL dentro de la base compartida del backend. Su implementación requerirá una migración posterior con columnas, PK, FK, índices y reglas de integridad revisados. No se asigna un Sprint de ejecución sin un compromiso explícito del backlog.
 
-**La Figura 48 representa exclusivamente este diseño propuesto. Se identifica visualmente como no implementado (borde punteado y aviso superior) y se mantiene separada de los cuatro modelos físicos derivados de las migraciones.**
+**La Figura 52 representa las cinco tablas de la migración V6 con sus columnas, tipos, PK y FK.**
 
-<a id="figura-50"></a>
+<a id="figura-52"></a>
 
-**Figura 50**
+**Figura 52**
 
 *Diagrama de base de datos del Store Management & Inventory Context*
 
 <div align="center">
-  <img src="assets/cap2/db/store-inventory-proposal.png" alt="Store Management and Inventory Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/store-inventory.png" alt="Store Management and Inventory Database Design Diagram" width="1000">
 </div>
 
 
