@@ -1,0 +1,217 @@
+@startuml domain-search-booking
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName Arial
+hide empty members
+title Search & Booking Context - Domain Layer
+
+package "searchbooking.domain" {
+
+  package "model.aggregates" {
+    class Appointment <<Aggregate Root>> {
+      - id: AppointmentId
+      - patientId: PatientId
+      - opticalStoreId: OpticalStoreId
+      - timeSlot: TimeSlot
+      - status: AppointmentStatus
+      - createdAt: Instant
+      - updatedAt: Instant
+      + book(): void
+      + confirm(): void
+      + cancel(): void
+      + reschedule(timeSlot: TimeSlot): void
+      + isAvailable(): boolean
+    }
+  }
+
+  package "model.entities" {
+    class Patient <<Entity>> {
+      - id: PatientId
+      - name: Name
+      - email: EmailAddress
+      - phone: PhoneNumber
+      - passwordHash: String
+      - birthDate: LocalDate [0..1]
+      - createdAt: Instant
+    }
+    class StaffMember <<Entity>> {
+      - id: StaffMemberId
+      - opticalStoreId: OpticalStoreId
+      - name: Name
+      - email: EmailAddress
+      - passwordHash: String
+      - role: UserRole
+      - active: boolean
+      - createdAt: Instant
+      + assignRole(role: UserRole): void
+      + deactivate(): void
+    }
+    class OpticalStore <<Entity>> {
+      - id: OpticalStoreId
+      - name: StoreName
+      - address: StoreAddress
+      - phone: PhoneNumber
+      - location: GeoLocation
+      - rating: StoreRating
+      - status: StoreStatus
+      + distanceTo(location: GeoLocation): double
+    }
+    class TimeSlotEntity as "TimeSlot" <<Entity>> {
+      - id: TimeSlotId
+      - opticalStoreId: OpticalStoreId
+      - startDateTime: Instant
+      - endDateTime: Instant
+      - status: TimeSlotStatus
+      + reserve(): void
+    }
+    class FavoriteStore <<Entity>> {
+      - patientId: PatientId
+      - opticalStoreId: OpticalStoreId
+      - savedAt: Instant
+    }
+    class StoreRatingEntry as "StoreRating" <<Entity>> {
+      - patientId: PatientId
+      - opticalStoreId: OpticalStoreId
+      - score: int
+      - comment: String
+      - createdAt: Instant
+    }
+  }
+
+  package "model.valueobjects" {
+    class AppointmentId <<VO>>
+    class PatientId <<VO>>
+    class StaffMemberId <<VO>>
+    class OpticalStoreId <<VO>>
+    class TimeSlotId <<VO>>
+    class Name <<VO>> {
+      - value: String
+    }
+    class EmailAddress <<VO>> {
+      - value: String
+    }
+    class PhoneNumber <<VO>> {
+      - value: String
+    }
+    class StoreName <<VO>>
+    class StoreAddress <<VO>>
+    class GeoLocation <<VO>> {
+      - latitude: BigDecimal
+      - longitude: BigDecimal
+      + distanceTo(other: GeoLocation): double
+    }
+    class StoreRatingValue as "StoreRating (VO)" <<VO>> {
+      - average: BigDecimal
+    }
+    class TimeSlot <<VO>> {
+      - start: Instant
+      - end: Instant
+    }
+    enum AppointmentStatus {
+      PENDING
+      CONFIRMED
+      CANCELLED
+      COMPLETED
+    }
+    enum TimeSlotStatus {
+      AVAILABLE
+      RESERVED
+      BLOCKED
+    }
+    enum StoreStatus {
+      ACTIVE
+      INACTIVE
+    }
+    enum UserRole {
+      PATIENT
+      OPTOMETRIST
+      SALES_ADVISOR
+      TECHNICIAN
+      ADMIN
+    }
+  }
+
+  package "services" {
+    class AppointmentAvailabilityService <<Domain Service>>
+    class OpticalStoreSearchService <<Domain Service>>
+    class StoreRatingService <<Domain Service>>
+    class AppointmentFactory <<Factory>>
+    class PatientFactory <<Factory>>
+  }
+
+  package "repositories" {
+    interface AppointmentRepository {
+      + save(appointment: Appointment): void
+      + findById(id: AppointmentId): Optional<Appointment>
+      + findByPatientId(id: PatientId): List<Appointment>
+      + findByTimeSlot(id: TimeSlotId): Optional<Appointment>
+    }
+    interface PatientRepository {
+      + save(patient: Patient): void
+      + findById(id: PatientId): Optional<Patient>
+      + findByEmail(email: EmailAddress): Optional<Patient>
+      + findByBirthday(month: int, day: int): List<Patient>
+    }
+    interface StaffMemberRepository {
+      + save(member: StaffMember): void
+      + findById(id: StaffMemberId): Optional<StaffMember>
+      + findByEmail(email: EmailAddress): Optional<StaffMember>
+      + findByOpticalStoreId(id: OpticalStoreId): List<StaffMember>
+    }
+    interface OpticalStoreRepository {
+      + findById(id: OpticalStoreId): Optional<OpticalStore>
+      + search(text: String): List<OpticalStore>
+      + filter(criteria): List<OpticalStore>
+    }
+    interface TimeSlotRepository {
+      + findById(id: TimeSlotId): Optional<TimeSlot>
+      + findAvailableByStore(id: OpticalStoreId): List<TimeSlot>
+      + reserve(id: TimeSlotId): void
+    }
+  }
+
+  package "events" {
+    class PatientRegistered <<Domain Event>>
+    class PatientLoggedIn <<Domain Event>>
+    class StaffMemberRegistered <<Domain Event>>
+    class StaffMemberRoleAssigned <<Domain Event>>
+    class OpticalStoresFiltered <<Domain Event>>
+    class OpticalStoresPublished <<Domain Event>>
+    class FavoriteOpticalStoreSaved <<Domain Event>>
+    class OpticalStoreRated <<Domain Event>>
+    class AppointmentBooked <<Domain Event>>
+  }
+}
+
+Appointment "0..*" --> "1" Patient : patientId
+Appointment "0..*" --> "1" OpticalStore : opticalStoreId
+Appointment *-- "1" TimeSlot
+Appointment --> AppointmentStatus
+Patient *-- Name
+Patient *-- EmailAddress
+Patient *-- PhoneNumber
+StaffMember "0..*" --> "1" OpticalStore : trabaja en
+StaffMember --> UserRole
+OpticalStore *-- GeoLocation
+OpticalStore *-- StoreRatingValue
+OpticalStore --> StoreStatus
+OpticalStore "1" --> "0..*" TimeSlotEntity : publica
+TimeSlotEntity --> TimeSlotStatus
+FavoriteStore "0..*" --> "1" Patient
+FavoriteStore "0..*" --> "1" OpticalStore
+StoreRatingEntry "0..*" --> "1" Patient
+StoreRatingEntry "0..*" --> "1" OpticalStore
+AppointmentAvailabilityService ..> TimeSlotRepository : usa
+OpticalStoreSearchService ..> OpticalStoreRepository : usa
+StoreRatingService ..> StoreRatingEntry : valida
+AppointmentFactory ..> Appointment : crea
+PatientFactory ..> Patient : crea
+AppointmentRepository ..> Appointment
+PatientRepository ..> Patient
+StaffMemberRepository ..> StaffMember
+OpticalStoreRepository ..> OpticalStore
+TimeSlotRepository ..> TimeSlotEntity
+Appointment ..> AppointmentBooked : publica
+@enduml

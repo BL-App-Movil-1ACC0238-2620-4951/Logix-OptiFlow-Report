@@ -254,12 +254,12 @@ El alcance funcional comprometido en el Sprint 1 se concentra en las User Storie
 #### 4.2.1.1. Sprint Planning 1
 El Sprint Planning 1 tuvo como finalidad establecer el objetivo de la primera iteración, seleccionar las User Stories que contribuyen directamente a dicho objetivo, determinar la capacidad inicial del equipo y distribuir las principales responsabilidades de implementación.
 
-La reunión se realizó de manera virtual mediante Discord y fue preparada por Celis Berrospi, Eslander. Debido a que Sprint 1 representa la primera iteración de implementación de la solución, no existe un Sprint anterior sobre el cual realizar un Sprint Review o Sprint Retrospective formal (ver Tabla 108).
+La reunión se realizó de manera virtual mediante Discord y fue preparada por Celis Berrospi, Eslander. Debido a que Sprint 1 representa la primera iteración de implementación de la solución, no existe un Sprint anterior sobre el cual realizar un Sprint Review o Sprint Retrospective formal (ver Tabla 110).
 
 
-<a id="tabla-108"></a>
+<a id="tabla-110"></a>
 
-**Tabla 108**
+**Tabla 110**
 
 *Sprint Planning 1*
 
@@ -284,12 +284,12 @@ El alcance estimado en Story Points corresponde a US05 y US06. Las actividades d
 #### 4.2.1.2. Aspect Leaders and Collaborators
 Para organizar las responsabilidades del Sprint se establece una Leadership-and-Collaboration Matrix (LACX). La matriz identifica al integrante responsable de liderar cada aspecto y a los integrantes que participan como colaboradores.
 
-Los principales aspectos considerados durante Sprint 1 son la implementación del Landing Page, la experiencia móvil de búsqueda de ópticas, el flujo móvil de reserva de citas, los servicios asociados a Search & Booking y la integración y coordinación general del Sprint (ver Tabla 109).
+Los principales aspectos considerados durante Sprint 1 son la implementación del Landing Page, la experiencia móvil de búsqueda de ópticas, el flujo móvil de reserva de citas, los servicios asociados a Search & Booking y la integración y coordinación general del Sprint (ver Tabla 111).
 
 
-<a id="tabla-109"></a>
+<a id="tabla-111"></a>
 
-**Tabla 109**
+**Tabla 111**
 
 *Aspect leaders y colaboradores del Sprint 1*
 
@@ -311,23 +311,23 @@ Cada aspecto cuenta con un líder y colaboradores. La matriz expresa la distribu
 
 El Sprint Backlog reúne las tareas de búsqueda de ópticas y reserva de citas correspondientes a US05 y US06, junto con las actividades adicionales de la Landing Page. La tabla conserva las estimaciones y responsabilidades del registro de planificación. Las 13 tareas se encuentran en estado Done, ya que la Landing Page está publicada y la búsqueda de ópticas y la reserva de citas funcionan en la aplicación móvil y en los Web Services, como se evidencia en las secciones 4.2.1.6 a 4.2.1.8.
 
-**Board del Sprint:** [Tablero del Sprint 1 en GitHub](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report/blob/develop/assets/cap4/sprint1/sprint-board.md) · [Vista del tablero local](assets/cap4/sprint1/sprint-board.html). El tablero adjunto se elaboró para esta revisión a partir de las tareas del informe y sus evidencias (ver Figura 119).
+**Board del Sprint:** [Tablero del Sprint 1 en GitHub](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report/blob/develop/assets/cap4/sprint1/sprint-board.md) · [Vista del tablero local](assets/cap4/sprint1/sprint-board.html). El tablero adjunto se elaboró para esta revisión a partir de las tareas del informe y sus evidencias (ver Figura 121).
 
 
-<a id="figura-119"></a>
+<a id="figura-121"></a>
 
-**Figura 119**
+**Figura 121**
 
 *Tablero de revisión del Sprint 1*
 
 ![Tablero de revisión del Sprint 1](assets/cap4/sprint1/sprint-board.png)
 
 
-El Sprint Backlog 1 se presenta en la Tabla 110.
+El Sprint Backlog 1 se presenta en la Tabla 112.
 
-<a id="tabla-110"></a>
+<a id="tabla-112"></a>
 
-**Tabla 110**
+**Tabla 112**
 
 *Sprint Backlog 1*
 
@@ -352,12 +352,12 @@ El Sprint Backlog 1 se presenta en la Tabla 110.
 
 Durante el Sprint 1 se registraron avances en los tres productos principales de OptiFlow. La Landing Page incorpora secciones informativas, ajustes visuales, navegación y validaciones del formulario. El backend incluye operaciones de búsqueda de ópticas, disponibilidad y reserva de citas, además de validaciones de entrada y manejo de errores. La aplicación móvil incorpora el cliente de comunicación con el backend, el registro e inicio de sesión del paciente, la consulta de establecimientos y la selección de horarios para realizar reservas.
 
-La siguiente tabla presenta commits representativos del alcance documentado, obtenidos de los historiales de las clonaciones locales revisadas el 2026-10-07 (ver Tabla 111).
+La siguiente tabla presenta commits representativos del alcance documentado, obtenidos de los historiales de las clonaciones locales revisadas el 2026-10-07 (ver Tabla 113).
 
 
-<a id="tabla-111"></a>
+<a id="tabla-113"></a>
 
-**Tabla 111**
+**Tabla 113**
 
 *Commits de desarrollo del Sprint 1*
 
@@ -395,12 +395,12 @@ La siguiente tabla presenta commits representativos del alcance documentado, obt
 
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
 
-La verificación de Web Services comprende pruebas unitarias, pruebas de integración y pruebas de aceptación automatizadas bajo BDD. JUnit valida las reglas del dominio; Spring Boot Test y MockMvc comprueban las operaciones de la API; Cucumber ejecuta los escenarios Gherkin de US05 y US06 mediante Steps en Java (ver Tabla 112).
+La verificación de Web Services comprende pruebas unitarias, pruebas de integración y pruebas de aceptación automatizadas bajo BDD. JUnit valida las reglas del dominio; Spring Boot Test y MockMvc comprueban las operaciones de la API; Cucumber ejecuta los escenarios Gherkin de US05 y US06 mediante Steps en Java (ver Tabla 114).
 
 
-<a id="tabla-112"></a>
+<a id="tabla-114"></a>
 
-**Tabla 112**
+**Tabla 114**
 
 *Escenarios de prueba del Sprint 1*
 
@@ -415,12 +415,12 @@ La verificación de Web Services comprende pruebas unitarias, pruebas de integra
 
 ##### Resultados de ejecución
 
-El 2026-10-07 a las 23:09:57 (America/Lima) se ejecutó `mvn test` sobre el backend con la suite BDD incorporada localmente. Maven finalizó con **BUILD SUCCESS: 53 tests, 0 failures, 0 errors y 0 skipped**. Las suites relacionadas con Search & Booking y soporte suman 38 ejecuciones, incluidos cuatro escenarios de aceptación. Las 15 ejecuciones restantes corresponden a Clinical & Commercial y Production & Tracking (ver Tabla 113).
+El 2026-10-07 a las 23:09:57 (America/Lima) se ejecutó `mvn test` sobre el backend con la suite BDD incorporada localmente. Maven finalizó con **BUILD SUCCESS: 53 tests, 0 failures, 0 errors y 0 skipped**. Las suites relacionadas con Search & Booking y soporte suman 38 ejecuciones, incluidos cuatro escenarios de aceptación. Las 15 ejecuciones restantes corresponden a Clinical & Commercial y Production & Tracking (ver Tabla 115).
 
 
-<a id="tabla-113"></a>
+<a id="tabla-115"></a>
 
-**Tabla 113**
+**Tabla 115**
 
 *Resultados de ejecución de la suite de pruebas*
 
@@ -438,12 +438,12 @@ El 2026-10-07 a las 23:09:57 (America/Lima) se ejecutó `mvn test` sobre el back
 
 Los casos parametrizados se contabilizan como ejecuciones individuales. La ejecución utilizó Java 25.0.3 con release 21 configurado en Maven. Las pruebas BDD emplean una base H2 independiente (`optiflow_bdd`), pacientes con correos únicos y horarios nuevos para los escenarios de reserva, sin acceder a datos de producción.
 
-**Evidencias:** [resumen de Maven Surefire](assets/cap4/sprint1/test-results.txt), [reporte HTML de Cucumber](assets/cap4/sprint1/testing/cucumber.html) y [resultados JSON](assets/cap4/sprint1/testing/cucumber.json) (ver Figura 120).
+**Evidencias:** [resumen de Maven Surefire](assets/cap4/sprint1/test-results.txt), [reporte HTML de Cucumber](assets/cap4/sprint1/testing/cucumber.html) y [resultados JSON](assets/cap4/sprint1/testing/cucumber.json) (ver Figura 122).
 
 
-<a id="figura-120"></a>
+<a id="figura-122"></a>
 
-**Figura 120**
+**Figura 122**
 
 *Resultado de los escenarios de aceptación en Cucumber*
 
@@ -459,11 +459,11 @@ Los errores de contexto se deben al índice parcial con WHERE de la migración V
 ##### Evidencia de control de versiones
 
 
-Los commits de la suite de pruebas se resumen en la Tabla 114.
+Los commits de la suite de pruebas se resumen en la Tabla 116.
 
-<a id="tabla-114"></a>
+<a id="tabla-116"></a>
 
-**Tabla 114**
+**Tabla 116**
 
 *Commits de la suite de pruebas*
 
@@ -483,11 +483,11 @@ La suite BDD se encuentra registrada en el commit [706ada9](https://github.com/B
 ##### Archivos de pruebas de aceptación
 
 
-Los archivos de pruebas de aceptación se detallan en la Tabla 115.
+Los archivos de pruebas de aceptación se detallan en la Tabla 117.
 
-<a id="tabla-115"></a>
+<a id="tabla-117"></a>
 
-**Tabla 115**
+**Tabla 117**
 
 *Archivos de pruebas de aceptación*
 
@@ -565,47 +565,47 @@ La ejecución del incremento permitió visualizar la Landing Page en escritorio 
 
 La Landing Page presenta la propuesta de valor de OptiFlow y permite navegar entre sus secciones informativas. Las capturas se obtuvieron desde la clonación local en Chrome, con viewports de 1440 × 1000 píxeles para escritorio y 390 × 844 píxeles para móvil. Se utilizó el control Saltar para finalizar la introducción y acceder a la vista principal.
 
-**Landing Page en escritorio.** Se visualizan la identidad de OptiFlow, la propuesta de valor y los accesos de navegación (ver Figura 121).
-
-
-<a id="figura-121"></a>
-
-**Figura 121**
-
-*Landing Page en escritorio*
-
-![Landing Page en escritorio](assets/cap4/sprint1/landing-desktop.png)
-
-
-**Landing Page en móvil.** La presentación se adapta a una distribución vertical y la navegación utiliza un menú compacto (ver Figura 122).
-
-
-<a id="figura-122"></a>
-
-**Figura 122**
-
-*Landing Page en móvil*
-
-<img src="assets/cap4/sprint1/landing-mobile.png" alt="Landing Page en móvil" width="390">
-
-
-**Menú y navegación móvil.** Se abrió el menú y se seleccionó Beneficios para comprobar el acceso a la sección correspondiente (ver Figura 123).
+**Landing Page en escritorio.** Se visualizan la identidad de OptiFlow, la propuesta de valor y los accesos de navegación (ver Figura 123).
 
 
 <a id="figura-123"></a>
 
 **Figura 123**
 
+*Landing Page en escritorio*
+
+![Landing Page en escritorio](assets/cap4/sprint1/landing-desktop.png)
+
+
+**Landing Page en móvil.** La presentación se adapta a una distribución vertical y la navegación utiliza un menú compacto (ver Figura 124).
+
+
+<a id="figura-124"></a>
+
+**Figura 124**
+
+*Landing Page en móvil*
+
+<img src="assets/cap4/sprint1/landing-mobile.png" alt="Landing Page en móvil" width="390">
+
+
+**Menú y navegación móvil.** Se abrió el menú y se seleccionó Beneficios para comprobar el acceso a la sección correspondiente (ver Figura 125).
+
+
+<a id="figura-125"></a>
+
+**Figura 125**
+
 *Menú móvil de la Landing Page*
 
 <img src="assets/cap4/sprint1/landing-mobile-menu.png" alt="Menú móvil de la Landing Page" width="390">
 
 
-El navegación móvil a Beneficios se presenta en la Figura 124.
+El navegación móvil a Beneficios se presenta en la Figura 126.
 
-<a id="figura-124"></a>
+<a id="figura-126"></a>
 
-**Figura 124**
+**Figura 126**
 
 *Navegación móvil a Beneficios*
 
@@ -616,48 +616,48 @@ El navegación móvil a Beneficios se presenta en la Figura 124.
 
 Los Web Services se ejecutaron en `http://127.0.0.1:8080` con el perfil local. La documentación OpenAPI se visualizó en [Swagger UI local](http://localhost:8080/swagger-ui/index.html), que permitió ejecutar consultas y solicitudes con datos de demostración. El README de la aplicación también referencia [Swagger del backend desplegado](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html); las evidencias de esta revisión corresponden al entorno local.
 
-**Vista general de Swagger.** La documentación organiza las operaciones de pacientes, ópticas, disponibilidad y citas dentro de Search & Booking (ver Figura 125).
-
-
-<a id="figura-125"></a>
-
-**Figura 125**
-
-*Swagger UI de OptiFlow*
-
-![Swagger UI de OptiFlow](assets/cap4/sprint1/swagger-overview.png)
-
-
-**Consulta de ópticas.** La ejecución de GET /optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado (ver Figura 126).
-
-
-<a id="figura-126"></a>
-
-**Figura 126**
-
-*Consulta de ópticas en Swagger*
-
-![Consulta de ópticas en Swagger](assets/cap4/sprint1/swagger-optical-stores.png)
-
-
-**Reserva confirmada.** POST /appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED (ver Figura 127).
+**Vista general de Swagger.** La documentación organiza las operaciones de pacientes, ópticas, disponibilidad y citas dentro de Search & Booking (ver Figura 127).
 
 
 <a id="figura-127"></a>
 
 **Figura 127**
 
-*Reserva confirmada en Swagger*
+*Swagger UI de OptiFlow*
 
-![Reserva confirmada en Swagger](assets/cap4/sprint1/swagger-booking-confirmed.png)
+![Swagger UI de OptiFlow](assets/cap4/sprint1/swagger-overview.png)
 
 
-**Prevención de doble reserva.** Al repetir la solicitud sobre el mismo horario, el servicio devuelve HTTP 409 e informa que el horario seleccionado ya no está disponible (ver Figura 128).
+**Consulta de ópticas.** La ejecución de GET /optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado (ver Figura 128).
 
 
 <a id="figura-128"></a>
 
 **Figura 128**
+
+*Consulta de ópticas en Swagger*
+
+![Consulta de ópticas en Swagger](assets/cap4/sprint1/swagger-optical-stores.png)
+
+
+**Reserva confirmada.** POST /appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED (ver Figura 129).
+
+
+<a id="figura-129"></a>
+
+**Figura 129**
+
+*Reserva confirmada en Swagger*
+
+![Reserva confirmada en Swagger](assets/cap4/sprint1/swagger-booking-confirmed.png)
+
+
+**Prevención de doble reserva.** Al repetir la solicitud sobre el mismo horario, el servicio devuelve HTTP 409 e informa que el horario seleccionado ya no está disponible (ver Figura 130).
+
+
+<a id="figura-130"></a>
+
+**Figura 130**
 
 *Rechazo de doble reserva en Swagger*
 
@@ -670,60 +670,60 @@ La aplicación se compiló desde la rama develop mediante assembleLocalDebug y G
 
 El recorrido utilizó el paciente ficticio Paciente Demo Informe. Tras el inicio de sesión se consultaron las ópticas disponibles, se abrió la sucursal de Miraflores, se solicitaron sus horarios y se confirmó una reserva. Las fechas y horas visibles corresponden a la zona horaria del emulador, configurado en UTC durante esta demostración.
 
-**Acceso del paciente.** Inicio de sesión con una cuenta ficticia del backend local (ver Figura 129).
-
-
-<a id="figura-129"></a>
-
-**Figura 129**
-
-*Acceso del paciente de demostración*
-
-<img src="assets/cap4/sprint1/mobile-access.png" alt="Acceso del paciente de demostración" width="390">
-
-
-**Búsqueda de ópticas (US05).** La app muestra establecimientos obtenidos del backend, con sus direcciones, teléfonos, valoraciones y controles de búsqueda (ver Figura 130).
-
-
-<a id="figura-130"></a>
-
-**Figura 130**
-
-*Búsqueda de ópticas en la aplicación*
-
-<img src="assets/cap4/sprint1/mobile-search.png" alt="Búsqueda de ópticas en la aplicación" width="390">
-
-
-**Disponibilidad de atención.** Se consultan los horarios disponibles de la sucursal de Miraflores antes de solicitar la reserva (ver Figura 131).
+**Acceso del paciente.** Inicio de sesión con una cuenta ficticia del backend local (ver Figura 131).
 
 
 <a id="figura-131"></a>
 
 **Figura 131**
 
-*Disponibilidad de horarios en la aplicación*
+*Acceso del paciente de demostración*
 
-<img src="assets/cap4/sprint1/mobile-availability.png" alt="Disponibilidad de horarios en la aplicación" width="390">
+<img src="assets/cap4/sprint1/mobile-access.png" alt="Acceso del paciente de demostración" width="390">
 
 
-**Reserva confirmada (US06).** La app muestra el identificador de la cita creada y su estado CONFIRMED (ver Figura 132).
+**Búsqueda de ópticas (US05).** La app muestra establecimientos obtenidos del backend, con sus direcciones, teléfonos, valoraciones y controles de búsqueda (ver Figura 132).
 
 
 <a id="figura-132"></a>
 
 **Figura 132**
 
-*Confirmación de la reserva desde la aplicación*
+*Búsqueda de ópticas en la aplicación*
 
-<img src="assets/cap4/sprint1/mobile-booking-confirmed.png" alt="Confirmación de la reserva desde la aplicación" width="390">
+<img src="assets/cap4/sprint1/mobile-search.png" alt="Búsqueda de ópticas en la aplicación" width="390">
 
 
-**Verificación de la cita móvil en el backend.** GET /appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend (ver Figura 133).
+**Disponibilidad de atención.** Se consultan los horarios disponibles de la sucursal de Miraflores antes de solicitar la reserva (ver Figura 133).
 
 
 <a id="figura-133"></a>
 
 **Figura 133**
+
+*Disponibilidad de horarios en la aplicación*
+
+<img src="assets/cap4/sprint1/mobile-availability.png" alt="Disponibilidad de horarios en la aplicación" width="390">
+
+
+**Reserva confirmada (US06).** La app muestra el identificador de la cita creada y su estado CONFIRMED (ver Figura 134).
+
+
+<a id="figura-134"></a>
+
+**Figura 134**
+
+*Confirmación de la reserva desde la aplicación*
+
+<img src="assets/cap4/sprint1/mobile-booking-confirmed.png" alt="Confirmación de la reserva desde la aplicación" width="390">
+
+
+**Verificación de la cita móvil en el backend.** GET /appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend (ver Figura 135).
+
+
+<a id="figura-135"></a>
+
+**Figura 135**
 
 *Consulta en Swagger de la cita creada desde la app*
 

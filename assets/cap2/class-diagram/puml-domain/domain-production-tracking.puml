@@ -1,0 +1,129 @@
+@startuml domain-production-tracking
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName Arial
+hide empty members
+title Production & Tracking Context - Domain Layer
+
+package "production.domain" {
+
+  package "entities" {
+    class WorkOrder <<Aggregate Root>> {
+      - id: WorkOrderId
+      - saleId: SaleId
+      - patientId: PatientId
+      - opticalStoreId: OpticalStoreId [0..1]
+      - technician: Technician [0..1]
+      - laboratory: Laboratory [0..1]
+      - lenses: List<Lenses>
+      - status: WorkOrderStatus
+      - estimatedDeliveryDate: DeliveryDate
+      - deliveryDelay: DeliveryDelay [0..1]
+      - statusHistory: List<StatusChange>
+      - createdAt: Instant
+      - updatedAt: Instant
+      - deliveredAt: Instant [0..1]
+      + {static} generate(saleId, patientId, opticalStoreId, lenses, now): WorkOrder
+      + assignTo(technician: Technician, now: Instant): void
+      + sendToLaboratory(laboratory: Laboratory, now: Instant): void
+      + updateStatus(target: WorkOrderStatus, now: Instant): void
+      + completeLenses(lensIds: List<LensId>, now: Instant): List<LensId>
+      + notifyDeliveryDelay(reason: String, newDate: LocalDate, now: Instant): void
+      + markAsDelivered(now: Instant): void
+      + allLensesCompleted(): boolean
+      + isDelayed(today: LocalDate): boolean
+    }
+    class Lenses <<Entity>> {
+      - id: LensId
+      - specifications: String
+      - completed: boolean
+      + complete(): void
+    }
+    class Technician <<Entity>> {
+      - id: TechnicianId
+      - name: String
+    }
+    class Laboratory <<Entity>> {
+      - id: LaboratoryId
+      - name: String
+    }
+  }
+
+  package "valueobjects" {
+    class WorkOrderId <<VO>>
+    class SaleId <<VO>>
+    class PatientId <<VO>>
+    class OpticalStoreId <<VO>>
+    class TechnicianId <<VO>>
+    class LaboratoryId <<VO>>
+    class LensId <<VO>>
+    class DeliveryDate <<VO>> {
+      - date: LocalDate
+    }
+    class DeliveryDelay <<VO>> {
+      - reason: String
+      - reportedAt: Instant
+      - newEstimatedDeliveryDate: LocalDate
+    }
+    class StatusChange <<VO>> {
+      - status: WorkOrderStatus
+      - changedAt: Instant
+    }
+    enum WorkOrderStatus {
+      PENDING
+      IN_WORKSHOP
+      QUALITY_CONTROL
+      READY_FOR_DELIVERY
+      DELIVERED
+    }
+  }
+
+  package "repositories" {
+    interface WorkOrderRepository {
+      + save(workOrder: WorkOrder): void
+      + findById(id: WorkOrderId): Optional<WorkOrder>
+      + existsBySaleId(saleId: SaleId): boolean
+      + findByPatientId(id: PatientId): List<WorkOrder>
+      + findByStatus(status: WorkOrderStatus): List<WorkOrder>
+    }
+    interface TechnicianRepository {
+      + save(technician: Technician): void
+      + findById(id: TechnicianId): Optional<Technician>
+      + findAll(): List<Technician>
+    }
+    interface LaboratoryRepository {
+      + save(laboratory: Laboratory): void
+      + findById(id: LaboratoryId): Optional<Laboratory>
+      + findAll(): List<Laboratory>
+    }
+  }
+
+  package "events" {
+    class WorkOrderGenerated <<Domain Event>>
+    class WorkOrderAssigned <<Domain Event>>
+    class WorkOrderSentToLaboratory <<Domain Event>>
+    class WorkOrderStatusUpdated <<Domain Event>>
+    class LensesWereCompleted <<Domain Event>>
+    class EstimatedDeliveryDateCalculated <<Domain Event>>
+    class DeliveryDelayNotified <<Domain Event>>
+    class OrderWasMarkedAsDelivered <<Domain Event>>
+  }
+}
+
+WorkOrder *-- "1..*" Lenses
+WorkOrder "0..*" --> "0..1" Technician : asignada a
+WorkOrder "0..*" --> "0..1" Laboratory : enviada a
+WorkOrder --> WorkOrderStatus
+WorkOrder *-- "1" DeliveryDate
+WorkOrder *-- "0..1" DeliveryDelay
+WorkOrder *-- "0..*" StatusChange
+WorkOrder --> SaleId : origen
+WorkOrderRepository ..> WorkOrder
+TechnicianRepository ..> Technician
+LaboratoryRepository ..> Laboratory
+WorkOrder ..> WorkOrderStatusUpdated : publica
+WorkOrder ..> DeliveryDelayNotified : publica
+WorkOrder ..> OrderWasMarkedAsDelivered : publica
+@enduml

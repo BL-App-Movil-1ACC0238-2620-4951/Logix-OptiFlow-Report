@@ -1,0 +1,140 @@
+@startuml domain-notification-loyalty
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName Arial
+hide empty members
+title Notification & Loyalty Context - Domain Layer
+
+package "notification.domain" {
+
+  package "entities" {
+    class Notification <<Aggregate Root>> {
+      - id: NotificationId
+      - patientId: PatientId
+      - type: NotificationType
+      - message: NotificationMessage
+      - appointmentId: AppointmentId [0..1]
+      - workOrderId: WorkOrderId [0..1]
+      - status: NotificationStatus
+      - pushStatus: PushStatus
+      - scheduledAt: Instant [0..1]
+      - surveyResponse: SurveyResponse [0..1]
+      - createdAt: Instant
+      - readAt: Instant [0..1]
+      + {static} scheduleAppointmentReminder(...): Notification
+      + {static} scheduleAnnualCheckupReminder(...): Notification
+      + {static} notifyLensOrderProgress(...): Notification
+      + {static} notifyDeliveryDelay(...): Notification
+      + {static} sendSatisfactionSurvey(...): Notification
+      + {static} sendBirthdayDiscount(...): Notification
+      + markAsRead(now: Instant): void
+      + answerSurvey(response: SurveyResponse): void
+      + markPushSent(): void
+      + markPushFailed(): void
+      + isDue(now: Instant): boolean
+    }
+    class LoyaltyAccount <<Aggregate Root>> {
+      - patientId: PatientId
+      - balance: LoyaltyPoints
+      - lastBirthdayDiscountYear: Integer [0..1]
+      - updatedAt: Instant
+      + {static} open(patientId: PatientId, now: Instant): LoyaltyAccount
+      + grantBirthdayDiscount(calendarYear: int, now: Instant): LoyaltyPoints
+      + earn(points: LoyaltyPoints, now: Instant): void
+    }
+    class DeviceToken <<Entity>> {
+      - id: UUID
+      - patientId: PatientId
+      - token: String
+      - platform: String
+      - updatedAt: Instant
+      + reassignTo(patientId: PatientId, now: Instant): void
+    }
+  }
+
+  package "valueobjects" {
+    class NotificationId <<VO>>
+    class PatientId <<VO>>
+    class AppointmentId <<VO>>
+    class WorkOrderId <<VO>>
+    class NotificationMessage <<VO>> {
+      - title: String
+      - body: String
+    }
+    class LoyaltyPoints <<VO>> {
+      - value: int
+    }
+    class SurveyResponse <<VO>> {
+      - rating: int
+      - comment: String [0..1]
+      - answeredAt: Instant
+    }
+    enum NotificationType {
+      APPOINTMENT_REMINDER
+      ANNUAL_CHECKUP_REMINDER
+      LENS_ORDER_PROGRESS
+      DELIVERY_DELAY
+      SATISFACTION_SURVEY
+      BIRTHDAY_DISCOUNT
+    }
+    enum NotificationStatus {
+      UNREAD
+      READ
+    }
+    enum PushStatus {
+      PENDING
+      SENT
+      FAILED
+    }
+  }
+
+  package "repositories" {
+    interface NotificationRepository {
+      + save(notification: Notification): void
+      + findById(id: NotificationId): Optional<Notification>
+      + findVisibleByPatientId(id: PatientId, now: Instant): List<Notification>
+      + findPendingDue(now: Instant): List<Notification>
+    }
+    interface LoyaltyAccountRepository {
+      + save(account: LoyaltyAccount): void
+      + findByPatientId(id: PatientId): Optional<LoyaltyAccount>
+    }
+    interface DeviceTokenRepository {
+      + save(token: DeviceToken): void
+      + findByToken(token: String): Optional<DeviceToken>
+      + findByPatientId(id: PatientId): List<DeviceToken>
+      + delete(token: DeviceToken): void
+    }
+  }
+
+  package "events" {
+    class InAppNotificationSent <<Domain Event>>
+    class AppointmentReminderScheduled <<Domain Event>>
+    class LensOrderProgressNotified <<Domain Event>>
+    class SatisfactionSurveyWasSent <<Domain Event>>
+    class SatisfactionSurveyCompleted <<Domain Event>>
+    class BirthdayDiscountWasSent <<Domain Event>>
+    class PushNotificationSent <<Domain Event>>
+    class DeviceTokenRegistered <<Domain Event>>
+  }
+}
+
+Notification --> NotificationType
+Notification --> NotificationStatus
+Notification --> PushStatus
+Notification *-- "1" NotificationMessage
+Notification *-- "0..1" SurveyResponse
+Notification --> "0..1" AppointmentId
+Notification --> "0..1" WorkOrderId
+LoyaltyAccount *-- "1" LoyaltyPoints
+DeviceToken "0..*" --> "1" PatientId
+Notification "0..*" --> "1" PatientId
+LoyaltyAccount "0..1" --> "1" PatientId
+NotificationRepository ..> Notification
+LoyaltyAccountRepository ..> LoyaltyAccount
+DeviceTokenRepository ..> DeviceToken
+Notification ..> InAppNotificationSent : publica
+LoyaltyAccount ..> BirthdayDiscountWasSent : publica
+@enduml

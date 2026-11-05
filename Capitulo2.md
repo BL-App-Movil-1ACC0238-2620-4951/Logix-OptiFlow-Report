@@ -1542,15 +1542,15 @@ El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en e
 <a id="Tactical-Level Domain-Driven Design"></a>
 ## 2.6. Tactical-Level Domain-Driven Design
 
-Los cuatro contextos implementados de OptiFlow comparten una sola base de datos PostgreSQL. El backend accede a ella mediante JPA/Hibernate. La separación por Bounded Context organiza las responsabilidades y las reglas del negocio, sin crear una base de datos por contexto. Las migraciones V1 a V4 definen 20 tablas: seis de Search & Booking, siete de Clinical & Commercial, cinco de Production & Tracking y dos de Notification & Loyalty.
+Los cinco contextos de OptiFlow comparten una sola base de datos PostgreSQL. El backend accede a ella mediante JPA/Hibernate. La separación por Bounded Context organiza las responsabilidades y las reglas del negocio, sin crear una base de datos por contexto. Las migraciones V1 a V9 definen 27 tablas: siete de Search & Booking, siete de Clinical & Commercial, cinco de Production & Tracking, cinco de Store Management & Inventory y tres de Notification & Loyalty.
 
 El perfil `postgres` valida el mapeo JPA y aplica las migraciones con Flyway. El perfil `local` utiliza H2 en memoria para desarrollo; ello no implica persistencia NoSQL. La app móvil consume contratos HTTP del backend y no define el esquema físico PostgreSQL.
 
-El modelo de datos se basa en las migraciones `V1__search_booking_schema.sql`, `V2__clinical_commercial_schema.sql`, `V3__production_tracking_schema.sql` y `V4__notification_loyalty_schema.sql` del backend. Las secciones siguientes describen las tablas y restricciones de cada contexto. Store Management & Inventory se presenta por separado porque todavía no tiene una migración implementada.
+El modelo de datos se basa en las migraciones `V1__search_booking_schema.sql`, `V2__clinical_commercial_schema.sql`, `V3__production_tracking_schema.sql`, `V4__notification_loyalty_schema.sql`, `V5__optical_store_location.sql`, `V6__store_inventory_schema.sql`, `V7__notification_push.sql`, `V8__staff_members.sql` y `V9__sale_checkout_payment.sql` del backend. Las secciones siguientes describen las tablas y restricciones de cada contexto.
 
 Las relaciones físicas del modelo corresponden a las claves foráneas declaradas en las migraciones. Los identificadores que no tienen una restricción `FOREIGN KEY` se documentan como referencias lógicas. Los objetos de valor y las claves compuestas de JPA no implican que la información se almacene como documentos MongoDB.
 
-Los diagramas de base de datos de las Figuras 39, 42, 45 y 51 se elaboraron directamente a partir de las migraciones V1–V4: muestran cada tabla con sus columnas, tipos, nulabilidad, claves primarias, claves foráneas, restricciones `UNIQUE` y `CHECK` e índices. Los identificadores sin `FOREIGN KEY` se marcan como `REF` y no se dibujan como relaciones. La Figura 48 corresponde a Store Management & Inventory, que es un diseño propuesto, y se identifica visualmente como no implementado.
+Los diagramas de base de datos de las Figuras 43, 46, 49 y 55 se elaboraron directamente a partir de las migraciones V1–V9: muestran cada tabla con sus columnas, tipos, nulabilidad, claves primarias, claves foráneas y restricciones `UNIQUE`; los `CHECK` y los índices se describen en el texto de cada contexto. Los identificadores sin `FOREIGN KEY` no se dibujan como relaciones. La Figura 52 corresponde a Store Management & Inventory (migración V6).
 
 <a id="2.6.1. Bounded Context: Search & Booking Context"></a>
 ### 2.6.1. Bounded Context: Search & Booking Context
@@ -2095,16 +2095,17 @@ El siguiente UML Class Diagram representa la estructura del **Domain Layer** cor
 
 El modelo tiene como elemento principal al Aggregate Root `Appointment`, encargado de representar el proceso de reserva de una cita. Este se relaciona con las Entities `Patient`, `OpticalStore` y `TimeSlot`, las cuales representan respectivamente al paciente que realiza la reserva, la óptica seleccionada y el horario disponible para la atención.
 
-El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 40).
+El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 42).
 
 
-<a id="figura-40"></a>
+<a id="figura-42"></a>
 
-**Figura 40**
+**Figura 42**
 
 *Diagrama de clases del Domain Layer del Search & Booking Context*
 
-![Search-Booking.svg](assets/cap2/class-diagram/imageclass/Search-Booking.svg)
+![Search & Booking Domain Layer Class Diagram](assets/cap2/class-diagram/domain/search-booking.png)
+
 
 
 <a id="2.6.1.6.2. Bounded Context Database Design Diagram"></a>
@@ -2273,16 +2274,17 @@ La estructura modular permite que el registro clínico, la prescripción optomé
 <a id="2.6.2.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 43).
+El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 45).
 
 
-<a id="figura-43"></a>
+<a id="figura-45"></a>
 
-**Figura 43**
+**Figura 45**
 
 *Diagrama de clases del Domain Layer del Clinical & Commercial Context*
 
-![Clinical-Commercial.svg](assets/cap2/class-diagram/imageclass/Clinical-Commercial.svg)
+![Clinical & Commercial Domain Layer Class Diagram](assets/cap2/class-diagram/domain/clinical-commercial.png)
+
 
 
 <a id="2.6.2.6.2. Bounded Context Database Design Diagram"></a>
@@ -2325,11 +2327,11 @@ La **Domain Layer** concentra las reglas de negocio relacionadas con la producci
 El modelo de dominio se estructura alrededor de los principales conceptos definidos en el lenguaje ubicuo del contexto:
 
 
-Los conceptos del Domain Layer del Production & Tracking Context se presentan en la Tabla 52.
+Los conceptos del Domain Layer del Production & Tracking Context se presentan en la Tabla 54.
 
-<a id="tabla-52"></a>
+<a id="tabla-54"></a>
 
-**Tabla 52**
+**Tabla 54**
 
 *Conceptos del Domain Layer del Production & Tracking Context*
 
@@ -2347,11 +2349,11 @@ Los conceptos del Domain Layer del Production & Tracking Context se presentan en
 El flujo de estados definido para la `Work Order` utiliza las siguientes etapas:
 
 
-Los estados de la orden de trabajo se resumen en la Tabla 53.
+Los estados de la orden de trabajo se resumen en la Tabla 55.
 
-<a id="tabla-53"></a>
+<a id="tabla-55"></a>
 
-**Tabla 53**
+**Tabla 55**
 
 *Estados de la orden de trabajo*
 
@@ -2368,11 +2370,11 @@ Los estados de la orden de trabajo se resumen en la Tabla 53.
 Los principales comandos definidos para el contexto son:
 
 
-Los Domain Commands del Production & Tracking Context se detallan en la Tabla 54.
+Los Domain Commands del Production & Tracking Context se detallan en la Tabla 56.
 
-<a id="tabla-54"></a>
+<a id="tabla-56"></a>
 
-**Tabla 54**
+**Tabla 56**
 
 *Domain Commands del Production & Tracking Context*
 
@@ -2392,11 +2394,11 @@ Los Domain Commands del Production & Tracking Context se detallan en la Tabla 54
 Los eventos publicados por este contexto son:
 
 
-Los Domain Events del Production & Tracking Context se presentan en la Tabla 55.
+Los Domain Events del Production & Tracking Context se presentan en la Tabla 57.
 
-<a id="tabla-55"></a>
+<a id="tabla-57"></a>
 
-**Tabla 55**
+**Tabla 57**
 
 *Domain Events del Production & Tracking Context*
 
@@ -2415,11 +2417,11 @@ Los Domain Events del Production & Tracking Context se presentan en la Tabla 55.
 ##### Repository
 
 
-El Repository del Production & Tracking Context se resume en la Tabla 56.
+El Repository del Production & Tracking Context se resume en la Tabla 58.
 
-<a id="tabla-56"></a>
+<a id="tabla-58"></a>
 
-**Tabla 56**
+**Tabla 58**
 
 *Repository del Production & Tracking Context*
 
@@ -2427,6 +2429,8 @@ El Repository del Production & Tracking Context se resume en la Tabla 56.
 | Repository | Responsabilidad |
 |---|---|
 | `WorkOrderRepository` | Abstrae el acceso y persistencia de las órdenes de trabajo del contexto. |
+| `TechnicianRepository` | Abstrae la consulta del catálogo de técnicos. |
+| `LaboratoryRepository` | Abstrae la consulta del catálogo de laboratorios. |
 
 La interacción principal del dominio con otros contextos comienza cuando **Clinical & Commercial** publica el evento `SaleWasClosed`. Production & Tracking recibe este evento y ejecuta el comando `GenerateWorkOrder`, iniciando así el ciclo de producción de la orden.
 
@@ -2441,27 +2445,29 @@ Los comandos definidos en el Bounded Context se exponen mediante la API Gateway,
 ##### Controllers
 
 
-Los Controllers del Production & Tracking Context se detallan en la Tabla 57.
+Los Controllers del Production & Tracking Context se detallan en la Tabla 59.
 
-<a id="tabla-57"></a>
+<a id="tabla-59"></a>
 
-**Tabla 57**
+**Tabla 59**
 
 *Controllers del Production & Tracking Context*
 
 
 | Controller | Tipo | Responsabilidad |
 |---|---|---|
-| `WorkOrderController` | REST Controller | Expone las operaciones relacionadas con la generación, asignación, envío, actualización y entrega de órdenes de trabajo. |
+| `WorkOrderController` | REST Controller | `GET /work-orders` (tablero Kanban, filtrable por estado), `POST /work-orders` (`GenerateWorkOrder` manual), `GET /work-orders/{id}`, `GET /patients/{patientId}/work-orders` (seguimiento del paciente), `PATCH /work-orders/{id}/technician` (`AssignWorkOrderToTechnician`), `PATCH /work-orders/{id}/laboratory` (`SendWorkOrderToLaboratory`), `PATCH /work-orders/{id}/status` (`UpdateWorkOrderStatus`), `PATCH /work-orders/{id}/lenses/complete` (`CompleteLenses`), `POST /work-orders/{id}/delays` (`NotifyDeliveryDelay`) y `PATCH /work-orders/{id}/deliver` (`MarkOrderAsDelivered`). |
+| `ProductionCatalogController` | REST Controller | `GET /technicians` y `GET /laboratories`, catálogos usados al asignar y enviar las órdenes. |
+| `ProductionReportController` | REST Controller | `GET /reports/production?from&to` (`GetProductionMetrics`) y `GET /reports/production/export?from&to` (CSV), solo para `ADMIN`. |
 
 ##### Event Consumers
 
 
-Los Event Consumers del Production & Tracking Context se presentan en la Tabla 58.
+Los Event Consumers del Production & Tracking Context se presentan en la Tabla 60.
 
-<a id="tabla-58"></a>
+<a id="tabla-60"></a>
 
-**Tabla 58**
+**Tabla 60**
 
 *Event Consumers del Production & Tracking Context*
 
@@ -2473,11 +2479,11 @@ Los Event Consumers del Production & Tracking Context se presentan en la Tabla 5
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 59.
+Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 61.
 
-<a id="tabla-59"></a>
+<a id="tabla-61"></a>
 
-**Tabla 59**
+**Tabla 61**
 
 *Resources / DTOs del Production & Tracking Context*
 
@@ -2497,11 +2503,11 @@ Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 59
 ##### Assemblers
 
 
-Los Assemblers del Production & Tracking Context se detallan en la Tabla 60.
+Los Assemblers del Production & Tracking Context se detallan en la Tabla 62.
 
-<a id="tabla-60"></a>
+<a id="tabla-62"></a>
 
-**Tabla 60**
+**Tabla 62**
 
 *Assemblers del Production & Tracking Context*
 
@@ -2527,11 +2533,11 @@ Los casos de uso principales corresponden a las operaciones definidas en el Boun
 ##### Command Handlers
 
 
-Los Command Handlers del Production & Tracking Context se presentan en la Tabla 61.
+Los Command Handlers del Production & Tracking Context se presentan en la Tabla 63.
 
-<a id="tabla-61"></a>
+<a id="tabla-63"></a>
 
-**Tabla 61**
+**Tabla 63**
 
 *Command Handlers del Production & Tracking Context*
 
@@ -2545,15 +2551,18 @@ Los Command Handlers del Production & Tracking Context se presentan en la Tabla 
 | `CompleteLensesHandler` | Command Handler | Gestiona la finalización del proceso de fabricación de las lentes. |
 | `NotifyDeliveryDelayHandler` | Command Handler | Gestiona el registro y notificación de retrasos en la entrega. |
 | `MarkOrderAsDeliveredHandler` | Command Handler | Coordina el registro de la entrega final de la orden. |
+| `WorkOrderQueryService` | Query Service | Resuelve `GetWorkOrders`, `GetWorkOrderById` y `GetWorkOrdersByPatientId`. |
+| `ProductionCatalogQueryService` | Query Service | Devuelve los técnicos y laboratorios disponibles. |
+| `ProductionMetricsQueryService` | Query Service | Resuelve `GetProductionMetrics`: órdenes por estado, órdenes entregadas, tiempo promedio de fabricación y demoras del periodo, y genera su exportación en CSV. |
 
 ##### Event Handler
 
 
-El Event Handler del Production & Tracking Context se resume en la Tabla 62.
+El Event Handler del Production & Tracking Context se resume en la Tabla 64.
 
-<a id="tabla-62"></a>
+<a id="tabla-64"></a>
 
-**Tabla 62**
+**Tabla 64**
 
 *Event Handler del Production & Tracking Context*
 
@@ -2565,11 +2574,11 @@ El Event Handler del Production & Tracking Context se resume en la Tabla 62.
 ##### Application Services
 
 
-Los Application Services del Production & Tracking Context se detallan en la Tabla 63.
+Los Application Services del Production & Tracking Context se detallan en la Tabla 65.
 
-<a id="tabla-63"></a>
+<a id="tabla-65"></a>
 
-**Tabla 63**
+**Tabla 65**
 
 *Application Services del Production & Tracking Context*
 
@@ -2591,11 +2600,11 @@ Esta capa implementa las abstracciones definidas en el dominio y permite que las
 ##### Repositories
 
 
-Los Repositories del Production & Tracking Context se presentan en la Tabla 64.
+Los Repositories del Production & Tracking Context se presentan en la Tabla 66.
 
-<a id="tabla-64"></a>
+<a id="tabla-66"></a>
 
-**Tabla 64**
+**Tabla 66**
 
 *Repositories del Production & Tracking Context*
 
@@ -2609,11 +2618,11 @@ Los Repositories del Production & Tracking Context se presentan en la Tabla 64.
 ##### Persistence
 
 
-Los componentes de persistencia del Production & Tracking Context se resumen en la Tabla 65.
+Los componentes de persistencia del Production & Tracking Context se resumen en la Tabla 67.
 
-<a id="tabla-65"></a>
+<a id="tabla-67"></a>
 
-**Tabla 65**
+**Tabla 67**
 
 *Componentes de persistencia del Production & Tracking Context*
 
@@ -2629,11 +2638,11 @@ Los componentes de persistencia del Production & Tracking Context se resumen en 
 ##### Messaging
 
 
-Los componentes de mensajería del Production & Tracking Context se detallan en la Tabla 66.
+Los componentes de mensajería del Production & Tracking Context se detallan en la Tabla 68.
 
-<a id="tabla-66"></a>
+<a id="tabla-68"></a>
 
-**Tabla 66**
+**Tabla 68**
 
 *Componentes de mensajería del Production & Tracking Context*
 
@@ -2690,16 +2699,17 @@ El modelo se organiza alrededor de `WorkOrder`, que representa el Aggregate Root
 
 El estado actual de la orden es representado mediante `WorkOrderStatus`, el cual permite identificar las diferentes etapas del flujo de producción: pendiente, en taller, control de calidad y listo para entrega. Asimismo, `DeliveryDate` representa la fecha estimada de entrega del pedido, mientras que `DeliveryDelay` permite representar situaciones relacionadas con retrasos durante el proceso de fabricación.
 
-El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 46).
+El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 48).
 
 
-<a id="figura-46"></a>
+<a id="figura-48"></a>
 
-**Figura 46**
+**Figura 48**
 
 *Diagrama de clases del Domain Layer del Production & Tracking Context*
 
-![Production-Tracking.svg](assets/cap2/class-diagram/imageclass/Production-Tracking.svg)
+![Production & Tracking Domain Layer Class Diagram](assets/cap2/class-diagram/domain/production-tracking.png)
+
 
 
 <a id="2.6.3.6.2. Bounded Context Database Design Diagram"></a>
@@ -2715,11 +2725,11 @@ El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persisten
 
 Las fechas estimadas usan `DATE`, mientras que los momentos de creación, cambio, demora y entrega usan `TIMESTAMP WITH TIME ZONE`. La demora se almacena en las columnas `delay_reason`, `delay_reported_at` y `delay_new_estimated_date`; no es un documento ni una tabla separada. `WorkOrderRepositoryImpl` reconstruye el agregado a partir de las filas de orden, lentes e historial.
 
-**La Figura 45 representa las cinco tablas relacionales de V3. Los identificadores `sale_id`, `patient_id`, `optical_store_id`, `technician_id` y `laboratory_id` de `work_orders` se marcan como `REF` (referencias lógicas sin FK); `technicians` y `laboratories` aparecen sin relación física con la orden.**
+**La Figura 49 representa las cinco tablas relacionales de V3. Los identificadores `sale_id`, `patient_id`, `optical_store_id`, `technician_id` y `laboratory_id` de `work_orders` se marcan como `REF` (referencias lógicas sin FK); `technicians` y `laboratories` aparecen sin relación física con la orden.**
 
-<a id="figura-47"></a>
+<a id="figura-49"></a>
 
-**Figura 47**
+**Figura 49**
 
 *Diagrama de base de datos del Production & Tracking Context*
 
@@ -2731,7 +2741,7 @@ Las fechas estimadas usan `DATE`, mientras que los momentos de creación, cambio
 <a id="2.6.4. Bounded Context: Store Management & Inventory Contexty"></a>
 ### 2.6.4. Bounded Context: Store Management & Inventory Context
 
-**Estado: diseño propuesto, no implementado.** Las clases, repositorios, controladores y tablas de esta sección son una propuesta del dominio; no existen como implementación funcional en el backend revisado. Su base física se especificará cuando se incorpore una migración. La Figura 48 no representa el esquema desplegado.
+Store Management & Inventory se implementa como un módulo del backend, con persistencia en la base PostgreSQL compartida mediante la migración V6. Recibe `SaleWasClosed` para descontar del stock los productos vendidos y genera las alertas de stock crítico.
 
 <a id="2.6.4.1. Domain Layer"></a>
 #### 2.6.4.1. Domain Layer
@@ -2743,36 +2753,37 @@ El modelo de dominio se organiza alrededor de los conceptos definidos en el leng
 ##### Domain Concepts
 
 
-Los Domain Concepts del Store Management & Inventory Context se resumen en la Tabla 67.
+Los Domain Concepts del Store Management & Inventory Context se resumen en la Tabla 69.
 
-<a id="tabla-67"></a>
+<a id="tabla-69"></a>
 
-**Tabla 67**
+**Tabla 69**
 
 *Domain Concepts del Store Management & Inventory Context*
 
 
 | Concepto | Tipo | Responsabilidad |
 |---|---|---|
-| `Frame Model` | Entity | Representa un modelo físico de montura disponible en el catálogo. |
+| `Frame Model` | Entity | Representa un modelo físico de montura disponible en el catálogo, identificado por su `sku` (el código de barras que lee el escáner), con la referencia a su modelo de prueba virtual cuando lo tiene. |
 | `Catalog` | Aggregate / Domain Concept | Representa el conjunto de modelos de monturas disponibles para la óptica. |
 | `Price` | Value Object / Domain Concept | Representa el precio asociado a un modelo de montura. |
 | `Stock` | Entity / Domain Concept | Representa la cantidad disponible de un producto físico. |
 | `Inventory` | Aggregate / Domain Concept | Gestiona las existencias físicas de productos dentro de la óptica. |
 | `Low Stock Alert` | Domain Concept | Representa la alerta generada cuando las existencias de un producto alcanzan un nivel crítico. |
 | `Supplier` | Entity | Representa al proveedor encargado del abastecimiento de productos. |
-| `Replenishment` | Domain Concept | Representa el proceso de reposición de existencias. |
+| `Stock Movement` | Entity | Registra cada entrada (reposición) o salida (venta) de un producto, con su cantidad, motivo, fecha y usuario; forma el historial de movimientos. |
+| `Replenishment` | Domain Concept | Representa el proceso de reposición de existencias, que se registra como un movimiento de entrada. |
 
 ##### Domain Commands
 
 Los comandos definidos para el contexto son:
 
 
-Los Domain Commands del Store Management & Inventory Context se detallan en la Tabla 68.
+Los Domain Commands del Store Management & Inventory Context se detallan en la Tabla 70.
 
-<a id="tabla-68"></a>
+<a id="tabla-70"></a>
 
-**Tabla 68**
+**Tabla 70**
 
 *Domain Commands del Store Management & Inventory Context*
 
@@ -2781,20 +2792,22 @@ Los Domain Commands del Store Management & Inventory Context se detallan en la T
 |---|---|
 | `AddNewFrameModel` | Registra un nuevo modelo de montura dentro del catálogo. |
 | `UpdateFrameModelPrice` | Actualiza el precio asociado a un modelo de montura. |
-| `ConsultStock` | Permite consultar la disponibilidad de existencias de un producto. |
 | `ReplenishStock` | Gestiona el reabastecimiento de las existencias. |
+| `UpdateInventory` | Registra la salida de stock de los productos vendidos al recibir `SaleWasClosed`, como un movimiento de salida por venta. |
 | `RegisterSupplier` | Registra un nuevo proveedor para las operaciones de abastecimiento. |
+
+La consulta de existencias (`ConsultStock`) no modifica el estado del inventario, por lo que se modela como una consulta (`ConsultStockQuery`) y no como un comando. Lo mismo ocurre con la búsqueda de una montura por su código escaneado (`GetFrameModelBySku`), el catálogo (`GetFrameCatalog`), el historial de movimientos (`GetInventoryMovements`), las alertas de stock crítico vigentes (`GetLowStockAlerts`) y las métricas de inventario (`GetInventoryMetrics`).
 
 ##### Domain Events
 
 Los principales eventos publicados por el contexto son:
 
 
-Los Domain Events del Store Management & Inventory Context se presentan en la Tabla 69.
+Los Domain Events del Store Management & Inventory Context se presentan en la Tabla 71.
 
-<a id="tabla-69"></a>
+<a id="tabla-71"></a>
 
-**Tabla 69**
+**Tabla 71**
 
 *Domain Events del Store Management & Inventory Context*
 
@@ -2811,11 +2824,11 @@ Los Domain Events del Store Management & Inventory Context se presentan en la Ta
 ##### Repository
 
 
-El Repository del Store Management & Inventory Context se resume en la Tabla 70.
+El Repository del Store Management & Inventory Context se resume en la Tabla 72.
 
-<a id="tabla-70"></a>
+<a id="tabla-72"></a>
 
-**Tabla 70**
+**Tabla 72**
 
 *Repository del Store Management & Inventory Context*
 
@@ -2825,6 +2838,7 @@ El Repository del Store Management & Inventory Context se resume en la Tabla 70.
 | `InventoryRepository` | Abstrae el acceso y persistencia de la información relacionada con el inventario. |
 | `FrameModelRepository` | Abstrae el acceso y persistencia de los modelos de monturas registrados en el catálogo. |
 | `SupplierRepository` | Abstrae el acceso y persistencia de los proveedores registrados. |
+| `StockMovementRepository` | Abstrae el registro y la consulta del historial de movimientos de stock. |
 
 
 <a id="2.6.4.2. Interface Layer"></a>
@@ -2837,29 +2851,30 @@ Las solicitudes externas son recibidas mediante la API Gateway y posteriormente 
 ##### Controllers
 
 
-Los Controllers del Store Management & Inventory Context se detallan en la Tabla 71.
+Los Controllers del Store Management & Inventory Context se detallan en la Tabla 73.
 
-<a id="tabla-71"></a>
+<a id="tabla-73"></a>
 
-**Tabla 71**
+**Tabla 73**
 
 *Controllers del Store Management & Inventory Context*
 
 
 | Controller | Tipo | Responsabilidad |
 |---|---|---|
-| `FrameModelController` | REST Controller | Gestiona las operaciones relacionadas con los modelos de monturas y sus precios. |
-| `InventoryController` | REST Controller | Gestiona las operaciones relacionadas con consultas y reabastecimiento de stock. |
-| `SupplierController` | REST Controller | Gestiona el registro de proveedores. |
+| `FrameModelController` | REST Controller | `GET /inventory/frames` (`GetFrameCatalog`, también para el probador virtual), `GET /inventory/frames/{sku}` (`GetFrameModelBySku`: datos, precio y stock de la montura escaneada; HTTP 404 si el código no existe), `POST /inventory/frames` (`AddNewFrameModel`) y `PATCH /inventory/frames/{sku}/price` (`UpdateFrameModelPrice`). |
+| `InventoryController` | REST Controller | `GET /inventory/stock` (`ConsultStock`), `POST /inventory/replenishments` (`ReplenishStock`), `GET /inventory/movements?from&to&sku` (`GetInventoryMovements`) y `GET /inventory/alerts` (`GetLowStockAlerts`). |
+| `SupplierController` | REST Controller | `POST /suppliers` (`RegisterSupplier`) y `GET /suppliers`. |
+| `InventoryReportController` | REST Controller | `GET /reports/inventory` (`GetInventoryMetrics`) y `GET /reports/inventory/export` (CSV), solo para `ADMIN`. |
 
 ##### Event Consumers
 
 
-Los Event Consumers del Store Management & Inventory Context se presentan en la Tabla 72.
+Los Event Consumers del Store Management & Inventory Context se presentan en la Tabla 74.
 
-<a id="tabla-72"></a>
+<a id="tabla-74"></a>
 
-**Tabla 72**
+**Tabla 74**
 
 *Event Consumers del Store Management & Inventory Context*
 
@@ -2873,11 +2888,11 @@ La recepción de `SaleWasClosed` forma parte del flujo de integración definido 
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Store Management & Inventory Context se resumen en la Tabla 73.
+Los Resources / DTOs del Store Management & Inventory Context se resumen en la Tabla 75.
 
-<a id="tabla-73"></a>
+<a id="tabla-75"></a>
 
-**Tabla 73**
+**Tabla 75**
 
 *Resources / DTOs del Store Management & Inventory Context*
 
@@ -2893,15 +2908,17 @@ Los Resources / DTOs del Store Management & Inventory Context se resumen en la T
 | `StockResponse` | Output | Información sobre las existencias disponibles. |
 | `SupplierResponse` | Output | Información de un proveedor registrado. |
 | `InventoryResponse` | Output | Información relacionada con el inventario. |
+| `StockMovementResponse` | Output | Fecha, producto, tipo (entrada o salida), cantidad, motivo y usuario de un movimiento. |
+| `LowStockAlertResponse` | Output | Producto, cantidad disponible y stock mínimo de una alerta vigente. |
 
 ##### Assemblers
 
 
-Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 74.
+Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 76.
 
-<a id="tabla-74"></a>
+<a id="tabla-76"></a>
 
-**Tabla 74**
+**Tabla 76**
 
 *Assemblers del Store Management & Inventory Context*
 
@@ -2910,7 +2927,7 @@ Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 
 |---|---|
 | `FromAddNewFrameModelRequestAssembler` | `AddNewFrameModelRequest` → `AddNewFrameModelCommand` |
 | `FromUpdateFrameModelPriceRequestAssembler` | `UpdateFrameModelPriceRequest` → `UpdateFrameModelPriceCommand` |
-| `FromConsultStockRequestAssembler` | `ConsultStockRequest` → `ConsultStockCommand` |
+| `FromConsultStockRequestAssembler` | `ConsultStockRequest` → `ConsultStockQuery` |
 | `FromReplenishStockRequestAssembler` | `ReplenishStockRequest` → `ReplenishStockCommand` |
 | `FromRegisterSupplierRequestAssembler` | `RegisterSupplierRequest` → `RegisterSupplierCommand` |
 
@@ -2925,11 +2942,11 @@ Los casos de uso se ejecutan mediante handlers que reciben los comandos provenie
 ##### Command Handlers
 
 
-Los Command Handlers del Store Management & Inventory Context se presentan en la Tabla 75.
+Los Command Handlers del Store Management & Inventory Context se presentan en la Tabla 77.
 
-<a id="tabla-75"></a>
+<a id="tabla-77"></a>
 
-**Tabla 75**
+**Tabla 77**
 
 *Command Handlers del Store Management & Inventory Context*
 
@@ -2938,34 +2955,38 @@ Los Command Handlers del Store Management & Inventory Context se presentan en la
 |---|---|---|
 | `AddNewFrameModelHandler` | Command Handler | Coordina el registro de un nuevo modelo de montura en el catálogo. |
 | `UpdateFrameModelPriceHandler` | Command Handler | Coordina la actualización del precio de un modelo de montura. |
-| `ConsultStockHandler` | Command Handler | Coordina la consulta de las existencias disponibles. |
 | `ReplenishStockHandler` | Command Handler | Coordina el proceso de reabastecimiento del inventario. |
 | `RegisterSupplierHandler` | Command Handler | Coordina el registro de un nuevo proveedor. |
+| `UpdateInventoryHandler` | Command Handler | Descuenta del stock los productos vendidos, registra un movimiento de salida por cada uno y verifica si alguno llegó a su nivel mínimo para publicar `LowStockAlertGenerated`. |
+| `ConsultStockQueryService` | Query Service | Resuelve `ConsultStock` y `GetFrameModelBySku` (existencias y datos de un producto, incluido el escaneo). |
+| `FrameCatalogQueryService` | Query Service | Resuelve `GetFrameCatalog`. |
+| `InventoryMovementQueryService` | Query Service | Resuelve `GetInventoryMovements` y `GetLowStockAlerts` (productos con cantidad igual o menor a su stock mínimo). |
+| `InventoryMetricsQueryService` | Query Service | Resuelve `GetInventoryMetrics` (productos con stock crítico, entradas y salidas del periodo) y genera su exportación en CSV. |
 
 ##### Event Handler
 
 
-El Event Handler del Store Management & Inventory Context se resume en la Tabla 76.
+El Event Handler del Store Management & Inventory Context se resume en la Tabla 78.
 
-<a id="tabla-76"></a>
+<a id="tabla-78"></a>
 
-**Tabla 76**
+**Tabla 78**
 
 *Event Handler del Store Management & Inventory Context*
 
 
 | Handler | Tipo | Responsabilidad |
 |---|---|---|
-| `SaleWasClosedEventHandler` | Event Handler | Reacciona al evento `SaleWasClosed` para iniciar el procesamiento relacionado con el stock consumido por la venta. |
+| `SaleWasClosedEventHandler` | Event Handler | Reacciona al evento `SaleWasClosed`; su ACL traduce cada producto vendido (`productSku` y `quantity`) en un movimiento de salida y ejecuta `UpdateInventory`. |
 
 ##### Application Services
 
 
-Los Application Services del Store Management & Inventory Context se detallan en la Tabla 77.
+Los Application Services del Store Management & Inventory Context se detallan en la Tabla 79.
 
-<a id="tabla-77"></a>
+<a id="tabla-79"></a>
 
-**Tabla 77**
+**Tabla 79**
 
 *Application Services del Store Management & Inventory Context*
 
@@ -2987,11 +3008,11 @@ La **Infrastructure Layer** contiene las implementaciones técnicas necesarias p
 ##### Repositories
 
 
-Los Repositories del Store Management & Inventory Context se presentan en la Tabla 78.
+Los Repositories del Store Management & Inventory Context se presentan en la Tabla 80.
 
-<a id="tabla-78"></a>
+<a id="tabla-80"></a>
 
-**Tabla 78**
+**Tabla 80**
 
 *Repositories del Store Management & Inventory Context*
 
@@ -3001,15 +3022,16 @@ Los Repositories del Store Management & Inventory Context se presentan en la Tab
 | `InventoryRepositoryImpl` | Repository Implementation | Implementa `InventoryRepository` para gestionar la persistencia del inventario. |
 | `FrameModelRepositoryImpl` | Repository Implementation | Implementa `FrameModelRepository` para gestionar la persistencia de los modelos de monturas. |
 | `SupplierRepositoryImpl` | Repository Implementation | Implementa `SupplierRepository` para gestionar la persistencia de los proveedores. |
+| `StockMovementRepositoryImpl` | Repository Implementation | Implementa `StockMovementRepository` sobre la tabla `stock_movements`. |
 
 ##### Persistence
 
 
-Los componentes de persistencia del Store Management & Inventory Context se resumen en la Tabla 79.
+Los componentes de persistencia del Store Management & Inventory Context se resumen en la Tabla 81.
 
-<a id="tabla-79"></a>
+<a id="tabla-81"></a>
 
-**Tabla 79**
+**Tabla 81**
 
 *Componentes de persistencia del Store Management & Inventory Context*
 
@@ -3019,6 +3041,7 @@ Los componentes de persistencia del Store Management & Inventory Context se resu
 | `InventoryEntity` | Representa la persistencia de la información del inventario. |
 | `FrameModelEntity` | Representa la persistencia de los modelos de monturas. |
 | `SupplierEntity` | Representa la persistencia de los proveedores. |
+| `StockMovementEntity` | Representa la persistencia de un movimiento de stock. |
 | `InventoryMapper` | Transforma la información de persistencia del inventario hacia el modelo utilizado por el dominio y viceversa. |
 | `FrameModelMapper` | Transforma la información de persistencia de los modelos de monturas hacia el modelo utilizado por el dominio y viceversa. |
 | `SupplierMapper` | Transforma la información de persistencia de los proveedores hacia el modelo utilizado por el dominio y viceversa. |
@@ -3026,11 +3049,11 @@ Los componentes de persistencia del Store Management & Inventory Context se resu
 ##### Messaging
 
 
-Los componentes de mensajería del Store Management & Inventory Context se detallan en la Tabla 80.
+Los componentes de mensajería del Store Management & Inventory Context se detallan en la Tabla 82.
 
-<a id="tabla-80"></a>
+<a id="tabla-82"></a>
 
-**Tabla 80**
+**Tabla 82**
 
 *Componentes de mensajería del Store Management & Inventory Context*
 
@@ -3081,18 +3104,19 @@ El modelo se organiza principalmente alrededor de `FrameModel` e `Inventory`. `F
 
 `Catalog` representa el conjunto de modelos de monturas disponibles, mientras que `Price` se modela como un Value Object asociado a `FrameModel`. La entidad `Stock` mantiene la cantidad disponible y el nivel mínimo definido para cada modelo de montura, permitiendo determinar cuándo las existencias han alcanzado un nivel crítico.
 
-El proceso de abastecimiento se representa mediante `Replenishment`, el cual relaciona el inventario, el producto y el `Supplier` responsable del suministro. Asimismo, `LowStockAlert` representa la información generada cuando la cantidad disponible de un producto alcanza o se encuentra por debajo del nivel mínimo establecido.
+El proceso de abastecimiento se representa mediante `Replenishment`, el cual relaciona el inventario, el producto y el `Supplier` responsable del suministro. Cada reposición y cada salida por venta se registran como un `StockMovement`, que conserva el tipo, el motivo, la cantidad, la fecha y el usuario, y forma el historial de movimientos. Asimismo, `LowStockAlert` representa la información generada cuando la cantidad disponible de un producto alcanza o se encuentra por debajo del nivel mínimo establecido.
 
-El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository` y `SupplierRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 49).
+El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository`, `SupplierRepository` y `StockMovementRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 51).
 
 
-<a id="figura-49"></a>
+<a id="figura-51"></a>
 
-**Figura 49**
+**Figura 51**
 
 *Diagrama de clases del Domain Layer del Store Management & Inventory Context*
 
-![Store-Management-Inventory.svg](assets/cap2/class-diagram/imageclass/Store-Management-Inventory.svg)
+![Store Management & Inventory Domain Layer Class Diagram](assets/cap2/class-diagram/domain/store-inventory.png)
+
 
 
 <a id="2.6.4.6.2. Bounded Context Database Design Diagram"></a>
@@ -3120,157 +3144,151 @@ La tecnología propuesta es PostgreSQL dentro de la base compartida del backend.
 <a id="2.6.5. Bounded Context: Notification & Loyalty Context"></a>
 ### 2.6.5. Bounded Context: Notification & Loyalty Context
 
-**Alcance del diseño y de la implementación.** El diseño funcional ampliado de preferencias, encuestas, campañas y canales externos se distingue del modelo implementado, cuyas entidades son `Notification` y `LoyaltyAccount`, con los repositorios `NotificationRepository` y `LoyaltyAccountRepository`. La persistencia real se documenta en 2.6.5.4 y 2.6.5.6.2. Las vistas de clases y componentes conservadas expresan también funciones propuestas, y no acreditan tablas, endpoints o integraciones multicanal implementadas.
+Notification & Loyalty registra cada aviso en su modelo (`Notification`), lo envía como notificación push mediante Firebase Cloud Messaging al dispositivo del paciente (`DeviceToken`) y gestiona los beneficios de fidelización (`LoyaltyAccount`). La persistencia se documenta en 2.6.5.4 y 2.6.5.6.2.
 
 <a id="2.6.5.1. Domain Layer"></a>
 #### 2.6.5.1. Domain Layer
 
-La capa de dominio del **Notification & Loyalty Context** concentra las reglas relacionadas con la comunicación y fidelización del paciente. Este contexto gestiona las notificaciones, preferencias de comunicación, encuestas de satisfacción, campañas de reactivación y beneficios asociados a fechas especiales.
+La capa de dominio del **Notification & Loyalty Context** concentra las reglas relacionadas con la comunicación y fidelización del paciente. Este contexto registra los avisos del paciente (recordatorios de cita y de control anual, avance y demora del pedido, encuesta de satisfacción y beneficio de cumpleaños), los envía como notificaciones push y gestiona su cuenta de fidelización.
 
 ##### Domain Concepts
 
 
-Los Domain Concepts del Notification & Loyalty Context se resumen en la Tabla 81.
+Los Domain Concepts del Notification & Loyalty Context se resumen en la Tabla 83.
 
-<a id="tabla-81"></a>
+<a id="tabla-83"></a>
 
-**Tabla 81**
+**Tabla 83**
 
 *Domain Concepts del Notification & Loyalty Context*
 
 
 | Concepto | Tipo | Descripción |
 |---|---|---|
-| `Patient Birthday` | Domain Concept | Representa la fecha de cumpleaños del paciente utilizada para activar acciones de fidelización. |
-| `Birthday Discount` | Domain Concept | Beneficio promocional enviado al paciente por motivo de su cumpleaños. |
-| `Satisfaction Survey` | Domain Concept | Encuesta enviada al paciente para recopilar información sobre su experiencia. |
-| `Staff Member` | Entity | Personal responsable de gestionar las notificaciones dentro de la óptica. |
-| `Notification Preferences` | Value Object | Configuración de las preferencias de comunicación del paciente. |
-| `In-App Notification` | Domain Concept | Notificación mostrada directamente dentro de la aplicación móvil. |
-| `Order Progress` | Domain Concept | Información relacionada con el avance del pedido de lentes. |
-| `Reactivation Campaign` | Domain Concept | Recordatorio preventivo enviado al paciente para incentivar un nuevo control de su graduación visual. |
+| `Notification` | Aggregate Root | Aviso registrado para un paciente, con su tipo, título, mensaje, estado de lectura (`UNREAD` o `READ`), estado de envío push (`PENDING`, `SENT` o `FAILED`) y, si corresponde, la fecha programada de envío (`scheduledAt`). |
+| `Notification Type` | Value Object | Tipo de aviso: `APPOINTMENT_REMINDER`, `ANNUAL_CHECKUP_REMINDER`, `LENS_ORDER_PROGRESS`, `DELIVERY_DELAY`, `SATISFACTION_SURVEY` o `BIRTHDAY_DISCOUNT`. |
+| `Appointment Reminder` | Domain Concept | Recordatorio programado 24 horas antes de una cita reservada. |
+| `Annual Check-up Reminder` | Domain Concept | Recordatorio programado 12 meses después de la cita, para incentivar un nuevo control visual. |
+| `Order Progress` | Domain Concept | Información del avance del pedido de lentes comunicada por Production & Tracking. |
+| `Satisfaction Survey` | Domain Concept | Aviso enviado al entregar el pedido, que el paciente responde una sola vez con una calificación de 1 a 5 y un comentario opcional. |
+| `Device Token` | Entity | Token de registro de Firebase Cloud Messaging del dispositivo Android del paciente. |
+| `Loyalty Account` | Aggregate Root | Cuenta de fidelización del paciente, con su saldo de puntos y el año del último beneficio de cumpleaños. |
+| `Loyalty Points` | Value Object | Cantidad de puntos de fidelización; no puede ser negativa. |
+| `Birthday Discount` | Domain Concept | Beneficio de puntos que se otorga una vez por año en la fecha de cumpleaños del paciente. |
 
 ##### Commands
 
 
-Los Commands del Notification & Loyalty Context se detallan en la Tabla 82.
+Los Commands del Notification & Loyalty Context se detallan en la Tabla 84.
 
-<a id="tabla-82"></a>
+<a id="tabla-84"></a>
 
-**Tabla 82**
+**Tabla 84**
 
 *Commands del Notification & Loyalty Context*
 
 
 | Command | Descripción |
 |---|---|
-| `DetectPatientBirthday` | Detecta los pacientes que cumplen años y permite iniciar el flujo de fidelización. |
-| `SendBirthdayDiscount` | Envía el beneficio o descuento correspondiente al cumpleaños del paciente. |
-| `SendSatisfactionSurvey` | Envía una encuesta de satisfacción después de la entrega del pedido. |
-| `AssignStaffMemberToManageNotifications` | Asigna un miembro del personal para gestionar las notificaciones. |
-| `ConfigureNotificationPreferences` | Configura las preferencias de comunicación del paciente. |
-| `NotifyPatientInApp` | Envía una notificación directamente dentro de la aplicación. |
-| `NotifyLensOrderProgress` | Comunica al paciente el avance de su pedido de lentes. |
-| `SendReactivationCampaign` | Envía una campaña de reactivación para incentivar una nueva atención del paciente. |
+| `ScheduleAppointmentReminder` | Registra, a partir de `AppointmentBooked`, el recordatorio de la cita (24 horas antes) y el recordatorio de control anual (12 meses después). |
+| `NotifyLensOrderProgress` | Registra el aviso del avance del pedido al recibir `WorkOrderStatusUpdated`. |
+| `SendDeliveryDelayNotification` | Registra el aviso de demora con la nueva fecha estimada al recibir `DeliveryDelayNotified`. |
+| `SendSatisfactionSurvey` | Registra la encuesta de satisfacción al recibir `OrderWasMarkedAsDelivered`. |
+| `AnswerSatisfactionSurvey` | Guarda la calificación y el comentario del paciente en su encuesta. |
+| `GrantBirthdayDiscount` | Suma el beneficio de cumpleaños a la cuenta de fidelización del paciente, una vez por año, y registra el aviso. |
+| `SendPushNotification` | Envía un aviso registrado como notificación push a los dispositivos del paciente y actualiza su estado de envío. |
+| `RegisterDeviceToken` | Registra o actualiza el token de Firebase Cloud Messaging del dispositivo del paciente. |
+| `MarkNotificationAsRead` | Marca un aviso como leído por el paciente. |
+
+Las lecturas se modelan como consultas: `GetNotificationsByPatient` (avisos del paciente cuya fecha programada ya llegó, del más reciente al más antiguo), `GetNotificationById` y `GetLoyaltyAccountByPatient`.
 
 ##### Domain Events
 
 
-Los Domain Events del Notification & Loyalty Context se presentan en la Tabla 83.
+Los Domain Events del Notification & Loyalty Context se presentan en la Tabla 85.
 
-<a id="tabla-83"></a>
+<a id="tabla-85"></a>
 
-**Tabla 83**
+**Tabla 85**
 
 *Domain Events del Notification & Loyalty Context*
 
 
 | Evento | Descripción |
 |---|---|
-| `PatientBirthdayDetected` | Indica que se detectó el cumpleaños de un paciente. |
-| `BirthdayDiscountWasSent` | Indica que el beneficio de cumpleaños fue enviado. |
-| `SatisfactionSurveyWasSent` | Indica que una encuesta de satisfacción fue enviada. |
-| `SatisfactionSurveyCompleted` | Indica que el paciente completó una encuesta de satisfacción. |
-| `StaffMemberAssigned` | Indica que un miembro del personal fue asignado para gestionar notificaciones. |
-| `NotificationPreferencesConfigured` | Indica que las preferencias de notificación fueron configuradas. |
-| `InAppNotificationSent` | Indica que una notificación fue enviada dentro de la aplicación. |
+| `InAppNotificationSent` | Indica que se registró un aviso para el paciente y quedó disponible en la aplicación. |
+| `AppointmentReminderScheduled` | Indica que se programaron los recordatorios de una cita. |
 | `LensOrderProgressNotified` | Indica que se comunicó al paciente el avance de su pedido. |
-| `ReactivationCampaignSent` | Indica que una campaña de reactivación fue enviada. |
+| `SatisfactionSurveyWasSent` | Indica que una encuesta de satisfacción fue enviada. |
+| `SatisfactionSurveyCompleted` | Indica que el paciente respondió la encuesta de satisfacción. |
+| `BirthdayDiscountWasSent` | Indica que el beneficio de cumpleaños fue otorgado y avisado. |
+| `PushNotificationSent` | Indica que el aviso se entregó a Firebase Cloud Messaging. |
+| `DeviceTokenRegistered` | Indica que se registró el token del dispositivo del paciente. |
 
-El contexto también consume eventos provenientes de otros Bounded Contexts. `AppointmentBooked` permite activar los recordatorios de citas, `WorkOrderStatusUpdated` permite notificar el avance del pedido y `OrderWasMarkedAsDelivered` permite iniciar el envío de la encuesta de satisfacción.
+El contexto también consume eventos provenientes de otros Bounded Contexts. `AppointmentBooked` activa los recordatorios de la cita y del control anual, `WorkOrderStatusUpdated` permite notificar el avance del pedido, `DeliveryDelayNotified` permite avisar la demora de la entrega y `OrderWasMarkedAsDelivered` inicia el envío de la encuesta de satisfacción.
 
 
 <a id="2.6.5.2. Interface Layer"></a>
 #### 2.6.5.2. Interface Layer
 
-La Interface Layer expone los puntos de entrada necesarios para ejecutar las operaciones relacionadas con las notificaciones y la fidelización. Los comandos son recibidos mediante el API Gateway y posteriormente transformados a objetos propios de la capa de aplicación.
+La Interface Layer expone los puntos de entrada que usa la aplicación del paciente: la consulta y lectura de avisos, la respuesta de la encuesta, el registro del token del dispositivo y la consulta de la cuenta de fidelización. Cada ruta exige el rol `PATIENT` y solo permite operar sobre los datos del propio paciente (HTTP 403 en otro caso). Los avisos se generan a partir de eventos internos y de tareas programadas, por lo que no existen rutas para crearlos.
 
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Notification & Loyalty Context se resumen en la Tabla 84.
+Los Resources / DTOs del Notification & Loyalty Context se resumen en la Tabla 86.
 
-<a id="tabla-84"></a>
+<a id="tabla-86"></a>
 
-**Tabla 84**
+**Tabla 86**
 
 *Resources / DTOs del Notification & Loyalty Context*
 
 
 | DTO | Tipo | Uso |
 |---|---|---|
-| `DetectPatientBirthdayRequest` | Input | Datos necesarios para ejecutar la detección de cumpleaños. |
-| `SendBirthdayDiscountRequest` | Input | Datos necesarios para enviar el descuento de cumpleaños. |
-| `SendSatisfactionSurveyRequest` | Input | Datos necesarios para enviar una encuesta de satisfacción. |
-| `AssignStaffMemberToManageNotificationsRequest` | Input | Datos necesarios para asignar personal responsable de las notificaciones. |
-| `ConfigureNotificationPreferencesRequest` | Input | Datos utilizados para configurar las preferencias de notificación. |
-| `NotifyPatientInAppRequest` | Input | Datos necesarios para enviar una notificación dentro de la aplicación. |
-| `NotifyLensOrderProgressRequest` | Input | Datos relacionados con el avance del pedido de lentes. |
-| `SendReactivationCampaignRequest` | Input | Datos necesarios para ejecutar una campaña de reactivación. |
+| `RegisterDeviceTokenRequest` | Input | Token de Firebase Cloud Messaging y plataforma del dispositivo del paciente. |
+| `AnswerSatisfactionSurveyRequest` | Input | Calificación de 1 a 5 y comentario opcional de la encuesta. |
+| `NotificationResponse` | Output | Identificador, tipo, título, mensaje, estado de lectura, fecha y, si corresponde, la cita, la orden o la respuesta de la encuesta. |
+| `LoyaltyAccountResponse` | Output | Saldo de puntos del paciente y año del último beneficio de cumpleaños. |
+| `DeviceTokenResponse` | Output | Identificador, plataforma y fecha de actualización del token registrado. |
 
 ##### Controllers
 
 
-Los Controllers del Notification & Loyalty Context se detallan en la Tabla 85.
+Los Controllers del Notification & Loyalty Context se detallan en la Tabla 87.
 
-<a id="tabla-85"></a>
+<a id="tabla-87"></a>
 
-**Tabla 85**
+**Tabla 87**
 
 *Controllers del Notification & Loyalty Context*
 
 
 | Controller | Responsabilidad |
 |---|---|
-| `BirthdayNotificationController` | Gestiona las operaciones relacionadas con cumpleaños y beneficios. |
-| `SatisfactionSurveyController` | Gestiona el envío y procesamiento de encuestas de satisfacción. |
-| `NotificationController` | Gestiona las notificaciones dentro de la aplicación. |
-| `NotificationPreferencesController` | Gestiona las preferencias de comunicación. |
-| `OrderProgressNotificationController` | Gestiona las notificaciones relacionadas con el avance de los pedidos. |
-| `ReactivationCampaignController` | Gestiona las campañas de reactivación. |
+| `NotificationController` | `GET /patients/{patientId}/notifications` (`GetNotificationsByPatient`), `GET /notifications/{id}` (`GetNotificationById`), `PATCH /notifications/{id}/read` (`MarkNotificationAsRead`) y `POST /notifications/{id}/survey-response` (`AnswerSatisfactionSurvey`; HTTP 409 si la encuesta ya fue respondida). |
+| `DeviceTokenController` | `POST /patients/{patientId}/device-tokens` (`RegisterDeviceToken`); si el token ya existe, actualiza su paciente y fecha. |
+| `LoyaltyAccountController` | `GET /patients/{patientId}/loyalty-account` (`GetLoyaltyAccountByPatient`; HTTP 404 si el paciente aún no tiene cuenta). |
 
 ##### Assemblers
 
 
-Los Assemblers del Notification & Loyalty Context se presentan en la Tabla 86.
+Los Assemblers del Notification & Loyalty Context se presentan en la Tabla 88.
 
-<a id="tabla-86"></a>
+<a id="tabla-88"></a>
 
-**Tabla 86**
+**Tabla 88**
 
 *Assemblers del Notification & Loyalty Context*
 
 
 | Assembler | Transformación |
 |---|---|
-| `FromDetectPatientBirthdayRequestAssembler` | `DetectPatientBirthdayRequest` → `DetectPatientBirthdayCommand` |
-| `FromSendBirthdayDiscountRequestAssembler` | `SendBirthdayDiscountRequest` → `SendBirthdayDiscountCommand` |
-| `FromSendSatisfactionSurveyRequestAssembler` | `SendSatisfactionSurveyRequest` → `SendSatisfactionSurveyCommand` |
-| `FromAssignStaffMemberRequestAssembler` | `AssignStaffMemberToManageNotificationsRequest` → `AssignStaffMemberToManageNotificationsCommand` |
-| `FromConfigureNotificationPreferencesRequestAssembler` | `ConfigureNotificationPreferencesRequest` → `ConfigureNotificationPreferencesCommand` |
-| `FromNotifyPatientInAppRequestAssembler` | `NotifyPatientInAppRequest` → `NotifyPatientInAppCommand` |
-| `FromNotifyLensOrderProgressRequestAssembler` | `NotifyLensOrderProgressRequest` → `NotifyLensOrderProgressCommand` |
-| `FromSendReactivationCampaignRequestAssembler` | `SendReactivationCampaignRequest` → `SendReactivationCampaignCommand` |
+| `FromRegisterDeviceTokenRequestAssembler` | `RegisterDeviceTokenRequest` → `RegisterDeviceTokenCommand` |
+| `FromAnswerSatisfactionSurveyRequestAssembler` | `AnswerSatisfactionSurveyRequest` → `AnswerSatisfactionSurveyCommand` |
+| `NotificationResourceAssembler` | `Notification` → `NotificationResponse` |
+| `LoyaltyAccountResourceAssembler` | `LoyaltyAccount` → `LoyaltyAccountResponse` |
 
 
 <a id="2.6.5.3. Application Layer"></a>
@@ -3281,96 +3299,100 @@ La Application Layer coordina los casos de uso definidos para el contexto de not
 ##### Command Handlers
 
 
-Los Command Handlers del Notification & Loyalty Context se resumen en la Tabla 87.
+Los Command Handlers del Notification & Loyalty Context se resumen en la Tabla 89.
 
-<a id="tabla-87"></a>
+<a id="tabla-89"></a>
 
-**Tabla 87**
+**Tabla 89**
 
 *Command Handlers del Notification & Loyalty Context*
 
 
 | Command Handler | Command |
 |---|---|
-| `DetectPatientBirthdayCommandHandler` | `DetectPatientBirthdayCommand` |
-| `SendBirthdayDiscountCommandHandler` | `SendBirthdayDiscountCommand` |
-| `SendSatisfactionSurveyCommandHandler` | `SendSatisfactionSurveyCommand` |
-| `AssignStaffMemberToManageNotificationsCommandHandler` | `AssignStaffMemberToManageNotificationsCommand` |
-| `ConfigureNotificationPreferencesCommandHandler` | `ConfigureNotificationPreferencesCommand` |
-| `NotifyPatientInAppCommandHandler` | `NotifyPatientInAppCommand` |
-| `NotifyLensOrderProgressCommandHandler` | `NotifyLensOrderProgressCommand` |
-| `SendReactivationCampaignCommandHandler` | `SendReactivationCampaignCommand` |
+| `ScheduleAppointmentReminderHandler` | `ScheduleAppointmentReminderCommand` |
+| `NotifyLensOrderProgressHandler` | `NotifyLensOrderProgressCommand` |
+| `SendDeliveryDelayNotificationHandler` | `SendDeliveryDelayNotificationCommand` |
+| `SendSatisfactionSurveyHandler` | `SendSatisfactionSurveyCommand` |
+| `AnswerSatisfactionSurveyHandler` | `AnswerSatisfactionSurveyCommand` |
+| `GrantBirthdayDiscountHandler` | `GrantBirthdayDiscountCommand` |
+| `SendPushNotificationHandler` | `SendPushNotificationCommand` |
+| `RegisterDeviceTokenHandler` | `RegisterDeviceTokenCommand` |
+| `MarkNotificationAsReadHandler` | `MarkNotificationAsReadCommand` |
 
-##### Event Consumers
+Las consultas se resuelven con `GetNotificationsByPatientQueryService`, `GetNotificationByIdQueryService` y `GetLoyaltyAccountByPatientQueryService`.
 
-
-Los Event Consumers del Notification & Loyalty Context se detallan en la Tabla 88.
-
-<a id="tabla-88"></a>
-
-**Tabla 88**
-
-*Event Consumers del Notification & Loyalty Context*
+##### Event Handlers y tareas programadas
 
 
-| Event Consumer | Evento recibido | Acción |
+Los Event Handlers y las tareas programadas del Notification & Loyalty Context se detallan en la Tabla 90.
+
+<a id="tabla-90"></a>
+
+**Tabla 90**
+
+*Event Handlers y tareas programadas del Notification & Loyalty Context*
+
+
+| Componente | Disparador | Acción |
 |---|---|---|
-| `AppointmentBookedConsumer` | `AppointmentBooked` | Inicia el flujo de recordatorio de la cita. |
-| `WorkOrderStatusUpdatedConsumer` | `WorkOrderStatusUpdated` | Inicia la notificación del avance del pedido. |
-| `OrderWasMarkedAsDeliveredConsumer` | `OrderWasMarkedAsDelivered` | Inicia el envío de la encuesta de satisfacción. |
+| `AppointmentBookedEventHandler` | `AppointmentBooked` | Ejecuta `ScheduleAppointmentReminder`. |
+| `WorkOrderStatusUpdatedEventHandler` | `WorkOrderStatusUpdated` | Ejecuta `NotifyLensOrderProgress`. |
+| `ProductionDeliveryDelayNotifiedEventHandler` | `DeliveryDelayNotified` | Ejecuta `SendDeliveryDelayNotification`. |
+| `OrderWasMarkedAsDeliveredEventHandler` | `OrderWasMarkedAsDelivered` | Ejecuta `SendSatisfactionSurvey`. |
+| `InAppNotificationSentEventHandler` | `InAppNotificationSent` | Ejecuta `SendPushNotification` para los avisos sin fecha programada. |
+| `ScheduledNotificationDispatcher` | Tarea programada cada 5 minutos | Ejecuta `SendPushNotification` para los avisos `PENDING` cuya fecha programada ya llegó. |
+| `BirthdayDiscountScheduler` | Tarea programada diaria (08:00, hora de Lima) | Obtiene de Search & Booking los pacientes que cumplen años ese día y ejecuta `GrantBirthdayDiscount` para cada uno. |
 
 ##### Application Services
 
 
-Los Application Services del Notification & Loyalty Context se presentan en la Tabla 89.
+Los Application Services del Notification & Loyalty Context se presentan en la Tabla 91.
 
-<a id="tabla-89"></a>
+<a id="tabla-91"></a>
 
-**Tabla 89**
+**Tabla 91**
 
 *Application Services del Notification & Loyalty Context*
 
 
 | Application Service | Responsabilidad |
 |---|---|
-| `BirthdayNotificationService` | Coordina la detección de cumpleaños y el envío del beneficio correspondiente. |
-| `SatisfactionSurveyService` | Coordina el envío y gestión de las encuestas de satisfacción. |
-| `NotificationService` | Coordina el envío de notificaciones dentro de la aplicación. |
-| `NotificationPreferenceService` | Gestiona la configuración de preferencias de comunicación. |
-| `OrderProgressNotificationService` | Coordina las notificaciones relacionadas con el avance de las órdenes. |
-| `ReactivationCampaignService` | Coordina el envío de campañas de reactivación. |
+| `NotificationApplicationService` | Expone a la Interface Layer los casos de uso de avisos: consulta, lectura, respuesta de encuesta y registro del token del dispositivo. |
+| `LoyaltyApplicationService` | Expone a la Interface Layer la consulta de la cuenta de fidelización. |
 
 
 <a id="2.6.5.4. Infrastructure Layere"></a>
 #### 2.6.5.4. Infrastructure Layer
 
-La Infrastructure Layer implementada persiste notificaciones y cuentas de fidelización mediante JPA/PostgreSQL. Los adaptadores externos y la ACL del diseño ampliado son propuestas y no implican que existan colecciones, tablas adicionales o una entrega de mensajes validada mediante WhatsApp o Firebase.
+La Infrastructure Layer persiste notificaciones, tokens de dispositivos y cuentas de fidelización mediante JPA/PostgreSQL, y envía las notificaciones push mediante Firebase Cloud Messaging.
 
 ##### Repositories
 
 
-Los Repositories del Notification & Loyalty Context se resumen en la Tabla 90.
+Los Repositories del Notification & Loyalty Context se resumen en la Tabla 92.
 
-<a id="tabla-90"></a>
+<a id="tabla-92"></a>
 
-**Tabla 90**
+**Tabla 92**
 
 *Repositories del Notification & Loyalty Context*
 
 
 | Repository | Responsabilidad |
 |---|---|
-| `NotificationRepository` / `NotificationRepositoryImpl` | Abstracción del dominio y adaptador JPA para las filas de `notifications`. |
+| `NotificationRepository` / `NotificationRepositoryImpl` | Abstracción del dominio y adaptador JPA para las filas de `notifications`, incluida la búsqueda de avisos pendientes por fecha programada. |
 | `LoyaltyAccountRepository` / `LoyaltyAccountRepositoryImpl` | Abstracción del dominio y adaptador JPA para `loyalty_accounts`. |
+| `DeviceTokenRepository` / `DeviceTokenRepositoryImpl` | Abstracción del dominio y adaptador JPA para `device_tokens`. |
 
 ##### Persistence
 
 
-Los componentes de persistencia del Notification & Loyalty Context se detallan en la Tabla 91.
+Los componentes de persistencia del Notification & Loyalty Context se detallan en la Tabla 93.
 
-<a id="tabla-91"></a>
+<a id="tabla-93"></a>
 
-**Tabla 91**
+**Tabla 93**
 
 *Componentes de persistencia del Notification & Loyalty Context*
 
@@ -3379,49 +3401,47 @@ Los componentes de persistencia del Notification & Loyalty Context se detallan e
 |---|---|
 | `NotificationEntity` | Mapea la tabla relacional `notifications`. |
 | `LoyaltyAccountEntity` | Mapea `loyalty_accounts`, identificada por `patient_id`. |
-| `NotificationMapper` y `LoyaltyAccountMapper` | Convierten entidades JPA en objetos de dominio y viceversa. |
-| `NotificationJpaRepository` y `LoyaltyAccountJpaRepository` | Ejecutan el acceso a persistencia mediante Spring Data JPA. |
+| `DeviceTokenEntity` | Mapea `device_tokens`. |
+| `NotificationMapper`, `LoyaltyAccountMapper` y `DeviceTokenMapper` | Convierten entidades JPA en objetos de dominio y viceversa. |
+| `NotificationJpaRepository`, `LoyaltyAccountJpaRepository` y `DeviceTokenJpaRepository` | Ejecutan el acceso a persistencia mediante Spring Data JPA. |
 
 ##### Messaging
 
 
-Los componentes de mensajería del Notification & Loyalty Context se presentan en la Tabla 92.
+Los componentes de mensajería del Notification & Loyalty Context se presentan en la Tabla 94.
 
-<a id="tabla-92"></a>
+<a id="tabla-94"></a>
 
-**Tabla 92**
+**Tabla 94**
 
 *Componentes de mensajería del Notification & Loyalty Context*
 
 
 | Componente | Responsabilidad |
 |---|---|
-| `AppointmentBookedEventHandler` | Reacciona a la reserva mediante un evento de la aplicación Spring. |
-| `WorkOrderStatusUpdatedEventHandler` | Genera el aviso de progreso a partir del estado comunicado por producción. |
-| `ProductionDeliveryDelayNotifiedEventHandler` | Genera el aviso asociado a una demora de producción. |
 | `EventPublisherAdapter` | Adaptador compartido de `DomainEventPublisher` sobre `ApplicationEventPublisher`, sin broker externo. |
+| `NotificationSchedulingConfiguration` | Habilita las tareas programadas de Spring (`@EnableScheduling`) y define la zona horaria `America/Lima`. |
+| `PatientDirectoryAdapter` | Consulta a Search & Booking los pacientes que cumplen años en una fecha, sin exponer su modelo de `Patient` al contexto. |
 
 ##### External Messaging / ACL
 
 
-Los componentes de mensajería externa y ACL del Notification & Loyalty Context se resumen en la Tabla 93.
+Los componentes de mensajería externa y ACL del Notification & Loyalty Context se resumen en la Tabla 95.
 
-<a id="tabla-93"></a>
+<a id="tabla-95"></a>
 
-**Tabla 93**
+**Tabla 95**
 
 *Componentes de mensajería externa y ACL del Notification & Loyalty Context*
 
-**Diseño propuesto.** La Tabla 90 enumera adaptadores externos previstos; no son tablas SQL ni acreditan envío de mensajes a proveedores externos en la implementación revisada.
 
 
 | Componente | Responsabilidad |
 |---|---|
-| `WhatsAppMessagingAdapter` | Adaptación de las notificaciones internas hacia Meta WhatsApp Cloud API. |
-| `FirebaseMessagingAdapter` | Adaptación de las notificaciones internas hacia Firebase Cloud Messaging. |
+| `FirebaseMessagingAdapter` | Envía cada aviso como notificación push mediante Firebase Admin SDK a los tokens registrados del paciente; elimina los tokens que el proveedor reporta como no válidos. |
 | `MessagingAntiCorruptionLayer` | Aísla el modelo de notificaciones de OptiFlow de los formatos externos de mensajería. |
 
-La integración propuesta con **Third-Party Messaging** sigue el patrón **Customer / Supplier** y plantea una ACL para adaptar formatos externos. Esta relación pertenece al diseño; no modifica el modelo físico de dos tablas de V4 ni demuestra la entrega de mensajes por WhatsApp o Firebase.
+La integración con **Firebase Cloud Messaging** sigue el patrón **Anti-Corruption Layer** documentado en 2.5.2: el modelo de avisos de OptiFlow no depende del formato de mensajes del proveedor. Si el envío falla o el paciente no tiene un token registrado, el aviso queda con estado de envío `FAILED` y el paciente puede consultarlo igualmente en la aplicación.
 
 
 <a id="2.6.5.5. Bounded Context Software Architecture Component Level Diagrams"></a>
@@ -3458,22 +3478,21 @@ La implementación persiste avisos y cuentas de fidelización en PostgreSQL y re
 
 El siguiente UML Class Diagram representa la estructura del Domain Layer correspondiente al Bounded Context **Notification & Loyalty**.
 
-El modelo se organiza principalmente alrededor de `NotificationPreferences`, que representa la configuración de comunicación asociada al paciente y permite determinar los canales mediante los cuales pueden enviarse las diferentes notificaciones.
+El modelo se organiza alrededor de dos agregados. `Notification` representa cada aviso del paciente: conoce su tipo (`NotificationType`), su mensaje (`NotificationMessage`), su estado de lectura (`NotificationStatus`), su estado de envío push y, cuando es un recordatorio, la fecha programada de envío. Sus métodos de creación (`scheduleAppointmentReminder`, `scheduleAnnualCheckupReminder`, `notifyLensOrderProgress`, `notifyDeliveryDelay`, `sendSatisfactionSurvey` y `sendBirthdayDiscount`) fijan el tipo y las referencias opcionales a la cita (`AppointmentId`) o a la orden de trabajo (`WorkOrderId`). Sus métodos `markAsRead`, `answerSurvey`, `markPushSent` y `markPushFailed` aplican las reglas de lectura, de respuesta única a la encuesta y de envío.
 
-`PatientBirthday` representa la información utilizada para detectar fechas especiales del paciente y puede activar la generación de un `BirthdayDiscount`. Por otro lado, `SatisfactionSurvey` permite representar las encuestas enviadas después de la entrega de un pedido, mientras que `ReactivationCampaign` modela las campañas destinadas a incentivar futuros controles visuales.
+`LoyaltyAccount` representa la cuenta de fidelización del paciente y conserva su saldo (`LoyaltyPoints`) y el año del último beneficio de cumpleaños; `grantBirthdayDiscount` rechaza un segundo beneficio en el mismo año. `DeviceToken` registra los dispositivos del paciente que reciben las notificaciones push.
 
-`InAppNotification` representa los mensajes mostrados directamente dentro de la aplicación y puede utilizar información de `OrderProgress` para comunicar los cambios producidos durante la fabricación de un pedido. Asimismo, `StaffMember` representa al personal responsable de gestionar las comunicaciones cuando corresponda.
-
-El Domain Layer incluye también las interfaces de repositorio necesarias para abstraer la persistencia de notificaciones, preferencias de comunicación, encuestas, miembros del personal y campañas de reactivación. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las diferentes operaciones de notificación y fidelización (ver Figura 52).
+El Domain Layer incluye también las interfaces `NotificationRepository`, `LoyaltyAccountRepository` y `DeviceTokenRepository`, que abstraen la persistencia de avisos, cuentas y tokens. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las operaciones de notificación y fidelización (ver Figura 54).
 
 
-<a id="figura-52"></a>
+<a id="figura-54"></a>
 
-**Figura 52**
+**Figura 54**
 
 *Diagrama de clases del Domain Layer del Notification & Loyalty Context*
 
-![Notification.svg](assets/cap2/class-diagram/imageclass/Notification.svg)
+![Notification & Loyalty Domain Layer Class Diagram](assets/cap2/class-diagram/domain/notification-loyalty.png)
+
 
 
 <a id="2.6.5.6.2. Bounded Context Database Design Diagram"></a>
