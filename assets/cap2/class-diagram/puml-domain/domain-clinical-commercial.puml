@@ -1,0 +1,205 @@
+@startuml domain-clinical-commercial
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName Arial
+hide empty members
+title Clinical & Commercial Context - Domain Layer
+
+package "clinicalcommercial.domain" {
+
+  package "model.aggregates" {
+    class ClinicalRecord <<Aggregate Root>> {
+      - id: UUID
+      - patientId: UUID
+      - appointmentId: UUID
+      - examinationDate: Instant
+      - observations: String
+      - status: ClinicalRecordStatus
+      + recordMedicalHistory(history: MedicalHistory): void
+      + generatePrescription(data: OpticalPrescription): void
+      + close(): void
+    }
+    class Quotation <<Aggregate Root>> {
+      - id: UUID
+      - clinicalRecordId: UUID
+      - discount: Discount [0..1]
+      - total: Money
+      - status: QuotationStatus
+      + addItem(item: QuotationItem): void
+      + applyPromotionOrDiscount(d: Discount): void
+      + approve(): void
+      + reject(reason: String): void
+      + calculateTotal(): Money
+    }
+    class Sale <<Aggregate Root>> {
+      - id: UUID
+      - quotationId: UUID
+      - patientId: UUID
+      - status: SaleStatus
+      - paymentPreferenceId: String [0..1]
+      - payment: Payment [0..1]
+      - closedAt: Instant [0..1]
+      + attachPaymentPreference(id: String): void
+      + recordPayment(p: Payment): void
+      + rejectPayment(reason: String): void
+      + close(): void
+    }
+  }
+
+  package "model.entities" {
+    class MedicalHistory <<Entity>> {
+      - allergies: List<String>
+      - previousConditions: List<String>
+      - familyOcularHistory: String
+      - lastUpdated: Instant
+      + update(data): void
+    }
+    class QuotationItem <<Entity>> {
+      - id: UUID
+      - itemType: QuotationItemType
+      - productSku: String [0..1]
+      - description: String
+      - unitPrice: Money
+      - quantity: int
+      + subtotal(): Money
+    }
+    class ElectronicReceipt <<Entity>> {
+      - id: UUID
+      - receiptNumber: String
+      - saleId: UUID
+      - issueDate: Instant
+      - taxAmount: Money
+      - totalAmount: Money
+      + issue(): void
+    }
+  }
+
+  package "model.valueobjects" {
+    class OpticalPrescription <<VO>> {
+      - sphereOD: BigDecimal
+      - sphereOS: BigDecimal
+      - cylinderOD: BigDecimal
+      - cylinderOS: BigDecimal
+      - axisOD: int
+      - axisOS: int
+      - addition: BigDecimal
+      - treatment: String
+      - recommendedFrameType: String
+      + isValid(): boolean
+    }
+    class Discount <<VO>> {
+      - type: DiscountType
+      - value: BigDecimal
+      - reason: String
+    }
+    class Payment <<VO>> {
+      - method: PaymentMethod
+      - amount: Money
+      - transactionReference: String [0..1]
+      - status: PaymentStatus
+      - paidAt: Instant
+    }
+    class Money <<VO>> {
+      - amount: BigDecimal
+    }
+    enum ClinicalRecordStatus {
+      PENDING
+      OPEN
+      CLOSED
+    }
+    enum QuotationStatus {
+      DRAFT
+      APPROVED
+      REJECTED
+    }
+    enum SaleStatus {
+      PENDING_PAYMENT
+      PAID
+      CLOSED
+    }
+    enum PaymentMethod {
+      CARD
+      YAPE
+      CASH
+    }
+    enum PaymentStatus {
+      APPROVED
+      REJECTED
+    }
+    enum QuotationItemType {
+      FRAME
+      LENS
+      TREATMENT
+      SERVICE
+    }
+    enum DiscountType {
+      PERCENTAGE
+      FIXED_AMOUNT
+    }
+  }
+
+  package "repositories" {
+    interface ClinicalRecordRepository {
+      + save(record: ClinicalRecord): void
+      + findById(id: UUID): Optional<ClinicalRecord>
+      + findByPatientId(id: UUID): List<ClinicalRecord>
+    }
+    interface QuotationRepository {
+      + save(quotation: Quotation): void
+      + findById(id: UUID): Optional<Quotation>
+    }
+    interface SaleRepository {
+      + save(sale: Sale): void
+      + findById(id: UUID): Optional<Sale>
+      + findByPatientId(id: UUID): List<Sale>
+      + findByTransactionReference(ref: String): Optional<Sale>
+    }
+  }
+
+  package "ports" {
+    interface PaymentGateway {
+      + createPreference(sale: Sale): String
+      + getPayment(paymentId: String): Payment
+    }
+  }
+
+  package "events" {
+    class PatientExamined <<Domain Event>>
+    class MedicalHistoryRecorded <<Domain Event>>
+    class ClinicalRecordRegistered <<Domain Event>>
+    class OpticalPrescriptionGenerated <<Domain Event>>
+    class PromotionOrDiscountApplied <<Domain Event>>
+    class QuotationApproved <<Domain Event>>
+    class QuotationRejected <<Domain Event>>
+    class PaymentRecorded <<Domain Event>>
+    class PaymentRejected <<Domain Event>>
+    class SaleWasClosed <<Domain Event>>
+    class ElectronicReceiptIssued <<Domain Event>>
+  }
+}
+
+ClinicalRecord *-- "0..1" MedicalHistory
+ClinicalRecord *-- "0..1" OpticalPrescription
+ClinicalRecord --> ClinicalRecordStatus
+Quotation "0..*" --> "1" ClinicalRecord : clinicalRecordId
+Quotation *-- "1..*" QuotationItem
+Quotation *-- "0..1" Discount
+Quotation --> QuotationStatus
+Discount --> DiscountType
+QuotationItem *-- Money
+QuotationItem --> QuotationItemType
+Sale "0..1" --> "1" Quotation : quotationId
+Sale *-- "0..1" Payment
+Sale --> SaleStatus
+Sale "1" --> "0..1" ElectronicReceipt : emite
+Payment --> PaymentMethod
+Payment --> PaymentStatus
+ClinicalRecordRepository ..> ClinicalRecord
+QuotationRepository ..> Quotation
+SaleRepository ..> Sale
+PaymentGateway ..> Payment
+Sale ..> SaleWasClosed : publica
+Sale ..> PaymentRecorded : publica
+@enduml

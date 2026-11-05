@@ -222,7 +222,7 @@ El Production & Tracking Domain Layer Class Diagram se presenta en la Figura F1.
 
 *Production & Tracking Domain Layer Class Diagram*
 
-![Production & Tracking Domain Layer Class Diagram](assets/cap2/ProductionTrackingDomainLayerClassDiagram.png)
+![Production & Tracking Domain Layer Class Diagram](assets/cap2/class-diagram/domain/production-tracking.png)
 
 
 #### Database Design Diagram

@@ -2095,16 +2095,17 @@ El siguiente UML Class Diagram representa la estructura del **Domain Layer** cor
 
 El modelo tiene como elemento principal al Aggregate Root `Appointment`, encargado de representar el proceso de reserva de una cita. Este se relaciona con las Entities `Patient`, `OpticalStore` y `TimeSlot`, las cuales representan respectivamente al paciente que realiza la reserva, la óptica seleccionada y el horario disponible para la atención.
 
-El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 40).
+El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 42).
 
 
-<a id="figura-40"></a>
+<a id="figura-42"></a>
 
-**Figura 40**
+**Figura 42**
 
 *Diagrama de clases del Domain Layer del Search & Booking Context*
 
-![Search-Booking.svg](assets/cap2/class-diagram/imageclass/Search-Booking.svg)
+![Search & Booking Domain Layer Class Diagram](assets/cap2/class-diagram/domain/search-booking.png)
+
 
 
 <a id="2.6.1.6.2. Bounded Context Database Design Diagram"></a>
@@ -2273,16 +2274,17 @@ La estructura modular permite que el registro clínico, la prescripción optomé
 <a id="2.6.2.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 43).
+El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 45).
 
 
-<a id="figura-43"></a>
+<a id="figura-45"></a>
 
-**Figura 43**
+**Figura 45**
 
 *Diagrama de clases del Domain Layer del Clinical & Commercial Context*
 
-![Clinical-Commercial.svg](assets/cap2/class-diagram/imageclass/Clinical-Commercial.svg)
+![Clinical & Commercial Domain Layer Class Diagram](assets/cap2/class-diagram/domain/clinical-commercial.png)
+
 
 
 <a id="2.6.2.6.2. Bounded Context Database Design Diagram"></a>
@@ -2697,16 +2699,17 @@ El modelo se organiza alrededor de `WorkOrder`, que representa el Aggregate Root
 
 El estado actual de la orden es representado mediante `WorkOrderStatus`, el cual permite identificar las diferentes etapas del flujo de producción: pendiente, en taller, control de calidad y listo para entrega. Asimismo, `DeliveryDate` representa la fecha estimada de entrega del pedido, mientras que `DeliveryDelay` permite representar situaciones relacionadas con retrasos durante el proceso de fabricación.
 
-El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 46).
+El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 48).
 
 
-<a id="figura-46"></a>
+<a id="figura-48"></a>
 
-**Figura 46**
+**Figura 48**
 
 *Diagrama de clases del Domain Layer del Production & Tracking Context*
 
-![Production-Tracking.svg](assets/cap2/class-diagram/imageclass/Production-Tracking.svg)
+![Production & Tracking Domain Layer Class Diagram](assets/cap2/class-diagram/domain/production-tracking.png)
+
 
 
 <a id="2.6.3.6.2. Bounded Context Database Design Diagram"></a>
@@ -3101,18 +3104,19 @@ El modelo se organiza principalmente alrededor de `FrameModel` e `Inventory`. `F
 
 `Catalog` representa el conjunto de modelos de monturas disponibles, mientras que `Price` se modela como un Value Object asociado a `FrameModel`. La entidad `Stock` mantiene la cantidad disponible y el nivel mínimo definido para cada modelo de montura, permitiendo determinar cuándo las existencias han alcanzado un nivel crítico.
 
-El proceso de abastecimiento se representa mediante `Replenishment`, el cual relaciona el inventario, el producto y el `Supplier` responsable del suministro. Asimismo, `LowStockAlert` representa la información generada cuando la cantidad disponible de un producto alcanza o se encuentra por debajo del nivel mínimo establecido.
+El proceso de abastecimiento se representa mediante `Replenishment`, el cual relaciona el inventario, el producto y el `Supplier` responsable del suministro. Cada reposición y cada salida por venta se registran como un `StockMovement`, que conserva el tipo, el motivo, la cantidad, la fecha y el usuario, y forma el historial de movimientos. Asimismo, `LowStockAlert` representa la información generada cuando la cantidad disponible de un producto alcanza o se encuentra por debajo del nivel mínimo establecido.
 
-El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository` y `SupplierRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 49).
+El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository`, `SupplierRepository` y `StockMovementRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 51).
 
 
-<a id="figura-49"></a>
+<a id="figura-51"></a>
 
-**Figura 49**
+**Figura 51**
 
 *Diagrama de clases del Domain Layer del Store Management & Inventory Context*
 
-![Store-Management-Inventory.svg](assets/cap2/class-diagram/imageclass/Store-Management-Inventory.svg)
+![Store Management & Inventory Domain Layer Class Diagram](assets/cap2/class-diagram/domain/store-inventory.png)
+
 
 
 <a id="2.6.4.6.2. Bounded Context Database Design Diagram"></a>
@@ -3474,22 +3478,21 @@ La implementación persiste avisos y cuentas de fidelización en PostgreSQL y re
 
 El siguiente UML Class Diagram representa la estructura del Domain Layer correspondiente al Bounded Context **Notification & Loyalty**.
 
-El modelo se organiza principalmente alrededor de `NotificationPreferences`, que representa la configuración de comunicación asociada al paciente y permite determinar los canales mediante los cuales pueden enviarse las diferentes notificaciones.
+El modelo se organiza alrededor de dos agregados. `Notification` representa cada aviso del paciente: conoce su tipo (`NotificationType`), su mensaje (`NotificationMessage`), su estado de lectura (`NotificationStatus`), su estado de envío push y, cuando es un recordatorio, la fecha programada de envío. Sus métodos de creación (`scheduleAppointmentReminder`, `scheduleAnnualCheckupReminder`, `notifyLensOrderProgress`, `notifyDeliveryDelay`, `sendSatisfactionSurvey` y `sendBirthdayDiscount`) fijan el tipo y las referencias opcionales a la cita (`AppointmentId`) o a la orden de trabajo (`WorkOrderId`). Sus métodos `markAsRead`, `answerSurvey`, `markPushSent` y `markPushFailed` aplican las reglas de lectura, de respuesta única a la encuesta y de envío.
 
-`PatientBirthday` representa la información utilizada para detectar fechas especiales del paciente y puede activar la generación de un `BirthdayDiscount`. Por otro lado, `SatisfactionSurvey` permite representar las encuestas enviadas después de la entrega de un pedido, mientras que `ReactivationCampaign` modela las campañas destinadas a incentivar futuros controles visuales.
+`LoyaltyAccount` representa la cuenta de fidelización del paciente y conserva su saldo (`LoyaltyPoints`) y el año del último beneficio de cumpleaños; `grantBirthdayDiscount` rechaza un segundo beneficio en el mismo año. `DeviceToken` registra los dispositivos del paciente que reciben las notificaciones push.
 
-`InAppNotification` representa los mensajes mostrados directamente dentro de la aplicación y puede utilizar información de `OrderProgress` para comunicar los cambios producidos durante la fabricación de un pedido. Asimismo, `StaffMember` representa al personal responsable de gestionar las comunicaciones cuando corresponda.
-
-El Domain Layer incluye también las interfaces de repositorio necesarias para abstraer la persistencia de notificaciones, preferencias de comunicación, encuestas, miembros del personal y campañas de reactivación. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las diferentes operaciones de notificación y fidelización (ver Figura 52).
+El Domain Layer incluye también las interfaces `NotificationRepository`, `LoyaltyAccountRepository` y `DeviceTokenRepository`, que abstraen la persistencia de avisos, cuentas y tokens. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las operaciones de notificación y fidelización (ver Figura 54).
 
 
-<a id="figura-52"></a>
+<a id="figura-54"></a>
 
-**Figura 52**
+**Figura 54**
 
 *Diagrama de clases del Domain Layer del Notification & Loyalty Context*
 
-![Notification.svg](assets/cap2/class-diagram/imageclass/Notification.svg)
+![Notification & Loyalty Domain Layer Class Diagram](assets/cap2/class-diagram/domain/notification-loyalty.png)
+
 
 
 <a id="2.6.5.6.2. Bounded Context Database Design Diagram"></a>

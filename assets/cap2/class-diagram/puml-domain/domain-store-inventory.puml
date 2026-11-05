@@ -1,0 +1,142 @@
+@startuml domain-store-inventory
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName Arial
+hide empty members
+title Store Management & Inventory Context - Domain Layer
+
+package "inventory.domain" {
+
+  package "entities" {
+    class Inventory <<Aggregate Root>> {
+      - id: InventoryId
+      - opticalStoreId: OpticalStoreId
+      - stocks: List<Stock>
+      + replenish(frameModelId: FrameModelId, quantity: int, supplierId: SupplierId, performedBy: UUID): StockMovement
+      + decrease(frameModelId: FrameModelId, quantity: int, saleId: UUID): StockMovement
+      + lowStockAlerts(): List<LowStockAlert>
+    }
+    class Stock <<Entity>> {
+      - frameModelId: FrameModelId
+      - quantity: int
+      - minimumStock: int
+      + increase(quantity: int): void
+      + decrease(quantity: int): void
+      + isLow(): boolean
+    }
+    class FrameModel <<Aggregate Root>> {
+      - id: FrameModelId
+      - sku: Sku
+      - name: String
+      - material: String [0..1]
+      - shape: String [0..1]
+      - color: String [0..1]
+      - price: Price
+      - tryOnModelUrl: String [0..1]
+      + updatePrice(price: Price): void
+    }
+    class Supplier <<Entity>> {
+      - id: SupplierId
+      - name: String
+      - contact: String [0..1]
+    }
+    class StockMovement <<Entity>> {
+      - id: StockMovementId
+      - inventoryId: InventoryId
+      - frameModelId: FrameModelId
+      - type: MovementType
+      - reason: MovementReason
+      - quantity: int
+      - saleId: UUID [0..1]
+      - supplierId: SupplierId [0..1]
+      - performedBy: UUID [0..1]
+      - createdAt: Instant
+    }
+  }
+
+  package "valueobjects" {
+    class InventoryId <<VO>>
+    class FrameModelId <<VO>>
+    class SupplierId <<VO>>
+    class StockMovementId <<VO>>
+    class OpticalStoreId <<VO>>
+    class Sku <<VO>> {
+      - value: String
+    }
+    class Price <<VO>> {
+      - amount: BigDecimal
+      - currency: String
+    }
+    class LowStockAlert <<VO>> {
+      - frameModelId: FrameModelId
+      - quantity: int
+      - minimumStock: int
+    }
+    class Replenishment <<VO>> {
+      - frameModelId: FrameModelId
+      - supplierId: SupplierId
+      - quantity: int
+    }
+    enum MovementType {
+      IN
+      OUT
+    }
+    enum MovementReason {
+      REPLENISHMENT
+      SALE
+      ADJUSTMENT
+    }
+  }
+
+  package "repositories" {
+    interface InventoryRepository {
+      + save(inventory: Inventory): void
+      + findByOpticalStoreId(id: OpticalStoreId): Optional<Inventory>
+    }
+    interface FrameModelRepository {
+      + save(frameModel: FrameModel): void
+      + findById(id: FrameModelId): Optional<FrameModel>
+      + findBySku(sku: Sku): Optional<FrameModel>
+      + findAll(): List<FrameModel>
+    }
+    interface SupplierRepository {
+      + save(supplier: Supplier): void
+      + findById(id: SupplierId): Optional<Supplier>
+      + findAll(): List<Supplier>
+    }
+    interface StockMovementRepository {
+      + save(movement: StockMovement): void
+      + findByPeriod(from: Instant, to: Instant, sku: Sku [0..1]): List<StockMovement>
+    }
+  }
+
+  package "events" {
+    class NewFrameModelAdded <<Domain Event>>
+    class FrameModelPriceUpdated <<Domain Event>>
+    class StockWasReplenished <<Domain Event>>
+    class LowStockAlertGenerated <<Domain Event>>
+    class InventoryWasUpdated <<Domain Event>>
+    class SupplierRegistered <<Domain Event>>
+  }
+}
+
+Inventory *-- "0..*" Stock
+Stock "0..*" --> "1" FrameModel : frameModelId
+FrameModel *-- Sku
+FrameModel *-- Price
+Inventory ..> StockMovement : registra
+Inventory ..> LowStockAlert : genera
+Inventory ..> Replenishment : aplica
+Replenishment --> Supplier
+StockMovement --> MovementType
+StockMovement --> MovementReason
+StockMovement "0..*" --> "0..1" Supplier
+InventoryRepository ..> Inventory
+FrameModelRepository ..> FrameModel
+SupplierRepository ..> Supplier
+StockMovementRepository ..> StockMovement
+Inventory ..> LowStockAlertGenerated : publica
+Inventory ..> StockWasReplenished : publica
+@enduml
