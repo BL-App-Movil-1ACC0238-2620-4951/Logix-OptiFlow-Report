@@ -858,22 +858,23 @@ Esta sección presenta las historias de usuario de **OptiFlow** para los proceso
 | EP01 / US02 | Registro de pacientes desde el móvil | **Como** optómetra o asesor de ventas, **quiero** registrar nuevos pacientes desde la aplicación móvil **para** centralizar su información personal y facilitar su atención. | **Escenario 1:** Registro exitoso. **Dado que** el usuario se encuentra en el módulo de pacientes, **cuando** completa los campos obligatorios y selecciona "Guardar", **entonces** el sistema registra al paciente correctamente.<br><br>**Escenario 2:** Datos incompletos. **Dado que** existen campos obligatorios vacíos, **cuando** el usuario intenta guardar el registro, **entonces** el sistema indica los campos que deben completarse. | EP01: Authentication & User Management |
 | EP02 / US03 | Gestión de la historia clínica electrónica | **Como** optómetra, **quiero** registrar y actualizar la historia clínica electrónica del paciente desde un dispositivo móvil **para** mantener disponible y organizada su información clínica. | **Escenario 1:** Registro exitoso. **Dado que** el optómetra selecciona un paciente, **cuando** registra las mediciones, observaciones y diagnóstico y selecciona "Guardar", **entonces** el sistema almacena la información en su historia clínica.<br><br>**Escenario 2:** Datos inválidos. **Dado que** existen valores que no cumplen las validaciones establecidas, **cuando** se intenta guardar la información, **entonces** el sistema muestra un mensaje de validación y solicita corregir los datos. | EP02: Clinical Management |
 | EP02 / US04 | Consulta del historial clínico y receta | **Como** optómetra o asesor autorizado, **quiero** consultar el historial clínico y las recetas anteriores de un paciente **para** disponer de sus antecedentes durante la atención. | **Escenario 1:** Historial disponible. **Dado que** el paciente posee registros clínicos, **cuando** el usuario accede a su perfil, **entonces** el sistema muestra sus antecedentes y recetas registradas.<br><br>**Escenario 2:** Sin historial. **Dado que** el paciente no posee registros anteriores, **cuando** se consulta su historial, **entonces** el sistema muestra un mensaje indicando que no existen registros disponibles. | EP02: Clinical Management |
-| EP03 / US05 | Búsqueda de ópticas y disponibilidad de atención | **Como** paciente, **quiero** consultar las ópticas disponibles, sus sucursales y horarios de atención **para** elegir dónde recibir el servicio. | **Escenario 1:** Consulta de establecimientos. **Dado que** existen ópticas y sucursales registradas, **cuando** el paciente accede al módulo de búsqueda, **entonces** el sistema muestra los establecimientos disponibles, sus direcciones y horarios.<br><br>**Escenario 2:** Sin establecimientos disponibles. **Dado que** no existen sucursales disponibles, **cuando** el paciente realiza una búsqueda, **entonces** el sistema muestra un mensaje informativo. | EP03: Search & Booking |
+| EP03 / US05 | Búsqueda de ópticas y disponibilidad de atención | **Como** paciente, **quiero** consultar las ópticas disponibles, sus sucursales y horarios de atención **para** elegir dónde recibir el servicio. | **Escenario 1:** Consulta de establecimientos. **Dado que** existen ópticas y sucursales registradas, **cuando** el paciente accede al módulo de búsqueda, **entonces** el sistema muestra los establecimientos disponibles, sus direcciones y horarios.<br><br>**Escenario 2:** Sin establecimientos disponibles. **Dado que** no existen sucursales disponibles, **cuando** el paciente realiza una búsqueda, **entonces** el sistema muestra un mensaje informativo.<br><br>**Escenario 3:** Ópticas cercanas en el mapa. **Dado que** el paciente concede el permiso de ubicación, **cuando** abre la vista de mapa, **entonces** la aplicación muestra en Google Maps las ópticas cercanas a su posición, ordenadas por distancia. | EP03: Search & Booking |
 | EP03 / US06 | Reserva de cita para atención optométrica | **Como** paciente, **quiero** seleccionar una fecha y horario disponible para reservar una cita **para** recibir atención optométrica de manera organizada. | **Escenario 1:** Reserva exitosa. **Dado que** existen horarios disponibles, **cuando** el paciente selecciona una fecha, horario y sucursal y confirma la reserva, **entonces** el sistema registra la cita y muestra su confirmación.<br><br>**Escenario 2:** Horario no disponible. **Dado que** otro paciente ha ocupado el horario seleccionado, **cuando** se intenta confirmar la reserva, **entonces** el sistema informa que el horario ya no está disponible y solicita seleccionar otro. | EP03: Search & Booking |
 | EP04 / US07 | Consulta de inventario mediante escáner móvil | **Como** asesor de ventas, **quiero** escanear el código de una montura utilizando la cámara del dispositivo móvil **para** consultar rápidamente su disponibilidad, características y precio. | **Escenario 1:** Producto encontrado. **Dado que** la montura posee un código registrado, **cuando** el asesor realiza el escaneo, **entonces** el sistema muestra su stock, características y precio actualizado.<br><br>**Escenario 2:** Producto no encontrado. **Dado que** el código no está registrado, **cuando** se realiza el escaneo, **entonces** el sistema informa que el producto no existe en el catálogo. | EP04: Inventory & Catalog Management |
 | EP04 / US08 | Generación de cotización vinculada a receta | **Como** asesor de ventas, **quiero** generar una cotización utilizando la receta del paciente y los productos disponibles **para** elaborar un presupuesto de manera rápida y precisa. | **Escenario 1:** Cotización generada. **Dado que** el paciente cuenta con una receta válida y existen productos disponibles, **cuando** el asesor selecciona los productos y genera la cotización, **entonces** el sistema calcula y muestra el monto total.<br><br>**Escenario 2:** Receta no disponible. **Dado que** el paciente no posee una receta registrada, **cuando** se intenta generar una cotización que requiere dicha información, **entonces** el sistema solicita registrar o seleccionar una receta válida. | EP04: Inventory & Catalog Management |
 | EP04 / US09 | Gestión de catálogo de monturas | **Como** administrador, **quiero** registrar y actualizar la información de las monturas del catálogo **para** mantener actualizados sus características, precios y disponibilidad. | **Escenario 1:** Actualización exitosa. **Dado que** el administrador selecciona una montura existente, **cuando** modifica sus datos y selecciona "Guardar", **entonces** el sistema actualiza la información del producto.<br><br>**Escenario 2:** Datos inválidos. **Dado que** se ingresan valores incorrectos en los campos obligatorios, **cuando** se intenta guardar, **entonces** el sistema muestra los errores de validación correspondientes. | EP04: Inventory & Catalog Management |
-| EP05 / US10 | Gestión de órdenes de trabajo | **Como** administrador o responsable del laboratorio, **quiero** visualizar y actualizar las órdenes de trabajo mediante un tablero Kanban **para** controlar visualmente el avance de fabricación de los lentes. | **Escenario 1:** Cambio de estado. **Dado que** existe una orden de trabajo activa, **cuando** el responsable cambia su estado en el tablero, **entonces** el sistema actualiza la orden y registra su nuevo estado.<br><br>**Escenario 2:** Pérdida de conexión. **Dado que** el dispositivo pierde temporalmente la conexión, **cuando** se intenta actualizar una orden, **entonces** el sistema conserva la operación pendiente para sincronizarla posteriormente. | EP05: Production & Order Tracking |
+| EP05 / US10 | Gestión de órdenes de trabajo | **Como** administrador o responsable del laboratorio, **quiero** visualizar y actualizar las órdenes de trabajo mediante un tablero Kanban **para** controlar visualmente el avance de fabricación de los lentes. | **Escenario 1:** Cambio de estado. **Dado que** existe una orden de trabajo activa, **cuando** el responsable cambia su estado en el tablero, **entonces** el sistema actualiza la orden y registra su nuevo estado.<br><br>**Escenario 2:** Sin conexión. **Dado que** el dispositivo no tiene conexión, **cuando** el responsable intenta cambiar el estado de una orden, **entonces** el sistema muestra el tablero guardado en modo de solo lectura e indica que el cambio requiere conexión. | EP05: Production & Order Tracking |
 | EP05 / US11 | Seguimiento del estado de los pedidos | **Como** paciente, **quiero** consultar el estado de mi pedido y su avance de fabricación **para** conocer cuándo estarán disponibles mis lentes. | **Escenario 1:** Consulta de pedido. **Dado que** el paciente posee una orden activa, **cuando** accede al seguimiento, **entonces** el sistema muestra el estado actual y la información disponible sobre su entrega.<br><br>**Escenario 2:** Pedido finalizado. **Dado que** la orden ha terminado su proceso de fabricación, **cuando** el paciente consulta el seguimiento, **entonces** el sistema indica que el pedido está listo para su entrega. | EP05: Production & Order Tracking |
-| EP06 / US12 | Notificaciones del progreso de pedidos | **Como** paciente, **quiero** recibir notificaciones sobre los cambios importantes de mi pedido **para** mantenerme informado sin tener que consultar constantemente la aplicación. | **Escenario 1:** Cambio de estado. **Dado que** una orden cambia de estado, **cuando** el sistema registra el cambio, **entonces** envía una notificación al paciente.<br><br>**Escenario 2:** Notificaciones desactivadas. **Dado que** el paciente ha desactivado las notificaciones, **cuando** cambia el estado del pedido, **entonces** el sistema registra el evento sin enviar una notificación push. | EP06: Notifications & Loyalty |
-| EP06 / US13 | Recordatorios de control visual | **Como** administrador, **quiero** configurar recordatorios automáticos para los pacientes **para** fomentar controles visuales periódicos y mantener la relación con ellos. | **Escenario 1:** Recordatorio generado. **Dado que** un paciente cumple el periodo establecido desde su último control, **cuando** el sistema ejecuta la regla configurada, **entonces** genera el recordatorio correspondiente.<br><br>**Escenario 2:** Paciente sin canal de notificación. **Dado que** el paciente no posee un dispositivo vinculado, **cuando** corresponde enviar el recordatorio, **entonces** el sistema registra el evento para su posterior gestión por otro medio. | EP06: Notifications & Loyalty |
+| EP06 / US12 | Notificaciones del progreso de pedidos | **Como** paciente, **quiero** recibir notificaciones sobre los cambios importantes de mi pedido **para** mantenerme informado sin tener que consultar constantemente la aplicación. | **Escenario 1:** Cambio de estado. **Dado que** una orden cambia de estado, **cuando** el sistema registra el cambio, **entonces** envía una notificación push al dispositivo del paciente mediante Firebase Cloud Messaging.<br><br>**Escenario 2:** Dispositivo sin permiso de notificaciones. **Dado que** el paciente no concedió el permiso de notificaciones en su dispositivo o no tiene un dispositivo registrado, **cuando** cambia el estado del pedido, **entonces** el sistema registra el aviso sin notificación push y el paciente lo encuentra en la sección de notificaciones de la aplicación. | EP06: Notifications & Loyalty |
+| EP06 / US13 | Recordatorios de control visual | **Como** paciente, **quiero** recibir recordatorios de mi cita y de mi próximo control visual **para** no olvidar la atención y mantener un seguimiento periódico de mi salud visual. | **Escenario 1:** Recordatorio de cita. **Dado que** el paciente reservó una cita, **cuando** faltan 24 horas para la cita, **entonces** el sistema le envía un recordatorio con la óptica, la fecha y la hora.<br><br>**Escenario 2:** Recordatorio de control anual. **Dado que** el paciente fue atendido en una cita, **cuando** se cumplen 12 meses desde esa cita, **entonces** el sistema le envía un recordatorio para reservar un nuevo control visual. | EP06: Notifications & Loyalty |
 | EP07 / US14 | Alertas de stock crítico | **Como** administrador de la óptica, **quiero** recibir alertas cuando un producto alcance su stock mínimo **para** gestionar el reabastecimiento oportunamente. | **Escenario 1:** Stock crítico detectado. **Dado que** la cantidad de un producto alcanza el límite mínimo configurado, **cuando** el sistema actualiza el inventario, **entonces** muestra una alerta de stock crítico.<br><br>**Escenario 2:** Stock suficiente. **Dado que** la cantidad disponible supera el mínimo establecido, **cuando** se consulta el inventario, **entonces** el sistema no genera una alerta de reposición. | EP07: Store Management & Inventory |
 | EP07 / US15 | Historial de movimientos de inventario | **Como** administrador, **quiero** consultar el historial de entradas y salidas de productos **para** controlar los movimientos del inventario y detectar posibles diferencias. | **Escenario 1:** Historial disponible. **Dado que** existen movimientos registrados, **cuando** el administrador consulta el historial, **entonces** el sistema muestra la fecha, producto, cantidad y usuario asociado a cada movimiento.<br><br>**Escenario 2:** Sin movimientos. **Dado que** no existen movimientos registrados, **cuando** se consulta el historial, **entonces** el sistema muestra un estado vacío informativo. | EP07: Store Management & Inventory |
 | EP07 / US16 | Gestión de permisos por roles | **Como** administrador, **quiero** asignar permisos según el rol de cada usuario **para** proteger la información y funcionalidades sensibles de la óptica. | **Escenario 1:** Acceso autorizado. **Dado que** un usuario posee permisos para un módulo, **cuando** intenta acceder a este, **entonces** el sistema permite visualizar y utilizar sus funcionalidades.<br><br>**Escenario 2:** Acceso restringido. **Dado que** un usuario no posee permisos para un módulo, **cuando** intenta acceder, **entonces** el sistema deniega el acceso y muestra un mensaje de permisos insuficientes. | EP07: Store Management & Inventory |
-| EP08 / US17 | Registro de ventas y pagos | **Como** asesor de ventas, **quiero** registrar la venta y el pago asociado a una cotización **para** mantener actualizada la operación comercial del paciente. | **Escenario 1:** Venta registrada. **Dado que** existe una cotización aprobada, **cuando** el asesor registra el pago y confirma la venta, **entonces** el sistema registra la operación y actualiza el estado correspondiente.<br><br>**Escenario 2:** Pago inválido. **Dado que** los datos del pago no cumplen las validaciones establecidas, **cuando** se intenta registrar la operación, **entonces** el sistema rechaza el registro y muestra el motivo. | EP08: Clinical & Commercial |
+| EP08 / US17 | Registro de ventas y pagos | **Como** paciente, **quiero** pagar desde la aplicación la venta que registró el asesor **para** confirmar mi pedido sin pagar en caja. | **Escenario 1:** Pago aprobado. **Dado que** el asesor registró una venta pendiente de pago, **cuando** el paciente selecciona "Pagar", completa el pago con tarjeta o Yape en la pasarela de pagos y esta lo aprueba, **entonces** el sistema registra el pago con la referencia de la pasarela y la venta queda lista para que el asesor la cierre.<br><br>**Escenario 2:** Pago rechazado. **Dado que** la pasarela de pagos rechaza el pago, **cuando** el paciente regresa a la aplicación, **entonces** el sistema mantiene la venta pendiente, muestra el motivo del rechazo y permite reintentar.<br><br>**Escenario 3:** Pago en efectivo. **Dado que** el paciente paga en caja, **cuando** el asesor registra el pago en efectivo, **entonces** el sistema registra el pago y permite cerrar la venta. | EP08: Clinical & Commercial |
 | EP08 / US18 | Dashboard de métricas operativas | **Como** administrador de la óptica, **quiero** visualizar indicadores de atención, ventas y pedidos **para** conocer el estado general del negocio y tomar decisiones oportunas. | **Escenario 1:** Visualización de indicadores. **Dado que** existen registros operativos, **cuando** el administrador accede al dashboard, **entonces** el sistema muestra los principales indicadores del periodo seleccionado.<br><br>**Escenario 2:** Sin información. **Dado que** no existen registros para el periodo consultado, **cuando** se accede al dashboard, **entonces** el sistema muestra los indicadores en cero y un mensaje informativo. | EP08: Analytics & Reporting |
 | EP08 / US19 | Generación y exportación de reportes | **Como** administrador, **quiero** generar y exportar reportes de las operaciones de la óptica **para** analizar y compartir información con las áreas correspondientes. | **Escenario 1:** Reporte generado. **Dado que** existen datos en el periodo seleccionado, **cuando** el administrador solicita un reporte, **entonces** el sistema genera el documento con la información correspondiente.<br><br>**Escenario 2:** Sin datos. **Dado que** el periodo seleccionado no contiene registros, **cuando** se solicita el reporte, **entonces** el sistema informa que no existen datos disponibles para exportar. | EP08: Analytics & Reporting |
-| EP09 / US20 | Operaciones críticas sin conexión | **Como** usuario operativo, **quiero** registrar operaciones críticas aunque exista una interrupción temporal de internet **para** continuar atendiendo al paciente y evitar pérdida de información. | **Escenario 1:** Registro sin conexión. **Dado que** el dispositivo pierde temporalmente la conexión, **cuando** el usuario registra una operación crítica, **entonces** la aplicación almacena temporalmente la información en el dispositivo.<br><br>**Escenario 2:** Recuperación de conexión. **Dado que** existen operaciones almacenadas localmente, **cuando** el dispositivo recupera la conexión, **entonces** la aplicación sincroniza automáticamente la información con el servidor. | EP09: Mobile Offline Capability |
+| EP09 / US20 | Consulta de información sin conexión | **Como** usuario de la aplicación, **quiero** consultar la última información descargada aunque no tenga conexión a internet **para** seguir revisando mis citas, pedidos, avisos y el catálogo durante una interrupción temporal. | **Escenario 1:** Consulta sin conexión. **Dado que** el usuario abrió antes sus citas, pedidos, avisos o el catálogo con conexión, **cuando** el dispositivo pierde la conexión, **entonces** la aplicación muestra la información guardada en el dispositivo e indica la fecha de su última actualización.<br><br>**Escenario 2:** Operación que requiere conexión. **Dado que** el dispositivo no tiene conexión, **cuando** el usuario intenta reservar, pagar o registrar información, **entonces** la aplicación le indica que la operación requiere conexión y no la envía. | EP09: Mobile Offline Capability |
+| EP04 / US21 | Probador virtual de monturas | **Como** paciente, **quiero** probarme virtualmente las monturas del catálogo con la cámara frontal de mi celular **para** elegir el modelo que mejor se adapta a mi rostro antes de visitar la óptica. | **Escenario 1:** Prueba de montura. **Dado que** la montura tiene un modelo de prueba virtual, **cuando** el paciente selecciona "Probar" y concede el permiso de cámara, **entonces** la aplicación muestra la montura sobre su rostro en tiempo real mediante el servicio de filtros faciales AR.<br><br>**Escenario 2:** Montura sin modelo virtual. **Dado que** la montura no tiene un modelo de prueba virtual, **cuando** el paciente consulta su detalle, **entonces** la aplicación no muestra la opción "Probar". | EP04: Inventory & Catalog Management |
 ### 2.4.2. Impact Mapping
 
 El Impact Mapping es una herramienta que nos permitió estructurar y visualizar de manera clara la relación entre los objetivos del proyecto, los actores involucrados y las funcionalidades propuestas en la solución. A partir de la información recopilada en las entrevistas y el análisis de necesidades, se identificaron los principales problemas que enfrentan los usuarios.
@@ -926,7 +927,7 @@ El backlog relaciona las historias con su prioridad y estimación para organizar
 | **2** | **US02** | Registro de pacientes desde el móvil | **Como** optómetra o asesor de ventas, **quiero** registrar nuevos pacientes directamente desde la aplicación móvil **para** gestionar su información dentro del sistema de la óptica. | **5** |
 | **3** | **US03** | Gestión de historia clínica electrónica | **Como** optómetra, **quiero** registrar y actualizar la historia clínica electrónica del paciente **para** mantener un control organizado de sus evaluaciones visuales. | **8** |
 | **4** | **US04** | Consulta de historial clínico y receta | **Como** paciente, **quiero** consultar mi historial clínico y receta desde la aplicación **para** acceder fácilmente a mi información visual. | **5** |
-| **5** | **US05** | Búsqueda de ópticas y disponibilidad de atención | **Como** paciente, **quiero** buscar ópticas disponibles y consultar su disponibilidad de atención **para** elegir dónde recibir el servicio. | **5** |
+| **5** | **US05** | Búsqueda de ópticas y disponibilidad de atención | **Como** paciente, **quiero** buscar ópticas disponibles, verlas en un mapa y consultar su disponibilidad de atención **para** elegir dónde recibir el servicio. | **5** |
 | **6** | **US06** | Reserva de cita para atención optométrica | **Como** paciente, **quiero** reservar una cita para atención optométrica **para** programar mi visita de manera rápida y organizada. | **8** |
 | **7** | **US07** | Consulta de inventario mediante escáner móvil | **Como** asesor de ventas, **quiero** escanear el código de una montura **para** consultar su stock y precio en tiempo real frente al cliente. | **5** |
 | **8** | **US08** | Generación de cotización vinculada a receta | **Como** asesor de ventas, **quiero** generar una cotización vinculada a la receta del paciente **para** elaborar un presupuesto de manera rápida y precisa. | **5** |
@@ -934,14 +935,15 @@ El backlog relaciona las historias con su prioridad y estimación para organizar
 | **10** | **US10** | Gestión de órdenes de trabajo | **Como** técnico de laboratorio o administrador, **quiero** gestionar las órdenes de trabajo mediante un tablero Kanban **para** controlar visualmente el proceso de fabricación de los lentes. | **8** |
 | **11** | **US11** | Seguimiento del estado de pedidos | **Como** paciente, **quiero** consultar el estado de mi pedido **para** conocer el avance de la elaboración de mis lentes. | **5** |
 | **12** | **US12** | Notificaciones del progreso de pedidos | **Como** paciente, **quiero** recibir notificaciones sobre el progreso de mi pedido **para** conocer oportunamente los cambios en su estado. | **5** |
-| **13** | **US13** | Recordatorios de control visual | **Como** paciente, **quiero** recibir recordatorios de control visual **para** mantener un seguimiento periódico de mi salud visual. | **3** |
+| **13** | **US13** | Recordatorios de control visual | **Como** paciente, **quiero** recibir recordatorios de mi cita y de mi próximo control visual **para** mantener un seguimiento periódico de mi salud visual. | **3** |
 | **14** | **US14** | Alertas de stock crítico | **Como** administrador, **quiero** visualizar alertas de stock crítico **para** identificar oportunamente los productos que necesitan reposición. | **5** |
 | **15** | **US15** | Historial de movimientos de inventario | **Como** administrador, **quiero** consultar el historial de movimientos de inventario **para** mantener la trazabilidad de los productos de la óptica. | **5** |
 | **16** | **US16** | Gestión de permisos por roles | **Como** administrador, **quiero** gestionar permisos según los roles de los usuarios **para** controlar el acceso a las funcionalidades e información de la aplicación. | **5** |
 | **17** | **US17** | Registro de ventas y pagos | **Como** administrador, **quiero** registrar las ventas y pagos realizados **para** mantener actualizado el control comercial de la óptica. | **8** |
 | **18** | **US18** | Dashboard de métricas operativas | **Como** administrador, **quiero** visualizar un dashboard con métricas operativas y comerciales **para** conocer el rendimiento de la óptica y facilitar la toma de decisiones. | **8** |
 | **19** | **US19** | Generación y exportación de reportes | **Como** administrador, **quiero** generar y exportar reportes de las operaciones de la óptica **para** analizar y compartir información relevante del negocio. | **5** |
-| **20** | **US20** | Operaciones críticas sin conexión | **Como** usuario de la óptica, **quiero** continuar realizando operaciones críticas cuando no tenga conexión a Internet **para** evitar interrupciones en el trabajo. | **8** |
+| **20** | **US20** | Consulta de información sin conexión | **Como** usuario de la aplicación, **quiero** consultar la última información descargada cuando no tenga conexión a internet **para** evitar interrupciones en la consulta. | **5** |
+| **21** | **US21** | Probador virtual de monturas | **Como** paciente, **quiero** probarme virtualmente las monturas del catálogo con la cámara de mi celular **para** elegir el modelo que mejor se adapta a mi rostro. | **8** |
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
@@ -1624,16 +1626,41 @@ La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar óp
 | `name` | `Name` (VO) | Nombre completo del paciente |
 | `email` | `EmailAddress` (VO) | Correo electrónico del paciente |
 | `phone` | `PhoneNumber` (VO) | Número telefónico del paciente |
+| `passwordHash` | `String` | Hash BCrypt de la contraseña; nunca se expone en las respuestas |
+| `birthDate` | `LocalDate` | Fecha de nacimiento del paciente (opcional); Notification & Loyalty la usa para el beneficio de cumpleaños |
 | `createdAt` | `DateTime` | Fecha de registro del paciente |
 
-##### Entidad: `OpticalStore`
+##### Entidad: `StaffMember`
 
-La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma (ver Tabla 28).
+La entidad `StaffMember` representa a una persona del personal de la óptica que inicia sesión en la aplicación con un rol asignado por el administrador. Search & Booking la gestiona junto con `Patient` porque ambos comparten el inicio de sesión; los demás contextos solo reciben el identificador y el rol dentro del token de acceso (ver Tabla 28).
 
 
 <a id="tabla-28"></a>
 
 **Tabla 28**
+
+*Atributos de la entidad StaffMember*
+
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `StaffMemberId` (VO) | Identificador único del miembro del personal |
+| `opticalStoreId` | `OpticalStoreId` (VO) | Óptica en la que trabaja |
+| `name` | `Name` (VO) | Nombre completo |
+| `email` | `EmailAddress` (VO) | Correo con el que inicia sesión; es único entre pacientes y personal |
+| `passwordHash` | `String` | Hash BCrypt de la contraseña |
+| `role` | `UserRole` (Enum) | Rol que define a qué operaciones puede acceder |
+| `active` | `Boolean` | Indica si puede iniciar sesión |
+| `createdAt` | `DateTime` | Fecha de registro |
+
+##### Entidad: `OpticalStore`
+
+La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma (ver Tabla 29).
+
+
+<a id="tabla-29"></a>
+
+**Tabla 29**
 
 *Atributos de la entidad OpticalStore*
 
@@ -1644,17 +1671,18 @@ La entidad `OpticalStore` representa una sucursal óptica disponible para ser en
 | `name` | `StoreName` (VO) | Nombre de la óptica |
 | `address` | `StoreAddress` (VO) | Dirección física de la sucursal |
 | `phone` | `PhoneNumber` (VO) | Número telefónico de contacto |
+| `location` | `GeoLocation` (VO) | Latitud y longitud de la sucursal, usadas para mostrarla en el mapa |
 | `rating` | `StoreRating` (VO) | Valoración promedio de la óptica |
 | `status` | `StoreStatus` (Enum) | Estado actual de la óptica |
 
 ##### Entidad: `TimeSlot`
 
-`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica (ver Tabla 29).
+`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica (ver Tabla 30).
 
 
-<a id="tabla-29"></a>
+<a id="tabla-30"></a>
 
-**Tabla 29**
+**Tabla 30**
 
 *Atributos de la entidad TimeSlot*
 
@@ -1670,11 +1698,11 @@ La entidad `OpticalStore` representa una sucursal óptica disponible para ser en
 ##### Value Objects
 
 
-Los Value Objects del Search & Booking Context se resumen en la Tabla 30.
+Los Value Objects del Search & Booking Context se resumen en la Tabla 31.
 
-<a id="tabla-30"></a>
+<a id="tabla-31"></a>
 
-**Tabla 30**
+**Tabla 31**
 
 *Value Objects del Search & Booking Context*
 
@@ -1685,22 +1713,24 @@ Los Value Objects del Search & Booking Context se resumen en la Tabla 30.
 | `PatientId` | Identificador único del paciente |
 | `OpticalStoreId` | Identificador único de una óptica |
 | `TimeSlotId` | Identificador único de un horario |
+| `StaffMemberId` | Identificador único de un miembro del personal |
 | `Name` | Representa un nombre válido de paciente |
 | `EmailAddress` | Encapsula y valida el correo electrónico |
 | `PhoneNumber` | Encapsula el número telefónico |
 | `StoreName` | Representa el nombre de una óptica |
 | `StoreAddress` | Representa la dirección de una sucursal |
+| `GeoLocation` | Encapsula y valida la latitud (−90 a 90) y la longitud (−180 a 180) de una sucursal y calcula la distancia a otra ubicación |
 | `StoreRating` | Representa la valoración otorgada a una óptica |
 | `TimeSlot` | Representa un intervalo de tiempo para una atención |
 
 ##### Enumerations
 
 
-Las enumeraciones del Search & Booking Context se detallan en la Tabla 31.
+Las enumeraciones del Search & Booking Context se detallan en la Tabla 32.
 
-<a id="tabla-31"></a>
+<a id="tabla-32"></a>
 
-**Tabla 31**
+**Tabla 32**
 
 *Enumeraciones del Search & Booking Context*
 
@@ -1710,15 +1740,16 @@ Las enumeraciones del Search & Booking Context se detallan en la Tabla 31.
 | `AppointmentStatus` | PENDING, CONFIRMED, CANCELLED, COMPLETED | Representa el estado de una cita |
 | `TimeSlotStatus` | AVAILABLE, RESERVED, BLOCKED | Representa la disponibilidad de un horario |
 | `StoreStatus` | ACTIVE, INACTIVE | Representa el estado operativo de una óptica |
+| `UserRole` | PATIENT, OPTOMETRIST, SALES_ADVISOR, TECHNICIAN, ADMIN | Rol incluido en el token de acceso; `PATIENT` corresponde a `Patient` y los demás a `StaffMember` |
 
 ##### Domain Services
 
 
-Los Domain Services del Search & Booking Context se presentan en la Tabla 32.
+Los Domain Services del Search & Booking Context se presentan en la Tabla 33.
 
-<a id="tabla-32"></a>
+<a id="tabla-33"></a>
 
-**Tabla 32**
+**Tabla 33**
 
 *Domain Services del Search & Booking Context*
 
@@ -1731,12 +1762,12 @@ Los Domain Services del Search & Booking Context se presentan en la Tabla 32.
 
 ##### Repository Interfaces
 
-Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades (ver Tabla 33).
+Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades (ver Tabla 34).
 
 
-<a id="tabla-33"></a>
+<a id="tabla-34"></a>
 
-**Tabla 33**
+**Tabla 34**
 
 *Repository Interfaces del Search & Booking Context*
 
@@ -1744,18 +1775,19 @@ Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persi
 | Interface | Operaciones principales |
 |---|---|
 | `AppointmentRepository` | `save()`, `findById()`, `findByPatientId()`, `findByTimeSlot()` |
-| `PatientRepository` | `save()`, `findById()`, `findByEmail()` |
+| `PatientRepository` | `save()`, `findById()`, `findByEmail()`, `findByBirthday(month, day)` |
+| `StaffMemberRepository` | `save()`, `findById()`, `findByEmail()`, `findByOpticalStoreId()` |
 | `OpticalStoreRepository` | `findById()`, `search()`, `filter()` |
 | `TimeSlotRepository` | `findById()`, `findAvailableByStore()`, `reserve()` |
 
 ##### Domain Events
 
-Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto (ver Tabla 34).
+Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto (ver Tabla 35).
 
 
-<a id="tabla-34"></a>
+<a id="tabla-35"></a>
 
-**Tabla 34**
+**Tabla 35**
 
 *Domain Events del Search & Booking Context*
 
@@ -1763,7 +1795,10 @@ Los eventos de dominio representan hechos relevantes ocurridos dentro del contex
 | Domain Event | Descripción |
 |---|---|
 | `PatientRegistered` | Se genera cuando un nuevo paciente completa su registro |
-| `PatientLoggedIn` | Se genera cuando un paciente inicia sesión correctamente |
+| `PatientLoggedIn` | Se genera cuando un paciente o un miembro del personal inicia sesión correctamente |
+| `StaffMemberRegistered` | Se genera cuando el administrador registra a un miembro del personal |
+| `StaffMemberRoleAssigned` | Se genera cuando el administrador cambia el rol de un miembro del personal |
+| `OpticalStoresFiltered` | Se genera cuando un paciente filtra las ópticas según sus criterios |
 | `OpticalStoresPublished` | Se genera cuando las ópticas disponibles son publicadas |
 | `FavoriteOpticalStoreSaved` | Se genera cuando un paciente guarda una óptica como favorita |
 | `OpticalStoreRated` | Se genera cuando un paciente registra una valoración |
@@ -1774,11 +1809,11 @@ Los eventos anteriores corresponden a los eventos publicados definidos para el *
 ##### Factories
 
 
-Los Factories del Search & Booking Context se resumen en la Tabla 35.
+Los Factories del Search & Booking Context se resumen en la Tabla 36.
 
-<a id="tabla-35"></a>
+<a id="tabla-36"></a>
 
-**Tabla 35**
+**Tabla 36**
 
 *Factories del Search & Booking Context*
 
@@ -1799,19 +1834,20 @@ Esta capa permite exponer las capacidades de búsqueda, consulta de disponibilid
 ##### Controllers
 
 
-Los Controllers del Search & Booking Context se detallan en la Tabla 36.
+Los Controllers del Search & Booking Context se detallan en la Tabla 37.
 
-<a id="tabla-36"></a>
+<a id="tabla-37"></a>
 
-**Tabla 36**
+**Tabla 37**
 
 *Controllers del Search & Booking Context*
 
 
 | Controller | Endpoints | Capabilities soportadas |
 |---|---|---|
-| `PatientController` | `POST /patients`, `POST /login` | Registro e inicio de sesión de pacientes |
-| `OpticalStoreController` | `GET /optical-stores`, `GET /optical-stores/{id}` | Búsqueda y consulta de ópticas |
+| `PatientController` | `POST /patients`, `POST /login`, `GET /patients/{id}/appointments` | Registro de pacientes, inicio de sesión de pacientes y personal (devuelve el token JWT y el rol) y consulta de las citas del paciente |
+| `StaffMemberController` | `POST /staff-members`, `GET /staff-members`, `PATCH /staff-members/{id}/role` | Registro del personal, listado y asignación de rol; solo para `ADMIN` |
+| `OpticalStoreController` | `GET /optical-stores`, `GET /optical-stores/{id}`, `GET /optical-stores/nearby` | Búsqueda y consulta de ópticas, y consulta de las ópticas cercanas a una ubicación |
 | `OpticalStoreFilterController` | `GET /optical-stores/search` | Filtrado de ópticas según criterios del paciente |
 | `TimeSlotController` | `GET /optical-stores/{id}/availability` | Consulta de horarios disponibles |
 | `AppointmentController` | `POST /appointments`, `GET /appointments/{id}` | Creación y consulta de citas |
@@ -1821,37 +1857,41 @@ Los Controllers del Search & Booking Context se detallan en la Tabla 36.
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 37.
+Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 38.
 
-<a id="tabla-37"></a>
+<a id="tabla-38"></a>
 
-**Tabla 37**
+**Tabla 38**
 
 *Resources / DTOs del Search & Booking Context*
 
 
 | DTO | Tipo | Uso |
 |---|---|---|
-| `RegisterPatientRequest` | Input | Datos necesarios para registrar un paciente |
-| `LoginRequest` | Input | Datos necesarios para iniciar sesión |
+| `RegisterPatientRequest` | Input | Nombre, correo, teléfono, contraseña y fecha de nacimiento opcional del paciente |
+| `LoginRequest` | Input | Correo y contraseña para iniciar sesión |
+| `LoginResponse` | Output | Token de acceso JWT, fecha de expiración, identificador del usuario y rol |
+| `RegisterStaffMemberRequest` | Input | Datos del miembro del personal, su óptica y su rol |
+| `AssignStaffRoleRequest` | Input | Nuevo rol del miembro del personal |
+| `StaffMemberResponse` | Output | Información pública del miembro del personal, sin la contraseña |
 | `SearchOpticalStoreRequest` | Input | Parámetros utilizados para buscar ópticas |
 | `FilterOpticalStoreRequest` | Input | Criterios utilizados para filtrar resultados |
 | `BookAppointmentRequest` | Input | Datos necesarios para reservar una cita |
 | `SaveFavoriteStoreRequest` | Input | Datos necesarios para guardar una óptica favorita |
 | `RateOpticalStoreRequest` | Input | Datos de la valoración de una óptica |
 | `PatientResponse` | Output | Información pública del paciente |
-| `OpticalStoreResponse` | Output | Información de una óptica |
+| `OpticalStoreResponse` | Output | Información de una óptica, incluida su latitud y longitud |
 | `TimeSlotResponse` | Output | Información sobre un horario disponible |
 | `AppointmentResponse` | Output | Información de una cita registrada |
 
 ##### Assemblers
 
 
-Los Assemblers del Search & Booking Context se resumen en la Tabla 38.
+Los Assemblers del Search & Booking Context se resumen en la Tabla 39.
 
-<a id="tabla-38"></a>
+<a id="tabla-39"></a>
 
-**Tabla 38**
+**Tabla 39**
 
 *Assemblers del Search & Booking Context*
 
@@ -1864,6 +1904,7 @@ Los Assemblers del Search & Booking Context se resumen en la Tabla 38.
 | `FromFilterOpticalStoreRequestAssembler` | `FilterOpticalStoreRequest` → `FilterOpticalStoresQuery` |
 | `FromBookAppointmentRequestAssembler` | `BookAppointmentRequest` → `BookAppointmentCommand` |
 | `FromRateOpticalStoreRequestAssembler` | `RateOpticalStoreRequest` → `RateOpticalStoreCommand` |
+| `FromRegisterStaffMemberRequestAssembler` | `RegisterStaffMemberRequest` → `RegisterStaffMemberCommand` |
 
 
 <a id="2.6.1.3. Application Layer"></a>
@@ -1876,11 +1917,11 @@ Se utiliza una separación entre **Commands**, orientados a modificar el estado 
 ##### Command Handlers
 
 
-Los Command Handlers del Search & Booking Context se detallan en la Tabla 39.
+Los Command Handlers del Search & Booking Context se detallan en la Tabla 40.
 
-<a id="tabla-39"></a>
+<a id="tabla-40"></a>
 
-**Tabla 39**
+**Tabla 40**
 
 *Command Handlers del Search & Booking Context*
 
@@ -1888,7 +1929,9 @@ Los Command Handlers del Search & Booking Context se detallan en la Tabla 39.
 | Command Handler | Command procesado | Flujo |
 |---|---|---|
 | `RegisterPatientCommandHandler` | `RegisterPatient` | Valida los datos, crea el paciente mediante `PatientFactory`, persiste mediante `PatientRepository` y publica `PatientRegistered` |
-| `LoginCommandHandler` | `LogIn` | Valida las credenciales del paciente y publica `PatientLoggedIn` |
+| `LoginCommandHandler` | `LogIn` | Busca el correo entre pacientes y personal activo, verifica la contraseña con BCrypt, emite el token JWT con el identificador y el rol mediante `JwtTokenService` y publica `PatientLoggedIn` |
+| `RegisterStaffMemberCommandHandler` | `RegisterStaffMember` | Valida que el correo no exista, guarda el hash de la contraseña y el rol, y publica `StaffMemberRegistered` |
+| `AssignStaffRoleCommandHandler` | `AssignStaffRole` | Cambia el rol de un miembro del personal y publica `StaffMemberRoleAssigned`; el cambio rige desde su siguiente inicio de sesión |
 | `PublishAvailableTimeSlotsCommandHandler` | `PublishAvailableTimeSlots` | Registra o actualiza los horarios disponibles de una óptica y publica `OpticalStoresPublished` |
 | `SaveFavoriteOpticalStoreCommandHandler` | `SaveFavoriteOpticalStore` | Registra una óptica como favorita del paciente y publica `FavoriteOpticalStoreSaved` |
 | `RateOpticalStoreCommandHandler` | `RateOpticalStore` | Valida y registra la valoración realizada por el paciente y publica `OpticalStoreRated` |
@@ -1897,11 +1940,11 @@ Los Command Handlers del Search & Booking Context se detallan en la Tabla 39.
 ##### Query Services
 
 
-Los Query Services del Search & Booking Context se presentan en la Tabla 40.
+Los Query Services del Search & Booking Context se presentan en la Tabla 41.
 
-<a id="tabla-40"></a>
+<a id="tabla-41"></a>
 
-**Tabla 40**
+**Tabla 41**
 
 *Query Services del Search & Booking Context*
 
@@ -1911,18 +1954,21 @@ Los Query Services del Search & Booking Context se presentan en la Tabla 40.
 | `SearchOpticalStoresQueryService` | `SearchOpticalStoresQuery` | Lista de ópticas encontradas |
 | `FilterOpticalStoresQueryService` | `FilterOpticalStoresQuery` | Lista de ópticas filtradas |
 | `GetOpticalStoreQueryService` | `GetOpticalStoreQuery` | Información detallada de una óptica |
+| `GetNearbyOpticalStoresQueryService` | `GetNearbyOpticalStoresQuery` | Lista de ópticas activas dentro de un radio, ordenadas por distancia a la ubicación del paciente |
 | `GetAvailableTimeSlotsQueryService` | `GetAvailableTimeSlotsQuery` | Lista de horarios disponibles |
 | `GetPatientAppointmentsQueryService` | `GetPatientAppointmentsQuery` | Lista de citas del paciente |
-| `GetFrameCatalogQueryService` | `ExploreFrameCatalogQuery` | Catálogo de monturas disponible |
+| `GetAppointmentQueryService` | `GetAppointmentQuery` | Detalle de una cita; también lo usa Clinical & Commercial para validar la atención (`GetAppointment`) |
+| `GetStaffMembersQueryService` | `GetStaffMembersQuery` | Lista del personal de una óptica con su rol |
+| `GetPatientsByBirthdayQueryService` | `GetPatientsByBirthdayQuery` | Identificadores de los pacientes cuyo día y mes de nacimiento coinciden con una fecha; lo usa Notification & Loyalty para el beneficio de cumpleaños |
 
 ##### Event Handlers
 
-Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno (ver Tabla 41).
+Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno (ver Tabla 42).
 
 
-<a id="tabla-41"></a>
+<a id="tabla-42"></a>
 
-**Tabla 41**
+**Tabla 42**
 
 *Event Handlers del Search & Booking Context*
 
@@ -1930,18 +1976,18 @@ Los eventos generados por Search & Booking pueden ser publicados para que otros 
 | Event Handler | Evento | Acción |
 |---|---|---|
 | `AppointmentBookedEventHandler` | `AppointmentBooked` | Publica el evento para que **Clinical & Commercial** pueda iniciar el flujo de atención mediante `ExaminePatient` |
-| `AppointmentBookedNotificationHandler` | `AppointmentBooked` | Publica el evento para que **Notification & Loyalty** pueda ejecutar `SendAppointmentReminder` |
+| `AppointmentBookedNotificationHandler` | `AppointmentBooked` | Publica el evento para que **Notification & Loyalty** pueda ejecutar `ScheduleAppointmentReminder` |
 
 En el diseño estratégico, `AppointmentBooked` comunica la creación de una reserva y permite que los contextos clínico y de notificaciones reaccionen sin compartir el modelo interno de Search & Booking. La implementación concreta de los consumidores y su validación deben distinguirse de esta relación conceptual.
 
 ##### Application Services
 
 
-Los Application Services del Search & Booking Context se resumen en la Tabla 42.
+Los Application Services del Search & Booking Context se resumen en la Tabla 43.
 
-<a id="tabla-42"></a>
+<a id="tabla-43"></a>
 
-**Tabla 42**
+**Tabla 43**
 
 *Application Services del Search & Booking Context*
 
@@ -1951,7 +1997,8 @@ Los Application Services del Search & Booking Context se resumen en la Tabla 42.
 | `SearchBookingApplicationService` | Fachada principal del contexto que coordina los casos de uso de búsqueda, disponibilidad y reserva |
 | `PatientApplicationService` | Coordina las operaciones relacionadas con el registro e identificación de pacientes |
 | `AppointmentApplicationService` | Coordina las operaciones relacionadas con la creación, consulta, confirmación, cancelación y reprogramación de citas |
-| `OpticalStoreApplicationService` | Coordina las operaciones de búsqueda, filtrado, favoritos, catálogo y valoración de ópticas |
+| `OpticalStoreApplicationService` | Coordina las operaciones de búsqueda, filtrado, ópticas cercanas, favoritos y valoración de ópticas |
+| `StaffMemberApplicationService` | Coordina el registro del personal y la asignación de roles |
 
 
 <a id="2.6.1.4. Infrastructure Layer"></a>
@@ -1964,11 +2011,11 @@ La infraestructura se mantiene separada del dominio para evitar que las reglas d
 ##### Repository Implementations
 
 
-Los Repository Implementations del Search & Booking Context se detallan en la Tabla 43.
+Los Repository Implementations del Search & Booking Context se detallan en la Tabla 44.
 
-<a id="tabla-43"></a>
+<a id="tabla-44"></a>
 
-**Tabla 43**
+**Tabla 44**
 
 *Repository Implementations del Search & Booking Context*
 
@@ -1979,15 +2026,18 @@ Los Repository Implementations del Search & Booking Context se detallan en la Ta
 | `PatientRepositoryImpl` | `PatientRepository` | Persistencia y consulta de pacientes |
 | `OpticalStoreRepositoryImpl` | `OpticalStoreRepository` | Consulta y filtrado de ópticas |
 | `TimeSlotRepositoryImpl` | `TimeSlotRepository` | Gestión de horarios disponibles y reservados |
+| `FavoriteStoreRepositoryImpl` | `FavoriteStoreRepository` | Persistencia de las ópticas favoritas |
+| `StoreRatingRepositoryImpl` | `StoreRatingRepository` | Persistencia de las valoraciones |
+| `StaffMemberRepositoryImpl` | `StaffMemberRepository` | Persistencia y consulta del personal |
 
 ##### Persistence Entities
 
 
-Los Persistence Entities del Search & Booking Context se presentan en la Tabla 44.
+Los Persistence Entities del Search & Booking Context se presentan en la Tabla 45.
 
-<a id="tabla-44"></a>
+<a id="tabla-45"></a>
 
-**Tabla 44**
+**Tabla 45**
 
 *Persistence Entities del Search & Booking Context*
 
@@ -2000,15 +2050,16 @@ Los Persistence Entities del Search & Booking Context se presentan en la Tabla 4
 | `TimeSlotEntity` | Representa la información persistida de un horario |
 | `FavoriteStoreEntity` | Representa la relación entre un paciente y una óptica favorita |
 | `StoreRatingEntity` | Representa la valoración realizada por un paciente |
+| `StaffMemberEntity` | Representa la información persistida de un miembro del personal |
 
 ##### Mappers
 
 
-Los Mappers del Search & Booking Context se resumen en la Tabla 45.
+Los Mappers del Search & Booking Context se resumen en la Tabla 46.
 
-<a id="tabla-45"></a>
+<a id="tabla-46"></a>
 
-**Tabla 45**
+**Tabla 46**
 
 *Mappers del Search & Booking Context*
 
@@ -2021,43 +2072,66 @@ Los Mappers del Search & Booking Context se resumen en la Tabla 45.
 | `TimeSlotMapper` | `TimeSlot` ↔ `TimeSlotEntity` |
 | `FavoriteStoreMapper` | Modelo de dominio ↔ `FavoriteStoreEntity` |
 | `StoreRatingMapper` | Modelo de dominio ↔ `StoreRatingEntity` |
+| `StaffMemberMapper` | `StaffMember` ↔ `StaffMemberEntity` |
 
 ##### External Service Adapters
 
 
-Los External Service Adapters del Search & Booking Context se detallan en la Tabla 46.
+Los External Service Adapters del Search & Booking Context se detallan en la Tabla 47.
 
-<a id="tabla-46"></a>
+<a id="tabla-47"></a>
 
-**Tabla 46**
+**Tabla 47**
 
 *External Service Adapters del Search & Booking Context*
 
 
 | Adapter | Servicio | Responsabilidad |
 |---|---|---|
-| `EventPublisherAdapter` | Sistema de eventos | Publicar eventos de dominio hacia otros Bounded Contexts |
-| `AuthenticationAdapter` | Servicio de autenticación | Gestionar la autenticación del paciente |
+| `EventPublisherAdapter` | Sistema de eventos | Adaptador compartido (`shared`) que publica los eventos de dominio mediante `ApplicationEventPublisher` de Spring |
+| `AuthenticationAdapter` | Servicio de autenticación | Genera y verifica los hash BCrypt de las contraseñas |
+| `JwtTokenService` | JSON Web Token | Emite y valida los tokens de acceso firmados (HS256) con el identificador del usuario, su rol y su expiración; el secreto se lee de la variable de entorno `JWT_SECRET` |
+| `JwtAuthenticationFilter` | Spring Security | Lee el encabezado `Authorization: Bearer`, valida el token y carga el usuario y su rol en el contexto de seguridad de cada solicitud |
 | `NotificationIntegrationAdapter` | Servicio de notificaciones | Facilitar la integración con el contexto Notification & Loyalty cuando corresponda |
 
 ##### Configuration
 
 
-Las clases de configuración del Search & Booking Context se presentan en la Tabla 47.
+Las clases de configuración del Search & Booking Context se presentan en la Tabla 48.
 
-<a id="tabla-47"></a>
+<a id="tabla-48"></a>
 
-**Tabla 47**
+**Tabla 48**
 
 *Clases de configuración del Search & Booking Context*
 
 
 | Clase de configuración | Propósito |
 |---|---|
-| `SearchBookingContextConfig` | Configura los componentes principales del Bounded Context |
-| `RepositoryConfig` | Configura las implementaciones de los repositorios |
-| `EventPublisherConfig` | Configura la publicación de eventos del contexto |
-| `ApiConfig` | Configura los puntos de entrada utilizados por la Interface Layer |
+| `SearchBookingConfiguration` | Registra los servicios de dominio y las implementaciones de repositorio del contexto |
+| `SecurityConfiguration` | Configura Spring Security sin sesiones: rutas públicas, `JwtAuthenticationFilter` y la autorización por rol de cada ruta del backend |
+| `CorsConfiguration` | Configuración compartida de CORS para la landing y la documentación de la API |
+| `OpenApiConfiguration` | Documentación OpenAPI (Swagger UI) con el esquema de seguridad Bearer |
+
+##### Autorización por rol
+
+El backend aplica los permisos de la US16 en `SecurityConfiguration`: cada ruta exige uno o más roles del token. `POST /patients`, `POST /login`, las consultas de ópticas y horarios, y el webhook de la pasarela de pagos son públicos. Además, un paciente solo puede consultar o modificar sus propios datos (por ejemplo, sus citas, pedidos y notificaciones), y una ruta sin el rol requerido responde HTTP 403. Los permisos se resumen por módulo (ver Tabla 49).
+
+
+<a id="tabla-49"></a>
+
+**Tabla 49**
+
+*Permisos por rol en el backend de OptiFlow*
+
+
+| Rol | Operaciones permitidas |
+|---|---|
+| `PATIENT` | Consultar el catálogo de monturas y usar el probador virtual; reservar y consultar sus citas, favoritos y valoraciones; consultar sus registros clínicos, recetas y pedidos; pagar sus ventas; registrar su dispositivo y consultar sus notificaciones y su cuenta de fidelización |
+| `OPTOMETRIST` | Registrar la atención clínica, la historia médica y la receta; consultar citas y registros clínicos |
+| `SALES_ADVISOR` | Generar y aprobar cotizaciones, registrar ventas y pagos en efectivo, cerrar ventas y consultar el catálogo y el stock (escáner) |
+| `TECHNICIAN` | Gestionar las órdenes de trabajo: asignación, envío al laboratorio, estados, demoras y entrega |
+| `ADMIN` | Todo lo anterior, además del personal y sus roles, el catálogo, el stock, los proveedores, el historial de movimientos, las alertas, el dashboard y los reportes |
 
 
 <a id="2.6.1.5. Bounded Context Software Architecture Component Level Diagrams"></a>
@@ -2111,24 +2185,26 @@ El diagrama también incorpora los **Domain Services** relacionados con la dispo
 <a id="2.6.1.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
-**Modelo físico implementado: PostgreSQL compartido, migración V1.** Search & Booking utiliza seis tablas de la misma base del backend: `patients`, `optical_stores`, `time_slots`, `appointments`, `favorite_stores` y `store_ratings`. No dispone de una base independiente.
+**Modelo físico implementado: PostgreSQL compartido, migraciones V1, V5 y V8.** Search & Booking utiliza siete tablas de la misma base del backend: `patients`, `optical_stores`, `time_slots`, `appointments`, `favorite_stores`, `store_ratings` y `staff_members`. No dispone de una base independiente.
 
-`patients` contiene `id`, `full_name`, `email`, `phone`, `password_hash` y `created_at`; el correo es único. `optical_stores` contiene `id`, `name`, `address`, `phone`, `rating` y `status`. Las longitudes son, respectivamente, `VARCHAR(80)` para el nombre completo del paciente, `VARCHAR(120)` para su correo, `VARCHAR(20)` para su teléfono, `VARCHAR(100)` para el hash de contraseña, y `VARCHAR(120)`, `VARCHAR(200)` y `VARCHAR(20)` para nombre, dirección y teléfono de la óptica. El `rating` de la óptica es `NUMERIC(3,2)`.
+`staff_members` (migración V8) contiene `id`, `optical_store_id` (FK hacia `optical_stores.id`), `full_name`, `email` (único), `password_hash`, `role` (`CHECK` con `OPTOMETRIST`, `SALES_ADVISOR`, `TECHNICIAN` y `ADMIN`), `active` y `created_at`. Una óptica puede tener cero o muchos miembros del personal.
+
+`patients` contiene `id`, `full_name`, `email`, `phone`, `password_hash`, `birth_date` y `created_at`; el correo es único y `birth_date` (`DATE`, nullable) la agrega la migración V8. `optical_stores` contiene `id`, `name`, `address`, `phone`, `latitude`, `longitude`, `rating` y `status`; `latitude` y `longitude` son `NUMERIC(9,6)` y los agrega la migración V5. Las longitudes son, respectivamente, `VARCHAR(80)` para el nombre completo del paciente, `VARCHAR(120)` para su correo, `VARCHAR(20)` para su teléfono, `VARCHAR(100)` para el hash de contraseña, y `VARCHAR(120)`, `VARCHAR(200)` y `VARCHAR(20)` para nombre, dirección y teléfono de la óptica. El `rating` de la óptica es `NUMERIC(3,2)`.
 
 `time_slots.optical_store_id` es una FK hacia `optical_stores.id`; una óptica puede tener cero o muchos horarios. `appointments` tiene FKs obligatorias hacia `patients`, `optical_stores` y `time_slots`. V1 no declara `UNIQUE` sobre `appointments.time_slot_id`: el diagrama físico no debe inventar una relación uno a uno o una restricción adicional de reserva única. Las validaciones de disponibilidad de la aplicación se distinguen de las restricciones SQL.
 
 `favorite_stores` utiliza la PK compuesta (`patient_id`, `optical_store_id`), ambas columnas también FKs, y registra `saved_at`. `store_ratings` utiliza la misma combinación como PK y FKs, y contiene `score NUMERIC(3,2)`, `comment VARCHAR(280)` y `created_at`; su `CHECK` limita `score` al intervalo de 1 a 5.
 
-Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 39 representa las seis tablas de V1 con todos sus campos, tipos, nulabilidad, PK, FK, `CHECK` e índices tal como están declarados en la migración.**
+Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 43 representa las siete tablas de V1, V5 y V8 con todos sus campos, tipos, nulabilidad, PK, FK y `UNIQUE`, tal como están declarados en las migraciones.**
 
-<a id="figura-41"></a>
+<a id="figura-43"></a>
 
-**Figura 41**
+**Figura 43**
 
 *Diagrama de base de datos del Search & Booking Context*
 
 <div align="center">
-  <img src="assets/cap2/db/search-booking-v1.png" alt="Search and Booking Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/search-booking.png" alt="Search and Booking Database Design Diagram" width="1000">
 </div>
 
 
@@ -2290,7 +2366,7 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 <a id="2.6.2.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-**Modelo físico implementado: PostgreSQL compartido, migración V2.** Clinical & Commercial comprende siete tablas: `clinical_records`, `medical_histories`, `optical_prescriptions`, `quotations`, `quotation_items`, `sales` y `electronic_receipts`.
+**Modelo físico implementado: PostgreSQL compartido, migraciones V2 y V9.** Clinical & Commercial comprende siete tablas: `clinical_records`, `medical_histories`, `optical_prescriptions`, `quotations`, `quotation_items`, `sales` y `electronic_receipts`.
 
 `clinical_records` identifica la atención con `id`, `patient_id`, `appointment_id`, `examination_date`, `observations` y `status`. `appointment_id` es obligatorio y único; ni esa columna ni `patient_id` tienen una FK declarada en V2 hacia Search & Booking. Se representan como referencias lógicas a la cita y al paciente.
 
@@ -2298,18 +2374,18 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 
 `quotations.clinical_record_id` es una FK obligatoria: un registro clínico puede tener varias cotizaciones. La cotización conserva tipo, valor y motivo del descuento, total, estado y `rejection_reason`. `quotation_items` tiene una FK obligatoria hacia la cotización, `line_number`, `item_type`, `product_sku`, descripción, precio unitario y cantidad. La pareja (`quotation_id`, `line_number`) es única; las validaciones de importes, cantidad y tipos de ítem son las declaradas en la migración.
 
-Una cotización puede generar **cero o una venta**, y cada venta pertenece a exactamente una cotización: `sales.quotation_id` es `NOT NULL UNIQUE` y FK hacia `quotations.id`. `RegisterSaleHandler` exige una cotización aprobada y rechaza una venta duplicada con HTTP 409. Los datos de pago se almacenan en columnas de `sales`; no existe una tabla adicional de pagos en V2. `sales.patient_id` es una referencia lógica sin FK declarada.
+Una cotización puede generar **cero o una venta**, y cada venta pertenece a exactamente una cotización: `sales.quotation_id` es `NOT NULL UNIQUE` y FK hacia `quotations.id`. `RegisterSaleHandler` exige una cotización aprobada y rechaza una venta duplicada con HTTP 409. Los datos de pago se almacenan en columnas de `sales`; no existe una tabla adicional de pagos. La migración V9 ajusta esas columnas al pago con Checkout Pro: `status` admite `PENDING_PAYMENT`, `PAID` y `CLOSED`; `payment_method` admite `CARD`, `YAPE` y `CASH`; agrega `payment_preference_id` y `payment_status` (`APPROVED` o `REJECTED`); y `transaction_reference`, única cuando no es nula, guarda el id del pago en la pasarela para ignorar notificaciones repetidas. `sales.patient_id` es una referencia lógica sin FK declarada.
 
-Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 42 representa las siete tablas de V2 con todas sus columnas, tipos, nulabilidad, PK, FK, `UNIQUE`, `CHECK` e índices. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) se marcan como `REF` y no se dibujan como relaciones.**
+Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 46 representa las siete tablas de V2 y V9 con todas sus columnas, tipos, nulabilidad, PK, FK y `UNIQUE`. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) no se dibujan como relaciones.**
 
-<a id="figura-44"></a>
+<a id="figura-46"></a>
 
-**Figura 44**
+**Figura 46**
 
 *Diagrama de base de datos del Clinical & Commercial Context*
 
 <div align="center">
-  <img src="assets/cap2/db/clinical-commercial-v2.png" alt="Clinical and Commercial Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/clinical-commercial.png" alt="Clinical and Commercial Database Design Diagram" width="1000">
 </div>
 
 
@@ -3122,22 +3198,21 @@ El Domain Layer también incluye las interfaces `FrameModelRepository`, `Invento
 <a id="2.6.4.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-**Diseño propuesto; sin implementación de persistencia.** Store Management & Inventory no tiene migración SQL, entidades JPA ni repositorios implementados en la versión del backend revisada. Solo existen paquetes que reservan su organización por capas. Por tanto, este contexto no añade tablas a las 20 existentes en V1–V4.
+**Modelo físico: PostgreSQL compartido, migración V6.** Store Management & Inventory comprende cinco tablas en la misma base del backend.
 
-La propuesta contempla `frame_models`, `inventories`, `inventory_stocks`, `suppliers` y `replenishments` para organizar catálogo, existencias y abastecimiento. `inventory_stocks` se plantea con una clave compuesta por inventario y modelo de montura. Son decisiones de diseño pendientes de implementación y validación; no deben confundirse con tablas desplegadas ni incorporarse al SQL del esquema actual.
+Las tablas son `frame_models`, `inventories`, `inventory_stocks`, `suppliers` y `stock_movements`, que organizan el catálogo, las existencias y su historial. `frame_models` contiene `id`, `sku` (único; corresponde al código de barras que lee el escáner), `name`, `material`, `shape`, `color`, `price_amount NUMERIC(10,2)`, `price_currency` y `try_on_model_url` (referencia opcional al modelo del probador virtual). `inventories` contiene `id` y `optical_store_id` (FK hacia `optical_stores.id`, único), de modo que cada óptica tiene un inventario. `suppliers` contiene `id`, `name` y `contact`. `inventory_stocks` usa una clave compuesta por `inventory_id` y `frame_model_id` (FK hacia sus tablas) y guarda `quantity` y `minimum_stock`, ambos mayores o iguales a cero. `stock_movements` contiene `id`, `inventory_id` y `frame_model_id` (FK) y registra cada entrada o salida con `type` (`IN` u `OUT`), `reason` (`REPLENISHMENT`, `SALE` o `ADJUSTMENT`), cantidad, `sale_id` o `supplier_id` según el motivo, el usuario que lo registró (`performed_by`) y `created_at`.
 
-La tecnología propuesta es PostgreSQL dentro de la base compartida del backend. Su implementación requerirá una migración posterior con columnas, PK, FK, índices y reglas de integridad revisados. No se asigna un Sprint de ejecución sin un compromiso explícito del backlog.
 
-**La Figura 48 representa exclusivamente este diseño propuesto. Se identifica visualmente como no implementado (borde punteado y aviso superior) y se mantiene separada de los cuatro modelos físicos derivados de las migraciones.**
+**La Figura 52 representa las cinco tablas de la migración V6 con sus columnas, tipos, PK y FK.**
 
-<a id="figura-50"></a>
+<a id="figura-52"></a>
 
-**Figura 50**
+**Figura 52**
 
 *Diagrama de base de datos del Store Management & Inventory Context*
 
 <div align="center">
-  <img src="assets/cap2/db/store-inventory-proposal.png" alt="Store Management and Inventory Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/store-inventory.png" alt="Store Management and Inventory Database Design Diagram" width="1000">
 </div>
 
 
@@ -3498,22 +3573,24 @@ El Domain Layer incluye también las interfaces `NotificationRepository`, `Loyal
 <a id="2.6.5.6.2. Bounded Context Database Design Diagram"></a>
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-**Modelo físico implementado: PostgreSQL compartido, migración V4.** Notification & Loyalty persiste únicamente dos tablas: `notifications` y `loyalty_accounts`. No utiliza colecciones MongoDB ni tablas de preferencias, encuestas, personal o campañas en esta versión.
+**Modelo físico: PostgreSQL compartido, migraciones V4 y V7.** V4 crea `loyalty_accounts` y `notifications`; V7 crea `device_tokens` y agrega a `notifications` las columnas de envío push, programación y encuesta. Notification & Loyalty persiste tres tablas: `notifications`, `loyalty_accounts` y `device_tokens`.
 
 `loyalty_accounts` utiliza `patient_id UUID` como PK y FK hacia `patients.id`, y conserva `balance INT NOT NULL`, `last_birthday_discount_year INT` y `updated_at TIMESTAMP WITH TIME ZONE NOT NULL`. Un paciente puede tener cero o una cuenta; el saldo no puede ser negativo. La cuenta registra el saldo de puntos y el año del último beneficio de cumpleaños.
 
-`notifications` contiene `id`, `patient_id`, `type`, `title`, `body`, `appointment_id`, `work_order_id`, `status`, `created_at` y `read_at`. Su PK es `id` y su única FK es `patient_id` hacia `patients.id`. Un paciente puede tener varias notificaciones. Los identificadores de cita y orden son opcionales y no tienen FKs declaradas en V4; no se representan como relaciones físicas con sus tablas.
+`device_tokens` contiene `id`, `patient_id` (FK hacia `patients.id`), `token` (único), `platform` y `updated_at`; un paciente puede tener varios dispositivos.
 
-Los tipos permitidos son `APPOINTMENT_REMINDER`, `LENS_ORDER_PROGRESS`, `BIRTHDAY_DISCOUNT` y `DELIVERY_DELAY`; los estados admitidos son `UNREAD` y `READ`. La migración crea un índice único parcial sobre (`patient_id`, `appointment_id`) cuando `appointment_id IS NOT NULL`. Esta regla se documenta junto al diagrama, aunque el importador gráfico no represente índices parciales.
+`notifications` contiene `id`, `patient_id`, `type`, `title`, `body`, `appointment_id`, `work_order_id`, `status`, `push_status`, `scheduled_at`, `survey_rating`, `survey_comment`, `answered_at`, `created_at` y `read_at`. `push_status` (`PENDING`, `SENT` o `FAILED`) registra el resultado del envío por Firebase Cloud Messaging; `scheduled_at` es la fecha programada de los recordatorios (nula para los avisos inmediatos); `survey_rating` (`CHECK` entre 1 y 5), `survey_comment` y `answered_at` guardan la respuesta de la encuesta. Su PK es `id` y su única FK es `patient_id` hacia `patients.id`. Un paciente puede tener varias notificaciones. Los identificadores de cita y orden son opcionales y no tienen FKs declaradas en V4; no se representan como relaciones físicas con sus tablas.
 
-`NotificationEntity` y `LoyaltyAccountEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. Los conceptos de preferencias, encuestas, delegación y campañas pertenecen al diseño funcional ampliado y no implican persistencia implementada. **La Figura 51 muestra las dos tablas de V4 y sus FKs hacia `patients`, tabla de V1 que se incluye como referencia. `appointment_id` y `work_order_id` de `notifications` se marcan como `REF` (referencias lógicas sin FK).**
+Los tipos permitidos son `APPOINTMENT_REMINDER`, `ANNUAL_CHECKUP_REMINDER`, `LENS_ORDER_PROGRESS`, `BIRTHDAY_DISCOUNT`, `DELIVERY_DELAY` y `SATISFACTION_SURVEY` (V7 amplía el `CHECK` de V4); los estados admitidos son `UNREAD` y `READ`. V7 reemplaza el índice único parcial de V4 por uno sobre (`patient_id`, `appointment_id`, `type`) cuando `appointment_id IS NOT NULL`, para que una cita tenga un solo recordatorio de cada tipo, y crea un índice sobre (`push_status`, `scheduled_at`) para la búsqueda de avisos pendientes. Esta regla se documenta junto al diagrama, aunque el importador gráfico no represente índices parciales.
 
-<a id="figura-53"></a>
+`NotificationEntity`, `LoyaltyAccountEntity` y `DeviceTokenEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. **La Figura 55 muestra las tres tablas y sus FKs hacia `patients`, tabla de V1 que se incluye como referencia. `appointment_id` y `work_order_id` de `notifications` son referencias lógicas sin FK y no se dibujan como relaciones.**
 
-**Figura 53**
+<a id="figura-55"></a>
+
+**Figura 55**
 
 *Diagrama de base de datos del Notification & Loyalty Context*
 
 <div align="center">
-  <img src="assets/cap2/db/notification-loyalty-v4.png" alt="Notification and Loyalty Database Design Diagram" width="1000">
+  <img src="assets/cap2/db/notification-loyalty.png" alt="Notification and Loyalty Database Design Diagram" width="1000">
 </div>

@@ -23,11 +23,11 @@ Las principales características consideradas para el diseño son:
  **Tipografía**
 
 
-La tipografía de OptiFlow se presenta en la Figura 54.
+La tipografía de OptiFlow se presenta en la Figura 56.
 
-<a id="figura-54"></a>
+<a id="figura-56"></a>
 
-**Figura 54**
+**Figura 56**
 
 *Tipografía de OptiFlow*
 
@@ -38,12 +38,12 @@ La tipografía de OptiFlow se presenta en la Figura 54.
 
 La tipografía de OptiFlow debe facilitar la lectura en pantallas pequeñas y mantener una jerarquía clara entre títulos, etiquetas y contenido. Este criterio es especialmente relevante al consultar horarios, recetas, pedidos y datos del paciente, donde la legibilidad favorece una interpretación precisa de la información.
 
-Se propone utilizar una tipografía **sans-serif**, debido a que permite una lectura clara tanto en dispositivos móviles como en interfaces administrativas (ver Tabla 94).
+Se propone utilizar una tipografía **sans-serif**, debido a que permite una lectura clara tanto en dispositivos móviles como en interfaces administrativas (ver Tabla 96).
 
 
-<a id="tabla-94"></a>
+<a id="tabla-96"></a>
 
-**Tabla 94**
+**Tabla 96**
 
 *Uso de la tipografía en la interfaz*
 
@@ -60,11 +60,11 @@ Se propone utilizar una tipografía **sans-serif**, debido a que permite una lec
 **Colores**
 
 
-La paleta de colores de OptiFlow se observa en la Figura 55.
+La paleta de colores de OptiFlow se observa en la Figura 57.
 
-<a id="figura-55"></a>
+<a id="figura-57"></a>
 
-**Figura 55**
+**Figura 57**
 
 *Paleta de colores de OptiFlow*
 
@@ -75,12 +75,12 @@ La paleta de colores de OptiFlow se observa en la Figura 55.
 
 La paleta de colores debe transmitir una apariencia relacionada con los conceptos de **salud visual, confianza, claridad y tecnología**.
 
-Se considera una paleta compuesta por colores principales, secundarios y colores destinados a comunicar estados del sistema (ver Tabla 95).
+Se considera una paleta compuesta por colores principales, secundarios y colores destinados a comunicar estados del sistema (ver Tabla 97).
 
 
-<a id="tabla-95"></a>
+<a id="tabla-97"></a>
 
-**Tabla 95**
+**Tabla 97**
 
 *Colores de la interfaz y su uso*
 
@@ -100,11 +100,11 @@ Se considera una paleta compuesta por colores principales, secundarios y colores
 **Botones**
 
 
-Los estilos de botones se muestran en la Figura 56.
+Los estilos de botones se muestran en la Figura 58.
 
-<a id="figura-56"></a>
+<a id="figura-58"></a>
 
-**Figura 56**
+**Figura 58**
 
 *Estilos de botones*
 
@@ -125,11 +125,11 @@ Los botones deben diferenciar claramente las acciones principales de las accione
 **Tarjetas**
 
 
-Los estilos de tarjetas se presentan en la Figura 57.
+Los estilos de tarjetas se presentan en la Figura 59.
 
-<a id="figura-57"></a>
+<a id="figura-59"></a>
 
-**Figura 57**
+**Figura 59**
 
 *Estilos de tarjetas*
 
@@ -159,11 +159,11 @@ Para el personal de la óptica, las tarjetas podrán presentar:
 **Iconografía**
 
 
-La iconografía de la aplicación se observa en la Figura 58.
+La iconografía de la aplicación se observa en la Figura 60.
 
-<a id="figura-58"></a>
+<a id="figura-60"></a>
 
-**Figura 58**
+**Figura 60**
 
 *Iconografía de la aplicación*
 
@@ -172,12 +172,12 @@ La iconografía de la aplicación se observa en la Figura 58.
 </p>
 
 
-Los iconos se utilizarán como elementos complementarios para facilitar el reconocimiento de acciones y funcionalidades (ver Tabla 96).
+Los iconos se utilizarán como elementos complementarios para facilitar el reconocimiento de acciones y funcionalidades (ver Tabla 98).
 
 
-<a id="tabla-96"></a>
+<a id="tabla-98"></a>
 
-**Tabla 96**
+**Tabla 98**
 
 *Íconos y funcionalidad asociada*
 
@@ -200,11 +200,11 @@ Los iconos no deberán utilizarse como único medio para comunicar información 
 **Formularios**
 
 
-Los estilos de formularios se muestran en la Figura 59.
+Los estilos de formularios se muestran en la Figura 61.
 
-<a id="figura-59"></a>
+<a id="figura-61"></a>
 
-**Figura 59**
+**Figura 61**
 
 *Estilos de formularios*
 
@@ -224,11 +224,11 @@ Las validaciones se presentan junto al campo correspondiente y explican cómo co
 **Estados de la interfaz**
 
 
-Los estados visuales de la interfaz se presentan en la Figura 60.
+Los estados visuales de la interfaz se presentan en la Figura 62.
 
-<a id="figura-60"></a>
+<a id="figura-62"></a>
 
-**Figura 60**
+**Figura 62**
 
 *Estados visuales de la interfaz*
 
@@ -237,12 +237,12 @@ Los estados visuales de la interfaz se presentan en la Figura 60.
 </p>
 
 
-Los componentes de OptiFlow deberán contemplar diferentes estados para proporcionar retroalimentación al usuario (ver Tabla 97).
+Los componentes de OptiFlow deberán contemplar diferentes estados para proporcionar retroalimentación al usuario (ver Tabla 99).
 
 
-<a id="tabla-97"></a>
+<a id="tabla-99"></a>
 
-**Tabla 97**
+**Tabla 99**
 
 *Estados visuales y su descripción*
 
@@ -262,11 +262,11 @@ Los componentes de OptiFlow deberán contemplar diferentes estados para proporci
 **Diseño responsivo**
 
 
-El diseño responsivo de OptiFlow se observa en la Figura 61.
+El diseño responsivo de OptiFlow se observa en la Figura 63.
 
-<a id="figura-61"></a>
+<a id="figura-63"></a>
 
-**Figura 61**
+**Figura 63**
 
 *Diseño responsivo de OptiFlow*
 
@@ -288,11 +288,11 @@ En las interfaces destinadas al personal de la óptica se podrá aprovechar un e
 **Accesibilidad**
 
 
-Los criterios de accesibilidad de la interfaz se muestran en la Figura 62.
+Los criterios de accesibilidad de la interfaz se muestran en la Figura 64.
 
-<a id="figura-62"></a>
+<a id="figura-64"></a>
 
-**Figura 62**
+**Figura 64**
 
 *Criterios de accesibilidad de la interfaz*
 
@@ -336,11 +336,11 @@ La estructura general de OptiFlow parte de las funcionalidades principales y pos
 Para el **paciente**, la organización principal se plantea de la siguiente manera:
 
 
-El sistema de organización para el paciente se presenta en la Figura 63.
+El sistema de organización para el paciente se presenta en la Figura 65.
 
-<a id="figura-63"></a>
+<a id="figura-65"></a>
 
-**Figura 63**
+**Figura 65**
 
 *Sistema de organización para el paciente*
 
@@ -377,11 +377,11 @@ OptiFlow
 Para el **personal de la óptica**, la organización se adapta a las actividades administrativas, clínicas y operativas:
 
 
-El sistema de organización para el personal de la óptica se observa en la Figura 64.
+El sistema de organización para el personal de la óptica se observa en la Figura 66.
 
-<a id="figura-64"></a>
+<a id="figura-66"></a>
 
-**Figura 64**
+**Figura 66**
 
 *Sistema de organización para el personal de la óptica*
 
@@ -426,12 +426,12 @@ Esta separación permite que cada usuario tenga acceso a las funcionalidades cor
 
 **Organización por categorías**
 
-Las funcionalidades también se agrupan según la actividad que representan (ver Tabla 98).
+Las funcionalidades también se agrupan según la actividad que representan (ver Tabla 100).
 
 
-<a id="tabla-98"></a>
+<a id="tabla-100"></a>
 
-**Tabla 98**
+**Tabla 100**
 
 *Categorías de funcionalidades por tipo de usuario*
 
@@ -452,11 +452,11 @@ Esta clasificación permite relacionar las funcionalidades de la interfaz con lo
 Algunas funcionalidades de OptiFlow requieren que el usuario complete una serie de pasos en un orden determinado. Para la **reserva de una cita**, el flujo de información se organiza de la siguiente manera:
 
 
-El flujo de organización del paciente se muestra en la Figura 65.
+El flujo de organización del paciente se muestra en la Figura 67.
 
-<a id="figura-65"></a>
+<a id="figura-67"></a>
 
-**Figura 65**
+**Figura 67**
 
 *Flujo de organización del paciente*
 
@@ -468,11 +468,11 @@ El flujo de organización del paciente se muestra en la Figura 65.
 Para el **seguimiento de una orden de trabajo**, la información se presenta de acuerdo con el avance del proceso:
 
 
-El flujo de organización del personal de la óptica se presenta en la Figura 66.
+El flujo de organización del personal de la óptica se presenta en la Figura 68.
 
-<a id="figura-66"></a>
+<a id="figura-68"></a>
 
-**Figura 66**
+**Figura 68**
 
 *Flujo de organización del personal de la óptica*
 
@@ -485,12 +485,12 @@ Esta organización permite que el usuario comprenda en qué etapa se encuentra u
 
 **Diagrama de organización de la información**
 
-La estructura anterior puede representarse mediante un **diagrama de arquitectura de información o sitemap**, mostrando la relación entre las funcionalidades principales y sus subfuncionalidades (ver Figura 67).
+La estructura anterior puede representarse mediante un **diagrama de arquitectura de información o sitemap**, mostrando la relación entre las funcionalidades principales y sus subfuncionalidades (ver Figura 69).
 
 
-<a id="figura-67"></a>
+<a id="figura-69"></a>
 
-**Figura 67**
+**Figura 69**
 
 *Diagrama de organización de la información*
 
@@ -507,11 +507,11 @@ El sistema de etiquetado establece los nombres utilizados para identificar las f
 **Etiquetas principales**
 
 
-Las etiquetas de navegación por tipo de usuario se resumen en la Tabla 99.
+Las etiquetas de navegación por tipo de usuario se resumen en la Tabla 101.
 
-<a id="tabla-99"></a>
+<a id="tabla-101"></a>
 
-**Tabla 99**
+**Tabla 101**
 
 *Etiquetas de navegación por tipo de usuario*
 
@@ -538,12 +538,12 @@ Las etiquetas de navegación por tipo de usuario se resumen en la Tabla 99.
 
 **Etiquetas para acciones**
 
-Las acciones utilizarán verbos directos que indiquen claramente la operación que realizará el usuario (ver Tabla 100).
+Las acciones utilizarán verbos directos que indiquen claramente la operación que realizará el usuario (ver Tabla 102).
 
 
-<a id="tabla-100"></a>
+<a id="tabla-102"></a>
 
-**Tabla 100**
+**Tabla 102**
 
 *Etiquetas de acciones*
 
@@ -565,12 +565,12 @@ Las acciones utilizarán verbos directos que indiquen claramente la operación q
 
 **Etiquetas para estados**
 
-Los estados de los procesos también deberán mantener una nomenclatura consistente (ver Tabla 101).
+Los estados de los procesos también deberán mantener una nomenclatura consistente (ver Tabla 103).
 
 
-<a id="tabla-101"></a>
+<a id="tabla-103"></a>
 
-**Tabla 101**
+**Tabla 103**
 
 *Etiquetas de estados de la aplicación*
 
@@ -593,12 +593,12 @@ El uso de etiquetas consistentes permite que los usuarios puedan reconocer rápi
 
 Las etiquetas SEO y meta etiquetas de OptiFlow se aplicarán principalmente a la **Landing Page**, debido a que esta constituye el principal punto de acceso público a la solución. Su finalidad es facilitar la identificación del producto por los motores de búsqueda y proporcionar información relevante sobre el contenido de la página.
 
-Las etiquetas se plantean para describir a OptiFlow como una solución de búsqueda de ópticas, reserva de citas y seguimiento de pedidos, manteniendo coherencia entre el contenido de la Landing Page y la información que se comparte con buscadores y redes sociales (ver Tabla 102).
+Las etiquetas se plantean para describir a OptiFlow como una solución de búsqueda de ópticas, reserva de citas y seguimiento de pedidos, manteniendo coherencia entre el contenido de la Landing Page y la información que se comparte con buscadores y redes sociales (ver Tabla 104).
 
 
-<a id="tabla-102"></a>
+<a id="tabla-104"></a>
 
-**Tabla 102**
+**Tabla 104**
 
 *SEO tags y meta tags de la Landing Page*
 
@@ -628,7 +628,7 @@ Entre los principales elementos del sistema se encuentran:
 - **Barra de búsqueda:** permite ingresar términos relacionados con la óptica que se desea encontrar.
 - **Búsqueda por montura:** permite iniciar una búsqueda a partir del modelo de montura que desea encontrar el paciente.
 - **Filtros rápidos:** permiten consultar ópticas cercanas, establecimientos abiertos o aquellos con disponibilidad en la primera hora.
-- **Mapa:** presenta visualmente la ubicación de las ópticas disponibles.
+- **Mapa:** presenta en Google Maps la ubicación de las ópticas cercanas a la posición del paciente, a partir de la latitud y longitud registradas para cada sucursal.
 - **Resultados cercanos:** muestra las ópticas encontradas junto con información relevante como horario disponible, distancia y servicios ofrecidos.
 - **Acceso a detalles:** permite seleccionar una óptica para consultar información adicional y continuar con el proceso de reserva.
 
@@ -648,12 +648,12 @@ Seleccionar óptica
 Consultar información y disponibilidad
 ```
 
-La interfaz propuesta para la búsqueda de establecimientos se muestra a continuación (ver Figura 68).
+La interfaz propuesta para la búsqueda de establecimientos se muestra a continuación (ver Figura 70).
 
 
-<a id="figura-68"></a>
+<a id="figura-70"></a>
 
-**Figura 68**
+**Figura 70**
 
 *Interfaz de búsqueda de ópticas*
 
@@ -671,11 +671,11 @@ Para la aplicación móvil del paciente se utiliza una **barra de navegación in
 La navegación principal está compuesta por las siguientes opciones:
 
 
-Las opciones de la barra de navegación se detallan en la Tabla 103.
+Las opciones de la barra de navegación se detallan en la Tabla 105.
 
-<a id="tabla-103"></a>
+<a id="tabla-105"></a>
 
-**Tabla 103**
+**Tabla 105**
 
 *Opciones de la barra de navegación*
 
@@ -691,11 +691,11 @@ Las opciones de la barra de navegación se detallan en la Tabla 103.
 La siguiente vista muestra la distribución propuesta de la navegación principal:
 
 
-La pantalla de inicio con la barra de navegación se presenta en la Figura 69.
+La pantalla de inicio con la barra de navegación se presenta en la Figura 71.
 
-<a id="figura-69"></a>
+<a id="figura-71"></a>
 
-**Figura 69**
+**Figura 71**
 
 *Pantalla de inicio con la barra de navegación*
 
