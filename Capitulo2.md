@@ -1529,16 +1529,24 @@ El diagrama de contenedores, elaborado con Structurizr, muestra el backend como 
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El Deployment Diagram muestra dónde se ejecuta cada contenedor de OptiFlow en el Sprint 1. La Landing Page se publica como sitio estático en GitHub Pages; el backend se ejecuta en un contenedor Docker en Render y accede a una base de datos PostgreSQL mediante JPA; y la aplicación móvil se distribuye con Firebase App Distribution para instalarse en los dispositivos Android, desde donde consume el backend por HTTPS. La configuración de cada entorno se detalla en la sección 4.1.4 (ver Figura 38).
+El Deployment Diagram, elaborado con Structurizr, muestra dónde se ejecuta cada contenedor de OptiFlow en el entorno de validación académica (*Academic Validation Environment*) y con qué servicios externos se comunica:
+
+- **Dispositivo del visitante:** el navegador web carga la Landing Page publicada como sitio estático en **GitHub Pages**, que incluye el enlace de descarga de la aplicación.
+- **Firebase App Distribution:** distribuye el APK de la aplicación móvil a los dispositivos Android de prueba.
+- **Dispositivo Android de prueba:** dentro del entorno de ejecución de la aplicación Kotlin se encuentran la aplicación Android, la base de datos local (SQLite/Room, caché de solo lectura) y la cámara del dispositivo (CameraX). La aplicación consume el servicio de filtros faciales AR para el probador virtual y Google Maps Platform para el mapa de ópticas.
+- **Render:** ejecuta el backend en un contenedor Docker (Java 21), que accede a la base de datos **Render PostgreSQL** mediante JPA. El backend crea las preferencias de pago en la **Pasarela de Pagos** (Mercado Pago), que le notifica el resultado de cada pago en un webhook público, y envía las notificaciones push mediante **Firebase Cloud Messaging**, que las entrega al dispositivo Android.
+
+La configuración de cada entorno se detalla en la sección 4.1.4 (ver Figura 40).
 
 
-<a id="figura-38"></a>
+<a id="figura-40"></a>
 
-**Figura 38**
+**Figura 40**
 
-*Deployment Diagram de OptiFlow en el Sprint 1*
+*Deployment Diagram de OptiFlow*
 
-![Deployment Diagram de OptiFlow](assets/cap2/C4/OptiFlow-Deployment.png)
+![Deployment Diagram de OptiFlow](assets/cap2/C4/deployment.svg)
+
 
 
 <a id="Tactical-Level Domain-Driven Design"></a>

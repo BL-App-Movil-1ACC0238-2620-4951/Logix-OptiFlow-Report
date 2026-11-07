@@ -239,9 +239,10 @@ El Deployment Diagram muestra los nodos de publicación y ejecución de OptiFlow
 
 **Figura 120**
 
-*Deployment Diagram de OptiFlow en el Sprint 1*
+*Deployment Diagram de OptiFlow*
 
-![Deployment Diagram](assets/cap4/deployment-diagram.svg)
+![Deployment Diagram](assets/cap2/C4/deployment.svg)
+
 
 
 ## 4.2. Landing Page & Mobile Application Implementation
