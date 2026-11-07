@@ -1124,11 +1124,11 @@ En esta sección se presentan los mockups de alta fidelidad de la aplicación m�
 **Sección Inicio y Dashboard (Paciente / Personal)**
 
 
-Los mockups de la pantalla de inicio y panel principal se muestran en la Figura 93.
+Los mockups de la pantalla de inicio y panel principal se muestran en la Figura 95.
 
-<a id="figura-93"></a>
+<a id="figura-95"></a>
 
-**Figura 93**
+**Figura 95**
 
 *Mockups de la pantalla de inicio y panel principal*
 
@@ -1140,27 +1140,27 @@ El mockup presenta la pantalla principal y sus accesos a las funciones del pacie
 **Sección Búsqueda y Exploración de Monturas (Paciente)**
 
 
-Los mockups del módulo de búsqueda y catálogo de armazones se presentan en la Figura 94.
+Los mockups del módulo de búsqueda y catálogo de armazones se presentan en la Figura 96.
 
-<a id="figura-94"></a>
+<a id="figura-96"></a>
 
-**Figura 94**
+**Figura 96**
 
 *Mockups del módulo de búsqueda y catálogo de armazones*
 
 ![Mockups del módulo de búsqueda y catálogo de armazones.](assets/cap3/mockups_movil/buscar.png)
 
 
-El mockup reúne la búsqueda de ópticas y la exploración del catálogo de armazones.
+El mockup reúne la búsqueda de ópticas, el mapa de ópticas cercanas, la exploración del catálogo de armazones y el probador virtual de monturas.
 
 **Sección Gestión y Reserva de Citas (Paciente)**
 
 
-Los mockups del flujo de gestión y reserva de citas se observan en la Figura 95.
+Los mockups del flujo de gestión y reserva de citas se observan en la Figura 97.
 
-<a id="figura-95"></a>
+<a id="figura-97"></a>
 
-**Figura 95**
+**Figura 97**
 
 *Mockups del flujo de gestión y reserva de citas*
 
@@ -1172,11 +1172,11 @@ El mockup representa el proceso propuesto para consultar opciones y reservar una
 **Sección Consulta de Receta Óptica (Paciente)**
 
 
-Los mockups del visor de recetas ópticas y prescripción médica se muestran en la Figura 96.
+Los mockups del visor de recetas ópticas y prescripción médica se muestran en la Figura 98.
 
-<a id="figura-96"></a>
+<a id="figura-98"></a>
 
-**Figura 96**
+**Figura 98**
 
 *Mockups del visor de recetas ópticas y prescripción médica*
 
@@ -1188,11 +1188,11 @@ El mockup presenta la consulta de la receta óptica y sus datos principales.
 **Sección Seguimiento de Pedidos y Montaje (Paciente)**
 
 
-Los mockups del módulo de seguimiento de pedidos en taller y entrega se presentan en la Figura 97.
+Los mockups del módulo de seguimiento de pedidos en taller y entrega se presentan en la Figura 99.
 
-<a id="figura-97"></a>
+<a id="figura-99"></a>
 
-**Figura 97**
+**Figura 99**
 
 *Mockups del módulo de seguimiento de pedidos en taller y entrega*
 
@@ -1204,11 +1204,11 @@ El mockup representa la consulta de pedidos y las etapas de seguimiento propuest
 **Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
 
 
-Los mockups del directorio de pacientes, ficha médica y registro de consulta se observan en la Figura 98.
+Los mockups del directorio de pacientes, ficha médica y registro de consulta se observan en la Figura 100.
 
-<a id="figura-98"></a>
+<a id="figura-100"></a>
 
-**Figura 98**
+**Figura 100**
 
 *Mockups del directorio de pacientes, ficha médica y registro de consulta*
 
@@ -1220,11 +1220,11 @@ El mockup reúne el directorio de pacientes y las vistas propuestas para consult
 **Sección Agenda Diaria y Control de Atención (Personal Óptico)**
 
 
-Los mockups de la agenda diaria, control de sala de espera y flujo de turnos se muestran en la Figura 99.
+Los mockups de la agenda diaria, control de sala de espera y flujo de turnos se muestran en la Figura 101.
 
-<a id="figura-99"></a>
+<a id="figura-101"></a>
 
-**Figura 99**
+**Figura 101**
 
 *Mockups de la agenda diaria, control de sala de espera y flujo de turnos*
 
@@ -1236,11 +1236,11 @@ El mockup presenta la agenda diaria y los estados propuestos para dar seguimient
 **Sección Control de Stock e Inventario (Personal Óptico)**
 
 
-Los mockups de gestión de inventario, escáner de códigos y fichas de producto se presentan en la Figura 100.
+Los mockups de gestión de inventario, escáner de códigos y fichas de producto se presentan en la Figura 102.
 
-<a id="figura-100"></a>
+<a id="figura-102"></a>
 
-**Figura 100**
+**Figura 102**
 
 *Mockups de gestión de inventario, escáner de códigos y fichas de producto*
 
@@ -1252,11 +1252,11 @@ El mockup reúne la consulta del catálogo, las existencias y las vistas propues
 **Sección Operaciones, Producción en Taller y Reportes (Personal Óptico)**
 
 
-Los mockups del centro de herramientas, cotizaciones, taller y analítica se observan en la Figura 101.
+Los mockups del centro de herramientas, cotizaciones, taller y analítica se observan en la Figura 103.
 
-<a id="figura-101"></a>
+<a id="figura-103"></a>
 
-**Figura 101**
+**Figura 103**
 
 *Mockups del centro de herramientas, cotizaciones, taller y analítica*
 
