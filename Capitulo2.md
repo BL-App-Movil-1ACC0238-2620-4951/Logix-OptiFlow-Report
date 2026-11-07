@@ -2147,26 +2147,27 @@ El backend aplica los permisos de la US16 en `SecurityConfiguration`: cada ruta 
 
 El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Search & Booking Service** en sus componentes internos estructurados bajo los principios de Domain-Driven Design (DDD) y Clean Architecture, organizados en cuatro capas:
 
-* **Interface / Presentation Layer:** Agrupa los controladores REST (`SearchBookingController`, `PatientController`, `OpticalStoreController`, `TimeSlotController`) que reciben las solicitudes HTTP/JSON desde las aplicaciones móviles y web a través del API Gateway, así como los DTOs de entrada/salida y los Assemblers responsables de transformar los requests en comandos y queries internos.
+* **Interface / Presentation Layer:** Agrupa los controladores REST (`PatientController`, `StaffMemberController`, `OpticalStoreController`, `OpticalStoreFilterController`, `TimeSlotController`, `AppointmentController`, `FavoriteStoreController`, `StoreRatingController`) que reciben las solicitudes HTTP/JSON desde las aplicaciones móviles y web a través del API Gateway, así como los DTOs de entrada/salida y los Assemblers responsables de transformar los requests en comandos y queries internos.
 * **Application Layer:** Contiene los Command Handlers (`BookAppointmentCommandHandler`, `LoginCommandHandler`, `PublishAvailableTimeSlotsCommandHandler`, `SaveFavoriteOpticalStoreCommandHandler`, `RateOpticalStoreCommandHandler`) encargados de orquestar las mutaciones de estado, los Query Services (`SearchOpticalStoresQueryService`, `GetAvailableTimeSlotsQueryService`, `GetPatientAppointmentsQueryService`, etc.) para consultas optimizadas, los Event Handlers (`AppointmentBookedEventHandler`, `AppointmentBookedNotificationHandler`) y los Application Services que actúan como fachada de coordinación.
 * **Domain Layer:** Núcleo libre de dependencias de infraestructura que encapsula las entidades y agregados principales (`Appointment`, `Patient`, `OpticalStore`, `TimeSlot`, `FavoriteStore`, `StoreRating`), los Domain Services, Factories y las interfaces de repositorio (`AppointmentRepository`, `PatientRepository`, `OpticalStoreRepository`, `TimeSlotRepository`) junto con la definición de eventos de dominio (`AppointmentBooked`, etc.).
 * **Infrastructure Layer:** Proporciona las implementaciones técnicas concretas, incluyendo los repositorios sobre PostgreSQL/JPA (`AppointmentRepositoryImpl`, `PatientRepositoryImpl`, etc.), las entidades de persistencia (`AppointmentEntity`, etc.), los Mappers, el `EventPublisherAdapter` para publicar eventos internos mediante `ApplicationEventPublisher` de Spring, y los adaptadores de integración externa (`AuthenticationAdapter`, `NotificationIntegrationAdapter`).
 
 
-El diagrama de componentes del Search & Booking Context en Spring Boot se observa en la Figura 39.
+El diagrama de componentes del Search & Booking Context en Spring Boot se observa en la Figura 41.
 
-<a id="figura-39"></a>
+<a id="figura-41"></a>
 
-**Figura 39**
+**Figura 41**
 
 *Diagrama de componentes del Search & Booking Context en Spring Boot*
 
 <div align="center">
-  <img src="assets/cap2/C4/component-search&bocking.jpeg" alt="Search and Booking Component Level Diagram" width="1000">
+  <img src="assets/cap2/C4/components/search-booking.svg" alt="Search and Booking Component Level Diagram" width="1000">
 </div>
 
 
-La organización propuesta busca reducir el acoplamiento y concentrar cada responsabilidad en su capa: los controladores reciben las solicitudes, los servicios de aplicación coordinan los casos de uso y el dominio aplica las reglas de negocio. La persistencia y las integraciones se resuelven mediante adaptadores de infraestructura. Los componentes dibujados representan el diseño previsto.
+
+La organización busca reducir el acoplamiento y concentrar cada responsabilidad en su capa: los controladores reciben las solicitudes, los servicios de aplicación coordinan los casos de uso y el dominio aplica las reglas de negocio. La persistencia y las integraciones se resuelven mediante adaptadores de infraestructura. Los componentes dibujados representan el diseño previsto.
 
 <a id="2.6.1.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
@@ -2331,23 +2332,24 @@ Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen
 
 El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Clinical & Commercial Service** en sus bloques estructurales principales, organizados según las cuatro capas arquitectónicas:
 
-* **Interface Layer:** Expone los controladores REST (`ClinicalRecordController`, `QuotationController`, `SaleController`) para gestionar atenciones optométricas, cotizaciones y ventas, además del `AppointmentBookedConsumer`, que actúa como puerto de entrada para procesar eventos provenientes de Search & Booking.
-* **Application Layer:** Orquesta los casos de uso clínicos y comerciales a través de Command Handlers especializados (`ExaminePatientHandler`, `RecordMedicalHistoryHandler`, `RegisterClinicalRecordHandler`, `GenerateOpticalPrescriptionHandler`, `ApplyPromotionOrDiscountHandler`, `ApproveQuotationHandler`, `RecordPaymentHandler`, `CloseSaleHandler`) y el `AppointmentBookedEventHandler`.
+* **Interface Layer:** Expone los controladores REST (`ClinicalRecordController`, `QuotationController`, `SaleController`, `PaymentWebhookController`, `SalesReportController`) para gestionar atenciones optométricas, cotizaciones, ventas, notificaciones de pago y métricas, además del `AppointmentBookedConsumer`, que actúa como puerto de entrada para procesar eventos provenientes de Search & Booking.
+* **Application Layer:** Orquesta los casos de uso clínicos y comerciales a través de Command Handlers especializados (`ExaminePatientHandler`, `RecordMedicalHistoryHandler`, `RegisterClinicalRecordHandler`, `GenerateOpticalPrescriptionHandler`, `ApplyPromotionOrDiscountHandler`, `ApproveQuotationHandler`, `GenerateQuotationHandler`, `RegisterSaleHandler`, `CreatePaymentPreferenceHandler`, `RecordPaymentHandler`, `CloseSaleHandler`), los Query Services (`ClinicalRecordQueryService`, `QuotationQueryService`, `SaleQueryService`, `SalesMetricsQueryService`) y el `AppointmentBookedEventHandler`.
 * **Domain Layer:** Encapsula la lógica de negocio y las invariantes de los agregados `ClinicalRecord`, `Quotation` y `Sale`, las entidades `MedicalHistory`, `QuotationItem` y `ElectronicReceipt`, los Value Objects (`OpticalPrescription`, `Discount`, `Payment`), y define las interfaces de persistencia (`ClinicalRecordRepository`, `QuotationRepository`, `SaleRepository`).
-* **Infrastructure Layer:** Resuelve la persistencia de datos mediante `ClinicalRecordRepositoryImpl`, `QuotationRepositoryImpl` y `SaleRepositoryImpl` sobre PostgreSQL utilizando JPA/Hibernate, publica eventos internos de Spring mediante `DomainEventPublisher`, y provee la `PaymentGatewayAdapter` (Anti-Corruption Layer) para comunicarse de forma desacoplada con pasarelas de pago externas (POS, billeteras digitales).
+* **Infrastructure Layer:** Resuelve la persistencia de datos mediante `ClinicalRecordRepositoryImpl`, `QuotationRepositoryImpl` y `SaleRepositoryImpl` sobre PostgreSQL utilizando JPA/Hibernate, publica eventos internos de Spring mediante `DomainEventPublisher`, y provee el `PaymentGatewayAdapter` (Anti-Corruption Layer) para crear las preferencias de pago en la Pasarela de Pagos (Mercado Pago) y procesar sus notificaciones.
 
 
-El diagrama de componentes del Clinical & Commercial Context en Spring Boot se muestra en la Figura 42.
+El diagrama de componentes del Clinical & Commercial Context en Spring Boot se muestra en la Figura 44.
 
-<a id="figura-42"></a>
+<a id="figura-44"></a>
 
-**Figura 42**
+**Figura 44**
 
 *Diagrama de componentes del Clinical & Commercial Context en Spring Boot*
 
 <div align="center">
-  <img src="assets/cap2/C4/component-clinical&commercial.jpeg" alt="Clinical and Commercial Component Level Diagram" width="1000">
+  <img src="assets/cap2/C4/components/clinical-commercial.svg" alt="Clinical and Commercial Component Level Diagram" width="1000">
 </div>
+
 
 
 La estructura modular permite que el registro clínico, la prescripción optométrica, la cotización y la venta se ejecuten manteniendo la coherencia transaccional y la trazabilidad de eventos como `SaleWasClosed`, indispensable para desencadenar los flujos de producción e inventario.
@@ -2750,23 +2752,24 @@ La relación se encuentra definida en el Context Mapping de la sección 2.5.2 me
 
 El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Production & Tracking Service** en sus componentes de software estructurados por capas:
 
-* **Interface Layer:** Provee el `WorkOrderController` para la interacción síncrona vía REST (generación, asignación a técnicos, envío a laboratorio, actualización de estados Kanban y entrega), el `SaleWasClosedConsumer` para la recepción de eventos de venta desde Clinical & Commercial, además de los DTOs de solicitud/respuesta y sus respectivos Assemblers.
-* **Application Layer:** Coordina el flujo de fabricación óptica mediante los Command Handlers (`GenerateWorkOrderHandler`, `AssignWorkOrderToTechnicianHandler`, `SendWorkOrderToLaboratoryHandler`, `UpdateWorkOrderStatusHandler`, `CompleteLensesHandler`, `NotifyDeliveryDelayHandler`, `MarkOrderAsDeliveredHandler`), el `SaleWasClosedEventHandler` y el servicio de aplicación `WorkOrderApplicationService`.
+* **Interface Layer:** Provee el `WorkOrderController` para la interacción síncrona vía REST (generación, asignación a técnicos, envío a laboratorio, actualización de estados Kanban, demoras y entrega), el `ProductionCatalogController` (técnicos y laboratorios), el `ProductionReportController` (métricas y exportación CSV), el `SaleWasClosedConsumer` para la recepción de eventos de venta desde Clinical & Commercial, además de los DTOs de solicitud/respuesta y sus respectivos Assemblers.
+* **Application Layer:** Coordina el flujo de fabricación óptica mediante los Command Handlers (`GenerateWorkOrderHandler`, `AssignWorkOrderToTechnicianHandler`, `SendWorkOrderToLaboratoryHandler`, `UpdateWorkOrderStatusHandler`, `CompleteLensesHandler`, `NotifyDeliveryDelayHandler`, `MarkOrderAsDeliveredHandler`), los Query Services (`WorkOrderQueryService`, `ProductionCatalogQueryService`, `ProductionMetricsQueryService`), el `SaleWasClosedEventHandler` y el servicio de aplicación `WorkOrderApplicationService`.
 * **Domain Layer:** Contiene el Aggregate Root `WorkOrder` que modela el ciclo de vida de la orden, las entidades `Technician`, `Laboratory` y `Lenses`, los Value Objects (`WorkOrderStatus`, `DeliveryDate`, `DeliveryDelay`), las interfaces `WorkOrderRepository` y los eventos de dominio (`WorkOrderStatusUpdated`, `OrderWasMarkedAsDelivered`, etc.).
 * **Infrastructure Layer:** Implementa la persistencia relacional de Production & Tracking con JPA/PostgreSQL. `WorkOrderRepositoryImpl` coordina la orden, sus lentes y su historial; `TechnicianRepositoryImpl` y `LaboratoryRepositoryImpl` acceden a los catálogos. Los mappers reconstruyen el agregado desde las filas SQL. Los eventos se comunican mediante el publicador de Spring y manejadores internos; no se requiere un broker externo para esta implementación.
 
 
-El diagrama de componentes del Production & Tracking Context en Spring Boot se presenta en la Figura 45.
+El diagrama de componentes del Production & Tracking Context en Spring Boot se presenta en la Figura 47.
 
-<a id="figura-45"></a>
+<a id="figura-47"></a>
 
-**Figura 45**
+**Figura 47**
 
 *Diagrama de componentes del Production & Tracking Context en Spring Boot*
 
 <div align="center">
-  <img src="assets/cap2/C4/component-production&tracking.jpeg" alt="Production and Tracking Component Level Diagram" width="1000">
+  <img src="assets/cap2/C4/components/production-tracking.svg" alt="Production and Tracking Component Level Diagram" width="1000">
 </div>
+
 
 
 Este diseño por componentes asegura que cada transición del estado de fabricación de las lentes (pendiente, taller, control de calidad, entrega) se registre de forma consistente y notifique en tiempo real a los contextos interesados sin generar dependencias directas con las interfaces de usuario.
@@ -3155,26 +3158,27 @@ El evento `SaleWasClosed` permite que Store Management & Inventory reaccione al 
 
 El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Store Management & Inventory Service** en sus componentes internos organizados en las cuatro capas del diseño guiado por el dominio:
 
-* **Interface Layer:** Proporciona los controladores REST (`InventoryController`, `FrameModelController`, `SupplierController`) expuestos a través del API Gateway para la administración del catálogo, stock y proveedores, el consumidor `SaleWasClosedConsumer` que procesa las deducciones de existencias originadas por ventas, y los DTOs y Assemblers correspondientes.
-* **Application Layer:** Coordina la lógica de aplicación mediante Command Handlers (`AddNewFrameModelHandler`, `UpdateFrameModelPriceHandler`, `ReplenishStockHandler`, `RegisterSupplierHandler`), el `SaleWasClosedEventHandler`, servicios de consulta y los servicios de aplicación `InventoryApplicationService`, `FrameModelApplicationService` y `SupplierApplicationService`.
-* **Domain Layer:** Concentra el modelo de negocio con los agregados y entidades `Inventory`, `FrameModel`, `Stock`, `Supplier` y `Catalog`, los Value Objects `Price`, `LowStockAlert` y `Replenishment`, las interfaces de repositorio (`InventoryRepository`, `FrameModelRepository`, `SupplierRepository`) y los eventos de dominio (`FrameModelAdded`, `StockReplenished`, `LowStockAlertTriggered`).
-* **Infrastructure Layer (propuesta):** Plantea adaptadores JPA/PostgreSQL para inventario, monturas y proveedores dentro de la base compartida. No hay entidades, repositorios o migraciones implementados para este contexto en la versión revisada; las clases y comunicaciones del diagrama son elementos de diseño.
+* **Interface Layer:** Proporciona los controladores REST (`InventoryController`, `FrameModelController`, `SupplierController`, `InventoryReportController`) expuestos a través del API Gateway para la administración del catálogo, la búsqueda por código escaneado, el stock, el historial de movimientos, las alertas, los proveedores y las métricas, el consumidor `SaleWasClosedConsumer` que procesa las deducciones de existencias originadas por ventas, y los DTOs y Assemblers correspondientes.
+* **Application Layer:** Coordina la lógica de aplicación mediante Command Handlers (`AddNewFrameModelHandler`, `UpdateFrameModelPriceHandler`, `ReplenishStockHandler`, `UpdateInventoryHandler`, `RegisterSupplierHandler`), el `SaleWasClosedEventHandler`, los Query Services (`ConsultStockQueryService`, `FrameCatalogQueryService`, `InventoryMovementQueryService`, `InventoryMetricsQueryService`) y los servicios de aplicación `InventoryApplicationService`, `FrameModelApplicationService` y `SupplierApplicationService`.
+* **Domain Layer:** Concentra el modelo de negocio con los agregados y entidades `Inventory`, `FrameModel`, `Stock`, `Supplier` y `Catalog`, la entidad `StockMovement`, los Value Objects `Price`, `LowStockAlert` y `Replenishment`, las interfaces de repositorio (`InventoryRepository`, `FrameModelRepository`, `SupplierRepository`, `StockMovementRepository`) y los eventos de dominio (`NewFrameModelAdded`, `FrameModelPriceUpdated`, `StockWasReplenished`, `LowStockAlertGenerated`, `InventoryWasUpdated`, `SupplierRegistered`).
+* **Infrastructure Layer:** Implementa los repositorios de inventario, monturas, proveedores y movimientos de stock con JPA sobre la base PostgreSQL compartida, a partir de la migración V6.
 
 
-El diagrama de componentes del Store Management & Inventory Context en Spring Boot se presenta en la Figura 48.
+El diagrama de componentes del Store Management & Inventory Context en Spring Boot se presenta en la Figura 50.
 
-<a id="figura-48"></a>
+<a id="figura-50"></a>
 
-**Figura 48**
+**Figura 50**
 
 *Diagrama de componentes del Store Management & Inventory Context en Spring Boot*
 
 <div align="center">
-  <img src="assets/cap2/C4/component-store&inventory.jpeg" alt="Store Management and Inventory Component Level Diagram" width="1000">
+  <img src="assets/cap2/C4/components/store-inventory.svg" alt="Store Management and Inventory Component Level Diagram" width="1000">
 </div>
 
 
-La propuesta busca organizar el control de inventario, las alertas y los movimientos de stock. Estos beneficios son objetivos del diseño: el contexto aún no tiene implementación de persistencia ni integración operativa con ventas.
+
+La estructura organiza el control de inventario, las alertas y los movimientos de stock, y se integra con las ventas mediante el evento `SaleWasClosed`.
 
 <a id="2.6.4.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
@@ -3530,28 +3534,29 @@ La integración con **Firebase Cloud Messaging** sigue el patrón **Anti-Corrupt
 <a id="2.6.5.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-El siguiente Component Diagram representa el diseño ampliado del módulo **Notification & Loyalty** dentro del único backend. La persistencia de referencia es JPA/PostgreSQL; las operaciones de preferencias, encuestas, campañas y canales externos dibujadas requieren implementación y validación adicionales.
+El siguiente Component Diagram representa el módulo **Notification & Loyalty** dentro del único backend, con persistencia JPA/PostgreSQL y envío de notificaciones push mediante Firebase Cloud Messaging.
 
-* **Interface Layer:** Expone los controladores REST (`BirthdayNotificationController`, `SatisfactionSurveyController`, `NotificationController`, `NotificationPreferencesController`, `OrderProgressNotificationController`, `ReactivationCampaignController`), los consumidores de eventos entrantes (`AppointmentBookedConsumer`, `WorkOrderStatusUpdatedConsumer`, `OrderWasMarkedAsDeliveredConsumer`), además de los DTOs y Assemblers para el mapeo de peticiones.
-* **Application Layer:** Orquesta los casos de uso de comunicación y fidelización mediante Command Handlers (`DetectPatientBirthdayCommandHandler`, `SendBirthdayDiscountCommandHandler`, `SendSatisfactionSurveyCommandHandler`, `AssignStaffMemberToManageNotificationsCommandHandler`, `ConfigureNotificationPreferencesCommandHandler`, `NotifyPatientInAppCommandHandler`, `NotifyLensOrderProgressCommandHandler`, `SendReactivationCampaignCommandHandler`) y los servicios de aplicación (`BirthdayNotificationService`, `SatisfactionSurveyService`, `NotificationService`, `NotificationPreferenceService`, `OrderProgressNotificationService`, `ReactivationCampaignService`).
-* **Domain Layer:** Encapsula las reglas y modelos de fidelización: `NotificationPreferences`, `PatientBirthday`, `BirthdayDiscount`, `SatisfactionSurvey`, `InAppNotification`, `OrderProgress`, `ReactivationCampaign`, `StaffMember`, junto con las interfaces de repositorio (`NotificationRepository`, `NotificationPreferencesRepository`, `SatisfactionSurveyRepository`, `StaffMemberRepository`, `ReactivationCampaignRepository`) y los eventos de dominio.
-* **Infrastructure Layer:** Implementa `NotificationRepositoryImpl` y `LoyaltyAccountRepositoryImpl` sobre JPA/PostgreSQL, mediante `NotificationEntity`, `LoyaltyAccountEntity` y sus mappers. Recibe eventos internos de la aplicación Spring para generar notificaciones persistidas. Los adaptadores de WhatsApp y Firebase del diseño son propuestas de integración y no describen la persistencia ni una entrega externa verificada.
+* **Interface Layer:** Expone los controladores REST (`NotificationController`, `DeviceTokenController`, `LoyaltyAccountController`), además de los DTOs y Assemblers para el mapeo de peticiones y respuestas.
+* **Application Layer:** Orquesta los casos de uso de comunicación y fidelización mediante Command Handlers (`ScheduleAppointmentReminderHandler`, `NotifyLensOrderProgressHandler`, `SendDeliveryDelayNotificationHandler`, `SendSatisfactionSurveyHandler`, `AnswerSatisfactionSurveyHandler`, `GrantBirthdayDiscountHandler`, `SendPushNotificationHandler`, `RegisterDeviceTokenHandler`, `MarkNotificationAsReadHandler`), los Query Services, los Event Handlers de eventos entrantes, las tareas programadas (`ScheduledNotificationDispatcher`, `BirthdayDiscountScheduler`) y los servicios de aplicación (`NotificationApplicationService`, `LoyaltyApplicationService`).
+* **Domain Layer:** Encapsula los agregados `Notification` y `LoyaltyAccount`, la entidad `DeviceToken`, los Value Objects (`NotificationType`, `NotificationStatus`, `NotificationMessage`, `LoyaltyPoints`), las interfaces de repositorio (`NotificationRepository`, `LoyaltyAccountRepository`, `DeviceTokenRepository`) y los eventos de dominio.
+* **Infrastructure Layer:** Implementa los repositorios sobre JPA/PostgreSQL mediante `NotificationEntity`, `LoyaltyAccountEntity`, `DeviceTokenEntity` y sus mappers, consulta los cumpleaños mediante `PatientDirectoryAdapter` y envía las notificaciones push mediante `FirebaseMessagingAdapter`, protegido por la `MessagingAntiCorruptionLayer`.
 
 
-El diagrama de componentes del Notification & Loyalty Context en Spring Boot se muestra en la Figura 51.
+El diagrama de componentes del Notification & Loyalty Context en Spring Boot se muestra en la Figura 53.
 
-<a id="figura-51"></a>
+<a id="figura-53"></a>
 
-**Figura 51**
+**Figura 53**
 
 *Diagrama de componentes del Notification & Loyalty Context en Spring Boot*
 
 <div align="center">
-  <img src="assets/cap2/C4/component-notification&loyalty.jpeg" alt="Notification and Loyalty Component Level Diagram" width="1000">
+  <img src="assets/cap2/C4/components/notification-loyalty.svg" alt="Notification and Loyalty Component Level Diagram" width="1000">
 </div>
 
 
-La implementación persiste avisos y cuentas de fidelización en PostgreSQL y reacciona a eventos de reservas y producción. Las notificaciones multicanal, encuestas y campañas representadas en la vista de componentes forman parte del diseño ampliado; su representación no demuestra que estén implementadas.
+
+El módulo persiste avisos, tokens de dispositivos y cuentas de fidelización en PostgreSQL, reacciona a eventos de reservas y producción y entrega los avisos como notificaciones push.
 
 <a id="2.6.5.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
