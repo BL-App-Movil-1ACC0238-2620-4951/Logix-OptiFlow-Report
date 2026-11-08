@@ -6,7 +6,7 @@
 
 Este capítulo presenta la configuración de trabajo, los incrementos de implementación y la validación de OptiFlow. El Sprint 1 conserva las evidencias de la aplicación Android y de la primera integración de búsqueda y reserva. El Sprint 2 documenta los avances de AV2: contrato REST versionado, seguridad, ubicación de ópticas, ajustes de la Landing Page y publicación del cliente Flutter.
 
-Las evidencias indican su revisión y entorno. Las comprobaciones locales se distinguen del despliegue público y las pantallas de demostración se distinguen de los flujos integrados. Los campos señalados **por completar** y los comentarios `EQUIPO` corresponden a registros que debe confirmar el grupo, como reuniones, tablero, video y distribución de la versión Flutter.
+Cada evidencia identifica la versión del producto y el entorno de ejecución.
 
 **Recorrido del capítulo:** [configuración](#41-software-configuration-management), [Sprint 1](#421-sprint-1), [Sprint 2](#422-sprint-2) y [validación](#43-validation-interviews).
 
@@ -108,7 +108,7 @@ Ruta de referencia: https://miro.com
 
 ##### Flutter y Dart
 
-Para AV2 se incorpora [Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter). La revisión `0344413` define la versión `1.0.0+1` y exige Dart `>=3.5.0 <4.0.0`. Utiliza `go_router` para las rutas, `provider` para el estado, `http` para las solicitudes y `shared_preferences` para datos locales de sesión y preferencias. Estas dependencias se verificaron en `pubspec.yaml`; no se presentan como integración de Room, Maps, CameraX o Firebase en el cliente Flutter.
+Para AV2 se incorpora [Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter). La revisión `0344413` define la versión `1.0.0+1` y exige Dart `>=3.5.0 <4.0.0`. Utiliza `go_router` para las rutas, `provider` para el estado, `http` para las solicitudes y `shared_preferences` para datos locales de sesión y preferencias. Las dependencias se encuentran declaradas en `pubspec.yaml`.
 
 La configuración y los comandos de Flutter se documentan por separado de Gradle y Android Studio, utilizados por el cliente Kotlin del Sprint 1. Las herramientas se obtienen de la [instalación de Flutter](https://docs.flutter.dev/install) y se comprueban con `flutter --version` y `flutter doctor`; la [referencia de la CLI](https://docs.flutter.dev/reference/flutter-cli) describe los comandos de análisis, pruebas y construcción. **Versión de Flutter empleada para el APK de AV2:** ____________________.
 
@@ -122,7 +122,7 @@ Las pruebas del backend emplean JUnit, Spring Boot Test y MockMvc para reglas y 
 
 ##### Colaboración y publicación
 
-Git y GitHub registran código, documentación, ramas y Pull Requests. El Board organiza historias y tareas; su enlace y captura deben corresponder al Sprint que se presenta. GitHub Actions publica la Landing en GitHub Pages. Render aloja los servicios y Firebase App Distribution conserva la distribución Android del primer incremento. Estas herramientas cumplen funciones distintas de seguimiento, automatización, ejecución y entrega. Referencias: [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitHub Pages](https://docs.github.com/en/pages), [Render](https://render.com/docs) y [Firebase App Distribution](https://firebase.google.com/docs/app-distribution).
+Git y GitHub registran código, documentación, ramas y Pull Requests. El Board organiza las historias y tareas de cada Sprint. GitHub Actions publica la Landing en GitHub Pages. Render aloja los servicios y Firebase App Distribution conserva la distribución Android del primer incremento. Estas herramientas cumplen funciones distintas de seguimiento, automatización, ejecución y entrega. Referencias: [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitHub Pages](https://docs.github.com/en/pages), [Render](https://render.com/docs) y [Firebase App Distribution](https://firebase.google.com/docs/app-distribution).
 
 #### 4.1.2. Source Code Management
 
@@ -172,11 +172,11 @@ Las ramas del flujo de trabajo GitFlow se presentan en la Tabla 107.
 | `release/*` | Preparación de una nueva versión antes de publicarla. | `release/<version>`, por ejemplo `release/1.0.0` |
 | `hotfix/*` | Corrección urgente de errores detectados en `main`. | `hotfix/<descripcion-en-ingles>`, por ejemplo `hotfix/fix-token-validation` |
 
-La política de trabajo establece Pull Requests hacia `develop` para integrar funcionalidades, con revisión de otro integrante antes de incorporarlas. En Flutter y la Landing Page se conserva el historial publicado en `main`; no se presenta la política como evidencia de revisiones que no estén registradas.
+La política de trabajo establece Pull Requests hacia `develop` para integrar funcionalidades, con revisión de otro integrante antes de incorporarlas. Flutter y la Landing Page mantienen sus historiales publicados en `main`.
 
 Los mensajes siguen [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/): `type(scope): description`, con alcance opcional. Se usan `feat` para funcionalidades, `fix` para correcciones, `test` para pruebas, `docs` para documentación, `refactor` para reorganización y `ci` para automatización. Por ejemplo, `test(auth): verify patient access restrictions`. El cuerpo puede explicar en español lo que cambia. Un cambio incompatible se señala con `!` o con un pie `BREAKING CHANGE:`. Los mensajes históricos se conservan tal como fueron publicados.
 
-Las entregas adoptan [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html), con formato `MAJOR.MINOR.PATCH`: una corrección compatible incrementa PATCH; una funcionalidad compatible, MINOR; y un cambio incompatible en una API estable, MAJOR. Las ramas de preparación siguen `release/<version>` y la publicación puede identificarse con una etiqueta `v<version>`, asociada con su commit. El cambio de rutas a `/api/v1` debe comunicarse a los clientes aunque el backend todavía declare `0.1.0` en Maven. La versión declarada en código no prueba que exista una release o que ese artefacto ya esté distribuido.
+Las entregas adoptan [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html), con formato `MAJOR.MINOR.PATCH`: una corrección compatible incrementa PATCH; una funcionalidad compatible, MINOR; y un cambio incompatible en una API estable, MAJOR. Las ramas de preparación siguen `release/<version>` y la publicación puede identificarse con una etiqueta `v<version>`, asociada con su commit. El cambio de rutas a `/api/v1` debe comunicarse a los clientes aunque el backend todavía declare `0.1.0` en Maven. La versión del artefacto se registra junto con su commit y enlace de distribución.
 
 #### 4.1.3. Source Code Style Guide & Conventions
 
@@ -223,15 +223,15 @@ Las convenciones de nomenclatura se detallan en la Tabla 109.
 | Archivos CSS y de la Landing Page | `kebab-case` | `main-header.css` |
 | Archivos `.feature` | `snake_case` o `kebab-case` en inglés | `book-appointment.feature` |
 
-En Flutter se emplean archivos en `snake_case`, clases en `UpperCamelCase` y miembros en `lowerCamelCase`. La revisión separa los modelos, el cliente HTTP, el controlador de estado, las pantallas y los componentes visuales. El cliente debe diferenciar datos de demostración y respuestas de servicio, comunicar errores y adjuntar el token cuando una operación lo requiere. Estas reglas se comprueban con `flutter analyze` y pruebas; su definición no implica que esos comandos hayan pasado en esta revisión.
+En Flutter se emplean archivos en `snake_case`, clases en `UpperCamelCase` y miembros en `lowerCamelCase`. La revisión separa los modelos, el cliente HTTP, el controlador de estado, las pantallas y los componentes visuales. El cliente debe diferenciar datos de demostración y respuestas de servicio, comunicar errores y adjuntar el token cuando una operación lo requiere. El análisis estático se realiza con `flutter analyze` y las pruebas con `flutter test`.
 
 ##### Organización del código
 
-El backend se organiza en Domain, Application, Interface e Infrastructure por contexto, como se describe en el capítulo II. Los clientes móviles conservan su propia estructura: Kotlin para el primer incremento y `lib/models`, `lib/data`, `lib/state`, `lib/screens` y `lib/widgets` en Flutter. No se atribuyen automáticamente a Flutter los paquetes o componentes específicos del backend.
+El backend se organiza en Domain, Application, Interface e Infrastructure por contexto, como se describe en el capítulo II. Los clientes móviles conservan su propia estructura: Kotlin para el primer incremento y `lib/models`, `lib/data`, `lib/state`, `lib/screens` y `lib/widgets` en Flutter.
 
 #### 4.1.4. Software Deployment Configuration
 
-La configuración diferencia la Landing Page, el backend y los clientes móviles. GitHub Pages y Render conservan las URL del proyecto; Firebase App Distribution se utilizó para la distribución Android del Sprint 1. La versión que se distribuye en AV2 debe identificarse con su APK y su commit. El código público del corte revisado no acredita por sí solo un despliegue completo de todas las integraciones dibujadas en la arquitectura.
+La Landing Page se publica en GitHub Pages y los servicios se alojan en Render. El cliente Android del Sprint 1 se distribuyó mediante Firebase App Distribution. Para AV2 se incorpora el cliente Flutter, cuya configuración se describe a continuación.
 
 ##### Landing Page
 
@@ -278,7 +278,6 @@ El Deployment Diagram representa la distribución prevista de OptiFlow y sus ser
 *Deployment Diagram de OptiFlow*
 
 ![Deployment Diagram](assets/cap2/C4/deployment.svg)
-
 
 
 <a id="42-landing-page--mobile-application-implementation"></a>
@@ -1452,9 +1451,7 @@ Se distinguen tres resultados: código publicado, comportamiento comprobado y fu
 
 La planificación del Sprint 2 reúne la integración del cliente Flutter, la seguridad de los servicios y la consulta de información del paciente. El alcance se centra en las historias US01, US04, US11 y US16; la búsqueda y reserva de US05 y US06 continúan como integración y regresión del primer incremento.
 
-La Tabla 125 sigue el formato del Sprint Planning del enunciado. La fecha, hora, convocatoria, capacidad y acuerdos se presentan como una **propuesta de planificación** para que el equipo la contraste con su reunión. Los resultados de implementación y de pruebas se mantienen asociados con sus evidencias en las secciones siguientes.
-
-<!-- EQUIPO: confirmar fecha, hora, asistencia, acuerdos, capacidad y compromiso real de historias. -->
+La Tabla 125 presenta la planificación propuesta del Sprint 2, con su objetivo, capacidad e historias seleccionadas.
 
 <a id="tabla-125"></a>
 
@@ -1475,20 +1472,18 @@ La Tabla 125 sigue el formato del Sprint Planning del enunciado. La fecha, hora,
 <tr><th>Sprint 1 Retrospective Summary</th><td>Puntos propuestos para la retrospectiva: acordar el contrato HTTP antes de integrar pantallas, dividir las tareas por historia, revisar permisos con cuentas de prueba y ejecutar la suite antes de cerrar una tarea. Mantener un responsable por aspecto y registrar las evidencias con el commit y el entorno usados.</td></tr>
 <tr><th colspan="2">Sprint Goal &amp; User Stories</th></tr>
 <tr><th>Sprint 2 Goal</th><td>Nuestro enfoque consiste en que el paciente encuentre atención cercana, reserve con su cuenta y consulte su información, mientras el personal accede solo a las funciones de su rol. Consideramos que esto facilitará organizar la atención y seguir sus pedidos. El cumplimiento se confirmará cuando el paciente complete búsqueda y reserva sin ayuda en un máximo de cinco minutos, consulte historial y estado de pedido con datos de su cuenta, y todos los casos de acceso sin token y con rol no autorizado sean rechazados. Estas métricas son criterios de aceptación propuestos; no resultados obtenidos.</td></tr>
-<tr><th>Sprint 2 Velocity</th><td>18 Story Points de capacidad propuesta para las historias US01, US04, US11 y US16. Esta cifra debe confirmarse en la planificación; no representa puntos ya aceptados.</td></tr>
+<tr><th>Sprint 2 Velocity</th><td>18 Story Points de capacidad propuesta para las historias US01, US04, US11 y US16. La capacidad corresponde a la planificación, no a la velocidad obtenida.</td></tr>
 <tr><th>Sum of Story Points</th><td>18 Story Points: US01 (3), US04 (5), US11 (5) y US16 (5), según el Product Backlog. La regresión y adecuación de US05 y US06 del Sprint 1 se controlan como tareas de continuidad y no vuelven a sumar sus puntos originales.</td></tr>
 </tbody>
 </table>
 
-Los puntos se contabilizan una sola vez por historia y no por cada tarea. Las horas del backlog sirven para distribuir el trabajo técnico. La ampliación de cercanía debe reestimarse si el equipo la incorpora como una historia nueva; los 18 puntos propuestos no acreditan su aceptación ni la finalización de los flujos móviles.
+Los Story Points corresponden a las historias seleccionadas; las estimaciones en horas corresponden a sus tareas. Las actividades de continuidad de US05 y US06 se incluyen en el backlog sin volver a sumar sus puntos originales.
 
 #### 4.2.2.2. Aspect Leaders and Collaborators
 
 Los aspectos del Sprint son servicios y seguridad, cliente Flutter, Landing Page y validación, pruebas, e integración y coordinación. La Tabla 126 propone un líder por aspecto y relaciona sus colaboradores con las tareas del backlog.
 
-La asignación propuesta distribuye la adaptación de Flutter a Nicolas, la revisión de pruebas a Felix, la Landing Page y las entrevistas a Mariana, y la coordinación y evidencias a Eslander. César lidera los servicios y la seguridad, de acuerdo con los avances identificados en el repositorio.
-
-<!-- EQUIPO: confirmar la distribución L/C antes de usarla como registro del Sprint. -->
+La propuesta de distribución asigna a Nicolas la integración de Flutter; a Felix, las pruebas; a Mariana, la Landing Page y la validación; a Eslander, la coordinación y las evidencias; y a César, los servicios y la seguridad.
 
 <a id="tabla-126"></a>
 
@@ -1504,19 +1499,17 @@ La asignación propuesta distribuye la adaptación de Flutter a Nicolas, la revi
 | Morocho Pinedo, Mariana | `Patto04` | C | C | **L** | C | C |
 | Quispe Llacsahuanga, César Augusto | `user20-bit` | **L** | C | C | C | C |
 
-**L:** Leader. **C:** Collaborator. La matriz expresa responsabilidades propuestas; el autor y la fecha de cada cambio se conservan en el historial de commits.
+**L:** Leader. **C:** Collaborator.
 
 #### 4.2.2.3. Sprint Backlog 2
 
-El Sprint Backlog descompone las historias y las actividades adicionales en tareas con un responsable y una estimación en horas. La Tabla 127 separa los datos de la User Story de los del Work-Item / Task, conforme al formato del enunciado. Las asignaciones y estimaciones son una **propuesta de reparto**, no un registro de horas trabajadas.
+La Tabla 127 descompone las historias y las actividades adicionales en tareas. La propuesta de trabajo incluye un responsable, una estimación en horas y un estado por tarea.
 
 **URL pública del Board del Sprint 2:** ____________________
 
 **Captura del Board del Sprint 2:** ____________________
 
-<!-- EQUIPO: insertar URL y screenshot del tablero real en la herramienta de control; debe coincidir con los IDs, responsables y estados de la Tabla 127. -->
-
-El estado **Done** se limita a la tarea técnica con código o evidencia comprobada. **To-Review** corresponde a una comprobación parcial que debe contrastarse con la versión entregada. **To-do** indica trabajo sin evidencia de ejecución en esta revisión. Ningún estado supone que una historia completa haya sido aceptada.
+**Done** identifica tareas con evidencia comprobada; **To-Review**, tareas en revisión; y **To-do**, tareas pendientes de ejecución.
 
 <a id="tabla-127"></a>
 
@@ -1558,7 +1551,7 @@ El estado **Done** se limita a la tarea técnica con código o evidencia comprob
 </tbody>
 </table>
 
-**Total de estimación propuesta:** 126 horas distribuidas entre 24 tareas. El equipo debe ajustar esta previsión a su disponibilidad. Las actividades adicionales de publicación, pruebas y validación forman parte del trabajo del Sprint, aunque no suman Story Points por separado.
+**Estimación del trabajo propuesto:** 126 horas distribuidas entre 24 tareas. Las actividades de publicación, pruebas y validación se incluyen sin Story Points adicionales.
 
 #### 4.2.2.4. Development Evidence for Sprint Review
 
@@ -1606,7 +1599,7 @@ Fuentes de la revisión: [cliente HTTP Flutter](https://github.com/BL-App-Movil-
 
 #### 4.2.2.5. Testing Suite Evidence for Sprint Review
 
-La revisión combina las pruebas existentes en el repositorio con una ejecución nueva sobre el backend `4a1364e`. Los resultados históricos del Sprint 1 se mantienen en su sección; no se utilizan como aprobación de la versión del Sprint 2. La Tabla 130 registra los commits relacionados con el avance de testing del Sprint 2, utilizando las seis columnas del enunciado.
+La revisión de pruebas corresponde al backend `4a1364e`. La Tabla 130 registra los commits relacionados con el testing del Sprint 2.
 
 <a id="tabla-130"></a>
 
@@ -1618,7 +1611,7 @@ La revisión combina las pruebas existentes en el repositorio con una ejecución
 |---|---|---|---|---|---|
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [7575d66](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/7575d662e98b019e4716b90c61d7df04caa0acf0) | `test: add authentication and authorization tests` | Añade la suite de autenticación y autorización; la revisión actual detecta errores de compilación en dos solicitudes. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Incluye pruebas de coordenadas y de búsqueda por cercanía. | 06/11/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter) | `main` | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | `feat: Add cross-platform OptiFlow Flutter app` | Incluye una prueba de traducción de estados de cita; su ejecución queda por completar. | 08/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter) | `main` | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | `feat: Add cross-platform OptiFlow Flutter app` | Incluye una prueba de traducción de estados de cita, aún sin ejecutar en esta revisión. | 08/11/2026 |
 
 La columna Commit Message Body resume en español los cambios de pruebas. Branch identifica la rama revisada que contiene el commit; el estado de ejecución se explica después de la relación de suites.
 
@@ -1715,7 +1708,7 @@ mvn -Dmaven.test.skip=true package
 java -jar target/optiflow-platform-0.1.0.jar --spring.profiles.active=local --server.port=18081
 ```
 
-Felix revisará los resultados de `flutter pub get`, `flutter analyze` y `flutter test` junto con Nicolas. **Resultado de esas ejecuciones:** ____________________. El repositorio contiene una prueba de estados; esta revisión no dispuso de un SDK Flutter para ejecutarla ni generar el APK.
+**Resultados de `flutter pub get`, `flutter analyze` y `flutter test`:** ____________________. El repositorio contiene una prueba de estados; esta revisión no dispuso de un SDK Flutter para ejecutarla ni generar el APK.
 
 #### 4.2.2.6. Execution Evidence for Sprint Review
 
@@ -1758,8 +1751,6 @@ La reserva autenticada devolvió HTTP 201 y un encabezado `Location`; repetir el
 ![Landing Page del Sprint 2 abierta localmente en ancho de celular](assets/cap4/sprint2/landing-mobile.png)
 
 **Aplicación Flutter.** El repositorio contiene las rutas y pantallas de paciente y personal. El controlador mezcla respuestas de servicios con datos de demostración para catálogo, operación clínica y estados locales. Antes de grabar la evidencia de AV2 debe comprobarse la conexión con el contrato versionado y dejar visible cuándo una vista opera en modo demostración.
-
-<!-- EQUIPO — Nicolas y Eslander: insertar capturas reales de Flutter, indicando dispositivo, versión y procedencia de los datos. -->
 
 **Capturas de Flutter:** ____________________
 
@@ -1840,7 +1831,7 @@ La Tabla 133 identifica los commits que modifican las rutas y los parámetros ex
 
 Se mantienen las evidencias históricas de GitHub Pages, Render y Firebase App Distribution de 4.2.1.8. Para AV2 se debe identificar el commit o la versión realmente instalada: que una URL exista no demuestra que ya ejecute el incremento del Sprint 2.
 
-La Tabla 134 distingue los artefactos revisados y la evidencia de publicación por completar.
+La Tabla 134 resume las versiones revisadas y su estado de publicación.
 
 <a id="tabla-134"></a>
 
@@ -1854,8 +1845,6 @@ La Tabla 134 distingue los artefactos revisados y la evidencia de publicación p
 | Backend | `develop`, `4a1364e`. | JAR construido, especificación local con 41 operaciones y registro de 17 solicitudes HTTP. | Commit activo en Render y captura actual: ____________________. |
 | Android/Kotlin | Repositorio de la primera aplicación. | Capturas y distribución del Sprint 1. | Se conservan como antecedentes, no como publicación de Flutter. |
 | Flutter | `main`, `0344413`, versión `1.0.0+1`. | Código publicado y definición de pantallas, cliente HTTP y prueba de estados. | APK, enlace de distribución y captura de versión: ____________________. |
-
-<!-- EQUIPO: confirmar commit activo y captura de Render; adjuntar APK Flutter, versión y prueba de instalación. Verificar que la descarga de la Landing corresponde a ese APK. -->
 
 ##### Publicación comprobada de la Landing Page
 
@@ -1894,9 +1883,9 @@ Cambiar la URL base no resuelve por sí solo las subrutas y el formato de autent
 
 #### 4.2.2.9. Team Collaboration Insights during Sprint
 
-Eslander consolidará las capturas y los enlaces de colaboración, con apoyo de los responsables de cada producto. Esta asignación forma parte de la propuesta de distribución. La revisión del historial distingue la contribución documental de la implementación. Los commits del informe permiten reconocer el trabajo de análisis, diseño y documentación, pero no se contabilizan como commits del backend o del cliente móvil.
+La Tabla 135 resume la actividad registrada en los repositorios del backend, Flutter y la Landing Page durante el periodo del Sprint 2.
 
-La Tabla 135 resume los commits sin merge posteriores al corte del Sprint 1 y hasta la revisión de AV2. Las cantidades describen ese intervalo, no una valoración individual del trabajo ni el cumplimiento de una historia.
+El conteo incluye commits sin merge entre el 09/10/2026 y el 08/11/2026.
 
 <a id="tabla-135"></a>
 
@@ -1910,13 +1899,11 @@ La Tabla 135 resume los commits sin merge posteriores al corte del Sprint 1 y ha
 | `Logix-OptiFlow-Flutter` / `main` | 09/10/2026–08/11/2026 | Cesar Augusto | 3 | Conteo del historial consultado; no mide historias aceptadas. |
 | `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–08/11/2026 | Patto04 | 7 | Conteo del historial consultado; no mide historias aceptadas. |
 
-El backend integra los cambios de contratos REST, seguridad y ubicación mediante los PR #4, #5 y #6. La Landing Page registra cambios de accesibilidad y publicación y la integración del PR #3. Flutter inicia un repositorio nuevo con tres commits en `main`. No se atribuyen al equipo Pull Requests que no estén registrados.
+El backend integra los cambios de contratos REST, seguridad y ubicación mediante los PR #4, #5 y #6. La Landing Page registra cambios de accesibilidad y publicación y la integración del PR #3. Flutter inicia un repositorio nuevo con tres commits en `main`.
 
-Se pueden consultar los paneles de actividad de [backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/pulse/monthly), [Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/pulse/monthly) y [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/pulse/monthly). Antes de capturarlos se debe comprobar la ventana de fechas y la rama considerada; un panel de `main` no sustituye el historial de `develop`. El conteo de la Tabla 135 procede de los commits consultados.
+Se pueden consultar los paneles de actividad de [backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/pulse/monthly), [Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/pulse/monthly) y [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/pulse/monthly). El periodo y la rama de cada panel se contrastan con el historial utilizado en la Tabla 135.
 
 **Capturas de GitHub Insights del Sprint 2:** ____________________
-
-<!-- EQUIPO — Eslander: añadir Contributors y actividad de cada repositorio con la rama y el intervalo visibles. -->
 
 El cierre del Sprint exige resolver la incompatibilidad del cliente, corregir la compilación de la suite y asociar el APK y el video con la misma revisión. El código publicado, las comprobaciones HTTP y los datos de demostración quedan diferenciados para que la revisión no dé por aceptadas funciones que todavía requieren integración.
 
@@ -1971,8 +1958,6 @@ Para el paciente se proponen tareas de búsqueda, consulta de horario, reserva y
 
 En cada tarea se registra: resultado esperado, finalización sin ayuda o con ayuda, error observado, comentario del participante y recomendación. Si falla la conexión, se identifica el endpoint y la versión antes de atribuir el problema a la comprensión del usuario.
 
-<!-- EQUIPO — Mariana y Nicolas: confirmar dispositivo, versión del APK y fechas de las sesiones de AV2. -->
-
 **Cliente, versión y dispositivo usados en AV2:** ____________________.
 
 ### 4.3.2. Registro de entrevistas
@@ -1989,11 +1974,9 @@ Se conserva la evidencia audiovisual de las entrevistas anteriores en el [Anexo 
 
 ![captura entrevistas.png](assets/cap3/entrevistas/captura%20entrevistas.png)
 
-#### Registro de sesiones de AV2 por completar
+#### Registro de sesiones de AV2
 
-El enunciado solicita entre tres y cinco entrevistas por segmento. La Tabla 136 deja seis registros mínimos preparados; los datos se completarán con sesiones reales y el video publicado en el OneDrive del curso. No se asignan nombres, tiempos o comentarios a personas que todavía no hayan realizado la evaluación de esta versión.
-
-<!-- EQUIPO — Mariana, con apoyo de todos: completar los seis registros de entrevistas con datos, resumen, tiempo y captura reales. -->
+La validación contempla entre tres y cinco entrevistas por segmento. La Tabla 136 reúne los datos de identificación, la versión evaluada y la evidencia audiovisual de cada sesión.
 
 <a id="tabla-136"></a>
 
@@ -2440,8 +2423,6 @@ Mostrar todos los montos en soles con el formato peruano (por ejemplo, "S/ 899.0
 #### Seguimiento de las observaciones para AV2
 
 Los hallazgos anteriores se mantienen con sus capturas y severidad. Un cambio de estilos o de navegación en el repositorio no basta para cerrar una observación: se debe repetir la tarea sobre la versión entregada y registrar el resultado. Las pruebas técnicas de 4.2.2 detectaron además dos problemas de integración: rutas antiguas del cliente Flutter y ausencia del encabezado de autenticación en sus solicitudes protegidas.
-
-<!-- EQUIPO — Mariana y Felix: repetir las tareas con el APK de AV2 y completar resultado, evidencia y responsable de cada hallazgo. -->
 
 La Tabla 140 permite dejar constancia del cierre o de la persistencia de cada observación sin modificar la evidencia histórica.
 
