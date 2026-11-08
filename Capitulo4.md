@@ -48,7 +48,7 @@ El logo de Android Studio se observa en la Figura 116.
 ![android-studio-logo.png](assets/cap4/ExternalAppsForDesign/android-studio-logo.png)
 
 
-Es el entorno de desarrollo integrado (IDE) para la programación de la aplicación móvil. Además, se emplean el Android SDK, Gradle para la gestión de dependencias y la compilación, el Android Emulator para pruebas durante el desarrollo y un dispositivo físico con depuración USB para validar el funcionamiento real de la aplicación. La aplicación se desarrolla en Kotlin, cuya adopción en proyectos Android resulta costo-efectiva frente a Java sin afectar la calidad percibida por los usuarios (Coppola et al., 2025), y su interfaz se construye con Jetpack Compose (Google, s. f.-d). El proyecto fija una versión mínima del SDK (API 26), porque la evolución de la API de Android genera problemas de compatibilidad que deben controlarse durante el desarrollo (Mahmud et al., 2024).
+En el Sprint 1 se utilizó como entorno de desarrollo integrado (IDE) del cliente Android/Kotlin. Además, se emplean el Android SDK, Gradle para la gestión de dependencias y la compilación, el Android Emulator para pruebas durante el desarrollo y un dispositivo físico con depuración USB para validar el funcionamiento real de la aplicación. Ese cliente se desarrolla en Kotlin, cuya adopción en proyectos Android resulta costo-efectiva frente a Java sin afectar la calidad percibida por los usuarios (Coppola et al., 2025), y su interfaz se construye con Jetpack Compose (Google, s. f.-d). El proyecto fija una versión mínima del SDK (API 26), porque la evolución de la API de Android genera problemas de compatibilidad que deben controlarse durante el desarrollo (Mahmud et al., 2024).
 
 Ruta de descarga: https://developer.android.com/studio
 
@@ -110,7 +110,19 @@ Ruta de referencia: https://miro.com
 
 Para AV2 se incorpora [Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter). La revisión `0344413` define la versión `1.0.0+1` y exige Dart `>=3.5.0 <4.0.0`. Utiliza `go_router` para las rutas, `provider` para el estado, `http` para las solicitudes y `shared_preferences` para datos locales de sesión y preferencias. Estas dependencias se verificaron en `pubspec.yaml`; no se presentan como integración de Room, Maps, CameraX o Firebase en el cliente Flutter.
 
-La configuración y los comandos de Flutter se documentan por separado de Gradle y Android Studio, utilizados por el cliente Kotlin del Sprint 1. **Versión de Flutter empleada para el APK de AV2:** ____________________.
+La configuración y los comandos de Flutter se documentan por separado de Gradle y Android Studio, utilizados por el cliente Kotlin del Sprint 1. Las herramientas se obtienen de la [instalación de Flutter](https://docs.flutter.dev/install) y se comprueban con `flutter --version` y `flutter doctor`; la [referencia de la CLI](https://docs.flutter.dev/reference/flutter-cli) describe los comandos de análisis, pruebas y construcción. **Versión de Flutter empleada para el APK de AV2:** ____________________.
+
+##### Desarrollo y pruebas de servicios
+
+El backend utiliza Java 21 y Maven. El JDK compila y ejecuta los servicios; Maven resuelve dependencias, compila, ejecuta pruebas y empaqueta el JAR. Las versiones del proyecto se encuentran en `pom.xml` y `Dockerfile`. Referencias: [Java](https://dev.java/learn/) y [Maven](https://maven.apache.org/).
+
+PostgreSQL es la base compartida del entorno desplegado. Flyway aplica las migraciones y JPA valida su correspondencia con las entidades. H2 se utiliza en el perfil local de esta revisión; una ejecución con H2 no sustituye la verificación de migraciones en PostgreSQL. Referencias: [PostgreSQL](https://www.postgresql.org/docs/) y [Flyway](https://documentation.red-gate.com/fd).
+
+Las pruebas del backend emplean JUnit, Spring Boot Test y MockMvc para reglas y solicitudes HTTP; Cucumber relaciona escenarios Gherkin con Steps en Java. Swagger UI permite consultar e interactuar con la especificación generada por springdoc. Referencias: [JUnit](https://junit.org/junit5/docs/current/user-guide/), [Spring Boot Testing](https://docs.spring.io/spring-boot/reference/testing/index.html), [Cucumber](https://cucumber.io/docs/) y [springdoc](https://springdoc.org/).
+
+##### Colaboración y publicación
+
+Git y GitHub registran código, documentación, ramas y Pull Requests. El Board organiza historias y tareas; su enlace y captura deben corresponder al Sprint que se presenta. GitHub Actions publica la Landing en GitHub Pages. Render aloja los servicios y Firebase App Distribution conserva la distribución Android del primer incremento. Estas herramientas cumplen funciones distintas de seguimiento, automatización, ejecución y entrega. Referencias: [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitHub Pages](https://docs.github.com/en/pages), [Render](https://render.com/docs) y [Firebase App Distribution](https://firebase.google.com/docs/app-distribution).
 
 #### 4.1.2. Source Code Management
 
@@ -140,7 +152,7 @@ El informe utiliza ramas por alcance y Pull Requests hacia `develop`. La revisi�
 
 ##### Flujo de trabajo con GitFlow
 
-Se adoptó **GitFlow** como flujo de trabajo para organizar el desarrollo en ramas con responsabilidades definidas:
+Se establece **GitFlow** como convención para organizar el desarrollo en ramas con responsabilidades definidas. La Tabla 107 describe la política de integración; los historiales de cada producto muestran qué ramas se utilizaron en cada Sprint.
 
 
 Las ramas del flujo de trabajo GitFlow se presentan en la Tabla 107.
@@ -160,13 +172,11 @@ Las ramas del flujo de trabajo GitFlow se presentan en la Tabla 107.
 | `release/*` | Preparación de una nueva versión antes de publicarla. | `release/<version>`, por ejemplo `release/1.0.0` |
 | `hotfix/*` | Corrección urgente de errores detectados en `main`. | `hotfix/<descripcion-en-ingles>`, por ejemplo `hotfix/fix-token-validation` |
 
-Los cambios se integran mediante **Pull Requests** hacia la rama `develop`, de modo que cada modificación sea revisada por otro integrante antes de incorporarse.
+La política de trabajo establece Pull Requests hacia `develop` para integrar funcionalidades, con revisión de otro integrante antes de incorporarlas. En Flutter y la Landing Page se conserva el historial publicado en `main`; no se presenta la política como evidencia de revisiones que no estén registradas.
 
-La convención propuesta para los mensajes utiliza un tipo y una descripción breve, de modo que el historial permita reconocer el propósito de cada cambio. El cuerpo del mensaje puede explicar en español el comportamiento incorporado, la corrección realizada o la documentación actualizada. Los tipos principales son:
+Los mensajes siguen [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/): `type(scope): description`, con alcance opcional. Se usan `feat` para funcionalidades, `fix` para correcciones, `test` para pruebas, `docs` para documentación, `refactor` para reorganización y `ci` para automatización. Por ejemplo, `test(auth): verify patient access restrictions`. El cuerpo puede explicar en español lo que cambia. Un cambio incompatible se señala con `!` o con un pie `BREAKING CHANGE:`. Los mensajes históricos se conservan tal como fueron publicados.
 
-- `feat/feature`: nueva funcionalidad.
-- `fix`: corrección de un error.
-- `docs`: cambios en la documentación.
+Las entregas adoptan [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html), con formato `MAJOR.MINOR.PATCH`: una corrección compatible incrementa PATCH; una funcionalidad compatible, MINOR; y un cambio incompatible en una API estable, MAJOR. Las ramas de preparación siguen `release/<version>` y la publicación puede identificarse con una etiqueta `v<version>`, asociada con su commit. El cambio de rutas a `/api/v1` debe comunicarse a los clientes aunque el backend todavía declare `0.1.0` en Maven. La versión declarada en código no prueba que exista una release o que ese artefacto ya esté distribuido.
 
 #### 4.1.3. Source Code Style Guide & Conventions
 
@@ -225,7 +235,14 @@ La configuración diferencia la Landing Page, el backend y los clientes móviles
 
 ##### Landing Page
 
-La revisión `ef1c032` contiene ajustes de accesibilidad, estilos y el workflow de publicación. La configuración de GitHub Pages se revisa en el repositorio [Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page). La URL registrada es [Landing Page de OptiFlow](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/). Para AV2 se debe conservar la captura de la ejecución del workflow y comprobar que la descarga del APK corresponde a la versión que se presenta, en lugar de asumir que los enlaces anteriores ya fueron actualizados.
+La revisión `ef1c032` contiene ajustes de accesibilidad, estilos y el workflow de publicación. La configuración de GitHub Pages se revisa en el repositorio [Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page). La URL registrada es [Landing Page de OptiFlow](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/). La ejecución de Pages del commit `ef1c032` y la página pública se comprobaron el 08/11/2026; las capturas están en 4.2.2.8. La correspondencia del APK enlazado con la versión Flutter sigue por verificar.
+
+Para reproducir la publicación de la Landing:
+
+1. Revisar el commit de `main` y los archivos estáticos de la raíz.
+2. Seleccionar GitHub Actions como origen de Pages y conservar el workflow `.github/workflows/static.yml`, que prepara Pages, carga el artefacto y ejecuta el despliegue.
+3. Revisar la ejecución y su entorno `github-pages`; abrir la URL publicada en escritorio y móvil.
+4. Comprobar los enlaces y la descarga del APK de la entrega. El resultado observado se registra en 4.2.2.8.
 
 ##### Web Services
 
@@ -234,6 +251,14 @@ El backend se construye con Maven y Java 21 y se empaqueta mediante el `Dockerfi
 La revisión `4a1364e` publica las rutas de negocio bajo `/api/v1`. El registro de pacientes y la creación de tokens son públicos; las operaciones protegidas requieren un token y las de personal exigen el rol administrativo. La documentación se genera en `/v3/api-docs` y se visualiza en `/swagger-ui/index.html`. El perfil local utiliza H2; las capturas de 4.2.2 se tomaron en una instancia aislada, distinta de Render.
 
 Los servicios de pagos externos y notificaciones push del diseño general no se consideran comprobados por esta revisión. En el código descargado se identifican las migraciones V1, V2, V3, V4, V5 y V8; no se usa el diseño ampliado del informe como sustituto de la evidencia de código o despliegue.
+
+Para preparar los servicios desde el código:
+
+1. Usar la revisión elegida del backend, Java 21 y Maven; ejecutar la suite antes de preparar la entrega. La incidencia de compilación detectada debe resolverse para acreditar ese paso.
+2. Configurar `SPRING_PROFILES_ACTIVE=postgres`, la URL JDBC de PostgreSQL, el usuario, la contraseña y `JWT_SECRET` en el entorno. La configuración revisada lee el puerto desde `PORT` y usa 8080 como valor por defecto.
+3. Construir la imagen con `docker build -t optiflow-backend:<version> .` desde la raíz del backend. El `Dockerfile` empaqueta con `-DskipTests`: omite la ejecución, pero todavía compila las clases de prueba. Por tanto, el error de `testCompile` también debe corregirse antes de construir esta imagen; el JAR local se generó por separado con `-Dmaven.test.skip=true`. Ninguna de esas opciones acredita la aprobación de la suite.
+4. En Render, seleccionar el repositorio y commit que se publicarán mediante Docker, registrar las variables del paso anterior y revisar los logs de arranque y migración sin exponer sus valores.
+5. Abrir `/v3/api-docs` y `/swagger-ui/index.html`; comprobar el contrato versionado, una consulta pública y una operación protegida. Conservar el commit desplegado y la evidencia de esa revisión.
 
 ##### Aplicaciones móviles
 
@@ -256,7 +281,9 @@ El Deployment Diagram representa la distribución prevista de OptiFlow y sus ser
 
 
 
-## 4.2. Landing Page & Mobile Application Implementation
+<a id="42-landing-page--mobile-application-implementation"></a>
+
+## 4.2. Landing Page, Services & Applications Implementation
 ### 4.2.1. Sprint 1
 Durante el Sprint 1, el equipo inició la implementación de OptiFlow con dos prioridades: publicar la Landing Page y desarrollar el flujo del paciente para buscar ópticas y reservar una cita de atención optométrica. Este incremento establece una primera integración entre la aplicación móvil y los Web Services, cuyo comportamiento se documenta mediante evidencias de desarrollo, pruebas y ejecución.
 
@@ -760,9 +787,9 @@ La respuesta de esta consulta se conserva como [evidencia JSON de la reserva mó
 
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
-Los Web Services de **OptiFlow** se documentan mediante **OpenAPI 3.1**. El backend utiliza **Java 21 y Spring Boot**, y **springdoc-openapi** genera la especificación y la interfaz **Swagger UI** a partir de los controladores. La configuración ubicada en `shared/documentation/openapi/configuration` define los datos generales de la API y las etiquetas que agrupan las operaciones por contexto. Esta documentación permite consultar contratos y ejecutar solicitudes para revisar el comportamiento del servicio.
+Esta sección conserva el contrato y las capturas del Sprint 1, revisados el 08/10/2026. Las rutas sin prefijo y `/login` corresponden a ese corte; el contrato `/api/v1` y la autenticación actual se documentan en 4.2.2.7. Los Web Services de **OptiFlow** se documentan mediante **OpenAPI 3.1**. El backend utiliza **Java 21 y Spring Boot**, y **springdoc-openapi** genera la especificación y la interfaz **Swagger UI** a partir de los controladores. La configuración ubicada en `shared/documentation/openapi/configuration` define los datos generales de la API y las etiquetas que agrupan las operaciones por contexto. Esta documentación permite consultar contratos y ejecutar solicitudes para revisar el comportamiento del servicio.
 
-La documentación cubre los tres bounded contexts del **Core Domain** definidos en el Capítulo II: **Search & Booking** (registro e inicio de sesión del paciente, búsqueda de ópticas, disponibilidad y reserva de citas), **Clinical & Commercial** (expediente clínico, receta, cotización y venta) y **Production & Tracking** (órdenes de trabajo y seguimiento del pedido). En total, la versión desplegada expone **37 operaciones**. El contexto de Notification & Loyalty ya cuenta con su dominio, sus manejadores de eventos y su persistencia, pero todavía no expone endpoints REST, por lo que no aparece en Swagger UI. Store Management & Inventory se documentará cuando se implemente.
+La documentación cubre los tres bounded contexts del **Core Domain** definidos en el Capítulo II: **Search & Booking** (registro e inicio de sesión del paciente, búsqueda de ópticas, disponibilidad y reserva de citas), **Clinical & Commercial** (expediente clínico, receta, cotización y venta) y **Production & Tracking** (órdenes de trabajo y seguimiento del pedido). En el corte del Sprint 1 se registraron **37 operaciones**. El contexto de Notification & Loyalty ya cuenta con su dominio, sus manejadores de eventos y su persistencia, pero todavía no expone endpoints REST, por lo que no aparece en Swagger UI. Store Management & Inventory se documentará cuando se implemente.
 
 **Datos generales de la documentación**
 
@@ -782,7 +809,7 @@ Los datos generales de la documentación de los Web Services se resumen en la Ta
 | Documentación desplegada (Swagger UI) | [https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) |
 | Especificación OpenAPI desplegada (JSON) | [https://logix-optiflow-back-end.onrender.com/v3/api-docs](https://logix-optiflow-back-end.onrender.com/v3/api-docs) |
 | Documentación local (Swagger UI) | `http://localhost:8080/swagger-ui/index.html` |
-| URL base de la API | `https://logix-optiflow-back-end.onrender.com` (sin prefijo de versión) |
+| URL base de la API | `https://logix-optiflow-back-end.onrender.com` (contrato histórico del Sprint 1, sin prefijo de versión) |
 | Formato de intercambio | JSON (`application/json`) |
 | Identificadores | UUID en todos los recursos |
 | Autenticación | `POST /login` devuelve un token para el paciente. En esta versión los endpoints aún no exigen el token; la protección por roles (US16) se incorporará en un siguiente Sprint. |
@@ -801,19 +828,19 @@ Los Endpoints del Search & Booking Context se detallan en la Tabla 119.
 *Endpoints del Search & Booking Context*
 
 
-| Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
-| :--- | :--- | :---: | :--- | :--- | :--- | :---: |
-| `/patients` | Registrar un paciente | POST | `POST /patients` | Body: `name`, `email`, `phone`, `password` (mínimo 8 caracteres) | `201` `{ "id": "dc0315b5-...", "name": "Demo Paciente OptiFlow", "email": "demo.paciente@optiflow.pe", "phone": "999888777" }`: devuelve el paciente creado sin la contraseña. | Soporte a US05 y US06 |
-| `/login` | Iniciar sesión del paciente | POST | `POST /login` | Body: `email`, `password` | `200` `{ "token": "...", "patient": { "id": "...", "name": "..." } }`. Si las credenciales no son válidas, responde `401` con el mensaje "The credentials are invalid." | Soporte a US05 y US06 |
-| `/optical-stores` | Listar ópticas | GET | `GET /optical-stores?name=Miraflores` | Query (opcionales): `name`, `address` | `200` `{ "opticalStores": [{ "id": "11111111-...", "name": "OptiFlow Miraflores", "address": "Av. Larco 123, Miraflores, Lima", "rating": 4.60, "status": "ACTIVE" }] }` | US05 |
-| `/optical-stores/search` | Búsqueda avanzada de ópticas | GET | `GET /optical-stores/search?minRating=4.5` | Query (opcionales): `name`, `address`, `minRating` | `200` lista filtrada y `message` cuando no hay resultados. | US05 |
-| `/optical-stores/{id}` | Obtener el detalle de una óptica | GET | `GET /optical-stores/11111111-1111-1111-1111-111111111111` | Path: `id` | `200` datos de la sucursal. | US05 |
-| `/optical-stores/{id}/availability` | Consultar horarios disponibles | GET | `GET /optical-stores/{id}/availability` | Path: `id` | `200` `{ "timeSlots": [{ "id": "4bd5f6be-...", "startDateTime": "2026-10-08T14:00:00Z", "endDateTime": "2026-10-08T14:30:00Z", "status": "AVAILABLE" }] }` | US05, US06 |
-| `/optical-stores/{id}/ratings` | Calificar una óptica | POST | `POST /optical-stores/{id}/ratings` | Path: `id`. Body: `patientId`, `score` (1 a 5), `comment` | `201` calificación registrada. | US05 |
-| `/patients/{id}/favorites` | Guardar una óptica favorita | POST | `POST /patients/{id}/favorites` | Path: `id`. Body: `opticalStoreId` | `201` favorito registrado. | US05 |
-| `/appointments` | Reservar una cita | POST | `POST /appointments` | Body: `patientId`, `opticalStoreId`, `timeSlotId` | `201` cita con estado `CONFIRMED`. Si el horario ya fue tomado, responde `409 Conflict`. | US06 |
-| `/appointments/{id}` | Consultar una cita | GET | `GET /appointments/{id}` | Path: `id` | `200` detalle de la cita. | US06 |
-| `/patients/{id}/appointments` | Listar las citas de un paciente | GET | `GET /patients/{id}/appointments` | Path: `id` | `200` lista de citas del paciente. | US06 |
+| Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story | Documentación |
+| :--- | :--- | :---: | :--- | :--- | :--- | :---: | :--- |
+| `/patients` | Registrar un paciente | POST | `POST /patients` | Body: `name`, `email`, `phone`, `password` (mínimo 8 caracteres) | `201` `{ "id": "dc0315b5-...", "name": "Demo Paciente OptiFlow", "email": "demo.paciente@optiflow.pe", "phone": "999888777" }`: devuelve el paciente creado sin la contraseña. | Soporte a US05 y US06 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/login` | Iniciar sesión del paciente | POST | `POST /login` | Body: `email`, `password` | `200` `{ "token": "...", "patient": { "id": "...", "name": "..." } }`. Si las credenciales no son válidas, responde `401` con el mensaje "The credentials are invalid." | Soporte a US05 y US06 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/optical-stores` | Listar ópticas | GET | `GET /optical-stores?name=Miraflores` | Query (opcionales): `name`, `address` | `200` `{ "opticalStores": [{ "id": "11111111-...", "name": "OptiFlow Miraflores", "address": "Av. Larco 123, Miraflores, Lima", "rating": 4.60, "status": "ACTIVE" }] }` | US05 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/optical-stores/search` | Búsqueda avanzada de ópticas | GET | `GET /optical-stores/search?minRating=4.5` | Query (opcionales): `name`, `address`, `minRating` | `200` lista filtrada y `message` cuando no hay resultados. | US05 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/optical-stores/{id}` | Obtener el detalle de una óptica | GET | `GET /optical-stores/11111111-1111-1111-1111-111111111111` | Path: `id` | `200` datos de la sucursal. | US05 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/optical-stores/{id}/availability` | Consultar horarios disponibles | GET | `GET /optical-stores/{id}/availability` | Path: `id` | `200` `{ "timeSlots": [{ "id": "4bd5f6be-...", "startDateTime": "2026-10-08T14:00:00Z", "endDateTime": "2026-10-08T14:30:00Z", "status": "AVAILABLE" }] }` | US05, US06 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/optical-stores/{id}/ratings` | Calificar una óptica | POST | `POST /optical-stores/{id}/ratings` | Path: `id`. Body: `patientId`, `score` (1 a 5), `comment` | `201` calificación registrada. | US05 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/patients/{id}/favorites` | Guardar una óptica favorita | POST | `POST /patients/{id}/favorites` | Path: `id`. Body: `opticalStoreId` | `201` favorito registrado. | US05 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/appointments` | Reservar una cita | POST | `POST /appointments` | Body: `patientId`, `opticalStoreId`, `timeSlotId` | `201` cita con estado `CONFIRMED`. Si el horario ya fue tomado, responde `409 Conflict`. | US06 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/appointments/{id}` | Consultar una cita | GET | `GET /appointments/{id}` | Path: `id` | `200` detalle de la cita. | US06 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/patients/{id}/appointments` | Listar las citas de un paciente | GET | `GET /patients/{id}/appointments` | Path: `id` | `200` lista de citas del paciente. | US06 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
 
 Ejemplo de interacción, reserva de una cita:
 
@@ -828,8 +855,10 @@ Content-Type: application/json
 }
 ```
 
-```json
+```http
 HTTP/1.1 201 Created
+Content-Type: application/json
+
 {
   "id": "537787f8-d78f-4181-9d0e-e51c2266f02f",
   "patientId": "016ece44-feba-4640-b503-1e66860b3eb2",
@@ -855,23 +884,23 @@ Los Endpoints del Clinical & Commercial Context se presentan en la Tabla 120.
 *Endpoints del Clinical & Commercial Context*
 
 
-| Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
-| :--- | :--- | :---: | :--- | :--- | :--- | :---: |
-| `/clinical-records` | Registrar la atención clínica | POST | `POST /clinical-records` | Body: `patientId`, `appointmentId`, `examinationDate`, `observations` | `201` expediente clínico creado. | US03 |
-| `/clinical-records/{id}` | Consultar un expediente | GET | `GET /clinical-records/{id}` | Path: `id` | `200` expediente con historia clínica y receta. | US04 |
-| `/patients/{patientId}/clinical-records` | Consultar el historial clínico del paciente | GET | `GET /patients/{patientId}/clinical-records` | Path: `patientId` | `200` lista de atenciones; lista vacía si no hay registros. | US04 |
-| `/clinical-records/{id}/medical-history` | Registrar la historia clínica | PUT | `PUT /clinical-records/{id}/medical-history` | Path: `id`. Body: `allergies[]`, `previousConditions[]`, `familyOcularHistory` | `200` expediente actualizado. | US03 |
-| `/clinical-records/{id}/prescription` | Generar la receta óptica | POST | `POST /clinical-records/{id}/prescription` | Path: `id`. Body: `sphereOD`, `cylinderOD`, `axisOD`, `sphereOS`, `cylinderOS`, `axisOS`, `addition`, `treatment`, `recommendedFrameType` | `201` receta generada. | US03 |
-| `/clinical-records/{id}/prescription` | Consultar la receta óptica | GET | `GET /clinical-records/{id}/prescription` | Path: `id` | `200` parámetros de la receta. | US04 |
-| `/quotations` | Generar una cotización | POST | `POST /quotations` | Body: `clinicalRecordId`, `items[]` (`itemType`, `productSku`, `description`, `unitPrice`, `quantity`) | `201` cotización con subtotales y total calculado. | US08 |
-| `/quotations/{id}` | Consultar una cotización | GET | `GET /quotations/{id}` | Path: `id` | `200` detalle de la cotización. | US08 |
-| `/quotations/{id}/discount` | Aplicar un descuento o promoción | PATCH | `PATCH /quotations/{id}/discount` | Path: `id`. Body: `type`, `value`, `reason` | `200` cotización con el total recalculado. | US08 |
-| `/quotations/{id}/approve` | Aprobar la cotización | PATCH | `PATCH /quotations/{id}/approve` | Path: `id` | `200` cotización aprobada. | US08 |
-| `/quotations/{id}/reject` | Rechazar la cotización | PATCH | `PATCH /quotations/{id}/reject` | Path: `id`. Body: `reason` | `200` cotización rechazada. | US08 |
-| `/sales` | Registrar una venta | POST | `POST /sales` | Body: `quotationId` | `201` venta asociada a la cotización aprobada. | US17 |
-| `/sales/{id}` | Consultar una venta | GET | `GET /sales/{id}` | Path: `id` | `200` detalle de la venta y sus pagos. | US17 |
-| `/sales/{id}/payments` | Registrar un pago | POST | `POST /sales/{id}/payments` | Path: `id`. Body: `method`, `amount`, `transactionReference` | `201` venta con el pago registrado. | US17 |
-| `/sales/{id}/close` | Cerrar la venta | PATCH | `PATCH /sales/{id}/close` | Path: `id` | `200` venta cerrada y comprobante generado. | US17 |
+| Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story | Documentación |
+| :--- | :--- | :---: | :--- | :--- | :--- | :---: | :--- |
+| `/clinical-records` | Registrar la atención clínica | POST | `POST /clinical-records` | Body: `patientId`, `appointmentId`, `examinationDate`, `observations` | `201` expediente clínico creado. | US03 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/clinical-records/{id}` | Consultar un expediente | GET | `GET /clinical-records/{id}` | Path: `id` | `200` expediente con historia clínica y receta. | US04 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/patients/{patientId}/clinical-records` | Consultar el historial clínico del paciente | GET | `GET /patients/{patientId}/clinical-records` | Path: `patientId` | `200` lista de atenciones; lista vacía si no hay registros. | US04 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/clinical-records/{id}/medical-history` | Registrar la historia clínica | PUT | `PUT /clinical-records/{id}/medical-history` | Path: `id`. Body: `allergies[]`, `previousConditions[]`, `familyOcularHistory` | `200` expediente actualizado. | US03 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/clinical-records/{id}/prescription` | Generar la receta óptica | POST | `POST /clinical-records/{id}/prescription` | Path: `id`. Body: `sphereOD`, `cylinderOD`, `axisOD`, `sphereOS`, `cylinderOS`, `axisOS`, `addition`, `treatment`, `recommendedFrameType` | `201` receta generada. | US03 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/clinical-records/{id}/prescription` | Consultar la receta óptica | GET | `GET /clinical-records/{id}/prescription` | Path: `id` | `200` parámetros de la receta. | US04 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/quotations` | Generar una cotización | POST | `POST /quotations` | Body: `clinicalRecordId`, `items[]` (`itemType`, `productSku`, `description`, `unitPrice`, `quantity`) | `201` cotización con subtotales y total calculado. | US08 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/quotations/{id}` | Consultar una cotización | GET | `GET /quotations/{id}` | Path: `id` | `200` detalle de la cotización. | US08 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/quotations/{id}/discount` | Aplicar un descuento o promoción | PATCH | `PATCH /quotations/{id}/discount` | Path: `id`. Body: `type`, `value`, `reason` | `200` cotización con el total recalculado. | US08 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/quotations/{id}/approve` | Aprobar la cotización | PATCH | `PATCH /quotations/{id}/approve` | Path: `id` | `200` cotización aprobada. | US08 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/quotations/{id}/reject` | Rechazar la cotización | PATCH | `PATCH /quotations/{id}/reject` | Path: `id`. Body: `reason` | `200` cotización rechazada. | US08 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/sales` | Registrar una venta | POST | `POST /sales` | Body: `quotationId` | `201` venta asociada a la cotización aprobada. | US17 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/sales/{id}` | Consultar una venta | GET | `GET /sales/{id}` | Path: `id` | `200` detalle de la venta y sus pagos. | US17 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/sales/{id}/payments` | Registrar un pago | POST | `POST /sales/{id}/payments` | Path: `id`. Body: `method`, `amount`, `transactionReference` | `201` venta con el pago registrado. | US17 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/sales/{id}/close` | Cerrar la venta | PATCH | `PATCH /sales/{id}/close` | Path: `id` | `200` venta cerrada y comprobante generado. | US17 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
 
 Ejemplo de interacción, generación de una cotización:
 
@@ -902,20 +931,20 @@ Los Endpoints del Production & Tracking Context se resumen en la Tabla 121.
 *Endpoints del Production & Tracking Context*
 
 
-| Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
-| :--- | :--- | :---: | :--- | :--- | :--- | :---: |
-| `/work-orders` | Listar órdenes de trabajo para el tablero Kanban | GET | `GET /work-orders?status=IN_WORKSHOP` | Query (opcionales): `status`, `technicianId`, `opticalStoreId` | `200` lista de órdenes con estado y fecha estimada. | US10 |
-| `/work-orders` | Generar una orden de trabajo | POST | `POST /work-orders` | Body: `saleId` | `201` orden creada en estado `PENDING`. | US10 |
-| `/work-orders/{id}` | Obtener una orden de trabajo | GET | `GET /work-orders/{id}` | Path: `id` | `200` detalle técnico e historial de estados. | US10, US11 |
-| `/patients/{patientId}/work-orders` | Consultar los pedidos de un paciente | GET | `GET /patients/{patientId}/work-orders` | Path: `patientId` | `200` pedidos del paciente con su estado actual. | US11 |
-| `/work-orders/{id}/technician` | Asignar un técnico | PATCH | `PATCH /work-orders/{id}/technician` | Path: `id`. Body: `technicianId` | `200` orden con técnico asignado. | US10 |
-| `/work-orders/{id}/laboratory` | Enviar a laboratorio | PATCH | `PATCH /work-orders/{id}/laboratory` | Path: `id`. Body: `laboratoryId` | `200` orden enviada al laboratorio. | US10 |
-| `/work-orders/{id}/status` | Actualizar el estado | PATCH | `PATCH /work-orders/{id}/status` | Path: `id`. Body: `status` (`PENDING`, `IN_WORKSHOP`, `QUALITY_CONTROL`, `READY_FOR_DELIVERY`, `DELIVERED`) | `200` orden con el nuevo estado y su registro en el historial. | US10, US11 |
-| `/work-orders/{id}/lenses/complete` | Marcar lentes terminados | PATCH | `PATCH /work-orders/{id}/lenses/complete` | Path: `id`. Body: `lensIds[]` | `200` orden con los lentes completados. | US10 |
-| `/work-orders/{id}/delays` | Notificar un retraso | POST | `POST /work-orders/{id}/delays` | Path: `id`. Body: `reason`, `newEstimatedDeliveryDate` | `201` retraso registrado con la nueva fecha estimada. | US11, US12 |
-| `/work-orders/{id}/deliver` | Marcar el pedido como entregado | PATCH | `PATCH /work-orders/{id}/deliver` | Path: `id` | `200` orden en estado `DELIVERED`. | US11 |
-| `/technicians` | Listar técnicos | GET | `GET /technicians` | — | `200` `[{ "id": "33333333-...", "name": "Jorge Salas" }, { "id": "44444444-...", "name": "María Quispe" }]` | US10 |
-| `/laboratories` | Listar laboratorios | GET | `GET /laboratories` | — | `200` laboratorios disponibles para enviar órdenes. | US10 |
+| Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story | Documentación |
+| :--- | :--- | :---: | :--- | :--- | :--- | :---: | :--- |
+| `/work-orders` | Listar órdenes de trabajo para el tablero Kanban | GET | `GET /work-orders?status=IN_WORKSHOP` | Query (opcionales): `status`, `technicianId`, `opticalStoreId` | `200` lista de órdenes con estado y fecha estimada. | US10 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/work-orders` | Generar una orden de trabajo | POST | `POST /work-orders` | Body: `saleId` | `201` orden creada en estado `PENDING`. | US10 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/work-orders/{id}` | Obtener una orden de trabajo | GET | `GET /work-orders/{id}` | Path: `id` | `200` detalle técnico e historial de estados. | US10, US11 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/patients/{patientId}/work-orders` | Consultar los pedidos de un paciente | GET | `GET /patients/{patientId}/work-orders` | Path: `patientId` | `200` pedidos del paciente con su estado actual. | US11 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/work-orders/{id}/technician` | Asignar un técnico | PATCH | `PATCH /work-orders/{id}/technician` | Path: `id`. Body: `technicianId` | `200` orden con técnico asignado. | US10 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/work-orders/{id}/laboratory` | Enviar a laboratorio | PATCH | `PATCH /work-orders/{id}/laboratory` | Path: `id`. Body: `laboratoryId` | `200` orden enviada al laboratorio. | US10 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/work-orders/{id}/status` | Actualizar el estado | PATCH | `PATCH /work-orders/{id}/status` | Path: `id`. Body: `status` (`PENDING`, `IN_WORKSHOP`, `QUALITY_CONTROL`, `READY_FOR_DELIVERY`, `DELIVERED`) | `200` orden con el nuevo estado y su registro en el historial. | US10, US11 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/work-orders/{id}/lenses/complete` | Marcar lentes terminados | PATCH | `PATCH /work-orders/{id}/lenses/complete` | Path: `id`. Body: `lensIds[]` | `200` orden con los lentes completados. | US10 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/work-orders/{id}/delays` | Notificar un retraso | POST | `POST /work-orders/{id}/delays` | Path: `id`. Body: `reason`, `newEstimatedDeliveryDate` | `201` retraso registrado con la nueva fecha estimada. | US11, US12 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/work-orders/{id}/deliver` | Marcar el pedido como entregado | PATCH | `PATCH /work-orders/{id}/deliver` | Path: `id` | `200` orden en estado `DELIVERED`. | US11 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/technicians` | Listar técnicos | GET | `GET /technicians` | — | `200` `[{ "id": "33333333-...", "name": "Jorge Salas" }, { "id": "44444444-...", "name": "María Quispe" }]` | US10 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
+| `/laboratories` | Listar laboratorios | GET | `GET /laboratories` | — | `200` laboratorios disponibles para enviar órdenes. | US10 | [Swagger UI](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) · contrato del 08/10/2026 |
 
 ##### Evidencia de interacción con la documentación desplegada
 
@@ -1015,7 +1044,7 @@ Los commits del repositorio de Web Services que incorporan o modifican la docume
 
 *Commits relacionados con la documentación de los Web Services*
 
-| Repository | Branch | Commit Id | Commit Message | Cambio en la documentación | Committed on (Date) |
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [543aaf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/543aaf2cb3c2f0638b88ea7e9203afe313d9883d) | `Add OptiFlow booking backend` | Agrega la dependencia springdoc-openapi y configura las rutas de Swagger UI y de la especificación OpenAPI. | 06/10/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [d2dc08b](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/d2dc08b5fbe325ebf7523b7bc469f3e042289e2b) | `refactor: reorganize packages` | Crea la clase `OpenApiConfiguration` en el paquete `shared/documentation/openapi`. | 07/10/2026 |
@@ -1641,7 +1670,7 @@ La Figura 167 muestra ambos resultados. El [registro de construcción y pruebas]
 
 ![Comprobaciones HTTP del backend en el entorno local](assets/cap4/sprint2/service-checks.png)
 
-Estas comprobaciones no sustituyen las pruebas unitarias o de integración que quedaron bloqueadas por la compilación. La corrección de esa clase y una nueva ejecución completa forman parte del cierre técnico del Sprint.
+Estas comprobaciones no sustituyen las pruebas unitarias o de integración bloqueadas por la compilación. Además de corregir esa clase, se debe adaptar la regresión BDD: los Steps revisados realizan la reserva y la consulta de citas sin Bearer, mientras que la API actual protege esas operaciones. Antes de dar por aprobados los escenarios, deben crear el token, adjuntarlo a las solicitudes y ejecutar nuevamente la suite completa.
 
 **Escenarios de aceptación.** Se conservan los archivos ejecutables de [búsqueda](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/4a1364ed540bfb996c5ce57a9b6246ddd989b98d/src/test/resources/features/optical-store-search.feature) y [reserva](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/4a1364ed540bfb996c5ce57a9b6246ddd989b98d/src/test/resources/features/appointment-booking.feature), junto con `SearchBookingSteps`. Para la ampliación de seguridad y cercanía se especifican los siguientes criterios; describen las comprobaciones HTTP realizadas, pero todavía no están incorporados como nuevos Steps ejecutables del backend.
 
@@ -1746,7 +1775,7 @@ La documentación OpenAPI 3.1 de la copia del backend contiene **41 operaciones 
 
 La especificación consultada se conserva como [OpenAPI de la revisión local](assets/cap4/sprint2/openapi-local.json). La URL del servicio publicado sigue siendo [Swagger UI en Render](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html); la confirmación de que ese despliegue ejecuta el mismo commit se registra en 4.2.2.8.
 
-La Tabla 132 presenta los contratos relevantes del Sprint. El prefijo `/api/v1` se incluye en todas las llamadas.
+La Tabla 132 presenta los contratos relevantes del Sprint con método, parámetros, autorización, ejemplo de respuesta y enlace a la operación en Swagger. La sintaxis es `<VERBO> https://logix-optiflow-back-end.onrender.com<ruta>`; localmente se usa `http://127.0.0.1:18081<ruta>`. Las rutas incluyen `/api/v1`. Los ejemplos de respuesta son fragmentos ilustrativos del contrato; solo las comprobaciones de 4.2.2.5 se presentan como ejecución.
 
 <a id="tabla-132"></a>
 
@@ -1754,20 +1783,22 @@ La Tabla 132 presenta los contratos relevantes del Sprint. El prefijo `/api/v1` 
 
 *Contratos de servicios revisados en el Sprint 2*
 
-| Operación | Llamada y parámetros | Autorización | Respuesta y comportamiento |
-|---|---|---|---|
-| Registrar paciente | `POST /api/v1/patients`; nombre, correo, teléfono, contraseña y fecha de nacimiento opcional. | Pública. | 201 con paciente y `Location`; 400 para datos inválidos. |
-| Crear token | `POST /api/v1/auth/tokens`; `email` y `password`. | Pública. | 201 con `token`, `expiresAt`, `userId` y `role`; 401 para credenciales inválidas. |
-| Consultar ópticas | `GET /api/v1/optical-stores`; filtros `name`, `address`, `minRating`. | Pública. | 200 con una lista de ópticas y coordenadas. |
-| Consultar cercanía | Misma ruta, con `lat`, `lng` y `radiusKm`. | Pública. | 200 con resultados; 400 si los parámetros geográficos son incompletos o inválidos. |
-| Consultar horarios | `GET /api/v1/optical-stores/{id}/time-slots`. | Pública. | 200 con horarios de la óptica. |
-| Reservar | `POST /api/v1/appointments`; `patientId`, `opticalStoreId`, `timeSlotId`. | Token válido. | 201 con cita y `Location`; 409 para horario ocupado. |
-| Consultar citas | `GET /api/v1/patients/{id}/appointments`. | Token y reglas de acceso. | 200 con citas; 401 sin autenticación. |
-| Consultar personal | `GET /api/v1/staff-members`. | Rol `ADMIN`. | 200 para administrador; 403 para paciente. |
-| Cambiar rol | `PATCH /api/v1/staff-members/{id}/role`. | Rol `ADMIN`. | Actualiza el rol según el contrato. Existe en código; no se ejecutó en esta revisión. |
-| Actualizar cita | `PATCH /api/v1/appointments/{id}/status`. | Autenticada. | Transición de estado según reglas del dominio. |
-| Consultar historial | `GET /api/v1/patients/{id}/clinical-records`. | Autenticada. | Lista de registros clínicos. |
-| Consultar pedidos | `GET /api/v1/patients/{id}/work-orders`. | Autenticada. | Lista de órdenes del paciente. |
+| Endpoint / acción | Verbo HTTP | Parámetros y autorización | Response (ejemplo y explicación) | Documentación | User Story |
+|---|:---:|---|---|---|---|
+| `/api/v1/patients`<br>Registrar paciente | POST | Body: `name`, `email`, `phone`, `password`; `birthDate` opcional. Pública. | 201, `Location` y paciente: `{ "id": "<uuid>", "name": "Paciente", "birthDate": null }`. Devuelve datos sin contraseña; 400 para entrada inválida. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Patients/register_2) | Soporte de US05 y US06 |
+| `/api/v1/auth/tokens`<br>Crear token | POST | Body: `email`, `password`. Pública. | 201, `Location` y `{ "token": "<omitido>", "expiresAt": "<instante>", "userId": "<uuid>", "role": "PATIENT" }`. 401 con credenciales inválidas. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Authentication/create) | US01, US16; soporte al paciente |
+| `/api/v1/optical-stores`<br>Consultar ópticas | GET | Query opcional: `name`, `address`, `minRating`. Pública. | 200, array: `[{ "id": "<uuid>", "name": "OptiFlow Miraflores", "latitude": -12.121037, "longitude": -77.02824 }]`. `[]` si no hay coincidencias. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Optical%20Stores/list_2) | US05 |
+| `/api/v1/optical-stores`<br>Consultar cercanía | GET | Query: `lat`, `lng`, `radiusKm`; ejemplo `?lat=-12.12&lng=-77.03&radiusKm=10`. Pública. | 200 con el array de ópticas del radio. 400 si faltan coordenadas o están fuera del intervalo admitido. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Optical%20Stores/list_2) | US05 |
+| `/api/v1/optical-stores/{opticalStoreId}/time-slots`<br>Consultar horarios | GET | Path: `opticalStoreId` UUID. Pública. | 200, array: `[{ "id": "<uuid>", "status": "AVAILABLE", "startDateTime": "<instante>", "endDateTime": "<instante>" }]`. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Availability/list_1) | US05, US06 |
+| `/api/v1/appointments`<br>Reservar | POST | Body: `patientId`, `opticalStoreId`, `timeSlotId`. Bearer. | 201 y `Location`; `{ "id": "<uuid>", "status": "CONFIRMED", "timeSlotId": "<uuid>" }`. 409 si el horario ya fue reservado. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Appointments/book) | US06 |
+| `/api/v1/patients/{id}/appointments`<br>Consultar citas | GET | Path: `id` del paciente. Bearer y reglas de acceso. | 200 con un array de citas; `[]` si no tiene reservas. 401 sin autenticación. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Patients/appointments) | US06 |
+| `/api/v1/staff-members`<br>Consultar personal | GET | Sin parámetros. Bearer con rol ADMIN. | 200, array: `[{ "id": "<uuid>", "role": "SALES_ADVISOR", "active": true }]` según el esquema. Se comprobó 403 para un paciente; no se ejecutó la consulta como administrador. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Staff%20Members/list) | US16 |
+| `/api/v1/staff-members/{id}/role`<br>Cambiar rol | PATCH | Path: `id`; body: `role`. Bearer con rol ADMIN. | 200 con el miembro actualizado: `{ "id": "<uuid>", "role": "OPTOMETRIST" }`. Operación identificada en el contrato; no ejecutada en esta revisión. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Staff%20Members/updateRole) | US16 |
+| `/api/v1/appointments/{id}/status`<br>Actualizar cita | PATCH | Path: `id`; body: `status`. Bearer. | 200 con la cita y su nuevo estado: `{ "id": "<uuid>", "status": "CANCELLED" }`. Ejemplo del contrato; no ejecutado en esta revisión. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Appointments/updateStatus_3) | US06 |
+| `/api/v1/patients/{patientId}/clinical-records`<br>Consultar historial | GET | Path: `patientId`. Bearer. | 200, array: `[{ "id": "<uuid>", "patientId": "<uuid>", "medicalHistory": {}, "prescription": {} }]`; `[]` si no hay atenciones. Esquema revisado; consulta no ejecutada. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Clinical%20%26%20Commercial%20-%20Clinical%20Records/findByPatient_1) | US04 |
+| `/api/v1/patients/{patientId}/work-orders`<br>Consultar pedidos | GET | Path: `patientId`. Bearer. | 200, array: `[{ "id": "<uuid>", "status": "PENDING", "delayed": false }]`; `[]` si no tiene órdenes. Esquema revisado; consulta no ejecutada. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Production%20%26%20Tracking%20-%20Work%20Orders/findByPatient) | US11 |
+
+**Diferencia detectada en la documentación.** El OpenAPI guardado anuncia `200` en operaciones de creación como pacientes, tokens y citas, mientras las comprobaciones HTTP devolvieron `201` con `Location`. La Tabla 132 recoge el comportamiento observado para esas operaciones. El backend debe ajustar sus anotaciones de respuesta para que Swagger represente los códigos reales y los errores de autenticación y autorización. El esquema también declara Bearer globalmente; las operaciones públicas de registro, token y consulta de ópticas deben quedar diferenciadas en su configuración de seguridad documental.
 
 Ejemplo de solicitud de autenticación, con valores ilustrativos:
 
@@ -1789,26 +1820,66 @@ Content-Type: application/json
 
 El cliente debe leer `userId` y `role` de esta respuesta y adjuntar el token a las llamadas protegidas. La forma anterior, que esperaba un objeto `patient` dentro del login, no corresponde a esta versión.
 
-#### 4.2.2.8. Software Deployment Evidence for Sprint Review
+##### Cambios relacionados con la documentación del Sprint 2
 
-Se mantienen las evidencias históricas de GitHub Pages, Render y Firebase App Distribution de 4.2.1.8. Para AV2 se debe identificar el commit o la versión realmente instalada: que una URL exista no demuestra que ya ejecute el incremento del Sprint 2.
-
-La Tabla 133 distingue los artefactos revisados y la evidencia de publicación por completar.
+La Tabla 133 identifica los commits que modifican las rutas y los parámetros expuestos por OpenAPI. Son cambios del contrato de servicios; no se presentan como commits dedicados exclusivamente a documentación.
 
 <a id="tabla-133"></a>
 
 **Tabla 133**
 
+*Commits que modifican el contrato documentado del Sprint 2*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1c5d3f7](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1c5d3f7fb1b877df3b1d562fccb7d82a0a2f3b20) | `refactor: add api v1 prefix to controllers` | Introduce /api/v1 en los controladores y cambia la ruta base de las operaciones documentadas. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [a1db022](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/a1db022c903f52b2e3b3915c8c22eeb2eb50f356) | `refactor: merge optical store search routes` | Consolida la búsqueda de ópticas en una sola operación con parámetros. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Añade coordenadas y filtros de cercanía al contrato de ópticas. | 06/11/2026 |
+
+#### 4.2.2.8. Software Deployment Evidence for Sprint Review
+
+Se mantienen las evidencias históricas de GitHub Pages, Render y Firebase App Distribution de 4.2.1.8. Para AV2 se debe identificar el commit o la versión realmente instalada: que una URL exista no demuestra que ya ejecute el incremento del Sprint 2.
+
+La Tabla 134 distingue los artefactos revisados y la evidencia de publicación por completar.
+
+<a id="tabla-134"></a>
+
+**Tabla 134**
+
 *Código y confirmación de despliegue del Sprint 2*
 
 | Producto | Revisión de código | Evidencia disponible | Confirmación de despliegue AV2 |
 |---|---|---|---|
-| Landing Page | `main`, `ef1c032`. | Código y workflow de GitHub Pages; capturas locales de escritorio y móvil. | URL y ejecución del workflow: ____________________. |
-| Backend | `develop`, `4a1364e`. | JAR construido y 41 operaciones OpenAPI comprobadas localmente. | Commit activo en Render y captura actual: ____________________. |
+| Landing Page | `main`, `ef1c032`. | [Workflow completado correctamente](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y página pública con HTTP 200, comprobados el 08/11/2026. | Publicación confirmada; capturas en las Figuras 173 y 174. Falta contrastar la versión del APK enlazado. |
+| Backend | `develop`, `4a1364e`. | JAR construido, especificación local con 41 operaciones y registro de 17 solicitudes HTTP. | Commit activo en Render y captura actual: ____________________. |
 | Android/Kotlin | Repositorio de la primera aplicación. | Capturas y distribución del Sprint 1. | Se conservan como antecedentes, no como publicación de Flutter. |
 | Flutter | `main`, `0344413`, versión `1.0.0+1`. | Código publicado y definición de pantallas, cliente HTTP y prueba de estados. | APK, enlace de distribución y captura de versión: ____________________. |
 
-<!-- EQUIPO — César: confirmar commit activo y captura de Render. Mariana: adjuntar workflow y URL de Pages. Nicolas: adjuntar APK Flutter y versión. -->
+<!-- EQUIPO: confirmar commit activo y captura de Render; adjuntar APK Flutter, versión y prueba de instalación. Verificar que la descarga de la Landing corresponde a ese APK. -->
+
+##### Publicación comprobada de la Landing Page
+
+La [ejecución 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) del workflow `Deploy static content to Pages` se inició el 06/11/2026 a las 11:23 PM (America/Lima), para `main` y el commit `ef1c032`, y terminó con `success`. La Figura 173 muestra el resumen de la ejecución. La captura conserva los avisos de mantenimiento de las acciones y del parámetro `include-hidden-files`; no se interpretan como un fallo del despliegue.
+
+<a id="figura-173"></a>
+
+**Figura 173**
+
+*Workflow de GitHub Pages del commit ef1c032 completado correctamente*
+
+![Workflow de GitHub Pages completado correctamente](assets/cap4/sprint2/workflow-pages.png)
+
+La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) respondió HTTP 200 en la revisión del 08/11/2026. La Figura 174 corresponde a esa URL, a diferencia de las capturas locales de 4.2.2.6. La presencia del botón Descargar APK no demuestra por sí sola que distribuya el cliente Flutter de AV2.
+
+<a id="figura-174"></a>
+
+**Figura 174**
+
+*Landing Page pública de OptiFlow comprobada el 08/11/2026*
+
+![Landing Page pública comprobada](assets/cap4/sprint2/landing-publica.png)
+
+La consulta a `/v3/api-docs` de Render no respondió dentro del límite de doce segundos de esta revisión. Este resultado no permite confirmar el commit desplegado ni concluir que el servicio esté permanentemente caído. Esa evidencia se mantiene pendiente en la Tabla 134.
 
 Para distribuir Flutter se debe generar el APK de la revisión elegida con la URL compatible, instalarlo en un dispositivo y comprobar el flujo con el backend antes de cargarlo en Firebase App Distribution. La invitación del Sprint 1 no se presenta como evidencia de una nueva versión hasta verificar qué APK distribuye.
 
@@ -1825,11 +1896,11 @@ Cambiar la URL base no resuelve por sí solo las subrutas y el formato de autent
 
 Eslander consolidará las capturas y los enlaces de colaboración, con apoyo de los responsables de cada producto. Esta asignación forma parte de la propuesta de distribución. La revisión del historial distingue la contribución documental de la implementación. Los commits del informe permiten reconocer el trabajo de análisis, diseño y documentación, pero no se contabilizan como commits del backend o del cliente móvil.
 
-La Tabla 134 resume los commits sin merge posteriores al corte del Sprint 1 y hasta la revisión de AV2. Las cantidades describen ese intervalo, no una valoración individual del trabajo ni el cumplimiento de una historia.
+La Tabla 135 resume los commits sin merge posteriores al corte del Sprint 1 y hasta la revisión de AV2. Las cantidades describen ese intervalo, no una valoración individual del trabajo ni el cumplimiento de una historia.
 
-<a id="tabla-134"></a>
+<a id="tabla-135"></a>
 
-**Tabla 134**
+**Tabla 135**
 
 *Contribuciones registradas en el corte del Sprint 2*
 
@@ -1840,6 +1911,8 @@ La Tabla 134 resume los commits sin merge posteriores al corte del Sprint 1 y ha
 | `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–08/11/2026 | Patto04 | 7 | Conteo del historial consultado; no mide historias aceptadas. |
 
 El backend integra los cambios de contratos REST, seguridad y ubicación mediante los PR #4, #5 y #6. La Landing Page registra cambios de accesibilidad y publicación y la integración del PR #3. Flutter inicia un repositorio nuevo con tres commits en `main`. No se atribuyen al equipo Pull Requests que no estén registrados.
+
+Se pueden consultar los paneles de actividad de [backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/pulse/monthly), [Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/pulse/monthly) y [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/pulse/monthly). Antes de capturarlos se debe comprobar la ventana de fechas y la rama considerada; un panel de `main` no sustituye el historial de `develop`. El conteo de la Tabla 135 procede de los commits consultados.
 
 **Capturas de GitHub Insights del Sprint 2:** ____________________
 
@@ -1882,6 +1955,14 @@ Tareas del Landing Page: explorar libremente la página, buscar cómo reservar u
 9.  Describe cómo se ve y se lee la página en tu celular y en una computadora (tamaño de letra, colores, imágenes, botones) y qué dificultades imaginas que tendría un familiar de mayor edad al usarla sin ayuda.
 10. Si pudieras rediseñar este Landing Page, ¿qué cambiarías, quitarías o agregarías y por qué? ¿Qué haría que quieras usar OptiFlow y recomendarlo a tus familiares o amigos?
 
+#### Tareas de validación de la aplicación móvil
+
+La prueba empieza con una cuenta ficticia y la versión de AV2 identificada. Para el paciente se solicita: iniciar sesión, encontrar una óptica, consultar un horario, reservar y volver a consultar la cita; después, localizar el historial y el estado de un pedido, cuando esos módulos estén integrados. Para el personal se solicita: acceder con su rol, localizar un paciente y consultar su información clínica mediante las funciones disponibles en esa versión. Una función de demostración se registra con ese alcance y no como una operación persistida.
+
+Después de cada tarea se pregunta: ¿qué intentaste hacer primero?, ¿qué esperabas que ocurriera?, ¿qué te indicó que la operación había terminado? y ¿en qué paso necesitaste ayuda? Al finalizar se consulta qué información fue difícil de encontrar, qué mensaje o término causó dudas y qué cambio facilitaría repetir la tarea. Las preguntas se aplican sin indicar la ruta ni completar la acción por el participante.
+
+Se cronometra el flujo de búsqueda y reserva para contrastar el criterio propuesto de cinco minutos del Sprint Goal. Se registra si terminó sin ayuda, con ayuda o no terminó, el punto de bloqueo y la observación del participante. La sesión no se considera aprobada solo porque se hayan mostrado todas las pantallas.
+
 #### Alcance de la validación de AV2
 
 La sesión de AV2 debe indicar qué cliente se utiliza: Android/Kotlin del primer incremento o Flutter de la revisión actual. Las entrevistas y capturas anteriores se conservan con su versión; no se presentan como pruebas realizadas sobre Flutter. Antes de invitar al participante se comprueban la instalación, el acceso al backend y el modo de datos, para que una demostración local no se confunda con información persistida.
@@ -1898,30 +1979,36 @@ En cada tarea se registra: resultado esperado, finalización sin ayuda o con ayu
 
 Se conserva la evidencia audiovisual de las entrevistas anteriores en el [Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). Para AV2, cada sesión debe asociarse con el cliente y la versión efectivamente probados. La captura y el enlace previos no se consideran por sí solos evidencia de validación del cliente Flutter.
 
-**Video de entrevistas de validación:**
+**Video de entrevistas de validación:** [evidencia audiovisual en el Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). La Figura 175 conserva la captura histórica; no acredita por sí sola la validación de Flutter.
+
+<a id="figura-175"></a>
+
+**Figura 175**
+
+*Captura del video histórico de entrevistas de validación*
 
 ![captura entrevistas.png](assets/cap3/entrevistas/captura%20entrevistas.png)
 
 #### Registro de sesiones de AV2 por completar
 
-El enunciado solicita entre tres y cinco entrevistas por segmento. La Tabla 135 deja seis registros mínimos preparados; los datos se completarán con sesiones reales y el video publicado en el OneDrive del curso. No se asignan nombres, tiempos o comentarios a personas que todavía no hayan realizado la evaluación de esta versión.
+El enunciado solicita entre tres y cinco entrevistas por segmento. La Tabla 136 deja seis registros mínimos preparados; los datos se completarán con sesiones reales y el video publicado en el OneDrive del curso. No se asignan nombres, tiempos o comentarios a personas que todavía no hayan realizado la evaluación de esta versión.
 
 <!-- EQUIPO — Mariana, con apoyo de todos: completar los seis registros de entrevistas con datos, resumen, tiempo y captura reales. -->
 
-<a id="tabla-135"></a>
+<a id="tabla-136"></a>
 
-**Tabla 135**
+**Tabla 136**
 
 *Registro de entrevistas de validación de AV2*
 
-| ID | Segmento | Nombre y apellidos | Edad | Distrito | Fecha | Versión / dispositivo | URL del video | Inicio y duración | Resumen de tareas y comentarios |
-|---|---|---|---|---|---|---|---|---|---|
-| V2-P01 | Paciente | | | | | | | | |
-| V2-P02 | Paciente | | | | | | | | |
-| V2-P03 | Paciente | | | | | | | | |
-| V2-S01 | Personal de óptica | | | | | | | | |
-| V2-S02 | Personal de óptica | | | | | | | | |
-| V2-S03 | Personal de óptica | | | | | | | | |
+| ID | Segmento | Nombre y apellidos | Edad | Distrito | Fecha | Versión / dispositivo | URL del video | Inicio y duración | Resumen de tareas y comentarios | Captura del cuadro de video |
+|---|---|---|---|---|---|---|---|---|---|---|
+| V2-P01 | Paciente | | | | | | | |  |
+| V2-P02 | Paciente | | | | | | | |  |
+| V2-P03 | Paciente | | | | | | | |  |
+| V2-S01 | Personal de óptica | | | | | | | |  |
+| V2-S02 | Personal de óptica | | | | | | | |  |
+| V2-S03 | Personal de óptica | | | | | | | |  |
 
 **Capturas de los cuadros de video de AV2:** ____________________.
 
@@ -1929,14 +2016,25 @@ El enunciado solicita entre tres y cinco entrevistas por segmento. La Tabla 135 
 
 En esta sección se presenta la evaluación de la experiencia de usuario de OptiFlow a partir de las sesiones de validación. Se consideran heurísticas de **usabilidad**, principios de **arquitectura de información** y principios de **diseño inclusivo**, siguiendo el formato de evaluación indicado para el proyecto (Anexo E del enunciado).
 
-Para la evaluación, el equipo recorrió las mismas tareas que realizaron los entrevistados: la Landing Page publicada en GitHub Pages, revisada en escritorio y en un ancho de celular, y la aplicación Android, ejecutada en un emulador Pixel 8 con los roles de paciente y de personal clínico. Cada problema encontrado se registra con su nivel de severidad, la heurística o principio que incumple, una captura de pantalla y una recomendación de mejora.
+La evaluación que sigue corresponde al cliente Android/Kotlin del primer incremento y a la versión histórica de la Landing Page. El seguimiento de AV2 se registra al final de esta sección. Para esa evaluación, el equipo recorrió las mismas tareas que realizaron los entrevistados: la Landing Page publicada en GitHub Pages, revisada en escritorio y en un ancho de celular, y la aplicación Android, ejecutada en un emulador Pixel 8 con los roles de paciente y de personal clínico. Cada problema encontrado se registra con su nivel de severidad, la heurística o principio que incumple, una captura de pantalla y una recomendación de mejora.
 
-| | |
+**UX Heuristics & Principles Evaluation**<br>
+*Usability - Inclusive Design - Information Architecture*
+
+La Tabla 137 identifica la sesión de evaluación con los campos del Anexo E del enunciado.
+
+<a id="tabla-137"></a>
+
+**Tabla 137**
+
+*Identificación de la evaluación heurística histórica*
+
+| Campo | Dato |
 | :--- | :--- |
 | **CARRERA** | Ingeniería de Software |
 | **CURSO** | 1ACC0238 Aplicaciones para Dispositivos Móviles |
 | **NRC** | 4951 |
-| **PROFESOR** | Jorge Luis Mayta Guillermo |
+| **PROFESORES** | Jorge Luis Mayta Guillermo |
 | **AUDITOR** | Logix |
 | **CLIENTE(S)** | Camila Gutiérrez Zosa, Marcos Ruiz Coba y Yanel |
 
@@ -1972,11 +2070,11 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 5. Consulta de información sin conexión a internet.
 
 **ESCALA DE SEVERIDAD:**
-Los errores serán puntuados tomando en cuenta la escala de severidad de la Tabla 136.
+Los hallazgos se clasifican según la escala de severidad de la Tabla 138.
 
-<a id="tabla-136"></a>
+<a id="tabla-138"></a>
 
-**Tabla 136**
+**Tabla 138**
 
 *Escala de severidad de los problemas de usabilidad*
 
@@ -1989,11 +2087,11 @@ Los errores serán puntuados tomando en cuenta la escala de severidad de la Tabl
 
 **TABLA RESUMEN:**
 
-Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplicación móvil (problemas 7 al 15) se resumen en la Tabla 137.
+Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplicación móvil (problemas 7 al 15) se resumen en la Tabla 139.
 
-<a id="tabla-137"></a>
+<a id="tabla-139"></a>
 
-**Tabla 137**
+**Tabla 139**
 
 *Resumen de problemas identificados en la evaluación heurística*
 
@@ -2025,11 +2123,11 @@ Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplica
 
 **Problema:**
 
-El título principal, "Tu cita óptica ideal, en tu bolsillo", está dirigido a los pacientes, pero todos los botones de llamada a la acción ("Solicitar Demo", "Empezar gratis", "Elegir Profesional" y "Contactar ventas") abren el formulario de demo para ópticas. No existe un enlace para descargar la aplicación ni para registrarse como paciente, por lo que el segundo segmento objetivo no encuentra cómo empezar a usar OptiFlow (ver Figura 173).
+El título principal, "Tu cita óptica ideal, en tu bolsillo", está dirigido a los pacientes, pero todos los botones de llamada a la acción ("Solicitar Demo", "Empezar gratis", "Elegir Profesional" y "Contactar ventas") abren el formulario de demo para ópticas. No existe un enlace para descargar la aplicación ni para registrarse como paciente, por lo que el segundo segmento objetivo no encuentra cómo empezar a usar OptiFlow (ver Figura 176).
 
-<a id="figura-173"></a>
+<a id="figura-176"></a>
 
-**Figura 173**
+**Figura 176**
 
 *Sección principal de la Landing Page con un único botón dirigido a ópticas*
 
@@ -2047,11 +2145,11 @@ Agregar en la sección principal y en la barra de navegación un botón por segm
 
 **Problema:**
 
-En el pie de página, la opción "Iniciar sesión" abre el formulario "Entra a tu óptica", que solicita correo y contraseña. Al presionar "Continuar", el usuario recibe un diálogo titulado "Solicitud lista" que indica que el acceso todavía no valida contraseñas. El usuario completa datos para una función que no está disponible y el título del mensaje no corresponde a la acción que realizó (ver Figura 174).
+En el pie de página, la opción "Iniciar sesión" abre el formulario "Entra a tu óptica", que solicita correo y contraseña. Al presionar "Continuar", el usuario recibe un diálogo titulado "Solicitud lista" que indica que el acceso todavía no valida contraseñas. El usuario completa datos para una función que no está disponible y el título del mensaje no corresponde a la acción que realizó (ver Figura 177).
 
-<a id="figura-174"></a>
+<a id="figura-177"></a>
 
-**Figura 174**
+**Figura 177**
 
 *Mensaje mostrado después de intentar iniciar sesión desde la Landing Page*
 
@@ -2069,11 +2167,11 @@ Reemplazar la opción por un enlace a la aplicación móvil hasta que el acceso 
 
 **Problema:**
 
-Los diálogos "Solicita OptiFlow para tu óptica" y "Entra a tu óptica" solo se cierran con la tecla Esc o al hacer clic fuera de ellos. No muestran un botón "Cerrar" ni un ícono ×, a diferencia de los diálogos de privacidad y de términos. En un celular, donde no existe la tecla Esc, el usuario puede no saber cómo salir sin enviar el formulario (ver Figura 175).
+Los diálogos "Solicita OptiFlow para tu óptica" y "Entra a tu óptica" solo se cierran con la tecla Esc o al hacer clic fuera de ellos. No muestran un botón "Cerrar" ni un ícono ×, a diferencia de los diálogos de privacidad y de términos. En un celular, donde no existe la tecla Esc, el usuario puede no saber cómo salir sin enviar el formulario (ver Figura 178).
 
-<a id="figura-175"></a>
+<a id="figura-178"></a>
 
-**Figura 175**
+**Figura 178**
 
 *Diálogo de solicitud de demo sin control para cerrarlo*
 
@@ -2091,11 +2189,11 @@ Añadir un botón de cierre visible (×) en la esquina superior de todos los di�
 
 **Problema:**
 
-El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis" y la página no explica si existe un periodo de prueba ni su duración. Además, el botón abre el mismo formulario de demo que los otros planes. El texto genera una expectativa que la página no cumple (ver Figura 176).
+El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis" y la página no explica si existe un periodo de prueba ni su duración. Además, el botón abre el mismo formulario de demo que los otros planes. El texto genera una expectativa que la página no cumple (ver Figura 179).
 
-<a id="figura-176"></a>
+<a id="figura-179"></a>
 
-**Figura 176**
+**Figura 179**
 
 *Sección de planes con el botón "Empezar gratis" en un plan de pago*
 
@@ -2113,11 +2211,11 @@ Cambiar el texto a "Elegir Básico" o, si se ofrece una prueba gratuita, indicar
 
 **Problema:**
 
-La respuesta a "¿Necesito instalar algo?" indica que no, porque OptiFlow funciona desde el celular y el navegador. Sin embargo, los beneficios de la página y la solución se basan en una aplicación Android que se debe instalar. La contradicción resta credibilidad a la información y no responde cómo obtener la aplicación (ver Figura 177).
+La respuesta a "¿Necesito instalar algo?" indica que no, porque OptiFlow funciona desde el celular y el navegador. Sin embargo, los beneficios de la página y la solución se basan en una aplicación Android que se debe instalar. La contradicción resta credibilidad a la información y no responde cómo obtener la aplicación (ver Figura 180).
 
-<a id="figura-177"></a>
+<a id="figura-180"></a>
 
-**Figura 177**
+**Figura 180**
 
 *Respuesta de la sección de preguntas frecuentes sobre la instalación*
 
@@ -2135,11 +2233,11 @@ Corregir la respuesta para indicar que pacientes y personal usan la aplicación 
 
 **Problema:**
 
-En un ancho de 375 px, las etiquetas de las estadísticas ("Sin recordatorios", "Menos ausentismo" y "Menos tiempo") se muestran con un tamaño de 8 px, difícil de leer para personas mayores o con baja visión. Además, los fondos decorativos sobresalen del ancho de la pantalla, lo que deja una franja vacía a la derecha y descentra el contenido (ver Figura 178).
+En un ancho de 375 px, las etiquetas de las estadísticas ("Sin recordatorios", "Menos ausentismo" y "Menos tiempo") se muestran con un tamaño de 8 px, difícil de leer para personas mayores o con baja visión. Además, los fondos decorativos sobresalen del ancho de la pantalla, lo que deja una franja vacía a la derecha y descentra el contenido (ver Figura 181).
 
-<a id="figura-178"></a>
+<a id="figura-181"></a>
 
-**Figura 178**
+**Figura 181**
 
 *Sección de estadísticas de la Landing Page en un ancho de celular*
 
@@ -2157,11 +2255,11 @@ Usar un tamaño mínimo de 12 px (idealmente 14 px) en textos secundarios y reco
 
 **Problema:**
 
-En "Detalle de cita", el texto "Cancelar cita" cancela la reserva con un solo toque, muestra el mensaje breve "Cita cancelada" y regresa a "Mis citas". No hay un diálogo de confirmación ni una opción para deshacer la acción, por lo que un toque accidental libera el horario y el paciente pierde su cita (ver Figura 179).
+En "Detalle de cita", el texto "Cancelar cita" cancela la reserva con un solo toque, muestra el mensaje breve "Cita cancelada" y regresa a "Mis citas". No hay un diálogo de confirmación ni una opción para deshacer la acción, por lo que un toque accidental libera el horario y el paciente pierde su cita (ver Figura 182).
 
-<a id="figura-179"></a>
+<a id="figura-182"></a>
 
-**Figura 179**
+**Figura 182**
 
 *Detalle de la cita antes de cancelar (izquierda) y resultado inmediato después de un toque (derecha)*
 
@@ -2179,11 +2277,11 @@ Mostrar un diálogo de confirmación con la fecha y hora de la cita y las opcion
 
 **Problema:**
 
-En "Nueva cita" del rol de personal clínico, los campos "Servicio", "Óptica / sucursal" y "Fecha" muestran una flecha de selección, pero no responden al tocarlos. La fecha permanece fija en "Miércoles, 20 de junio" (junio de 2025), por lo que el usuario solo puede elegir la hora y no puede agendar una cita en otra fecha, sede o servicio (ver Figura 180).
+En "Nueva cita" del rol de personal clínico, los campos "Servicio", "Óptica / sucursal" y "Fecha" muestran una flecha de selección, pero no responden al tocarlos. La fecha permanece fija en "Miércoles, 20 de junio" (junio de 2025), por lo que el usuario solo puede elegir la hora y no puede agendar una cita en otra fecha, sede o servicio (ver Figura 183).
 
-<a id="figura-180"></a>
+<a id="figura-183"></a>
 
-**Figura 180**
+**Figura 183**
 
 *Pantalla "Nueva cita" del personal clínico con servicio, sucursal y fecha fijos*
 
@@ -2201,11 +2299,11 @@ Implementar selectores reales: lista de servicios, sucursales obtenidas de los W
 
 **Problema:**
 
-El formulario "Registro rápido de paciente" muestra como ejemplos el teléfono "+56 9 8745 9210" y la identificación "RUT 18.942.105-K", que son formatos de Chile. Las ópticas y los pacientes de OptiFlow están en el Perú, donde se usa el prefijo +51 y el DNI de 8 dígitos, por lo que los ejemplos pueden inducir a registrar datos con un formato incorrecto (ver Figura 181).
+El formulario "Registro rápido de paciente" muestra como ejemplos el teléfono "+56 9 8745 9210" y la identificación "RUT 18.942.105-K", que son formatos de Chile. Las ópticas y los pacientes de OptiFlow están en el Perú, donde se usa el prefijo +51 y el DNI de 8 dígitos, por lo que los ejemplos pueden inducir a registrar datos con un formato incorrecto (ver Figura 184).
 
-<a id="figura-181"></a>
+<a id="figura-184"></a>
 
-**Figura 181**
+**Figura 184**
 
 *Formulario de registro de pacientes del personal clínico*
 
@@ -2223,7 +2321,7 @@ Usar ejemplos locales ("+51 987 654 321" y "DNI / CE") y validar 9 dígitos para
 
 **Problema:**
 
-En la pantalla de inicio del personal, el acceso rápido se llama "Nuevo paciente", pero la pantalla que abre se titula "Nuevo Cliente" y su encabezado dice "Registro rápido de paciente". Usar dos términos para la misma entidad genera dudas sobre si se registra a un paciente o a un cliente comercial (ver Figura 181).
+En la pantalla de inicio del personal, el acceso rápido se llama "Nuevo paciente", pero la pantalla que abre se titula "Nuevo Cliente" y su encabezado dice "Registro rápido de paciente". Usar dos términos para la misma entidad genera dudas sobre si se registra a un paciente o a un cliente comercial (ver Figura 184).
 
 **Recomendación:**
 
@@ -2237,11 +2335,11 @@ Usar el término "paciente" en todo el flujo, de acuerdo con el lenguaje ubicuo 
 
 **Problema:**
 
-En "Mi Perfil", la opción "Ayuda y soporte" lleva a la pantalla "Configuración", y allí "Ayuda y documentación" no abre ningún contenido. Lo mismo ocurre con "Privacidad y seguridad", "Idioma" y "Términos y privacidad", y con "Ayuda y documentación" en el menú "Más" del personal clínico. Todas muestran una flecha que sugiere que llevan a otra pantalla (ver Figura 182).
+En "Mi Perfil", la opción "Ayuda y soporte" lleva a la pantalla "Configuración", y allí "Ayuda y documentación" no abre ningún contenido. Lo mismo ocurre con "Privacidad y seguridad", "Idioma" y "Términos y privacidad", y con "Ayuda y documentación" en el menú "Más" del personal clínico. Todas muestran una flecha que sugiere que llevan a otra pantalla (ver Figura 185).
 
-<a id="figura-182"></a>
+<a id="figura-185"></a>
 
-**Figura 182**
+**Figura 185**
 
 *Pantalla "Configuración" con opciones de ayuda sin contenido*
 
@@ -2259,11 +2357,11 @@ Crear una pantalla de ayuda con preguntas frecuentes y datos de contacto de la �
 
 **Problema:**
 
-Una cuenta de paciente recién creada, sin recetas ni pedidos registrados, muestra en "Accesos rápidos" los indicadores "Mis recetas · 2 activas" y "Mis pedidos · 1 en camino". En "Mi Perfil", la misma cuenta indica "1 recetas disponibles". La información sobre el estado del paciente no corresponde a sus datos y no coincide entre pantallas (ver Figura 183).
+Una cuenta de paciente recién creada, sin recetas ni pedidos registrados, muestra en "Accesos rápidos" los indicadores "Mis recetas · 2 activas" y "Mis pedidos · 1 en camino". En "Mi Perfil", la misma cuenta indica "1 recetas disponibles". La información sobre el estado del paciente no corresponde a sus datos y no coincide entre pantallas (ver Figura 186).
 
-<a id="figura-183"></a>
+<a id="figura-186"></a>
 
-**Figura 183**
+**Figura 186**
 
 *Inicio (izquierda) y perfil (derecha) de una cuenta de paciente recién creada*
 
@@ -2281,11 +2379,11 @@ Obtener los indicadores de recetas y pedidos desde los Web Services (historias c
 
 **Problema:**
 
-En "Mi Perfil", la opción "Vista personal de óptica" cambia a la experiencia del personal clínico (agenda, pacientes, inventario y ventas) sin pedir credenciales ni validar el rol. Un paciente puede acceder a información de la óptica, y la elección de rol al iniciar sesión pierde sentido, lo que afecta la confianza en el manejo de los datos (ver Figura 184).
+En "Mi Perfil", la opción "Vista personal de óptica" cambia a la experiencia del personal clínico (agenda, pacientes, inventario y ventas) sin pedir credenciales ni validar el rol. Un paciente puede acceder a información de la óptica, y la elección de rol al iniciar sesión pierde sentido, lo que afecta la confianza en el manejo de los datos (ver Figura 187).
 
-<a id="figura-184"></a>
+<a id="figura-187"></a>
 
-**Figura 184**
+**Figura 187**
 
 *Vista del personal clínico abierta desde el perfil de un paciente*
 
@@ -2303,11 +2401,11 @@ Retirar la opción del perfil del paciente. El acceso a la experiencia del perso
 
 **Problema:**
 
-Los botones que solo muestran un ícono, como el de notificaciones (campana) de la pantalla de inicio, la flecha para volver y el engranaje de configuración, no tienen descripción de contenido (*content description*) en el árbol de accesibilidad de Android. Un usuario que navega con un lector de pantalla, como TalkBack, escucha un botón sin nombre y no sabe qué acción realiza (ver Figura 185).
+Los botones que solo muestran un ícono, como el de notificaciones (campana) de la pantalla de inicio, la flecha para volver y el engranaje de configuración, no tienen descripción de contenido (*content description*) en el árbol de accesibilidad de Android. Un usuario que navega con un lector de pantalla, como TalkBack, escucha un botón sin nombre y no sabe qué acción realiza (ver Figura 188).
 
-<a id="figura-185"></a>
+<a id="figura-188"></a>
 
-**Figura 185**
+**Figura 188**
 
 *Pantalla de inicio del paciente con el botón de notificaciones sin etiqueta accesible*
 
@@ -2325,11 +2423,11 @@ Añadir una `contentDescription` a cada botón de solo ícono (por ejemplo, "Not
 
 **Problema:**
 
-En el rol de personal clínico, la pantalla "Nueva cotización" muestra precios como "$89.900" y la pantalla "Reportes" muestra ventas totales de "$8.460.200", con el símbolo de dólar y el punto como separador de miles, formato propio del peso chileno. La Landing Page presenta los planes en soles (S/), y las ópticas y pacientes de OptiFlow pagan en soles, por lo que los montos pueden interpretarse de forma incorrecta (ver Figura 186).
+En el rol de personal clínico, la pantalla "Nueva cotización" muestra precios como "$89.900" y la pantalla "Reportes" muestra ventas totales de "$8.460.200", con el símbolo de dólar y el punto como separador de miles, formato propio del peso chileno. La Landing Page presenta los planes en soles (S/), y las ópticas y pacientes de OptiFlow pagan en soles, por lo que los montos pueden interpretarse de forma incorrecta (ver Figura 189).
 
-<a id="figura-186"></a>
+<a id="figura-189"></a>
 
-**Figura 186**
+**Figura 189**
 
 *Montos en las pantallas "Nueva cotización" (izquierda) y "Reportes" (derecha)*
 
@@ -2345,11 +2443,11 @@ Los hallazgos anteriores se mantienen con sus capturas y severidad. Un cambio de
 
 <!-- EQUIPO — Mariana y Felix: repetir las tareas con el APK de AV2 y completar resultado, evidencia y responsable de cada hallazgo. -->
 
-La Tabla 138 permite dejar constancia del cierre o de la persistencia de cada observación sin modificar la evidencia histórica.
+La Tabla 140 permite dejar constancia del cierre o de la persistencia de cada observación sin modificar la evidencia histórica.
 
-<a id="tabla-138"></a>
+<a id="tabla-140"></a>
 
-**Tabla 138**
+**Tabla 140**
 
 *Seguimiento de validación y compatibilidad para AV2*
 
