@@ -276,20 +276,23 @@ La reunión se realizó de manera virtual mediante Discord y fue preparada por C
 *Sprint Planning 1*
 
 
-| Sprint # | Sprint 1 |
-| :--- | :--- |
-| **Sprint Planning Background** | |
-| **Date** | 2026-09-28 |
-| **Time** | 07:00 PM |
-| **Location** | Discord |
-| **Prepared By** | Celis Berrospi, Eslander |
-| **Attendees (to planning meeting)** | Atoche Gonzales, Nicolas Fernando / Becerra Ttito, Felix Orlando / Celis Berrospi, Eslander / Morocho Pinedo, Mariana / Quispe Llacsahuanga, César Augusto |
-| **Sprint 0 Review Summary** | No aplica, debido a que Sprint 1 corresponde a la primera iteración de implementación de OptiFlow. Antes del inicio de este Sprint, el equipo desarrolló las actividades de investigación, análisis de los segmentos objetivo, especificación de requisitos, Domain-Driven Design, arquitectura de software y diseño UX/UI que sirven como base para la implementación del producto. |
-| **Sprint 0 Retrospective Summary** | No se realizó una retrospectiva formal debido a que no existió un Sprint de implementación anterior. Sin embargo, a partir del trabajo realizado durante las etapas previas, el equipo identificó la necesidad de distribuir claramente las responsabilidades, dividir el trabajo en tareas de corta duración, mantener una comunicación constante mediante Discord y conservar la trazabilidad del desarrollo mediante GitHub. |
-| **Sprint Goal & User Stories** | |
-| **Sprint 1 Goal** | Nuestro enfoque consiste en ofrecer a los pacientes una primera experiencia integrada para encontrar ópticas y programar una atención optométrica, junto con una Landing Page que comunique la propuesta de valor de OptiFlow. Consideramos que este incremento facilitará la consulta de establecimientos y la organización de citas. El cumplimiento se verificará cuando un paciente pueda consultar ópticas, seleccionar un horario disponible y obtener la confirmación de su reserva desde la aplicación móvil; cuando el servicio rechace una segunda reserva del mismo horario; y cuando las secciones y la navegación de la Landing Page puedan demostrarse en escritorio y móvil. |
-| **Sprint 1 Velocity** | 13 Story Points de capacidad planificada, según el registro inicial del equipo. |
-| **Sum of Story Points** | 13 Story Points: US05 (5) y US06 (8), según el Product Backlog del Capítulo II. |
+<table>
+<tbody>
+<tr><th>Sprint #</th><td>Sprint 1</td></tr>
+<tr><th colspan="2">Sprint Planning Background</th></tr>
+<tr><th>Date</th><td>2026-09-28</td></tr>
+<tr><th>Time</th><td>07:00 PM</td></tr>
+<tr><th>Location</th><td>Discord</td></tr>
+<tr><th>Prepared By</th><td>Celis Berrospi, Eslander</td></tr>
+<tr><th>Attendees (to planning meeting)</th><td>Atoche Gonzales, Nicolas Fernando / Becerra Ttito, Felix Orlando / Celis Berrospi, Eslander / Morocho Pinedo, Mariana / Quispe Llacsahuanga, César Augusto</td></tr>
+<tr><th>Sprint 0 Review Summary</th><td>No aplica, debido a que Sprint 1 corresponde a la primera iteración de implementación de OptiFlow. Antes del inicio de este Sprint, el equipo desarrolló las actividades de investigación, análisis de los segmentos objetivo, especificación de requisitos, Domain-Driven Design, arquitectura de software y diseño UX/UI que sirven como base para la implementación del producto.</td></tr>
+<tr><th>Sprint 0 Retrospective Summary</th><td>No se realizó una retrospectiva formal debido a que no existió un Sprint de implementación anterior. Sin embargo, a partir del trabajo realizado durante las etapas previas, el equipo identificó la necesidad de distribuir claramente las responsabilidades, dividir el trabajo en tareas de corta duración, mantener una comunicación constante mediante Discord y conservar la trazabilidad del desarrollo mediante GitHub.</td></tr>
+<tr><th colspan="2">Sprint Goal &amp; User Stories</th></tr>
+<tr><th>Sprint 1 Goal</th><td>Nuestro enfoque consiste en ofrecer a los pacientes una primera experiencia integrada para encontrar ópticas y programar una atención optométrica, junto con una Landing Page que comunique la propuesta de valor de OptiFlow. Consideramos que este incremento facilitará la consulta de establecimientos y la organización de citas. El cumplimiento se verificará cuando un paciente pueda consultar ópticas, seleccionar un horario disponible y obtener la confirmación de su reserva desde la aplicación móvil; cuando el servicio rechace una segunda reserva del mismo horario; y cuando las secciones y la navegación de la Landing Page puedan demostrarse en escritorio y móvil.</td></tr>
+<tr><th>Sprint 1 Velocity</th><td>13 Story Points de capacidad planificada, según el registro inicial del equipo.</td></tr>
+<tr><th>Sum of Story Points</th><td>13 Story Points: US05 (5) y US06 (8), según el Product Backlog del Capítulo II.</td></tr>
+</tbody>
+</table>
 
 El alcance estimado en Story Points corresponde a US05 y US06. Las actividades de la Landing Page se incluyen como tareas adicionales. El registro e inicio de sesión del paciente permiten ejecutar la reserva; se documentan como soporte a este flujo y se distinguen de US01, cuyo actor en el Product Backlog es el personal de la óptica.
 
@@ -306,7 +309,7 @@ Los principales aspectos considerados durante Sprint 1 son la implementación de
 *Aspect leaders y colaboradores del Sprint 1*
 
 
-| Team Member | GitHub Username | Landing Page | Optical Store Search | Appointment Booking | Search & Booking Services | Integration & Sprint Coordination |
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page<br>Leader (L) / Collaborator (C) | Optical Store Search<br>Leader (L) / Collaborator (C) | Appointment Booking<br>Leader (L) / Collaborator (C) | Search & Booking Services<br>Leader (L) / Collaborator (C) | Integration & Sprint Coordination<br>Leader (L) / Collaborator (C) |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
 | Atoche Gonzales, Nicolas Fernando | `THECOMAX` | C | **L** | C | C | C |
 | Becerra Ttito, Felix Orlando | `Felixb14` | C | C | C | **L** | C |
@@ -344,21 +347,28 @@ El Sprint Backlog 1 se presenta en la Tabla 112.
 *Sprint Backlog 1*
 
 
-| Sprint # | User Story | User Story Title | Task ID | Task Title | Description | Estimation (Hours) | Assigned To | Status |
-| :---: | :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
-| 1 | — | Actividad adicional: Landing Page | T01 | Create initial project structure | Crear la estructura inicial del proyecto del Landing Page y organizar los archivos necesarios para iniciar su implementación. | 4 | Quispe Llacsahuanga, César Augusto | Done |
-| 1 | — | Actividad adicional: Landing Page | T02 | Implement base styles | Implementar los estilos base y la identidad visual inicial del Landing Page de acuerdo con los lineamientos definidos para OptiFlow. | 6 | Quispe Llacsahuanga, César Augusto | Done |
-| 1 | — | Actividad adicional: Landing Page | T03 | Configure Three.js environment | Configurar Three.js y los recursos necesarios para los elementos visuales e interactivos del Landing Page. | 4 | Quispe Llacsahuanga, César Augusto | Done |
-| 1 | — | Actividad adicional: Landing Page | T04 | Implement Landing Page sections | Implementar las principales secciones informativas del Landing Page, incluyendo la presentación de OptiFlow, propuesta de valor y principales características. | 8 | Quispe Llacsahuanga, César Augusto | Done |
-| 1 | — | Actividad adicional: Landing Page | T05 | Implement responsive navigation | Implementar la navegación del Landing Page y adaptar su visualización para dispositivos móviles y equipos de escritorio. | 6 | Quispe Llacsahuanga, César Augusto | Done |
-| 1 | US05 | Búsqueda de ópticas y disponibilidad de atención | T06 | Implement optical store search screen | Implementar la interfaz móvil que permita al paciente iniciar la búsqueda de ópticas disponibles. | 6 | Atoche Gonzales, Nicolas Fernando | Done |
-| 1 | US05 | Búsqueda de ópticas y disponibilidad de atención | T07 | Implement optical store results | Implementar la visualización de los establecimientos disponibles, incluyendo sucursales, direcciones y horarios de atención. | 6 | Atoche Gonzales, Nicolas Fernando | Done |
-| 1 | US05 | Búsqueda de ópticas y disponibilidad de atención | T08 | Implement optical store search service | Implementar las operaciones del servicio RESTful necesarias para consultar ópticas y su disponibilidad. | 8 | Becerra Ttito, Felix Orlando | Done |
-| 1 | US05 | Búsqueda de ópticas y disponibilidad de atención | T09 | Integrate optical store search | Integrar la aplicación móvil con el servicio de búsqueda de ópticas y gestionar los estados de carga, resultados y ausencia de establecimientos. | 6 | Celis Berrospi, Eslander | Done |
-| 1 | US06 | Reserva de cita para atención optométrica | T10 | Implement appointment selection screen | Implementar la interfaz para seleccionar sucursal, fecha y horario disponible para una cita optométrica. | 6 | Morocho Pinedo, Mariana | Done |
-| 1 | US06 | Reserva de cita para atención optométrica | T11 | Implement appointment booking service | Implementar el servicio RESTful encargado de registrar las reservas de citas realizadas por los pacientes. | 8 | Becerra Ttito, Felix Orlando | Done |
-| 1 | US06 | Reserva de cita para atención optométrica | T12 | Implement availability validation | Implementar la validación de disponibilidad del horario antes de confirmar una reserva. | 4 | Becerra Ttito, Felix Orlando | Done |
-| 1 | US06 | Reserva de cita para atención optométrica | T13 | Integrate appointment confirmation | Integrar el flujo móvil de reserva con el servicio correspondiente y mostrar al paciente el resultado de la operación. | 6 | Celis Berrospi, Eslander | Done |
+<table>
+<thead>
+<tr><th>Sprint #</th><th colspan="7">Sprint 1</th></tr>
+<tr><th colspan="2">User Story</th><th colspan="6">Work-Item / Task</th></tr>
+<tr><th>Id</th><th>Title</th><th>Id</th><th>Title</th><th>Description</th><th>Estimation<br>(Hours)</th><th>Assigned To</th><th>Status<br>(To-do / In-Process / To-Review / Done)</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="5">—</td><td rowspan="5">Actividad adicional: Landing Page</td><td>T01</td><td>Create initial project structure</td><td>Crear la estructura inicial del proyecto del Landing Page y organizar los archivos necesarios para iniciar su implementación.</td><td>4</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>T02</td><td>Implement base styles</td><td>Implementar los estilos base y la identidad visual inicial del Landing Page de acuerdo con los lineamientos definidos para OptiFlow.</td><td>6</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>T03</td><td>Configure Three.js environment</td><td>Configurar Three.js y los recursos necesarios para los elementos visuales e interactivos del Landing Page.</td><td>4</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>T04</td><td>Implement Landing Page sections</td><td>Implementar las principales secciones informativas del Landing Page, incluyendo la presentación de OptiFlow, propuesta de valor y principales características.</td><td>8</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>T05</td><td>Implement responsive navigation</td><td>Implementar la navegación del Landing Page y adaptar su visualización para dispositivos móviles y equipos de escritorio.</td><td>6</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td rowspan="4">US05</td><td rowspan="4">Búsqueda de ópticas y disponibilidad de atención</td><td>T06</td><td>Implement optical store search screen</td><td>Implementar la interfaz móvil que permita al paciente iniciar la búsqueda de ópticas disponibles.</td><td>6</td><td>Atoche Gonzales, Nicolas Fernando</td><td>Done</td></tr>
+<tr><td>T07</td><td>Implement optical store results</td><td>Implementar la visualización de los establecimientos disponibles, incluyendo sucursales, direcciones y horarios de atención.</td><td>6</td><td>Atoche Gonzales, Nicolas Fernando</td><td>Done</td></tr>
+<tr><td>T08</td><td>Implement optical store search service</td><td>Implementar las operaciones del servicio RESTful necesarias para consultar ópticas y su disponibilidad.</td><td>8</td><td>Becerra Ttito, Felix Orlando</td><td>Done</td></tr>
+<tr><td>T09</td><td>Integrate optical store search</td><td>Integrar la aplicación móvil con el servicio de búsqueda de ópticas y gestionar los estados de carga, resultados y ausencia de establecimientos.</td><td>6</td><td>Celis Berrospi, Eslander</td><td>Done</td></tr>
+<tr><td rowspan="4">US06</td><td rowspan="4">Reserva de cita para atención optométrica</td><td>T10</td><td>Implement appointment selection screen</td><td>Implementar la interfaz para seleccionar sucursal, fecha y horario disponible para una cita optométrica.</td><td>6</td><td>Morocho Pinedo, Mariana</td><td>Done</td></tr>
+<tr><td>T11</td><td>Implement appointment booking service</td><td>Implementar el servicio RESTful encargado de registrar las reservas de citas realizadas por los pacientes.</td><td>8</td><td>Becerra Ttito, Felix Orlando</td><td>Done</td></tr>
+<tr><td>T12</td><td>Implement availability validation</td><td>Implementar la validación de disponibilidad del horario antes de confirmar una reserva.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>Done</td></tr>
+<tr><td>T13</td><td>Integrate appointment confirmation</td><td>Integrar el flujo móvil de reserva con el servicio correspondiente y mostrar al paciente el resultado de la operación.</td><td>6</td><td>Celis Berrospi, Eslander</td><td>Done</td></tr>
+</tbody>
+</table>
 
 #### 4.2.1.4. Development Evidence for Sprint Review
 
@@ -376,30 +386,30 @@ La siguiente tabla presenta commits representativos del alcance documentado, obt
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
-| `Logix-OptiFlow-landing-page` | `main` | [52a57c6](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/52a57c6) | `feat: add initial project structure, base styles, and Three.js setup` | Descripción en español: Crea la estructura inicial, los estilos base y la configuración de Three.js. | 2026-10-03 |
-| `Logix-OptiFlow-landing-page` | `main` | [8091504](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/8091504) | `Refresh landing page visuals and intro animation` | Descripción en español: Actualiza la apariencia de la Landing Page y la animación introductoria. | 2026-10-06 |
-| `Logix-OptiFlow-landing-page` | `main` | [8bf76ec](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/8bf76ec) | `fix: set footer` | Descripción en español: Ajusta el pie de página. | 2026-10-06 |
-| `Logix-OptiFlow-landing-page` | `main` | [e5f8254](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/e5f8254) | `style: fix plans and avatars` | Descripción en español: Ajusta la presentación de planes y avatares. | 2026-10-06 |
-| `Logix-OptiFlow-landing-page` | `main` | [5a9ff47](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/5a9ff47) | `fix: update navbar` | Descripción en español: Actualiza la barra de navegación. | 2026-10-06 |
-| `Logix-OptiFlow-landing-page` | `main` | [774f144](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/774f144) | `style: fix benefits section` | Descripción en español: Ajusta los estilos de beneficios. | 2026-10-06 |
-| `Logix-OptiFlow-landing-page` | `main` | [52716d7](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/52716d7) | `feat: highlight active navigation section and fix mobile menu state` | Descripción en español: Resalta la sección activa y corrige el estado del menú móvil. | 2026-10-07 |
-| `Logix-OptiFlow-landing-page` | `main` | [1cd0a27](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/1cd0a27) | `feat: add demo form guidance and inline validation` | Descripción en español: Añade instrucciones y validaciones al formulario de demostración. | 2026-10-07 |
-| `Logix-OptiFlow-landing-page` | `main` | [4c779f9](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/4c779f9) | `feat: improve active navigation style and smooth scroll tracking` | Descripción en español: Mejora el estilo de navegación activa y el seguimiento del desplazamiento. | 2026-10-07 |
-| `Logix-OptiFlow-Back-End` | `develop` | [543aaf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/543aaf2) | `Add OptiFlow booking backend` | Descripción en español: Incorpora el backend de búsqueda y reserva de OptiFlow y sus pruebas iniciales. | 2026-10-06 |
-| `Logix-OptiFlow-Back-End` | `develop` | [2f3f43f](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/2f3f43f) | `Add local/postgres Spring profiles` | Descripción en español: Añade perfiles de configuración local y PostgreSQL y modifica la configuración de pruebas. | 2026-10-06 |
-| `Logix-OptiFlow-Back-End` | `develop` | [ac63183](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/ac63183) | `fix: reject invalid characters in patient phone numbers` | Descripción en español: Rechaza caracteres inválidos en teléfonos e incorpora pruebas de validación. | 2026-10-07 |
-| `Logix-OptiFlow-Back-End` | `develop` | [25c3003](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/25c3003) | `feat: standardize malformed request error responses` | Descripción en español: Unifica respuestas a solicitudes mal formadas e incorpora pruebas de errores. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [067fd5d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/067fd5d) | `chore(mobile): configure api base url for local and production` | Descripción en español: Configura las URL del backend para los entornos local y de producción. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [27fef3d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/27fef3d) | `feat: add retrofit client with timeouts and logging` | Descripción en español: Añade el cliente Retrofit con tiempos de espera y registro de comunicaciones. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [484564d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/484564d) | `feat: Add remote booking and search API layer` | Descripción en español: Añade la capa de API remota para búsqueda y reserva. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [8f950a3](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/8f950a3) | `feat: load optical stores from backend` | Descripción en español: Carga los establecimientos ópticos desde el backend. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [3e6f97c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/3e6f97c) | `feat: register patient and login against api` | Descripción en español: Integra el registro y el inicio de sesión del paciente con la API. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [024cd92](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/024cd92) | `feat: fetch availability and book appointment` | Descripción en español: Consulta horarios disponibles y solicita reservas de citas. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [557a47c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/557a47c) | `feat: wire sprint 1 screens to search booking repository` | Descripción en español: Conecta las pantallas del Sprint 1 con los repositorios de búsqueda y reserva. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [a5f5062](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/a5f5062) | `feat: add store search filter by minimum rating` | Descripción en español: Añade un filtro de búsqueda por valoración mínima. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [e097ffd](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/e097ffd) | `feat: Redesign auth flow and fix store rating types` | Descripción en español: Rediseña el flujo de acceso y corrige los tipos de las valoraciones. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [f09d228](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/f09d228) | `feat: Add home dashboard and patient appointment flow` | Descripción en español: Añade la pantalla de inicio y el flujo de citas del paciente. | 2026-10-07 |
-| `Logix-OptiFlow-Movile` | `develop` | [861628c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/861628c) | `feat: Add notifications and backend setup docs` | Descripción en español: Añade notificaciones y documentación para configurar el backend. | 2026-10-07 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [52a57c6](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/52a57c6) | `feat: add initial project structure, base styles, and Three.js setup` | Descripción en español: Crea la estructura inicial, los estilos base y la configuración de Three.js. | 03/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [8091504](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/8091504) | `Refresh landing page visuals and intro animation` | Descripción en español: Actualiza la apariencia de la Landing Page y la animación introductoria. | 06/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [8bf76ec](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/8bf76ec) | `fix: set footer` | Descripción en español: Ajusta el pie de página. | 06/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [e5f8254](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/e5f8254) | `style: fix plans and avatars` | Descripción en español: Ajusta la presentación de planes y avatares. | 06/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [5a9ff47](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/5a9ff47) | `fix: update navbar` | Descripción en español: Actualiza la barra de navegación. | 06/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [774f144](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/774f144) | `style: fix benefits section` | Descripción en español: Ajusta los estilos de beneficios. | 06/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [52716d7](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/52716d7) | `feat: highlight active navigation section and fix mobile menu state` | Descripción en español: Resalta la sección activa y corrige el estado del menú móvil. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [1cd0a27](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/1cd0a27) | `feat: add demo form guidance and inline validation` | Descripción en español: Añade instrucciones y validaciones al formulario de demostración. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [4c779f9](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/4c779f9) | `feat: improve active navigation style and smooth scroll tracking` | Descripción en español: Mejora el estilo de navegación activa y el seguimiento del desplazamiento. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [543aaf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/543aaf2) | `Add OptiFlow booking backend` | Descripción en español: Incorpora el backend de búsqueda y reserva de OptiFlow y sus pruebas iniciales. | 06/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [2f3f43f](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/2f3f43f) | `Add local/postgres Spring profiles` | Descripción en español: Añade perfiles de configuración local y PostgreSQL y modifica la configuración de pruebas. | 06/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [ac63183](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/ac63183) | `fix: reject invalid characters in patient phone numbers` | Descripción en español: Rechaza caracteres inválidos en teléfonos e incorpora pruebas de validación. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [25c3003](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/25c3003) | `feat: standardize malformed request error responses` | Descripción en español: Unifica respuestas a solicitudes mal formadas e incorpora pruebas de errores. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [067fd5d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/067fd5d) | `chore(mobile): configure api base url for local and production` | Descripción en español: Configura las URL del backend para los entornos local y de producción. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [27fef3d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/27fef3d) | `feat: add retrofit client with timeouts and logging` | Descripción en español: Añade el cliente Retrofit con tiempos de espera y registro de comunicaciones. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [484564d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/484564d) | `feat: Add remote booking and search API layer` | Descripción en español: Añade la capa de API remota para búsqueda y reserva. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [8f950a3](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/8f950a3) | `feat: load optical stores from backend` | Descripción en español: Carga los establecimientos ópticos desde el backend. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [3e6f97c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/3e6f97c) | `feat: register patient and login against api` | Descripción en español: Integra el registro y el inicio de sesión del paciente con la API. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [024cd92](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/024cd92) | `feat: fetch availability and book appointment` | Descripción en español: Consulta horarios disponibles y solicita reservas de citas. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [557a47c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/557a47c) | `feat: wire sprint 1 screens to search booking repository` | Descripción en español: Conecta las pantallas del Sprint 1 con los repositorios de búsqueda y reserva. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [a5f5062](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/a5f5062) | `feat: add store search filter by minimum rating` | Descripción en español: Añade un filtro de búsqueda por valoración mínima. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [e097ffd](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/e097ffd) | `feat: Redesign auth flow and fix store rating types` | Descripción en español: Rediseña el flujo de acceso y corrige los tipos de las valoraciones. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [f09d228](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/f09d228) | `feat: Add home dashboard and patient appointment flow` | Descripción en español: Añade la pantalla de inicio y el flujo de citas del paciente. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [861628c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/861628c) | `feat: Add notifications and backend setup docs` | Descripción en español: Añade notificaciones y documentación para configurar el backend. | 07/10/2026 |
 
 **Nota:** los commits seleccionados no contienen un cuerpo adicional en Git. La columna Commit Message Body presenta una descripción explicativa en español, no una transcripción de un cuerpo original. Branch identifica la rama revisada que contiene el commit, no necesariamente su rama de creación.
 
@@ -482,11 +492,11 @@ Los commits de la suite de pruebas se resumen en la Tabla 116.
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
-| `Logix-OptiFlow-Back-End` | `develop` | [543aaf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/543aaf2) | `Add OptiFlow booking backend` | Descripción en español: Incorpora el backend de búsqueda y reserva de OptiFlow y sus pruebas iniciales. | 2026-10-06 |
-| `Logix-OptiFlow-Back-End` | `develop` | [2f3f43f](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/2f3f43f) | `Add local/postgres Spring profiles` | Descripción en español: Añade perfiles de configuración local y PostgreSQL y modifica la configuración de pruebas. | 2026-10-06 |
-| `Logix-OptiFlow-Back-End` | `develop` | [ac63183](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/ac63183) | `fix: reject invalid characters in patient phone numbers` | Descripción en español: Rechaza caracteres inválidos en teléfonos e incorpora pruebas de validación. | 2026-10-07 |
-| `Logix-OptiFlow-Back-End` | `develop` | [25c3003](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/25c3003) | `feat: standardize malformed request error responses` | Descripción en español: Unifica respuestas a solicitudes mal formadas e incorpora pruebas de errores. | 2026-10-07 |
-| `Logix-OptiFlow-Back-End` | `develop` | [706ada9](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/706ada927d4fd49807035e79d4313fbe463e9e54) | `test: add Gherkin acceptance suite for search and booking` | Descripción en español: Implementa cuatro escenarios Gherkin de US05 y US06, Steps con MockMvc y configuración de Cucumber y Surefire. | 2026-10-07 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [543aaf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/543aaf2) | `Add OptiFlow booking backend` | Descripción en español: Incorpora el backend de búsqueda y reserva de OptiFlow y sus pruebas iniciales. | 06/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [2f3f43f](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/2f3f43f) | `Add local/postgres Spring profiles` | Descripción en español: Añade perfiles de configuración local y PostgreSQL y modifica la configuración de pruebas. | 06/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [ac63183](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/ac63183) | `fix: reject invalid characters in patient phone numbers` | Descripción en español: Rechaza caracteres inválidos en teléfonos e incorpora pruebas de validación. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [25c3003](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/25c3003) | `feat: standardize malformed request error responses` | Descripción en español: Unifica respuestas a solicitudes mal formadas e incorpora pruebas de errores. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [706ada9](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/706ada927d4fd49807035e79d4313fbe463e9e54) | `test: add Gherkin acceptance suite for search and booking` | Descripción en español: Implementa cuatro escenarios Gherkin de US05 y US06, Steps con MockMvc y configuración de Cucumber y Surefire. | 07/10/2026 |
 
 Los commits indicados incluyen cambios en `src/test`. Las suites y recursos pueden consultarse en [src/test del backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/tree/develop/src/test).
 
@@ -1003,10 +1013,10 @@ Los commits del repositorio de Web Services que incorporan o modifican la docume
 
 | Repository | Branch | Commit Id | Commit Message | Cambio en la documentación | Committed on (Date) |
 |---|---|---|---|---|---|
-| `Logix-OptiFlow-Back-End` | `develop` | [543aaf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/543aaf2cb3c2f0638b88ea7e9203afe313d9883d) | `Add OptiFlow booking backend` | Agrega la dependencia springdoc-openapi y configura las rutas de Swagger UI y de la especificación OpenAPI. | 2026-10-06 |
-| `Logix-OptiFlow-Back-End` | `develop` | [d2dc08b](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/d2dc08b5fbe325ebf7523b7bc469f3e042289e2b) | `refactor: reorganize packages` | Crea la clase `OpenApiConfiguration` en el paquete `shared/documentation/openapi`. | 2026-10-07 |
-| `Logix-OptiFlow-Back-End` | `develop` | [8a62f6e](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/8a62f6ec5cd2ab5651f5f8de46afef8d76542f8c) | `docs: group swagger endpoints` | Agrupa los endpoints por bounded context con `OpenApiTags` y la anotación `@Tag` en los controladores. | 2026-10-07 |
-| `Logix-OptiFlow-Back-End` | `develop` | [c00cb77](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/c00cb774d340ffb2f1eeab2f625a573cde5a600f) | `feat: add production endpoints` | Agrega a Swagger UI los grupos de órdenes de trabajo y de técnicos y laboratorios de Production & Tracking. | 2026-10-07 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [543aaf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/543aaf2cb3c2f0638b88ea7e9203afe313d9883d) | `Add OptiFlow booking backend` | Agrega la dependencia springdoc-openapi y configura las rutas de Swagger UI y de la especificación OpenAPI. | 06/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [d2dc08b](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/d2dc08b5fbe325ebf7523b7bc469f3e042289e2b) | `refactor: reorganize packages` | Crea la clase `OpenApiConfiguration` en el paquete `shared/documentation/openapi`. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [8a62f6e](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/8a62f6ec5cd2ab5651f5f8de46afef8d76542f8c) | `docs: group swagger endpoints` | Agrupa los endpoints por bounded context con `OpenApiTags` y la anotación `@Tag` en los controladores. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [c00cb77](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/c00cb774d340ffb2f1eeab2f625a573cde5a600f) | `feat: add production endpoints` | Agrega a Swagger UI los grupos de órdenes de trabajo y de técnicos y laboratorios de Production & Tracking. | 07/10/2026 |
 
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
@@ -1407,11 +1417,11 @@ Se distinguen tres resultados: código publicado, comportamiento comprobado y fu
 
 #### 4.2.2.1. Sprint Planning 2
 
-El objetivo del Sprint es ofrecer una base de acceso autenticado y búsqueda de atención que permita continuar la integración del cliente móvil. El primer incremento ya mostraba búsqueda y reserva; en esta iteración se revisan los contratos, la seguridad y su compatibilidad con la nueva aplicación.
+La planificación del Sprint 2 reúne la integración del cliente Flutter, la seguridad de los servicios y la consulta de información del paciente. El alcance se centra en las historias US01, US04, US11 y US16; la búsqueda y reserva de US05 y US06 continúan como integración y regresión del primer incremento.
 
-La planificación se presenta en la Tabla 125. La fecha del 01/11/2026 es una propuesta para completar el registro del equipo; debe reemplazarse o confirmarse con la fecha de la reunión realizada.
+La Tabla 125 sigue el formato del Sprint Planning del enunciado. La fecha, hora, convocatoria, capacidad y acuerdos se presentan como una **propuesta de planificación** para que el equipo la contraste con su reunión. Los resultados de implementación y de pruebas se mantienen asociados con sus evidencias en las secciones siguientes.
 
-<!-- EQUIPO: confirmar fecha, hora, asistentes y acuerdos reales del Sprint Planning 2. -->
+<!-- EQUIPO: confirmar fecha, hora, asistencia, acuerdos, capacidad y compromiso real de historias. -->
 
 <a id="tabla-125"></a>
 
@@ -1419,74 +1429,103 @@ La planificación se presenta en la Tabla 125. La fecha del 01/11/2026 es una pr
 
 *Sprint Planning 2*
 
-| Sprint # | Sprint 2 |
-|---|---|
-| Fecha propuesta de planificación | 01/11/2026 — por confirmar con el equipo. |
-| Hora | ____________________ |
-| Lugar o medio | ____________________ |
-| Preparado por | Celis Berrospi, Eslander. |
-| Asistentes | ____________________ |
-| Revisión del Sprint 1 | Se conserva la evidencia de búsqueda, reserva y Landing Page de 4.2.1. La revisión posterior detectó incidencias en las pruebas y la necesidad de distinguir el diseño integral de las funciones implementadas. |
-| Acuerdos de retrospectiva | ____________________ |
-| Sprint Goal | Permitir que el paciente encuentre una óptica cercana, consulte un horario y reserve una cita con su cuenta, manteniendo el acceso del personal separado por permisos. Para ello se integrarán los servicios versionados con el cliente Flutter. El resultado se comprobará con consulta pública de ópticas, emisión de token, reserva autenticada y rechazo de accesos no autorizados; la aceptación móvil exige además que el cliente use las rutas y respuestas vigentes. |
-| Historias relacionadas | US01 y US16 para acceso y roles; ampliación de US05 para ubicación; continuidad de US06 y consulta de US04 y US11. |
-| Capacidad planificada | ____________________ Story Points. |
-| Velocidad obtenida | ____________________ Story Points aceptados. No se calcula a partir del número de commits. |
-| Fecha de revisión técnica | 08/11/2026. |
+<table>
+<tbody>
+<tr><th>Sprint #</th><td>Sprint 2</td></tr>
+<tr><th colspan="2">Sprint Planning Background</th></tr>
+<tr><th>Date</th><td>2026-11-01 (fecha propuesta).</td></tr>
+<tr><th>Time</th><td>07:00 PM (hora propuesta).</td></tr>
+<tr><th>Location</th><td>Discord, canal de voz del equipo (medio propuesto).</td></tr>
+<tr><th>Prepared By</th><td>Celis Berrospi, Eslander</td></tr>
+<tr><th>Attendees (to planning meeting)</th><td>Atoche Gonzales, Nicolas Fernando / Becerra Ttito, Felix Orlando / Celis Berrospi, Eslander / Morocho Pinedo, Mariana / Quispe Llacsahuanga, César Augusto (participantes propuestos).</td></tr>
+<tr><th>Sprint 1 Review Summary</th><td>El primer incremento documentó la Landing Page y la búsqueda y reserva del paciente. Se mantienen sus capturas y resultados históricos. Para AV2 se amplían los servicios con seguridad y cercanía, y se incorpora Flutter. La revisión técnica detectó incompatibilidades en rutas y autenticación y un error de compilación de la suite; estos hallazgos se incluyen en el backlog de cierre.</td></tr>
+<tr><th>Sprint 1 Retrospective Summary</th><td>Puntos propuestos para la retrospectiva: acordar el contrato HTTP antes de integrar pantallas, dividir las tareas por historia, revisar permisos con cuentas de prueba y ejecutar la suite antes de cerrar una tarea. Mantener un responsable por aspecto y registrar las evidencias con el commit y el entorno usados.</td></tr>
+<tr><th colspan="2">Sprint Goal &amp; User Stories</th></tr>
+<tr><th>Sprint 2 Goal</th><td>Nuestro enfoque consiste en que el paciente encuentre atención cercana, reserve con su cuenta y consulte su información, mientras el personal accede solo a las funciones de su rol. Consideramos que esto facilitará organizar la atención y seguir sus pedidos. El cumplimiento se confirmará cuando el paciente complete búsqueda y reserva sin ayuda en un máximo de cinco minutos, consulte historial y estado de pedido con datos de su cuenta, y todos los casos de acceso sin token y con rol no autorizado sean rechazados. Estas métricas son criterios de aceptación propuestos; no resultados obtenidos.</td></tr>
+<tr><th>Sprint 2 Velocity</th><td>18 Story Points de capacidad propuesta para las historias US01, US04, US11 y US16. Esta cifra debe confirmarse en la planificación; no representa puntos ya aceptados.</td></tr>
+<tr><th>Sum of Story Points</th><td>18 Story Points: US01 (3), US04 (5), US11 (5) y US16 (5), según el Product Backlog. La regresión y adecuación de US05 y US06 del Sprint 1 se controlan como tareas de continuidad y no vuelven a sumar sus puntos originales.</td></tr>
+</tbody>
+</table>
 
-Los Story Points se tomarán del Product Backlog y se contabilizarán cuando el equipo confirme las historias comprometidas y sus criterios de aceptación. La revisión técnica descrita aquí no sustituye esa decisión de planificación.
+Los puntos se contabilizan una sola vez por historia y no por cada tarea. Las horas del backlog sirven para distribuir el trabajo técnico. La ampliación de cercanía debe reestimarse si el equipo la incorpora como una historia nueva; los 18 puntos propuestos no acreditan su aceptación ni la finalización de los flujos móviles.
 
 #### 4.2.2.2. Aspect Leaders and Collaborators
 
-Los aspectos del Sprint son el contrato de servicios, la seguridad, el cliente Flutter, la Landing Page y la validación. Los commits permiten identificar contribuciones de implementación; las responsabilidades de coordinación deben confirmarse en la matriz del equipo.
+Los aspectos del Sprint son servicios y seguridad, cliente Flutter, Landing Page y validación, pruebas, e integración y coordinación. La Tabla 126 propone un líder por aspecto y relaciona sus colaboradores con las tareas del backlog.
 
-La Tabla 126 deja preparada la matriz LACX. Los usuarios corresponden al registro del informe. Las celdas vacías se completarán con **L** para líder y **C** para colaborador, a partir de los acuerdos del Sprint.
+La asignación propuesta distribuye la adaptación de Flutter a Nicolas, la revisión de pruebas a Felix, la Landing Page y las entrevistas a Mariana, y la coordinación y evidencias a Eslander. César lidera los servicios y la seguridad, de acuerdo con los avances identificados en el repositorio.
 
-<!-- EQUIPO: completar L/C sin confundir el autor de un commit con el líder de todo un aspecto. -->
+<!-- EQUIPO: confirmar la distribución L/C antes de usarla como registro del Sprint. -->
 
 <a id="tabla-126"></a>
 
 **Tabla 126**
 
-*Matriz de líderes y colaboradores del Sprint 2 por confirmar*
+*Aspect leaders y colaboradores del Sprint 2 — propuesta de distribución*
 
-| Integrante | GitHub | Servicios y seguridad | Cliente Flutter | Landing Page | Pruebas e integración | Coordinación |
+| Team Member (Last Name, First Name) | GitHub Username | Servicios y seguridad<br>Leader (L) / Collaborator (C) | Cliente Flutter<br>Leader (L) / Collaborator (C) | Landing Page y validación<br>Leader (L) / Collaborator (C) | Pruebas<br>Leader (L) / Collaborator (C) | Integración y coordinación<br>Leader (L) / Collaborator (C) |
 |---|---|:---:|:---:|:---:|:---:|:---:|
-| Atoche Gonzales, Nicolas Fernando | `THECOMAX` | | | | | |
-| Becerra Ttito, Felix Orlando | `Felixb14` | | | | | |
-| Celis Berrospi, Eslander | `Eslander-Celis` | | | | | |
-| Morocho Pinedo, Mariana | `Patto04` | | | | | |
-| Quispe Llacsahuanga, César Augusto | `user20-bit` | | | | | |
+| Atoche Gonzales, Nicolas Fernando | `THECOMAX` | C | **L** | C | C | C |
+| Becerra Ttito, Felix Orlando | `Felixb14` | C | C | C | **L** | C |
+| Celis Berrospi, Eslander | `Eslander-Celis` | C | C | C | C | **L** |
+| Morocho Pinedo, Mariana | `Patto04` | C | C | **L** | C | C |
+| Quispe Llacsahuanga, César Augusto | `user20-bit` | **L** | C | C | C | C |
 
-En la ventana revisada, los commits de servicios y Flutter aparecen con el autor Cesar Augusto, y los ajustes de la Landing Page con Patto04. La sección 4.2.2.9 presenta esos registros sin atribuir a otros integrantes tareas que no están identificadas en el historial.
+**L:** Leader. **C:** Collaborator. La matriz expresa responsabilidades propuestas; el autor y la fecha de cada cambio se conservan en el historial de commits.
 
 #### 4.2.2.3. Sprint Backlog 2
 
-El backlog de revisión relaciona los avances encontrados con las historias del producto. **Done** indica que la tarea técnica descrita tiene evidencia; **To-Review** señala una integración o validación pendiente. Estos estados no equivalen a aceptar por completo todas las historias relacionadas.
+El Sprint Backlog descompone las historias y las actividades adicionales en tareas con un responsable y una estimación en horas. La Tabla 127 separa los datos de la User Story de los del Work-Item / Task, conforme al formato del enunciado. Las asignaciones y estimaciones son una **propuesta de reparto**, no un registro de horas trabajadas.
 
-**Tablero del equipo:** ____________________
+**URL pública del Board del Sprint 2:** ____________________
 
-<!-- EQUIPO: colocar URL pública y captura del tablero real del Sprint 2. -->
+**Captura del Board del Sprint 2:** ____________________
 
-La Tabla 127 permite trasladar las tareas al tablero y completar las estimaciones y la asignación acordadas.
+<!-- EQUIPO: insertar URL y screenshot del tablero real en la herramienta de control; debe coincidir con los IDs, responsables y estados de la Tabla 127. -->
+
+El estado **Done** se limita a la tarea técnica con código o evidencia comprobada. **To-Review** corresponde a una comprobación parcial que debe contrastarse con la versión entregada. **To-do** indica trabajo sin evidencia de ejecución en esta revisión. Ningún estado supone que una historia completa haya sido aceptada.
 
 <a id="tabla-127"></a>
 
 **Tabla 127**
 
-*Sprint Backlog 2 de revisión*
+*Sprint Backlog 2*
 
-| Sprint | User Story | Task ID | Tarea | Evidencia o resultado esperado | Estimación (h) | Asignado a | Estado |
-|:---:|---|---|---|---|:---:|---|---|
-| 2 | US05, US06 | S2-T01 | Versionar los servicios | Prefijo `/api/v1`, rutas de consulta consolidadas y `Location` en recursos creados. | | Cesar Augusto, según commits | Done |
-| 2 | US01, US16 | S2-T02 | Incorporar tokens y autorización | Emisión de JWT y comprobaciones HTTP 401/403; la suite de seguridad requiere corregir su compilación. | | Cesar Augusto, según commits | To-Review |
-| 2 | US05 | S2-T03 | Consultar ópticas por ubicación | Latitud, longitud y radio; consulta de cercanía y validación de coordenadas comprobadas. | | Cesar Augusto, según commits | Done |
-| 2 | US01, US05, US06 | S2-T04 | Publicar la base del cliente Flutter | Código de navegación, estado, solicitudes HTTP y pantallas de paciente y personal. | | Cesar Augusto, según commits | Done |
-| 2 | US01, US04, US06, US11 | S2-T05 | Compatibilizar Flutter con `/api/v1` | Actualizar rutas, lectura del token y encabezado `Authorization`; verificar el flujo integrado. | | Por confirmar | To-Review |
-| 2 | US05, US06 | S2-T06 | Diferenciar datos reales y de demostración | Verificar cuándo se muestran `DemoData`, pedidos, historial y reservas locales. | | Por confirmar | To-Review |
-| 2 | Soporte del producto | S2-T07 | Mejorar la Landing Page | Commits de accesibilidad, diseño y publicación de GitHub Pages. | | Patto04, según commits | Done |
-| 2 | US01, US05, US06, US16 | S2-T08 | Ejecutar pruebas y registrar resultados | Documentar el fallo de compilación y las comprobaciones HTTP independientes. | | Por confirmar | To-Review |
-| 2 | Validación AV2 | S2-T09 | Validar la versión con ambos segmentos | Aplicar tareas, registrar entrevistas y asociar observaciones con la versión probada. | | Por confirmar | To-Review |
+<table>
+<thead>
+<tr><th>Sprint #</th><th colspan="7">Sprint 2</th></tr>
+<tr><th colspan="2">User Story</th><th colspan="6">Work-Item / Task</th></tr>
+<tr><th>Id</th><th>Title</th><th>Id</th><th>Title</th><th>Description</th><th>Estimation<br>(Hours)</th><th>Assigned To</th><th>Status<br>(To-do / In-Process / To-Review / Done)</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="3">—</td><td rowspan="3">Actividades adicionales del Sprint</td><td>S2-T01</td><td>Versionar los servicios REST</td><td>Conservar el prefijo /api/v1, unificar las consultas y devolver Location al crear recursos.</td><td>6</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>S2-T02</td><td>Publicar la base del cliente Flutter</td><td>Mantener la estructura de navegación, modelos, estado y cliente HTTP publicada en 0344413.</td><td>8</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>S2-T03</td><td>Coordinar la entrega de AV2</td><td>Revisar la matriz, el alcance y los criterios de cierre con todos los integrantes.</td><td>4</td><td>Celis Berrospi, Eslander</td><td>To-do</td></tr>
+<tr><td rowspan="2">US01</td><td rowspan="2">Inicio de sesión en la aplicación móvil</td><td>S2-T04</td><td>Emitir tokens de autenticación</td><td>Exponer /api/v1/auth/tokens con token, expiresAt, userId y role.</td><td>6</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>S2-T05</td><td>Integrar el inicio de sesión en Flutter</td><td>Sustituir /login, leer el contrato vigente y enviar Authorization en las solicitudes protegidas.</td><td>8</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-do</td></tr>
+<tr><td rowspan="2">US16</td><td rowspan="2">Gestión de permisos por roles</td><td>S2-T06</td><td>Aplicar autorización por rol</td><td>Restringir las operaciones administrativas y separar los permisos de pacientes y personal.</td><td>6</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>S2-T07</td><td>Revisar permisos de extremo a extremo</td><td>Comprobar 401 sin token, 403 para el paciente y el acceso del rol autorizado desde la versión entregada.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>To-Review</td></tr>
+<tr><td rowspan="3">US05</td><td rowspan="3">Búsqueda de ópticas y disponibilidad de atención</td><td>S2-T08</td><td>Consultar ópticas por cercanía</td><td>Revisar latitud, longitud y radio, incluidos parámetros incompletos y coordenadas inválidas.</td><td>6</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>S2-T09</td><td>Conectar la búsqueda y los horarios</td><td>Usar /optical-stores con filtros y /time-slots; mostrar carga, error y ausencia de resultados.</td><td>6</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-do</td></tr>
+<tr><td>S2-T10</td><td>Automatizar la aceptación de cercanía</td><td>Incorporar el archivo .feature y sus Steps en Java para búsqueda válida y coordenadas inválidas.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>To-do</td></tr>
+<tr><td rowspan="2">US06</td><td rowspan="2">Reserva de cita para atención optométrica</td><td>S2-T11</td><td>Integrar la reserva autenticada</td><td>Enviar el token, patientId, opticalStoreId y timeSlotId, y mostrar la confirmación de la API.</td><td>6</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-do</td></tr>
+<tr><td>S2-T12</td><td>Revisar la reserva y su duplicidad</td><td>Repetir el caso 201/Location y el rechazo 409; contrastar el resultado con la interfaz.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>To-Review</td></tr>
+<tr><td rowspan="2">US04</td><td rowspan="2">Consulta del historial clínico y receta</td><td>S2-T13</td><td>Conectar la consulta de historial y receta</td><td>Sustituir datos de demostración por las respuestas del paciente y gestionar el historial vacío.</td><td>6</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-do</td></tr>
+<tr><td>S2-T14</td><td>Comprobar el historial del paciente</td><td>Verificar contenido, estados vacíos y tratamiento de errores con la cuenta de prueba.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>To-do</td></tr>
+<tr><td rowspan="2">US11</td><td rowspan="2">Seguimiento del estado de los pedidos</td><td>S2-T15</td><td>Conectar el seguimiento de pedidos</td><td>Consumir /patients/{patientId}/work-orders y diferenciar el estado real de los ejemplos locales.</td><td>6</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-do</td></tr>
+<tr><td>S2-T16</td><td>Comprobar los estados del pedido</td><td>Revisar su representación en Flutter y el mensaje que se muestra cuando no existen órdenes.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>To-do</td></tr>
+<tr><td rowspan="8">—</td><td rowspan="8">Actividades adicionales del Sprint</td><td>S2-T17</td><td>Mejorar la Landing Page</td><td>Conservar los cambios de accesibilidad, navegación, diseño y configuración de publicación del repositorio.</td><td>6</td><td>Morocho Pinedo, Mariana</td><td>Done</td></tr>
+<tr><td>S2-T18</td><td>Verificar la publicación y la descarga</td><td>Confirmar el workflow de Pages y que Descargar APK apunte a la versión que se entregará.</td><td>4</td><td>Morocho Pinedo, Mariana</td><td>To-Review</td></tr>
+<tr><td>S2-T19</td><td>Corregir la compilación de las pruebas</td><td>Mover header(...) al constructor de las solicitudes de AuthenticationAuthorizationApiTest.</td><td>2</td><td>Quispe Llacsahuanga, César Augusto</td><td>To-do</td></tr>
+<tr><td>S2-T20</td><td>Ejecutar la suite y adjuntar reportes</td><td>Ejecutar Maven y Flutter; conservar resultados de pruebas unitarias, integración y aceptación.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>To-do</td></tr>
+<tr><td>S2-T21</td><td>Preparar evidencias y video de ejecución</td><td>Registrar Swagger, capturas de Flutter y momentos del video con la versión probada.</td><td>6</td><td>Celis Berrospi, Eslander</td><td>To-Review</td></tr>
+<tr><td>S2-T22</td><td>Generar y distribuir el APK</td><td>Construir e instalar el APK con la URL compatible y registrar versión, dispositivo y enlace de distribución.</td><td>4</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-do</td></tr>
+<tr><td>S2-T23</td><td>Coordinar las entrevistas de validación</td><td>Realizar tres entrevistas por segmento y registrar datos, tiempos, capturas y observaciones.</td><td>8</td><td>Morocho Pinedo, Mariana</td><td>To-do</td></tr>
+<tr><td>S2-T24</td><td>Consolidar el cierre del Sprint</td><td>Revisar evidencias, resultados, tablero e Insights; actualizar el informe con los acuerdos confirmados.</td><td>4</td><td>Celis Berrospi, Eslander</td><td>To-do</td></tr>
+</tbody>
+</table>
+
+**Total de estimación propuesta:** 126 horas distribuidas entre 24 tareas. El equipo debe ajustar esta previsión a su disponibilidad. Las actividades adicionales de publicación, pruebas y validación forman parte del trabajo del Sprint, aunque no suman Story Points por separado.
 
 #### 4.2.2.4. Development Evidence for Sprint Review
 
@@ -1500,18 +1539,18 @@ La evidencia se obtiene de los historiales de los repositorios, con fechas expre
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
-| `Logix-OptiFlow-Back-End` | `develop` | [1c5d3f7](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1c5d3f7fb1b877df3b1d562fccb7d82a0a2f3b20) | `refactor: add api v1 prefix to controllers` | Introduce el prefijo `/api/v1` en los controladores. | 06/11/2026 |
-| `Logix-OptiFlow-Back-End` | `develop` | [c35048f](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/c35048fa938a448e17c52da0a5fa1b743a509f94) | `refactor: return location header on created resources` | Devuelve el encabezado Location al crear recursos. | 06/11/2026 |
-| `Logix-OptiFlow-Back-End` | `develop` | [a1db022](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/a1db022c903f52b2e3b3915c8c22eeb2eb50f356) | `refactor: merge optical store search routes` | Unifica la consulta y los filtros de ópticas. | 06/11/2026 |
-| `Logix-OptiFlow-Back-End` | `develop` | [5b0bbf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/5b0bbf237ddefaa0e10592fa57e95e57a70d6cf1) | `feat: add authentication tokens endpoint` | Añade el contrato para emitir tokens de sesión. | 06/11/2026 |
-| `Logix-OptiFlow-Back-End` | `develop` | [f9d0964](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/f9d09646886d555c17fd64b66cad582fe08b150a) | `feat: add staff members and roles` | Incorpora usuarios de personal y sus roles. | 06/11/2026 |
-| `Logix-OptiFlow-Back-End` | `develop` | [a5e729a](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/a5e729a45e083224028189b79f16a3022a2964d1) | `feat: add role based authorization` | Aplica autorización por rol a las operaciones protegidas. | 06/11/2026 |
-| `Logix-OptiFlow-Back-End` | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Añade coordenadas y consulta de ópticas cercanas. | 06/11/2026 |
-| `Logix-OptiFlow-Flutter` | `main` | [bf2eeb6](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/bf2eeb65883f13c8660d888e306b839e87d3fe33) | `feat; Add Flutter OptiFlow client foundation` | Publica la estructura del nuevo cliente Flutter. | 08/11/2026 |
-| `Logix-OptiFlow-Flutter` | `main` | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | `feat: Add cross-platform OptiFlow Flutter app` | Añade pantallas, navegación y estado para las experiencias de paciente y personal. | 08/11/2026 |
-| `Logix-OptiFlow-landing-page` | `main` | [d59a496](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/d59a4963a23847a47aa5832a4d64c44b303188b6) | `feat: incorporar mejoras de heurísticas, accesibilidad y animaciones sin diseño de fondos` | Incorpora ajustes de accesibilidad y de la experiencia visual. | 05/11/2026 |
-| `Logix-OptiFlow-landing-page` | `main` | [753aa2b](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/753aa2b177e4c0d8c091c552b771e85e160c3775) | `ci: configure GitHub Pages workflow, add .nojekyll and .gitignore` | Configura el workflow y archivos de publicación de GitHub Pages. | 06/11/2026 |
-| `Logix-OptiFlow-landing-page` | `main` | [441701b](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/441701b0d71a71171c5cec979c6019640d7576ba) | `fix: page.` | Registra la revisión de la página previa a su integración. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1c5d3f7](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1c5d3f7fb1b877df3b1d562fccb7d82a0a2f3b20) | `refactor: add api v1 prefix to controllers` | Introduce el prefijo `/api/v1` en los controladores. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [c35048f](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/c35048fa938a448e17c52da0a5fa1b743a509f94) | `refactor: return location header on created resources` | Devuelve el encabezado Location al crear recursos. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [a1db022](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/a1db022c903f52b2e3b3915c8c22eeb2eb50f356) | `refactor: merge optical store search routes` | Unifica la consulta y los filtros de ópticas. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [5b0bbf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/5b0bbf237ddefaa0e10592fa57e95e57a70d6cf1) | `feat: add authentication tokens endpoint` | Añade el contrato para emitir tokens de sesión. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [f9d0964](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/f9d09646886d555c17fd64b66cad582fe08b150a) | `feat: add staff members and roles` | Incorpora usuarios de personal y sus roles. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [a5e729a](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/a5e729a45e083224028189b79f16a3022a2964d1) | `feat: add role based authorization` | Aplica autorización por rol a las operaciones protegidas. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Añade coordenadas y consulta de ópticas cercanas. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter) | `main` | [bf2eeb6](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/bf2eeb65883f13c8660d888e306b839e87d3fe33) | `feat; Add Flutter OptiFlow client foundation` | Publica la estructura del nuevo cliente Flutter. | 08/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter) | `main` | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | `feat: Add cross-platform OptiFlow Flutter app` | Añade pantallas, navegación y estado para las experiencias de paciente y personal. | 08/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [d59a496](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/d59a4963a23847a47aa5832a4d64c44b303188b6) | `feat: incorporar mejoras de heurísticas, accesibilidad y animaciones sin diseño de fondos` | Incorpora ajustes de accesibilidad y de la experiencia visual. | 05/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [753aa2b](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/753aa2b177e4c0d8c091c552b771e85e160c3775) | `ci: configure GitHub Pages workflow, add .nojekyll and .gitignore` | Configura el workflow y archivos de publicación de GitHub Pages. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [441701b](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/441701b0d71a71171c5cec979c6019640d7576ba) | `fix: page.` | Registra la revisión de la página previa a su integración. | 06/11/2026 |
 
 El backend `4a1364e` incorpora un contrato diferente al consumido por el cliente anterior. El cliente Flutter `0344413` todavía usa `/login`, `/optical-stores/search` y `/availability`, y no añade el token a las solicitudes protegidas. La Tabla 129 muestra los ajustes necesarios para cerrar la integración.
 
@@ -1544,12 +1583,12 @@ La revisión combina las pruebas existentes en el repositorio con una ejecución
 
 *Suites identificadas para el Sprint 2*
 
-| Suite | Tipo | Comportamientos | Relación |
+| Test Suite | Tipo | Clases y comportamientos relacionados | Relación con el Sprint |
 |---|---|---|---|
-| `JwtTokenServiceTest` | Unitaria | Emisión, lectura y expiración de tokens. | US01, US16. |
+| `JwtTokenServiceTest` | Unitaria | `JwtTokenService`: emisión, lectura y expiración de tokens. | US01, US16. |
 | `AuthenticationAuthorizationApiTest` | Integración | Recurso sin token, reserva autenticada, permisos de paciente, acceso administrativo y consulta de citas ajenas. | US01, US06, US16. |
-| `GeoLocationTest` | Unitaria | Distancia entre ubicaciones y distancia al mismo punto. | Ampliación de US05. |
-| `GetPatientsByBirthdayQueryServiceTest` | Aplicación | Consulta por día y mes de cumpleaños. | Soporte a fidelización. |
+| `GeoLocationTest` | Unitaria | `GeoLocation`: distancia entre ubicaciones y distancia al mismo punto. | Ampliación de US05. |
+| `GetPatientsByBirthdayQueryServiceTest` | Aplicación | `GetPatientsByBirthdayQueryService`: consulta por día y mes de cumpleaños. | Soporte a fidelización. |
 | `SearchAndBookingApiTest` | Integración | Búsqueda, cercanía, validación, agenda y reserva. | US05, US06. |
 | `SearchBookingAcceptanceTest` | Aceptación, Cucumber | Cuatro escenarios Gherkin de búsqueda y reserva. | US05, US06; regresión del Sprint 1. |
 | `ClinicalCommercialRulesTest` y `ClinicalCommercialApiTest` | Unitaria e integración | Receta, cotización, pago y cierre de venta. | US03, US08 y US17, como regresión. |
@@ -1624,9 +1663,9 @@ Los commits relacionados con la ampliación de pruebas se presentan en la Tabla 
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
-| `Logix-OptiFlow-Back-End` | `develop` | [7575d66](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/7575d662e98b019e4716b90c61d7df04caa0acf0) | `test: add authentication and authorization tests` | Añade la suite de autenticación y autorización; la revisión actual detecta errores de compilación en dos solicitudes. | 06/11/2026 |
-| `Logix-OptiFlow-Back-End` | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Incluye pruebas de coordenadas y de búsqueda por cercanía. | 06/11/2026 |
-| `Logix-OptiFlow-Flutter` | `main` | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | `feat: Add cross-platform OptiFlow Flutter app` | Incluye una prueba de traducción de estados de cita; su ejecución queda por completar. | 08/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [7575d66](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/7575d662e98b019e4716b90c61d7df04caa0acf0) | `test: add authentication and authorization tests` | Añade la suite de autenticación y autorización; la revisión actual detecta errores de compilación en dos solicitudes. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Incluye pruebas de coordenadas y de búsqueda por cercanía. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter) | `main` | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | `feat: Add cross-platform OptiFlow Flutter app` | Incluye una prueba de traducción de estados de cita; su ejecución queda por completar. | 08/11/2026 |
 
 Para reproducir la revisión desde una copia del backend:
 
@@ -1636,7 +1675,7 @@ mvn -Dmaven.test.skip=true package
 java -jar target/optiflow-platform-0.1.0.jar --spring.profiles.active=local --server.port=18081
 ```
 
-En Flutter se utilizarán `flutter pub get`, `flutter analyze` y `flutter test`. **Resultado de esas ejecuciones:** ____________________. El repositorio contiene una prueba de estados; esta revisión no dispuso de un SDK Flutter para ejecutarla ni generar el APK.
+Felix revisará los resultados de `flutter pub get`, `flutter analyze` y `flutter test` junto con Nicolas. **Resultado de esas ejecuciones:** ____________________. El repositorio contiene una prueba de estados; esta revisión no dispuso de un SDK Flutter para ejecutarla ni generar el APK.
 
 #### 4.2.2.6. Execution Evidence for Sprint Review
 
@@ -1680,7 +1719,7 @@ La reserva autenticada devolvió HTTP 201 y un encabezado `Location`; repetir el
 
 **Aplicación Flutter.** El repositorio contiene las rutas y pantallas de paciente y personal. El controlador mezcla respuestas de servicios con datos de demostración para catálogo, operación clínica y estados locales. Antes de grabar la evidencia de AV2 debe comprobarse la conexión con el contrato versionado y dejar visible cuándo una vista opera en modo demostración.
 
-<!-- EQUIPO: insertar capturas reales de Flutter, indicando dispositivo, versión y si los datos proceden del backend o de demostración. -->
+<!-- EQUIPO — Nicolas y Eslander: insertar capturas reales de Flutter, indicando dispositivo, versión y procedencia de los datos. -->
 
 **Capturas de Flutter:** ____________________
 
@@ -1758,7 +1797,7 @@ La Tabla 133 distingue los artefactos revisados y la evidencia de publicación p
 | Android/Kotlin | Repositorio de la primera aplicación. | Capturas y distribución del Sprint 1. | Se conservan como antecedentes, no como publicación de Flutter. |
 | Flutter | `main`, `0344413`, versión `1.0.0+1`. | Código publicado y definición de pantallas, cliente HTTP y prueba de estados. | APK, enlace de distribución y captura de versión: ____________________. |
 
-<!-- EQUIPO: confirmar el commit de Render, el workflow público de la Landing y el APK Flutter distribuido. -->
+<!-- EQUIPO — César: confirmar commit activo y captura de Render. Mariana: adjuntar workflow y URL de Pages. Nicolas: adjuntar APK Flutter y versión. -->
 
 Para distribuir Flutter se debe generar el APK de la revisión elegida con la URL compatible, instalarlo en un dispositivo y comprobar el flujo con el backend antes de cargarlo en Firebase App Distribution. La invitación del Sprint 1 no se presenta como evidencia de una nueva versión hasta verificar qué APK distribuye.
 
@@ -1773,7 +1812,7 @@ Cambiar la URL base no resuelve por sí solo las subrutas y el formato de autent
 
 #### 4.2.2.9. Team Collaboration Insights during Sprint
 
-La revisión del historial distingue la contribución documental de la implementación. Los commits del informe permiten reconocer el trabajo de análisis, diseño y documentación, pero no se contabilizan como commits del backend o del cliente móvil.
+Eslander consolidará las capturas y los enlaces de colaboración, con apoyo de los responsables de cada producto. Esta asignación forma parte de la propuesta de distribución. La revisión del historial distingue la contribución documental de la implementación. Los commits del informe permiten reconocer el trabajo de análisis, diseño y documentación, pero no se contabilizan como commits del backend o del cliente móvil.
 
 La Tabla 134 resume los commits sin merge posteriores al corte del Sprint 1 y hasta la revisión de AV2. Las cantidades describen ese intervalo, no una valoración individual del trabajo ni el cumplimiento de una historia.
 
@@ -1793,7 +1832,7 @@ El backend integra los cambios de contratos REST, seguridad y ubicación mediant
 
 **Capturas de GitHub Insights del Sprint 2:** ____________________
 
-<!-- EQUIPO: añadir capturas de Contributors y actividad por repositorio, con la rama y el intervalo visibles. -->
+<!-- EQUIPO — Eslander: añadir Contributors y actividad de cada repositorio con la rama y el intervalo visibles. -->
 
 El cierre del Sprint exige resolver la incompatibilidad del cliente, corregir la compilación de la suite y asociar el APK y el video con la misma revisión. El código publicado, las comprobaciones HTTP y los datos de demostración quedan diferenciados para que la revisión no dé por aceptadas funciones que todavía requieren integración.
 
@@ -1840,7 +1879,7 @@ Para el paciente se proponen tareas de búsqueda, consulta de horario, reserva y
 
 En cada tarea se registra: resultado esperado, finalización sin ayuda o con ayuda, error observado, comentario del participante y recomendación. Si falla la conexión, se identifica el endpoint y la versión antes de atribuir el problema a la comprensión del usuario.
 
-<!-- EQUIPO: confirmar dispositivo, versión del APK, responsables y fecha de las sesiones de AV2. -->
+<!-- EQUIPO — Mariana y Nicolas: confirmar dispositivo, versión del APK y fechas de las sesiones de AV2. -->
 
 **Cliente, versión y dispositivo usados en AV2:** ____________________.
 
@@ -1856,7 +1895,7 @@ Se conserva la evidencia audiovisual de las entrevistas anteriores en el [Anexo 
 
 El enunciado solicita entre tres y cinco entrevistas por segmento. La Tabla 135 deja seis registros mínimos preparados; los datos se completarán con sesiones reales y el video publicado en el OneDrive del curso. No se asignan nombres, tiempos o comentarios a personas que todavía no hayan realizado la evaluación de esta versión.
 
-<!-- EQUIPO: completar datos, resumen y captura de cada entrevista real. -->
+<!-- EQUIPO — Mariana, con apoyo de todos: completar los seis registros de entrevistas con datos, resumen, tiempo y captura reales. -->
 
 <a id="tabla-135"></a>
 
@@ -2293,7 +2332,7 @@ Mostrar todos los montos en soles con el formato peruano (por ejemplo, "S/ 899.0
 
 Los hallazgos anteriores se mantienen con sus capturas y severidad. Un cambio de estilos o de navegación en el repositorio no basta para cerrar una observación: se debe repetir la tarea sobre la versión entregada y registrar el resultado. Las pruebas técnicas de 4.2.2 detectaron además dos problemas de integración: rutas antiguas del cliente Flutter y ausencia del encabezado de autenticación en sus solicitudes protegidas.
 
-<!-- EQUIPO: completar la reevaluación con el APK de AV2 y los usuarios entrevistados. -->
+<!-- EQUIPO — Mariana y Felix: repetir las tareas con el APK de AV2 y completar resultado, evidencia y responsable de cada hallazgo. -->
 
 La Tabla 138 permite dejar constancia del cierre o de la persistencia de cada observación sin modificar la evidencia histórica.
 
