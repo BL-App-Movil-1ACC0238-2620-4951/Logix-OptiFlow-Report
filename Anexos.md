@@ -128,7 +128,7 @@ La leyenda de los elementos del diagrama se presenta a continuación (ver Figura
 
 ### E.3. Component Diagrams
 
-Las vistas conservadas documentan el diseño de componentes. Las bases documentales o adaptadores adicionales que aparezcan en esas imágenes no acreditan su implementación: la persistencia vigente es la única base PostgreSQL y los módulos con migraciones V1–V4. Inventory permanece como diseño propuesto.
+Los Component Diagrams muestran los componentes de cada módulo del backend, incluidos los adaptadores hacia la Pasarela de Pagos (`PaymentGatewayAdapter`) y Firebase Cloud Messaging (`FirebaseMessagingAdapter`). Todos los módulos persisten en la única base PostgreSQL del backend.
 
 #### Clinical & Commercial
 
@@ -141,7 +141,7 @@ El Clinical & Commercial Component Diagram se observa en la Figura E4.
 
 *Clinical & Commercial Component Diagram*
 
-![Clinical & Commercial Component Diagram](assets/cap2/C4/Clinical%20%26%20Commercial%20component.svg)
+![Clinical & Commercial Component Diagram](assets/cap2/C4/components/clinical-commercial.svg)
 
 
 #### Notification & Loyalty
@@ -155,7 +155,7 @@ El Notification & Loyalty Component Diagram se muestra en la Figura E5.
 
 *Notification & Loyalty Component Diagram*
 
-![Notification & Loyalty Component Diagram](assets/cap2/C4/Notification%20%26%20Loyalty%20component.svg)
+![Notification & Loyalty Component Diagram](assets/cap2/C4/components/notification-loyalty.svg)
 
 
 #### Production & Tracking
@@ -169,7 +169,7 @@ El Production & Tracking Component Diagram se presenta en la Figura E6.
 
 *Production & Tracking Component Diagram*
 
-![Production & Tracking Component Diagram](assets/cap2/C4/Production%20%26%20Tracking%20component.svg)
+![Production & Tracking Component Diagram](assets/cap2/C4/components/production-tracking.svg)
 
 
 #### Search & Booking
@@ -183,7 +183,7 @@ El Search & Booking Component Diagram se observa en la Figura E7.
 
 *Search & Booking Component Diagram*
 
-![Search & Booking Component Diagram](assets/cap2/C4/Search%20%26%20Booking%20component.svg)
+![Search & Booking Component Diagram](assets/cap2/C4/components/search-booking.svg)
 
 
 #### Store Management & Inventory
@@ -197,7 +197,7 @@ El Store Management & Inventory Component Diagram se muestra en la Figura E8.
 
 *Store Management & Inventory Component Diagram*
 
-![Store Management & Inventory Component Diagram](assets/cap2/C4/Store%20Management%20%26%20Inventory%20component.svg)
+![Store Management & Inventory Component Diagram](assets/cap2/C4/components/store-inventory.svg)
 
 
 

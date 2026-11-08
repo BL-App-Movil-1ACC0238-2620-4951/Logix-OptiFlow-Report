@@ -785,11 +785,11 @@ Los wireframes móviles definen la distribución de componentes, la jerarquía d
 **Sección Autenticación y Selección de Rol**
 
 
-Los Wireframes del flujo de inicio de sesión y selección de rol se observan en la Figura 75.
+Los Wireframes del flujo de inicio de sesión y selección de rol se observan en la Figura 77.
 
-<a id="figura-75"></a>
+<a id="figura-77"></a>
 
-**Figura 75**
+**Figura 77**
 
 *Wireframes del flujo de inicio de sesión y selección de rol*
 
@@ -801,11 +801,11 @@ El wireframe reúne las vistas de acceso y selección de perfil, junto con los c
 **Sección Inicio y Consulta de Receta Óptica (Paciente)**
 
 
-Los Wireframes de pantalla de inicio del paciente y ficha de receta óptica se muestran en la Figura 76.
+Los Wireframes de pantalla de inicio del paciente y ficha de receta óptica se muestran en la Figura 78.
 
-<a id="figura-76"></a>
+<a id="figura-78"></a>
 
-**Figura 76**
+**Figura 78**
 
 *Wireframes de pantalla de inicio del paciente y ficha de receta óptica*
 
@@ -817,11 +817,11 @@ La propuesta combina accesos a las funciones del paciente con una vista para con
 **Sección Búsqueda y Exploración de Monturas (Paciente)**
 
 
-Los Wireframes del módulo de búsqueda y catálogo de armazones se presentan en la Figura 77.
+Los Wireframes del módulo de búsqueda y catálogo de armazones se presentan en la Figura 79.
 
-<a id="figura-77"></a>
+<a id="figura-79"></a>
 
-**Figura 77**
+**Figura 79**
 
 *Wireframes del módulo de búsqueda y catálogo de armazones*
 
@@ -833,11 +833,11 @@ Las vistas representan la búsqueda de ópticas y la exploración de armazones, 
 **Sección Gestión y Reserva de Citas (Paciente)**
 
 
-Los Wireframes del flujo de gestión, reprogramación y reserva de citas se observan en la Figura 78.
+Los Wireframes del flujo de gestión, reprogramación y reserva de citas se observan en la Figura 80.
 
-<a id="figura-78"></a>
+<a id="figura-80"></a>
 
-**Figura 78**
+**Figura 80**
 
 *Wireframes del flujo de gestión, reprogramación y reserva de citas*
 
@@ -849,11 +849,11 @@ La secuencia reúne las vistas para consultar, reprogramar y reservar citas.
 **Sección Seguimiento de Pedidos y Montaje (Paciente)**
 
 
-Los Wireframes del módulo de seguimiento de pedidos en taller y entrega se muestran en la Figura 79.
+Los Wireframes del módulo de seguimiento de pedidos en taller y entrega se muestran en la Figura 81.
 
-<a id="figura-79"></a>
+<a id="figura-81"></a>
 
-**Figura 79**
+**Figura 81**
 
 *Wireframes del módulo de seguimiento de pedidos en taller y entrega*
 
@@ -865,11 +865,11 @@ La propuesta resume el avance del pedido y sus etapas hasta la entrega; el wiref
 **Sección Perfil de Usuario, Historial y Configuración (Paciente)**
 
 
-Los Wireframes del perfil de paciente, historial clínico y panel de ajustes se presentan en la Figura 80.
+Los Wireframes del perfil de paciente, historial clínico y panel de ajustes se presentan en la Figura 82.
 
-<a id="figura-80"></a>
+<a id="figura-82"></a>
 
-**Figura 80**
+**Figura 82**
 
 *Wireframes del perfil de paciente, historial clínico y panel de ajustes*
 
@@ -881,11 +881,11 @@ Las pantallas agrupan información del perfil, antecedentes visuales y opciones 
 **Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
 
 
-Los Wireframes del directorio de pacientes, ficha médica, refracción y orden de trabajo se observan en la Figura 81.
+Los Wireframes del directorio de pacientes, ficha médica, refracción y orden de trabajo se observan en la Figura 83.
 
-<a id="figura-81"></a>
+<a id="figura-83"></a>
 
-**Figura 81**
+**Figura 83**
 
 *Wireframes del directorio de pacientes, ficha médica, refracción y orden de trabajo*
 
@@ -897,11 +897,11 @@ El wireframe reúne el directorio de pacientes y vistas para registrar informaci
 **Sección Agenda y Control de Atención Clínica (Personal Óptico)**
 
 
-Los Wireframes de la agenda diaria, control de sala de espera y flujo de atención se muestran en la Figura 82.
+Los Wireframes de la agenda diaria, control de sala de espera y flujo de atención se muestran en la Figura 84.
 
-<a id="figura-82"></a>
+<a id="figura-84"></a>
 
-**Figura 82**
+**Figura 84**
 
 *Wireframes de la agenda diaria, control de sala de espera y flujo de atención*
 
@@ -913,11 +913,11 @@ La propuesta reúne vistas para consultar la agenda y dar seguimiento a la atenc
 **Sección Control de Stock e Inventario (Personal Óptico)**
 
 
-Los Wireframes de gestión de inventario, escáner de códigos y ajuste de existencias se presentan en la Figura 83.
+Los Wireframes de gestión de inventario, escáner de códigos y ajuste de existencias se presentan en la Figura 85.
 
-<a id="figura-83"></a>
+<a id="figura-85"></a>
 
-**Figura 83**
+**Figura 85**
 
 *Wireframes de gestión de inventario, escáner de códigos y ajuste de existencias*
 
@@ -929,11 +929,11 @@ El wireframe agrupa vistas para consultar existencias, buscar productos y regist
 **Sección Operaciones, Producción y Reportes (Personal Óptico)**
 
 
-Los Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes se observan en la Figura 84.
+Los Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes se observan en la Figura 86.
 
-<a id="figura-84"></a>
+<a id="figura-86"></a>
 
-**Figura 84**
+**Figura 86**
 
 *Wireframes del centro de herramientas, cotizaciones, taller de producción y reportes*
 
@@ -956,12 +956,12 @@ Primero, se definen las tareas típicas que realizaría el usuario para completa
 - Introducir las credenciales requeridas (correo electrónico y contraseña) o completar los campos de registro.
 - Validar la información ingresada y confirmar el acceso al dashboard principal de la cuenta.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 85).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 87).
 
 
-<a id="figura-85"></a>
+<a id="figura-87"></a>
 
-**Figura 85**
+**Figura 87**
 
 *Wireflow de ingreso o registro de usuario*
 
@@ -977,12 +977,12 @@ Primero, se definen las tareas típicas que realizaría el personal para complet
 - Completar el formulario clínico con datos personales, número de identificación, contacto y motivo de consulta inicial.
 - Guardar la ficha del paciente y verificar su inclusión en la base de datos para futuras atenciones y refracciones.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 86).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 88).
 
 
-<a id="figura-86"></a>
+<a id="figura-88"></a>
 
-**Figura 86**
+**Figura 88**
 
 *Wireflow de registro de un nuevo paciente*
 
@@ -998,12 +998,12 @@ Primero, se definen las tareas típicas que realizaría el usuario para completa
 - Escoger al especialista disponible, así como la fecha y franja horaria idónea mediante el calendario interactivo.
 - Revisar el resumen de la reserva y confirmar el agendamiento con emisión de comprobante y recordatorio.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 87).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 89).
 
 
-<a id="figura-87"></a>
+<a id="figura-89"></a>
 
-**Figura 87**
+**Figura 89**
 
 *Wireflow de registro de una nueva cita*
 
@@ -1019,12 +1019,12 @@ Primero, se definen las tareas típicas que realizaría el personal para complet
 - Seleccionar la sede, especialidad médica y horario sin necesidad de reingresar la información del paciente.
 - Confirmar la reserva y verificar la actualización automática en el historial de citas del paciente.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 88).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 90).
 
 
-<a id="figura-88"></a>
+<a id="figura-90"></a>
 
-**Figura 88**
+**Figura 90**
 
 *Wireflow de una nueva cita desde la ficha de un paciente*
 
@@ -1040,12 +1040,12 @@ Primero, se definen las tareas típicas que realizaría el especialista para com
 - Añadir observaciones de diagnóstico clínico, recomendaciones de uso y especificaciones técnicas de lentes/monturas.
 - Guardar la prescripción y generar la orden de trabajo clínica correspondiente para su derivación a taller o venta.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 89).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 91).
 
 
-<a id="figura-89"></a>
+<a id="figura-91"></a>
 
-**Figura 89**
+**Figura 91**
 
 *Wireflow del proceso de atención al paciente*
 
@@ -1061,12 +1061,12 @@ Primero, se definen las tareas típicas que realizaría el usuario para completa
 - Comprobar la etapa técnica actual del trabajo (corte de lunas, biselado, tratamiento antirreflejante, montaje, control de calidad).
 - Actualizar el estado de la orden hacia "Listo para entrega" y notificar la disponibilidad del producto.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 90).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 92).
 
 
-<a id="figura-90"></a>
+<a id="figura-92"></a>
 
-**Figura 90**
+**Figura 92**
 
 *Wireflow de verificación de la producción de los lentes*
 
@@ -1080,14 +1080,15 @@ Primero, se definen las tareas típicas que realizaría el paciente para complet
 - Ingresar a la sección de catálogo y búsqueda de productos.
 - Filtrar por marca, material, forma de armazón, rango de precio o sedes con disponibilidad.
 - Visualizar el detalle técnico de la montura seleccionada (dimensiones, colores y stock disponible).
+- Probar virtualmente la montura con la cámara frontal del celular mediante el probador virtual.
 - Seleccionar la opción de reserva física en tienda o vincular el armazón a su próxima cita presencial.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 91).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 93).
 
 
-<a id="figura-91"></a>
+<a id="figura-93"></a>
 
-**Figura 91**
+**Figura 93**
 
 *Wireflow de catálogo y reserva de monturas*
 
@@ -1103,12 +1104,12 @@ Primero, se definen las tareas típicas que realizaría el paciente para complet
 - Visualizar la línea de tiempo de seguimiento (en laboratorio, biselado, control de calidad, disponible para retiro).
 - Consultar los detalles de la sede de recojo o comunicarse con soporte ante dudas sobre su entrega.
 
-Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 92).
+Luego, se muestra el resultado de la traducción de las acciones a pantallas (ver Figura 94).
 
 
-<a id="figura-92"></a>
+<a id="figura-94"></a>
 
-**Figura 92**
+**Figura 94**
 
 *Wireflow de consulta de pedidos*
 
@@ -1123,11 +1124,11 @@ En esta sección se presentan los mockups de alta fidelidad de la aplicación m�
 **Sección Inicio y Dashboard (Paciente / Personal)**
 
 
-Los mockups de la pantalla de inicio y panel principal se muestran en la Figura 93.
+Los mockups de la pantalla de inicio y panel principal se muestran en la Figura 95.
 
-<a id="figura-93"></a>
+<a id="figura-95"></a>
 
-**Figura 93**
+**Figura 95**
 
 *Mockups de la pantalla de inicio y panel principal*
 
@@ -1139,27 +1140,27 @@ El mockup presenta la pantalla principal y sus accesos a las funciones del pacie
 **Sección Búsqueda y Exploración de Monturas (Paciente)**
 
 
-Los mockups del módulo de búsqueda y catálogo de armazones se presentan en la Figura 94.
+Los mockups del módulo de búsqueda y catálogo de armazones se presentan en la Figura 96.
 
-<a id="figura-94"></a>
+<a id="figura-96"></a>
 
-**Figura 94**
+**Figura 96**
 
 *Mockups del módulo de búsqueda y catálogo de armazones*
 
 ![Mockups del módulo de búsqueda y catálogo de armazones.](assets/cap3/mockups_movil/buscar.png)
 
 
-El mockup reúne la búsqueda de ópticas y la exploración del catálogo de armazones.
+El mockup reúne la búsqueda de ópticas, el mapa de ópticas cercanas, la exploración del catálogo de armazones y el probador virtual de monturas.
 
 **Sección Gestión y Reserva de Citas (Paciente)**
 
 
-Los mockups del flujo de gestión y reserva de citas se observan en la Figura 95.
+Los mockups del flujo de gestión y reserva de citas se observan en la Figura 97.
 
-<a id="figura-95"></a>
+<a id="figura-97"></a>
 
-**Figura 95**
+**Figura 97**
 
 *Mockups del flujo de gestión y reserva de citas*
 
@@ -1171,11 +1172,11 @@ El mockup representa el proceso propuesto para consultar opciones y reservar una
 **Sección Consulta de Receta Óptica (Paciente)**
 
 
-Los mockups del visor de recetas ópticas y prescripción médica se muestran en la Figura 96.
+Los mockups del visor de recetas ópticas y prescripción médica se muestran en la Figura 98.
 
-<a id="figura-96"></a>
+<a id="figura-98"></a>
 
-**Figura 96**
+**Figura 98**
 
 *Mockups del visor de recetas ópticas y prescripción médica*
 
@@ -1187,11 +1188,11 @@ El mockup presenta la consulta de la receta óptica y sus datos principales.
 **Sección Seguimiento de Pedidos y Montaje (Paciente)**
 
 
-Los mockups del módulo de seguimiento de pedidos en taller y entrega se presentan en la Figura 97.
+Los mockups del módulo de seguimiento de pedidos en taller y entrega se presentan en la Figura 99.
 
-<a id="figura-97"></a>
+<a id="figura-99"></a>
 
-**Figura 97**
+**Figura 99**
 
 *Mockups del módulo de seguimiento de pedidos en taller y entrega*
 
@@ -1203,11 +1204,11 @@ El mockup representa la consulta de pedidos y las etapas de seguimiento propuest
 **Sección Directorio Clínico y Ficha del Paciente (Personal Óptico)**
 
 
-Los mockups del directorio de pacientes, ficha médica y registro de consulta se observan en la Figura 98.
+Los mockups del directorio de pacientes, ficha médica y registro de consulta se observan en la Figura 100.
 
-<a id="figura-98"></a>
+<a id="figura-100"></a>
 
-**Figura 98**
+**Figura 100**
 
 *Mockups del directorio de pacientes, ficha médica y registro de consulta*
 
@@ -1219,11 +1220,11 @@ El mockup reúne el directorio de pacientes y las vistas propuestas para consult
 **Sección Agenda Diaria y Control de Atención (Personal Óptico)**
 
 
-Los mockups de la agenda diaria, control de sala de espera y flujo de turnos se muestran en la Figura 99.
+Los mockups de la agenda diaria, control de sala de espera y flujo de turnos se muestran en la Figura 101.
 
-<a id="figura-99"></a>
+<a id="figura-101"></a>
 
-**Figura 99**
+**Figura 101**
 
 *Mockups de la agenda diaria, control de sala de espera y flujo de turnos*
 
@@ -1235,11 +1236,11 @@ El mockup presenta la agenda diaria y los estados propuestos para dar seguimient
 **Sección Control de Stock e Inventario (Personal Óptico)**
 
 
-Los mockups de gestión de inventario, escáner de códigos y fichas de producto se presentan en la Figura 100.
+Los mockups de gestión de inventario, escáner de códigos y fichas de producto se presentan en la Figura 102.
 
-<a id="figura-100"></a>
+<a id="figura-102"></a>
 
-**Figura 100**
+**Figura 102**
 
 *Mockups de gestión de inventario, escáner de códigos y fichas de producto*
 
@@ -1251,11 +1252,11 @@ El mockup reúne la consulta del catálogo, las existencias y las vistas propues
 **Sección Operaciones, Producción en Taller y Reportes (Personal Óptico)**
 
 
-Los mockups del centro de herramientas, cotizaciones, taller y analítica se observan en la Figura 101.
+Los mockups del centro de herramientas, cotizaciones, taller y analítica se observan en la Figura 103.
 
-<a id="figura-101"></a>
+<a id="figura-103"></a>
 
-**Figura 101**
+**Figura 103**
 
 *Mockups del centro de herramientas, cotizaciones, taller y analítica*
 
@@ -1274,11 +1275,11 @@ A continuación, se presentan los user flows desarrollados para los flujos repre
 
 *Happy Path*
 
-El recorrido propuesto cubre la selección de una óptica, un horario y la confirmación de la cita (ver Figura 102).
+El recorrido propuesto cubre la selección de una óptica, un horario y la confirmación de la cita (ver Figura 104).
 
-<a id="figura-102"></a>
+<a id="figura-104"></a>
 
-**Figura 102**
+**Figura 104**
 
 *User flow de reserva de una cita*
 
@@ -1292,11 +1293,11 @@ Como alternativas, se consideran la pérdida de disponibilidad del horario y un 
 
 *Happy Path*
 
-El recorrido propuesto muestra la búsqueda de una montura y la consulta de su información para evaluar su disponibilidad (ver Figura 103).
+El recorrido propuesto muestra la búsqueda de una montura y la consulta de su información para evaluar su disponibilidad (ver Figura 105).
 
-<a id="figura-103"></a>
+<a id="figura-105"></a>
 
-**Figura 103**
+**Figura 105**
 
 *User flow de búsqueda y selección de monturas*
 
@@ -1310,11 +1311,11 @@ Como alternativas, se consideran una búsqueda sin resultados y la falta de exis
 
 *Happy Path*
 
-El recorrido propuesto representa la consulta del estado de un pedido y de la información prevista para su entrega (ver Figura 104).
+El recorrido propuesto representa la consulta del estado de un pedido y de la información prevista para su entrega (ver Figura 106).
 
-<a id="figura-104"></a>
+<a id="figura-106"></a>
 
-**Figura 104**
+**Figura 106**
 
 *User flow de seguimiento de pedidos*
 
@@ -1328,11 +1329,11 @@ Como alternativa, se contempla que una observación de calidad requiera ajustar 
 
 *Happy Path*
 
-El recorrido propuesto permite consultar la receta óptica y sus datos principales (ver Figura 105).
+El recorrido propuesto permite consultar la receta óptica y sus datos principales (ver Figura 107).
 
-<a id="figura-105"></a>
+<a id="figura-107"></a>
 
-**Figura 105**
+**Figura 107**
 
 *User flow de consulta de receta óptica*
 
@@ -1346,11 +1347,11 @@ Como alternativas, se consideran la ausencia de una receta registrada y la neces
 
 *Happy Path*
 
-El recorrido propuesto muestra la consulta de la agenda y la actualización del estado de atención (ver Figura 106).
+El recorrido propuesto muestra la consulta de la agenda y la actualización del estado de atención (ver Figura 108).
 
-<a id="figura-106"></a>
+<a id="figura-108"></a>
 
-**Figura 106**
+**Figura 108**
 
 *User flow de gestión de agenda y atención clínica*
 
@@ -1364,11 +1365,11 @@ Como alternativas, se consideran la inasistencia del paciente y la reprogramaci�
 
 *Happy Path*
 
-El recorrido propuesto muestra cómo el personal agenda una cita desde el registro del paciente (ver Figura 107).
+El recorrido propuesto muestra cómo el personal agenda una cita desde el registro del paciente (ver Figura 109).
 
-<a id="figura-107"></a>
+<a id="figura-109"></a>
 
-**Figura 107**
+**Figura 109**
 
 *User flow de agendamiento de cita por el personal*
 
@@ -1382,11 +1383,11 @@ Como alternativa, se contempla que el horario elegido no esté disponible.
 
 *Happy Path*
 
-El recorrido propuesto representa el registro de un paciente y de la información de su evaluación visual (ver Figura 108).
+El recorrido propuesto representa el registro de un paciente y de la información de su evaluación visual (ver Figura 110).
 
-<a id="figura-108"></a>
+<a id="figura-110"></a>
 
-**Figura 108**
+**Figura 110**
 
 *User flow de registro de paciente y evaluación visual*
 
@@ -1400,11 +1401,11 @@ Como alternativa, se considera el intento de guardar una ficha clínica con dato
 
 *Happy Path*
 
-El recorrido propuesto representa la elaboración de una cotización y su conversión en venta (ver Figura 109).
+El recorrido propuesto representa la elaboración de una cotización y su conversión en venta (ver Figura 111).
 
-<a id="figura-109"></a>
+<a id="figura-111"></a>
 
-**Figura 109**
+**Figura 111**
 
 *User flow de cotización y confirmación de venta*
 
@@ -1418,11 +1419,11 @@ Como alternativas, se consideran el rechazo de la cotización y la decisión de 
 
 *Happy Path*
 
-El recorrido propuesto representa la consulta de un producto mediante escaneo y la gestión de sus movimientos de inventario (ver Figura 110).
+El recorrido propuesto representa la consulta de un producto mediante escaneo y la gestión de sus movimientos de inventario (ver Figura 112).
 
-<a id="figura-110"></a>
+<a id="figura-112"></a>
 
-**Figura 110**
+**Figura 112**
 
 *User flow de control de inventario y escaneo de productos*
 
@@ -1436,11 +1437,11 @@ Como alternativas, se consideran un código ilegible y un producto que no figure
 
 *Happy Path*
 
-El recorrido propuesto reúne la supervisión de órdenes de producción y la consulta de reportes (ver Figura 111).
+El recorrido propuesto reúne la supervisión de órdenes de producción y la consulta de reportes (ver Figura 113).
 
-<a id="figura-111"></a>
+<a id="figura-113"></a>
 
-**Figura 111**
+**Figura 113**
 
 *User flow de supervisión de producción, alertas y reportes*
 
@@ -1454,11 +1455,11 @@ Como alternativa, se contempla una demora en producción que requiera revisar la
 
 ##### Landing Page Prototyping:
 
-La captura del video del prototipo de la Landing Page se muestra en la Figura 112.
+La captura del video del prototipo de la Landing Page se muestra en la Figura 114.
 
-<a id="figura-112"></a>
+<a id="figura-114"></a>
 
-**Figura 112**
+**Figura 114**
 
 *Captura del video del prototipo de la Landing Page*
 

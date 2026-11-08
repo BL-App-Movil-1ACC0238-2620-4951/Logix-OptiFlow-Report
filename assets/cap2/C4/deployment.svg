@@ -1,0 +1,195 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2290 1610" width="2290" height="1610" font-family="Helvetica, Arial, sans-serif">
+<defs>
+<marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker>
+<marker id="mgold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c8962b"/></marker>
+<marker id="mgrn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+</defs>
+<rect width="2290" height="1610" fill="#ffffff"/>
+<rect x="541" y="47" width="655" height="638" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="546" y="668" font-size="12.5" font-weight="700" fill="#1e293b">Android test device</text>
+<text x="546" y="678" font-size="6.5" fill="#475569">[Deployment Node: Physical Android 14 Device]</text>
+<rect x="557" y="307" width="623" height="336" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="562" y="627" font-size="12.5" font-weight="700" fill="#1e293b">Kotlin application sandbox</text>
+<text x="562" y="637" font-size="6.5" fill="#475569">[Deployment Node: Android Application Sandbox]</text>
+<rect x="65" y="463" width="178" height="155" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="70" y="606" font-size="12.5" font-weight="700" fill="#1e293b">Firebase</text>
+<text x="70" y="616" font-size="6.5" fill="#475569">[Deployment Node: Cloud Platform]</text>
+<rect x="1001" y="805" width="179" height="155" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="1006" y="947" font-size="12.5" font-weight="700" fill="#1e293b">AR &amp; Computer Vision Cloud</text>
+<text x="1006" y="957" font-size="6.5" fill="#475569">[Deployment Node: Cloud Platform / SaaS]</text>
+<rect x="1001" y="1081" width="179" height="155" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="1006" y="1224" font-size="12.5" font-weight="700" fill="#1e293b">Google Cloud Platform</text>
+<text x="1006" y="1234" font-size="6.5" fill="#475569">[Deployment Node: Cloud Platform / SaaS]</text>
+<rect x="1001" y="1357" width="179" height="155" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="1006" y="1500" font-size="12.5" font-weight="700" fill="#1e293b">Payment Gateway Cloud</text>
+<text x="1006" y="1510" font-size="6.5" fill="#475569">[Deployment Node: Financial Services Cloud / SaaS]</text>
+<rect x="2035" y="1016" width="179" height="155" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="2040" y="1158" font-size="12.5" font-weight="700" fill="#1e293b">Messaging Cloud</text>
+<text x="2040" y="1168" font-size="6.5" fill="#475569">[Deployment Node: Messaging Cloud / SaaS]</text>
+<rect x="1502" y="1293" width="211" height="213" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="1507" y="1493" font-size="12.5" font-weight="700" fill="#1e293b">Render</text>
+<text x="1507" y="1503" font-size="6.5" fill="#475569">[Deployment Node: Cloud Service / PaaS]</text>
+<rect x="1518" y="1309" width="179" height="155" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="1523" y="1451" font-size="12.5" font-weight="700" fill="#1e293b">Backend Web Service</text>
+<text x="1523" y="1461" font-size="6.5" fill="#475569">[Deployment Node: Docker Container Web Service]</text>
+<rect x="2019" y="1293" width="211" height="213" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="2024" y="1493" font-size="12.5" font-weight="700" fill="#1e293b">Render PostgreSQL</text>
+<text x="2024" y="1503" font-size="6.5" fill="#475569">[Deployment Node: Cloud Service / Relational Database Service]</text>
+<rect x="2035" y="1309" width="179" height="155" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="2040" y="1451" font-size="12.5" font-weight="700" fill="#1e293b">PostgreSQL service</text>
+<text x="2040" y="1461" font-size="6.5" fill="#475569">[Deployment Node: Relational Database Service]</text>
+<rect x="65" y="1273" width="178" height="155" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="70" y="1415" font-size="12.5" font-weight="700" fill="#1e293b">Visitor device</text>
+<text x="70" y="1425" font-size="6.5" fill="#475569">[Deployment Node: Android / iOS / Windows / macOS]</text>
+<rect x="517" y="1256" width="211" height="213" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="522" y="1456" font-size="12.5" font-weight="700" fill="#1e293b">GitHub Pages</text>
+<text x="522" y="1466" font-size="6.5" fill="#475569">[Deployment Node: Cloud Platform / Static Hosting]</text>
+<rect x="533" y="1272" width="179" height="155" fill="none" stroke="#9fb1c3" stroke-width="1"/>
+<text x="538" y="1414" font-size="12.5" font-weight="700" fill="#1e293b">Static site hosting</text>
+<text x="538" y="1424" font-size="6.5" fill="#475569">[Deployment Node: GitHub Pages Web Service]</text>
+<path d="M227,527 L573,527" fill="none" stroke="#c8962b" stroke-width="1.4" marker-end="url(#mgold)"/>
+<text x="364" y="521.0" font-size="7.5" fill="#a67c1f" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Entrega APK firmado para</text>
+<text x="364" y="530.0" font-size="7.5" fill="#a67c1f" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">instalación y pruebas.</text>
+<text x="364" y="539.0" font-size="6" fill="#a67c1f" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[HTTPS / SDK]</text>
+<path d="M662,455 L745,300 L968,300 L1059,162" fill="none" stroke="#16a34a" stroke-width="1.4" marker-end="url(#mgrn)"/>
+<text x="881" y="292.0" font-size="7.5" fill="#16a34a" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Captura frames de video</text>
+<text x="881" y="301.0" font-size="7.5" fill="#16a34a" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">frontal en tiempo real</text>
+<text x="881" y="310.0" font-size="6" fill="#16a34a" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[CameraX API]</text>
+<path d="M671,463 L745,372 L1017,372" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#mg)"/>
+<text x="881" y="361.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Lee y almacena en caché</text>
+<text x="881" y="370.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">local; encola operaciones</text>
+<text x="881" y="379.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">offline</text>
+<text x="881" y="388.5" font-size="6" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[SQLite / Room]</text>
+<path d="M671,520 L745,514 L1485,514 L1600,1325" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#mg)"/>
+<text x="1090" y="503.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Autentica usuarios, consulta</text>
+<text x="1090" y="512.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">disponibilidad, reserva citas</text>
+<text x="1090" y="521.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">y sincroniza operaciones.</text>
+<text x="1090" y="530.5" font-size="6" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[REST / JSON, HTTPS]</text>
+<path d="M671,538 L745,550 L968,550 L1070,820" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#mg)"/>
+<text x="881" y="539.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Descarga modelos 3D de</text>
+<text x="881" y="548.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">monturas y configuraciones</text>
+<text x="881" y="557.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">de tracking facial AR</text>
+<text x="881" y="566.5" font-size="6" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[HTTPS / REST]</text>
+<path d="M671,556 L745,591 L968,591 L1078,1097" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#mg)"/>
+<text x="881" y="580.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Carga teselas cartográficas</text>
+<text x="881" y="589.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">y geocodifica sedes de</text>
+<text x="881" y="598.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">ópticas</text>
+<text x="881" y="607.5" font-size="6" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[HTTPS]</text>
+<path d="M671,574 L745,632 L968,632 L1083,1373" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#mg)"/>
+<text x="881" y="621.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Abre checkout hosted para</text>
+<text x="881" y="630.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">pagos de servicios y</text>
+<text x="881" y="639.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">monturas</text>
+<text x="881" y="648.5" font-size="6" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[HTTPS / Custom Tab]</text>
+<path d="M1630,1325 L1730,1081 L2051,1081" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#mg)"/>
+<text x="1866" y="1070.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Envía recordatorios de citas</text>
+<text x="1866" y="1079.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">y alertas de estado de</text>
+<text x="1866" y="1088.5" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">órdenes de trabajo</text>
+<text x="1866" y="1097.5" font-size="6" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[REST / HTTPS]</text>
+<path d="M1164,1405 L1210,1398 L1485,1398 L1534,1389" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#mg)"/>
+<text x="1350" y="1392.0" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Notifica confirmación y</text>
+<text x="1350" y="1401.0" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">cambios de estado de pago</text>
+<text x="1350" y="1410.0" font-size="6" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[Webhook / HTTPS]</text>
+<path d="M1534,1411 L1485,1440 L1210,1440 L1164,1433" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#mg)" marker-start="url(#mg)"/>
+<text x="1350" y="1434.0" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Crea intenciones de cobro y</text>
+<text x="1350" y="1443.0" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">valida estados de pago</text>
+<text x="1350" y="1452.0" font-size="6" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[REST / HTTPS]</text>
+<path d="M1681,1374 L2051,1374" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#mg)"/>
+<text x="1866" y="1368.0" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Lee y escribe datos del</text>
+<text x="1866" y="1377.0" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">dominio</text>
+<text x="1866" y="1386.0" font-size="6" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[JPA / JDBC, SSL/TLS]</text>
+<path d="M227,1338 L549,1338" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#mg)"/>
+<text x="364" y="1332.0" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Solicita y renderiza recursos</text>
+<text x="364" y="1341.0" font-size="7.5" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">estáticos de la landing page.</text>
+<text x="364" y="1350.0" font-size="6" fill="#6b7280" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">[HTTPS]</text>
+<rect x="1017" y="63" width="147" height="97" fill="#f0fff4" stroke="#16a34a" stroke-width="1"/>
+<text x="1090.5" y="90.0" font-size="12.5" font-weight="700" fill="#0b5d2a" text-anchor="middle">Device Camera</text>
+<text x="1090.5" y="100.0" font-size="6.5" fill="#0b5d2a" text-anchor="middle">[Infrastructure Node: Android Camera Subsystem]</text>
+<text x="1090.5" y="111.0" font-size="8.6" fill="#0b5d2a" text-anchor="middle">Sensor de cámara frontal física para</text>
+<text x="1090.5" y="121.5" font-size="8.6" fill="#0b5d2a" text-anchor="middle">captura de video en vivo (CameraX</text>
+<text x="1090.5" y="132.0" font-size="8.6" fill="#0b5d2a" text-anchor="middle">API).</text>
+<path d="M1017,334 a73.5,11 0 0 1 147,0 v76 a73.5,11 0 0 1 -147,0 z" fill="#2b78c9"/>
+<ellipse cx="1090.5" cy="334" rx="73.5" ry="11" fill="#3b8be0"/>
+<text x="1090.5" y="347.25" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">Android Local Database</text>
+<text x="1090.5" y="357.25" font-size="6.5" fill="#ffffff" text-anchor="middle">[Container: SQLite / Room]</text>
+<text x="1090.5" y="368.25" font-size="8.6" fill="#ffffff" text-anchor="middle">Almacena en caché local las ópticas,</text>
+<text x="1090.5" y="378.75" font-size="8.6" fill="#ffffff" text-anchor="middle">catálogo y citas; encola</text>
+<text x="1090.5" y="389.25" font-size="8.6" fill="#ffffff" text-anchor="middle">transacciones fuera de línea</text>
+<text x="1090.5" y="399.75" font-size="8.6" fill="#ffffff" text-anchor="middle">(Offline-First).</text>
+<rect x="573" y="455" width="98" height="146" rx="9" fill="#0b4f9c" stroke="#083a75"/>
+<rect x="577" y="459" width="90" height="8" rx="3" fill="#1260b3"/><circle cx="622" cy="594" r="2.2" fill="#1260b3"/>
+<text x="622" y="490" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Android</text>
+<text x="622" y="500" font-size="6.5" fill="#fff" text-anchor="middle"></text>
+<text x="622" y="502" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">Application</text>
+<text x="622" y="511" font-size="6" fill="#fff" text-anchor="middle">[Container: Kotlin, Jetpack</text><text x="622" y="518" font-size="6" fill="#fff" text-anchor="middle">Compose]</text>
+<text x="622" y="531" font-size="8.6" fill="#fff" text-anchor="middle">Aplicación móvil</text>
+<text x="622" y="541" font-size="8.6" fill="#fff" text-anchor="middle">nativa: catálogo,</text>
+<text x="622" y="551" font-size="8.6" fill="#fff" text-anchor="middle">probador virtual AR de</text>
+<text x="622" y="561" font-size="8.6" fill="#fff" text-anchor="middle">lentes con cámara,</text>
+<text x="622" y="571" font-size="8.6" fill="#fff" text-anchor="middle">citas, recetas y</text>
+<text x="622" y="581" font-size="8.6" fill="#fff" text-anchor="middle">seguimiento.</text>
+<rect x="81" y="478" width="146" height="98" fill="#fef6e0" stroke="#c8962b" stroke-width="1"/>
+<text x="154.0" y="500.25" font-size="12.5" font-weight="700" fill="#7a5a14" text-anchor="middle">Firebase App Distribution</text>
+<text x="154.0" y="510.25" font-size="6.5" fill="#7a5a14" text-anchor="middle">[Infrastructure Node: Distribution Service]</text>
+<text x="154.0" y="521.25" font-size="8.6" fill="#7a5a14" text-anchor="middle">Distribuye el paquete APK firmado</text>
+<text x="154.0" y="531.75" font-size="8.6" fill="#7a5a14" text-anchor="middle">de la aplicación Android a los</text>
+<text x="154.0" y="542.25" font-size="8.6" fill="#7a5a14" text-anchor="middle">evaluadores y probadores</text>
+<text x="154.0" y="552.75" font-size="8.6" fill="#7a5a14" text-anchor="middle">registrados.</text>
+<rect x="1017" y="820" width="147" height="98" fill="#ffffff" stroke="#d00000" stroke-width="1"/>
+<text x="1090.5" y="837.0" font-size="12.5" font-weight="700" fill="#c00000" text-anchor="middle">AR Face Filter Service</text>
+<text x="1090.5" y="847.0" font-size="6.5" fill="#c00000" text-anchor="middle">[Software System]</text>
+<text x="1090.5" y="858.0" font-size="8.6" fill="#c00000" text-anchor="middle">Servicio externo en la nube (DeepAR</text>
+<text x="1090.5" y="868.5" font-size="8.6" fill="#c00000" text-anchor="middle">/ Google MediaPipe) que suministra</text>
+<text x="1090.5" y="879.0" font-size="8.6" fill="#c00000" text-anchor="middle">mallas de tracking facial y modelos</text>
+<text x="1090.5" y="889.5" font-size="8.6" fill="#c00000" text-anchor="middle">3D de monturas para el filtro de</text>
+<text x="1090.5" y="900.0" font-size="8.6" fill="#c00000" text-anchor="middle">realidad aumentada.</text>
+<rect x="1017" y="1097" width="147" height="98" fill="#ffffff" stroke="#d00000" stroke-width="1"/>
+<text x="1090.5" y="1124.5" font-size="12.5" font-weight="700" fill="#c00000" text-anchor="middle">Google Maps Platform</text>
+<text x="1090.5" y="1134.5" font-size="6.5" fill="#c00000" text-anchor="middle">[Software System]</text>
+<text x="1090.5" y="1145.5" font-size="8.6" fill="#c00000" text-anchor="middle">Servicio cartográfico externo para</text>
+<text x="1090.5" y="1156.0" font-size="8.6" fill="#c00000" text-anchor="middle">geolocalización de sedes ópticas,</text>
+<text x="1090.5" y="1166.5" font-size="8.6" fill="#c00000" text-anchor="middle">cálculo de rutas y mapas.</text>
+<rect x="1017" y="1373" width="147" height="98" fill="#ffffff" stroke="#d00000" stroke-width="1"/>
+<text x="1090.5" y="1400.5" font-size="12.5" font-weight="700" fill="#c00000" text-anchor="middle">Pasarela de Pagos</text>
+<text x="1090.5" y="1410.5" font-size="6.5" fill="#c00000" text-anchor="middle">[Software System]</text>
+<text x="1090.5" y="1421.5" font-size="8.6" fill="#c00000" text-anchor="middle">Servicio externo de pasarela de</text>
+<text x="1090.5" y="1432.0" font-size="8.6" fill="#c00000" text-anchor="middle">pagos (Yape) para transacciones</text>
+<text x="1090.5" y="1442.5" font-size="8.6" fill="#c00000" text-anchor="middle">comerciales y anticipos.</text>
+<rect x="2051" y="1032" width="147" height="98" fill="#ffffff" stroke="#d00000" stroke-width="1"/>
+<text x="2124.5" y="1059.5" font-size="12.5" font-weight="700" fill="#c00000" text-anchor="middle">Servicio de Mensajería</text>
+<text x="2124.5" y="1069.5" font-size="6.5" fill="#c00000" text-anchor="middle">[Software System]</text>
+<text x="2124.5" y="1080.5" font-size="8.6" fill="#c00000" text-anchor="middle">Servicio externo (Firebase Cloud</text>
+<text x="2124.5" y="1091.0" font-size="8.6" fill="#c00000" text-anchor="middle">Messaging) para notificaciones y</text>
+<text x="2124.5" y="1101.5" font-size="8.6" fill="#c00000" text-anchor="middle">avisos.</text>
+<rect x="1534" y="1325" width="147" height="98" fill="#1268c4" stroke="#0b4f9c" stroke-width="1"/>
+<text x="1607.5" y="1342.0" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">Backend API</text>
+<text x="1607.5" y="1352.0" font-size="6.5" fill="#ffffff" text-anchor="middle">[Container: Java 21, Spring Boot]</text>
+<text x="1607.5" y="1363.0" font-size="8.6" fill="#ffffff" text-anchor="middle">Único contenedor REST modular</text>
+<text x="1607.5" y="1373.5" font-size="8.6" fill="#ffffff" text-anchor="middle">(DDD): Search &amp; Booking, Clinical &amp;</text>
+<text x="1607.5" y="1384.0" font-size="8.6" fill="#ffffff" text-anchor="middle">Commercial, Production &amp; Tracking,</text>
+<text x="1607.5" y="1394.5" font-size="8.6" fill="#ffffff" text-anchor="middle">Store Management &amp; Inventory, y</text>
+<text x="1607.5" y="1405.0" font-size="8.6" fill="#ffffff" text-anchor="middle">Notification &amp; Loyalty.</text>
+<path d="M2051,1336 a73.5,11 0 0 1 147,0 v76 a73.5,11 0 0 1 -147,0 z" fill="#2b78c9"/>
+<ellipse cx="2124.5" cy="1336" rx="73.5" ry="11" fill="#3b8be0"/>
+<text x="2124.5" y="1349.25" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">OptiFlow Database</text>
+<text x="2124.5" y="1359.25" font-size="6.5" fill="#ffffff" text-anchor="middle">[Container: PostgreSQL 16]</text>
+<text x="2124.5" y="1370.25" font-size="8.6" fill="#ffffff" text-anchor="middle">Persistencia relacional unificada que</text>
+<text x="2124.5" y="1380.75" font-size="8.6" fill="#ffffff" text-anchor="middle">almacena pacientes, ópticas, citas,</text>
+<text x="2124.5" y="1391.25" font-size="8.6" fill="#ffffff" text-anchor="middle">historias, ventas, órdenes de taller y</text>
+<text x="2124.5" y="1401.75" font-size="8.6" fill="#ffffff" text-anchor="middle">notificaciones.</text>
+<rect x="81" y="1289" width="146" height="98" fill="#ffffff" stroke="#4f7596" stroke-width="1.5"/>
+<rect x="81" y="1289" width="146" height="14" fill="#4f7596"/><circle cx="90" cy="1296" r="3" fill="#fff"/><circle cx="100" cy="1296" r="3" fill="#fff"/><circle cx="110" cy="1296" r="3" fill="#fff"/><rect x="118" y="1293" width="104" height="7" rx="3" fill="#fff"/>
+<text x="154" y="1327" font-size="12.5" font-weight="700" fill="#1e3a5f" text-anchor="middle">Web Browser</text>
+<text x="154" y="1337" font-size="6.5" fill="#1e3a5f" text-anchor="middle">[Infrastructure Node: Browser Runtime]</text>
+<text x="154" y="1348" font-size="8.6" fill="#1e3a5f" text-anchor="middle">Solicita y renderiza recursos</text>
+<text x="154" y="1358.5" font-size="8.6" fill="#1e3a5f" text-anchor="middle">estáticos de la landing page.</text>
+<rect x="549" y="1288" width="147" height="98" fill="#3b8be0" stroke="#2b78c9"/><rect x="549" y="1288" width="147" height="14" fill="#2b78c9"/><circle cx="558" cy="1295" r="3" fill="#fff"/><circle cx="568" cy="1295" r="3" fill="#fff"/><circle cx="578" cy="1295" r="3" fill="#fff"/>
+<text x="622.5" y="1322" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">Landing Page</text>
+<text x="622.5" y="1332" font-size="6.5" fill="#ffffff" text-anchor="middle">[Container: HTML5, CSS3, JavaScript]</text>
+<text x="622.5" y="1343" font-size="8.6" fill="#ffffff" text-anchor="middle">Presenta la propuesta de valor de</text>
+<text x="622.5" y="1353.5" font-size="8.6" fill="#ffffff" text-anchor="middle">OptiFlow, catálogo referencial y</text>
+<text x="622.5" y="1364.0" font-size="8.6" fill="#ffffff" text-anchor="middle">enlaces de descarga de la app</text>
+<text x="622.5" y="1374.5" font-size="8.6" fill="#ffffff" text-anchor="middle">móvil.</text>
+<text x="6" y="1566" font-size="12.5" fill="#333">Deployment View: OptiFlow - Academic Validation Environment</text>
+<text x="6" y="1579" font-size="8" fill="#444">Diagrama de Despliegue de la solución OptiFlow en el entorno de validación académica.</text>
+<text x="6" y="1590" font-size="8" fill="#444">lunes, 2 de noviembre de 2026, 10:56 p. m. hora estándar de Perú</text>
+</svg>
