@@ -2,6 +2,12 @@
 
 # Anexos
 
+Los anexos reúnen los artefactos de diseño y las evidencias que complementan los capítulos del informe. Cada registro conserva su alcance: modelado del dominio, arquitectura, implementación o validación.
+
+**Contenido:** [A. EventStorming](#anexo-a-eventstorming-del-dominio-de-optiflow), [B. Bounded Contexts](#anexo-b-bounded-contexts-identificados), [C. Domain Message Flows](#anexo-c-domain-message-flows), [D. Context Mapping](#anexo-d-context-mapping), [E. Arquitectura](#anexo-e-arquitectura-de-software), [F. Diseño táctico y persistencia](#anexo-f-diagramas-de-diseño-táctico), [G. Product Backlog](#anexo-g-product-backlog), [H. Entrevistas](#anexo-h-entrevistas-de-validación), [I. Evidencias del Sprint 2](#anexo-i-evidencias-técnicas-del-sprint-2) y [J. Sustento académico](#anexo-j-relación-entre-investigación-y-decisiones-del-proyecto).
+
+<div style="break-before: page; page-break-before: always;"></div>
+
 ## Anexo A: EventStorming del dominio de OptiFlow
 
 En este anexo se presenta la evidencia correspondiente al modelado del dominio mediante **EventStorming**, utilizado para identificar los principales eventos, comandos, actores y agrupaciones funcionales de la solución OptiFlow (ver Figura A1).
@@ -38,7 +44,7 @@ Estos contextos fueron delimitados a partir de las agrupaciones funcionales iden
 
 ## Anexo C: Domain Message Flows
 
-En este anexo se resume la comunicación entre los Bounded Contexts de OptiFlow mediante eventos de dominio. Para cada evento se indica el comando que lo origina, los datos que transporta, el contexto que lo recibe y el comando que este ejecuta. Los diagramas de cada escenario se presentan en la sección [2.5.1.2](Capitulo2.md#2512-domain-message-flows-modeling).
+En este anexo se resume el diseño de comunicación entre los Bounded Contexts de OptiFlow mediante eventos de dominio. Para cada evento se indica el comando que lo origina, los datos que transporta, el contexto que lo recibe y el comando que este ejecuta. Los diagramas de cada escenario se presentan en la sección [2.5.1.2](Capitulo2.md#2512-domain-message-flows-modeling).
 
 La relación entre eventos, contextos receptores y comandos se detalla en la Tabla C1.
 
@@ -58,14 +64,14 @@ La relación entre eventos, contextos receptores y comandos se detalla en la Tab
 | Production & Tracking | `NotifyDeliveryDelay` | `DeliveryDelayNotified` | workOrderId, patientId, delay | Notification & Loyalty | `SendDeliveryDelayNotification` |
 | Production & Tracking | `MarkOrderAsDelivered` | `OrderWasMarkedAsDelivered` | workOrderId, saleId, patientId | Notification & Loyalty | `SendSatisfactionSurvey` |
 
-Ningún contexto accede directamente a los datos de otro: cada uno reacciona a los eventos que recibe y actualiza solo su propio modelo.
+El diseño asigna a cada contexto la propiedad de su modelo y define contratos para comunicar los cambios. La presencia de un flujo en la Tabla C1 expresa esa decisión de diseño; su implementación se contrasta con la revisión de código y las evidencias del Anexo I.
 
 
 <div style="break-before: page; page-break-before: always;"></div>
 
 ## Anexo D: Context Mapping
 
-En este anexo se presenta el context map final de OptiFlow, con las relaciones entre los Bounded Contexts, los sistemas externos (Pasarela de Pagos y Firebase Cloud Messaging) y los patrones de integración que aplica cada una (ver Figura D1). El proceso de elaboración, las alternativas evaluadas y el detalle de cada relación se presentan en la sección [2.5.2](Capitulo2.md#252-context-mapping).
+En este anexo se presenta el context map de diseño de OptiFlow, con las relaciones entre los Bounded Contexts, los sistemas externos previstos (Pasarela de Pagos y Firebase Cloud Messaging) y sus patrones de integración (ver Figura D1). El proceso de elaboración, las alternativas evaluadas y el detalle de cada relación se presentan en la sección [2.5.2](Capitulo2.md#252-context-mapping).
 
 
 <a id="figura-d1"></a>
@@ -84,7 +90,7 @@ En este anexo se presenta el context map final de OptiFlow, con las relaciones e
 
 ## Anexo E: Arquitectura de Software
 
-Se presentan como evidencia complementaria los diagramas correspondientes a los diferentes niveles de la arquitectura de software de OptiFlow.
+Se presentan como evidencia complementaria los diagramas de arquitectura de OptiFlow. Estas vistas incluyen el alcance previsto de la solución. El corte de implementación de AV2 se identifica por repositorio y commit en el Anexo I.
 
 ### E.1. Context Level Diagram
 
@@ -128,7 +134,7 @@ La leyenda de los elementos del diagrama se presenta a continuación (ver Figura
 
 ### E.3. Component Diagrams
 
-Los Component Diagrams muestran los componentes de cada módulo del backend, incluidos los adaptadores hacia la Pasarela de Pagos (`PaymentGatewayAdapter`) y Firebase Cloud Messaging (`FirebaseMessagingAdapter`). Todos los módulos persisten en la única base PostgreSQL del backend.
+Los Component Diagrams representan los componentes propuestos de cada módulo, incluidos los adaptadores hacia la Pasarela de Pagos (`PaymentGatewayAdapter`) y Firebase Cloud Messaging (`FirebaseMessagingAdapter`). El backend utiliza una base PostgreSQL compartida. Los adaptadores externos y el módulo de inventario se mantienen identificados como parte del diseño; su aparición en el diagrama no se toma como evidencia de integración en AV2.
 
 #### Clinical & Commercial
 
@@ -207,7 +213,25 @@ El Store Management & Inventory Component Diagram se muestra en la Figura E8.
 
 La cardinalidad vigente de cotización–venta se especifica en [2.6.2.6.2](Capitulo2.md#26262-bounded-context-database-design-diagram): una cotización genera como máximo una venta, respaldada por la restricción de unicidad del backend.
 
-Los diagramas de este anexo complementan el diseño táctico. Las secciones 2.6.1.6.2 a 2.6.5.6.2 describen el modelo físico actual: una base PostgreSQL compartida, con 27 tablas definidas en V1–V9. Los diagramas de base de datos de este anexo y del capítulo II se elaboraron a partir de esas migraciones.
+Los diagramas de este anexo complementan el diseño táctico del capítulo II. La revisión del backend `4a1364e`, utilizada para AV2, contiene las migraciones V1, V2, V3, V4, V5 y V8, que definen 21 tablas. V5 añade las coordenadas de las ópticas y V8, la fecha de nacimiento del paciente y la tabla de personal. El modelo ampliado de diseño se distingue de este corte de implementación mediante la Tabla F1.
+
+
+<a id="tabla-f1"></a>
+
+**Tabla F1**
+
+*Persistencia identificada en el backend 4a1364e*
+
+| Bounded Context | Migraciones | Tablas identificadas | Cantidad |
+|---|---|---|:---:|
+| Search & Booking | V1, V5 y V8 | `patients`, `optical_stores`, `time_slots`, `appointments`, `favorite_stores`, `store_ratings`, `staff_members`. | 7 |
+| Clinical & Commercial | V2 | `clinical_records`, `medical_histories`, `optical_prescriptions`, `quotations`, `quotation_items`, `sales`, `electronic_receipts`. | 7 |
+| Production & Tracking | V3 | `technicians`, `laboratories`, `work_orders`, `work_order_lenses`, `work_order_status_history`. | 5 |
+| Notification & Loyalty | V4 | `loyalty_accounts`, `notifications`. | 2 |
+| Store Management & Inventory | — | Modelo de diseño; sin tablas propias en este corte del backend. | 0 |
+| **Total** | | | **21** |
+
+Fuente: [migraciones del commit 4a1364e](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/tree/4a1364ed540bfb996c5ce57a9b6246ddd989b98d/src/main/resources/db/migration). La correspondencia de claves y restricciones se revisa sobre esos archivos. La relación `sales.quotation_id UNIQUE` respalda que una cotización genere como máximo una venta.
 
 ### F.1. Production & Tracking
 
@@ -242,14 +266,14 @@ La Figura F2 reproduce el modelo físico relacional de la migración V3: `work_o
 
 ### F.2. Notification & Loyalty
 
-La persistencia de Notification & Loyalty utiliza `notifications`, `loyalty_accounts` y `device_tokens` en PostgreSQL, según V4 y V7. La sección 2.6.5.6.2 detalla sus columnas y restricciones.
+En la revisión `4a1364e`, Notification & Loyalty persiste en `notifications` y `loyalty_accounts`, definidas en V4. Ese corte no contiene una migración V7 ni la tabla `device_tokens`. Los elementos de registro de dispositivos y mensajería push del diseño ampliado conservan su alcance previsto.
 
 
 <div style="break-before: page; page-break-before: always;"></div>
 
 ## Anexo G: Product Backlog
 
-Como evidencia complementaria del levantamiento y priorización de requisitos, se presenta el Product Backlog desarrollado para OptiFlow.
+El [Product Backlog del capítulo II](Capitulo2.md#243-product-backlog) reúne las historias, sus títulos y estimaciones. Para la ejecución se utilizan el [Sprint Backlog 1](Capitulo4.md#4213-sprint-backlog-1) y el [Sprint Backlog 2](Capitulo4.md#4223-sprint-backlog-2), que descomponen las historias en tareas y registran responsables y estados.
 
 Entre las funcionalidades priorizadas se encuentran el inicio de sesión, registro de pacientes, gestión de historias clínicas, consulta de recetas, búsqueda de ópticas, reserva de citas y consulta de inventario mediante escáner móvil.
 
@@ -257,10 +281,73 @@ Entre las funcionalidades priorizadas se encuentran el inicio de sesión, regist
 
 ## Anexo H: Entrevistas de validación
 
-Como evidencia de la validación de OptiFlow, se comparte el video con las entrevistas realizadas a usuarios de los segmentos objetivo, quienes interactuaron con la Landing Page y la aplicación móvil.
+Se conserva el video de las entrevistas anteriores, en el que participaron usuarios de ambos segmentos y se recorrieron la Landing Page y la aplicación móvil. La Figura H1 muestra un cuadro de esa grabación. El diseño de tareas, el registro por participante y el seguimiento de AV2 se encuentran en [4.3. Validation Interviews](Capitulo4.md#43-validation-interviews).
 
-[Ver video de las entrevistas de validación en OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d317_upc_edu_pe/IQBEVy_3hrA9QZmTordSZKlaAYrAH0PSADXMEQfwdz9GFn8?e=eCtW3I&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0=)   
+[Ver video de las entrevistas de validación en OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d317_upc_edu_pe/IQBEVy_3hrA9QZmTordSZKlaAYrAH0PSADXMEQfwdz9GFn8?e=eCtW3I&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0=)
 
+<a id="figura-h1"></a>
 
+**Figura H1**
 
-https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d317_upc_edu_pe/IQBEVy_3hrA9QZmTordSZKlaAYrAH0PSADXMEQfwdz9GFn8?e=eCtW3I&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0=
+*Cuadro del video histórico de entrevistas de validación*
+
+![Cuadro del video de entrevistas de validación](assets/cap3/entrevistas/captura%20entrevistas.png)
+
+Las sesiones de AV2 se asocian con la versión efectivamente probada. La grabación anterior conserva su fecha y alcance, sin trasladar automáticamente sus resultados al cliente Flutter.
+
+<div style="break-before: page; page-break-before: always;"></div>
+
+## Anexo I: Evidencias técnicas del Sprint 2
+
+La Tabla I1 identifica las revisiones utilizadas en el capítulo IV. La Tabla I2 reúne sus artefactos de construcción, contrato, ejecución y publicación.
+
+<a id="tabla-i1"></a>
+
+**Tabla I1**
+
+*Revisiones de código del Sprint 2*
+
+| Producto | Repositorio y rama | Commit revisado | Alcance |
+|---|---|---|---|
+| Backend | [Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End), `develop`. | [4a1364e](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/4a1364ed540bfb996c5ce57a9b6246ddd989b98d) | Servicios versionados, seguridad y cercanía; revisión local con H2. |
+| Flutter | [Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter), `main`. | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | Código de la versión `1.0.0+1`; revisión del contrato y de los datos de demostración. |
+| Landing Page | [Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page), `main`. | [ef1c032](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/ef1c03205352fb20a22bbd7fcd54a41f90ef6dca) | Código y publicación en GitHub Pages comprobada el 08/11/2026. |
+
+<a id="tabla-i2"></a>
+
+**Tabla I2**
+
+*Artefactos y alcance de las evidencias de AV2*
+
+| Evidencia | Archivo o enlace | Relación con el informe |
+|---|---|---|
+| Construcción y pruebas del backend | [Registro de Maven](assets/cap4/sprint2/build-results.txt) | `mvn test` detenido en `testCompile`; empaquetado independiente con las pruebas omitidas. Sección 4.2.2.5. |
+| Solicitudes HTTP locales | [Resultados JSON](assets/cap4/sprint2/service-results.json) y [resumen visual](assets/cap4/sprint2/service-checks.png) | 17 solicitudes sobre la revisión local; token omitido. Sección 4.2.2.5. |
+| Contrato versionado | [OpenAPI local](assets/cap4/sprint2/openapi-local.json) | 41 operaciones sobre 36 rutas, con las diferencias documentales identificadas en 4.2.2.7. |
+| Interacción con Swagger | [Vista general](assets/cap4/sprint2/swagger-sprint2.png) y [consulta de cercanía](assets/cap4/sprint2/nearby-sprint2.png) | Capturas de ejecución local de 4.2.2.6. |
+| Publicación de Pages | [Workflow 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y [captura](assets/cap4/sprint2/workflow-pages.png) | Ejecución exitosa para el commit `ef1c032`, documentada en 4.2.2.8. |
+| Landing publicada | [Sitio público](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) y [captura](assets/cap4/sprint2/landing-publica.png) | Acceso público con HTTP 200 comprobado el 08/11/2026. |
+| Aceptación del primer incremento | [Reporte Cucumber](assets/cap4/sprint1/testing/cucumber.html) y [JSON](assets/cap4/sprint1/testing/cucumber.json) | Evidencia histórica del Sprint 1, con su versión y resultado en 4.2.1.5. |
+
+Las revisiones de código y los resultados se conservan por separado de la publicación del APK y de la validación con participantes. Los videos de App Validation, About-the-Product y About-the-Team se registran en [Conclusiones](Conclusiones.md#video-app-validation).
+
+<div style="break-before: page; page-break-before: always;"></div>
+
+## Anexo J: Relación entre investigación y decisiones del proyecto
+
+La Tabla J1 relaciona cuatro publicaciones de 2025 con el dominio del problema y las técnicas de desarrollo móvil. Las referencias completas se encuentran en [Bibliografía](Bibliografia.md#bibliografía).
+
+<a id="tabla-j1"></a>
+
+**Tabla J1**
+
+*Publicaciones recientes y aplicación en OptiFlow*
+
+| Categoría | Publicación | Revista y año | Relación con el proyecto |
+|---|---|---|---|
+| Dominio de negocio | [Abbas et al.](https://doi.org/10.1016/j.jcjo.2025.04.012) | *Canadian Journal of Ophthalmology*, 2025. | Factores asociados con la inasistencia; sustenta la selección de variables para evaluar reserva y seguimiento. |
+| Dominio de negocio | [Kammrath Betancor et al.](https://doi.org/10.3389/fdgth.2025.1567397) | *Frontiers in Digital Health*, 2025. | Programación en línea en entornos oftalmológicos; orienta el análisis de asistencia y eficiencia sin trasladar sus resultados al proyecto. |
+| Desarrollo móvil | [Coppola et al.](https://doi.org/10.1016/j.jss.2025.112346) | *Journal of Systems and Software*, 2025. | Adopción de Kotlin y mantenibilidad, vinculadas con la organización del cliente Android del Sprint 1. |
+| Desarrollo móvil | [Kuroishi et al.](https://doi.org/10.1016/j.infsof.2024.107573) | *Information and Software Technology*, 2025. | Infraestructuras de pruebas móviles y diversidad de entornos; sustenta la comprobación en emulador y dispositivo físico. |
+
+Los estudios aportan evidencia externa para las decisiones del proyecto. La medición de sus resultados en OptiFlow se realiza mediante los indicadores y sesiones propios, descritos en los capítulos I y IV.
