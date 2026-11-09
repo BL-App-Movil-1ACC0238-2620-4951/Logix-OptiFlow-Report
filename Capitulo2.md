@@ -3051,6 +3051,7 @@ Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 
 | `FromConsultStockRequestAssembler` | `ConsultStockRequest` → `ConsultStockQuery` |
 | `FromReplenishStockRequestAssembler` | `ReplenishStockRequest` → `ReplenishStockCommand` |
 | `FromRegisterSupplierRequestAssembler` | `RegisterSupplierRequest` → `RegisterSupplierCommand` |
+| `StoreInventoryResponseAssembler` | `FrameModel`, existencias, alertas, movimientos, métricas y `Supplier` → `FrameModelResponse`, `InventoryResponse`, `StockResponse`, `LowStockAlertResponse`, `StockMovementResponse`, `InventoryMetricsResponse` y `SupplierResponse` |
 
 
 <a id="2.6.4.3. Application Layer"></a>
