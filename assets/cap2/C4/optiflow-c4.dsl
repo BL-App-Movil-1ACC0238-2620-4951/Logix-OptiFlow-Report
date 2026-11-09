@@ -29,15 +29,15 @@ workspace "OptiFlow" "Plataforma móvil para la búsqueda de ópticas, la reserv
                 }
 
                 group "Search & Booking" {
-                    sbControllers = component "Controllers de Search & Booking" "PatientController, StaffMemberController, OpticalStoreController, OpticalStoreFilterController, TimeSlotController, AppointmentController, FavoriteStoreController y StoreRatingController." "Spring MVC"
-                    sbApp = component "Application Services de Search & Booking" "Command Handlers (login, registro, personal, reserva, favoritos, calificación) y Query Services (búsqueda, cercanía, horarios, citas, personal, cumpleaños)." "Spring"
+                    sbControllers = component "Controllers de Search & Booking" "PatientController, AuthenticationController, StaffMemberController, OpticalStoreController, TimeSlotController, AppointmentController, FavoriteStoreController y StoreRatingController." "Spring MVC"
+                    sbApp = component "Application Services de Search & Booking" "Command Handlers (login, registro, personal, horarios, citas, favoritos, calificación) y Query Services (búsqueda, cercanía, horarios, citas, agenda, personal, cumpleaños)." "Spring"
                     sbDomain = component "Domain de Search & Booking" "Appointment, Patient, StaffMember, OpticalStore, TimeSlot y sus repositorios." "Java"
                     sbInfra = component "Infrastructure de Search & Booking" "Repositorios JPA, JwtTokenService y AuthenticationAdapter (BCrypt)." "Spring Data JPA"
                 }
 
                 group "Clinical & Commercial" {
                     ccControllers = component "Controllers de Clinical & Commercial" "ClinicalRecordController, QuotationController, SaleController y SalesReportController." "Spring MVC"
-                    ccWebhook = component "PaymentWebhookController" "Ruta pública POST /payments/webhook que recibe las notificaciones de pago." "Spring MVC"
+                    ccWebhook = component "PaymentWebhookController" "Ruta pública POST /api/v1/payment-notifications que recibe las notificaciones de pago." "Spring MVC"
                     ccApp = component "Application Services de Clinical & Commercial" "Command Handlers (atención, cotización, venta, preferencia de pago, pago y cierre) y Query Services (ventas y métricas)." "Spring"
                     ccDomain = component "Domain de Clinical & Commercial" "ClinicalRecord, Quotation, Sale, Payment y sus repositorios." "Java"
                     ccInfra = component "Infrastructure de Clinical & Commercial" "Repositorios JPA." "Spring Data JPA"
@@ -139,7 +139,7 @@ workspace "OptiFlow" "Plataforma móvil para la búsqueda de ópticas, la reserv
                 }
             }
             deploymentNode "Render" "Plataforma en la nube, región Frankfurt." "Render" {
-                deploymentNode "Web Service Logix-OptiFlow-Back-End" "Desplegado desde la rama develop; expone el webhook público /payments/webhook." "Docker, eclipse-temurin:21-jre" {
+                deploymentNode "Web Service Logix-OptiFlow-Back-End" "Desplegado desde la rama develop; expone la API REST en /api/v1 y el webhook público /api/v1/payment-notifications." "Docker, eclipse-temurin:21-jre" {
                     backendInstance = containerInstance optiflow.backend
                 }
                 deploymentNode "Render PostgreSQL" "Base de datos administrada por Render." "PostgreSQL 16" {
