@@ -43,7 +43,8 @@ package "clinicalcommercial.domain" {
       - closedAt: Instant [0..1]
       + attachPaymentPreference(id: String): void
       + recordPayment(p: Payment): void
-      + rejectPayment(reason: String): void
+      + rejectPayment(p: Payment): void
+      + hasPayment(transactionReference: String): boolean
       + close(): void
     }
   }
@@ -97,8 +98,9 @@ package "clinicalcommercial.domain" {
     class Payment <<VO>> {
       - method: PaymentMethod
       - amount: Money
-      - transactionReference: String [0..1]
+      - transactionReference: String
       - status: PaymentStatus
+      - statusDetail: String [0..1]
       - paidAt: Instant
     }
     class Money <<VO>> {
@@ -145,23 +147,26 @@ package "clinicalcommercial.domain" {
       + save(record: ClinicalRecord): void
       + findById(id: UUID): Optional<ClinicalRecord>
       + findByPatientId(id: UUID): List<ClinicalRecord>
+      + countPatientsWithRecords(): long
+      + findExaminedBetween(from: Instant, to: Instant): List<ClinicalRecord>
     }
     interface QuotationRepository {
       + save(quotation: Quotation): void
       + findById(id: UUID): Optional<Quotation>
+      + findByClinicalRecordIds(ids: List<UUID>): List<Quotation>
     }
     interface SaleRepository {
       + save(sale: Sale): void
       + findById(id: UUID): Optional<Sale>
       + findByPatientId(id: UUID): List<Sale>
-      + findByTransactionReference(ref: String): Optional<Sale>
+      + findClosedBetween(from: Instant, to: Instant): List<Sale>
     }
   }
 
   package "ports" {
-    interface PaymentGateway {
-      + createPreference(sale: Sale): String
-      + getPayment(paymentId: String): Payment
+    interface PaymentGatewayService {
+      + createPreference(saleId: UUID, amount: Money, title: String): PaymentPreference
+      + translate(notification: PaymentNotification): Optional<NotifiedPayment>
     }
   }
 
@@ -199,7 +204,8 @@ Payment --> PaymentStatus
 ClinicalRecordRepository ..> ClinicalRecord
 QuotationRepository ..> Quotation
 SaleRepository ..> Sale
-PaymentGateway ..> Payment
+PaymentGatewayService ..> Payment
 Sale ..> SaleWasClosed : publica
 Sale ..> PaymentRecorded : publica
+Sale ..> PaymentRejected : publica
 @enduml

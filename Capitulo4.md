@@ -196,6 +196,9 @@ Las convenciones de nomenclatura se detallan en la Tabla 109.
 | Paquetes | minúsculas, sin guiones bajos | `com.optiflow.booking` |
 | Archivos CSS y de la Landing Page | `kebab-case` | `main-header.css` |
 | Archivos `.feature` | `snake_case` o `kebab-case` en inglés | `book-appointment.feature` |
+| Rutas de la API REST | sustantivos en plural, `kebab-case`, con el prefijo `/api/v1` | `/api/v1/work-orders/{id}/status` |
+
+Las rutas de la API REST identifican recursos y no contienen verbos. Las operaciones usan `GET` para consultar, `POST` para crear, `PUT` para reemplazar y `PATCH` para actualizar parcialmente; los cambios de estado se registran con `PATCH .../status` y los filtros se envían como parámetros de consulta (por ejemplo, `minRating` en `GET /api/v1/optical-stores`), y no forman parte de la ruta. Las respuestas usan los códigos `200`, `201` con el encabezado `Location`, `204`, `400`, `401`, `403`, `404` y `409`, y los errores se devuelven con la estructura `ApiError`. Los reportes se descargan en CSV desde la misma ruta enviando `Accept: text/csv`, y el inicio de sesión se realiza con `POST /api/v1/auth/tokens`, porque crea un token de acceso.
 
 ##### Organización del código
 
@@ -219,7 +222,7 @@ La Landing Page se publica en **GitHub Pages**, los Web Services se despliegan e
 3. El servicio se conecta a una base de datos PostgreSQL 16 administrada por Render. Las credenciales se registran como variables de entorno (`SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME` y `SPRING_DATASOURCE_PASSWORD`) y no se incluyen en el repositorio.
 4. La clave de firma de los tokens de sesión se registra como `JWT_SECRET`, junto con su tiempo de expiración (`JWT_EXPIRATION_MINUTES`).
 5. Las credenciales de los servicios externos también se registran como variables de entorno: el token de acceso de prueba de Mercado Pago Checkout Pro (`MERCADOPAGO_ACCESS_TOKEN`; Mercado Pago, s. f.), la clave secreta con la que se valida la firma de sus notificaciones (`MERCADOPAGO_WEBHOOK_SECRET`) y la cuenta de servicio de Firebase (`FIREBASE_CREDENTIALS`) que el backend usa para enviar notificaciones con Firebase Cloud Messaging.
-6. En el panel de desarrolladores de Mercado Pago se registra como URL de notificaciones la ruta pública `https://logix-optiflow-back-end.onrender.com/payments/webhook`. Las URL de retorno de cada preferencia de pago usan el deep link `optiflow://payment-result`, que devuelve al paciente a la aplicación.
+6. En el panel de desarrolladores de Mercado Pago se registra como URL de notificaciones la ruta pública `https://logix-optiflow-back-end.onrender.com/api/v1/payment-notifications`. Las URL de retorno de cada preferencia de pago usan el deep link `optiflow://payment-result`, que devuelve al paciente a la aplicación.
 7. Se verifica el despliegue en la documentación OpenAPI publicada con Swagger UI (SmartBear Software, s. f.): [https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html).
 
 ##### Aplicación móvil
@@ -520,7 +523,7 @@ Característica: Búsqueda de ópticas y disponibilidad de atención
   Escenario: Búsqueda sin establecimientos coincidentes
     Dado que ninguna óptica coincide con los criterios de búsqueda
     Cuando el paciente realiza la búsqueda
-    Entonces obtiene una lista vacía y un mensaje informativo
+    Entonces obtiene una lista vacía de establecimientos
 ```
 
 ```gherkin
@@ -629,7 +632,7 @@ Los Web Services se ejecutaron en `http://127.0.0.1:8080` con el perfil local. L
 ![Swagger UI de OptiFlow](assets/cap4/sprint1/swagger-overview.png)
 
 
-**Consulta de ópticas.** La ejecución de GET /optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado (ver Figura 128).
+**Consulta de ópticas.** La ejecución de GET /api/v1/optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado (ver Figura 128).
 
 
 <a id="figura-128"></a>
@@ -641,7 +644,7 @@ Los Web Services se ejecutaron en `http://127.0.0.1:8080` con el perfil local. L
 ![Consulta de ópticas en Swagger](assets/cap4/sprint1/swagger-optical-stores.png)
 
 
-**Reserva confirmada.** POST /appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED (ver Figura 129).
+**Reserva confirmada.** POST /api/v1/appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED (ver Figura 129).
 
 
 <a id="figura-129"></a>
@@ -719,7 +722,7 @@ El recorrido utilizó el paciente ficticio Paciente Demo Informe. Tras el inicio
 <img src="assets/cap4/sprint1/mobile-booking-confirmed.png" alt="Confirmación de la reserva desde la aplicación" width="390">
 
 
-**Verificación de la cita móvil en el backend.** GET /appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend (ver Figura 135).
+**Verificación de la cita móvil en el backend.** GET /api/v1/appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend (ver Figura 135).
 
 
 <a id="figura-135"></a>
@@ -737,7 +740,7 @@ La respuesta de esta consulta se conserva como [evidencia JSON de la reserva mó
 
 Los Web Services de **OptiFlow** se documentan mediante **OpenAPI 3.1**. El backend utiliza **Java 21 y Spring Boot**, y **springdoc-openapi** genera la especificación y la interfaz **Swagger UI** a partir de los controladores. La configuración ubicada en `shared/documentation/openapi/configuration` define los datos generales de la API y las etiquetas que agrupan las operaciones por contexto. Esta documentación permite consultar contratos y ejecutar solicitudes para revisar el comportamiento del servicio.
 
-La documentación cubre los tres bounded contexts del **Core Domain** definidos en el Capítulo II: **Search & Booking** (registro e inicio de sesión del paciente, búsqueda de ópticas, disponibilidad y reserva de citas), **Clinical & Commercial** (expediente clínico, receta, cotización y venta) y **Production & Tracking** (órdenes de trabajo y seguimiento del pedido). En total, la versión desplegada expone **37 operaciones**. El contexto de Notification & Loyalty ya cuenta con su dominio, sus manejadores de eventos y su persistencia, pero todavía no expone endpoints REST, por lo que no aparece en Swagger UI. Store Management & Inventory se documentará cuando se implemente.
+La documentación cubre los cinco bounded contexts definidos en el Capítulo II: **Search & Booking** (registro e inicio de sesión, personal, búsqueda de ópticas, horarios, citas, favoritos y valoraciones), **Clinical & Commercial** (registro clínico, historia médica, receta, cotización, venta, pagos y reporte de ventas), **Production & Tracking** (órdenes de trabajo, técnicos, laboratorios, demoras y reporte de producción), **Store Management & Inventory** (catálogo de monturas, stock por óptica, reposiciones, movimientos, alertas, proveedores y reporte de inventario) y **Notification & Loyalty** (avisos, encuesta de satisfacción, tokens de dispositivo y cuenta de fidelización). En total, la API expone **67 operaciones**, detalladas en las Tablas 119 a 123. Cada operación indica su propósito, sus respuestas y el esquema `ApiError` de los errores; las rutas públicas aparecen sin candado.
 
 **Datos generales de la documentación**
 
@@ -757,12 +760,13 @@ Los datos generales de la documentación de los Web Services se resumen en la Ta
 | Documentación desplegada (Swagger UI) | [https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html) |
 | Especificación OpenAPI desplegada (JSON) | [https://logix-optiflow-back-end.onrender.com/v3/api-docs](https://logix-optiflow-back-end.onrender.com/v3/api-docs) |
 | Documentación local (Swagger UI) | `http://localhost:8080/swagger-ui/index.html` |
-| URL base de la API | `https://logix-optiflow-back-end.onrender.com` (sin prefijo de versión) |
+| URL base de la API | `https://logix-optiflow-back-end.onrender.com/api/v1` |
 | Formato de intercambio | JSON (`application/json`) |
 | Identificadores | UUID en todos los recursos |
-| Autenticación | `POST /login` devuelve un token para el paciente. En esta versión los endpoints aún no exigen el token; la protección por roles (US16) se incorporará en un siguiente Sprint. |
+| Datos de prueba | Al iniciar, el backend registra en su base de datos las ópticas con su ubicación, sus horarios, el catálogo de monturas con su stock, los proveedores y un usuario por rol: `admin@optiflow.test`, `optometrist@optiflow.test`, `advisor@optiflow.test`, `technician@optiflow.test` y `patient@optiflow.test`, con la contraseña `secret12`. No duplica ni sobrescribe los datos existentes. |
+| Autenticación | `POST /api/v1/auth/tokens` crea el token JWT del paciente o del miembro del personal y devuelve su rol. Las demás rutas, salvo las públicas, exigen el encabezado `Authorization: Bearer <token>` y se autorizan según el rol (US16). |
 
-Las respuestas siguen los códigos de estado HTTP estándar: `200 OK` (consulta o actualización exitosa), `201 Created` (recurso creado), `400 Bad Request` (datos inválidos o regla de dominio incumplida), `401 Unauthorized` (credenciales inválidas en `/login`), `404 Not Found` (recurso inexistente) y `409 Conflict` (conflicto de negocio, por ejemplo un horario que ya fue reservado). Los errores se devuelven con una estructura uniforme que incluye `status`, `error` y `message`.
+Las respuestas siguen los códigos de estado HTTP estándar: `200 OK` (consulta o actualización exitosa), `201 Created` (recurso creado), `400 Bad Request` (datos inválidos o regla de dominio incumplida), `401 Unauthorized` (credenciales inválidas en `/api/v1/auth/tokens`, o token ausente o inválido), `403 Forbidden` (el rol no tiene permiso o el recurso pertenece a otro paciente), `404 Not Found` (recurso inexistente) y `409 Conflict` (conflicto de negocio, por ejemplo un horario que ya fue reservado). Los errores se devuelven con una estructura uniforme que incluye `status`, `error` y `message`.
 
 ##### Search & Booking Context
 
@@ -778,22 +782,32 @@ Los Endpoints del Search & Booking Context se detallan en la Tabla 119.
 
 | Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
 | :--- | :--- | :---: | :--- | :--- | :--- | :---: |
-| `/patients` | Registrar un paciente | POST | `POST /patients` | Body: `name`, `email`, `phone`, `password` (mínimo 8 caracteres) | `201` `{ "id": "dc0315b5-...", "name": "Demo Paciente OptiFlow", "email": "demo.paciente@optiflow.pe", "phone": "999888777" }`: devuelve el paciente creado sin la contraseña. | Soporte a US05 y US06 |
-| `/login` | Iniciar sesión del paciente | POST | `POST /login` | Body: `email`, `password` | `200` `{ "token": "...", "patient": { "id": "...", "name": "..." } }`. Si las credenciales no son válidas, responde `401` con el mensaje "The credentials are invalid." | Soporte a US05 y US06 |
-| `/optical-stores` | Listar ópticas | GET | `GET /optical-stores?name=Miraflores` | Query (opcionales): `name`, `address` | `200` `{ "opticalStores": [{ "id": "11111111-...", "name": "OptiFlow Miraflores", "address": "Av. Larco 123, Miraflores, Lima", "rating": 4.60, "status": "ACTIVE" }] }` | US05 |
-| `/optical-stores/search` | Búsqueda avanzada de ópticas | GET | `GET /optical-stores/search?minRating=4.5` | Query (opcionales): `name`, `address`, `minRating` | `200` lista filtrada y `message` cuando no hay resultados. | US05 |
-| `/optical-stores/{id}` | Obtener el detalle de una óptica | GET | `GET /optical-stores/11111111-1111-1111-1111-111111111111` | Path: `id` | `200` datos de la sucursal. | US05 |
-| `/optical-stores/{id}/availability` | Consultar horarios disponibles | GET | `GET /optical-stores/{id}/availability` | Path: `id` | `200` `{ "timeSlots": [{ "id": "4bd5f6be-...", "startDateTime": "2026-10-08T14:00:00Z", "endDateTime": "2026-10-08T14:30:00Z", "status": "AVAILABLE" }] }` | US05, US06 |
-| `/optical-stores/{id}/ratings` | Calificar una óptica | POST | `POST /optical-stores/{id}/ratings` | Path: `id`. Body: `patientId`, `score` (1 a 5), `comment` | `201` calificación registrada. | US05 |
-| `/patients/{id}/favorites` | Guardar una óptica favorita | POST | `POST /patients/{id}/favorites` | Path: `id`. Body: `opticalStoreId` | `201` favorito registrado. | US05 |
-| `/appointments` | Reservar una cita | POST | `POST /appointments` | Body: `patientId`, `opticalStoreId`, `timeSlotId` | `201` cita con estado `CONFIRMED`. Si el horario ya fue tomado, responde `409 Conflict`. | US06 |
-| `/appointments/{id}` | Consultar una cita | GET | `GET /appointments/{id}` | Path: `id` | `200` detalle de la cita. | US06 |
-| `/patients/{id}/appointments` | Listar las citas de un paciente | GET | `GET /patients/{id}/appointments` | Path: `id` | `200` lista de citas del paciente. | US06 |
+| `/api/v1/patients` | Registrar un paciente | POST | `POST /api/v1/patients` | Body: `name`, `email`, `phone`, `password` (mínimo 8 caracteres), `birthDate` (opcional, `AAAA-MM-DD`) | `201` `{ "id": "dc0315b5-...", "name": "Demo Paciente OptiFlow", "email": "demo.paciente@optiflow.pe", "phone": "999888777" }`: devuelve el paciente creado sin la contraseña. | Soporte a US05 y US06 |
+| `/api/v1/auth/tokens` | Iniciar sesión (crear un token de acceso) | POST | `POST /api/v1/auth/tokens` | Body: `email`, `password` | `201` `{ "token": "...", "expiresAt": "...", "userId": "...", "role": "PATIENT" }`. Si las credenciales no son válidas, responde `401` con el mensaje "The credentials are invalid." | Soporte a US05 y US06 |
+| `/api/v1/patients/{patientId}` | Consultar el perfil de un paciente | GET | `GET /api/v1/patients/{patientId}` | Path: `patientId` | `200` `{ "id": "dc0315b5-...", "name": "Demo Paciente OptiFlow", "email": "demo.paciente@optiflow.pe", "phone": "999888777" }`. Un paciente solo puede consultar su propio perfil; otro paciente recibe `403`. | Soporte a US05 y US06 |
+| `/api/v1/patients` | Buscar pacientes (directorio del personal) | GET | `GET /api/v1/patients` | Query (opcionales): `name`, `email` | `200` pacientes cuyo nombre y correo contienen el texto buscado, ordenados por nombre; lista vacía `[]` si no hay coincidencias. Solo para el personal. | US02 |
+| `/api/v1/optical-stores` | Buscar y listar ópticas | GET | `GET /api/v1/optical-stores` | Query (opcionales): `name`, `address` | `200` `[{ "id": "11111111-...", "name": "OptiFlow Miraflores", "address": "Av. Larco 123, Miraflores, Lima", "rating": 4.60, "status": "ACTIVE" }]` | US05 |
+| `/api/v1/optical-stores` | Filtrar ópticas por valoración | GET | `GET /api/v1/optical-stores` | Query (opcionales): `name`, `address`, `minRating` | `200` lista filtrada; si ninguna óptica coincide, lista vacía `[]`. | US05 |
+| `/api/v1/optical-stores` | Consultar ópticas cercanas | GET | `GET /api/v1/optical-stores` | Query: `lat`, `lng`, `radiusKm` | `200` ópticas dentro del radio, ordenadas por distancia. | US05 |
+| `/api/v1/optical-stores/{id}` | Obtener el detalle de una óptica | GET | `GET /api/v1/optical-stores/11111111-1111-1111-1111-111111111111` | Path: `id` | `200` datos de la sucursal. | US05 |
+| `/api/v1/optical-stores/{id}/time-slots` | Consultar horarios disponibles | GET | `GET /api/v1/optical-stores/{id}/time-slots` | Path: `id` | `200` `[{ "id": "4bd5f6be-...", "startDateTime": "2026-10-08T14:00:00Z", "endDateTime": "2026-10-08T14:30:00Z", "status": "AVAILABLE" }]` | US05, US06 |
+| `/api/v1/optical-stores/{id}/ratings` | Calificar una óptica | POST | `POST /api/v1/optical-stores/{id}/ratings` | Path: `id`. Body: `patientId`, `score` (1 a 5), `comment` | `201` calificación registrada. Si un paciente califica a nombre de otro, responde `403 Forbidden`. | US05 |
+| `/api/v1/patients/{patientId}/favorites` | Guardar una óptica favorita | POST | `POST /api/v1/patients/{patientId}/favorites` | Path: `patientId`. Body: `opticalStoreId` | `201` favorito registrado. | US05 |
+| `/api/v1/appointments` | Reservar una cita | POST | `POST /api/v1/appointments` | Body: `patientId`, `opticalStoreId`, `timeSlotId` | `201` cita con estado `CONFIRMED`. Si el horario ya fue tomado, responde `409 Conflict`; si un paciente reserva para otro paciente, `403 Forbidden`. | US06 |
+| `/api/v1/appointments/{id}` | Consultar una cita | GET | `GET /api/v1/appointments/{id}` | Path: `id` | `200` detalle de la cita. Un paciente solo consulta sus citas (`403` en otro caso). | US06 |
+| `/api/v1/patients/{patientId}/appointments` | Listar las citas de un paciente | GET | `GET /api/v1/patients/{patientId}/appointments` | Path: `patientId` | `200` lista de citas del paciente. | US06 |
+| `/api/v1/appointments` | Consultar la agenda de una óptica | GET | `GET /api/v1/appointments` | Query: `opticalStoreId`, `date` | `200` citas de la óptica en esa fecha, ordenadas por hora. Solo para el personal de la óptica. | US06 |
+| `/api/v1/appointments/{id}/status` | Cancelar o completar una cita | PATCH | `PATCH /api/v1/appointments/{id}/status` | Path: `id`. Body: `status` (`CANCELLED` o `COMPLETED`) | `200` cita con su nuevo estado; al cancelarla, el horario vuelve a estar disponible. Si la transición no es válida, responde `409 Conflict`; si la cita es de otro paciente, `403 Forbidden`. | US06 |
+| `/api/v1/optical-stores/{id}/time-slots` | Publicar horarios de atención | POST | `POST /api/v1/optical-stores/{id}/time-slots` | Path: `id`. Body: `timeSlots` (`startDateTime`, `endDateTime`) | `201` horarios publicados con estado `AVAILABLE`. Solo para `ADMIN`. | US05 |
+| `/api/v1/staff-members` | Registrar un miembro del personal | POST | `POST /api/v1/staff-members` | Body: `name`, `email`, `password`, `opticalStoreId`, `role` (`OPTOMETRIST`, `SALES_ADVISOR`, `TECHNICIAN` o `ADMIN`) | `201` `{ "id": "...", "opticalStoreId": "11111111-...", "name": "Ana Torres", "email": "ana.torres@optiflow.pe", "role": "OPTOMETRIST", "active": true }`, sin la contraseña. Si el correo ya existe, responde `409 Conflict`. Solo para `ADMIN`. | US16 |
+| `/api/v1/staff-members` | Listar el personal | GET | `GET /api/v1/staff-members` | Query (opcional): `opticalStoreId` | `200` lista del personal con su rol. Solo para `ADMIN`. | US16 |
+| `/api/v1/staff-members/{id}` | Consultar el perfil de un miembro del personal | GET | `GET /api/v1/staff-members/{id}` | Path: `id` | `200` miembro del personal con su rol y su `opticalStoreId`; la app lo usa al iniciar sesión para cargar la agenda de su óptica. Cada miembro solo puede consultar su propio perfil (`403` para otro); `ADMIN` puede consultar cualquiera. | US01 |
+| `/api/v1/staff-members/{id}/role` | Asignar el rol de un miembro del personal | PATCH | `PATCH /api/v1/staff-members/{id}/role` | Path: `id`. Body: `role` | `200` miembro del personal con su nuevo rol; rige desde su siguiente inicio de sesión. Solo para `ADMIN`. | US16 |
 
 Ejemplo de interacción, reserva de una cita:
 
 ```http
-POST /appointments
+POST /api/v1/appointments
 Content-Type: application/json
 
 {
@@ -832,26 +846,31 @@ Los Endpoints del Clinical & Commercial Context se presentan en la Tabla 120.
 
 | Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
 | :--- | :--- | :---: | :--- | :--- | :--- | :---: |
-| `/clinical-records` | Registrar la atención clínica | POST | `POST /clinical-records` | Body: `patientId`, `appointmentId`, `examinationDate`, `observations` | `201` expediente clínico creado. | US03 |
-| `/clinical-records/{id}` | Consultar un expediente | GET | `GET /clinical-records/{id}` | Path: `id` | `200` expediente con historia clínica y receta. | US04 |
-| `/patients/{patientId}/clinical-records` | Consultar el historial clínico del paciente | GET | `GET /patients/{patientId}/clinical-records` | Path: `patientId` | `200` lista de atenciones; lista vacía si no hay registros. | US04 |
-| `/clinical-records/{id}/medical-history` | Registrar la historia clínica | PUT | `PUT /clinical-records/{id}/medical-history` | Path: `id`. Body: `allergies[]`, `previousConditions[]`, `familyOcularHistory` | `200` expediente actualizado. | US03 |
-| `/clinical-records/{id}/prescription` | Generar la receta óptica | POST | `POST /clinical-records/{id}/prescription` | Path: `id`. Body: `sphereOD`, `cylinderOD`, `axisOD`, `sphereOS`, `cylinderOS`, `axisOS`, `addition`, `treatment`, `recommendedFrameType` | `201` receta generada. | US03 |
-| `/clinical-records/{id}/prescription` | Consultar la receta óptica | GET | `GET /clinical-records/{id}/prescription` | Path: `id` | `200` parámetros de la receta. | US04 |
-| `/quotations` | Generar una cotización | POST | `POST /quotations` | Body: `clinicalRecordId`, `items[]` (`itemType`, `productSku`, `description`, `unitPrice`, `quantity`) | `201` cotización con subtotales y total calculado. | US08 |
-| `/quotations/{id}` | Consultar una cotización | GET | `GET /quotations/{id}` | Path: `id` | `200` detalle de la cotización. | US08 |
-| `/quotations/{id}/discount` | Aplicar un descuento o promoción | PATCH | `PATCH /quotations/{id}/discount` | Path: `id`. Body: `type`, `value`, `reason` | `200` cotización con el total recalculado. | US08 |
-| `/quotations/{id}/approve` | Aprobar la cotización | PATCH | `PATCH /quotations/{id}/approve` | Path: `id` | `200` cotización aprobada. | US08 |
-| `/quotations/{id}/reject` | Rechazar la cotización | PATCH | `PATCH /quotations/{id}/reject` | Path: `id`. Body: `reason` | `200` cotización rechazada. | US08 |
-| `/sales` | Registrar una venta | POST | `POST /sales` | Body: `quotationId` | `201` venta asociada a la cotización aprobada. | US17 |
-| `/sales/{id}` | Consultar una venta | GET | `GET /sales/{id}` | Path: `id` | `200` detalle de la venta y sus pagos. | US17 |
-| `/sales/{id}/payments` | Registrar un pago | POST | `POST /sales/{id}/payments` | Path: `id`. Body: `method`, `amount`, `transactionReference` | `201` venta con el pago registrado. | US17 |
-| `/sales/{id}/close` | Cerrar la venta | PATCH | `PATCH /sales/{id}/close` | Path: `id` | `200` venta cerrada y comprobante generado. | US17 |
+| `/api/v1/clinical-records` | Registrar la atención clínica | POST | `POST /api/v1/clinical-records` | Body: `patientId`, `appointmentId`, `examinationDate`, `observations` | `201` expediente clínico creado. | US03 |
+| `/api/v1/clinical-records/{id}` | Consultar un expediente | GET | `GET /api/v1/clinical-records/{id}` | Path: `id` | `200` expediente con historia clínica y receta; `403` si un paciente consulta el de otro. | US04 |
+| `/api/v1/clinical-records/summary` | Consultar el resumen de registros clínicos (directorio del personal) | GET | `GET /api/v1/clinical-records/summary` | — | `200` `{ "patientsWithRecords": 12 }`: pacientes con al menos un registro clínico, en cualquier estado. Solo para el personal. | US02 |
+| `/api/v1/patients/{patientId}/clinical-records` | Consultar el historial clínico del paciente | GET | `GET /api/v1/patients/{patientId}/clinical-records` | Path: `patientId` | `200` lista de atenciones; lista vacía si no hay registros. | US04 |
+| `/api/v1/clinical-records/{id}/medical-history` | Registrar la historia clínica | PUT | `PUT /api/v1/clinical-records/{id}/medical-history` | Path: `id`. Body: `allergies[]`, `previousConditions[]`, `familyOcularHistory` | `200` expediente actualizado. | US03 |
+| `/api/v1/clinical-records/{id}/prescription` | Generar la receta óptica | POST | `POST /api/v1/clinical-records/{id}/prescription` | Path: `id`. Body: `sphereOD`, `cylinderOD`, `axisOD`, `sphereOS`, `cylinderOS`, `axisOS`, `addition`, `treatment`, `recommendedFrameType` | `201` receta generada. | US03 |
+| `/api/v1/clinical-records/{id}/prescription` | Consultar la receta óptica | GET | `GET /api/v1/clinical-records/{id}/prescription` | Path: `id` | `200` parámetros de la receta; `403` si un paciente consulta la de otro. | US04 |
+| `/api/v1/quotations` | Generar una cotización | POST | `POST /api/v1/quotations` | Body: `clinicalRecordId`, `items[]` (`itemType`, `productSku`, `description`, `unitPrice`, `quantity`) | `201` cotización con subtotales y total calculado. | US08 |
+| `/api/v1/quotations/{id}` | Consultar una cotización | GET | `GET /api/v1/quotations/{id}` | Path: `id` | `200` detalle de la cotización; `403` si un paciente consulta la de otro. | US08 |
+| `/api/v1/quotations/{id}/discount` | Aplicar un descuento o promoción | PATCH | `PATCH /api/v1/quotations/{id}/discount` | Path: `id`. Body: `type`, `value`, `reason` | `200` cotización con el total recalculado. | US08 |
+| `/api/v1/quotations/{id}/status` | Aprobar la cotización | PATCH | `PATCH /api/v1/quotations/{id}/status` | Path: `id`. Body: `{ "status": "APPROVED" }` | `200` cotización aprobada. | US08 |
+| `/api/v1/quotations/{id}/status` | Rechazar la cotización | PATCH | `PATCH /api/v1/quotations/{id}/status` | Path: `id`. Body: `{ "status": "REJECTED", "reason": "..." }` | `200` cotización rechazada. | US08 |
+| `/api/v1/sales` | Registrar una venta | POST | `POST /api/v1/sales` | Body: `quotationId` | `201` venta asociada a la cotización aprobada. | US17 |
+| `/api/v1/sales/{id}` | Consultar una venta | GET | `GET /api/v1/sales/{id}` | Path: `id` | `200` detalle de la venta y de su pago (`status` `APPROVED` o `REJECTED` y, si fue rechazado, su `statusDetail`); `403` si un paciente consulta la venta de otro. | US17 |
+| `/api/v1/patients/{patientId}/sales` | Consultar las ventas de un paciente | GET | `GET /api/v1/patients/{patientId}/sales` | Path: `patientId` | `200` ventas del paciente, primero las pendientes de pago; `403` si un paciente consulta las de otro. | US17 |
+| `/api/v1/sales/{id}/payment-preference` | Solicitar el pago desde la aplicación | POST | `POST /api/v1/sales/{id}/payment-preference` | Path: `id` | `201` `{ "id": "...", "initPoint": "https://www.mercadopago.com.pe/checkout/..." }`: enlace de Checkout Pro donde el paciente paga con tarjeta o Yape; `403` si la venta es de otro paciente; `409` si la venta no está pendiente de pago; `503` si la pasarela no responde. Solo `PATIENT`. | US17 |
+| `/api/v1/payment-notifications` | Recibir el resultado de un pago | POST | `POST /api/v1/payment-notifications` | Query: `data.id`, `type`. Headers: `x-signature`, `x-request-id`. Body: notificación de Mercado Pago | `200` siempre que la firma sea válida: un pago aprobado deja la venta en `PAID` y uno rechazado la mantiene pendiente; las notificaciones repetidas se ignoran. `401` si la firma no es válida. Ruta pública. | US17 |
+| `/api/v1/sales/{id}/payments` | Registrar un pago en efectivo | POST | `POST /api/v1/sales/{id}/payments` | Path: `id`. Body: `amount` | `201` venta pagada en efectivo (`method: CASH`, con una referencia `CASH-...` generada); `400` si el monto no coincide con el total; `409` si ya estaba pagada. | US17 |
+| `/api/v1/sales/{id}/status` | Cerrar la venta | PATCH | `PATCH /api/v1/sales/{id}/status` | Path: `id`. Body: `{ "status": "CLOSED" }` | `200` venta cerrada y comprobante generado. | US17 |
+| `/api/v1/reports/sales` | Consultar o exportar las métricas de ventas | GET | `GET /api/v1/reports/sales` | Query: `from`, `to`. Header (opcional): `Accept: text/csv` | `200` `{ "attentions": 42, "approvedQuotations": 30, "rejectedQuotations": 5, "closedSales": 28, "totalAmount": 12323.80, "averageTicket": 440.14, "currency": "PEN" }`; un periodo sin datos devuelve ceros. Con `Accept: text/csv` descarga una fila por venta cerrada (solo el encabezado si no hay ventas). `400` si `from` es posterior a `to`. Solo `ADMIN`. | US18, US19 |
 
 Ejemplo de interacción, generación de una cotización:
 
 ```http
-POST /quotations
+POST /api/v1/quotations
 Content-Type: application/json
 
 {
@@ -879,18 +898,66 @@ Los Endpoints del Production & Tracking Context se resumen en la Tabla 121.
 
 | Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
 | :--- | :--- | :---: | :--- | :--- | :--- | :---: |
-| `/work-orders` | Listar órdenes de trabajo para el tablero Kanban | GET | `GET /work-orders?status=IN_WORKSHOP` | Query (opcionales): `status`, `technicianId`, `opticalStoreId` | `200` lista de órdenes con estado y fecha estimada. | US10 |
-| `/work-orders` | Generar una orden de trabajo | POST | `POST /work-orders` | Body: `saleId` | `201` orden creada en estado `PENDING`. | US10 |
-| `/work-orders/{id}` | Obtener una orden de trabajo | GET | `GET /work-orders/{id}` | Path: `id` | `200` detalle técnico e historial de estados. | US10, US11 |
-| `/patients/{patientId}/work-orders` | Consultar los pedidos de un paciente | GET | `GET /patients/{patientId}/work-orders` | Path: `patientId` | `200` pedidos del paciente con su estado actual. | US11 |
-| `/work-orders/{id}/technician` | Asignar un técnico | PATCH | `PATCH /work-orders/{id}/technician` | Path: `id`. Body: `technicianId` | `200` orden con técnico asignado. | US10 |
-| `/work-orders/{id}/laboratory` | Enviar a laboratorio | PATCH | `PATCH /work-orders/{id}/laboratory` | Path: `id`. Body: `laboratoryId` | `200` orden enviada al laboratorio. | US10 |
-| `/work-orders/{id}/status` | Actualizar el estado | PATCH | `PATCH /work-orders/{id}/status` | Path: `id`. Body: `status` (`PENDING`, `IN_WORKSHOP`, `QUALITY_CONTROL`, `READY_FOR_DELIVERY`, `DELIVERED`) | `200` orden con el nuevo estado y su registro en el historial. | US10, US11 |
-| `/work-orders/{id}/lenses/complete` | Marcar lentes terminados | PATCH | `PATCH /work-orders/{id}/lenses/complete` | Path: `id`. Body: `lensIds[]` | `200` orden con los lentes completados. | US10 |
-| `/work-orders/{id}/delays` | Notificar un retraso | POST | `POST /work-orders/{id}/delays` | Path: `id`. Body: `reason`, `newEstimatedDeliveryDate` | `201` retraso registrado con la nueva fecha estimada. | US11, US12 |
-| `/work-orders/{id}/deliver` | Marcar el pedido como entregado | PATCH | `PATCH /work-orders/{id}/deliver` | Path: `id` | `200` orden en estado `DELIVERED`. | US11 |
-| `/technicians` | Listar técnicos | GET | `GET /technicians` | — | `200` `[{ "id": "33333333-...", "name": "Jorge Salas" }, { "id": "44444444-...", "name": "María Quispe" }]` | US10 |
-| `/laboratories` | Listar laboratorios | GET | `GET /laboratories` | — | `200` laboratorios disponibles para enviar órdenes. | US10 |
+| `/api/v1/work-orders` | Listar órdenes de trabajo para el tablero Kanban | GET | `GET /api/v1/work-orders` | Query (opcionales): `status`, `technicianId`, `opticalStoreId` | `200` lista de órdenes con estado y fecha estimada. | US10 |
+| `/api/v1/work-orders` | Generar una orden de trabajo | POST | `POST /api/v1/work-orders` | Body: `saleId` | `201` orden creada en estado `PENDING`. | US10 |
+| `/api/v1/work-orders/{id}` | Obtener una orden de trabajo | GET | `GET /api/v1/work-orders/{id}` | Path: `id` | `200` detalle técnico e historial de estados. | US10, US11 |
+| `/api/v1/patients/{patientId}/work-orders` | Consultar los pedidos de un paciente | GET | `GET /api/v1/patients/{patientId}/work-orders` | Path: `patientId` | `200` pedidos del paciente con su estado actual. | US11 |
+| `/api/v1/work-orders/{id}/technician` | Asignar un técnico | PATCH | `PATCH /api/v1/work-orders/{id}/technician` | Path: `id`. Body: `technicianId` | `200` orden con técnico asignado. | US10 |
+| `/api/v1/work-orders/{id}/laboratory` | Enviar a laboratorio | PATCH | `PATCH /api/v1/work-orders/{id}/laboratory` | Path: `id`. Body: `laboratoryId` | `200` orden enviada al laboratorio. | US10 |
+| `/api/v1/work-orders/{id}/status` | Actualizar el estado | PATCH | `PATCH /api/v1/work-orders/{id}/status` | Path: `id`. Body: `status` (`PENDING`, `IN_WORKSHOP`, `QUALITY_CONTROL`, `READY_FOR_DELIVERY`, `DELIVERED`) | `200` orden con el nuevo estado y su registro en el historial. | US10, US11 |
+| `/api/v1/work-orders/{id}/lenses` | Marcar lentes terminados | PATCH | `PATCH /api/v1/work-orders/{id}/lenses` | Path: `id`. Body: `lensIds[]` | `200` orden con los lentes completados. | US10 |
+| `/api/v1/work-orders/{id}/delays` | Notificar un retraso | POST | `POST /api/v1/work-orders/{id}/delays` | Path: `id`. Body: `reason`, `newEstimatedDeliveryDate` | `201` retraso registrado con la nueva fecha estimada. | US11, US12 |
+| `/api/v1/work-orders/{id}/status` | Marcar el pedido como entregado | PATCH | `PATCH /api/v1/work-orders/{id}/status` | Path: `id`. Body: `{ "status": "DELIVERED" }` | `200` orden en estado `DELIVERED`. | US11 |
+| `/api/v1/technicians` | Listar técnicos | GET | `GET /api/v1/technicians` | — | `200` `[{ "id": "33333333-...", "name": "Jorge Salas" }, { "id": "44444444-...", "name": "María Quispe" }]` | US10 |
+| `/api/v1/laboratories` | Listar laboratorios | GET | `GET /api/v1/laboratories` | — | `200` laboratorios disponibles para enviar órdenes. | US10 |
+| `/api/v1/reports/production` | Consultar o exportar las métricas de producción | GET | `GET /api/v1/reports/production` | Query: `from`, `to`. Header (opcional): `Accept: text/csv` | `200` `{ "ordersByStatus": { "PENDING": 2, "IN_WORKSHOP": 3, "QUALITY_CONTROL": 1, "READY_FOR_DELIVERY": 4, "DELIVERED": 18 }, "deliveredOrders": 20, "averageFabricationHours": 52.5, "delayedOrders": 3 }`; un periodo sin datos devuelve ceros. Con `Accept: text/csv` descarga una fila por orden del periodo (solo el encabezado si no hay órdenes). `400` si `from` es posterior a `to`. Solo `ADMIN`. | US18, US19 |
+
+##### Store Management & Inventory Context
+
+
+Los Endpoints del Store Management & Inventory Context se resumen en la Tabla 122. Cada óptica tiene su propio inventario, por lo que las rutas de stock reciben la óptica en `opticalStoreId`.
+
+<a id="tabla-122"></a>
+
+**Tabla 122**
+
+*Endpoints del Store Management & Inventory Context*
+
+
+| Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
+| :--- | :--- | :---: | :--- | :--- | :--- | :---: |
+| `/api/v1/inventory/frames` | Consultar el catálogo de monturas | GET | `GET /api/v1/inventory/frames` | — | `200` monturas ordenadas por nombre con su `sku`, precio y modelo del probador virtual. | US09, US21 |
+| `/api/v1/inventory/frames/{sku}` | Consultar una montura escaneada | GET | `GET /api/v1/inventory/frames/RB-2140-BLK` | Path: `sku`. Query (opcional): `opticalStoreId` | `200` datos y precio de la montura y, con `opticalStoreId`, su `quantity` y `minimumStock` en esa óptica; `404` si el código no existe. | US07 |
+| `/api/v1/inventory/frames` | Registrar una montura | POST | `POST /api/v1/inventory/frames` | Body: `sku`, `name`, `material`, `shape`, `color`, `price`, `tryOnModelUrl` (opcionales: `material`, `shape`, `color`, `tryOnModelUrl`) | `201` montura creada (moneda `PEN`); `409` si el `sku` ya existe. | US09 |
+| `/api/v1/inventory/frames/{sku}/price` | Actualizar el precio | PATCH | `PATCH /api/v1/inventory/frames/{sku}/price` | Path: `sku`. Body: `price` | `200` montura con el nuevo precio. | US09 |
+| `/api/v1/inventory/stock` | Consultar el stock de una óptica | GET | `GET /api/v1/inventory/stock` | Query: `opticalStoreId` | `200` `{ "id": "...", "opticalStoreId": "...", "stocks": [{ "sku": "RB-2140-BLK", "quantity": 3, "minimumStock": 2, "low": false }] }`; `404` si la óptica no tiene inventario. | US07 |
+| `/api/v1/inventory/replenishments` | Reponer stock | POST | `POST /api/v1/inventory/replenishments` | Body: `opticalStoreId`, `sku`, `supplierId`, `quantity` (1 a 1000), `minimumStock` (opcional; 5 por defecto en la primera reposición) | `201` movimiento de entrada (`IN`, `REPLENISHMENT`) con el usuario que lo registró. | US14 |
+| `/api/v1/inventory/movements` | Consultar el historial de movimientos | GET | `GET /api/v1/inventory/movements` | Query: `opticalStoreId`, `from`, `to`; `sku` (opcional) | `200` entradas y salidas del periodo, de la más reciente a la más antigua; las salidas por venta traen `saleId` y `performedBy` vacío. | US15 |
+| `/api/v1/inventory/alerts` | Consultar las alertas de stock crítico | GET | `GET /api/v1/inventory/alerts` | Query: `opticalStoreId` | `200` monturas con cantidad igual o menor a su stock mínimo. | US14 |
+| `/api/v1/suppliers` | Registrar un proveedor | POST | `POST /api/v1/suppliers` | Body: `name`, `contact` (opcional) | `201` proveedor registrado. | US14 |
+| `/api/v1/suppliers` | Listar proveedores | GET | `GET /api/v1/suppliers` | — | `200` proveedores ordenados por nombre. | US14 |
+| `/api/v1/reports/inventory` | Consultar o exportar las métricas de inventario | GET | `GET /api/v1/reports/inventory` | Query: `opticalStoreId`, `from`, `to`. Header (opcional): `Accept: text/csv` | `200` unidades que entraron y salieron, productos con stock crítico y detalle por montura; con `Accept: text/csv` descarga el mismo detalle en CSV. Solo `ADMIN`. | US18, US19 |
+
+##### Notification & Loyalty Context
+
+
+Los Endpoints del Notification & Loyalty Context se resumen en la Tabla 123. Todas las rutas exigen el rol `PATIENT` y un paciente solo opera sobre sus propios datos (`403` en otro caso). Los avisos se crean a partir de eventos y tareas programadas, por lo que no hay rutas para crearlos.
+
+<a id="tabla-123"></a>
+
+**Tabla 123**
+
+*Endpoints del Notification & Loyalty Context*
+
+
+| Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Response (ejemplo y explicación) | User Story |
+| :--- | :--- | :---: | :--- | :--- | :--- | :---: |
+| `/api/v1/patients/{patientId}/notifications` | Consultar los avisos del paciente | GET | `GET /api/v1/patients/{patientId}/notifications` | Path: `patientId` | `200` avisos del más reciente al más antiguo (`type`, `title`, `message`, `status`, `createdAt`, `scheduledAt`); un recordatorio aparece cuando llega su fecha programada. | US12, US13 |
+| `/api/v1/notifications/{id}` | Consultar un aviso | GET | `GET /api/v1/notifications/{id}` | Path: `id` | `200` aviso con su cita u orden y, si es una encuesta respondida, `surveyRating`, `surveyComment` y `answeredAt`; `404` si no existe. | US12 |
+| `/api/v1/notifications/{id}` | Marcar un aviso como leído | PATCH | `PATCH /api/v1/notifications/{id}` | Path: `id`. Body: `{ "read": true }` | `200` aviso con `status: READ` y `readAt`; `400` si `read` no es `true`; `409` si ya estaba leído. | US12 |
+| `/api/v1/notifications/{id}/survey-response` | Responder la encuesta de satisfacción | POST | `POST /api/v1/notifications/{id}/survey-response` | Path: `id`. Body: `rating` (1 a 5), `comment` (opcional, hasta 500 caracteres) | `201` encuesta respondida y leída; `409` si ya fue respondida o el aviso no es una encuesta. | US12 |
+| `/api/v1/patients/{patientId}/device-tokens` | Registrar el dispositivo del paciente | POST | `POST /api/v1/patients/{patientId}/device-tokens` | Path: `patientId`. Body: `token` (token de Firebase Cloud Messaging), `platform` (`ANDROID`) | `201` `{ "id": "...", "platform": "ANDROID", "updatedAt": "..." }`; si el token ya existía, pasa a este paciente. | US12, US13 |
+| `/api/v1/patients/{patientId}/loyalty-account` | Consultar la cuenta de fidelización | GET | `GET /api/v1/patients/{patientId}/loyalty-account` | Path: `patientId` | `200` `{ "patientId": "...", "balance": 100, "lastBirthdayDiscountYear": 2026, "updatedAt": "..." }`; `404` si el paciente aún no recibe su primer beneficio de cumpleaños. | — |
 
 ##### Evidencia de interacción con la documentación desplegada
 
@@ -944,7 +1011,7 @@ Las capturas del 2026-10-08 registran la documentación publicada en Render. Se 
 ![Endpoints de Production & Tracking en Swagger](assets/cap4/sprint1/swagger-render-production-tracking.png)
 
 
-**Consulta de ópticas en el entorno desplegado.** GET /optical-stores devuelve HTTP 200 con las sucursales de Miraflores y San Isidro (ver Figura 140).
+**Consulta de ópticas en el entorno desplegado.** GET /api/v1/optical-stores devuelve HTTP 200 con las sucursales de Miraflores y San Isidro (ver Figura 140).
 
 
 <a id="figura-140"></a>
@@ -956,7 +1023,7 @@ Las capturas del 2026-10-08 registran la documentación publicada en Render. Se 
 ![Consulta de ópticas en Render](assets/cap4/sprint1/swagger-render-optical-stores.png)
 
 
-**Consulta de disponibilidad.** GET /optical-stores/{id}/availability devuelve HTTP 200 con los horarios disponibles de la sucursal de Miraflores (ver Figura 141).
+**Consulta de disponibilidad.** GET /api/v1/optical-stores/{id}/time-slots devuelve HTTP 200 con los horarios disponibles de la sucursal de Miraflores (ver Figura 141).
 
 
 <a id="figura-141"></a>
@@ -968,7 +1035,7 @@ Las capturas del 2026-10-08 registran la documentación publicada en Render. Se 
 ![Disponibilidad de horarios en Render](assets/cap4/sprint1/swagger-render-availability.png)
 
 
-**Consulta de técnicos de Production & Tracking.** GET /technicians devuelve HTTP 200 con los técnicos registrados para asignar órdenes de trabajo (ver Figura 142).
+**Consulta de técnicos de Production & Tracking.** GET /api/v1/technicians devuelve HTTP 200 con los técnicos registrados para asignar órdenes de trabajo (ver Figura 142).
 
 
 <a id="figura-142"></a>
@@ -982,11 +1049,11 @@ Las capturas del 2026-10-08 registran la documentación publicada en Render. Se 
 
 ##### Commits relacionados con la documentación
 
-Los commits del repositorio de Web Services que incorporan o modifican la documentación OpenAPI durante el Sprint 1 se detallan en la Tabla 122.
+Los commits del repositorio de Web Services que incorporan o modifican la documentación OpenAPI durante el Sprint 1 se detallan en la Tabla 124.
 
-<a id="tabla-122"></a>
+<a id="tabla-124"></a>
 
-**Tabla 122**
+**Tabla 124**
 
 *Commits relacionados con la documentación de los Web Services*
 
@@ -999,12 +1066,12 @@ Los commits del repositorio de Web Services que incorporan o modifican la docume
 
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
-La evidencia de despliegue del Sprint 1 comprende la **Landing Page en GitHub Pages**, los **Web Services en Render mediante Docker** y la distribución de la **aplicación móvil mediante Firebase App Distribution**. Cada producto tiene un mecanismo de publicación distinto. La sección identifica los entornos utilizados y debe interpretarse junto con las evidencias de ejecución y pruebas, sin equiparar la publicación con la validación de todas las funciones del producto (ver Tabla 123).
+La evidencia de despliegue del Sprint 1 comprende la **Landing Page en GitHub Pages**, los **Web Services en Render mediante Docker** y la distribución de la **aplicación móvil mediante Firebase App Distribution**. Cada producto tiene un mecanismo de publicación distinto. La sección identifica los entornos utilizados y debe interpretarse junto con las evidencias de ejecución y pruebas, sin equiparar la publicación con la validación de todas las funciones del producto (ver Tabla 125).
 
 
-<a id="tabla-123"></a>
+<a id="tabla-125"></a>
 
-**Tabla 123**
+**Tabla 125**
 
 *Productos desplegados en el Sprint 1*
 
@@ -1292,16 +1359,16 @@ La disponibilidad de horarios obtenida de Render se observa en la Figura 160.
 
 <img src="assets/cap4/sprint1/deploy-mobile-availability.png" alt="Disponibilidad de horarios" width="300">
 
-Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /optical-stores/{id}/availability` de la [Figura 154](#figura-154).
+Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /api/v1/optical-stores/{id}/time-slots` de la [Figura 141](#figura-141).
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
-Durante el Sprint 1, las tareas de implementación de la Landing Page, los Web Services y la aplicación móvil se distribuyeron entre los integrantes según la matriz de líderes y colaboradores de la sección 4.2.1.2. El trabajo siguió **GitFlow** y **Conventional Commits**: cada integrante trabajó en ramas `feature/*` creadas desde `develop` y los cambios se integraron mediante *pull requests*. En la Landing Page, la publicación se realiza desde `main`, que dispara el workflow de GitHub Pages (ver Tabla 124).
+Durante el Sprint 1, las tareas de implementación de la Landing Page, los Web Services y la aplicación móvil se distribuyeron entre los integrantes según la matriz de líderes y colaboradores de la sección 4.2.1.2. El trabajo siguió **GitFlow** y **Conventional Commits**: cada integrante trabajó en ramas `feature/*` creadas desde `develop` y los cambios se integraron mediante *pull requests*. En la Landing Page, la publicación se realiza desde `main`, que dispara el workflow de GitHub Pages (ver Tabla 126).
 
 
-<a id="tabla-124"></a>
+<a id="tabla-126"></a>
 
-**Tabla 124**
+**Tabla 126**
 
 *Integrantes del equipo y sus usuarios de GitHub*
 
@@ -1477,11 +1544,11 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 5. Consulta de información sin conexión a internet.
 
 **ESCALA DE SEVERIDAD:**
-Los errores serán puntuados tomando en cuenta la escala de severidad de la Tabla 125.
+Los errores serán puntuados tomando en cuenta la escala de severidad de la Tabla 127.
 
-<a id="tabla-125"></a>
+<a id="tabla-127"></a>
 
-**Tabla 125**
+**Tabla 127**
 
 *Escala de severidad de los problemas de usabilidad*
 
@@ -1494,11 +1561,11 @@ Los errores serán puntuados tomando en cuenta la escala de severidad de la Tabl
 
 **TABLA RESUMEN:**
 
-Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplicación móvil (problemas 7 al 15) se resumen en la Tabla 126.
+Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplicación móvil (problemas 7 al 15) se resumen en la Tabla 128.
 
-<a id="tabla-126"></a>
+<a id="tabla-128"></a>
 
-**Tabla 126**
+**Tabla 128**
 
 *Resumen de problemas identificados en la evaluación heurística*
 

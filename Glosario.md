@@ -66,7 +66,7 @@ Evento que representa algo relevante que ocurrió dentro del dominio y que puede
 Mecanismo utilizado para recopilar la percepción del paciente sobre la atención o experiencia recibida, especialmente después de la entrega de un pedido.
 
 ### Estado de la Orden de Trabajo
-Fase en la que se encuentra una orden dentro del proceso de producción. En OptiFlow comprende los estados `Pendiente`, `En Taller`, `Control de Calidad` y `Listo para Entrega`.
+Fase en la que se encuentra una orden dentro del proceso de producción. En OptiFlow comprende los estados `Pendiente`, `En Taller`, `Control de Calidad`, `Listo para Entrega` y `Entregado`.
 
 ### EventStorming
 Técnica de modelado colaborativo utilizada para identificar eventos, comandos, actores, reglas y procesos relevantes del dominio de OptiFlow.
@@ -288,7 +288,7 @@ Descripción de una necesidad del usuario expresada como una funcionalidad con v
 Backend del sistema encargado de exponer servicios y lógica de negocio para la gestión de pacientes, citas, pedidos, inventario y operaciones de la óptica.
 
 ### Webhook
-Solicitud HTTP que un servicio externo envía al backend para avisar un acontecimiento; Mercado Pago lo usa para notificar el resultado de cada pago en `POST /payments/webhook`.
+Solicitud HTTP que un servicio externo envía al backend para avisar un acontecimiento; Mercado Pago lo usa para notificar el resultado de cada pago en `POST /api/v1/payment-notifications`.
 
 ### Wireframe
 Esquema básico de una pantalla o flujo que define la estructura, organización del contenido y navegación antes de refinarlos en mock-ups y prototipos.

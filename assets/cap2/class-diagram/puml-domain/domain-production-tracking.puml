@@ -86,7 +86,8 @@ package "production.domain" {
       + findById(id: WorkOrderId): Optional<WorkOrder>
       + existsBySaleId(saleId: SaleId): boolean
       + findByPatientId(id: PatientId): List<WorkOrder>
-      + findByStatus(status: WorkOrderStatus): List<WorkOrder>
+      + search(status: WorkOrderStatus, technicianId: TechnicianId, opticalStoreId: OpticalStoreId): List<WorkOrder>
+      + findWithActivityBetween(from: Instant, to: Instant): List<WorkOrder>
     }
     interface TechnicianRepository {
       + save(technician: Technician): void
