@@ -14,8 +14,8 @@ package "inventory.domain" {
       - id: InventoryId
       - opticalStoreId: OpticalStoreId
       - stocks: List<Stock>
-      + replenish(frameModelId: FrameModelId, quantity: int, supplierId: SupplierId, performedBy: UUID): StockMovement
-      + decrease(frameModelId: FrameModelId, quantity: int, saleId: UUID): StockMovement
+      + replenish(replenishment: Replenishment, minimumStock: Integer [0..1], performedBy: UUID): StockMovement
+      + decrease(frameModelId: FrameModelId, quantity: int, saleId: UUID): Optional<StockMovement>
       + lowStockAlerts(): List<LowStockAlert>
     }
     class Stock <<Entity>> {
@@ -24,6 +24,7 @@ package "inventory.domain" {
       - minimumStock: int
       + increase(quantity: int): void
       + decrease(quantity: int): void
+      + changeMinimumStock(minimumStock: int): void
       + isLow(): boolean
     }
     class FrameModel <<Aggregate Root>> {
@@ -108,7 +109,7 @@ package "inventory.domain" {
     }
     interface StockMovementRepository {
       + save(movement: StockMovement): void
-      + findByPeriod(from: Instant, to: Instant, sku: Sku [0..1]): List<StockMovement>
+      + findByPeriod(inventoryId: InventoryId, from: Instant, to: Instant, frameModelId: FrameModelId [0..1]): List<StockMovement>
     }
   }
 
