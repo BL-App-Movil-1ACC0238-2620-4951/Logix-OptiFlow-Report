@@ -248,15 +248,15 @@ Para reproducir la publicación de la Landing:
 
 El backend se construye con Maven y Java 21 y se empaqueta mediante el `Dockerfile`. El perfil `postgres` obtiene la conexión de `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME` y `SPRING_DATASOURCE_PASSWORD`; Flyway aplica las migraciones y JPA valida el esquema. Los valores de credenciales se configuran en el entorno y no se incluyen en las evidencias.
 
-La revisión `4a1364e` publica las rutas de negocio bajo `/api/v1`. El registro de pacientes y la creación de tokens son públicos; las operaciones protegidas requieren un token y las de personal exigen el rol administrativo. La documentación se genera en `/v3/api-docs` y se visualiza en `/swagger-ui/index.html`. El perfil local utiliza H2; las capturas de 4.2.2 se tomaron en una instancia aislada, distinta de Render.
+La revisión `41bcb44`, consultada el 10/11/2026, publica las rutas de negocio bajo `/api/v1`. El registro de pacientes y la creación de tokens son públicos; las operaciones protegidas requieren un token y verifican los roles autorizados para cada recurso. La documentación se genera en `/v3/api-docs` y se visualiza en `/swagger-ui/index.html`. El perfil local utiliza H2; las capturas de 4.2.2 se tomaron en una instancia aislada, distinta de Render.
 
-Los servicios de pagos externos y notificaciones push del diseño general no se consideran comprobados por esta revisión. En el código descargado se identifican las migraciones V1, V2, V3, V4, V5 y V8; no se usa el diseño ampliado del informe como sustituto de la evidencia de código o despliegue.
+El código revisado contiene las migraciones V1 a V9 y 27 tablas en una base PostgreSQL compartida. V6 incorpora inventario, V7 registra dispositivos para notificaciones y V9 amplía el pago de ventas. Los adaptadores de pagos y mensajería push tienen pruebas automatizadas; su ejecución con proveedores reales requiere la configuración del entorno. La revisión local usa H2 y no acredita la aplicación de las migraciones en PostgreSQL de producción.
 
 Para preparar los servicios desde el código:
 
-1. Usar la revisión elegida del backend, Java 21 y Maven; ejecutar la suite antes de preparar la entrega. La incidencia de compilación detectada debe resolverse para acreditar ese paso.
+1. Usar la revisión elegida del backend, Java 21 y Maven; ejecutar la suite antes de preparar la entrega. La ejecución del 10/11/2026 terminó con 131 pruebas aprobadas; el registro y la ejecución de integración continua se presentan en 4.2.2.5.
 2. Configurar `SPRING_PROFILES_ACTIVE=postgres`, la URL JDBC de PostgreSQL, el usuario, la contraseña y `JWT_SECRET` en el entorno. La configuración revisada lee el puerto desde `PORT` y usa 8080 como valor por defecto.
-3. Construir la imagen con `docker build -t optiflow-backend:<version> .` desde la raíz del backend. El `Dockerfile` empaqueta con `-DskipTests`: omite la ejecución, pero todavía compila las clases de prueba. Por tanto, el error de `testCompile` también debe corregirse antes de construir esta imagen; el JAR local se generó por separado con `-Dmaven.test.skip=true`. Ninguna de esas opciones acredita la aprobación de la suite.
+3. Construir la imagen con `docker build -t optiflow-backend:<version> .` desde la raíz del backend. El `Dockerfile` empaqueta con `-DskipTests`, que omite ejecutar las pruebas. Para esta revisión se ejecutó primero `mvn -B test` con resultado satisfactorio y después `mvn -B -DskipTests package` para generar el JAR. La construcción de la imagen Docker no se presenta como una ejecución realizada en este entorno.
 4. En Render, seleccionar el repositorio y commit que se publicarán mediante Docker, registrar las variables del paso anterior y revisar los logs de arranque y migración sin exponer sus valores.
 5. Abrir `/v3/api-docs` y `/swagger-ui/index.html`; comprobar el contrato versionado, una consulta pública y una operación protegida. Conservar el commit desplegado y la evidencia de esa revisión.
 
@@ -1443,7 +1443,7 @@ Los commits por semana del repositorio de la aplicación móvil se observan en l
 
 ### 4.2.2. Sprint 2
 
-El Sprint 2 amplía el trabajo del primer incremento con la versión `/api/v1` de los servicios, autenticación con tokens, permisos por rol, ubicación de las ópticas y una nueva aplicación Flutter. La Landing Page incorpora ajustes de navegación, accesibilidad y publicación. La revisión de AV2 se realizó el 08/11/2026 sobre versiones identificadas de cada repositorio.
+El Sprint 2 amplía el trabajo del primer incremento con la versión `/api/v1` de los servicios, autenticación con tokens, permisos por rol, ubicación de las ópticas y una nueva aplicación Flutter. La Landing Page incorpora ajustes de navegación, accesibilidad y publicación. La revisión de AV2 se actualizó el 10/11/2026 sobre versiones identificadas de cada repositorio.
 
 Se distinguen tres resultados: código publicado, comportamiento comprobado y funcionalidades que todavía usan datos de demostración. La incorporación de una pantalla o de un contrato HTTP no significa, por sí sola, que la historia esté integrada y aceptada de extremo a extremo.
 
@@ -1542,8 +1542,8 @@ La Tabla 127 descompone las historias y las actividades adicionales en tareas co
 <tr><td>S2-T16</td><td>Comprobar los estados del pedido</td><td>Revisar su representación en Flutter y el mensaje que se muestra cuando no existen órdenes.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>To-do</td></tr>
 <tr><td rowspan="8">—</td><td rowspan="8">Actividades adicionales del Sprint</td><td>S2-T17</td><td>Mejorar la Landing Page</td><td>Conservar los cambios de accesibilidad, navegación, diseño y configuración de publicación del repositorio.</td><td>6</td><td>Morocho Pinedo, Mariana</td><td>Done</td></tr>
 <tr><td>S2-T18</td><td>Verificar la publicación y la descarga</td><td>Confirmar el workflow de Pages y que Descargar APK apunte a la versión que se entregará.</td><td>4</td><td>Morocho Pinedo, Mariana</td><td>To-Review</td></tr>
-<tr><td>S2-T19</td><td>Corregir la compilación de las pruebas</td><td>Mover header(...) al constructor de las solicitudes de AuthenticationAuthorizationApiTest.</td><td>2</td><td>Quispe Llacsahuanga, César Augusto</td><td>To-do</td></tr>
-<tr><td>S2-T20</td><td>Ejecutar la suite y adjuntar reportes</td><td>Ejecutar Maven y Flutter; conservar resultados de pruebas unitarias, integración y aceptación.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>To-do</td></tr>
+<tr><td>S2-T19</td><td>Corregir la compilación de las pruebas</td><td>Corregir las solicitudes de AuthenticationAuthorizationApiTest. La corrección c287603 está integrada y la suite compila en 41bcb44.</td><td>2</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>S2-T20</td><td>Ejecutar la suite y adjuntar reportes</td><td>Maven: 131 pruebas aprobadas el 10/11/2026, incluidos cuatro escenarios de aceptación. La ejecución de Flutter se revisa junto con el APK.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>To-Review</td></tr>
 <tr><td>S2-T21</td><td>Preparar evidencias y video de ejecución</td><td>Registrar Swagger, capturas de Flutter y momentos del video con la versión probada.</td><td>6</td><td>Celis Berrospi, Eslander</td><td>To-Review</td></tr>
 <tr><td>S2-T22</td><td>Generar y distribuir el APK</td><td>Construir e instalar el APK con la URL compatible y registrar versión, dispositivo y enlace de distribución.</td><td>4</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-do</td></tr>
 <tr><td>S2-T23</td><td>Coordinar las entrevistas de validación</td><td>Realizar tres entrevistas por segmento y registrar datos, tiempos, capturas y observaciones.</td><td>8</td><td>Morocho Pinedo, Mariana</td><td>To-do</td></tr>
@@ -1577,8 +1577,11 @@ La evidencia se obtiene de los historiales de los repositorios, con fechas expre
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [d59a496](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/d59a4963a23847a47aa5832a4d64c44b303188b6) | `feat: incorporar mejoras de heurísticas, accesibilidad y animaciones sin diseño de fondos` | Incorpora ajustes de accesibilidad y de la experiencia visual. | 05/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [753aa2b](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/753aa2b177e4c0d8c091c552b771e85e160c3775) | `ci: configure GitHub Pages workflow, add .nojekyll and .gitignore` | Configura el workflow y archivos de publicación de GitHub Pages. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) | `main` | [441701b](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/441701b0d71a71171c5cec979c6019640d7576ba) | `fix: page.` | Registra la revisión de la página previa a su integración. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [f339e00](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/f339e009a8720413a6c328240f3a84288c956912) | `feat: add satisfaction survey flow` | Incorpora el flujo de respuesta de encuestas de satisfacción. | 09/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [6106054](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/61060542a5229d643b238e7aef9549b390a810a1) | `feat: add production report` | Añade la consulta de métricas de producción. | 09/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [37c6808](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/37c6808f24023e0729e060335de7ffe34573371e) | `fix: let staff read patient appointments` | Permite al personal autorizado consultar las citas de un paciente. | 10/11/2026 |
 
-El backend `4a1364e` incorpora un contrato diferente al consumido por el cliente anterior. El cliente Flutter `0344413` todavía usa `/login`, `/optical-stores/search` y `/availability`, y no añade el token a las solicitudes protegidas. La Tabla 129 muestra los ajustes necesarios para cerrar la integración.
+El backend `41bcb44` incorpora un contrato diferente al consumido por el cliente anterior. El cliente Flutter `0344413` todavía usa `/login`, `/optical-stores/search` y `/availability`, y no añade el token a las solicitudes protegidas. La Tabla 129 muestra los ajustes necesarios para cerrar la integración.
 
 <a id="tabla-129"></a>
 
@@ -1593,13 +1596,13 @@ El backend `4a1364e` incorpora un contrato diferente al consumido por el cliente
 | Búsqueda filtrada | `GET /optical-stores/search`. | `GET /api/v1/optical-stores`, con parámetros. | Unificar listado y búsqueda en el cliente. |
 | Disponibilidad | `GET /optical-stores/{id}/availability`. | `GET /api/v1/optical-stores/{id}/time-slots`. | Cambiar la subruta y comprobar la lista de horarios. |
 | Recursos protegidos | Las llamadas HTTP no adjuntan el token. | Requiere `Authorization: Bearer <token>`. | Añadir el encabezado a las operaciones autenticadas. |
-| Operación de personal y catálogo | Parte de las vistas utiliza `DemoData` y cambios en memoria. | El código revisado no expone todo el diseño integral del informe. | Identificar el modo de demostración y no contabilizarlo como integración terminada. |
+| Operación de personal y catálogo | Parte de las vistas utiliza `DemoData` y cambios en memoria. | El backend incorpora inventario, checkout, notificaciones y reportes; sus endpoints deben relacionarse con cada vista del cliente. | Identificar el modo de demostración y no contabilizarlo como integración terminada. |
 
 Fuentes de la revisión: [cliente HTTP Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/blob/03444133bb4889773dda3b250c708e315bb545b6/lib/data/optiflow_api.dart), [controlador de estado](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/blob/03444133bb4889773dda3b250c708e315bb545b6/lib/state/optiflow_controller.dart) y controladores del backend del mismo corte.
 
 #### 4.2.2.5. Testing Suite Evidence for Sprint Review
 
-La revisión de pruebas corresponde al backend `4a1364e`. La Tabla 130 registra los commits relacionados con el testing del Sprint 2.
+La revisión de pruebas corresponde al backend `41bcb44`, descargado sin cambios de código el 10/11/2026. La Tabla 130 registra los commits relacionados con el testing del Sprint 2.
 
 <a id="tabla-130"></a>
 
@@ -1609,9 +1612,14 @@ La revisión de pruebas corresponde al backend `4a1364e`. La Tabla 130 registra 
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [7575d66](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/7575d662e98b019e4716b90c61d7df04caa0acf0) | `test: add authentication and authorization tests` | Añade la suite de autenticación y autorización; la revisión actual detecta errores de compilación en dos solicitudes. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [7575d66](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/7575d662e98b019e4716b90c61d7df04caa0acf0) | `test: add authentication and authorization tests` | Añade la suite de autenticación y autorización; sus correcciones posteriores forman parte de la revisión ejecutada. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Incluye pruebas de coordenadas y de búsqueda por cercanía. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter) | `main` | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | `feat: Add cross-platform OptiFlow Flutter app` | Incluye una prueba de traducción de estados de cita, aún sin ejecutar en esta revisión. | 08/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [c287603](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/c287603381d0028f82cbf78d474b467525f0f2b3) | `test: fix misplaced parenthesis in auth api test` | Corrige el paréntesis de las solicitudes de autenticación para permitir la compilación. | 07/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [b4deec7](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/b4deec7649d9b75e1848e48b9fe6564ad021599a) | `test: run flyway migrations on h2 in api tests` | Prepara la ejecución de las migraciones en el entorno H2 de pruebas. | 07/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [e0b8071](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/e0b8071d12c00c540b16c19ad54f60550ac1583d) | `test: adapt multi column migrations for h2 instead of editing v5` | Adapta las migraciones de varias columnas al dialecto H2 utilizado por las pruebas. | 07/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [b428493](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/b4284936056b235b7c2cd75b5efee8e612e2baf4) | `test: fix booking rules and time slot assertions` | Ajusta las expectativas de reglas de reserva y disponibilidad. | 07/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1a3055f](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1a3055f1b3776f0d8e0939f56618db0c3f3c79f1) | `test: make store agenda assertion order independent` | Evita que la prueba de agenda dependa del orden de los resultados. | 07/11/2026 |
 
 La columna Commit Message Body resume en español los cambios de pruebas. Branch identifica la rama revisada que contiene el commit; el estado de ejecución se explica después de la relación de suites.
 
@@ -1635,96 +1643,178 @@ La Tabla 131 relaciona las suites relevantes con los comportamientos y las histo
 | `SearchBookingAcceptanceTest` | Aceptación, Cucumber | Cuatro escenarios Gherkin de búsqueda y reserva. | US05, US06; regresión del Sprint 1. |
 | `ClinicalCommercialRulesTest` y `ClinicalCommercialApiTest` | Unitaria e integración | Receta, cotización, pago y cierre de venta. | US03, US08 y US17, como regresión. |
 | `ProductionTrackingRulesTest` y `ProductionTrackingApiTest` | Unitaria e integración | Transiciones de taller, entrega y trazabilidad. | US10 y US11, como regresión. |
+| `StoreInventoryApiTest` | Integración | Catálogo de monturas y operaciones de inventario. | Store Management & Inventory. |
+| `CheckoutApiTest` y `PaymentGatewayAdapterTest` | Integración y adaptador | Checkout y contrato del proveedor de pagos con respuestas controladas. | Clinical & Commercial. |
+| `NotificationApiTest`, `NotificationApplicationServiceTest` y suites de envío | Unitaria e integración | Persistencia, consulta, encuestas, programación y adaptador de mensajería. | Notification & Loyalty. |
+| `OpenApiDocumentationTest` | Integración | Códigos de respuesta, esquemas y seguridad documental de las operaciones. | Contrato de los servicios. |
 | `test/status_test.dart` del cliente Flutter | Unitaria diseñada | Traduce estados de cita del backend al modelo de la interfaz. | Consulta de citas. No se ejecutó en esta revisión. |
 
 ##### Resultados complementarios de ejecución
 
-El 08/11/2026 se ejecutó `mvn test` en una copia sin cambios del backend. Maven terminó con **BUILD FAILURE en `testCompile`**: `AuthenticationAuthorizationApiTest.java`, líneas 83 y 132, llama a `.header(...)` sobre `ResultActions`, después de `mockMvc.perform(...)`. Ese método pertenece al constructor de la solicitud. La compilación impide iniciar las pruebas, por lo que no se registra un total de escenarios aprobados para esta ejecución.
+El 10/11/2026 se ejecutó `mvn -B test` sobre una copia sin cambios del backend `41bcb44`. Maven terminó con **BUILD SUCCESS: 131 pruebas, 0 fallos, 0 errores y 0 omitidas**, distribuidas en 27 suites. El total incluye los cuatro escenarios Cucumber de búsqueda y reserva. La ejecución utilizó Maven 3.9.14 y Java 25.0.2, con `release 21` definido por el proyecto; el workflow de GitHub utiliza Java 21.
 
-Por separado, `mvn -Dmaven.test.skip=true package` terminó con **BUILD SUCCESS** y generó el JAR. Este resultado acredita la construcción con pruebas omitidas, no la aprobación de la suite. Se utilizó Java 27, con `release 21` definido en Maven, y Maven 3.9.14. El perfil de producción continúa orientado a Java 21.
-
-La Figura 167 muestra ambos resultados. El [registro de construcción y pruebas](assets/cap4/sprint2/build-results.txt) conserva el comando, la revisión y el error sin credenciales ni datos de producción.
+La Figura 167 presenta el resumen obtenido de los informes Surefire y del cierre de Maven. El [detalle por suite](assets/cap4/sprint2/revision-20261110/test-summary.json) conserva la revisión, el entorno y los recuentos. Después de aprobar la suite, `mvn -B -DskipTests package` generó el JAR. Este segundo comando omite repetir las pruebas ya ejecutadas.
 
 <a id="figura-167"></a>
 
 **Figura 167**
 
-*Resultados separados de construcción y pruebas del backend*
+*Resultado de Maven y detalle de las 27 suites del backend, 10/11/2026*
 
-![Resultados separados de construcción y pruebas del backend](assets/cap4/sprint2/test-results.png)
+![Resultado de Maven y detalle de las 27 suites del backend, 10/11/2026](assets/cap4/sprint2/revision-20261110/tests-current.png)
 
-**Comprobaciones HTTP independientes.** Una vez construido el JAR, se ejecutaron 17 solicitudes sobre una instancia local con H2 y datos ficticios. Se comprobaron consulta pública, cercanía, validación, registro, token, acceso protegido, permisos administrativos, reserva y duplicidad. Las últimas tres solicitudes registran las respuestas de las rutas antiguas usadas por el cliente. La Figura 168 presenta el resumen y el [registro JSON](assets/cap4/sprint2/service-results.json) conserva las respuestas con el token omitido.
+La [ejecución 42771709596](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/actions/runs/42771709596) de GitHub Actions también terminó con `success` para `41bcb44`, mediante `mvn -B test`. La Figura 168 conserva el resultado de integración continua.
 
 <a id="figura-168"></a>
 
 **Figura 168**
 
-*Comprobaciones HTTP del backend en el entorno local*
+*Workflow de pruebas del backend 41bcb44 completado correctamente*
 
-![Comprobaciones HTTP del backend en el entorno local](assets/cap4/sprint2/service-checks.png)
+![Workflow de pruebas del backend 41bcb44 completado correctamente](assets/cap4/sprint2/revision-20261110/backend-ci.png)
 
-Estas comprobaciones no sustituyen las pruebas unitarias o de integración bloqueadas por la compilación. Además de corregir esa clase, se debe adaptar la regresión BDD: los Steps revisados realizan la reserva y la consulta de citas sin Bearer, mientras que la API actual protege esas operaciones. Antes de dar por aprobados los escenarios, deben crear el token, adjuntarlo a las solicitudes y ejecutar nuevamente la suite completa.
-
-**Escenarios de aceptación.** Se conservan los archivos ejecutables de [búsqueda](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/4a1364ed540bfb996c5ce57a9b6246ddd989b98d/src/test/resources/features/optical-store-search.feature) y [reserva](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/4a1364ed540bfb996c5ce57a9b6246ddd989b98d/src/test/resources/features/appointment-booking.feature), junto con `SearchBookingSteps`. Para la ampliación de seguridad y cercanía se especifican los siguientes criterios; describen las comprobaciones HTTP realizadas, pero todavía no están incorporados como nuevos Steps ejecutables del backend.
-
-```gherkin
-# language: es
-@US01 @US16
-Característica: Acceso a recursos protegidos
-  Escenario: Consulta de citas sin autenticación
-    Dado que el paciente no envía un token
-    Cuando consulta sus citas en la API versionada
-    Entonces recibe el código 401
-
-  Escenario: Restricción de una operación administrativa
-    Dado que existe un token de paciente válido
-    Cuando intenta consultar el listado de personal
-    Entonces recibe el código 403
-
-```
-
-```gherkin
-# language: es
-@US05
-Característica: Consulta de ópticas por cercanía
-  Escenario: Búsqueda con coordenadas válidas
-    Dado que existen ópticas con latitud y longitud
-    Cuando se consulta con una ubicación y un radio de diez kilómetros
-    Entonces el servicio devuelve las ópticas dentro del radio
-
-  Escenario: Rechazo de coordenadas inválidas
-    Cuando se consulta con una latitud fuera del intervalo permitido
-    Entonces el servicio responde con código 400
-```
-
-La suite BDD conserva el commit histórico de incorporación; no se atribuye al Sprint 2 como un desarrollo nuevo.
-
-
-Para reproducir la revisión desde una copia del backend:
-
-```powershell
-mvn test
-mvn -Dmaven.test.skip=true package
-java -jar target/optiflow-platform-0.1.0.jar --spring.profiles.active=local --server.port=18081
-```
-
-**Resultados de `flutter pub get`, `flutter analyze` y `flutter test`:** ____________________. El repositorio contiene una prueba de estados; esta revisión no dispuso de un SDK Flutter para ejecutarla ni generar el APK.
-
-#### 4.2.2.6. Execution Evidence for Sprint Review
-
-**Web Services.** La instancia local de la revisión se inició en `http://127.0.0.1:18081` con H2, sin acceder a producción. La Figura 169 muestra la documentación de los servicios y la Figura 170, la consulta de ópticas por ubicación con respuesta HTTP 200.
+**Pruebas de aceptación.** La Figura 169 muestra el reporte Cucumber de la ejecución local: cuatro escenarios aprobados. Los archivos [búsqueda](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/41bcb448a06abe9aeaf32be9cef46ce2965e30e0/src/test/resources/features/optical-store-search.feature) y [reserva](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/41bcb448a06abe9aeaf32be9cef46ce2965e30e0/src/test/resources/features/appointment-booking.feature) se ejecutan mediante [SearchBookingSteps](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/41bcb448a06abe9aeaf32be9cef46ce2965e30e0/src/test/java/com/optiflow/platform/searchbooking/acceptance/SearchBookingSteps.java), que utiliza la API versionada y adjunta el token en las operaciones protegidas. El [reporte HTML](assets/cap4/sprint2/revision-20261110/cucumber.html) y su [JSON](assets/cap4/sprint2/revision-20261110/cucumber.json) conservan los pasos y resultados.
 
 <a id="figura-169"></a>
 
 **Figura 169**
 
-*Swagger UI de la revisión versionada del backend*
+*Reporte Cucumber: cuatro escenarios de búsqueda y reserva aprobados*
 
-![Swagger UI de la revisión versionada del backend](assets/cap4/sprint2/swagger-sprint2.png)
+![Reporte Cucumber: cuatro escenarios de búsqueda y reserva aprobados](assets/cap4/sprint2/revision-20261110/cucumber-current.png)
+
+```gherkin
+# language: es
+@US05
+Característica: Búsqueda de ópticas y disponibilidad de atención
+  Como paciente
+  Quiero consultar las ópticas y sus horarios disponibles
+  Para elegir dónde recibir atención optométrica
+
+  Escenario: Consulta de establecimientos y disponibilidad
+    Dado que existen ópticas y sucursales registradas
+    Cuando el paciente consulta los establecimientos disponibles
+    Entonces obtiene la información y las direcciones de los establecimientos
+    Y puede consultar los horarios disponibles de una óptica
+
+  Escenario: Búsqueda sin establecimientos coincidentes
+    Dado que ninguna óptica coincide con los criterios de búsqueda
+    Cuando el paciente realiza la búsqueda
+    Entonces obtiene una lista vacía de establecimientos
+```
+
+```gherkin
+# language: es
+@US06
+Característica: Reserva de cita para atención optométrica
+  Como paciente
+  Quiero seleccionar un horario disponible y reservar una cita
+  Para programar mi atención de manera organizada
+
+  Escenario: Reserva exitosa de un horario disponible
+    Dado que existe un paciente registrado
+    Y existe un horario disponible en una óptica
+    Cuando el paciente confirma la reserva de ese horario
+    Entonces el servicio responde con código 201
+    Y la cita queda en estado "CONFIRMED"
+    Y la cita registrada puede consultarse
+    Y el horario deja de estar disponible
+
+  Escenario: Rechazo de un horario reservado por otro paciente
+    Dado que existe un paciente registrado
+    Y existe un horario reservado por otro paciente
+    Cuando el paciente confirma la reserva de ese horario
+    Entonces el servicio responde con código 409
+    Y informa que el horario ya no está disponible
+```
+
+Los escenarios corresponden a US05 y US06 y se conservan como regresión del primer incremento. La autenticación, los roles y la cercanía se comprobaron además con `AuthenticationAuthorizationApiTest`, `JwtTokenServiceTest`, `GeoLocationTest` y `SearchAndBookingApiTest`; no se contabilizan como nuevos escenarios Gherkin.
+
+**Comprobaciones HTTP.** Se registraron 28 solicitudes en una instancia local con H2 y datos ficticios. Las primeras 25 tienen un código esperado y coincidieron con él: consulta pública, cercanía, validación, registro, token, permisos, reserva, duplicidad, historial, pedidos, notificaciones, personal e inventario. El 404 de fidelización corresponde a un paciente recién creado sin cuenta de puntos; el 400 del reporte identifica la ausencia del periodo obligatorio. Las últimas tres solicitudes conservan las respuestas observadas de rutas antiguas de Flutter. El [registro JSON](assets/cap4/sprint2/revision-20261110/service-results.json) omite los tokens. Esta ejecución no comprueba las migraciones de una instancia PostgreSQL de producción ni el envío real de pagos o mensajes push.
+
+##### Antecedentes de la revisión del 08/11/2026
+
+La revisión anterior, `4a1364e`, se detuvo en `testCompile` por dos solicitudes de `AuthenticationAuthorizationApiTest`; su JAR se construyó por separado con `-Dmaven.test.skip=true`. La Figura 170 y el [registro original](assets/cap4/sprint2/build-results.txt) conservan ese resultado. El error está corregido en la revisión del 10/11/2026.
 
 <a id="figura-170"></a>
 
 **Figura 170**
+
+*Resultados separados de construcción y pruebas del backend*
+
+![Resultados separados de construcción y pruebas del backend](assets/cap4/sprint2/test-results.png)
+
+La Figura 171 conserva el resumen de las 17 solicitudes de la revisión anterior. El [archivo de resultados del 08/11/2026](assets/cap4/sprint2/service-results.json) mantiene su fecha y versión.
+
+<a id="figura-171"></a>
+
+**Figura 171**
+
+*Comprobaciones HTTP del backend en el entorno local*
+
+![Comprobaciones HTTP del backend en el entorno local](assets/cap4/sprint2/service-checks.png)
+
+##### Reproducción de la ejecución actual
+
+Desde una copia del backend `41bcb44`:
+
+```powershell
+mvn -B test
+mvn -B -DskipTests package
+java -jar target/optiflow-platform-0.1.0.jar --spring.profiles.active=local --server.port=18082
+```
+
+**Resultados de `flutter pub get`, `flutter analyze` y `flutter test`:** ____________________.
+
+#### 4.2.2.6. Execution Evidence for Sprint Review
+
+**Web Services.** La revisión `41bcb44` se ejecutó con el perfil local/H2 en `http://127.0.0.1:18082`, usando datos ficticios. La Figura 172 muestra Swagger y la Figura 173, la consulta de ópticas cercanas con respuesta 200. Las Figuras 174 y 175 registran la creación de una cita con 201 y el rechazo 403 de una consulta administrativa realizada como paciente.
+
+<a id="figura-172"></a>
+
+**Figura 172**
+
+*Swagger UI del backend 41bcb44, 10/11/2026*
+
+![Swagger UI del backend 41bcb44, 10/11/2026](assets/cap4/sprint2/revision-20261110/swagger-current.png)
+
+<a id="figura-173"></a>
+
+**Figura 173**
+
+*Respuesta 200 de la consulta de ópticas cercanas en Swagger*
+
+![Respuesta 200 de la consulta de ópticas cercanas en Swagger](assets/cap4/sprint2/revision-20261110/nearby-current.png)
+
+<a id="figura-174"></a>
+
+**Figura 174**
+
+*Reserva autenticada: respuesta 201 y encabezado Location*
+
+![Reserva autenticada: respuesta 201 y encabezado Location](assets/cap4/sprint2/revision-20261110/booking-current.png)
+
+<a id="figura-175"></a>
+
+**Figura 175**
+
+*Consulta de personal con rol de paciente: respuesta 403*
+
+![Consulta de personal con rol de paciente: respuesta 403](assets/cap4/sprint2/revision-20261110/forbidden-current.png)
+
+Las Figuras 176 y 177 conservan las capturas de Swagger de la revisión anterior, tomadas el 08/11/2026 en el puerto local 18081.
+
+<a id="figura-176"></a>
+
+**Figura 176**
+
+*Swagger UI de la revisión versionada del backend*
+
+![Swagger UI de la revisión versionada del backend](assets/cap4/sprint2/swagger-sprint2.png)
+
+<a id="figura-177"></a>
+
+**Figura 177**
 
 *Consulta local de ópticas por cercanía con HTTP 200*
 
@@ -1732,19 +1822,19 @@ java -jar target/optiflow-platform-0.1.0.jar --spring.profiles.active=local --se
 
 La reserva autenticada devolvió HTTP 201 y un encabezado `Location`; repetir el horario devolvió 409. Un recurso protegido sin token respondió 401, mientras que un paciente que consultó el listado de personal recibió 403. Son resultados de la revisión local, no capturas de Render ni de la aplicación móvil.
 
-**Landing Page.** Las Figuras 171 y 172 corresponden al código de la Landing Page `ef1c032`, abierto localmente en escritorio y ancho de celular. Permiten revisar el contenido y la adaptación visual; no certifican por sí solas el estado de publicación en GitHub Pages.
+**Landing Page.** Las Figuras 178 y 179 corresponden al código de la Landing Page `ef1c032`, abierto localmente en escritorio y ancho de celular. Permiten revisar el contenido y la adaptación visual; no certifican por sí solas el estado de publicación en GitHub Pages.
 
-<a id="figura-171"></a>
+<a id="figura-178"></a>
 
-**Figura 171**
+**Figura 178**
 
 *Landing Page del Sprint 2 abierta localmente en escritorio*
 
 ![Landing Page del Sprint 2 abierta localmente en escritorio](assets/cap4/sprint2/landing-desktop.png)
 
-<a id="figura-172"></a>
+<a id="figura-179"></a>
 
-**Figura 172**
+**Figura 179**
 
 *Landing Page del Sprint 2 abierta localmente en ancho de celular*
 
@@ -1762,11 +1852,11 @@ No se reutilizan capturas de Kotlin del Sprint 1 como evidencia de ejecución de
 
 #### 4.2.2.7. Services Documentation Evidence for Sprint Review
 
-La documentación OpenAPI 3.1 de la copia del backend contiene **41 operaciones sobre 36 rutas** bajo `/api/v1`. El recuento proviene de la especificación generada por esa revisión. No equivale a la cantidad de historias aceptadas ni acredita operaciones de inventario, pagos externos o notificaciones que no estén expuestas en ese contrato.
+La documentación OpenAPI 3.1 del backend `41bcb44` contiene **67 operaciones sobre 58 rutas** bajo `/api/v1`. El recuento se obtuvo de la especificación generada el 10/11/2026 e incluye inventario, checkout, notificaciones, encuestas y reportes. Cada operación documenta un contrato; la aceptación funcional depende de su prueba y de la integración con el cliente.
 
-La especificación consultada se conserva como [OpenAPI de la revisión local](assets/cap4/sprint2/openapi-local.json). La URL del servicio publicado sigue siendo [Swagger UI en Render](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html); la confirmación de que ese despliegue ejecuta el mismo commit se registra en 4.2.2.8.
+La especificación consultada se conserva como [OpenAPI de la revisión local](assets/cap4/sprint2/revision-20261110/openapi-local.json). La URL del servicio publicado sigue siendo [Swagger UI en Render](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html); la confirmación de que ese despliegue ejecuta el mismo commit se registra en 4.2.2.8.
 
-La Tabla 132 presenta los contratos relevantes del Sprint con método, parámetros, autorización, ejemplo de respuesta y enlace a la operación en Swagger. La sintaxis es `<VERBO> https://logix-optiflow-back-end.onrender.com<ruta>`; localmente se usa `http://127.0.0.1:18081<ruta>`. Las rutas incluyen `/api/v1`. Los ejemplos de respuesta son fragmentos ilustrativos del contrato; solo las comprobaciones de 4.2.2.5 se presentan como ejecución.
+La Tabla 132 presenta los contratos relevantes del Sprint con método, parámetros, autorización, ejemplo de respuesta y enlace a la operación en Swagger. La sintaxis es `<VERBO> https://logix-optiflow-back-end.onrender.com<ruta>`; localmente se usa `http://127.0.0.1:18082<ruta>`. Las rutas incluyen `/api/v1`. Los ejemplos de respuesta son fragmentos ilustrativos del contrato; solo las comprobaciones de 4.2.2.5 se presentan como ejecución.
 
 <a id="tabla-132"></a>
 
@@ -1776,20 +1866,25 @@ La Tabla 132 presenta los contratos relevantes del Sprint con método, parámetr
 
 | Endpoint / acción | Verbo HTTP | Parámetros y autorización | Response (ejemplo y explicación) | Documentación | User Story |
 |---|:---:|---|---|---|---|
-| `/api/v1/patients`<br>Registrar paciente | POST | Body: `name`, `email`, `phone`, `password`; `birthDate` opcional. Pública. | 201, `Location` y paciente: `{ "id": "<uuid>", "name": "Paciente", "birthDate": null }`. Devuelve datos sin contraseña; 400 para entrada inválida. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Patients/register_2) | Soporte de US05 y US06 |
+| `/api/v1/patients`<br>Registrar paciente | POST | Body: `name`, `email`, `phone`, `password`; `birthDate` opcional. Pública. | 201, `Location` y paciente: `{ "id": "<uuid>", "name": "Paciente", "birthDate": null }`. Devuelve datos sin contraseña; 400 para entrada inválida. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Patients/register_3) | Soporte de US05 y US06 |
 | `/api/v1/auth/tokens`<br>Crear token | POST | Body: `email`, `password`. Pública. | 201, `Location` y `{ "token": "<omitido>", "expiresAt": "<instante>", "userId": "<uuid>", "role": "PATIENT" }`. 401 con credenciales inválidas. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Authentication/create) | US01, US16; soporte al paciente |
 | `/api/v1/optical-stores`<br>Consultar ópticas | GET | Query opcional: `name`, `address`, `minRating`. Pública. | 200, array: `[{ "id": "<uuid>", "name": "OptiFlow Miraflores", "latitude": -12.121037, "longitude": -77.02824 }]`. `[]` si no hay coincidencias. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Optical%20Stores/list_2) | US05 |
 | `/api/v1/optical-stores`<br>Consultar cercanía | GET | Query: `lat`, `lng`, `radiusKm`; ejemplo `?lat=-12.12&lng=-77.03&radiusKm=10`. Pública. | 200 con el array de ópticas del radio. 400 si faltan coordenadas o están fuera del intervalo admitido. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Optical%20Stores/list_2) | US05 |
-| `/api/v1/optical-stores/{opticalStoreId}/time-slots`<br>Consultar horarios | GET | Path: `opticalStoreId` UUID. Pública. | 200, array: `[{ "id": "<uuid>", "status": "AVAILABLE", "startDateTime": "<instante>", "endDateTime": "<instante>" }]`. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Availability/list_1) | US05, US06 |
+| `/api/v1/optical-stores/{id}/time-slots`<br>Consultar horarios | GET | Path: `id` UUID de la óptica. Pública. | 200, array: `[{ "id": "<uuid>", "status": "AVAILABLE", "startDateTime": "<instante>", "endDateTime": "<instante>" }]`. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Availability/list_1) | US05, US06 |
 | `/api/v1/appointments`<br>Reservar | POST | Body: `patientId`, `opticalStoreId`, `timeSlotId`. Bearer. | 201 y `Location`; `{ "id": "<uuid>", "status": "CONFIRMED", "timeSlotId": "<uuid>" }`. 409 si el horario ya fue reservado. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Appointments/book) | US06 |
-| `/api/v1/patients/{id}/appointments`<br>Consultar citas | GET | Path: `id` del paciente. Bearer y reglas de acceso. | 200 con un array de citas; `[]` si no tiene reservas. 401 sin autenticación. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Patients/appointments) | US06 |
-| `/api/v1/staff-members`<br>Consultar personal | GET | Sin parámetros. Bearer con rol ADMIN. | 200, array: `[{ "id": "<uuid>", "role": "SALES_ADVISOR", "active": true }]` según el esquema. Se comprobó 403 para un paciente; no se ejecutó la consulta como administrador. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Staff%20Members/list) | US16 |
+| `/api/v1/patients/{patientId}/appointments`<br>Consultar citas | GET | Path: `patientId` del paciente. Bearer y reglas de acceso. | 200 con un array de citas; `[]` si no tiene reservas. 401 sin autenticación. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Patients/appointments) | US06 |
+| `/api/v1/staff-members`<br>Consultar personal | GET | Sin parámetros. Bearer con rol ADMIN. | 200, array: `[{ "id": "<uuid>", "role": "SALES_ADVISOR", "active": true }]` según el esquema. Se comprobó 403 para un paciente y 200 para el administrador local. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Staff%20Members/list) | US16 |
 | `/api/v1/staff-members/{id}/role`<br>Cambiar rol | PATCH | Path: `id`; body: `role`. Bearer con rol ADMIN. | 200 con el miembro actualizado: `{ "id": "<uuid>", "role": "OPTOMETRIST" }`. Operación identificada en el contrato; no ejecutada en esta revisión. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Staff%20Members/updateRole) | US16 |
 | `/api/v1/appointments/{id}/status`<br>Actualizar cita | PATCH | Path: `id`; body: `status`. Bearer. | 200 con la cita y su nuevo estado: `{ "id": "<uuid>", "status": "CANCELLED" }`. Ejemplo del contrato; no ejecutado en esta revisión. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Search%20%26%20Booking%20-%20Appointments/updateStatus_3) | US06 |
-| `/api/v1/patients/{patientId}/clinical-records`<br>Consultar historial | GET | Path: `patientId`. Bearer. | 200, array: `[{ "id": "<uuid>", "patientId": "<uuid>", "medicalHistory": {}, "prescription": {} }]`; `[]` si no hay atenciones. Esquema revisado; consulta no ejecutada. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Clinical%20%26%20Commercial%20-%20Clinical%20Records/findByPatient_1) | US04 |
-| `/api/v1/patients/{patientId}/work-orders`<br>Consultar pedidos | GET | Path: `patientId`. Bearer. | 200, array: `[{ "id": "<uuid>", "status": "PENDING", "delayed": false }]`; `[]` si no tiene órdenes. Esquema revisado; consulta no ejecutada. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Production%20%26%20Tracking%20-%20Work%20Orders/findByPatient) | US11 |
+| `/api/v1/patients/{patientId}/clinical-records`<br>Consultar historial | GET | Path: `patientId`. Bearer. | 200, array: `[{ "id": "<uuid>", "patientId": "<uuid>", "medicalHistory": {}, "prescription": {} }]`; `[]` si no hay atenciones. La consulta propia devolvió 200 en el entorno local. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Clinical%20%26%20Commercial%20-%20Clinical%20Records/findByPatient_2) | US04 |
+| `/api/v1/patients/{patientId}/work-orders`<br>Consultar pedidos | GET | Path: `patientId`. Bearer. | 200, array: `[{ "id": "<uuid>", "status": "PENDING", "delayed": false }]`; `[]` si no tiene órdenes. La consulta propia devolvió 200 en el entorno local. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Production%20%26%20Tracking%20-%20Work%20Orders/findByPatient) | US11 |
+| `/api/v1/inventory/frames`<br>Catálogo de monturas | GET | Sin parámetros. Bearer de personal. | 200 con el catálogo; consulta ejecutada con administrador local. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Store%20Management%20%26%20Inventory%20-%20Frame%20Models/catalog) | Store Management & Inventory |
+| `/api/v1/inventory/stock`<br>Stock por óptica | GET | Query: opticalStoreId. Bearer de personal. | 200 con existencias; consulta ejecutada localmente. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Store%20Management%20%26%20Inventory%20-%20Inventory/stock) | Store Management & Inventory |
+| `/api/v1/suppliers`<br>Proveedores | GET | Bearer de personal. | 200 con proveedores; consulta ejecutada localmente. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Store%20Management%20%26%20Inventory%20-%20Suppliers/suppliers) | Store Management & Inventory |
+| `/api/v1/reports/inventory`<br>Reporte de inventario | GET | Query: opticalStoreId, from, to. Bearer de personal. | 200 con métricas; 400 si se omite el periodo obligatorio. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Store%20Management%20%26%20Inventory%20-%20Reports/metrics_2) | Reportes de inventario |
+| `/api/v1/patients/{patientId}/notifications`<br>Notificaciones del paciente | GET | Path: patientId. Bearer con reglas de acceso. | 200 con la lista; consulta propia ejecutada localmente. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Notification%20%26%20Loyalty%20-%20Notifications/findByPatient_1) | Notification & Loyalty |
 
-**Diferencia detectada en la documentación.** El OpenAPI guardado anuncia `200` en operaciones de creación como pacientes, tokens y citas, mientras las comprobaciones HTTP devolvieron `201` con `Location`. La Tabla 132 recoge el comportamiento observado para esas operaciones. El backend debe ajustar sus anotaciones de respuesta para que Swagger represente los códigos reales y los errores de autenticación y autorización. El esquema también declara Bearer globalmente; las operaciones públicas de registro, token y consulta de ópticas deben quedar diferenciadas en su configuración de seguridad documental.
+**Correspondencia del contrato.** La especificación actual declara `201` para pacientes, tokens y citas y distingue las operaciones públicas mediante su configuración de seguridad. `OpenApiDocumentationTest` aprobó sus dos pruebas. Las diferencias detectadas el 08/11/2026 quedaron resueltas en esta revisión; el [OpenAPI anterior](assets/cap4/sprint2/openapi-local.json) se conserva como antecedente.
 
 Ejemplo de solicitud de autenticación, con valores ilustrativos:
 
@@ -1813,7 +1908,7 @@ El cliente debe leer `userId` y `role` de esta respuesta y adjuntar el token a l
 
 ##### Cambios relacionados con la documentación del Sprint 2
 
-La Tabla 133 identifica los commits que modifican las rutas y los parámetros expuestos por OpenAPI. Son cambios del contrato de servicios; no se presentan como commits dedicados exclusivamente a documentación.
+La Tabla 133 identifica tanto los cambios de rutas y parámetros como las ampliaciones de documentación de inventario y reportes.
 
 <a id="tabla-133"></a>
 
@@ -1826,6 +1921,8 @@ La Tabla 133 identifica los commits que modifican las rutas y los parámetros ex
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1c5d3f7](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1c5d3f7fb1b877df3b1d562fccb7d82a0a2f3b20) | `refactor: add api v1 prefix to controllers` | Introduce /api/v1 en los controladores y cambia la ruta base de las operaciones documentadas. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [a1db022](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/a1db022c903f52b2e3b3915c8c22eeb2eb50f356) | `refactor: merge optical store search routes` | Consolida la búsqueda de ópticas en una sola operación con parámetros. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Añade coordenadas y filtros de cercanía al contrato de ópticas. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [2a94c5c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/2a94c5ce84c374b34be4990bc7fc133a310eb21d) | `docs: document inventory endpoints in swagger` | Documenta los endpoints de inventario y sus contratos en Swagger. | 09/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [567f363](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/567f3630d55aa79c0918d663bb32ddef479da315) | `docs: document remaining endpoints in swagger` | Completa la documentación de las operaciones restantes de la API. | 09/11/2026 |
 
 #### 4.2.2.8. Software Deployment Evidence for Sprint Review
 
@@ -1841,34 +1938,34 @@ La Tabla 134 resume las versiones revisadas y su estado de publicación.
 
 | Producto | Revisión de código | Evidencia disponible | Confirmación de despliegue AV2 |
 |---|---|---|---|
-| Landing Page | `main`, `ef1c032`. | [Workflow completado correctamente](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y página pública con HTTP 200, comprobados el 08/11/2026. | Publicación confirmada; capturas en las Figuras 173 y 174. Falta contrastar la versión del APK enlazado. |
-| Backend | `develop`, `4a1364e`. | JAR construido, especificación local con 41 operaciones y registro de 17 solicitudes HTTP. | Commit activo en Render y captura actual: ____________________. |
+| Landing Page | `main`, `ef1c032`. | [Workflow completado correctamente](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y página pública con HTTP 200, comprobados el 08/11/2026. | Publicación confirmada; capturas en las Figuras 180 y 181. Falta contrastar la versión del APK enlazado. |
+| Backend | `develop`, `41bcb44`. | 131 pruebas aprobadas, CI exitosa, JAR construido, 67 operaciones y 28 solicitudes HTTP locales. | Commit activo en Render y captura actual: ____________________. |
 | Android/Kotlin | Repositorio de la primera aplicación. | Capturas y distribución del Sprint 1. | Se conservan como antecedentes, no como publicación de Flutter. |
 | Flutter | `main`, `0344413`, versión `1.0.0+1`. | Código publicado y definición de pantallas, cliente HTTP y prueba de estados. | APK, enlace de distribución y captura de versión: ____________________. |
 
 ##### Publicación comprobada de la Landing Page
 
-La [ejecución 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) del workflow `Deploy static content to Pages` se inició el 06/11/2026 a las 11:23 PM (America/Lima), para `main` y el commit `ef1c032`, y terminó con `success`. La Figura 173 muestra el resumen de la ejecución. La captura conserva los avisos de mantenimiento de las acciones y del parámetro `include-hidden-files`; no se interpretan como un fallo del despliegue.
+La [ejecución 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) del workflow `Deploy static content to Pages` se inició el 06/11/2026 a las 11:23 PM (America/Lima), para `main` y el commit `ef1c032`, y terminó con `success`. La Figura 180 muestra el resumen de la ejecución. La captura conserva los avisos de mantenimiento de las acciones y del parámetro `include-hidden-files`; no se interpretan como un fallo del despliegue.
 
-<a id="figura-173"></a>
+<a id="figura-180"></a>
 
-**Figura 173**
+**Figura 180**
 
 *Workflow de GitHub Pages del commit ef1c032 completado correctamente*
 
 ![Workflow de GitHub Pages completado correctamente](assets/cap4/sprint2/workflow-pages.png)
 
-La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) respondió HTTP 200 en la revisión del 08/11/2026. La Figura 174 corresponde a esa URL, a diferencia de las capturas locales de 4.2.2.6. La presencia del botón Descargar APK no demuestra por sí sola que distribuya el cliente Flutter de AV2.
+La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) respondió HTTP 200 en la revisión del 08/11/2026. La Figura 181 corresponde a esa URL, a diferencia de las capturas locales de 4.2.2.6. La presencia del botón Descargar APK no demuestra por sí sola que distribuya el cliente Flutter de AV2.
 
-<a id="figura-174"></a>
+<a id="figura-181"></a>
 
-**Figura 174**
+**Figura 181**
 
 *Landing Page pública de OptiFlow comprobada el 08/11/2026*
 
 ![Landing Page pública comprobada](assets/cap4/sprint2/landing-publica.png)
 
-La consulta a `/v3/api-docs` de Render no respondió dentro del límite de doce segundos de esta revisión. Este resultado no permite confirmar el commit desplegado ni concluir que el servicio esté permanentemente caído. Esa evidencia se mantiene pendiente en la Tabla 134.
+La consulta a `/v3/api-docs` de Render del 10/11/2026 no respondió dentro del límite de 22 segundos. La ejecución local y la CI no identifican por sí solas el commit activo en Render. La Tabla 134 reserva el registro de ese despliegue.
 
 Para distribuir Flutter se debe generar el APK de la revisión elegida con la URL compatible, instalarlo en un dispositivo y comprobar el flujo con el backend antes de cargarlo en Firebase App Distribution. La invitación del Sprint 1 no se presenta como evidencia de una nueva versión hasta verificar qué APK distribuye.
 
@@ -1883,30 +1980,53 @@ Cambiar la URL base no resuelve por sí solo las subrutas y el formato de autent
 
 #### 4.2.2.9. Team Collaboration Insights during Sprint
 
-La Tabla 135 resume la actividad registrada en los repositorios del backend, Flutter y la Landing Page durante el periodo del Sprint 2.
-
-El conteo incluye commits sin merge entre el 09/10/2026 y el 08/11/2026.
+La Tabla 135 resume los commits sin merge registrados entre el 09/10/2026 y el 10/11/2026 en las ramas revisadas. Los autores se conservan tal como aparecen en GitHub. Este recuento describe actividad de código, no horas trabajadas ni historias aceptadas.
 
 <a id="tabla-135"></a>
 
 **Tabla 135**
 
-*Contribuciones registradas en el corte del Sprint 2*
+*Contribuciones registradas hasta el 10/11/2026*
 
 | Repositorio / rama | Intervalo revisado | Autor registrado | Commits sin merge | Interpretación |
 |---|---|---|:---:|---|
-| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–08/11/2026 | Cesar Augusto | 14 | Conteo del historial consultado; no mide historias aceptadas. |
-| `Logix-OptiFlow-Flutter` / `main` | 09/10/2026–08/11/2026 | Cesar Augusto | 3 | Conteo del historial consultado; no mide historias aceptadas. |
-| `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–08/11/2026 | Patto04 | 7 | Conteo del historial consultado; no mide historias aceptadas. |
+| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–10/11/2026 | Felixb14 | 46 | Cambios incluidos en la revisión `41bcb44`. |
+| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–10/11/2026 | user20-bit | 18 | Cambios incluidos en la revisión `41bcb44`. |
+| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–10/11/2026 | Patto04 | 5 | Cambios incluidos en la revisión `41bcb44`. |
+| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–10/11/2026 | THECOMAX | 5 | Cambios incluidos en la revisión `41bcb44`. |
+| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–10/11/2026 | Eslander-Celis | 7 | Cambios incluidos en la revisión `41bcb44`. |
+| `Logix-OptiFlow-Flutter` / `main` | 09/10/2026–10/11/2026 | user20-bit | 3 | Base del cliente y pantallas de AV2; revisión `0344413`. |
+| `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–10/11/2026 | Patto04 | 7 | Accesibilidad, contenido y publicación; revisión `ef1c032`. |
 
-El backend integra los cambios de contratos REST, seguridad y ubicación mediante los PR #4, #5 y #6. La Landing Page registra cambios de accesibilidad y publicación y la integración del PR #3. Flutter inicia un repositorio nuevo con tres commits en `main`.
+Los 81 commits del backend abarcan seguridad, inventario, pagos, mensajería, reportes, pruebas y documentación. Entre las últimas integraciones se encuentran los PR #22 y #23, que corrigen el tratamiento de errores y el acceso del personal a las citas. La Landing Page integra su publicación mediante Pages; Flutter conserva tres commits en `main` en el corte consultado.
 
-Se pueden consultar los paneles de actividad de [backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/pulse/monthly), [Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/pulse/monthly) y [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/pulse/monthly). El periodo y la rama de cada panel se contrastan con el historial utilizado en la Tabla 135.
+Las Figuras 182, 183 y 184 corresponden a los paneles públicos de contribuciones de [backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/graphs/contributors), [Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/graphs/contributors) y [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/graphs/contributors), capturados el 10/11/2026. Los gráficos muestran el periodo de tres meses seleccionado en GitHub y excluyen merges; sus totales no usan el intervalo reducido de la Tabla 135.
 
-**Capturas de GitHub Insights del Sprint 2:** ____________________
+<a id="figura-182"></a>
 
-El cierre del Sprint exige resolver la incompatibilidad del cliente, corregir la compilación de la suite y asociar el APK y el video con la misma revisión. El código publicado, las comprobaciones HTTP y los datos de demostración quedan diferenciados para que la revisión no dé por aceptadas funciones que todavía requieren integración.
+**Figura 182**
 
+*GitHub Insights: contribuciones al backend develop*
+
+![GitHub Insights: contribuciones al backend develop](assets/cap4/sprint2/revision-20261110/backend-contributors.png)
+
+<a id="figura-183"></a>
+
+**Figura 183**
+
+*GitHub Insights: contribuciones al cliente Flutter main*
+
+![GitHub Insights: contribuciones al cliente Flutter main](assets/cap4/sprint2/revision-20261110/flutter-contributors.png)
+
+<a id="figura-184"></a>
+
+**Figura 184**
+
+*GitHub Insights: contribuciones a la Landing Page main*
+
+![GitHub Insights: contribuciones a la Landing Page main](assets/cap4/sprint2/revision-20261110/landing-contributors.png)
+
+La revisión del backend cierra la incidencia de compilación y conserva resultados de pruebas y servicios. La integración del cliente se contrasta con la Tabla 129 y con la versión instalada para la demostración.
 
 ## 4.3. Validation Interviews
 
@@ -1981,11 +2101,11 @@ Se consideran entre tres y cinco participantes de cada segmento. El registro ind
 
 Se conserva la evidencia audiovisual de las entrevistas anteriores en el [Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). Para AV2, cada sesión debe asociarse con el cliente y la versión efectivamente probados. La captura y el enlace previos no se consideran por sí solos evidencia de validación del cliente Flutter.
 
-**Video de entrevistas de validación:** [evidencia audiovisual en el Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). La Figura 175 conserva la captura histórica; no acredita por sí sola la validación de Flutter.
+**Video de entrevistas de validación:** [evidencia audiovisual en el Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). La Figura 185 conserva la captura histórica; no acredita por sí sola la validación de Flutter.
 
-<a id="figura-175"></a>
+<a id="figura-185"></a>
 
-**Figura 175**
+**Figura 185**
 
 *Captura del video histórico de entrevistas de validación*
 
@@ -2123,11 +2243,11 @@ Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplica
 
 **Problema:**
 
-El título principal, "Tu cita óptica ideal, en tu bolsillo", está dirigido a los pacientes, pero todos los botones de llamada a la acción ("Solicitar Demo", "Empezar gratis", "Elegir Profesional" y "Contactar ventas") abren el formulario de demo para ópticas. No existe un enlace para descargar la aplicación ni para registrarse como paciente, por lo que el segundo segmento objetivo no encuentra cómo empezar a usar OptiFlow (ver Figura 176).
+El título principal, "Tu cita óptica ideal, en tu bolsillo", está dirigido a los pacientes, pero todos los botones de llamada a la acción ("Solicitar Demo", "Empezar gratis", "Elegir Profesional" y "Contactar ventas") abren el formulario de demo para ópticas. No existe un enlace para descargar la aplicación ni para registrarse como paciente, por lo que el segundo segmento objetivo no encuentra cómo empezar a usar OptiFlow (ver Figura 186).
 
-<a id="figura-176"></a>
+<a id="figura-186"></a>
 
-**Figura 176**
+**Figura 186**
 
 *Sección principal de la Landing Page con un único botón dirigido a ópticas*
 
@@ -2145,11 +2265,11 @@ Agregar en la sección principal y en la barra de navegación un botón por segm
 
 **Problema:**
 
-En el pie de página, la opción "Iniciar sesión" abre el formulario "Entra a tu óptica", que solicita correo y contraseña. Al presionar "Continuar", el usuario recibe un diálogo titulado "Solicitud lista" que indica que el acceso todavía no valida contraseñas. El usuario completa datos para una función que no está disponible y el título del mensaje no corresponde a la acción que realizó (ver Figura 177).
+En el pie de página, la opción "Iniciar sesión" abre el formulario "Entra a tu óptica", que solicita correo y contraseña. Al presionar "Continuar", el usuario recibe un diálogo titulado "Solicitud lista" que indica que el acceso todavía no valida contraseñas. El usuario completa datos para una función que no está disponible y el título del mensaje no corresponde a la acción que realizó (ver Figura 187).
 
-<a id="figura-177"></a>
+<a id="figura-187"></a>
 
-**Figura 177**
+**Figura 187**
 
 *Mensaje mostrado después de intentar iniciar sesión desde la Landing Page*
 
@@ -2167,11 +2287,11 @@ Reemplazar la opción por un enlace a la aplicación móvil hasta que el acceso 
 
 **Problema:**
 
-Los diálogos "Solicita OptiFlow para tu óptica" y "Entra a tu óptica" solo se cierran con la tecla Esc o al hacer clic fuera de ellos. No muestran un botón "Cerrar" ni un ícono ×, a diferencia de los diálogos de privacidad y de términos. En un celular, donde no existe la tecla Esc, el usuario puede no saber cómo salir sin enviar el formulario (ver Figura 178).
+Los diálogos "Solicita OptiFlow para tu óptica" y "Entra a tu óptica" solo se cierran con la tecla Esc o al hacer clic fuera de ellos. No muestran un botón "Cerrar" ni un ícono ×, a diferencia de los diálogos de privacidad y de términos. En un celular, donde no existe la tecla Esc, el usuario puede no saber cómo salir sin enviar el formulario (ver Figura 188).
 
-<a id="figura-178"></a>
+<a id="figura-188"></a>
 
-**Figura 178**
+**Figura 188**
 
 *Diálogo de solicitud de demo sin control para cerrarlo*
 
@@ -2189,11 +2309,11 @@ Añadir un botón de cierre visible (×) en la esquina superior de todos los di�
 
 **Problema:**
 
-El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis" y la página no explica si existe un periodo de prueba ni su duración. Además, el botón abre el mismo formulario de demo que los otros planes. El texto genera una expectativa que la página no cumple (ver Figura 179).
+El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis" y la página no explica si existe un periodo de prueba ni su duración. Además, el botón abre el mismo formulario de demo que los otros planes. El texto genera una expectativa que la página no cumple (ver Figura 189).
 
-<a id="figura-179"></a>
+<a id="figura-189"></a>
 
-**Figura 179**
+**Figura 189**
 
 *Sección de planes con el botón "Empezar gratis" en un plan de pago*
 
@@ -2211,11 +2331,11 @@ Cambiar el texto a "Elegir Básico" o, si se ofrece una prueba gratuita, indicar
 
 **Problema:**
 
-La respuesta a "¿Necesito instalar algo?" indica que no, porque OptiFlow funciona desde el celular y el navegador. Sin embargo, los beneficios de la página y la solución se basan en una aplicación Android que se debe instalar. La contradicción resta credibilidad a la información y no responde cómo obtener la aplicación (ver Figura 180).
+La respuesta a "¿Necesito instalar algo?" indica que no, porque OptiFlow funciona desde el celular y el navegador. Sin embargo, los beneficios de la página y la solución se basan en una aplicación Android que se debe instalar. La contradicción resta credibilidad a la información y no responde cómo obtener la aplicación (ver Figura 190).
 
-<a id="figura-180"></a>
+<a id="figura-190"></a>
 
-**Figura 180**
+**Figura 190**
 
 *Respuesta de la sección de preguntas frecuentes sobre la instalación*
 
@@ -2233,11 +2353,11 @@ Corregir la respuesta para indicar que pacientes y personal usan la aplicación 
 
 **Problema:**
 
-En un ancho de 375 px, las etiquetas de las estadísticas ("Sin recordatorios", "Menos ausentismo" y "Menos tiempo") se muestran con un tamaño de 8 px, difícil de leer para personas mayores o con baja visión. Además, los fondos decorativos sobresalen del ancho de la pantalla, lo que deja una franja vacía a la derecha y descentra el contenido (ver Figura 181).
+En un ancho de 375 px, las etiquetas de las estadísticas ("Sin recordatorios", "Menos ausentismo" y "Menos tiempo") se muestran con un tamaño de 8 px, difícil de leer para personas mayores o con baja visión. Además, los fondos decorativos sobresalen del ancho de la pantalla, lo que deja una franja vacía a la derecha y descentra el contenido (ver Figura 191).
 
-<a id="figura-181"></a>
+<a id="figura-191"></a>
 
-**Figura 181**
+**Figura 191**
 
 *Sección de estadísticas de la Landing Page en un ancho de celular*
 
@@ -2255,11 +2375,11 @@ Usar un tamaño mínimo de 12 px (idealmente 14 px) en textos secundarios y reco
 
 **Problema:**
 
-En "Detalle de cita", el texto "Cancelar cita" cancela la reserva con un solo toque, muestra el mensaje breve "Cita cancelada" y regresa a "Mis citas". No hay un diálogo de confirmación ni una opción para deshacer la acción, por lo que un toque accidental libera el horario y el paciente pierde su cita (ver Figura 182).
+En "Detalle de cita", el texto "Cancelar cita" cancela la reserva con un solo toque, muestra el mensaje breve "Cita cancelada" y regresa a "Mis citas". No hay un diálogo de confirmación ni una opción para deshacer la acción, por lo que un toque accidental libera el horario y el paciente pierde su cita (ver Figura 192).
 
-<a id="figura-182"></a>
+<a id="figura-192"></a>
 
-**Figura 182**
+**Figura 192**
 
 *Detalle de la cita antes de cancelar (izquierda) y resultado inmediato después de un toque (derecha)*
 
@@ -2277,11 +2397,11 @@ Mostrar un diálogo de confirmación con la fecha y hora de la cita y las opcion
 
 **Problema:**
 
-En "Nueva cita" del rol de personal clínico, los campos "Servicio", "Óptica / sucursal" y "Fecha" muestran una flecha de selección, pero no responden al tocarlos. La fecha permanece fija en "Miércoles, 20 de junio" (junio de 2025), por lo que el usuario solo puede elegir la hora y no puede agendar una cita en otra fecha, sede o servicio (ver Figura 183).
+En "Nueva cita" del rol de personal clínico, los campos "Servicio", "Óptica / sucursal" y "Fecha" muestran una flecha de selección, pero no responden al tocarlos. La fecha permanece fija en "Miércoles, 20 de junio" (junio de 2025), por lo que el usuario solo puede elegir la hora y no puede agendar una cita en otra fecha, sede o servicio (ver Figura 193).
 
-<a id="figura-183"></a>
+<a id="figura-193"></a>
 
-**Figura 183**
+**Figura 193**
 
 *Pantalla "Nueva cita" del personal clínico con servicio, sucursal y fecha fijos*
 
@@ -2299,11 +2419,11 @@ Implementar selectores reales: lista de servicios, sucursales obtenidas de los W
 
 **Problema:**
 
-El formulario "Registro rápido de paciente" muestra como ejemplos el teléfono "+56 9 8745 9210" y la identificación "RUT 18.942.105-K", que son formatos de Chile. Las ópticas y los pacientes de OptiFlow están en el Perú, donde se usa el prefijo +51 y el DNI de 8 dígitos, por lo que los ejemplos pueden inducir a registrar datos con un formato incorrecto (ver Figura 184).
+El formulario "Registro rápido de paciente" muestra como ejemplos el teléfono "+56 9 8745 9210" y la identificación "RUT 18.942.105-K", que son formatos de Chile. Las ópticas y los pacientes de OptiFlow están en el Perú, donde se usa el prefijo +51 y el DNI de 8 dígitos, por lo que los ejemplos pueden inducir a registrar datos con un formato incorrecto (ver Figura 194).
 
-<a id="figura-184"></a>
+<a id="figura-194"></a>
 
-**Figura 184**
+**Figura 194**
 
 *Formulario de registro de pacientes del personal clínico*
 
@@ -2321,7 +2441,7 @@ Usar ejemplos locales ("+51 987 654 321" y "DNI / CE") y validar 9 dígitos para
 
 **Problema:**
 
-En la pantalla de inicio del personal, el acceso rápido se llama "Nuevo paciente", pero la pantalla que abre se titula "Nuevo Cliente" y su encabezado dice "Registro rápido de paciente". Usar dos términos para la misma entidad genera dudas sobre si se registra a un paciente o a un cliente comercial (ver Figura 184).
+En la pantalla de inicio del personal, el acceso rápido se llama "Nuevo paciente", pero la pantalla que abre se titula "Nuevo Cliente" y su encabezado dice "Registro rápido de paciente". Usar dos términos para la misma entidad genera dudas sobre si se registra a un paciente o a un cliente comercial (ver Figura 194).
 
 **Recomendación:**
 
@@ -2335,11 +2455,11 @@ Usar el término "paciente" en todo el flujo, de acuerdo con el lenguaje ubicuo 
 
 **Problema:**
 
-En "Mi Perfil", la opción "Ayuda y soporte" lleva a la pantalla "Configuración", y allí "Ayuda y documentación" no abre ningún contenido. Lo mismo ocurre con "Privacidad y seguridad", "Idioma" y "Términos y privacidad", y con "Ayuda y documentación" en el menú "Más" del personal clínico. Todas muestran una flecha que sugiere que llevan a otra pantalla (ver Figura 185).
+En "Mi Perfil", la opción "Ayuda y soporte" lleva a la pantalla "Configuración", y allí "Ayuda y documentación" no abre ningún contenido. Lo mismo ocurre con "Privacidad y seguridad", "Idioma" y "Términos y privacidad", y con "Ayuda y documentación" en el menú "Más" del personal clínico. Todas muestran una flecha que sugiere que llevan a otra pantalla (ver Figura 195).
 
-<a id="figura-185"></a>
+<a id="figura-195"></a>
 
-**Figura 185**
+**Figura 195**
 
 *Pantalla "Configuración" con opciones de ayuda sin contenido*
 
@@ -2357,11 +2477,11 @@ Crear una pantalla de ayuda con preguntas frecuentes y datos de contacto de la �
 
 **Problema:**
 
-Una cuenta de paciente recién creada, sin recetas ni pedidos registrados, muestra en "Accesos rápidos" los indicadores "Mis recetas · 2 activas" y "Mis pedidos · 1 en camino". En "Mi Perfil", la misma cuenta indica "1 recetas disponibles". La información sobre el estado del paciente no corresponde a sus datos y no coincide entre pantallas (ver Figura 186).
+Una cuenta de paciente recién creada, sin recetas ni pedidos registrados, muestra en "Accesos rápidos" los indicadores "Mis recetas · 2 activas" y "Mis pedidos · 1 en camino". En "Mi Perfil", la misma cuenta indica "1 recetas disponibles". La información sobre el estado del paciente no corresponde a sus datos y no coincide entre pantallas (ver Figura 196).
 
-<a id="figura-186"></a>
+<a id="figura-196"></a>
 
-**Figura 186**
+**Figura 196**
 
 *Inicio (izquierda) y perfil (derecha) de una cuenta de paciente recién creada*
 
@@ -2379,11 +2499,11 @@ Obtener los indicadores de recetas y pedidos desde los Web Services (historias c
 
 **Problema:**
 
-En "Mi Perfil", la opción "Vista personal de óptica" cambia a la experiencia del personal clínico (agenda, pacientes, inventario y ventas) sin pedir credenciales ni validar el rol. Un paciente puede acceder a información de la óptica, y la elección de rol al iniciar sesión pierde sentido, lo que afecta la confianza en el manejo de los datos (ver Figura 187).
+En "Mi Perfil", la opción "Vista personal de óptica" cambia a la experiencia del personal clínico (agenda, pacientes, inventario y ventas) sin pedir credenciales ni validar el rol. Un paciente puede acceder a información de la óptica, y la elección de rol al iniciar sesión pierde sentido, lo que afecta la confianza en el manejo de los datos (ver Figura 197).
 
-<a id="figura-187"></a>
+<a id="figura-197"></a>
 
-**Figura 187**
+**Figura 197**
 
 *Vista del personal clínico abierta desde el perfil de un paciente*
 
@@ -2401,11 +2521,11 @@ Retirar la opción del perfil del paciente. El acceso a la experiencia del perso
 
 **Problema:**
 
-Los botones que solo muestran un ícono, como el de notificaciones (campana) de la pantalla de inicio, la flecha para volver y el engranaje de configuración, no tienen descripción de contenido (*content description*) en el árbol de accesibilidad de Android. Un usuario que navega con un lector de pantalla, como TalkBack, escucha un botón sin nombre y no sabe qué acción realiza (ver Figura 188).
+Los botones que solo muestran un ícono, como el de notificaciones (campana) de la pantalla de inicio, la flecha para volver y el engranaje de configuración, no tienen descripción de contenido (*content description*) en el árbol de accesibilidad de Android. Un usuario que navega con un lector de pantalla, como TalkBack, escucha un botón sin nombre y no sabe qué acción realiza (ver Figura 198).
 
-<a id="figura-188"></a>
+<a id="figura-198"></a>
 
-**Figura 188**
+**Figura 198**
 
 *Pantalla de inicio del paciente con el botón de notificaciones sin etiqueta accesible*
 
@@ -2423,11 +2543,11 @@ Añadir una `contentDescription` a cada botón de solo ícono (por ejemplo, "Not
 
 **Problema:**
 
-En el rol de personal clínico, la pantalla "Nueva cotización" muestra precios como "$89.900" y la pantalla "Reportes" muestra ventas totales de "$8.460.200", con el símbolo de dólar y el punto como separador de miles, formato propio del peso chileno. La Landing Page presenta los planes en soles (S/), y las ópticas y pacientes de OptiFlow pagan en soles, por lo que los montos pueden interpretarse de forma incorrecta (ver Figura 189).
+En el rol de personal clínico, la pantalla "Nueva cotización" muestra precios como "$89.900" y la pantalla "Reportes" muestra ventas totales de "$8.460.200", con el símbolo de dólar y el punto como separador de miles, formato propio del peso chileno. La Landing Page presenta los planes en soles (S/), y las ópticas y pacientes de OptiFlow pagan en soles, por lo que los montos pueden interpretarse de forma incorrecta (ver Figura 199).
 
-<a id="figura-189"></a>
+<a id="figura-199"></a>
 
-**Figura 189**
+**Figura 199**
 
 *Montos en las pantallas "Nueva cotización" (izquierda) y "Reportes" (derecha)*
 

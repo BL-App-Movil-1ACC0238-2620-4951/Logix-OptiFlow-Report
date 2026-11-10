@@ -1,0 +1,1048 @@
+{
+  "fecha": "2026-11-10",
+  "zona": "America/Lima",
+  "backend_commit": "41bcb448a06abe9aeaf32be9cef46ce2965e30e0",
+  "entorno": "copia local sin cambios de código; perfil local/H2; puerto 18082",
+  "cases": [
+    {
+      "caso": "Contrato OpenAPI",
+      "method": "GET",
+      "path": "/v3/api-docs",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": {
+        "openapi": "3.1.0",
+        "paths": 58
+      }
+    },
+    {
+      "caso": "Consulta pública de ópticas",
+      "method": "GET",
+      "path": "/api/v1/optical-stores",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": [
+        {
+          "id": "11111111-1111-1111-1111-111111111111",
+          "name": "OptiFlow Miraflores",
+          "address": "Av. Larco 123, Miraflores, Lima",
+          "phone": "014441111",
+          "rating": 4.6,
+          "status": "ACTIVE",
+          "latitude": -12.121037,
+          "longitude": -77.02824
+        },
+        {
+          "id": "22222222-2222-2222-2222-222222222222",
+          "name": "OptiFlow San Isidro",
+          "address": "Av. Javier Prado 456, San Isidro, Lima",
+          "phone": "014442222",
+          "rating": 4.2,
+          "status": "ACTIVE",
+          "latitude": -12.099,
+          "longitude": -77.034
+        },
+        {
+          "id": "77777777-7777-7777-7777-777777777777",
+          "name": "OptiFlow Surco",
+          "address": "Av. Primavera 1050, Santiago de Surco, Lima",
+          "phone": "014443333",
+          "rating": 4.4,
+          "status": "ACTIVE",
+          "latitude": -12.11176,
+          "longitude": -76.99065
+        },
+        {
+          "id": "88888888-8888-8888-8888-888888888888",
+          "name": "OptiFlow San Miguel",
+          "address": "Av. La Marina 2000, San Miguel, Lima",
+          "phone": "014444444",
+          "rating": 4.1,
+          "status": "ACTIVE",
+          "latitude": -12.07737,
+          "longitude": -77.08295
+        },
+        {
+          "id": "99999999-9999-9999-9999-999999999999",
+          "name": "OptiFlow Chorrillos",
+          "address": "Av. Defensores del Morro 1277, Chorrillos, Lima",
+          "phone": "014445555",
+          "rating": 4.3,
+          "status": "ACTIVE",
+          "latitude": -12.16987,
+          "longitude": -77.02306
+        }
+      ]
+    },
+    {
+      "caso": "Ópticas cercanas",
+      "method": "GET",
+      "path": "/api/v1/optical-stores?lat=-12.12&lng=-77.03&radiusKm=10",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": [
+        {
+          "id": "11111111-1111-1111-1111-111111111111",
+          "name": "OptiFlow Miraflores",
+          "address": "Av. Larco 123, Miraflores, Lima",
+          "phone": "014441111",
+          "rating": 4.6,
+          "status": "ACTIVE",
+          "latitude": -12.121037,
+          "longitude": -77.02824
+        },
+        {
+          "id": "22222222-2222-2222-2222-222222222222",
+          "name": "OptiFlow San Isidro",
+          "address": "Av. Javier Prado 456, San Isidro, Lima",
+          "phone": "014442222",
+          "rating": 4.2,
+          "status": "ACTIVE",
+          "latitude": -12.099,
+          "longitude": -77.034
+        },
+        {
+          "id": "77777777-7777-7777-7777-777777777777",
+          "name": "OptiFlow Surco",
+          "address": "Av. Primavera 1050, Santiago de Surco, Lima",
+          "phone": "014443333",
+          "rating": 4.4,
+          "status": "ACTIVE",
+          "latitude": -12.11176,
+          "longitude": -76.99065
+        },
+        {
+          "id": "99999999-9999-9999-9999-999999999999",
+          "name": "OptiFlow Chorrillos",
+          "address": "Av. Defensores del Morro 1277, Chorrillos, Lima",
+          "phone": "014445555",
+          "rating": 4.3,
+          "status": "ACTIVE",
+          "latitude": -12.16987,
+          "longitude": -77.02306
+        },
+        {
+          "id": "88888888-8888-8888-8888-888888888888",
+          "name": "OptiFlow San Miguel",
+          "address": "Av. La Marina 2000, San Miguel, Lima",
+          "phone": "014444444",
+          "rating": 4.1,
+          "status": "ACTIVE",
+          "latitude": -12.07737,
+          "longitude": -77.08295
+        }
+      ]
+    },
+    {
+      "caso": "Coordenadas inválidas",
+      "method": "GET",
+      "path": "/api/v1/optical-stores?lat=100&lng=-77.03&radiusKm=10",
+      "expected": 400,
+      "status": 400,
+      "location": null,
+      "response": {
+        "status": 400,
+        "error": "Bad Request",
+        "message": "Latitude must be between -90 and 90."
+      }
+    },
+    {
+      "caso": "Horarios disponibles",
+      "method": "GET",
+      "path": "/api/v1/optical-stores/11111111-1111-1111-1111-111111111111/time-slots",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": [
+        {
+          "id": "d7f0694a-f7d3-47e4-adfa-71d9d7293d5e",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-11T16:00:00Z",
+          "endDateTime": "2026-11-11T16:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "388882c2-7035-4867-8115-4eff12af28ce",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-11T17:00:00Z",
+          "endDateTime": "2026-11-11T17:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "5d197dc0-41de-476a-ae9b-c2c9ad68ff03",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-11T18:00:00Z",
+          "endDateTime": "2026-11-11T18:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "e088ca55-6116-43b9-a4f3-9dc8621d98bc",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-11T19:00:00Z",
+          "endDateTime": "2026-11-11T19:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "26df24e6-6c9d-44b5-bf84-a4948e46be75",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-11T20:00:00Z",
+          "endDateTime": "2026-11-11T20:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "f67a00d1-c45b-4abd-919d-5eeac367a3c7",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-11T21:00:00Z",
+          "endDateTime": "2026-11-11T21:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "ab7fdb95-11fd-48d7-adaf-c4c5fc54a336",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-12T14:00:00Z",
+          "endDateTime": "2026-11-12T14:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "379d3a84-7409-4a49-9ced-c4ba54f37f6c",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-12T15:00:00Z",
+          "endDateTime": "2026-11-12T15:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "43abbeb4-3e7f-4dad-b594-4e50ca61dc0e",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-12T16:00:00Z",
+          "endDateTime": "2026-11-12T16:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "3d8e81e9-aee1-45df-8210-785805b2d8b5",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-12T17:00:00Z",
+          "endDateTime": "2026-11-12T17:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "da25ef27-c5a9-4900-9f3a-8498aa3e0205",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-12T18:00:00Z",
+          "endDateTime": "2026-11-12T18:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "dcf5ac5e-7379-472c-850c-cd051faf534d",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-12T19:00:00Z",
+          "endDateTime": "2026-11-12T19:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "12acddf2-626b-4f28-a184-5327179aeb0c",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-12T20:00:00Z",
+          "endDateTime": "2026-11-12T20:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "8468fb4f-ee4d-480b-a9f6-76d5bdb28f24",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-12T21:00:00Z",
+          "endDateTime": "2026-11-12T21:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "d39adf9c-4e76-4712-b81d-68430580db2b",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-13T14:00:00Z",
+          "endDateTime": "2026-11-13T14:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "754cb019-87af-4c33-8ab2-829e40d05dc5",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-13T15:00:00Z",
+          "endDateTime": "2026-11-13T15:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "cdf6b771-4a76-4406-a33e-b7bca09d3753",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-13T16:00:00Z",
+          "endDateTime": "2026-11-13T16:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "c31803f0-0a92-4cb8-a260-54a7d6ab166f",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-13T17:00:00Z",
+          "endDateTime": "2026-11-13T17:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "a2b4123c-368a-4325-9347-7b4301103553",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-13T18:00:00Z",
+          "endDateTime": "2026-11-13T18:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "a6b37da5-18cd-4269-a2a1-d8b092d77828",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-13T19:00:00Z",
+          "endDateTime": "2026-11-13T19:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "7a4da908-16fc-4395-a65d-dda719bb6704",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-13T20:00:00Z",
+          "endDateTime": "2026-11-13T20:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "b30916f7-f90d-415f-8aee-c1809c718429",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-13T21:00:00Z",
+          "endDateTime": "2026-11-13T21:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "824b44bc-ad46-4566-bcf3-46c80176e08c",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-14T14:00:00Z",
+          "endDateTime": "2026-11-14T14:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "44b0d079-6635-4032-891a-2955eefd0af8",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-14T15:00:00Z",
+          "endDateTime": "2026-11-14T15:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "4931ba74-390c-40b9-ae12-737d8f8a90d3",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-14T16:00:00Z",
+          "endDateTime": "2026-11-14T16:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "49e7c710-3062-4e2f-ad3c-8d85dd9df553",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-14T17:00:00Z",
+          "endDateTime": "2026-11-14T17:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "7a3ab016-16f9-4038-b38b-34d32c3e7ac8",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-14T18:00:00Z",
+          "endDateTime": "2026-11-14T18:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "80af17b2-d677-4adb-98bf-438e58f8df2c",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-14T19:00:00Z",
+          "endDateTime": "2026-11-14T19:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "6d730c52-7e36-4e2b-a99a-8254d5dac35f",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-14T20:00:00Z",
+          "endDateTime": "2026-11-14T20:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "42b39086-8c55-4b7f-9b2d-2772195411ae",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-14T21:00:00Z",
+          "endDateTime": "2026-11-14T21:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "87196238-857d-43a9-875d-37efb3417c3e",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-16T14:00:00Z",
+          "endDateTime": "2026-11-16T14:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "c89fb6af-3712-496e-a68e-cc561aec38b9",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-16T15:00:00Z",
+          "endDateTime": "2026-11-16T15:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "4683e1f3-707d-43ff-9609-18a71f3f4de8",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-16T16:00:00Z",
+          "endDateTime": "2026-11-16T16:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "247477ce-dbfd-4eca-8b1a-b7eabbc8ed62",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-16T17:00:00Z",
+          "endDateTime": "2026-11-16T17:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "682169e5-bbd2-41b7-a3bb-57f74e08c85e",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-16T18:00:00Z",
+          "endDateTime": "2026-11-16T18:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "ac9fc3b6-b1bd-4b2a-ae03-2f46302e7766",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-16T19:00:00Z",
+          "endDateTime": "2026-11-16T19:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "3a6baa48-c400-4273-9b02-9ac585d91630",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-16T20:00:00Z",
+          "endDateTime": "2026-11-16T20:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "05aee217-4c48-465f-b198-ae58b0871941",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-16T21:00:00Z",
+          "endDateTime": "2026-11-16T21:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "c0e34ae9-165f-4c1a-a93f-5eda48df88bd",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-17T14:00:00Z",
+          "endDateTime": "2026-11-17T14:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "b0c934e8-e148-40c2-a400-5ada2aa7951a",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-17T15:00:00Z",
+          "endDateTime": "2026-11-17T15:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "2eece4a9-28df-4730-bb7d-13ab4252aebc",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-17T16:00:00Z",
+          "endDateTime": "2026-11-17T16:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "03be0aa4-50be-4fac-9e94-876b6686e3f8",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-17T17:00:00Z",
+          "endDateTime": "2026-11-17T17:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "516a7dc5-918b-4727-9ae3-0c88e1bd91cb",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-17T18:00:00Z",
+          "endDateTime": "2026-11-17T18:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "c4abf9cb-1e8b-45f0-8fda-a86f855e7c3e",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-17T19:00:00Z",
+          "endDateTime": "2026-11-17T19:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "837c4ae0-e60f-4a83-941f-b7a4945741d0",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-17T20:00:00Z",
+          "endDateTime": "2026-11-17T20:30:00Z",
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "ac348e93-f9a7-4340-a96d-e9d4c9bb502f",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "startDateTime": "2026-11-17T21:00:00Z",
+          "endDateTime": "2026-11-17T21:30:00Z",
+          "status": "AVAILABLE"
+        }
+      ]
+    },
+    {
+      "caso": "Validación del nombre",
+      "method": "POST",
+      "path": "/api/v1/patients",
+      "expected": 400,
+      "status": 400,
+      "location": null,
+      "response": {
+        "status": 400,
+        "error": "Bad Request",
+        "message": "Name is invalid."
+      }
+    },
+    {
+      "caso": "Registro de paciente",
+      "method": "POST",
+      "path": "/api/v1/patients",
+      "expected": 201,
+      "status": 201,
+      "location": "http://127.0.0.1:18082/api/v1/patients/55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3",
+      "response": {
+        "id": "55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3",
+        "name": "Paciente Revision",
+        "email": "revision-20261110183847@optiflow.test",
+        "phone": "999888777",
+        "birthDate": null,
+        "createdAt": "2026-11-10T23:38:47.985761200Z"
+      }
+    },
+    {
+      "caso": "Token de paciente",
+      "method": "POST",
+      "path": "/api/v1/auth/tokens",
+      "expected": 201,
+      "status": 201,
+      "location": "http://127.0.0.1:18082/api/v1/auth/tokens",
+      "response": {
+        "token": "[OMITIDO]",
+        "expiresAt": "2026-11-11T23:38:48.381454700Z",
+        "userId": "55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3",
+        "role": "PATIENT"
+      }
+    },
+    {
+      "caso": "Credenciales inválidas",
+      "method": "POST",
+      "path": "/api/v1/auth/tokens",
+      "expected": 401,
+      "status": 401,
+      "location": null,
+      "response": {
+        "status": 401,
+        "error": "Unauthorized",
+        "message": "The credentials are invalid."
+      }
+    },
+    {
+      "caso": "Citas sin token",
+      "method": "GET",
+      "path": "/api/v1/patients/55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3/appointments",
+      "expected": 401,
+      "status": 401,
+      "location": null,
+      "response": {
+        "status": 401,
+        "error": "Unauthorized",
+        "message": "Authentication is required."
+      }
+    },
+    {
+      "caso": "Operación administrativa con rol de paciente",
+      "method": "GET",
+      "path": "/api/v1/staff-members",
+      "expected": 403,
+      "status": 403,
+      "location": null,
+      "response": {
+        "status": 403,
+        "error": "Forbidden",
+        "message": "You are not allowed to perform this action."
+      }
+    },
+    {
+      "caso": "Reserva autenticada",
+      "method": "POST",
+      "path": "/api/v1/appointments",
+      "expected": 201,
+      "status": 201,
+      "location": "http://127.0.0.1:18082/api/v1/appointments/d30a6948-3819-4ae6-86bb-10314242bed3",
+      "response": {
+        "id": "d30a6948-3819-4ae6-86bb-10314242bed3",
+        "patientId": "55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3",
+        "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+        "timeSlotId": "d7f0694a-f7d3-47e4-adfa-71d9d7293d5e",
+        "status": "CONFIRMED",
+        "startDateTime": "2026-11-11T16:00:00Z",
+        "endDateTime": "2026-11-11T16:30:00Z",
+        "createdAt": "2026-11-10T23:38:48.605751100Z",
+        "updatedAt": "2026-11-10T23:38:48.605751100Z"
+      }
+    },
+    {
+      "caso": "Reserva duplicada",
+      "method": "POST",
+      "path": "/api/v1/appointments",
+      "expected": 409,
+      "status": 409,
+      "location": null,
+      "response": {
+        "status": 409,
+        "error": "Conflict",
+        "message": "The selected time slot is no longer available."
+      }
+    },
+    {
+      "caso": "Citas del paciente",
+      "method": "GET",
+      "path": "/api/v1/patients/55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3/appointments",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": [
+        {
+          "id": "d30a6948-3819-4ae6-86bb-10314242bed3",
+          "patientId": "55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "timeSlotId": "d7f0694a-f7d3-47e4-adfa-71d9d7293d5e",
+          "status": "CONFIRMED",
+          "startDateTime": "2026-11-11T16:00:00Z",
+          "endDateTime": "2026-11-11T16:30:00Z",
+          "createdAt": "2026-11-10T23:38:48.605751Z",
+          "updatedAt": "2026-11-10T23:38:48.605751Z"
+        }
+      ]
+    },
+    {
+      "caso": "Historial de la propia cuenta",
+      "method": "GET",
+      "path": "/api/v1/patients/55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3/clinical-records",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": [
+        {
+          "id": "e1403d47-e319-4fcd-adf1-344dbe0aaae8",
+          "patientId": "55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3",
+          "appointmentId": "d30a6948-3819-4ae6-86bb-10314242bed3",
+          "examinationDate": null,
+          "observations": null,
+          "status": "PENDING",
+          "medicalHistory": null,
+          "prescription": null
+        }
+      ]
+    },
+    {
+      "caso": "Pedidos de la propia cuenta",
+      "method": "GET",
+      "path": "/api/v1/patients/55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3/work-orders",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": []
+    },
+    {
+      "caso": "Notificaciones de la propia cuenta",
+      "method": "GET",
+      "path": "/api/v1/patients/55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3/notifications",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": [
+        {
+          "id": "13f80711-63fa-4fea-8eda-efb3ebc538ce",
+          "patientId": "55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3",
+          "type": "APPOINTMENT_REMINDER",
+          "title": "Recordatorio de cita",
+          "message": "Tu evaluación visual es el 11/11 a las 11:00.",
+          "status": "UNREAD",
+          "createdAt": "2026-11-10T23:38:48.628138Z",
+          "scheduledAt": "2026-11-10T23:38:48.628138Z",
+          "readAt": null,
+          "appointmentId": "d30a6948-3819-4ae6-86bb-10314242bed3",
+          "workOrderId": null,
+          "surveyRating": null,
+          "surveyComment": null,
+          "answeredAt": null
+        }
+      ]
+    },
+    {
+      "caso": "Paciente nuevo sin cuenta de fidelización",
+      "method": "GET",
+      "path": "/api/v1/patients/55cc03a1-e57b-450c-ae0e-22d9ef3cd0c3/loyalty-account",
+      "expected": 404,
+      "status": 404,
+      "location": null,
+      "response": {
+        "status": 404,
+        "error": "Not Found",
+        "message": "Loyalty account was not found."
+      }
+    },
+    {
+      "caso": "Token de administrador local",
+      "method": "POST",
+      "path": "/api/v1/auth/tokens",
+      "expected": 201,
+      "status": 201,
+      "location": "http://127.0.0.1:18082/api/v1/auth/tokens",
+      "response": {
+        "token": "[OMITIDO]",
+        "expiresAt": "2026-11-11T23:38:48.917082700Z",
+        "userId": "e5b34744-b60d-47c1-8841-1c037b8459cd",
+        "role": "ADMIN"
+      }
+    },
+    {
+      "caso": "Consulta administrativa de personal",
+      "method": "GET",
+      "path": "/api/v1/staff-members",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": [
+        {
+          "id": "e5b34744-b60d-47c1-8841-1c037b8459cd",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "name": "OptiFlow Admin",
+          "email": "admin@optiflow.test",
+          "role": "ADMIN",
+          "active": true,
+          "createdAt": "2026-11-10T23:36:21.289574Z"
+        },
+        {
+          "id": "72646fdb-2014-44ec-ac67-8dd26dc058c7",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "name": "Lucía Paredes",
+          "email": "optometrist@optiflow.test",
+          "role": "OPTOMETRIST",
+          "active": true,
+          "createdAt": "2026-11-10T23:36:21.484967Z"
+        },
+        {
+          "id": "6a3e4e8b-547b-4a4c-9c31-cdcf50177e1e",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "name": "Diego Fernández",
+          "email": "advisor@optiflow.test",
+          "role": "SALES_ADVISOR",
+          "active": true,
+          "createdAt": "2026-11-10T23:36:21.606644Z"
+        },
+        {
+          "id": "b0d845b6-a608-4c7f-823a-6f15bb2ef769",
+          "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+          "name": "Jorge Salas",
+          "email": "technician@optiflow.test",
+          "role": "TECHNICIAN",
+          "active": true,
+          "createdAt": "2026-11-10T23:36:21.712079Z"
+        }
+      ]
+    },
+    {
+      "caso": "Catálogo de monturas",
+      "method": "GET",
+      "path": "/api/v1/inventory/frames",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": [
+        {
+          "id": "74b896c9-1d86-4629-9a9d-74ee829f3bdc",
+          "sku": "OK-8156-BLK",
+          "name": "Oakley Pitchman",
+          "material": "O Matter",
+          "shape": "Rectangular",
+          "color": "Negro mate",
+          "price": 450.0,
+          "currency": "PEN",
+          "tryOnModelUrl": null,
+          "quantity": null,
+          "minimumStock": null
+        },
+        {
+          "id": "3200de86-6e6e-4968-b9da-366ec721ca29",
+          "sku": "PR-17WV-TOR",
+          "name": "Prada PR 17WV",
+          "material": "Acetato",
+          "shape": "Ovalada",
+          "color": "Carey",
+          "price": 690.0,
+          "currency": "PEN",
+          "tryOnModelUrl": null,
+          "quantity": null,
+          "minimumStock": null
+        },
+        {
+          "id": "75c7fc25-5355-48a0-9c50-19555918958e",
+          "sku": "RB-3025-GLD",
+          "name": "Ray-Ban Aviator Classic",
+          "material": "Metal",
+          "shape": "Aviador",
+          "color": "Dorado",
+          "price": 520.0,
+          "currency": "PEN",
+          "tryOnModelUrl": null,
+          "quantity": null,
+          "minimumStock": null
+        },
+        {
+          "id": "7b2ba24e-d783-4b18-bca3-193925e1d087",
+          "sku": "RB-5154-BLK",
+          "name": "Ray-Ban Clubmaster",
+          "material": "Acetato y metal",
+          "shape": "Browline",
+          "color": "Negro",
+          "price": 480.0,
+          "currency": "PEN",
+          "tryOnModelUrl": null,
+          "quantity": null,
+          "minimumStock": null
+        },
+        {
+          "id": "5e6eceb8-f5a1-4500-a8af-252c60d58b51",
+          "sku": "TF-5401-HAV",
+          "name": "Tom Ford FT5401",
+          "material": "Acetato",
+          "shape": "Cuadrada",
+          "color": "Havana",
+          "price": 750.0,
+          "currency": "PEN",
+          "tryOnModelUrl": null,
+          "quantity": null,
+          "minimumStock": null
+        },
+        {
+          "id": "2f756f37-b877-4818-9f32-3dc7fd59f46b",
+          "sku": "VO-5276-TRP",
+          "name": "Vogue VO5276",
+          "material": "Acetato",
+          "shape": "Mariposa",
+          "color": "Transparente",
+          "price": 320.0,
+          "currency": "PEN",
+          "tryOnModelUrl": null,
+          "quantity": null,
+          "minimumStock": null
+        }
+      ]
+    },
+    {
+      "caso": "Stock por óptica",
+      "method": "GET",
+      "path": "/api/v1/inventory/stock?opticalStoreId=11111111-1111-1111-1111-111111111111",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": {
+        "id": "4773739e-8ac4-48b1-85e1-0c41c3e1d942",
+        "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+        "stocks": [
+          {
+            "frameModelId": "74b896c9-1d86-4629-9a9d-74ee829f3bdc",
+            "sku": "OK-8156-BLK",
+            "name": "Oakley Pitchman",
+            "price": 450.0,
+            "quantity": 10,
+            "minimumStock": 3,
+            "low": false
+          },
+          {
+            "frameModelId": "3200de86-6e6e-4968-b9da-366ec721ca29",
+            "sku": "PR-17WV-TOR",
+            "name": "Prada PR 17WV",
+            "price": 690.0,
+            "quantity": 10,
+            "minimumStock": 3,
+            "low": false
+          },
+          {
+            "frameModelId": "75c7fc25-5355-48a0-9c50-19555918958e",
+            "sku": "RB-3025-GLD",
+            "name": "Ray-Ban Aviator Classic",
+            "price": 520.0,
+            "quantity": 10,
+            "minimumStock": 3,
+            "low": false
+          },
+          {
+            "frameModelId": "7b2ba24e-d783-4b18-bca3-193925e1d087",
+            "sku": "RB-5154-BLK",
+            "name": "Ray-Ban Clubmaster",
+            "price": 480.0,
+            "quantity": 10,
+            "minimumStock": 3,
+            "low": false
+          },
+          {
+            "frameModelId": "5e6eceb8-f5a1-4500-a8af-252c60d58b51",
+            "sku": "TF-5401-HAV",
+            "name": "Tom Ford FT5401",
+            "price": 750.0,
+            "quantity": 2,
+            "minimumStock": 3,
+            "low": true
+          },
+          {
+            "frameModelId": "2f756f37-b877-4818-9f32-3dc7fd59f46b",
+            "sku": "VO-5276-TRP",
+            "name": "Vogue VO5276",
+            "price": 320.0,
+            "quantity": 10,
+            "minimumStock": 3,
+            "low": false
+          }
+        ]
+      }
+    },
+    {
+      "caso": "Proveedores",
+      "method": "GET",
+      "path": "/api/v1/suppliers",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": [
+        {
+          "id": "3a014a38-c8a5-4f56-b5a5-3ef8a0b6a8ab",
+          "name": "Distribuidora Óptica Lima",
+          "contact": "pedidos@dolima.pe"
+        },
+        {
+          "id": "bd684f5a-217c-47e9-8996-25690402e4f2",
+          "name": "Luxottica Perú",
+          "contact": "ventas@luxottica.pe"
+        }
+      ]
+    },
+    {
+      "caso": "Reporte sin periodo obligatorio",
+      "method": "GET",
+      "path": "/api/v1/reports/inventory?opticalStoreId=11111111-1111-1111-1111-111111111111",
+      "expected": 400,
+      "status": 400,
+      "location": null,
+      "response": {
+        "status": 400,
+        "error": "Bad Request",
+        "message": "The parameter from is required."
+      }
+    },
+    {
+      "caso": "Reporte de inventario",
+      "method": "GET",
+      "path": "/api/v1/reports/inventory?opticalStoreId=11111111-1111-1111-1111-111111111111&from=2026-11-01&to=2026-11-30",
+      "expected": 200,
+      "status": 200,
+      "location": null,
+      "response": {
+        "opticalStoreId": "11111111-1111-1111-1111-111111111111",
+        "from": "2026-11-01",
+        "to": "2026-11-30",
+        "unitsIn": 52,
+        "unitsOut": 0,
+        "lowStockProducts": 1,
+        "products": [
+          {
+            "sku": "OK-8156-BLK",
+            "name": "Oakley Pitchman",
+            "quantity": 10,
+            "minimumStock": 3,
+            "lowStock": false,
+            "unitsIn": 10,
+            "unitsOut": 0
+          },
+          {
+            "sku": "PR-17WV-TOR",
+            "name": "Prada PR 17WV",
+            "quantity": 10,
+            "minimumStock": 3,
+            "lowStock": false,
+            "unitsIn": 10,
+            "unitsOut": 0
+          },
+          {
+            "sku": "RB-3025-GLD",
+            "name": "Ray-Ban Aviator Classic",
+            "quantity": 10,
+            "minimumStock": 3,
+            "lowStock": false,
+            "unitsIn": 10,
+            "unitsOut": 0
+          },
+          {
+            "sku": "RB-5154-BLK",
+            "name": "Ray-Ban Clubmaster",
+            "quantity": 10,
+            "minimumStock": 3,
+            "lowStock": false,
+            "unitsIn": 10,
+            "unitsOut": 0
+          },
+          {
+            "sku": "TF-5401-HAV",
+            "name": "Tom Ford FT5401",
+            "quantity": 2,
+            "minimumStock": 3,
+            "lowStock": true,
+            "unitsIn": 2,
+            "unitsOut": 0
+          },
+          {
+            "sku": "VO-5276-TRP",
+            "name": "Vogue VO5276",
+            "quantity": 10,
+            "minimumStock": 3,
+            "lowStock": false,
+            "unitsIn": 10,
+            "unitsOut": 0
+          }
+        ]
+      }
+    },
+    {
+      "caso": "Ruta antigua del cliente Flutter",
+      "method": "GET",
+      "path": "/optical-stores",
+      "expected": null,
+      "status": 401,
+      "location": null,
+      "response": {
+        "status": 401,
+        "error": "Unauthorized",
+        "message": "Authentication is required."
+      }
+    },
+    {
+      "caso": "Subruta antigua de búsqueda de Flutter",
+      "method": "GET",
+      "path": "/api/v1/optical-stores/search",
+      "expected": null,
+      "status": 401,
+      "location": null,
+      "response": {
+        "status": 401,
+        "error": "Unauthorized",
+        "message": "Authentication is required."
+      }
+    },
+    {
+      "caso": "Subruta antigua de horarios de Flutter",
+      "method": "GET",
+      "path": "/api/v1/optical-stores/11111111-1111-1111-1111-111111111111/availability",
+      "expected": null,
+      "status": 401,
+      "location": null,
+      "response": {
+        "status": 401,
+        "error": "Unauthorized",
+        "message": "Authentication is required."
+      }
+    }
+  ]
+}

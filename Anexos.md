@@ -213,25 +213,25 @@ El Store Management & Inventory Component Diagram se muestra en la Figura E8.
 
 La cardinalidad vigente de cotización–venta se especifica en [2.6.2.6.2](Capitulo2.md#26262-bounded-context-database-design-diagram): una cotización genera como máximo una venta, respaldada por la restricción de unicidad del backend.
 
-Los diagramas de este anexo complementan el diseño táctico del capítulo II. La revisión del backend `4a1364e`, utilizada para AV2, contiene las migraciones V1, V2, V3, V4, V5 y V8, que definen 21 tablas. V5 añade las coordenadas de las ópticas y V8, la fecha de nacimiento del paciente y la tabla de personal. El modelo ampliado de diseño se distingue de este corte de implementación mediante la Tabla F1.
+Los diagramas de este anexo complementan el diseño táctico del capítulo II. La revisión del backend `41bcb44`, consultada el 10/11/2026 para AV2, contiene las migraciones V1 a V9, que definen 27 tablas en una base PostgreSQL compartida. V5 añade coordenadas, V6 incorpora inventario, V7 registra dispositivos, V8 amplía pacientes y personal, y V9 incorpora datos de checkout y pago. El modelo ampliado de diseño se distingue de este corte de implementación mediante la Tabla F1.
 
 
 <a id="tabla-f1"></a>
 
 **Tabla F1**
 
-*Persistencia identificada en el backend 4a1364e*
+*Persistencia identificada en el backend 41bcb44*
 
 | Bounded Context | Migraciones | Tablas identificadas | Cantidad |
 |---|---|---|:---:|
 | Search & Booking | V1, V5 y V8 | `patients`, `optical_stores`, `time_slots`, `appointments`, `favorite_stores`, `store_ratings`, `staff_members`. | 7 |
-| Clinical & Commercial | V2 | `clinical_records`, `medical_histories`, `optical_prescriptions`, `quotations`, `quotation_items`, `sales`, `electronic_receipts`. | 7 |
+| Clinical & Commercial | V2 y V9 | `clinical_records`, `medical_histories`, `optical_prescriptions`, `quotations`, `quotation_items`, `sales`, `electronic_receipts`. | 7 |
 | Production & Tracking | V3 | `technicians`, `laboratories`, `work_orders`, `work_order_lenses`, `work_order_status_history`. | 5 |
-| Notification & Loyalty | V4 | `loyalty_accounts`, `notifications`. | 2 |
-| Store Management & Inventory | — | Modelo de diseño; sin tablas propias en este corte del backend. | 0 |
-| **Total** | | | **21** |
+| Notification & Loyalty | V4 y V7 | `loyalty_accounts`, `notifications`, `device_tokens`. | 3 |
+| Store Management & Inventory | V6 | `frame_models`, `inventories`, `suppliers`, `inventory_stocks`, `stock_movements`. | 5 |
+| **Total** | | | **27** |
 
-Fuente: [migraciones del commit 4a1364e](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/tree/4a1364ed540bfb996c5ce57a9b6246ddd989b98d/src/main/resources/db/migration). La correspondencia de claves y restricciones se revisa sobre esos archivos. La relación `sales.quotation_id UNIQUE` respalda que una cotización genere como máximo una venta.
+Fuente: [migraciones del commit 41bcb44](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/tree/41bcb448a06abe9aeaf32be9cef46ce2965e30e0/src/main/resources/db/migration). La correspondencia de claves y restricciones se revisa sobre esos archivos. La relación `sales.quotation_id UNIQUE` respalda que una cotización genere como máximo una venta.
 
 ### F.1. Production & Tracking
 
@@ -266,7 +266,7 @@ La Figura F2 reproduce el modelo físico relacional de la migración V3: `work_o
 
 ### F.2. Notification & Loyalty
 
-En la revisión `4a1364e`, Notification & Loyalty persiste en `notifications` y `loyalty_accounts`, definidas en V4. Ese corte no contiene una migración V7 ni la tabla `device_tokens`. Los elementos de registro de dispositivos y mensajería push del diseño ampliado conservan su alcance previsto.
+En la revisión `41bcb44`, Notification & Loyalty persiste en `notifications`, `loyalty_accounts` y `device_tokens`, definidas por V4 y V7. El backend incorpora registro de dispositivos, respuesta a encuestas y un adaptador de Firebase con pruebas automatizadas. El diagrama de V4 conserva su alcance original de dos tablas; V7 amplía ese modelo con los dispositivos. La entrega de mensajes a un dispositivo real se comprueba con las credenciales y el entorno de distribución correspondientes.
 
 
 <div style="break-before: page; page-break-before: always;"></div>
@@ -309,7 +309,7 @@ La Tabla I1 identifica las revisiones utilizadas en el capítulo IV. La Tabla I2
 
 | Producto | Repositorio y rama | Commit revisado | Alcance |
 |---|---|---|---|
-| Backend | [Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End), `develop`. | [4a1364e](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/4a1364ed540bfb996c5ce57a9b6246ddd989b98d) | Servicios versionados, seguridad y cercanía; revisión local con H2. |
+| Backend | [Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End), `develop`. | [41bcb44](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/41bcb448a06abe9aeaf32be9cef46ce2965e30e0) | Servicios, seguridad, inventario, pagos, notificaciones y reportes; revisión local con H2. |
 | Flutter | [Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter), `main`. | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | Código de la versión `1.0.0+1`; revisión del contrato y de los datos de demostración. |
 | Landing Page | [Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page), `main`. | [ef1c032](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/commit/ef1c03205352fb20a22bbd7fcd54a41f90ef6dca) | Código y publicación en GitHub Pages comprobada el 08/11/2026. |
 
@@ -321,10 +321,14 @@ La Tabla I1 identifica las revisiones utilizadas en el capítulo IV. La Tabla I2
 
 | Evidencia | Archivo o enlace | Relación con el informe |
 |---|---|---|
-| Construcción y pruebas del backend | [Registro de Maven](assets/cap4/sprint2/build-results.txt) | `mvn test` detenido en `testCompile`; empaquetado independiente con las pruebas omitidas. Sección 4.2.2.5. |
-| Solicitudes HTTP locales | [Resultados JSON](assets/cap4/sprint2/service-results.json) y [resumen visual](assets/cap4/sprint2/service-checks.png) | 17 solicitudes sobre la revisión local; token omitido. Sección 4.2.2.5. |
-| Contrato versionado | [OpenAPI local](assets/cap4/sprint2/openapi-local.json) | 41 operaciones sobre 36 rutas, con las diferencias documentales identificadas en 4.2.2.7. |
-| Interacción con Swagger | [Vista general](assets/cap4/sprint2/swagger-sprint2.png) y [consulta de cercanía](assets/cap4/sprint2/nearby-sprint2.png) | Capturas de ejecución local de 4.2.2.6. |
+| Pruebas del backend | [Resumen de Maven](assets/cap4/sprint2/revision-20261110/test-summary.json) y [captura](assets/cap4/sprint2/revision-20261110/tests-current.png) | 131 pruebas aprobadas en 27 suites el 10/11/2026; cuatro escenarios Cucumber incluidos. Sección 4.2.2.5. |
+| Integración continua | [Workflow 42771709596](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/actions/runs/42771709596) y [captura](assets/cap4/sprint2/revision-20261110/backend-ci.png) | `mvn -B test` completado para `41bcb44` con Java 21. |
+| Aceptación del Sprint 2 | [Reporte Cucumber](assets/cap4/sprint2/revision-20261110/cucumber.html) y [JSON](assets/cap4/sprint2/revision-20261110/cucumber.json) | Cuatro escenarios de búsqueda y reserva aprobados en la revisión actual. |
+| Solicitudes HTTP locales | [Resultados JSON](assets/cap4/sprint2/revision-20261110/service-results.json) | 28 solicitudes registradas; 25 con código esperado comprobado y tres respuestas de rutas antiguas. Tokens omitidos. Sección 4.2.2.5. |
+| Contrato versionado | [OpenAPI local](assets/cap4/sprint2/revision-20261110/openapi-local.json) | 67 operaciones sobre 58 rutas del backend `41bcb44`. Sección 4.2.2.7. |
+| Interacción con Swagger | [Vista general](assets/cap4/sprint2/revision-20261110/swagger-current.png), [cercanía](assets/cap4/sprint2/revision-20261110/nearby-current.png), [reserva](assets/cap4/sprint2/revision-20261110/booking-current.png) y [permisos](assets/cap4/sprint2/revision-20261110/forbidden-current.png) | Capturas de ejecución local del 10/11/2026. Sección 4.2.2.6. |
+| Colaboración | [Backend](assets/cap4/sprint2/revision-20261110/backend-contributors.png), [Flutter](assets/cap4/sprint2/revision-20261110/flutter-contributors.png) y [Landing](assets/cap4/sprint2/revision-20261110/landing-contributors.png) | Gráficos públicos de GitHub Insights. Sección 4.2.2.9. |
+| Revisión anterior del Sprint 2 | [Registro Maven del 08/11/2026](assets/cap4/sprint2/build-results.txt) y [HTTP anterior](assets/cap4/sprint2/service-results.json) | Antecedentes del backend `4a1364e`, preservados con sus resultados originales. |
 | Publicación de Pages | [Workflow 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y [captura](assets/cap4/sprint2/workflow-pages.png) | Ejecución exitosa para el commit `ef1c032`, documentada en 4.2.2.8. |
 | Landing publicada | [Sitio público](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) y [captura](assets/cap4/sprint2/landing-publica.png) | Acceso público con HTTP 200 comprobado el 08/11/2026. |
 | Aceptación del primer incremento | [Reporte Cucumber](assets/cap4/sprint1/testing/cucumber.html) y [JSON](assets/cap4/sprint1/testing/cucumber.json) | Evidencia histórica del Sprint 1, con su versión y resultado en 4.2.1.5. |
