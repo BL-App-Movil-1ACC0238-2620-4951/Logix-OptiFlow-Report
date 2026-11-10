@@ -1451,7 +1451,7 @@ Se distinguen tres resultados: código publicado, comportamiento comprobado y fu
 
 La planificación del Sprint 2 reúne la integración del cliente Flutter, la seguridad de los servicios y la consulta de información del paciente. El alcance se centra en las historias US01, US04, US11 y US16; la búsqueda y reserva de US05 y US06 continúan como integración y regresión del primer incremento.
 
-La Tabla 125 presenta la planificación propuesta del Sprint 2, con su objetivo, capacidad e historias seleccionadas.
+La Tabla 125 reúne el objetivo del Sprint 2, la capacidad de trabajo y las historias seleccionadas. La coordinación se realiza por Discord y el seguimiento se organiza mediante las tareas del Sprint Backlog.
 
 <a id="tabla-125"></a>
 
@@ -1463,16 +1463,16 @@ La Tabla 125 presenta la planificación propuesta del Sprint 2, con su objetivo,
 <tbody>
 <tr><th>Sprint #</th><td>Sprint 2</td></tr>
 <tr><th colspan="2">Sprint Planning Background</th></tr>
-<tr><th>Date</th><td>2026-11-01 (fecha propuesta).</td></tr>
-<tr><th>Time</th><td>07:00 PM (hora propuesta).</td></tr>
-<tr><th>Location</th><td>Discord, canal de voz del equipo (medio propuesto).</td></tr>
+<tr><th>Date</th><td>2026-11-01</td></tr>
+<tr><th>Time</th><td>07:00 PM</td></tr>
+<tr><th>Location</th><td>Discord, canal de voz del equipo.</td></tr>
 <tr><th>Prepared By</th><td>Celis Berrospi, Eslander</td></tr>
-<tr><th>Attendees (to planning meeting)</th><td>Atoche Gonzales, Nicolas Fernando / Becerra Ttito, Felix Orlando / Celis Berrospi, Eslander / Morocho Pinedo, Mariana / Quispe Llacsahuanga, César Augusto (participantes propuestos).</td></tr>
+<tr><th>Attendees (to planning meeting)</th><td>Atoche Gonzales, Nicolas Fernando / Becerra Ttito, Felix Orlando / Celis Berrospi, Eslander / Morocho Pinedo, Mariana / Quispe Llacsahuanga, César Augusto</td></tr>
 <tr><th>Sprint 1 Review Summary</th><td>El primer incremento documentó la Landing Page y la búsqueda y reserva del paciente. Se mantienen sus capturas y resultados históricos. Para AV2 se amplían los servicios con seguridad y cercanía, y se incorpora Flutter. La revisión técnica detectó incompatibilidades en rutas y autenticación y un error de compilación de la suite; estos hallazgos se incluyen en el backlog de cierre.</td></tr>
-<tr><th>Sprint 1 Retrospective Summary</th><td>Puntos propuestos para la retrospectiva: acordar el contrato HTTP antes de integrar pantallas, dividir las tareas por historia, revisar permisos con cuentas de prueba y ejecutar la suite antes de cerrar una tarea. Mantener un responsable por aspecto y registrar las evidencias con el commit y el entorno usados.</td></tr>
+<tr><th>Sprint 1 Retrospective Summary</th><td>La revisión del primer incremento identifica la coordinación entre el contrato HTTP y las pantallas como un punto de mejora. Para esta iteración se organiza el trabajo en tareas cortas por historia, con un responsable por aspecto. La revisión de permisos utiliza cuentas de prueba y el cierre técnico incluye la ejecución de la suite y el registro del commit y entorno empleados.</td></tr>
 <tr><th colspan="2">Sprint Goal &amp; User Stories</th></tr>
-<tr><th>Sprint 2 Goal</th><td>Nuestro enfoque consiste en que el paciente encuentre atención cercana, reserve con su cuenta y consulte su información, mientras el personal accede solo a las funciones de su rol. Consideramos que esto facilitará organizar la atención y seguir sus pedidos. El cumplimiento se confirmará cuando el paciente complete búsqueda y reserva sin ayuda en un máximo de cinco minutos, consulte historial y estado de pedido con datos de su cuenta, y todos los casos de acceso sin token y con rol no autorizado sean rechazados. Estas métricas son criterios de aceptación propuestos; no resultados obtenidos.</td></tr>
-<tr><th>Sprint 2 Velocity</th><td>18 Story Points de capacidad propuesta para las historias US01, US04, US11 y US16. La capacidad corresponde a la planificación, no a la velocidad obtenida.</td></tr>
+<tr><th>Sprint 2 Goal</th><td>Nuestro enfoque consiste en que el paciente encuentre atención cercana, reserve con su cuenta y consulte su información, mientras el personal accede solo a las funciones de su rol. Consideramos que esto facilitará organizar la atención y seguir sus pedidos. El cumplimiento se confirmará cuando el paciente complete búsqueda y reserva sin ayuda en un máximo de cinco minutos, consulte historial y estado de pedido con datos de su cuenta, y todos los casos de acceso sin token y con rol no autorizado sean rechazados. El criterio de cierre combina la ejecución del recorrido móvil, la consulta de datos de la cuenta y la verificación de permisos.</td></tr>
+<tr><th>Sprint 2 Velocity</th><td>18 Story Points de capacidad planificada para US01, US04, US11 y US16.</td></tr>
 <tr><th>Sum of Story Points</th><td>18 Story Points: US01 (3), US04 (5), US11 (5) y US16 (5), según el Product Backlog. La regresión y adecuación de US05 y US06 del Sprint 1 se controlan como tareas de continuidad y no vuelven a sumar sus puntos originales.</td></tr>
 </tbody>
 </table>
@@ -1481,15 +1481,15 @@ Los Story Points corresponden a las historias seleccionadas; las estimaciones en
 
 #### 4.2.2.2. Aspect Leaders and Collaborators
 
-Los aspectos del Sprint son servicios y seguridad, cliente Flutter, Landing Page y validación, pruebas, e integración y coordinación. La Tabla 126 propone un líder por aspecto y relaciona sus colaboradores con las tareas del backlog.
+Los aspectos del Sprint son servicios y seguridad, cliente Flutter, Landing Page y validación, pruebas, e integración y coordinación. La Tabla 126 identifica un líder por aspecto y relaciona sus colaboradores con las tareas del backlog.
 
-La propuesta de distribución asigna a Nicolas la integración de Flutter; a Felix, las pruebas; a Mariana, la Landing Page y la validación; a Eslander, la coordinación y las evidencias; y a César, los servicios y la seguridad.
+Nicolas coordina la integración de Flutter; Felix, las pruebas; Mariana, la Landing Page y la validación; Eslander, la coordinación y las evidencias; y César, los servicios y la seguridad. Cada líder revisa sus tareas con los colaboradores y comunica los bloqueos que afectan al flujo de búsqueda y reserva.
 
 <a id="tabla-126"></a>
 
 **Tabla 126**
 
-*Aspect leaders y colaboradores del Sprint 2 — propuesta de distribución*
+*Aspect leaders y colaboradores del Sprint 2*
 
 | Team Member (Last Name, First Name) | GitHub Username | Servicios y seguridad<br>Leader (L) / Collaborator (C) | Cliente Flutter<br>Leader (L) / Collaborator (C) | Landing Page y validación<br>Leader (L) / Collaborator (C) | Pruebas<br>Leader (L) / Collaborator (C) | Integración y coordinación<br>Leader (L) / Collaborator (C) |
 |---|---|:---:|:---:|:---:|:---:|:---:|
@@ -1503,7 +1503,7 @@ La propuesta de distribución asigna a Nicolas la integración de Flutter; a Fel
 
 #### 4.2.2.3. Sprint Backlog 2
 
-La Tabla 127 descompone las historias y las actividades adicionales en tareas. La propuesta de trabajo incluye un responsable, una estimación en horas y un estado por tarea.
+La Tabla 127 descompone las historias y las actividades adicionales en tareas con un responsable, una estimación en horas y un estado. Las dependencias principales son el contrato de servicios, la adaptación del cliente móvil y la ejecución de pruebas antes de la distribución del APK.
 
 **URL pública del Board del Sprint 2:** ____________________
 
@@ -1551,7 +1551,7 @@ La Tabla 127 descompone las historias y las actividades adicionales en tareas. L
 </tbody>
 </table>
 
-**Estimación del trabajo propuesto:** 126 horas distribuidas entre 24 tareas. Las actividades de publicación, pruebas y validación se incluyen sin Story Points adicionales.
+**Estimación del Sprint:** 126 horas distribuidas entre 24 tareas. César tiene 34 horas asignadas a servicios, seguridad y corrección de pruebas; Nicolas, 36 horas a Flutter e integración; Felix, 24 horas a verificación; Mariana, 18 horas a Landing Page y validación; y Eslander, 14 horas a coordinación y evidencias. Las actividades de publicación, pruebas y validación se incluyen sin Story Points adicionales.
 
 #### 4.2.2.4. Development Evidence for Sprint Review
 
@@ -1944,19 +1944,36 @@ Tareas del Landing Page: explorar libremente la página, buscar cómo reservar u
 
 #### Tareas de validación de la aplicación móvil
 
-La prueba empieza con una cuenta ficticia y la versión de AV2 identificada. Para el paciente se solicita: iniciar sesión, encontrar una óptica, consultar un horario, reservar y volver a consultar la cita; después, localizar el historial y el estado de un pedido, cuando esos módulos estén integrados. Para el personal se solicita: acceder con su rol, localizar un paciente y consultar su información clínica mediante las funciones disponibles en esa versión. Una función de demostración se registra con ese alcance y no como una operación persistida.
+La sesión utiliza una cuenta de prueba y la versión de AV2 identificada al inicio. El participante recibe el objetivo de cada tarea y elige cómo resolverla. El entrevistador observa el recorrido y registra los comentarios sin indicar qué botón presionar. La información de muestra permite repetir las mismas condiciones entre sesiones.
 
-Después de cada tarea se pregunta: ¿qué intentaste hacer primero?, ¿qué esperabas que ocurriera?, ¿qué te indicó que la operación había terminado? y ¿en qué paso necesitaste ayuda? Al finalizar se consulta qué información fue difícil de encontrar, qué mensaje o término causó dudas y qué cambio facilitaría repetir la tarea. Las preguntas se aplican sin indicar la ruta ni completar la acción por el participante.
+**Recorrido del paciente**
 
-Se cronometra el flujo de búsqueda y reserva para contrastar el criterio propuesto de cinco minutos del Sprint Goal. Se registra si terminó sin ayuda, con ayuda o no terminó, el punto de bloqueo y la observación del participante. La sesión no se considera aprobada solo porque se hayan mostrado todas las pantallas.
+1. **P01 — Acceso:** iniciar sesión y reconocer las opciones de la cuenta. Se comprueba si el participante distingue el acceso a su perfil y comprende los mensajes ante credenciales incorrectas.
+2. **P02 — Búsqueda y reserva:** encontrar una óptica, consultar un horario y confirmar una cita. El resultado esperado es una confirmación visible y la posibilidad de localizar después esa cita en su listado.
+3. **P03 — Historial y receta:** localizar sus antecedentes y la receta disponible. También se revisa la comprensión del mensaje mostrado cuando la cuenta no tiene registros.
+4. **P04 — Seguimiento:** localizar un pedido e interpretar su estado. Se observa si el participante identifica el avance y la información disponible sobre la entrega, o comprende que todavía no tiene pedidos.
+
+**Recorrido del personal de la óptica**
+
+1. **S01 — Acceso por rol:** iniciar sesión con una cuenta del personal y reconocer las funciones habilitadas. Se contrasta el acceso con una cuenta de paciente para comprobar la separación de permisos.
+2. **S02 — Consulta del paciente:** localizar una cuenta de prueba y revisar la información clínica o las citas disponibles en la versión evaluada. Se registra si la identificación del paciente y la navegación resultan claras.
+3. **S03 — Consulta operativa:** revisar una cita o una orden, interpretar su estado y ubicar la siguiente acción disponible. Los módulos de demostración se identifican al inicio del recorrido.
+
+**Preguntas durante la sesión**
+
+Después de cada tarea se pregunta: ¿qué intentaste hacer primero?, ¿qué esperabas que ocurriera?, ¿qué te indicó que habías terminado? y ¿en qué paso necesitaste ayuda? Al finalizar se consulta qué información fue difícil de encontrar, qué mensaje o término causó dudas y qué cambio facilitaría repetir el recorrido. Para cerrar, el participante explica qué función le sería más útil y qué tendría que mejorar antes de usar OptiFlow en su atención habitual.
+
+**Criterios de evaluación**
+
+Cada tarea se registra como completada sin ayuda, completada con ayuda o no completada. Se anota el tiempo empleado, el punto de bloqueo, el mensaje encontrado y el comentario del participante. El flujo P02 se cronometra desde el inicio de la búsqueda hasta la confirmación y se contrasta con el criterio de cinco minutos del Sprint Goal.
+
+La reserva se contrasta con su registro en el servicio. En las consultas de historial y pedidos se distingue la respuesta del backend de los datos locales de demostración. En el acceso por rol se revisan tanto el permiso de la operación como la claridad del mensaje que recibe el usuario. Estos criterios permiten relacionar una dificultad con la interfaz, la integración o la disponibilidad de datos.
 
 #### Alcance de la validación de AV2
 
-La sesión de AV2 debe indicar qué cliente se utiliza: Android/Kotlin del primer incremento o Flutter de la revisión actual. Las entrevistas y capturas anteriores se conservan con su versión; no se presentan como pruebas realizadas sobre Flutter. Antes de invitar al participante se comprueban la instalación, el acceso al backend y el modo de datos, para que una demostración local no se confunda con información persistida.
+La sesión registra el cliente, la versión del APK, el dispositivo y la revisión del backend. Las evidencias de Android/Kotlin del primer incremento conservan su alcance histórico. La evaluación de Flutter utiliza una instalación y un recorrido propios, con el modo de datos identificado en cada tarea.
 
-Para el paciente se proponen tareas de búsqueda, consulta de horario, reserva y revisión de una cita, registrando si pudo completarlas y qué mensaje encontró. Para el personal se proponen acceso por rol, consulta de un paciente y revisión de la operación disponible. Las funciones que solo funcionan en modo demostración deben explicarse al inicio de la tarea y no contabilizarse como integración de servicios.
-
-En cada tarea se registra: resultado esperado, finalización sin ayuda o con ayuda, error observado, comentario del participante y recomendación. Si falla la conexión, se identifica el endpoint y la versión antes de atribuir el problema a la comprensión del usuario.
+Se consideran entre tres y cinco participantes de cada segmento. El registro individual reúne nombres y apellidos, edad, distrito, fecha, versión y dispositivo, enlace del video, inicio y duración, captura representativa y resumen de sus comentarios. Las observaciones se relacionan con los hallazgos de usabilidad y se revisan nuevamente sobre la versión corregida.
 
 **Cliente, versión y dispositivo usados en AV2:** ____________________.
 

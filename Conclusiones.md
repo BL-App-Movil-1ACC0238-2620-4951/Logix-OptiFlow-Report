@@ -29,7 +29,11 @@ Las hipótesis de Lean UX continúan como metas de evaluación: aumentar la conv
 
 ## Video App Validation
 
-El recorrido de validación comprende las tareas de búsqueda y reserva del paciente y las operaciones disponibles para el personal de la óptica. La evaluación se vincula con la versión distribuida mediante Firebase App Distribution, el dispositivo utilizado y los hallazgos de usabilidad. La Tabla CO1 reúne los datos de la grabación de AV2.
+La validación de OptiFlow se centra en la facilidad con la que el paciente encuentra atención, reserva una cita y consulta su información. Para el personal de la óptica, el recorrido comprende el acceso por rol y la consulta de los datos disponibles para la atención. Las tareas se relacionan con la búsqueda, la reserva y el seguimiento que motivaron el desarrollo del producto.
+
+Durante cada sesión se observa cómo el participante interpreta la navegación, reconoce los mensajes y resuelve una dificultad. El registro considera el tiempo empleado, la ayuda requerida y sus comentarios al terminar. La versión de la aplicación y el dispositivo se identifican para relacionar cada observación con el producto evaluado.
+
+La grabación de AV2 se vincula con la distribución del APK y con la evaluación heurística del capítulo IV. La Tabla CO1 reúne sus datos de publicación y los momentos de inicio de las sesiones de ambos segmentos.
 
 <a id="tabla-co1"></a>
 
@@ -49,7 +53,11 @@ El recorrido de validación comprende las tareas de búsqueda y reserva del paci
 
 ## Video About-the-Product
 
-La presentación del producto se dirige a pacientes y ópticas: explica la propuesta de valor, muestra las funciones de la versión entregada y recoge el testimonio de un participante de la validación. La Tabla CO2 relaciona la grabación del curso con la versión pública destinada a la Landing Page.
+OptiFlow busca facilitar la relación entre el paciente y la óptica mediante un recorrido que reúne la búsqueda del establecimiento, la consulta de horarios y la reserva de una cita. La presentación del producto parte de las dificultades de coordinar la atención por distintos canales y explica cómo una experiencia móvil puede organizar ese proceso.
+
+El recorrido se concentra en las funciones de la versión entregada: acceso, búsqueda, disponibilidad y confirmación de la reserva. La consulta del historial y el seguimiento de pedidos se presentan con el alcance que tengan en esa versión, diferenciando los servicios conectados de las vistas de demostración. La Landing Page complementa la presentación con la propuesta de valor y el acceso a la aplicación.
+
+El testimonio de un participante de la validación aporta la perspectiva del usuario sobre la experiencia de uso. Su intervención se relaciona con una tarea realizada y conserva el sentido de su comentario. La Tabla CO2 registra la versión del video destinada al curso, su publicación pública y la referencia del testimonio.
 
 <a id="tabla-co2"></a>
 
@@ -68,7 +76,11 @@ La presentación del producto se dirige a pacientes y ópticas: explica la propu
 
 ## Video About-the-Team
 
-La presentación del equipo comprende el proceso de trabajo, las decisiones de diseño e implementación y el aprendizaje de cada integrante. El contenido incluye escenas de trabajo y testimonios individuales sobre las actividades realizadas y el Student Outcome 7. La Tabla CO3 registra la publicación y la Tabla CO4, los tiempos de sus secciones.
+El trabajo en OptiFlow comprende la investigación del problema, la definición de los segmentos, el modelado del dominio, el diseño de la experiencia y la implementación de los productos. La presentación del equipo sigue ese recorrido y relaciona las decisiones con los avances de cada Sprint.
+
+La organización del Sprint 2 distribuye los servicios y la seguridad a César; la integración de Flutter a Nicolas; las pruebas a Felix; la Landing Page y la validación a Mariana; y la coordinación y documentación a Eslander. La colaboración entre estos aspectos permite revisar el contrato de servicios, resolver dificultades de integración y conservar las evidencias de la entrega.
+
+Cada integrante explica su participación, una dificultad técnica y el aprendizaje que le permitió abordarla. Estos testimonios se relacionan con el Student Outcome 7: adquirir y aplicar nuevos conocimientos mediante estrategias de aprendizaje apropiadas. Las escenas de trabajo y las revisiones del producto acompañan la explicación del proceso. La Tabla CO3 registra la publicación del video y la Tabla CO4 organiza sus secciones.
 
 <a id="tabla-co3"></a>
 
@@ -91,8 +103,13 @@ La presentación del equipo comprende el proceso de trabajo, las decisiones de d
 
 | Sección | Contenido | Inicio (hh:mm:ss) |
 |---|---|---|
-| Presentación | Integrantes, producto y alcance de la entrega. | |
-| Investigación y diseño | Problema, segmentos, decisiones del dominio y experiencia de usuario. | |
-| Implementación y pruebas | Avances de los productos, integración y resultados técnicos. | |
-| Trabajo colaborativo | Sesiones, revisión de cambios y organización del Sprint. | |
-| Aprendizajes individuales | Testimonio de cada integrante y relación con el Student Outcome 7. | |
+| Presentación | Integrantes, producto y alcance de AV2. | |
+| Investigación y diseño | Problema de atención óptica, segmentos, decisiones del dominio y experiencia móvil. | |
+| Implementación del incremento | Backend versionado, seguridad, Flutter y publicación de la Landing Page. | |
+| Organización del trabajo | Distribución de tareas, coordinación, revisión de cambios y evidencias del Sprint. | |
+| Testimonio de César | Decisiones de servicios y seguridad; aprendizaje asociado con contratos y permisos. | |
+| Testimonio de Nicolas | Integración del cliente Flutter; aprendizaje sobre navegación, estado y comunicación con servicios. | |
+| Testimonio de Felix | Pruebas unitarias, integración y aceptación; aprendizaje sobre reproducción y análisis de resultados. | |
+| Testimonio de Mariana | Landing Page y validación; aprendizaje sobre accesibilidad y observación de usuarios. | |
+| Testimonio de Eslander | Coordinación y documentación; aprendizaje sobre trazabilidad entre tareas, versiones y evidencias. | |
+| Cierre | Principales aprendizajes del equipo y siguientes pasos del producto. | |
