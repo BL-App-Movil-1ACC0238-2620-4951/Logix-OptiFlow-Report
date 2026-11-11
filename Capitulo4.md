@@ -803,6 +803,7 @@ Los Endpoints del Search & Booking Context se detallan en la Tabla 119.
 | `/api/v1/staff-members` | Listar el personal | GET | `GET /api/v1/staff-members` | Query (opcional): `opticalStoreId` | `200` lista del personal con su rol. Solo para `ADMIN`. | US16 |
 | `/api/v1/staff-members/{id}` | Consultar el perfil de un miembro del personal | GET | `GET /api/v1/staff-members/{id}` | Path: `id` | `200` miembro del personal con su rol y su `opticalStoreId`; la app lo usa al iniciar sesión para cargar la agenda de su óptica. Cada miembro solo puede consultar su propio perfil (`403` para otro); `ADMIN` puede consultar cualquiera. | US01 |
 | `/api/v1/staff-members/{id}/role` | Asignar el rol de un miembro del personal | PATCH | `PATCH /api/v1/staff-members/{id}/role` | Path: `id`. Body: `role` | `200` miembro del personal con su nuevo rol; rige desde su siguiente inicio de sesión. Solo para `ADMIN`. | US16 |
+| `/api/v1/staff-members/{id}/status` | Activar o desactivar a un miembro del personal | PATCH | `PATCH /api/v1/staff-members/{id}/status` | Path: `id`. Body: `active` | `200` miembro del personal con su nuevo estado; uno inactivo ya no puede iniciar sesión; `400` si el admin intenta desactivarse a sí mismo. Solo para `ADMIN`. | US16 |
 
 Ejemplo de interacción, reserva de una cita:
 
