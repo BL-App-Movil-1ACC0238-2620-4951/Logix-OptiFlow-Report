@@ -1786,7 +1786,7 @@ Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persi
 | `PatientRepository` | `save()`, `findById()`, `findByEmail()`, `search(name, email)`, `findByBirthday(month, day)` |
 | `StaffMemberRepository` | `save()`, `findById()`, `findByEmail()`, `findByOpticalStoreId()` |
 | `OpticalStoreRepository` | `findById()`, `search()`, `filter()`, `findNearby()` |
-| `TimeSlotRepository` | `save()`, `findById()`, `findAvailableByStore()`, `reserve()`, `release()` |
+| `TimeSlotRepository` | `save()`, `findById()`, `findAvailableByStore()`, `existsOverlapping()`, `reserve()`, `release()` |
 | `FavoriteStoreRepository` | `save()`, `existsByPatientAndStore()` |
 | `StoreRatingRepository` | `save()`, `findByPatientAndStore()` |
 
@@ -1950,7 +1950,7 @@ Los Command Handlers del Search & Booking Context se detallan en la Tabla 40.
 | `LoginCommandHandler` | `Login` | Busca el correo entre pacientes y personal activo, verifica la contraseña con BCrypt, emite el token JWT con el identificador y el rol mediante `JwtTokenService` y publica `PatientLoggedIn` |
 | `RegisterStaffMemberCommandHandler` | `RegisterStaffMember` | Valida que el correo no exista, guarda el hash de la contraseña y el rol, y publica `StaffMemberRegistered` |
 | `AssignStaffRoleCommandHandler` | `AssignStaffRole` | Cambia el rol de un miembro del personal y publica `StaffMemberRoleAssigned`; el cambio rige desde su siguiente inicio de sesión |
-| `PublishAvailableTimeSlotsCommandHandler` | `PublishAvailableTimeSlots` | Registra o actualiza los horarios disponibles de una óptica y publica `OpticalStoresPublished` |
+| `PublishAvailableTimeSlotsCommandHandler` | `PublishAvailableTimeSlots` | Registra o actualiza los horarios disponibles de una óptica, rechaza los que se cruzan con otros y publica `OpticalStoresPublished` |
 | `SaveFavoriteOpticalStoreCommandHandler` | `SaveFavoriteOpticalStore` | Registra una óptica como favorita del paciente y publica `FavoriteOpticalStoreSaved` |
 | `RateOpticalStoreCommandHandler` | `RateOpticalStore` | Valida y registra la valoración realizada por el paciente y publica `OpticalStoreRated` |
 | `BookAppointmentCommandHandler` | `BookAppointment` | Verifica la disponibilidad del horario, crea la cita mediante `AppointmentFactory`, persiste el agregado y publica `AppointmentBooked` |
