@@ -628,7 +628,7 @@ Entre los principales elementos del sistema se encuentran:
 - **Barra de búsqueda:** permite ingresar términos relacionados con la óptica que se desea encontrar.
 - **Búsqueda por montura:** permite iniciar una búsqueda a partir del modelo de montura que desea encontrar el paciente.
 - **Filtros rápidos:** permiten consultar ópticas cercanas, establecimientos abiertos o aquellos con disponibilidad en la primera hora.
-- **Mapa:** presenta en Google Maps la ubicación de las ópticas cercanas a la posición del paciente, a partir de la latitud y longitud registradas para cada sucursal.
+- **Mapa:** presenta en un mapa de OpenStreetMap la ubicación de las ópticas cercanas a la posición del paciente, a partir de la latitud y longitud registradas para cada sucursal.
 - **Resultados cercanos:** muestra las ópticas encontradas junto con información relevante como horario disponible, distancia y servicios ofrecidos.
 - **Acceso a detalles:** permite seleccionar una óptica para consultar información adicional y continuar con el proceso de reserva.
 
