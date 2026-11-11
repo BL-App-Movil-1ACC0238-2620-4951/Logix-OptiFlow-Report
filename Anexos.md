@@ -283,7 +283,7 @@ Entre las funcionalidades priorizadas se encuentran el inicio de sesión, regist
 
 Se conserva el video de las entrevistas anteriores, en el que participaron usuarios de ambos segmentos y se recorrieron la Landing Page y la aplicación móvil. La Figura H1 muestra un cuadro de esa grabación. El diseño de tareas, el registro por participante y el seguimiento de AV2 se encuentran en [4.3. Validation Interviews](Capitulo4.md#43-validation-interviews).
 
-[Ver video de las entrevistas de validación en OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d317_upc_edu_pe/IQBEVy_3hrA9QZmTordSZKlaAYrAH0PSADXMEQfwdz9GFn8?e=eCtW3I&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0=)
+[Ver video de las entrevistas de validación en OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d317_upc_edu_pe/IQBMU94REze_ToVH6ypsrwSQATv7xCWf36Atyff8XiIB2Ms?e=QorMe1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
 <a id="figura-h1"></a>
 
