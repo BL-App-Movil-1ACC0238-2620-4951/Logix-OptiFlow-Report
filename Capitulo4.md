@@ -2134,18 +2134,68 @@ La validación contempla entre tres y cinco entrevistas por segmento. La Tabla 1
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-En esta sección se presenta la evaluación de la experiencia de usuario de OptiFlow a partir de las sesiones de validación. Se consideran heurísticas de **usabilidad**, principios de **arquitectura de información** y principios de **diseño inclusivo**, siguiendo el formato de evaluación indicado para el proyecto (Anexo E del enunciado).
+La evaluación de OptiFlow se organiza por los dos segmentos del producto: pacientes y personal de óptica. Para cada uno se revisan las diez heurísticas de usabilidad, con una descripción, las observaciones del recorrido y las recomendaciones de mejora. Las Tablas 137 y 138 permiten comparar las necesidades de ambos segmentos.
 
-La evaluación que sigue corresponde al cliente Android/Kotlin del primer incremento y a la versión histórica de la Landing Page. El seguimiento de AV2 se registra al final de esta sección. Para esa evaluación, el equipo recorrió las mismas tareas que realizaron los entrevistados: la Landing Page publicada en GitHub Pages, revisada en escritorio y en un ancho de celular, y la aplicación Android, ejecutada en un emulador Pixel 8 con los roles de paciente y de personal clínico. Cada problema encontrado se registra con su nivel de severidad, la heurística o principio que incumple, una captura de pantalla y una recomendación de mejora.
+Las observaciones corresponden a las capturas y los hallazgos registrados del cliente Android/Kotlin del primer incremento. La revisión de la Landing Page y los principios de arquitectura de información y diseño inclusivo se integran en el registro de problemas. El seguimiento de la versión Flutter de AV2 se conserva al final de la sección.
 
-**UX Heuristics & Principles Evaluation**<br>
-*Usability - Inclusive Design - Information Architecture*
+#### 4.3.3.1. Aplicación móvil para pacientes
 
-La Tabla 137 identifica la sesión de evaluación con los campos del Anexo E del enunciado.
+El recorrido del paciente comprende encontrar una óptica, reservar una cita y consultar recetas, historial y pedidos. La Tabla 137 recoge las observaciones sobre la información de la cuenta, la navegación y el control de las acciones.
 
 <a id="tabla-137"></a>
 
 **Tabla 137**
+
+*Evaluación heurística de la experiencia del paciente*
+
+| Heurística | Descripción | Observaciones en la experiencia del paciente | Recomendaciones de mejora |
+|---|---|---|---|
+| **Visibilidad del estado del sistema** | Comunicar qué ocurrió y mostrar el estado de la información que consulta el usuario. | En Inicio se muestran dos recetas activas y un pedido en camino para una cuenta nueva; el número de recetas tampoco coincide con Perfil ([problema 12](#problema-12)). | Obtener los contadores de la cuenta autenticada y mostrar un estado vacío cuando no existan registros. |
+| **Correspondencia entre el sistema y el mundo real** | Usar términos, fechas y formatos cercanos a la experiencia del usuario. | Los accesos “Mis recetas”, “Mis pedidos” e “Historial” usan términos relacionados con la atención óptica y aparecen agrupados en Inicio (Figura 196). | Mantener estos nombres en el menú, los títulos y las respuestas del servicio. |
+| **Control y libertad del usuario** | Permitir salir de un flujo y corregir o deshacer una acción. | La cancelación de una cita se realiza con un toque y vuelve al listado; no ofrece confirmación ni una opción para deshacer ([problema 7](#problema-7)). | Pedir confirmación con la fecha y hora de la cita y permitir volver al detalle sin cancelarla. |
+| **Consistencia y estándares** | Dar el mismo nombre y comportamiento a elementos que cumplen la misma función. | Inicio y Perfil presentan cantidades distintas para las recetas de una misma cuenta ([problema 12](#problema-12)). | Usar una misma fuente de datos y actualizar ambas pantallas después de cada cambio. |
+| **Prevención de errores** | Anticipar equivocaciones antes de confirmar cambios o registrar información. | La acción “Cancelar cita” libera el horario inmediatamente, lo que permite una cancelación accidental ([problema 7](#problema-7)). | Separar la selección de la acción y su confirmación; impedir envíos repetidos mientras se procesa la solicitud. |
+| **Reconocimiento antes que recuerdo** | Mantener las opciones y los datos necesarios a la vista durante la tarea. | La barra inferior identifica Inicio, Buscar, Citas, Pedidos y Perfil. En cambio, algunos botones de solo ícono carecen de etiqueta accesible ([problema 14](#problema-14)). | Conservar los rótulos de navegación y añadir descripciones para campana, volver y configuración. |
+| **Flexibilidad y eficiencia de uso** | Facilitar las tareas frecuentes y evitar pasos que no aportan al recorrido. | Inicio incluye accesos directos a recetas, pedidos e historial. Los contadores incorrectos dificultan decidir qué información revisar ([problema 12](#problema-12)). | Mantener los accesos y mostrar cantidades reales para que conduzcan a información de la misma cuenta. |
+| **Estética y diseño minimalista** | Priorizar el contenido útil y reducir elementos que compiten con la tarea. | La pantalla inicial reúne una promoción de prueba virtual, la próxima cita, accesos rápidos y monturas destacadas (Figura 196). | Dar prioridad a la próxima cita y al seguimiento; mantener las promociones por debajo de las tareas de atención. |
+| **Ayuda para reconocer, diagnosticar y recuperarse de errores** | Explicar el problema y ofrecer una forma concreta de resolverlo. | Tras cancelar se muestra “Cita cancelada”, pero la acción no se puede revertir desde ese mensaje ([problema 7](#problema-7)). | Ofrecer una salida desde la confirmación y explicar cómo volver a reservar cuando la cancelación ya se haya registrado. |
+| **Ayuda y documentación** | Ofrecer orientación accesible desde el punto en que el usuario la necesita. | Las opciones de ayuda y documentación llevan a Configuración o no abren contenido ([problema 11](#problema-11)). | Incluir ayuda para reserva, cancelación y consulta de pedidos, con un canal de contacto visible. |
+
+#### 4.3.3.2. Aplicación móvil para el personal de óptica
+
+El personal utiliza la aplicación para registrar pacientes, agendar atenciones y consultar información clínica y comercial. La Tabla 138 se centra en los formularios, la selección de datos, los formatos locales y la orientación durante esas tareas.
+
+<a id="tabla-138"></a>
+
+**Tabla 138**
+
+*Evaluación heurística de la experiencia del personal de óptica*
+
+| Heurística | Descripción | Observaciones en la experiencia del personal de óptica | Recomendaciones de mejora |
+|---|---|---|---|
+| **Visibilidad del estado del sistema** | Comunicar qué ocurrió y mostrar el estado de la información que consulta el usuario. | Nueva cita presenta un horario seleccionado, pero conserva una fecha fija de junio de 2025 y no permite cambiarla ([problema 8](#problema-8)). | Mostrar la fecha elegida y la disponibilidad del servicio; actualizar el resumen antes de confirmar. |
+| **Correspondencia entre el sistema y el mundo real** | Usar términos, fechas y formatos cercanos a la experiencia del usuario. | El registro de pacientes usa ejemplos de teléfono y RUT de Chile; cotizaciones y reportes muestran montos con “$” ([problemas 9](#problema-9) y [15](#problema-15)). | Usar ejemplos de DNI o CE, teléfono peruano y montos en soles con configuración regional es-PE. |
+| **Control y libertad del usuario** | Permitir salir de un flujo y corregir o deshacer una acción. | Los campos Servicio, Óptica/sucursal y Fecha parecen selectores, pero no responden al tocarlos ([problema 8](#problema-8)). | Permitir cambiar cada selección y regresar a la agenda sin guardar una cita. |
+| **Consistencia y estándares** | Dar el mismo nombre y comportamiento a elementos que cumplen la misma función. | El acceso “Nuevo paciente” abre una pantalla titulada “Nuevo Cliente”, cuyo encabezado vuelve a decir “Registro rápido de paciente” ([problema 10](#problema-10)). | Usar “paciente” en el acceso, el título, los campos y la confirmación del registro. |
+| **Prevención de errores** | Anticipar equivocaciones antes de confirmar cambios o registrar información. | Los ejemplos de datos extranjeros pueden inducir al personal a registrar información con un formato incorrecto ([problema 9](#problema-9)). | Acompañar cada campo con un ejemplo local y validar el formato antes de guardar. |
+| **Reconocimiento antes que recuerdo** | Mantener las opciones y los datos necesarios a la vista durante la tarea. | Nueva cita mantiene visibles el paciente, el servicio, la sucursal, la fecha y las horas en una sola pantalla (Figura 193). | Conservar el resumen de la selección e identificar los datos que faltan antes de habilitar la confirmación. |
+| **Flexibilidad y eficiencia de uso** | Facilitar las tareas frecuentes y evitar pasos que no aportan al recorrido. | La fecha y la sucursal fijas impiden adaptar la reserva a otra atención desde el mismo formulario ([problema 8](#problema-8)). | Cargar los horarios disponibles según la sede y la fecha, evitando que el personal tenga que reiniciar el recorrido. |
+| **Estética y diseño minimalista** | Priorizar el contenido útil y reducir elementos que compiten con la tarea. | El formulario Nueva cita organiza los datos en una columna y presenta una acción principal de confirmación al final (Figura 193). | Mantener esta jerarquía y limitar las indicaciones secundarias a las que ayudan a completar la reserva. |
+| **Ayuda para reconocer, diagnosticar y recuperarse de errores** | Explicar el problema y ofrecer una forma concreta de resolverlo. | El registro de hallazgos no documenta mensajes de error al guardar pacientes o cotizaciones. | Comprobar los mensajes de campo inválido, horario ocupado y fallo de conexión; indicar cómo corregir el dato sin perder lo ingresado. |
+| **Ayuda y documentación** | Ofrecer orientación accesible desde el punto en que el usuario la necesita. | En el menú Más, la opción de ayuda y documentación no abre contenido ([problema 11](#problema-11)). | Incorporar instrucciones breves para registrar pacientes, agendar citas, generar cotizaciones y consultar soporte. |
+
+#### 4.3.3.3. Registro de problemas según el formato de evaluación
+
+El registro reúne los datos de la sesión, las tareas incluidas, la escala de severidad y los problemas identificados en la Landing Page y la aplicación. Cada hallazgo conserva su captura y recomendación. Se consideran heurísticas de usabilidad, principios de arquitectura de información y diseño inclusivo, según el Anexo E del enunciado.
+
+**UX Heuristics & Principles Evaluation**<br>
+*Usability - Inclusive Design - Information Architecture*
+
+La Tabla 139 identifica la sesión de evaluación con los campos del Anexo E del enunciado.
+
+<a id="tabla-139"></a>
+
+**Tabla 139**
 
 *Identificación de la evaluación heurística histórica*
 
@@ -2190,11 +2240,11 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 5. Consulta de información sin conexión a internet.
 
 **ESCALA DE SEVERIDAD:**
-Los hallazgos se clasifican según la escala de severidad de la Tabla 138.
+Los hallazgos se clasifican según la escala de severidad de la Tabla 140.
 
-<a id="tabla-138"></a>
+<a id="tabla-140"></a>
 
-**Tabla 138**
+**Tabla 140**
 
 *Escala de severidad de los problemas de usabilidad*
 
@@ -2207,11 +2257,11 @@ Los hallazgos se clasifican según la escala de severidad de la Tabla 138.
 
 **TABLA RESUMEN:**
 
-Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplicación móvil (problemas 7 al 15) se resumen en la Tabla 139.
+Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplicación móvil (problemas 7 al 15) se resumen en la Tabla 141.
 
-<a id="tabla-139"></a>
+<a id="tabla-141"></a>
 
-**Tabla 139**
+**Tabla 141**
 
 *Resumen de problemas identificados en la evaluación heurística*
 
@@ -2235,6 +2285,8 @@ Los problemas identificados en la Landing Page (problemas 1 al 6) y en la aplica
 
 **DESCRIPCIÓN DE PROBLEMAS:**
 
+<a id="problema-1"></a>
+
 **PROBLEMA #1:** La Landing Page no ofrece un acceso para pacientes
 
 **Severidad:** 3
@@ -2256,6 +2308,8 @@ El título principal, "Tu cita óptica ideal, en tu bolsillo", está dirigido a 
 **Recomendación:**
 
 Agregar en la sección principal y en la barra de navegación un botón por segmento, por ejemplo "Soy paciente: descarga la app" y "Tengo una óptica: solicita una demo", con enlace a la descarga de la aplicación.
+
+<a id="problema-2"></a>
 
 **PROBLEMA #2:** La opción "Iniciar sesión" no permite ingresar
 
@@ -2279,6 +2333,8 @@ En el pie de página, la opción "Iniciar sesión" abre el formulario "Entra a t
 
 Reemplazar la opción por un enlace a la aplicación móvil hasta que el acceso web esté conectado a los Web Services. Si se mantiene, avisar antes de pedir credenciales y usar un título acorde, como "Acceso no disponible".
 
+<a id="problema-3"></a>
+
 **PROBLEMA #3:** Los diálogos de demo y de inicio de sesión no tienen botón para cerrar
 
 **Severidad:** 2
@@ -2300,6 +2356,8 @@ Los diálogos "Solicita OptiFlow para tu óptica" y "Entra a tu óptica" solo se
 **Recomendación:**
 
 Añadir un botón de cierre visible (×) en la esquina superior de todos los diálogos y un botón "Cancelar" junto a la acción principal.
+
+<a id="problema-4"></a>
 
 **PROBLEMA #4:** El plan Básico ofrece "Empezar gratis" aunque es de pago
 
@@ -2323,6 +2381,8 @@ El plan Básico cuesta S/ 49 al mes, pero su botón dice "Empezar gratis" y la p
 
 Cambiar el texto a "Elegir Básico" o, si se ofrece una prueba gratuita, indicar su duración junto al precio (por ejemplo, "14 días gratis").
 
+<a id="problema-5"></a>
+
 **PROBLEMA #5:** La sección de preguntas frecuentes contradice el uso de la aplicación
 
 **Severidad:** 2
@@ -2344,6 +2404,8 @@ La respuesta a "¿Necesito instalar algo?" indica que no, porque OptiFlow funcio
 **Recomendación:**
 
 Corregir la respuesta para indicar que pacientes y personal usan la aplicación Android, y agregar preguntas sobre cómo descargarla y cómo reservar una cita como paciente.
+
+<a id="problema-6"></a>
 
 **PROBLEMA #6:** Textos de 8 px y contenido desplazado en celular
 
@@ -2367,6 +2429,8 @@ En un ancho de 375 px, las etiquetas de las estadísticas ("Sin recordatorios", 
 
 Usar un tamaño mínimo de 12 px (idealmente 14 px) en textos secundarios y recortar los elementos decorativos con `overflow-x: hidden` en el elemento `html` para evitar el desplazamiento horizontal.
 
+<a id="problema-7"></a>
+
 **PROBLEMA #7:** Cancelar una cita no pide confirmación
 
 **Severidad:** 3
@@ -2388,6 +2452,8 @@ En "Detalle de cita", el texto "Cancelar cita" cancela la reserva con un solo to
 **Recomendación:**
 
 Mostrar un diálogo de confirmación con la fecha y hora de la cita y las opciones "Cancelar cita" y "Mantener cita". Presentar la acción como un botón con color de advertencia para diferenciarla de "Reprogramar cita".
+
+<a id="problema-8"></a>
 
 **PROBLEMA #8:** La nueva cita del personal clínico tiene datos fijos
 
@@ -2411,6 +2477,8 @@ En "Nueva cita" del rol de personal clínico, los campos "Servicio", "Óptica / 
 
 Implementar selectores reales: lista de servicios, sucursales obtenidas de los Web Services y un calendario con la disponibilidad de la óptica. Quitar la flecha de los campos que no sean editables.
 
+<a id="problema-9"></a>
+
 **PROBLEMA #9:** El registro de pacientes usa formatos de Chile
 
 **Severidad:** 2
@@ -2433,6 +2501,8 @@ El formulario "Registro rápido de paciente" muestra como ejemplos el teléfono 
 
 Usar ejemplos locales ("+51 987 654 321" y "DNI / CE") y validar 9 dígitos para el celular y 8 dígitos para el DNI.
 
+<a id="problema-10"></a>
+
 **PROBLEMA #10:** La misma entidad se llama "paciente" y "cliente"
 
 **Severidad:** 1
@@ -2446,6 +2516,8 @@ En la pantalla de inicio del personal, el acceso rápido se llama "Nuevo pacient
 **Recomendación:**
 
 Usar el término "paciente" en todo el flujo, de acuerdo con el lenguaje ubicuo del proyecto.
+
+<a id="problema-11"></a>
 
 **PROBLEMA #11:** Las opciones de ayuda no muestran contenido
 
@@ -2469,6 +2541,8 @@ En "Mi Perfil", la opción "Ayuda y soporte" lleva a la pantalla "Configuración
 
 Crear una pantalla de ayuda con preguntas frecuentes y datos de contacto de la óptica (WhatsApp o correo). Mientras no exista, ocultar las opciones que no tienen contenido.
 
+<a id="problema-12"></a>
+
 **PROBLEMA #12:** La pantalla de inicio muestra datos que no corresponden al paciente
 
 **Severidad:** 3
@@ -2490,6 +2564,8 @@ Una cuenta de paciente recién creada, sin recetas ni pedidos registrados, muest
 **Recomendación:**
 
 Obtener los indicadores de recetas y pedidos desde los Web Services (historias clínicas y órdenes de trabajo del paciente) y mostrar un estado vacío cuando no existan registros, por ejemplo "Aún no tienes recetas".
+
+<a id="problema-13"></a>
 
 **PROBLEMA #13:** Un paciente puede cambiar a la vista del personal clínico sin credenciales
 
@@ -2513,6 +2589,8 @@ En "Mi Perfil", la opción "Vista personal de óptica" cambia a la experiencia d
 
 Retirar la opción del perfil del paciente. El acceso a la experiencia del personal clínico debe darse solo al iniciar sesión con una cuenta de personal autorizada.
 
+<a id="problema-14"></a>
+
 **PROBLEMA #14:** Los botones de solo ícono no tienen etiqueta accesible
 
 **Severidad:** 2
@@ -2534,6 +2612,8 @@ Los botones que solo muestran un ícono, como el de notificaciones (campana) de 
 **Recomendación:**
 
 Añadir una `contentDescription` a cada botón de solo ícono (por ejemplo, "Notificaciones", "Volver" y "Configuración") para que el lector de pantalla anuncie su función.
+
+<a id="problema-15"></a>
 
 **PROBLEMA #15:** Los montos se muestran en una moneda que no corresponde al Perú
 
@@ -2557,15 +2637,15 @@ En el rol de personal clínico, la pantalla "Nueva cotización" muestra precios 
 
 Mostrar todos los montos en soles con el formato peruano (por ejemplo, "S/ 899.00"), usando un formateador de moneda con la configuración regional `es-PE`, igual que en la Landing Page.
 
-#### Seguimiento de las observaciones para AV2
+#### 4.3.3.4. Seguimiento de las observaciones para AV2
 
 Los hallazgos anteriores se mantienen con sus capturas y severidad. Un cambio de estilos o de navegación en el repositorio no basta para cerrar una observación: se debe repetir la tarea sobre la versión entregada y registrar el resultado. Las pruebas técnicas de 4.2.2 detectaron además dos problemas de integración: rutas antiguas del cliente Flutter y ausencia del encabezado de autenticación en sus solicitudes protegidas.
 
-La Tabla 140 permite dejar constancia del cierre o de la persistencia de cada observación sin modificar la evidencia histórica.
+La Tabla 142 permite dejar constancia del cierre o de la persistencia de cada observación sin modificar la evidencia histórica.
 
-<a id="tabla-140"></a>
+<a id="tabla-142"></a>
 
-**Tabla 140**
+**Tabla 142**
 
 *Seguimiento de validación y compatibilidad para AV2*
 
