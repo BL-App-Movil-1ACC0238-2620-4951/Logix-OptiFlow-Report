@@ -2,40 +2,36 @@
 
 # Conclusiones
 
-La entrega AV2 de OptiFlow reúne el diseño de la solución y dos incrementos de implementación orientados a la búsqueda y reserva de atención óptica. El problema identificado sigue siendo la dispersión de información entre establecimientos, pacientes y canales de coordinación. El flujo del primer incremento y los servicios del Sprint 2 muestran que es posible reunir la consulta de ópticas, los horarios y la reserva en una misma solución. Su efecto sobre el tiempo de atención y la continuidad del seguimiento requiere observar el uso del producto con ambos segmentos.
+En AV2, OptiFlow pasa del diseño a un producto que se puede usar. El problema que atiende sigue siendo el mismo: la información de las ópticas, los pacientes y los pedidos está repartida en varios canales. Con el backend, la aplicación Kotlin y la Landing Page publicados, el paciente puede buscar una óptica, reservar una cita y seguir su pedido desde un solo lugar. Falta medir con usuarios reales si esto reduce el tiempo de atención.
 
-La literatura respalda la relevancia de estudiar la asistencia a citas y el acceso digital a la agenda. Abbas et al. (2025) identifican características del paciente y de la cita asociadas con la inasistencia en una práctica de retina; Kammrath Betancor et al. (2025) examinan la programación en línea en dos entornos de atención oftalmológica. Para OptiFlow, estos trabajos orientan la selección de indicadores de reserva, asistencia y seguimiento. Sus resultados pertenecen a otros establecimientos y no se trasladan como porcentajes de mejora obtenidos por el proyecto.
+La literatura respalda el interés en la asistencia a citas y la reserva en línea. Abbas et al. (2025) identifican características del paciente y de la cita asociadas con la inasistencia en una práctica de retina, y Kammrath Betancor et al. (2025) estudian la programación en línea en dos servicios de oftalmología. Estos trabajos ayudaron a elegir qué medir en OptiFlow (reservas, asistencia y seguimiento), pero sus resultados son de otros establecimientos y no se presentan como resultados del proyecto.
 
-El trabajo con EventStorming, Domain Message Flows y Bounded Context Canvases permitió separar las responsabilidades de Search & Booking, Clinical & Commercial, Production & Tracking, Store Management & Inventory y Notification & Loyalty. Estos límites organizan el dominio, aunque la implementación del backend comparte una base relacional PostgreSQL. El [Anexo F](Anexos.md#anexo-f-diagramas-de-diseño-táctico) distingue los diagramas de diseño de las tablas identificadas en la revisión de AV2. La revisión `41bcb44` incorpora las tablas de inventario y dispositivos, además de adaptadores de pagos y mensajería. Las pruebas de estos adaptadores usan respuestas controladas; su operación con proveedores externos y la experiencia de realidad aumentada requieren evidencias propias.
+EventStorming, Domain Message Flows y Bounded Context Canvases permitieron separar las responsabilidades de Search & Booking, Clinical & Commercial, Production & Tracking, Store Management & Inventory y Notification & Loyalty. En el backend, los cinco contextos comparten una base PostgreSQL con 27 tablas creadas por las migraciones V1 a V9. El [Anexo F](Anexos.md#anexo-f-diagramas-de-diseño-táctico) separa los diagramas de diseño de las tablas reales. El backend también integra la pasarela de pagos y Firebase Cloud Messaging, y la aplicación usa OpenStreetMap para el mapa y ML Kit para el escáner y el probador virtual, que funcionan en el propio celular.
 
-El Sprint 1 documenta la consulta de ópticas y la reserva desde el cliente Android/Kotlin. En el Sprint 2, el backend incorpora rutas `/api/v1`, tokens de sesión, autorización por roles y búsqueda por cercanía. También se publica la base del cliente Flutter y se actualiza la Landing Page. La publicación de esta última se comprobó mediante una ejecución exitosa de GitHub Pages y acceso público con HTTP 200. La integración de Flutter todavía requiere adaptar las rutas, la respuesta de autenticación y el envío del token.
+En el Sprint 2, el backend pasó a rutas `/api/v1` con tokens de sesión, permisos por rol y búsqueda por cercanía. El 11/11/2026, el commit `71ed60c` aprobó 133 pruebas automatizadas sin fallos, incluidos cuatro escenarios Cucumber de búsqueda y reserva, y GitHub Actions obtuvo el mismo resultado. Ese commit corre en Render con 70 operaciones documentadas en Swagger. La aplicación Kotlin 1.0 usa esos servicios y se distribuyó firmada por Firebase App Distribution, y la Landing Page se publicó en GitHub Pages. Al cliente Flutter todavía le falta adaptar las rutas, la respuesta del inicio de sesión y el envío del token.
 
-La revisión del 10/11/2026 aprobó 131 pruebas automatizadas, incluidos cuatro escenarios Cucumber de búsqueda y reserva, sin fallos, errores ni omisiones. GitHub Actions también completó la ejecución del backend `41bcb44`. Se registraron 28 solicitudes HTTP locales sobre H2 y un contrato de 67 operaciones; la base PostgreSQL compartida está definida por nueve migraciones y 27 tablas. Los resultados del [Anexo I](Anexos.md#anexo-i-evidencias-técnicas-del-sprint-2) permiten seguir la corrección de los problemas detectados el 08/11/2026. Su alcance es técnico y local: la validación del APK y del despliegue activo debe corresponder a la versión entregada.
+Coppola et al. (2025) estudian la adopción de Kotlin y su relación con la mantenibilidad en Android, y Kuroishi et al. (2025) clasifican las formas de probar aplicaciones móviles y muestran lo distintos que pueden ser los dispositivos. Por eso la aplicación se organizó por capas y se probó en emulador y después en un celular real antes de distribuirla. Flutter necesitará sus propias pruebas de ejecución y validación.
 
-Las decisiones móviles también requieren una evaluación propia de cada cliente. Coppola et al. (2025) estudian la adopción de Kotlin y su relación con métricas de mantenibilidad en Android. Kuroishi et al. (2025) clasifican las infraestructuras de pruebas móviles y destacan la diversidad de dispositivos y entornos. En OptiFlow, estos aportes sustentan la atención a la organización del código, la comprobación en emulador y la prueba posterior del APK en un dispositivo físico. Las evidencias del cliente Kotlin se mantienen asociadas con su versión; Flutter necesita sus propios resultados de ejecución y validación.
+Las entrevistas y la evaluación heurística anteriores encontraron problemas de navegación, mensajes, formatos locales, accesibilidad y separación de roles. Una observación solo se da por resuelta cuando se repite la tarea con la nueva versión. El registro de esas sesiones está en [4.3. Validation Interviews](Capitulo4.md#43-validation-interviews) y en el [Anexo H](Anexos.md#anexo-h-entrevistas-de-validación).
 
-La revisión del modelado de datos distingue los límites del dominio de la distribución física: los cinco contextos comparten una sola base PostgreSQL con 27 tablas definidas por V1–V9. Las claves, restricciones y referencias lógicas se documentan según las migraciones y los mapeos JPA. La arquitectura integra además la Pasarela de Pagos y Firebase Cloud Messaging en el backend, y OpenStreetMap y ML Kit (escáner y probador virtual, en el propio dispositivo) en la aplicación móvil.
-
-Las entrevistas y la evaluación heurística anteriores identificaron problemas de navegación, retroalimentación, formatos locales, accesibilidad y separación de roles. Estos hallazgos aportan criterios concretos para revisar AV2. El cambio de tecnología o la incorporación de una pantalla no permite cerrar una observación sin repetir la tarea con la versión entregada. El registro de sesiones y su seguimiento se encuentran en [4.3. Validation Interviews](Capitulo4.md#43-validation-interviews) y en el [Anexo H](Anexos.md#anexo-h-entrevistas-de-validación).
-
-Las hipótesis de Lean UX continúan como metas de evaluación: aumentar la conversión comercial en 20%, reducir los tiempos de entrega al menos en 25%, superar el 95% de cumplimiento de plazos y disminuir las consultas manuales en 80% durante los primeros tres meses de uso. La hipótesis de inventario requiere medir tiempos de consulta y diferencias de stock. Las comprobaciones técnicas de AV2 no aportan todavía una comparación operativa que permita confirmar esas mejoras. La conclusión de esta entrega es, por tanto, un avance verificable en servicios, publicación y definición de la experiencia, acompañado de trabajo pendiente de integración y medición del impacto en el negocio.
+Las hipótesis de Lean UX siguen como metas: aumentar la conversión comercial en 20%, reducir los tiempos de entrega al menos en 25%, superar el 95% de cumplimiento de plazos y disminuir las consultas manuales en 80% en los primeros tres meses de uso. Para la hipótesis de inventario hay que medir tiempos de consulta y diferencias de stock. Las pruebas técnicas de AV2 todavía no permiten confirmar estas mejoras; para eso hay que usar el producto en una óptica durante un tiempo.
 
 ## Recomendaciones
 
-1. Cerrar el contrato de integración: actualizar en Flutter las rutas, el formato de sesión y los encabezados Bearer; comprobar con cuentas separadas las funciones del paciente y del personal.
-2. Mantener la regresión automatizada en cada integración. Conservar los resultados de Maven y Cucumber por commit y comprobar que OpenAPI siga reflejando los códigos HTTP y permisos implementados.
-3. Asociar la entrega con una versión del APK, un commit del backend y un entorno identificados. Comprobar la instalación, las migraciones de PostgreSQL y el flujo principal antes de distribuir la versión a los evaluadores.
-4. Repetir las tareas con entre tres y cinco participantes por segmento. Registrar tiempo, ayuda requerida, errores y comentarios, y contrastar los hallazgos con la evaluación heurística anterior.
-5. Medir las hipótesis con una línea base y un periodo de observación: conversión, tiempos de entrega, cumplimiento de plazos, consultas manuales y diferencias de inventario. Priorizar en el siguiente incremento las funciones que permitan obtener esas medidas con datos persistidos.
-6. Mantener actualizados el tablero, la matriz de responsabilidades y las evidencias por versión. Los anexos deben conservar el vínculo entre cada afirmación del informe, el artefacto y la revisión de código que la sustenta.
+1. Terminar la integración de Flutter: actualizar las rutas, el formato de sesión y el encabezado Bearer, y probar con cuentas separadas las funciones del paciente y del personal.
+2. Correr las pruebas automatizadas en cada integración, guardar los resultados de Maven y Cucumber de cada commit y revisar que OpenAPI siga mostrando los códigos HTTP y permisos reales.
+3. Entregar cada versión con su APK, su commit del backend y su entorno. Antes de distribuirla, probar la instalación, las migraciones de PostgreSQL y el flujo principal.
+4. Repetir las tareas con entre tres y cinco participantes por segmento. Anotar el tiempo, la ayuda que necesitaron, los errores y sus comentarios, y compararlos con la evaluación heurística anterior.
+5. Medir las hipótesis con una línea base y un periodo de observación: conversión, tiempos de entrega, cumplimiento de plazos, consultas manuales y diferencias de inventario. En el siguiente incremento, priorizar las funciones que guarden los datos necesarios para esas medidas.
+6. Mantener al día el tablero, la matriz de responsabilidades y las evidencias de cada versión, y que cada dato del informe tenga el enlace al commit o al archivo de donde sale.
 
 ## Video App Validation
 
-La validación de OptiFlow se centra en la facilidad con la que el paciente encuentra atención, reserva una cita y consulta su información. Para el personal de la óptica, el recorrido comprende el acceso por rol y la consulta de los datos disponibles para la atención. Las tareas se relacionan con la búsqueda, la reserva y el seguimiento que motivaron el desarrollo del producto.
+El video muestra qué tan fácil le resulta al paciente encontrar una óptica, reservar una cita y consultar su información. Con el personal de la óptica se revisa el acceso por rol y la consulta de los datos de la atención.
 
-Durante cada sesión se observa cómo el participante interpreta la navegación, reconoce los mensajes y resuelve una dificultad. El registro considera el tiempo empleado, la ayuda requerida y sus comentarios al terminar. La versión de la aplicación y el dispositivo se identifican para relacionar cada observación con el producto evaluado.
+En cada sesión se observa cómo el participante entiende la navegación y los mensajes, y cómo resuelve las dificultades. Se anota el tiempo, la ayuda que necesitó y sus comentarios al final, junto con la versión de la aplicación y el dispositivo.
 
-La grabación de AV2 se vincula con la distribución del APK y con la evaluación heurística del capítulo IV. La Tabla CO1 reúne sus datos de publicación y los momentos de inicio de las sesiones de ambos segmentos.
+La Tabla CO1 registra los datos del video y el minuto en que empieza cada sesión de ambos segmentos.
 
 <a id="tabla-co1"></a>
 
@@ -55,7 +51,7 @@ La grabación de AV2 se vincula con la distribución del APK y con la evaluació
 
 ## Video About the Product
 
-Este video presenta la propuesta de OptiFlow como una solución para centralizar información y procesos relacionados con la atención en ópticas. En la revisión visual se identifican funciones dirigidas al paciente —búsqueda de ópticas en un mapa, reserva de citas, pedidos, avisos y prueba virtual de monturas— y al personal de la óptica —cotizaciones, ventas, inventario, taller y reportes—, además de referencias a seguridad y servicios en la nube. La captura muestra la búsqueda de ópticas cercanas y la opción de reservar una cita.
+El video presenta OptiFlow como una solución que reúne en un solo lugar la información y los procesos de la atención en ópticas. Muestra las funciones para el paciente —búsqueda de ópticas en un mapa, reserva de citas, pedidos, avisos y prueba virtual de monturas— y para el personal de la óptica —cotizaciones, ventas, inventario, taller y reportes—, además de la seguridad y los servicios en la nube. La captura muestra la búsqueda de ópticas cercanas y la opción de reservar una cita.
 
 <a id="figura-207"></a>
 
@@ -77,7 +73,7 @@ Este video presenta la propuesta de OptiFlow como una solución para centralizar
 
 ## Video About the Team
 
-El video presenta una portada del equipo Logix y, a continuación, cinco bloques visuales por orden como testimonios de cada uno de los participantes del proyecto.
+El video empieza con una portada del equipo Logix y sigue con el testimonio de cada uno de los cinco integrantes.
 
 <a id="figura-208"></a>
 

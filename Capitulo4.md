@@ -1458,9 +1458,9 @@ El Sprint 2 amplía el trabajo del primer incremento con la versión `/api/v1` d
 
 #### 4.2.2.1. Sprint Planning 2
 
-La planificación del Sprint 2 reúne la integración del cliente Flutter, la seguridad de los servicios y la consulta de información del paciente. El alcance se centra en las historias US01, US04, US11 y US16; la búsqueda y reserva de US05 y US06 continúan como integración y regresión del primer incremento.
+En el Sprint 2 se planificó la integración del cliente Flutter, la seguridad de los servicios y la consulta de información del paciente. El alcance son las historias US01, US04, US11 y US16. La búsqueda y la reserva de US05 y US06 siguen como regresión del primer incremento.
 
-La Tabla 125 reúne el objetivo del Sprint 2, la capacidad de trabajo y las historias seleccionadas. La coordinación se realiza por Discord y el seguimiento se organiza mediante las tareas del Sprint Backlog.
+La Tabla 125 muestra el objetivo del Sprint 2, la capacidad de trabajo y las historias seleccionadas. El equipo se coordina por Discord y sigue el avance con las tareas del Sprint Backlog.
 
 <a id="tabla-125"></a>
 
@@ -1486,13 +1486,13 @@ La Tabla 125 reúne el objetivo del Sprint 2, la capacidad de trabajo y las hist
 </tbody>
 </table>
 
-Los Story Points corresponden a las historias seleccionadas; las estimaciones en horas corresponden a sus tareas. Las actividades de continuidad de US05 y US06 se incluyen en el backlog sin volver a sumar sus puntos originales.
+Los Story Points son de las historias seleccionadas y las horas, de sus tareas. Las tareas de continuidad de US05 y US06 están en el backlog, pero no vuelven a sumar sus puntos.
 
 #### 4.2.2.2. Aspect Leaders and Collaborators
 
-Los aspectos del Sprint son servicios y seguridad, cliente Flutter, Landing Page y validación, pruebas, e integración y coordinación. La Tabla 126 identifica un líder por aspecto y relaciona sus colaboradores con las tareas del backlog.
+Los aspectos del Sprint son servicios y seguridad, cliente Flutter, Landing Page y validación, pruebas, e integración y coordinación. La Tabla 126 muestra el líder y los colaboradores de cada aspecto.
 
-Nicolas coordina la integración de Flutter; Felix, las pruebas; Mariana, la Landing Page y la validación; Eslander, la coordinación y las evidencias; y César, los servicios y la seguridad. Cada líder revisa sus tareas con los colaboradores y comunica los bloqueos que afectan al flujo de búsqueda y reserva.
+Nicolas coordina la integración de Flutter; Felix, las pruebas; Mariana, la Landing Page y la validación; Eslander, la coordinación y las evidencias; y César, los servicios y la seguridad. Cada líder revisa sus tareas con los colaboradores y avisa al equipo si algo bloquea la búsqueda o la reserva.
 
 <a id="tabla-126"></a>
 
@@ -1512,7 +1512,7 @@ Nicolas coordina la integración de Flutter; Felix, las pruebas; Mariana, la Lan
 
 #### 4.2.2.3. Sprint Backlog 2
 
-La Tabla 127 descompone las historias y las actividades adicionales en tareas con un responsable, una estimación en horas y un estado. Las dependencias principales son el contrato de servicios, la adaptación del cliente móvil y la ejecución de pruebas antes de la distribución del APK.
+La Tabla 127 divide las historias y las actividades adicionales en tareas, cada una con su responsable, sus horas estimadas y su estado. Antes de distribuir el APK había que tener listos los servicios, adaptar el cliente móvil y correr las pruebas.
 
 La Figura 167 presenta el tablero del Sprint 2, con las 21 tareas de la Tabla 127 agrupadas por estado. Cada tarjeta indica la historia, la estimación y el responsable.
 
@@ -1524,7 +1524,7 @@ La Figura 167 presenta el tablero del Sprint 2, con las 21 tareas de la Tabla 12
 
 ![Tablero del Sprint 2 con el estado de las tareas de la Tabla 127](assets/cap4/sprint2/revision-20261111/sprint2-board.png)
 
-**Done** identifica tareas con evidencia comprobada; **To-Review**, tareas en revisión; y **To-do**, tareas pendientes de ejecución.
+**Done** son las tareas terminadas y con evidencia; **To-Review**, las que están en revisión; y **To-do**, las que faltan.
 
 <a id="tabla-127"></a>
 
@@ -1542,9 +1542,9 @@ La Figura 167 presenta el tablero del Sprint 2, con las 21 tareas de la Tabla 12
 <tr><td rowspan="2">—</td><td rowspan="2">Actividades adicionales del Sprint</td><td>S2-T01</td><td>Versionar los servicios REST</td><td>Conservar el prefijo /api/v1, unificar las consultas y devolver Location al crear recursos.</td><td>6</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
 <tr><td>S2-T02</td><td>Publicar la base del cliente Flutter</td><td>Mantener la estructura de navegación, modelos, estado y cliente HTTP publicada en 0344413.</td><td>8</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
 <tr><td rowspan="2">US01</td><td rowspan="2">Inicio de sesión en la aplicación móvil</td><td>S2-T03</td><td>Emitir tokens de autenticación</td><td>Exponer /api/v1/auth/tokens con token, expiresAt, userId y role.</td><td>6</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
-<tr><td>S2-T04</td><td>Integrar el inicio de sesión en Flutter</td><td>Sustituir /login, leer el contrato vigente y enviar Authorization en las solicitudes protegidas.</td><td>8</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-Review</td></tr>
+<tr><td>S2-T04</td><td>Integrar el inicio de sesión en Flutter</td><td>Sustituir /login, leer la respuesta actual del inicio de sesión y enviar Authorization en las solicitudes protegidas.</td><td>8</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-Review</td></tr>
 <tr><td rowspan="2">US16</td><td rowspan="2">Gestión de permisos por roles</td><td>S2-T05</td><td>Aplicar autorización por rol</td><td>Restringir las operaciones administrativas y separar los permisos de pacientes y personal.</td><td>6</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
-<tr><td>S2-T06</td><td>Revisar permisos de extremo a extremo</td><td>Comprobar 401 sin token, 403 para el paciente y el acceso del rol autorizado desde la versión entregada.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>Done</td></tr>
+<tr><td>S2-T06</td><td>Revisar permisos de extremo a extremo</td><td>Comprobar 401 sin token, 403 para el paciente y el acceso del rol autorizado desde la aplicación publicada.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>Done</td></tr>
 <tr><td rowspan="2">US05</td><td rowspan="2">Búsqueda de ópticas y disponibilidad de atención</td><td>S2-T07</td><td>Consultar ópticas por cercanía</td><td>Revisar latitud, longitud y radio, incluidos parámetros incompletos y coordenadas inválidas.</td><td>6</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
 <tr><td>S2-T08</td><td>Conectar la búsqueda y los horarios</td><td>Usar /optical-stores con filtros y /time-slots; mostrar carga, error y ausencia de resultados.</td><td>6</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-Review</td></tr>
 <tr><td rowspan="2">US06</td><td rowspan="2">Reserva de cita para atención optométrica</td><td>S2-T09</td><td>Integrar la reserva autenticada</td><td>Enviar el token, patientId, opticalStoreId y timeSlotId, y mostrar la confirmación de la API.</td><td>6</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-Review</td></tr>
@@ -1563,11 +1563,11 @@ La Figura 167 presenta el tablero del Sprint 2, con las 21 tareas de la Tabla 12
 </tbody>
 </table>
 
-**Estimación del Sprint:** 120 horas distribuidas entre 21 tareas. César tiene 34 horas asignadas a servicios, seguridad y corrección de pruebas; Nicolas, 36 horas a Flutter e integración; Felix, 22 horas a pruebas, verificación y la aplicación Kotlin; Mariana, 18 horas a Landing Page y validación; y Eslander, 10 horas a evidencias y cierre del Sprint. Las actividades de publicación, pruebas y validación se incluyen sin Story Points adicionales.
+**Estimación del Sprint:** 120 horas distribuidas entre 21 tareas. César tiene 34 horas asignadas a servicios, seguridad y corrección de pruebas; Nicolas, 36 horas a Flutter e integración; Felix, 22 horas a pruebas, verificación y la aplicación Kotlin; Mariana, 18 horas a Landing Page y validación; y Eslander, 10 horas a evidencias y cierre del Sprint. Las tareas de publicación, pruebas y validación no suman Story Points.
 
 #### 4.2.2.4. Development Evidence for Sprint Review
 
-La evidencia se obtiene de los historiales de los repositorios, con fechas expresadas en America/Lima. Los mensajes de commit se copian tal como están y la columna Commit Message Body explica el cambio en español. La Tabla 128 reúne los avances del backend, la aplicación Kotlin, Flutter y la Landing Page.
+Los datos salen del historial de cada repositorio, con fechas en hora de Lima. Los mensajes de commit se copian tal como están y la columna Commit Message Body explica el cambio en español. La Tabla 128 muestra los avances del backend, la aplicación Kotlin, Flutter y la Landing Page.
 
 <a id="tabla-128"></a>
 
@@ -1609,13 +1609,13 @@ La evidencia se obtiene de los historiales de los repositorios, con fechas expre
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [ce31259](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/ce31259a4239e98d41087e95658eacf46fe2c69b) | `fix: let staff close sales from earlier patient records` | Permite cerrar ventas pendientes de fichas anteriores del paciente. | 11/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [22bf023](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/22bf023a56300f3f66ce2ba0fdb7eb660f2f387e) | `build: sign release builds with a local keystore` | Firma la versión release con un keystore que no se guarda en el repositorio. | 11/11/2026 |
 
-La aplicación Android en Kotlin ya consume el contrato `/api/v1`: usa 64 de las 70 operaciones publicadas, envía el token en las llamadas protegidas y se distribuyó como versión 1.0 (4.2.2.8). El backend `71ed60c` incorpora un contrato diferente al consumido por el cliente Flutter. El cliente Flutter `0344413` todavía usa `/login`, `/optical-stores/search` y `/availability`, y no añade el token a las solicitudes protegidas. La Tabla 129 muestra los ajustes necesarios para cerrar la integración.
+La aplicación Android en Kotlin ya consume el contrato `/api/v1`: usa 64 de las 70 operaciones publicadas, envía el token en las llamadas protegidas y se distribuyó como versión 1.0 (4.2.2.8). El backend `71ed60c` tiene una API distinta a la que usa el cliente Flutter. El cliente Flutter `0344413` todavía usa `/login`, `/optical-stores/search` y `/availability`, y no añade el token a las solicitudes protegidas. La Tabla 129 muestra lo que falta cambiar en Flutter.
 
 <a id="tabla-129"></a>
 
 **Tabla 129**
 
-*Compatibilidad entre Flutter y el contrato versionado*
+*Diferencias entre el cliente Flutter y la API /api/v1*
 
 | Operación | Cliente Flutter publicado | Backend revisado | Resultado de la revisión |
 |---|---|---|---|
@@ -1630,7 +1630,7 @@ Fuentes de la revisión: [cliente HTTP Flutter](https://github.com/BL-App-Movil-
 
 #### 4.2.2.5. Testing Suite Evidence for Sprint Review
 
-La revisión de pruebas corresponde al backend `71ed60c`, ejecutado sin cambios de código el 11/11/2026. La Tabla 130 registra los commits relacionados con el testing del Sprint 2.
+Las pruebas se corrieron el 11/11/2026 sobre el backend `71ed60c`, sin cambios en el código. La Tabla 130 muestra los commits de pruebas del Sprint 2.
 
 <a id="tabla-130"></a>
 
@@ -1653,7 +1653,7 @@ La columna Commit Message Body explica en español cada cambio en las pruebas.
 
 ##### Suites de pruebas del Sprint 2
 
-La Tabla 131 relaciona cada suite con lo que prueba y con sus historias.
+La Tabla 131 indica qué prueba cada suite y a qué historias pertenece.
 
 <a id="tabla-131"></a>
 
@@ -1699,7 +1699,7 @@ La [ejecución 43116369654](https://github.com/BL-App-Movil-1ACC0238-2620-4951/L
 
 ![Workflow de pruebas del backend 71ed60c completado correctamente](assets/cap4/sprint2/revision-20261111/backend-ci.png)
 
-**Pruebas de aceptación.** La Figura 170 muestra el reporte Cucumber de la misma ejecución: cuatro escenarios aprobados. Los archivos [búsqueda](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/resources/features/optical-store-search.feature) y [reserva](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/resources/features/appointment-booking.feature) se ejecutan mediante [SearchBookingSteps](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/java/com/optiflow/platform/searchbooking/acceptance/SearchBookingSteps.java), que utiliza la API versionada y adjunta el token en las operaciones protegidas. El [reporte HTML](assets/cap4/sprint2/revision-20261111/cucumber.html) conserva los pasos y resultados.
+**Pruebas de aceptación.** La Figura 170 muestra el reporte Cucumber de la misma ejecución: cuatro escenarios aprobados. Los archivos [búsqueda](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/resources/features/optical-store-search.feature) y [reserva](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/resources/features/appointment-booking.feature) se ejecutan mediante [SearchBookingSteps](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/java/com/optiflow/platform/searchbooking/acceptance/SearchBookingSteps.java), que utiliza la API versionada y adjunta el token en las operaciones protegidas. El [reporte HTML](assets/cap4/sprint2/revision-20261111/cucumber.html) tiene el detalle de cada paso.
 
 <a id="figura-170"></a>
 
@@ -1754,9 +1754,9 @@ Característica: Reserva de cita para atención optométrica
     Y informa que el horario ya no está disponible
 ```
 
-Los escenarios corresponden a US05 y US06 y se conservan como regresión del primer incremento. La autenticación, los roles y la cercanía se comprobaron además con `AuthenticationAuthorizationApiTest`, `JwtTokenServiceTest`, `GeoLocationTest` y `SearchAndBookingApiTest`; no se contabilizan como nuevos escenarios Gherkin.
+Los escenarios son de US05 y US06 y se mantienen como regresión del primer incremento. La autenticación, los roles y la cercanía se prueban con `AuthenticationAuthorizationApiTest`, `JwtTokenServiceTest`, `GeoLocationTest` y `SearchAndBookingApiTest`, que no son escenarios Gherkin.
 
-**Comprobaciones en el servicio publicado.** Sobre Render, con `71ed60c` activo, la búsqueda de ópticas por cercanía respondió 200 y la consulta del personal sin token respondió 401 (Figuras 172 y 173, en 4.2.2.6). El mismo día se comprobó que un token emitido a un técnico deja de aceptarse, con 401, cuando el administrador lo desactiva, y que vuelve a funcionar al reactivarlo; ese comportamiento corresponde a la corrección `ddf6760`. Los casos 201, 403 y 409 de la reserva y de los permisos se cubren con `AuthenticationAuthorizationApiTest` y con los escenarios de aceptación.
+**Comprobaciones en el servicio publicado.** Sobre Render, con `71ed60c` activo, la búsqueda de ópticas por cercanía respondió 200 y la consulta del personal sin token respondió 401 (Figuras 172 y 173, en 4.2.2.6). El mismo día se comprobó que un token emitido a un técnico deja de aceptarse, con 401, cuando el administrador lo desactiva, y que vuelve a funcionar al reactivarlo; esto lo resolvió la corrección `ddf6760`. Los casos 201, 403 y 409 de la reserva y de los permisos se prueban con `AuthenticationAuthorizationApiTest` y con los escenarios de aceptación.
 
 ##### Reproducción de la ejecución actual
 
@@ -1879,7 +1879,7 @@ mvn -B -DskipTests package
 
 ![Notificaciones de citas, pedidos y encuesta de satisfacción, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-avisos.png)
 
-Las Figuras 184 a 194 se tomaron el mismo día con la cuenta de administrador, que tiene acceso a todas las funciones del personal: agenda, fichas, cotización y venta, escáner, inventario, producción, reportes y gestión del personal. Los otros roles ven solo las opciones que les corresponden.
+Las Figuras 184 a 194 se tomaron el mismo día con la cuenta de administrador, que tiene acceso a todas las funciones del personal: agenda, fichas, cotización y venta, escáner, inventario, producción, reportes y gestión del personal. Los otros roles ven solo las opciones de su rol.
 
 <a id="figura-184"></a>
 
@@ -1969,7 +1969,7 @@ Las Figuras 184 a 194 se tomaron el mismo día con la cuenta de administrador, q
 
 ![Gestión del personal: roles y desactivación, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-personal.png)
 
-**Landing Page.** Las Figuras 195 y 196 corresponden al código de la Landing Page `ef1c032`, abierto localmente en escritorio y ancho de celular. Muestran el contenido y su adaptación al ancho del celular.
+**Landing Page.** Las Figuras 195 y 196 muestran la Landing Page del commit `ef1c032`, abierta localmente en escritorio y en ancho de celular.
 
 <a id="figura-195"></a>
 
@@ -1995,21 +1995,20 @@ Las Figuras 184 a 194 se tomaron el mismo día con la cuenta de administrador, q
 
 **Duración y momentos de búsqueda, inicio de sesión y reserva:** ____________________
 
-Las capturas de la aplicación Kotlin no se presentan como evidencia del cliente Flutter.
 
 #### 4.2.2.7. Services Documentation Evidence for Sprint Review
 
-La documentación OpenAPI 3.1 publicada en Render para `71ed60c` contiene **70 operaciones sobre 61 rutas** bajo `/api/v1`. El recuento se obtuvo de la especificación consultada el 11/11/2026 e incluye inventario, checkout, notificaciones, encuestas y reportes. Cada operación documenta un contrato; la aceptación funcional depende de su prueba y de la integración con el cliente.
+La documentación OpenAPI 3.1 publicada en Render para `71ed60c` contiene **70 operaciones sobre 61 rutas** bajo `/api/v1`. Se contaron en la especificación del 11/11/2026 e incluyen inventario, checkout, notificaciones, encuestas y reportes.
 
-La especificación consultada se conserva como [OpenAPI publicado en Render](assets/cap4/sprint2/revision-20261111/openapi-render.json). El servicio se consulta en [Swagger UI en Render](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html); 4.2.2.8 registra que ese despliegue ejecuta el mismo commit.
+La especificación está guardada como [OpenAPI publicado en Render](assets/cap4/sprint2/revision-20261111/openapi-render.json). y se puede abrir en [Swagger UI en Render](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html). En 4.2.2.8 se muestra que ese despliegue corre el mismo commit.
 
-La Tabla 132 presenta los contratos principales del Sprint con método, parámetros, autorización, ejemplo de respuesta y enlace a la operación en Swagger. La sintaxis es `<VERBO> https://logix-optiflow-back-end.onrender.com<ruta>`; localmente se usa `http://127.0.0.1:18082<ruta>`. Las rutas incluyen `/api/v1`. Los ejemplos de respuesta son fragmentos del contrato.
+La Tabla 132 muestra los endpoints principales del Sprint con su método, parámetros, autorización, ejemplo de respuesta y enlace a Swagger. La sintaxis es `<VERBO> https://logix-optiflow-back-end.onrender.com<ruta>`; localmente se usa `http://127.0.0.1:18082<ruta>`. Las rutas incluyen `/api/v1`. Los ejemplos de respuesta están resumidos.
 
 <a id="tabla-132"></a>
 
 **Tabla 132**
 
-*Contratos de servicios revisados en el Sprint 2*
+*Endpoints principales del Sprint 2*
 
 | Endpoint / acción | Verbo HTTP | Parámetros y autorización | Response (ejemplo y explicación) | Documentación | User Story |
 |---|:---:|---|---|---|---|
@@ -2031,9 +2030,9 @@ La Tabla 132 presenta los contratos principales del Sprint con método, parámet
 | `/api/v1/reports/inventory`<br>Reporte de inventario | GET | Query: opticalStoreId, from, to. Bearer de personal. | 200 con métricas; 400 si se omite el periodo obligatorio. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Store%20Management%20%26%20Inventory%20-%20Reports/metrics_2) | Reportes de inventario |
 | `/api/v1/patients/{patientId}/notifications`<br>Notificaciones del paciente | GET | Path: patientId. Bearer con reglas de acceso. | 200 con la lista; consulta propia ejecutada localmente. | [Swagger](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html#/Notification%20%26%20Loyalty%20-%20Notifications/findByPatient_1) | Notification & Loyalty |
 
-**Correspondencia del contrato.** La especificación actual declara `201` para pacientes, tokens y citas y distingue las operaciones públicas mediante su configuración de seguridad. `OpenApiDocumentationTest` aprobó sus dos pruebas. Las diferencias detectadas el 08/11/2026 quedaron resueltas en esta revisión; el [OpenAPI anterior](assets/cap4/sprint2/openapi-local.json) se conserva como antecedente.
+**OpenAPI y código.** La especificación actual declara `201` al crear pacientes, tokens y citas, y marca qué operaciones son públicas según la configuración de seguridad. `OpenApiDocumentationTest` aprobó sus dos pruebas. Las diferencias encontradas el 08/11/2026 ya están corregidas; el [OpenAPI anterior](assets/cap4/sprint2/openapi-local.json) queda como referencia.
 
-Ejemplo de solicitud de autenticación, con valores ilustrativos:
+Ejemplo de inicio de sesión (los valores son de ejemplo):
 
 ```http
 POST /api/v1/auth/tokens
@@ -2051,17 +2050,17 @@ Content-Type: application/json
 }
 ```
 
-El cliente debe leer `userId` y `role` de esta respuesta y adjuntar el token a las llamadas protegidas. La forma anterior, que esperaba un objeto `patient` dentro del login, no corresponde a esta versión.
+El cliente debe leer `userId` y `role` de esta respuesta y adjuntar el token a las llamadas protegidas. La versión anterior devolvía un objeto `patient` dentro del login; esta ya no.
 
 ##### Cambios relacionados con la documentación del Sprint 2
 
-La Tabla 133 identifica tanto los cambios de rutas y parámetros como las ampliaciones de documentación de inventario y reportes.
+La Tabla 133 muestra los commits que cambiaron rutas y parámetros, y los que agregaron la documentación de inventario y reportes.
 
 <a id="tabla-133"></a>
 
 **Tabla 133**
 
-*Commits que modifican el contrato documentado del Sprint 2*
+*Commits que cambian la API del Sprint 2*
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
@@ -2084,7 +2083,7 @@ La Tabla 134 muestra la versión de cada producto y dónde está publicada.
 
 **Tabla 134**
 
-*Código y confirmación de despliegue del Sprint 2*
+*Versión publicada de cada producto en el Sprint 2*
 
 | Producto | Revisión de código | Evidencia disponible | Confirmación de despliegue AV2 |
 |---|---|---|---|
@@ -2093,9 +2092,9 @@ La Tabla 134 muestra la versión de cada producto y dónde está publicada.
 | Android/Kotlin | `develop`, `22bf023`, versión 1.0 (1). | APK release firmado, instalado y probado contra Render. | Distribuida el 11/11/2026 por Firebase App Distribution al grupo `optiflow-testers`; [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a). |
 | Flutter | `main`, `0344413`, versión `1.0.0+1`. | Código publicado y definición de pantallas, cliente HTTP y prueba de estados. | APK, enlace de distribución y captura de versión: ____________________. |
 
-##### Publicación comprobada de la Landing Page
+##### Publicación de la Landing Page
 
-La [ejecución 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) del workflow `Deploy static content to Pages` se inició el 06/11/2026 a las 11:23 PM (America/Lima), para `main` y el commit `ef1c032`, y terminó con `success`. La Figura 197 muestra la ejecución. La captura conserva los avisos de mantenimiento de las acciones y del parámetro `include-hidden-files`; no se interpretan como un fallo del despliegue.
+La [ejecución 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) del workflow `Deploy static content to Pages` se inició el 06/11/2026 a las 11:23 PM (America/Lima), para `main` y el commit `ef1c032`, y terminó con `success`. La Figura 197 muestra la ejecución. Los avisos que aparecen en la captura son de mantenimiento de las acciones y del parámetro `include-hidden-files`; no son errores del despliegue.
 
 <a id="figura-197"></a>
 
@@ -2105,23 +2104,23 @@ La [ejecución 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/L
 
 ![Workflow de GitHub Pages completado correctamente](assets/cap4/sprint2/workflow-pages.png)
 
-La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) respondió HTTP 200 en la revisión del 08/11/2026. La Figura 198 corresponde a esa URL, a diferencia de las capturas locales de 4.2.2.6.
+La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) respondió HTTP 200 en la revisión del 08/11/2026. La Figura 198 es una captura de esa URL; las de 4.2.2.6 se tomaron en local.
 
 <a id="figura-198"></a>
 
 **Figura 198**
 
-*Landing Page pública de OptiFlow comprobada el 08/11/2026*
+*Landing Page pública de OptiFlow, 08/11/2026*
 
 ![Landing Page pública comprobada](assets/cap4/sprint2/landing-publica.png)
 
 ##### Despliegue del backend en Render
 
-Render ejecuta el commit `71ed60c` de `develop`. El despliegue del 11/11/2026 se hizo limpiando la caché de compilación, para que la imagen incluyera la corrección `ddf6760`. La Figura 171, de 4.2.2.6, corresponde a ese servicio, y la [especificación publicada](assets/cap4/sprint2/revision-20261111/openapi-render.json) contiene las 70 operaciones de 4.2.2.7.
+Render ejecuta el commit `71ed60c` de `develop`. El despliegue del 11/11/2026 se hizo limpiando la caché de compilación, para que la imagen incluyera la corrección `ddf6760`. La Figura 171, de 4.2.2.6, es de ese servicio, y la [especificación publicada](assets/cap4/sprint2/revision-20261111/openapi-render.json) contiene las 70 operaciones de 4.2.2.7.
 
 ##### Distribución de la aplicación Kotlin
 
-La versión 1.0 (1) se generó con `./gradlew assembleProdRelease`, firmada con el keystore del equipo, y se cargó el 11/11/2026 en el proyecto de Firebase `optiflow-d5022`. Se distribuyó al grupo `optiflow-testers`, con los cuatro verificadores del equipo. La Figura 199 muestra la versión, la Figura 200 muestra el [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a) y la Figura 201 muestra el grupo. El vínculo del Sprint 1 pertenece a otro proyecto de Firebase y se conserva solo en 4.2.1.8.
+La versión 1.0 (1) se generó con `./gradlew assembleProdRelease`, firmada con el keystore del equipo, y se cargó el 11/11/2026 en el proyecto de Firebase `optiflow-d5022`. Se distribuyó al grupo `optiflow-testers`, con los cuatro verificadores del equipo. La Figura 199 muestra la versión, la Figura 200 muestra el [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a) y la Figura 201 muestra el grupo. El vínculo del Sprint 1 es de otro proyecto de Firebase y solo aparece en 4.2.1.8.
 
 <a id="figura-199"></a>
 
@@ -2160,7 +2159,7 @@ Además de la URL base, se ajustan las subrutas y el formato de autenticación d
 
 #### 4.2.2.9. Team Collaboration Insights during Sprint
 
-La Tabla 135 muestra los commits sin merge registrados desde el 09/10/2026 en las ramas revisadas; cada fila indica la fecha de corte. Los autores se conservan tal como aparecen en GitHub.
+La Tabla 135 muestra los commits sin merge desde el 09/10/2026 en cada rama; cada fila indica hasta qué fecha se contó. Los autores aparecen con su nombre de GitHub.
 
 <a id="tabla-135"></a>
 
@@ -2179,9 +2178,9 @@ La Tabla 135 muestra los commits sin merge registrados desde el 09/10/2026 en la
 | `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–10/11/2026 | Patto04 | 7 | Accesibilidad, contenido y publicación; revisión `ef1c032`. |
 | `Logix-OptiFlow-Mobile` / `develop` | 09/10/2026–11/11/2026 | Felixb14 | 45 | Aplicación Kotlin conectada a `/api/v1` y versión 1.0; revisión `22bf023`. |
 
-Los 88 commits del backend abarcan seguridad, inventario, pagos, mensajería, reportes, pruebas y documentación. Entre las últimas integraciones se encuentran los PR #22 y #23, que corrigen el tratamiento de errores y el acceso del personal a las citas, y el PR #30, que invalida los tokens del personal desactivado. La Landing Page integra su publicación mediante Pages; Flutter conserva tres commits en `main` en el corte consultado. Los 45 commits de la aplicación Kotlin cubren la conexión con la API, la organización por capas, los menús por rol, el mapa, el escáner, el probador, las notificaciones, el modo sin conexión y la firma del release.
+Los 88 commits del backend abarcan seguridad, inventario, pagos, mensajería, reportes, pruebas y documentación. Entre los últimos cambios están los PR #22 y #23, que corrigen el tratamiento de errores y el acceso del personal a las citas, y el PR #30, que invalida los tokens del personal desactivado. La Landing Page integra su publicación mediante Pages; Flutter conserva tres commits en `main` en el corte consultado. Los 45 commits de la aplicación Kotlin cubren la conexión con la API, la organización por capas, los menús por rol, el mapa, el escáner, el probador, las notificaciones, el modo sin conexión y la firma del release.
 
-Las Figuras 202, 203, 204 y 205 corresponden a los paneles públicos de contribuciones de [backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/graphs/contributors), [Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/graphs/contributors), [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/graphs/contributors) y [aplicación Kotlin](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/graphs/contributors). Las tres primeras se capturaron el 10/11/2026 y la de la aplicación Kotlin, el 11/11/2026. Los gráficos muestran el periodo de tres meses seleccionado en GitHub y excluyen merges; sus totales no usan el intervalo reducido de la Tabla 135.
+Las Figuras 202, 203, 204 y 205 muestran los paneles de contribuciones de [backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/graphs/contributors), [Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/graphs/contributors), [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/graphs/contributors) y [aplicación Kotlin](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/graphs/contributors). Las tres primeras se capturaron el 10/11/2026 y la de la aplicación Kotlin, el 11/11/2026. Los gráficos muestran los últimos tres meses sin merges, por eso sus totales no coinciden con los de la Tabla 135.
 
 <a id="figura-202"></a>
 
@@ -2253,7 +2252,7 @@ Tareas del Landing Page: explorar libremente la página, buscar cómo reservar u
 
 #### Tareas de validación de la aplicación móvil
 
-La sesión utiliza una cuenta de prueba y la versión de AV2 identificada al inicio. El participante recibe el objetivo de cada tarea y elige cómo resolverla. El entrevistador observa el recorrido y registra los comentarios sin indicar qué botón presionar. La información de muestra permite repetir las mismas condiciones entre sesiones.
+La sesión utiliza una cuenta de prueba y la versión de AV2 identificada al inicio. El participante recibe el objetivo de cada tarea y elige cómo resolverla. El entrevistador observa el recorrido y registra los comentarios sin indicar qué botón presionar. Todos usan los mismos datos de prueba para que las sesiones se puedan comparar.
 
 **Recorrido del paciente**
 
@@ -2264,7 +2263,7 @@ La sesión utiliza una cuenta de prueba y la versión de AV2 identificada al ini
 
 **Recorrido del personal de la óptica**
 
-1. **S01 — Acceso por rol:** iniciar sesión con una cuenta del personal y reconocer las funciones habilitadas. Se contrasta el acceso con una cuenta de paciente para comprobar la separación de permisos.
+1. **S01 — Acceso por rol:** iniciar sesión con una cuenta del personal y reconocer las funciones habilitadas. También se entra con una cuenta de paciente para ver que no tenga esas funciones.
 2. **S02 — Consulta del paciente:** localizar una cuenta de prueba y revisar la información clínica o las citas disponibles en la versión evaluada. Se registra si la identificación del paciente y la navegación resultan claras.
 3. **S03 — Consulta operativa:** revisar una cita o una orden, interpretar su estado y ubicar la siguiente acción disponible. Los módulos de demostración se identifican al inicio del recorrido.
 
@@ -2274,35 +2273,35 @@ Después de cada tarea se pregunta: ¿qué intentaste hacer primero?, ¿qué esp
 
 **Criterios de evaluación**
 
-Cada tarea se registra como completada sin ayuda, completada con ayuda o no completada. Se anota el tiempo empleado, el punto de bloqueo, el mensaje encontrado y el comentario del participante. El flujo P02 se cronometra desde el inicio de la búsqueda hasta la confirmación y se contrasta con el criterio de cinco minutos del Sprint Goal.
+Cada tarea se registra como completada sin ayuda, completada con ayuda o no completada. Se anota el tiempo empleado, el punto de bloqueo, el mensaje encontrado y el comentario del participante. El flujo P02 se cronometra desde el inicio de la búsqueda hasta la confirmación y se compara con el límite de cinco minutos del Sprint Goal.
 
-La reserva se contrasta con su registro en el servicio. En las consultas de historial y pedidos se distingue la respuesta del backend de los datos locales de demostración. En el acceso por rol se revisan tanto el permiso de la operación como la claridad del mensaje que recibe el usuario. Estos criterios permiten relacionar una dificultad con la interfaz, la integración o la disponibilidad de datos.
+Después de cada reserva se revisa que la cita exista en el backend. En el historial y los pedidos se revisa que los datos vengan del backend y no sean de demostración. En el acceso por rol se revisa el permiso y si el mensaje que ve el usuario se entiende. Así se sabe si una dificultad viene de la interfaz, de la integración o de los datos.
 
 #### Alcance de la validación de AV2
 
-La sesión registra el cliente, la versión del APK, el dispositivo y la revisión del backend. Las evidencias de Android/Kotlin del primer incremento conservan su alcance histórico. La evaluación de Flutter utiliza una instalación y un recorrido propios, con el modo de datos identificado en cada tarea.
+En cada sesión se anota la aplicación usada, la versión del APK, el dispositivo y el commit del backend. Si se evalúa Flutter, se instala y se recorre por separado de Kotlin.
 
-Se consideran entre tres y cinco participantes de cada segmento. El registro individual reúne nombres y apellidos, edad, distrito, fecha, versión y dispositivo, enlace del video, inicio y duración, captura representativa y resumen de sus comentarios. Las observaciones se relacionan con los hallazgos de usabilidad y se revisan nuevamente sobre la versión corregida.
+Se consideran entre tres y cinco participantes de cada segmento. En el registro de cada participante se anotan nombres y apellidos, edad, distrito, fecha, versión y dispositivo, enlace del video, inicio y duración, captura representativa y resumen de sus comentarios. Sus observaciones se comparan con los problemas de usabilidad ya encontrados y se vuelven a revisar en la versión corregida.
 
 **Cliente, versión y dispositivo usados en AV2:** ____________________.
 
 ### 4.3.2. Registro de entrevistas
 
-Se conserva la evidencia audiovisual de las entrevistas anteriores en el [Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). Para AV2, cada sesión debe asociarse con el cliente y la versión efectivamente probados. La captura y el enlace previos no se consideran por sí solos evidencia de validación del cliente Flutter.
+Los videos de las entrevistas anteriores están en el [Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). En AV2, cada sesión se registra con la aplicación y la versión que se probaron.
 
-**Video de entrevistas de validación:** [evidencia audiovisual en el Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). La Figura 206 conserva la captura histórica; no acredita por sí sola la validación de Flutter.
+**Video de entrevistas de validación:** [evidencia audiovisual en el Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). La Figura 206 es una captura de ese video.
 
 <a id="figura-206"></a>
 
 **Figura 206**
 
-*Captura del video histórico de entrevistas de validación*
+*Captura del video de las entrevistas de validación anteriores*
 
 ![captura entrevistas.png](assets/cap3/entrevistas/captura%20entrevistas.png)
 
 #### Registro de sesiones de AV2
 
-La validación contempla entre tres y cinco entrevistas por segmento. La Tabla 136 reúne los datos de identificación, la versión evaluada y la evidencia audiovisual de cada sesión.
+La validación contempla entre tres y cinco entrevistas por segmento. La Tabla 136 registra los datos del participante, la versión evaluada y el video de cada sesión.
 
 <a id="tabla-136"></a>
 
@@ -2323,7 +2322,7 @@ La validación contempla entre tres y cinco entrevistas por segmento. La Tabla 1
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-La evaluación de OptiFlow considera las diez heurísticas de usabilidad de Jakob Nielsen para las experiencias del paciente y del personal de óptica. Las Tablas 137 y 138 reúnen las observaciones y recomendaciones de los recorridos registrados en la aplicación Android/Kotlin. Las capturas y el detalle de los hallazgos se encuentran en el [Anexo K](Anexos.md#anexo-k-registro-de-evaluación-heurística).
+La evaluación de OptiFlow considera las diez heurísticas de usabilidad de Jakob Nielsen para las experiencias del paciente y del personal de óptica. Las Tablas 137 y 138 muestran las observaciones y recomendaciones de los recorridos en la aplicación Android/Kotlin. Las capturas y el detalle de cada hallazgo están en el [Anexo K](Anexos.md#anexo-k-registro-de-evaluación-heurística).
 
 #### OptiFlow - Pacientes
 
