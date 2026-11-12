@@ -1,0 +1,19 @@
+OptiFlow · Revisión técnica de Sprint 2
+Fecha: 08/11/2026 (America/Lima)
+Backend: develop, 4a1364ed540bfb996c5ce57a9b6246ddd989b98d
+Entorno: copia aislada; código sin cambios; Java 27; release 21; Maven 3.9.14.
+
+Comando: mvn test
+Resultado: BUILD FAILURE en testCompile.
+AuthenticationAuthorizationApiTest.java:83 y :132:
+cannot find symbol: method header(String,String)
+location: interface org.springframework.test.web.servlet.ResultActions
+No se ejecutó la suite. No existe un total de pruebas aprobadas en esta ejecución.
+
+Comando: mvn -Dmaven.test.skip=true package
+Resultado: BUILD SUCCESS; JAR generado; pruebas omitidas.
+Este resultado no acredita aprobación de la suite.
+
+Comprobaciones posteriores: 17 solicitudes HTTP contra localhost:18081 con perfil local/H2.
+Las respuestas se conservan en service-results.json; los tokens se omiten.
+Flutter: prueba status_test.dart identificada; ejecución no realizada por falta de SDK en la revisión.

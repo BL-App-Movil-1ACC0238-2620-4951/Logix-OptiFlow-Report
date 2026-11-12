@@ -1,0 +1,233 @@
+{
+  "fecha": "2026-11-10",
+  "backend_commit": "41bcb448a06abe9aeaf32be9cef46ce2965e30e0",
+  "command": "mvn -B test",
+  "java": "25.0.2",
+  "release": 21,
+  "maven": "3.9.14",
+  "result": "BUILD SUCCESS",
+  "totals": {
+    "tests": 131,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "suite": "com.optiflow.platform.clinical.domain.model.aggregates.ClinicalCommercialRulesTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.442
+    },
+    {
+      "suite": "com.optiflow.platform.clinical.infrastructure.outboundservices.PaymentGatewayAdapterTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 2.725
+    },
+    {
+      "suite": "com.optiflow.platform.clinical.interfaces.rest.CheckoutApiTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 40.325
+    },
+    {
+      "suite": "com.optiflow.platform.clinical.interfaces.rest.ClinicalCommercialApiTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 11.549
+    },
+    {
+      "suite": "com.optiflow.platform.inventory.interfaces.rest.StoreInventoryApiTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 8.715
+    },
+    {
+      "suite": "com.optiflow.platform.notification.application.commandhandlers.SendPushNotificationHandlerTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.306
+    },
+    {
+      "suite": "com.optiflow.platform.notification.application.eventhandlers.BirthdayDiscountSchedulerTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.015
+    },
+    {
+      "suite": "com.optiflow.platform.notification.application.eventhandlers.ScheduledNotificationDispatcherTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.019
+    },
+    {
+      "suite": "com.optiflow.platform.notification.application.services.NotificationApplicationServiceTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.057
+    },
+    {
+      "suite": "com.optiflow.platform.notification.domain.model.aggregates.NotificationAndLoyaltyRulesTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.023
+    },
+    {
+      "suite": "com.optiflow.platform.notification.infrastructure.outboundservices.FirebaseMessagingAdapterTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.925
+    },
+    {
+      "suite": "com.optiflow.platform.notification.infrastructure.persistence.NotificationPersistenceIntegrationTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 7.442
+    },
+    {
+      "suite": "com.optiflow.platform.notification.interfaces.rest.NotificationApiTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.642
+    },
+    {
+      "suite": "com.optiflow.platform.production.domain.model.aggregates.ProductionTrackingRulesTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.032
+    },
+    {
+      "suite": "com.optiflow.platform.production.interfaces.rest.ProductionTrackingApiTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 7.678
+    },
+    {
+      "suite": "com.optiflow.platform.searchbooking.acceptance.SearchBookingAcceptanceTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 10.18
+    },
+    {
+      "suite": "com.optiflow.platform.searchbooking.application.queryservices.GetPatientsByBirthdayQueryServiceTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 5.206
+    },
+    {
+      "suite": "com.optiflow.platform.searchbooking.domain.model.aggregates.AppointmentBookingRulesTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.013
+    },
+    {
+      "suite": "com.optiflow.platform.searchbooking.domain.model.valueobjects.GeoLocationTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.009
+    },
+    {
+      "suite": "com.optiflow.platform.searchbooking.domain.model.valueobjects.PhoneNumberTest",
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.244
+    },
+    {
+      "suite": "com.optiflow.platform.searchbooking.interfaces.rest.assemblers.FromOpticalStoreQueryParamsAssemblerTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.017
+    },
+    {
+      "suite": "com.optiflow.platform.searchbooking.interfaces.rest.SearchAndBookingApiTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 2.258
+    },
+    {
+      "suite": "com.optiflow.platform.shared.infrastructure.documentation.openapi.OpenApiDocumentationTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 4.041
+    },
+    {
+      "suite": "com.optiflow.platform.shared.infrastructure.security.AuthenticationAuthorizationApiTest",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 25.287
+    },
+    {
+      "suite": "com.optiflow.platform.shared.infrastructure.security.JwtTokenServiceTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.016
+    },
+    {
+      "suite": "com.optiflow.platform.shared.infrastructure.seed.DataSeederTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.39
+    },
+    {
+      "suite": "com.optiflow.platform.shared.interfaces.rest.ApiRequestErrorsTest",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.514
+    }
+  ]
+}

@@ -18,12 +18,12 @@ La selección de estos competidores permite contrastar la propuesta de OptiFlow 
 
 ### 2.1.1. Análisis competitivo
 
-El análisis competitivo tiene como objetivo identificar las principales diferencias entre OptiFlow y las soluciones existentes para la gestión de ópticas, permitiendo reconocer oportunidades de diferenciación y establecer estrategias frente a los principales competidores del mercado (ver Tabla 6).
+El análisis competitivo tiene como objetivo identificar las principales diferencias entre OptiFlow y las soluciones existentes para la gestión de ópticas, permitiendo reconocer oportunidades de diferenciación y establecer estrategias frente a los principales competidores del mercado (ver Tabla 7).
 
 
-<a id="tabla-6"></a>
+<a id="tabla-7"></a>
 
-**Tabla 6**
+**Tabla 7**
 
 *Análisis competitivo de OptiFlow frente a SIT-OPTICAL, OptiGestion y OPTOL*
 
@@ -330,11 +330,11 @@ En esta sección presentamos los registros de las entrevistas que hicimos para c
 **Segmento 1: *Staff de la Óptica***
 
 
-El registro de la entrevista 1 del segmento staff de la óptica se presenta en la Tabla 7.
+El registro de la entrevista 1 del segmento staff de la óptica se presenta en la Tabla 8.
 
-<a id="tabla-7"></a>
+<a id="tabla-8"></a>
 
-**Tabla 7**
+**Tabla 8**
 
 *Registro de la entrevista 1 del segmento staff de la óptica*
 
@@ -352,11 +352,11 @@ El registro de la entrevista 1 del segmento staff de la óptica se presenta en l
 | **Resumen** | La entrevista a Liz Guevara evidenció que la óptica tiene una gestión principalmente manual, utilizando celular, redes sociales, Word y Excel para atender a los clientes y administrar el negocio. Sus principales funciones son realizar mediciones visuales, asesorar sobre lentes y concretar ventas, buscando garantizar la satisfacción del paciente. El control de historiales e inventario se realiza manualmente, lo que dificulta obtener reportes precisos. Entre las principales necesidades identificadas están la automatización de recordatorios, mayor publicidad y una aplicación que permita a los clientes consultar el estado de sus pedidos y las monturas disponibles, mejorando la atención y ampliando el alcance del negocio.|
 
 
-El registro de la entrevista 2 del segmento staff de la óptica se resume en la Tabla 8.
+El registro de la entrevista 2 del segmento staff de la óptica se resume en la Tabla 9.
 
-<a id="tabla-8"></a>
+<a id="tabla-9"></a>
 
-**Tabla 8**
+**Tabla 9**
 
 *Registro de la entrevista 2 del segmento staff de la óptica*
 
@@ -374,11 +374,11 @@ El registro de la entrevista 2 del segmento staff de la óptica se resume en la 
 | **Resumen** | La entrevista a Marcos Ruiz evidenció que la óptica utiliza equipos especializados y herramientas digitales para el diagnóstico y registro de pacientes. Cuenta con una base de clientes frecuentes gracias a la calidad del servicio y utiliza un sistema que automatiza recordatorios de citas, controles y seguimiento de pedidos mejorando la organización y rapidez de atención. Entre sus principales objetivos está digitalizar y optimizar aún más los procesos, incorporando herramientas como internet e inteligencia artificial para mejorar la atención, agilizar la gestión e investigación de casos y mantener la competitividad de la óptica.|
 
 
-El registro de la entrevista 3 del segmento staff de la óptica se detalla en la Tabla 9.
+El registro de la entrevista 3 del segmento staff de la óptica se detalla en la Tabla 10.
 
-<a id="tabla-9"></a>
+<a id="tabla-10"></a>
 
-**Tabla 9**
+**Tabla 10**
 
 *Registro de la entrevista 3 del segmento staff de la óptica*
 
@@ -399,11 +399,11 @@ El registro de la entrevista 3 del segmento staff de la óptica se detalla en la
 **Segmento 2: *Clientes de la óptica***
 
 
-El registro de la entrevista 1 del segmento clientes de la óptica se presenta en la Tabla 10.
+El registro de la entrevista 1 del segmento clientes de la óptica se presenta en la Tabla 11.
 
-<a id="tabla-10"></a>
+<a id="tabla-11"></a>
 
-**Tabla 10**
+**Tabla 11**
 
 *Registro de la entrevista 1 del segmento clientes de la óptica*
 
@@ -421,11 +421,11 @@ El registro de la entrevista 1 del segmento clientes de la óptica se presenta e
 | **Resumen** | Azumy es una estudiante universitaria de 20 años y trabajadora a medio tiempo que reside en El Agustino. Pasa aproximadamente 6 horas diarias frente a pantallas y utiliza lentes de visión sencilla debido a la fatiga visual. Valora la buena asesoría y la puntualidad en la entrega por parte de las ópticas. Mostró gran interés en una solución digital que le permita tener su historial y receta a la mano en el teléfono, dado que suele olvidar qué tipo de luna o tratamiento eligió en compras anteriores. Considera muy útil poder rastrear el estado de fabricación de sus lentes mediante un enlace en tiempo real (comparándolo con la logística de Shalom) y acepta recibir recordatorios de renovación vía WhatsApp. Recomienda que la interfaz de cualquier aplicación sea sumamente clara y fácil de entender, especialmente pensando en la accesibilidad para adultos mayores. |
 
 
-El registro de la entrevista 2 del segmento clientes de la óptica se resume en la Tabla 11.
+El registro de la entrevista 2 del segmento clientes de la óptica se resume en la Tabla 12.
 
-<a id="tabla-11"></a>
+<a id="tabla-12"></a>
 
-**Tabla 11**
+**Tabla 12**
 
 *Registro de la entrevista 2 del segmento clientes de la óptica*
 
@@ -443,11 +443,11 @@ El registro de la entrevista 2 del segmento clientes de la óptica se resume en 
 | **Resumen** | Alejandro es un arquitecto soltero de 29 años que reside en Chorrillos. Pasa entre 8 y 9 horas diarias frente a pantallas debido a su trabajo y acude a la óptica con una frecuencia de cada cuatro meses para revisar su graduación visual. Valora principalmente la rapidez en el servicio y la claridad en la comunicación al momento de atenderse. Mostró gran interés en contar con un historial o carné digital en el celular para consultar su receta y tratamientos, ya que no suele recordar con exactitud las especificaciones técnicas de sus lunas anteriores. Considera muy conveniente recibir notificaciones automáticas tanto para el recojo de sus lentes como para recordarle sus controles periódicos, dado que por su rutina laboral suele olvidarlos. Además, valida positivamente poder rastrear el estado de fabricación de sus monturas en tiempo real y destaca que la agilidad en la entrega es el factor determinante para recomendar una óptica a sus conocidos. |
 
 
-El registro de la entrevista 3 del segmento clientes de la óptica se detalla en la Tabla 12.
+El registro de la entrevista 3 del segmento clientes de la óptica se detalla en la Tabla 13.
 
-<a id="tabla-12"></a>
+<a id="tabla-13"></a>
 
-**Tabla 12**
+**Tabla 13**
 
 *Registro de la entrevista 3 del segmento clientes de la óptica*
 
@@ -497,12 +497,12 @@ A partir de las entrevistas y del análisis del servicio óptico se construyeron
 
 **1. Segmento 1: Staff de la Óptica (Administrador y Optómetra)**
 
-Para este segmento se elaboró el User Persona Marcelo Ruiz. Se consideraron factores representativos como su experiencia gestionando la atención en ópticas independientes y medianas, su rol activo realizando evaluaciones refractivas y su responsabilidad directa sobre el inventario y las órdenes de laboratorio. Sus principales frustraciones giran en torno a la dispersión de información en formatos manuales (papel, Excel, chats informales), los descuadres de stock y la falta de trazabilidad cuando los pacientes consultan por el estado de fabricación de sus monturas. Asimismo, se integró su familiaridad con dispositivos móviles para cobranzas y su necesidad crítica de contar con una plataforma *mobile-first* que automatice recordatorios, centralice historias clínicas electrónicas (EHR) y organice el flujo del taller mediante un tablero visual Kanban, sin perder la cercanía ni la calidad del trato humano (ver Figura 7).
+Para este segmento se elaboró el User Persona Marcelo Ruiz. Se consideraron factores representativos como su experiencia gestionando la atención en ópticas independientes y medianas, su rol activo realizando evaluaciones refractivas y su responsabilidad directa sobre el inventario y las órdenes de laboratorio. Sus principales frustraciones giran en torno a la dispersión de información en formatos manuales (papel, Excel, chats informales), los descuadres de stock y la falta de trazabilidad cuando los pacientes consultan por el estado de fabricación de sus monturas. Asimismo, se integró su familiaridad con dispositivos móviles para cobranzas y su necesidad crítica de contar con una plataforma *mobile-first* que automatice recordatorios, centralice historias clínicas electrónicas (EHR) y organice el flujo del taller mediante un tablero visual Kanban, sin perder la cercanía ni la calidad del trato humano (ver Figura 9).
 
 
-<a id="figura-7"></a>
+<a id="figura-9"></a>
 
-**Figura 7**
+**Figura 9**
 
 *User Persona Marcelo Ruiz del segmento staff de la óptica*
 
@@ -515,12 +515,12 @@ Para este segmento se elaboró el User Persona Marcelo Ruiz. Se consideraron fac
 
 **2. Segmento 2: Clientes de la Óptica (Paciente Frecuente)**
 
-Para este segmento se elaboró el User Persona Valeria Morales. Se consideraron aspectos como su estilo de vida digital acelerado, su alta exposición diaria a pantallas de trabajo y estudio (entre 6 y 9 horas) y su necesidad periódica de renovar lentes o mitigar la fatiga visual. Sus motivaciones se orientan a optimizar su tiempo y tener control autónomo sobre su salud visual. Entre sus frustraciones destacan el olvido recurrente de las especificaciones técnicas de compras anteriores (fórmulas, tipos de lunas y tratamientos), la incertidumbre respecto a las fechas reales de entrega de sus pedidos y la falta de cumplimiento en los tiempos pactados por el establecimiento. Su perfil refleja una necesidad esencial de disponer de un carné o receta clínica accesible desde el smartphone, así como de recibir notificaciones oportunas vía WhatsApp y herramientas de rastreo en tiempo real para el recojo de sus lentes (ver Figura 8).
+Para este segmento se elaboró el User Persona Valeria Morales. Se consideraron aspectos como su estilo de vida digital acelerado, su alta exposición diaria a pantallas de trabajo y estudio (entre 6 y 9 horas) y su necesidad periódica de renovar lentes o mitigar la fatiga visual. Sus motivaciones se orientan a optimizar su tiempo y tener control autónomo sobre su salud visual. Entre sus frustraciones destacan el olvido recurrente de las especificaciones técnicas de compras anteriores (fórmulas, tipos de lunas y tratamientos), la incertidumbre respecto a las fechas reales de entrega de sus pedidos y la falta de cumplimiento en los tiempos pactados por el establecimiento. Su perfil refleja una necesidad esencial de disponer de un carné o receta clínica accesible desde el smartphone, así como de recibir notificaciones oportunas vía WhatsApp y herramientas de rastreo en tiempo real para el recojo de sus lentes (ver Figura 10).
 
 
-<a id="figura-8"></a>
+<a id="figura-10"></a>
 
-**Figura 8**
+**Figura 10**
 
 *User Persona Valeria Morales del segmento clientes de la óptica*
 
@@ -531,12 +531,12 @@ Para este segmento se elaboró el User Persona Valeria Morales. Se consideraron 
 
 ### 2.3.2. User Task Matrix
 
-La User Task Matrix compara las tareas de los dos arquetipos según su frecuencia e importancia, independientemente de que utilicen OptiFlow. Esta relación permite reconocer actividades prioritarias para el personal y el paciente y justificar dónde la propuesta puede aportar mayor valor (ver Tabla 13).
+La User Task Matrix compara las tareas de los dos arquetipos según su frecuencia e importancia, independientemente de que utilicen OptiFlow. Esta relación permite reconocer actividades prioritarias para el personal y el paciente y justificar dónde la propuesta puede aportar mayor valor (ver Tabla 14).
 
 
-<a id="tabla-13"></a>
+<a id="tabla-14"></a>
 
-**Tabla 13**
+**Tabla 14**
 
 *User Task Matrix de los segmentos objetivo*
 
@@ -610,12 +610,12 @@ El User Journey Mapping representa las etapas del servicio óptico y las expecta
 
 **1. Segmento 1: Staff de la Óptica (Marcelo Ruiz)**
 
-A continuación, se detalla el recorrido operativo de Marcelo Ruiz, reflejando las dificultades asociadas a la gestión manual de historiales, la verificación física de inventario y la falta de trazabilidad con el laboratorio, junto con las oportunidades de automatización que ofrece la plataforma móvil (ver Figura 9).
+A continuación, se detalla el recorrido operativo de Marcelo Ruiz, reflejando las dificultades asociadas a la gestión manual de historiales, la verificación física de inventario y la falta de trazabilidad con el laboratorio, junto con las oportunidades de automatización que ofrece la plataforma móvil (ver Figura 11).
 
 
-<a id="figura-9"></a>
+<a id="figura-11"></a>
 
-**Figura 9**
+**Figura 11**
 
 *User Journey Map del segmento staff de la óptica*
 
@@ -628,12 +628,12 @@ A continuación, se detalla el recorrido operativo de Marcelo Ruiz, reflejando l
 
 **2. Segmento 2: Clientes de la Óptica (Valeria Morales)**
 
-El recorrido de Valeria Morales abarca desde la necesidad de atención visual hasta el recojo y uso de sus lentes. El mapa identifica la incertidumbre sobre los plazos y el acceso a la información clínica, y propone notificaciones y seguimiento del pedido como oportunidades para mejorar esa experiencia (ver Figura 10).
+El recorrido de Valeria Morales abarca desde la necesidad de atención visual hasta el recojo y uso de sus lentes. El mapa identifica la incertidumbre sobre los plazos y el acceso a la información clínica, y propone notificaciones y seguimiento del pedido como oportunidades para mejorar esa experiencia (ver Figura 12).
 
 
-<a id="figura-10"></a>
+<a id="figura-12"></a>
 
-**Figura 10**
+**Figura 12**
 
 *User Journey Map del segmento clientes de la óptica*
 
@@ -648,12 +648,12 @@ El Empathy Mapping es una herramienta de diseño centrada en el usuario que perm
 
 **1. Segmento 1: Staff de la Óptica (Marcelo Ruiz)**
 
-A continuación, se presenta el mapa de empatía de Marcelo Ruiz, sintetizando su perspectiva operativa como optómetra y administrador frente a las limitaciones de los registros manuales y su necesidad de trazabilidad clínica y logística (ver Figura 11).
+A continuación, se presenta el mapa de empatía de Marcelo Ruiz, sintetizando su perspectiva operativa como optómetra y administrador frente a las limitaciones de los registros manuales y su necesidad de trazabilidad clínica y logística (ver Figura 13).
 
 
-<a id="figura-11"></a>
+<a id="figura-13"></a>
 
-**Figura 11**
+**Figura 13**
 
 *Empathy Map del segmento staff de la óptica*
 
@@ -666,12 +666,12 @@ A continuación, se presenta el mapa de empatía de Marcelo Ruiz, sintetizando s
 
 **2. Segmento 2: Clientes de la Óptica (Valeria Morales)**
 
-Se detalla el mapa de empatía de Valeria Morales, reflejando su experiencia como paciente digital, su frustración ante la incertidumbre en los plazos de entrega y su expectativa de autonomía sobre su historial médico visual (ver Figura 12).
+Se detalla el mapa de empatía de Valeria Morales, reflejando su experiencia como paciente digital, su frustración ante la incertidumbre en los plazos de entrega y su expectativa de autonomía sobre su historial médico visual (ver Figura 14).
 
 
-<a id="figura-12"></a>
+<a id="figura-14"></a>
 
-**Figura 12**
+**Figura 14**
 
 *Empathy Map del segmento clientes de la óptica*
 
@@ -694,11 +694,11 @@ El desarrollo del taller se estructuró en fases iterativas orientadas a constru
 A continuación, la primera vista del tablero expone la recolección exhaustiva de los veintiocho eventos de dominio ordenados cronológicamente a lo largo de la línea temporal:
 
 
-La Recolección y orden cronológico de eventos de dominio en el Big Picture EventStorming se presenta en la Figura 13.
+La Recolección y orden cronológico de eventos de dominio en el Big Picture EventStorming se presenta en la Figura 15.
 
-<a id="figura-13"></a>
+<a id="figura-15"></a>
 
-**Figura 13**
+**Figura 15**
 
 *Recolección y orden cronológico de eventos de dominio en el Big Picture EventStorming*
 
@@ -712,11 +712,11 @@ La Recolección y orden cronológico de eventos de dominio en el Big Picture Eve
 Complementariamente, la segunda vista del tablero detalla la distribución de los eventos a lo largo de los carriles funcionales de actores, dividiendo el flujo en tres macro-etapas operativas y explicitando los cuatro puntos críticos descubiertos durante el taller:
 
 
-Los Carriles de actores, etapas del proceso y puntos críticos en el Big Picture EventStorming se observan en la Figura 14.
+Los Carriles de actores, etapas del proceso y puntos críticos en el Big Picture EventStorming se observan en la Figura 16.
 
-<a id="figura-14"></a>
+<a id="figura-16"></a>
 
-**Figura 14**
+**Figura 16**
 
 *Carriles de actores, etapas del proceso y puntos críticos en el Big Picture EventStorming*
 
@@ -752,12 +752,12 @@ Las fronteras funcionales y semánticas descubiertas durante el Big Picture Even
 
 ### 2.3.6. Ubiquitous Language
 
-El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre los expertos del dominio (personal de óptica y pacientes) y el equipo de ingeniería de software. Su objetivo es eliminar la ambigüedad terminológica en el código, las historias de usuario y las interfaces de OptiFlow (ver Tabla 14).
+El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre los expertos del dominio (personal de óptica y pacientes) y el equipo de ingeniería de software. Su objetivo es eliminar la ambigüedad terminológica en el código, las historias de usuario y las interfaces de OptiFlow (ver Tabla 15).
 
 
-<a id="tabla-14"></a>
+<a id="tabla-15"></a>
 
-**Tabla 14**
+**Tabla 15**
 
 *Ubiquitous Language de OptiFlow*
 
@@ -842,12 +842,12 @@ El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre 
 
 ### 2.4.1. User Stories
 
-Esta sección presenta las historias de usuario de **OptiFlow** para los procesos de búsqueda y reserva, atención optométrica, gestión comercial y seguimiento de pedidos. Cada historia expresa una necesidad desde el rol que la realiza y sirve de referencia para priorizar el Product Backlog. El alcance seleccionado para el Sprint 1 se detalla en el capítulo IV (ver Tabla 15).
+Esta sección presenta las historias de usuario de **OptiFlow** para los procesos de búsqueda y reserva, atención optométrica, gestión comercial y seguimiento de pedidos. Cada historia expresa una necesidad desde el rol que la realiza y sirve de referencia para priorizar el Product Backlog. El alcance seleccionado para el Sprint 1 se detalla en el capítulo IV (ver Tabla 16).
 
 
-<a id="tabla-15"></a>
+<a id="tabla-16"></a>
 
-**Tabla 15**
+**Tabla 16**
 
 *User Stories de OptiFlow*
 
@@ -882,11 +882,11 @@ El Impact Mapping es una herramienta que nos permitió estructurar y visualizar 
 ***IMPACT MAPPING 1***
 
 
-El Impact Map del segmento staff de la óptica se muestra en la Figura 15.
+El Impact Map del segmento staff de la óptica se muestra en la Figura 17.
 
-<a id="figura-15"></a>
+<a id="figura-17"></a>
 
-**Figura 15**
+**Figura 17**
 
 *Impact Map del segmento staff de la óptica*
 
@@ -897,11 +897,11 @@ El Impact Map del segmento staff de la óptica se muestra en la Figura 15.
 ***IMPACT MAPPING 2***
 
 
-El Impact Map del segmento clientes de la óptica se presenta en la Figura 16.
+El Impact Map del segmento clientes de la óptica se presenta en la Figura 18.
 
-<a id="figura-16"></a>
+<a id="figura-18"></a>
 
-**Figura 16**
+**Figura 18**
 
 *Impact Map del segmento clientes de la óptica*
 
@@ -911,12 +911,12 @@ El Impact Map del segmento clientes de la óptica se presenta en la Figura 16.
 
 ### 2.4.3. Product Backlog
 
-El backlog relaciona las historias con su prioridad y estimación para organizar los incrementos. El [Anexo G](Anexos.md#anexo-g-product-backlog) resume este artefacto; el compromiso de US05 y US06 para TB1 se desarrolla en el Sprint 1 del capítulo IV (ver Tabla 16).
+El backlog relaciona las historias con su prioridad y estimación para organizar los incrementos. El [Anexo G](Anexos.md#anexo-g-product-backlog) resume este artefacto; el compromiso de US05 y US06 para TB1 se desarrolla en el Sprint 1 del capítulo IV (ver Tabla 17).
 
 
-<a id="tabla-16"></a>
+<a id="tabla-17"></a>
 
-**Tabla 16**
+**Tabla 17**
 
 *Product Backlog de OptiFlow*
 
@@ -960,23 +960,23 @@ El proceso se documenta a partir de los tableros existentes y de las necesidades
 5. **Analizar puntos de fricción.** Se relacionan los problemas de inasistencia, dispersión de la información clínica, diferencias de inventario e incertidumbre de entrega con la etapa afectada. Los problemas detectados orientan requisitos e hipótesis.
 6. **Proponer fronteras y validar vocabulario.** Se agrupan reglas e información que cambian por motivos similares, obteniendo los cinco contextos candidatos. Los mensajes que cruzan estas fronteras se especifican en 2.5.1.2 y las responsabilidades, supuestos y reglas de cada contexto se amplían en 2.5.1.3. El Context Map documenta las relaciones entre esos módulos.
 
-El [Anexo A](Anexos.md#anexo-a-eventstorming-del-dominio-de-optiflow) conserva la evidencia del tablero; el [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los contextos resultantes. Las cuatro zonas de fricción descritas en 2.3.5 sirven como referencia para revisar la relación entre entrevistas, eventos y requisitos (ver Figura 17).
+El [Anexo A](Anexos.md#anexo-a-eventstorming-del-dominio-de-optiflow) conserva la evidencia del tablero; el [Anexo B](Anexos.md#anexo-b-bounded-contexts-identificados) resume los contextos resultantes. Las cuatro zonas de fricción descritas en 2.3.5 sirven como referencia para revisar la relación entre entrevistas, eventos y requisitos (ver Figura 19).
 
 
-<a id="figura-17"></a>
+<a id="figura-19"></a>
 
-**Figura 17**
+**Figura 19**
 
 *Recolección y orden de eventos del EventStorming en los pasos 1 a 3*
 
 ![Event-Storming pasos 1-3.jpg](assets/cap2/DDD/Event-Storming%20pasos%201-3.jpg)
 
 
-El resultado final del EventStorming con los contextos candidatos se observa en la Figura 18.
+El resultado final del EventStorming con los contextos candidatos se observa en la Figura 20.
 
-<a id="figura-18"></a>
+<a id="figura-20"></a>
 
-**Figura 18**
+**Figura 20**
 
 *Resultado final del EventStorming con los contextos candidatos*
 
@@ -1009,13 +1009,13 @@ Los diagramas utilizan la siguiente notación, que se repite en la leyenda de ca
 - **Mensajes:** tarjetas con un número que indica el orden en que ocurren: celeste para los comandos, naranja para los eventos y verde para las consultas. La cabecera de cada tarjeta lleva el nombre del mensaje y la parte inferior, los datos que transporta; en las consultas se distinguen los datos de la solicitud (Req) y de la respuesta (Res).
 - **Dirección del mensaje:** flecha punteada que va del emisor al receptor. Cada mensaje se ubica junto a la flecha que lo transporta.
 
-Los diagramas solo muestran los mensajes que viajan entre participantes. Lo que cada contexto hace internamente al recibir un evento se resume en la Tabla 17.
+Los diagramas solo muestran los mensajes que viajan entre participantes. Lo que cada contexto hace internamente al recibir un evento se resume en la Tabla 18.
 
-La Tabla 17 resume los eventos que conectan a los Bounded Contexts y el comando que ejecuta cada contexto al recibirlos.
+La Tabla 18 resume los eventos que conectan a los Bounded Contexts y el comando que ejecuta cada contexto al recibirlos.
 
-<a id="tabla-17"></a>
+<a id="tabla-18"></a>
 
-**Tabla 17**
+**Tabla 18**
 
 *Eventos entre Bounded Contexts y comandos que desencadenan*
 
@@ -1033,11 +1033,11 @@ La tabla solo incluye eventos. Los dos sistemas externos participan en los escen
 
 **Escenario 1: Búsqueda y reserva de cita**
 
-El paciente busca una óptica desde App OptiFlow y consulta sus horarios disponibles mediante las consultas `SearchOpticalStores` y `GetAvailableTimeSlots`, cuyas notas muestran los datos enviados (Req) y recibidos (Res). Al elegir un horario, la aplicación envía el comando `BookAppointment` a Search & Booking, que registra la cita y publica el evento `AppointmentBooked` hacia Clinical & Commercial y Notification & Loyalty, como se muestra en la Figura 19. Al recibirlo, Clinical & Commercial abre el expediente clínico de la atención (`ExaminePatient`) y Notification & Loyalty programa el recordatorio de la cita (`ScheduleAppointmentReminder`), que se envía como notificación push antes de la atención.
+El paciente busca una óptica desde App OptiFlow y consulta sus horarios disponibles mediante las consultas `SearchOpticalStores` y `GetAvailableTimeSlots`, cuyas notas muestran los datos enviados (Req) y recibidos (Res). Al elegir un horario, la aplicación envía el comando `BookAppointment` a Search & Booking, que registra la cita y publica el evento `AppointmentBooked` hacia Clinical & Commercial y Notification & Loyalty, como se muestra en la Figura 21. Al recibirlo, Clinical & Commercial abre el expediente clínico de la atención (`ExaminePatient`) y Notification & Loyalty programa el recordatorio de la cita (`ScheduleAppointmentReminder`), que se envía como notificación push antes de la atención.
 
-<a id="figura-19"></a>
+<a id="figura-21"></a>
 
-**Figura 19**
+**Figura 21**
 
 *Domain Message Flow del escenario de búsqueda y reserva de cita*
 
@@ -1047,11 +1047,11 @@ El paciente busca una óptica desde App OptiFlow y consulta sus horarios disponi
 
 **Escenario 2: Atención clínica del paciente**
 
-El optómetra consulta los registros clínicos previos del paciente (`GetClinicalRecordsByPatientId`) y registra la atención (`RegisterClinicalRecord`). Para hacerlo, Clinical & Commercial consulta a Search & Booking la cita reservada (`GetAppointment`) y confirma a qué paciente pertenece y que no fue cancelada. Luego, el optómetra registra la historia médica y la receta óptica (`RecordMedicalHistory` y `GenerateOpticalPrescription`), como se muestra en la Figura 20.
+El optómetra consulta los registros clínicos previos del paciente (`GetClinicalRecordsByPatientId`) y registra la atención (`RegisterClinicalRecord`). Para hacerlo, Clinical & Commercial consulta a Search & Booking la cita reservada (`GetAppointment`) y confirma a qué paciente pertenece y que no fue cancelada. Luego, el optómetra registra la historia médica y la receta óptica (`RecordMedicalHistory` y `GenerateOpticalPrescription`), como se muestra en la Figura 22.
 
-<a id="figura-20"></a>
+<a id="figura-22"></a>
 
-**Figura 20**
+**Figura 22**
 
 *Domain Message Flow del escenario de atención clínica del paciente*
 
@@ -1061,11 +1061,11 @@ El optómetra consulta los registros clínicos previos del paciente (`GetClinica
 
 **Escenario 3: Cotización y venta**
 
-El asesor comercial genera la cotización a partir de la receta, la aprueba con el paciente y registra la venta (`GenerateQuotation`, `ApproveQuotation` y `RegisterSale`), que queda pendiente de pago. El paciente paga desde App OptiFlow: la aplicación solicita la preferencia de pago (`CreatePaymentPreference`), Clinical & Commercial la crea en la Pasarela de Pagos y devuelve el enlace de pago, y el paciente paga con tarjeta o Yape en la página de la pasarela. La pasarela notifica el resultado al backend (`PaymentNotification`); si el pago fue aprobado, Clinical & Commercial lo registra (`RecordPayment`) y publica `PaymentRecorded`. Luego, el asesor cierra la venta (`CloseSale`); solo una venta pagada puede cerrarse. El cierre publica el evento `SaleWasClosed` hacia Production & Tracking y Store Management & Inventory, como se muestra en la Figura 21. Al recibirlo, Production & Tracking genera la orden de trabajo de los lentes (`GenerateWorkOrder`) y Store Management & Inventory descuenta del stock los productos vendidos (`UpdateInventory`). Para preparar la orden, Production & Tracking consulta a Clinical & Commercial la venta cerrada (`GetClosedSale`) y obtiene las especificaciones de las lunas.
+El asesor comercial genera la cotización a partir de la receta, la aprueba con el paciente y registra la venta (`GenerateQuotation`, `ApproveQuotation` y `RegisterSale`), que queda pendiente de pago. El paciente paga desde App OptiFlow: la aplicación solicita la preferencia de pago (`CreatePaymentPreference`), Clinical & Commercial la crea en la Pasarela de Pagos y devuelve el enlace de pago, y el paciente paga con tarjeta o Yape en la página de la pasarela. La pasarela notifica el resultado al backend (`PaymentNotification`); si el pago fue aprobado, Clinical & Commercial lo registra (`RecordPayment`) y publica `PaymentRecorded`. Luego, el asesor cierra la venta (`CloseSale`); solo una venta pagada puede cerrarse. El cierre publica el evento `SaleWasClosed` hacia Production & Tracking y Store Management & Inventory, como se muestra en la Figura 23. Al recibirlo, Production & Tracking genera la orden de trabajo de los lentes (`GenerateWorkOrder`) y Store Management & Inventory descuenta del stock los productos vendidos (`UpdateInventory`). Para preparar la orden, Production & Tracking consulta a Clinical & Commercial la venta cerrada (`GetClosedSale`) y obtiene las especificaciones de las lunas.
 
-<a id="figura-21"></a>
+<a id="figura-23"></a>
 
-**Figura 21**
+**Figura 23**
 
 *Domain Message Flow del escenario de cotización y venta*
 
@@ -1076,11 +1076,11 @@ El asesor comercial genera la cotización a partir de la receta, la aprueba con 
 
 **Escenario 4: Avance de la producción**
 
-El técnico de laboratorio asigna la orden de trabajo, la envía al laboratorio y actualiza su estado a medida que avanza la fabricación (`AssignWorkOrderToTechnician`, `SendWorkOrderToLaboratory` y `UpdateWorkOrderStatus`). Cada cambio de estado publica el evento `WorkOrderStatusUpdated` hacia Notification & Loyalty, que registra el aviso de avance (`NotifyLensOrderProgress`) y lo envía como notificación push al dispositivo del paciente mediante Firebase Cloud Messaging (`SendPushNotification`). Luego, el paciente revisa sus avisos desde App OptiFlow mediante la consulta `GetNotificationsByPatient`, como se muestra en la Figura 22.
+El técnico de laboratorio asigna la orden de trabajo, la envía al laboratorio y actualiza su estado a medida que avanza la fabricación (`AssignWorkOrderToTechnician`, `SendWorkOrderToLaboratory` y `UpdateWorkOrderStatus`). Cada cambio de estado publica el evento `WorkOrderStatusUpdated` hacia Notification & Loyalty, que registra el aviso de avance (`NotifyLensOrderProgress`) y lo envía como notificación push al dispositivo del paciente mediante Firebase Cloud Messaging (`SendPushNotification`). Luego, el paciente revisa sus avisos desde App OptiFlow mediante la consulta `GetNotificationsByPatient`, como se muestra en la Figura 24.
 
-<a id="figura-22"></a>
+<a id="figura-24"></a>
 
-**Figura 22**
+**Figura 24**
 
 *Domain Message Flow del escenario de avance de la producción*
 
@@ -1091,11 +1091,11 @@ El técnico de laboratorio asigna la orden de trabajo, la envía al laboratorio 
 
 **Escenario 5: Demora en la entrega**
 
-Si la fabricación se retrasa, el técnico registra la demora con su motivo y la nueva fecha estimada de entrega (`NotifyDeliveryDelay`). Production & Tracking publica el evento `DeliveryDelayNotified` hacia Notification & Loyalty, que registra el aviso de demora (`SendDeliveryDelayNotification`) y lo envía como notificación push mediante Firebase Cloud Messaging (`SendPushNotification`). El paciente consulta ese aviso desde App OptiFlow mediante `GetNotificationsByPatient`, como se muestra en la Figura 23.
+Si la fabricación se retrasa, el técnico registra la demora con su motivo y la nueva fecha estimada de entrega (`NotifyDeliveryDelay`). Production & Tracking publica el evento `DeliveryDelayNotified` hacia Notification & Loyalty, que registra el aviso de demora (`SendDeliveryDelayNotification`) y lo envía como notificación push mediante Firebase Cloud Messaging (`SendPushNotification`). El paciente consulta ese aviso desde App OptiFlow mediante `GetNotificationsByPatient`, como se muestra en la Figura 25.
 
-<a id="figura-23"></a>
+<a id="figura-25"></a>
 
-**Figura 23**
+**Figura 25**
 
 *Domain Message Flow del escenario de demora en la entrega*
 
@@ -1106,11 +1106,11 @@ Si la fabricación se retrasa, el técnico registra la demora con su motivo y la
 
 **Escenario 6: Entrega del pedido y encuesta de satisfacción**
 
-Cuando el paciente recoge sus lentes, el técnico marca la orden de trabajo como entregada (`MarkOrderAsDelivered`). Production & Tracking publica el evento `OrderWasMarkedAsDelivered` hacia Notification & Loyalty, que registra la encuesta de satisfacción (`SendSatisfactionSurvey`) y la envía como notificación push mediante Firebase Cloud Messaging (`SendPushNotification`). El paciente consulta la encuesta desde App OptiFlow mediante `GetNotificationsByPatient` y la responde con una calificación de 1 a 5 y un comentario opcional (`AnswerSatisfactionSurvey`), como se muestra en la Figura 24.
+Cuando el paciente recoge sus lentes, el técnico marca la orden de trabajo como entregada (`MarkOrderAsDelivered`). Production & Tracking publica el evento `OrderWasMarkedAsDelivered` hacia Notification & Loyalty, que registra la encuesta de satisfacción (`SendSatisfactionSurvey`) y la envía como notificación push mediante Firebase Cloud Messaging (`SendPushNotification`). El paciente consulta la encuesta desde App OptiFlow mediante `GetNotificationsByPatient` y la responde con una calificación de 1 a 5 y un comentario opcional (`AnswerSatisfactionSurvey`), como se muestra en la Figura 26.
 
-<a id="figura-24"></a>
+<a id="figura-26"></a>
 
-**Figura 24**
+**Figura 26**
 
 *Domain Message Flow del escenario de entrega del pedido y encuesta de satisfacción*
 
@@ -1126,11 +1126,11 @@ En esta sección se formalizan los Bounded Context Canvases para cada uno de los
 **Canvas 1: Search & Booking Context**
 
 
-El Bounded Context Canvas del Search & Booking Context se detalla en la Tabla 18.
+El Bounded Context Canvas del Search & Booking Context se detalla en la Tabla 19.
 
-<a id="tabla-18"></a>
+<a id="tabla-19"></a>
 
-**Tabla 18**
+**Tabla 19**
 
 *Bounded Context Canvas del Search & Booking Context*
 
@@ -1147,11 +1147,11 @@ El Bounded Context Canvas del Search & Booking Context se detalla en la Tabla 18
 **Canvas 2: Clinical & Commercial Context**
 
 
-El Bounded Context Canvas del Clinical & Commercial Context se presenta en la Tabla 19.
+El Bounded Context Canvas del Clinical & Commercial Context se presenta en la Tabla 20.
 
-<a id="tabla-19"></a>
+<a id="tabla-20"></a>
 
-**Tabla 19**
+**Tabla 20**
 
 *Bounded Context Canvas del Clinical & Commercial Context*
 
@@ -1168,11 +1168,11 @@ El Bounded Context Canvas del Clinical & Commercial Context se presenta en la Ta
 **Canvas 3: Production & Tracking Context**
 
 
-El Bounded Context Canvas del Production & Tracking Context se resume en la Tabla 20.
+El Bounded Context Canvas del Production & Tracking Context se resume en la Tabla 21.
 
-<a id="tabla-20"></a>
+<a id="tabla-21"></a>
 
-**Tabla 20**
+**Tabla 21**
 
 *Bounded Context Canvas del Production & Tracking Context*
 
@@ -1189,11 +1189,11 @@ El Bounded Context Canvas del Production & Tracking Context se resume en la Tabl
 **Canvas 4: Notification & Loyalty Context**
 
 
-El Bounded Context Canvas del Notification & Loyalty Context se detalla en la Tabla 21.
+El Bounded Context Canvas del Notification & Loyalty Context se detalla en la Tabla 22.
 
-<a id="tabla-21"></a>
+<a id="tabla-22"></a>
 
-**Tabla 21**
+**Tabla 22**
 
 *Bounded Context Canvas del Notification & Loyalty Context*
 
@@ -1210,11 +1210,11 @@ El Bounded Context Canvas del Notification & Loyalty Context se detalla en la Ta
 **Canvas 5: Store Management & Inventory Context**
 
 
-El Bounded Context Canvas del Store Management & Inventory Context se presenta en la Tabla 22.
+El Bounded Context Canvas del Store Management & Inventory Context se presenta en la Tabla 23.
 
-<a id="tabla-22"></a>
+<a id="tabla-23"></a>
 
-**Tabla 22**
+**Tabla 23**
 
 *Bounded Context Canvas del Store Management & Inventory Context*
 
@@ -1234,55 +1234,55 @@ Los canvases muestran el diseño integral del dominio. Para el modelo físico vi
 
 Los siguientes canvases complementan las tablas anteriores con propósito, reglas de negocio, supuestos, criterios de verificación y decisiones pendientes. Se basan en [DDD Crew: Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas) (DDD Crew, s. f.-a). La comunicación se clasifica como consulta, comando o evento según su efecto. En particular, buscar, filtrar y explorar son consultas; no requieren publicar eventos de negocio solo por recuperar información.
 
-**Search & Booking.** Facilitar que el paciente encuentre una óptica y reserve un horario disponible. Regla destacada: No duplicar reservas sobre la misma disponibilidad. Exigir datos válidos del paciente, sucursal y horario. Una consulta no crea una reserva (ver Figura 25).
-
-
-<a id="figura-25"></a>
-
-**Figura 25**
-
-*Bounded Context Canvas del Search & Booking Context*
-![canvas-search-booking.png](assets/cap2/bounded-context-canvases/canvas-search-booking.png)
-
-**Clinical & Commercial.** Organizar la evaluación visual y transformar una cotización aprobada en una venta trazable. Regla destacada: Solo una cotización aprobada genera una venta; máximo una venta por cotización. Registrar pago antes del cierre. Cada venta tiene como máximo un comprobante (ver Figura 26).
-
-
-<a id="figura-26"></a>
-
-**Figura 26**
-
-*Bounded Context Canvas del Clinical & Commercial Context*
-![canvas-clinical-commercial.png](assets/cap2/bounded-context-canvases/canvas-clinical-commercial.png)
-
-
-**Production & Tracking.** Coordinar la fabricación y facilitar el seguimiento de cada orden hasta su entrega. Regla destacada: Vincular la orden con una venta cerrada. Respetar las transiciones válidas. Comunicar cambios sin delegar a notificaciones la decisión del estado (ver Figura 27).
+**Search & Booking.** Facilitar que el paciente encuentre una óptica y reserve un horario disponible. Regla destacada: No duplicar reservas sobre la misma disponibilidad. Exigir datos válidos del paciente, sucursal y horario. Una consulta no crea una reserva (ver Figura 27).
 
 
 <a id="figura-27"></a>
 
 **Figura 27**
 
-*Bounded Context Canvas del Production & Tracking Context*
-![canvas-production-tracking.png](assets/cap2/bounded-context-canvases/canvas-production-tracking.png)
+*Bounded Context Canvas del Search & Booking Context*
+![canvas-search-booking.png](assets/cap2/bounded-context-canvases/canvas-search-booking.png)
 
-
-**Notification & Loyalty.** Comunicar hitos relevantes al paciente y apoyar el seguimiento posterior a la atención. Regla destacada: Respetar el permiso de notificaciones del dispositivo. Evitar duplicados. El estado de fabricación pertenece a producción; este contexto lo comunica (ver Figura 28).
+**Clinical & Commercial.** Organizar la evaluación visual y transformar una cotización aprobada en una venta trazable. Regla destacada: Solo una cotización aprobada genera una venta; máximo una venta por cotización. Registrar pago antes del cierre. Cada venta tiene como máximo un comprobante (ver Figura 28).
 
 
 <a id="figura-28"></a>
 
 **Figura 28**
 
-*Bounded Context Canvas del Notification & Loyalty Context*
-![canvas-notification-loyalty.png](assets/cap2/bounded-context-canvases/canvas-notification-loyalty.png)
+*Bounded Context Canvas del Clinical & Commercial Context*
+![canvas-clinical-commercial.png](assets/cap2/bounded-context-canvases/canvas-clinical-commercial.png)
 
 
-**Store Management & Inventory.** Mantener el catálogo, las existencias y la información operativa de la óptica. Regla destacada: Consultar stock no lo modifica. Registrar movimientos con producto y cantidad. Evitar existencias negativas y movimientos duplicados (ver Figura 29).
+**Production & Tracking.** Coordinar la fabricación y facilitar el seguimiento de cada orden hasta su entrega. Regla destacada: Vincular la orden con una venta cerrada. Respetar las transiciones válidas. Comunicar cambios sin delegar a notificaciones la decisión del estado (ver Figura 29).
 
 
 <a id="figura-29"></a>
 
 **Figura 29**
+
+*Bounded Context Canvas del Production & Tracking Context*
+![canvas-production-tracking.png](assets/cap2/bounded-context-canvases/canvas-production-tracking.png)
+
+
+**Notification & Loyalty.** Comunicar hitos relevantes al paciente y apoyar el seguimiento posterior a la atención. Regla destacada: Respetar el permiso de notificaciones del dispositivo. Evitar duplicados. El estado de fabricación pertenece a producción; este contexto lo comunica (ver Figura 30).
+
+
+<a id="figura-30"></a>
+
+**Figura 30**
+
+*Bounded Context Canvas del Notification & Loyalty Context*
+![canvas-notification-loyalty.png](assets/cap2/bounded-context-canvases/canvas-notification-loyalty.png)
+
+
+**Store Management & Inventory.** Mantener el catálogo, las existencias y la información operativa de la óptica. Regla destacada: Consultar stock no lo modifica. Registrar movimientos con producto y cantidad. Evitar existencias negativas y movimientos duplicados (ver Figura 31).
+
+
+<a id="figura-31"></a>
+
+**Figura 31**
 
 *Bounded Context Canvas del Store Management & Inventory Context*
 ![canvas-store-inventory.png](assets/cap2/bounded-context-canvases/canvas-store-inventory.png)
@@ -1302,11 +1302,11 @@ En el mapa se emplean los siguientes patrones de Domain-Driven Design:
 
 ##### Análisis de alternativas
 
-El primer diseño candidato incluía los cinco Bounded Contexts y dos sistemas externos: una pasarela de pagos (POS, tarjeta y billeteras móviles) conectada a Clinical & Commercial y una plataforma de mensajería (WhatsApp y Firebase Cloud Messaging) conectada a Notification & Loyalty. A partir de ese diseño, el equipo evaluó alternativas de diseño mediante preguntas sobre la ubicación de cada capacidad y la forma de integración entre contextos. Para cada alternativa se analizaron sus consecuencias y se tomó una decisión, como se resume en la Tabla 23.
+El primer diseño candidato incluía los cinco Bounded Contexts y dos sistemas externos: una pasarela de pagos (POS, tarjeta y billeteras móviles) conectada a Clinical & Commercial y una plataforma de mensajería (WhatsApp y Firebase Cloud Messaging) conectada a Notification & Loyalty. A partir de ese diseño, el equipo evaluó alternativas de diseño mediante preguntas sobre la ubicación de cada capacidad y la forma de integración entre contextos. Para cada alternativa se analizaron sus consecuencias y se tomó una decisión, como se resume en la Tabla 24.
 
-<a id="tabla-23"></a>
+<a id="tabla-24"></a>
 
-**Tabla 23**
+**Tabla 24**
 
 *Alternativas evaluadas para el Context Mapping de OptiFlow*
 
@@ -1324,11 +1324,11 @@ El primer diseño candidato incluía los cinco Bounded Contexts y dos sistemas e
 
 ##### Context map final
 
-Como resultado del análisis, el context map final conserva los cinco Bounded Contexts y dos sistemas externos, la Pasarela de Pagos y Firebase Cloud Messaging, con siete relaciones: cinco basadas en eventos de dominio entre contextos y dos con los sistemas externos, como se muestra en la Figura 30. Los contextos core aparecen en azul, los contextos supporting en naranja y los sistemas externos en gris; en cada extremo de una relación se indica el rol upstream (U) o downstream (D) y los patrones que aplica.
+Como resultado del análisis, el context map final conserva los cinco Bounded Contexts y dos sistemas externos, la Pasarela de Pagos y Firebase Cloud Messaging, con siete relaciones: cinco basadas en eventos de dominio entre contextos y dos con los sistemas externos, como se muestra en la Figura 32. Los contextos core aparecen en azul, los contextos supporting en naranja y los sistemas externos en gris; en cada extremo de una relación se indica el rol upstream (U) o downstream (D) y los patrones que aplica.
 
-<a id="figura-30"></a>
+<a id="figura-32"></a>
 
-**Figura 30**
+**Figura 32**
 
 *Context map final de OptiFlow*
 
@@ -1336,11 +1336,11 @@ Como resultado del análisis, el context map final conserva los cinco Bounded Co
 
 *Nota.* Elaboración propia.
 
-La Tabla 24 resume cada relación del mapa final, los mensajes que la conectan (eventos, consultas y solicitudes a los sistemas externos) y el componente del backend que la implementa.
+La Tabla 25 resume cada relación del mapa final, los mensajes que la conectan (eventos, consultas y solicitudes a los sistemas externos) y el componente del backend que la implementa.
 
-<a id="tabla-24"></a>
+<a id="tabla-25"></a>
 
-**Tabla 24**
+**Tabla 25**
 
 *Relaciones del context map final de OptiFlow*
 
@@ -1358,11 +1358,11 @@ A continuación se detalla cada relación del mapa final.
 
 ##### Search & Booking → Clinical & Commercial
 
-La relación entre Search & Booking y Clinical & Commercial se muestra en la Figura 31.
+La relación entre Search & Booking y Clinical & Commercial se muestra en la Figura 33.
 
-<a id="figura-31"></a>
+<a id="figura-33"></a>
 
-**Figura 31**
+**Figura 33**
 
 *Context map entre Search & Booking y Clinical & Commercial*
 
@@ -1377,11 +1377,11 @@ La relación entre Search & Booking y Clinical & Commercial se muestra en la Fig
 
 ##### Search & Booking → Notification & Loyalty
 
-La relación entre Search & Booking y Notification & Loyalty se muestra en la Figura 32.
+La relación entre Search & Booking y Notification & Loyalty se muestra en la Figura 34.
 
-<a id="figura-32"></a>
+<a id="figura-34"></a>
 
-**Figura 32**
+**Figura 34**
 
 *Context map entre Search & Booking y Notification & Loyalty*
 
@@ -1396,11 +1396,11 @@ La relación entre Search & Booking y Notification & Loyalty se muestra en la Fi
 
 ##### Clinical & Commercial → Production & Tracking
 
-La relación entre Clinical & Commercial y Production & Tracking se muestra en la Figura 33.
+La relación entre Clinical & Commercial y Production & Tracking se muestra en la Figura 35.
 
-<a id="figura-33"></a>
+<a id="figura-35"></a>
 
-**Figura 33**
+**Figura 35**
 
 *Context map entre Clinical & Commercial y Production & Tracking*
 
@@ -1415,11 +1415,11 @@ La relación entre Clinical & Commercial y Production & Tracking se muestra en l
 
 ##### Clinical & Commercial → Store Management & Inventory
 
-La relación entre Clinical & Commercial y Store Management & Inventory se muestra en la Figura 34.
+La relación entre Clinical & Commercial y Store Management & Inventory se muestra en la Figura 36.
 
-<a id="figura-34"></a>
+<a id="figura-36"></a>
 
-**Figura 34**
+**Figura 36**
 
 *Context map entre Clinical & Commercial y Store Management & Inventory*
 
@@ -1434,11 +1434,11 @@ La relación entre Clinical & Commercial y Store Management & Inventory se muest
 
 ##### Production & Tracking → Notification & Loyalty
 
-La relación entre Production & Tracking y Notification & Loyalty se muestra en la Figura 35.
+La relación entre Production & Tracking y Notification & Loyalty se muestra en la Figura 37.
 
-<a id="figura-35"></a>
+<a id="figura-37"></a>
 
-**Figura 35**
+**Figura 37**
 
 *Context map entre Production & Tracking y Notification & Loyalty*
 
@@ -1453,11 +1453,11 @@ La relación entre Production & Tracking y Notification & Loyalty se muestra en 
 
 ##### Pasarela de Pagos → Clinical & Commercial
 
-La relación entre la Pasarela de Pagos y Clinical & Commercial se muestra en la Figura 36.
+La relación entre la Pasarela de Pagos y Clinical & Commercial se muestra en la Figura 38.
 
-<a id="figura-36"></a>
+<a id="figura-38"></a>
 
-**Figura 36**
+**Figura 38**
 
 *Context map entre la Pasarela de Pagos y Clinical & Commercial*
 
@@ -1472,11 +1472,11 @@ La relación entre la Pasarela de Pagos y Clinical & Commercial se muestra en la
 
 ##### Firebase Cloud Messaging → Notification & Loyalty
 
-La relación entre Firebase Cloud Messaging y Notification & Loyalty se muestra en la Figura 37.
+La relación entre Firebase Cloud Messaging y Notification & Loyalty se muestra en la Figura 39.
 
-<a id="figura-37"></a>
+<a id="figura-39"></a>
 
-**Figura 37**
+**Figura 39**
 
 *Context map entre Firebase Cloud Messaging y Notification & Loyalty*
 
@@ -1493,12 +1493,12 @@ La relación entre Firebase Cloud Messaging y Notification & Loyalty se muestra 
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto, elaborado con Structurizr, ubica a OptiFlow frente a sus usuarios y a los tres sistemas externos con los que se integra: la **Pasarela de Pagos** (Mercado Pago Checkout Pro), en la que el paciente paga con tarjeta o Yape; **Firebase Cloud Messaging**, que entrega las notificaciones push al paciente; y **OpenStreetMap**, que entrega el mapa de las ópticas cercanas. El escáner y el probador virtual no dependen de un servicio externo: usan ML Kit dentro del propio dispositivo. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias (ver Figura 38).
+El diagrama de contexto, elaborado con Structurizr, ubica a OptiFlow frente a sus usuarios y a los tres sistemas externos con los que se integra: la **Pasarela de Pagos** (Mercado Pago Checkout Pro), en la que el paciente paga con tarjeta o Yape; **Firebase Cloud Messaging**, que entrega las notificaciones push al paciente; y **OpenStreetMap**, que entrega el mapa de las ópticas cercanas. El escáner y el probador virtual no dependen de un servicio externo: usan ML Kit dentro del propio dispositivo. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias (ver Figura 40).
 
 
-<a id="figura-38"></a>
+<a id="figura-40"></a>
 
-**Figura 38**
+**Figura 40**
 
 *Diagrama de contexto C4 de OptiFlow*
 
@@ -1508,7 +1508,7 @@ El diagrama de contexto, elaborado con Structurizr, ubica a OptiFlow frente a su
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, su base de datos local, la Landing Page y la base de datos del backend se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 39).
+El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, su base de datos local, la Landing Page y la base de datos del backend se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 41).
 
 - **Aplicación móvil (Kotlin, Jetpack Compose):** consume la API REST del backend, guarda en la base de datos local la última información consultada para mostrarla sin conexión, usa la cámara del dispositivo (CameraX) en el escáner de monturas y en el probador virtual, lee los códigos de barras y detecta el rostro con ML Kit en el propio dispositivo, muestra las ópticas cercanas en un mapa de OpenStreetMap (osmdroid) y recibe las notificaciones push de Firebase Cloud Messaging.
 - **Base de datos local (Room, SQLite):** almacena en el dispositivo una copia de solo lectura de la última información consultada (citas, pedidos, avisos, recetas, catálogo, ópticas y tablero de producción) y la reemplaza con la respuesta del backend en cada consulta con conexión; las operaciones que modifican datos requieren conexión.
@@ -1517,9 +1517,9 @@ El diagrama de contenedores, elaborado con Structurizr, muestra el backend como 
 - **Landing Page (HTML5, CSS3, JavaScript):** presenta la propuesta de valor e incluye el enlace de descarga de la aplicación desde Firebase App Distribution.
 
 
-<a id="figura-39"></a>
+<a id="figura-41"></a>
 
-**Figura 39**
+**Figura 41**
 
 *Diagrama de contenedores C4 con un único backend*
 
@@ -1536,12 +1536,12 @@ El Deployment Diagram, elaborado con Structurizr, muestra dónde se ejecuta cada
 - **Dispositivo Android de prueba:** dentro del entorno de ejecución de la aplicación Kotlin se encuentran la aplicación Android, la base de datos local (SQLite/Room, caché de solo lectura) la cámara del dispositivo (CameraX) y ML Kit, que lee los códigos de barras y detecta el rostro para el probador virtual. La aplicación obtiene de OpenStreetMap el mapa de ópticas.
 - **Render:** ejecuta el backend en un contenedor Docker (Java 21), que accede a la base de datos **Render PostgreSQL** mediante JPA. El backend crea las preferencias de pago en la **Pasarela de Pagos** (Mercado Pago), que le notifica el resultado de cada pago en un webhook público, y envía las notificaciones push mediante **Firebase Cloud Messaging**, que las entrega al dispositivo Android.
 
-La configuración de cada entorno se detalla en la sección 4.1.4 (ver Figura 40).
+La configuración de cada entorno se detalla en la sección 4.1.4 (ver Figura 42).
 
 
-<a id="figura-40"></a>
+<a id="figura-42"></a>
 
-**Figura 40**
+**Figura 42**
 
 *Deployment Diagram de OptiFlow*
 
@@ -1560,7 +1560,7 @@ El modelo de datos se basa en las migraciones `V1__search_booking_schema.sql`, `
 
 Las relaciones físicas del modelo corresponden a las claves foráneas declaradas en las migraciones. Los identificadores que no tienen una restricción `FOREIGN KEY` se documentan como referencias lógicas. Los objetos de valor y las claves compuestas de JPA no implican que la información se almacene como documentos MongoDB.
 
-Los diagramas de base de datos de las Figuras 43, 46, 49 y 55 se elaboraron directamente a partir de las migraciones V1–V9: muestran cada tabla con sus columnas, tipos, nulabilidad, claves primarias, claves foráneas y restricciones `UNIQUE`; los `CHECK` y los índices se describen en el texto de cada contexto. Los identificadores sin `FOREIGN KEY` no se dibujan como relaciones. La Figura 52 corresponde a Store Management & Inventory (migración V6).
+Los diagramas de base de datos de las Figuras 45, 48, 51 y 57 se elaboraron directamente a partir de las migraciones V1–V9: muestran cada tabla con sus columnas, tipos, nulabilidad, claves primarias, claves foráneas y restricciones `UNIQUE`; los `CHECK` y los índices se describen en el texto de cada contexto. Los identificadores sin `FOREIGN KEY` no se dibujan como relaciones. La Figura 54 corresponde a Store Management & Inventory (migración V6).
 
 <a id="2.6.1. Bounded Context: Search & Booking Context"></a>
 ### 2.6.1. Bounded Context: Search & Booking Context
@@ -1576,12 +1576,12 @@ Esta capa no depende de frameworks, bases de datos ni servicios externos, permit
 
 La entidad `Appointment` representa la reserva formal realizada por un paciente para recibir atención en una óptica dentro de un horario determinado. Se considera el **Aggregate Root** principal del proceso de reserva, debido a que concentra las reglas necesarias para mantener la consistencia de una cita.
 
-Cuando un paciente selecciona una óptica y un horario disponible, el agregado valida la información correspondiente y permite crear la reserva. Asimismo, controla la confirmación, la cancelación y el cierre de una cita como completada. Para reprogramar, la aplicación cancela la cita y reserva un nuevo horario (ver Tabla 25).
+Cuando un paciente selecciona una óptica y un horario disponible, el agregado valida la información correspondiente y permite crear la reserva. Asimismo, controla la confirmación, la cancelación y el cierre de una cita como completada. Para reprogramar, la aplicación cancela la cita y reserva un nuevo horario (ver Tabla 26).
 
 
-<a id="tabla-25"></a>
+<a id="tabla-26"></a>
 
-**Tabla 25**
+**Tabla 26**
 
 *Atributos del aggregate root Appointment*
 
@@ -1599,11 +1599,11 @@ Cuando un paciente selecciona una óptica y un horario disponible, el agregado v
 ##### Métodos principales
 
 
-Los métodos principales del aggregate root Appointment se presentan en la Tabla 26.
+Los métodos principales del aggregate root Appointment se presentan en la Tabla 27.
 
-<a id="tabla-26"></a>
+<a id="tabla-27"></a>
 
-**Tabla 26**
+**Tabla 27**
 
 *Métodos principales del aggregate root Appointment*
 
@@ -1618,12 +1618,12 @@ Los métodos principales del aggregate root Appointment se presentan en la Tabla
 
 ##### Entidad: `Patient`
 
-La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar ópticas, consultar disponibilidad y reservar citas. Dentro de este contexto, la información del paciente se utiliza principalmente para identificar al usuario y relacionarlo con sus reservas y preferencias (ver Tabla 27).
+La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar ópticas, consultar disponibilidad y reservar citas. Dentro de este contexto, la información del paciente se utiliza principalmente para identificar al usuario y relacionarlo con sus reservas y preferencias (ver Tabla 28).
 
 
-<a id="tabla-27"></a>
+<a id="tabla-28"></a>
 
-**Tabla 27**
+**Tabla 28**
 
 *Atributos de la entidad Patient*
 
@@ -1640,12 +1640,12 @@ La entidad `Patient` representa al paciente que utiliza OptiFlow para buscar óp
 
 ##### Entidad: `StaffMember`
 
-La entidad `StaffMember` representa a una persona del personal de la óptica que inicia sesión en la aplicación con un rol asignado por el administrador. Search & Booking la gestiona junto con `Patient` porque ambos comparten el inicio de sesión; los demás contextos solo reciben el identificador y el rol dentro del token de acceso (ver Tabla 28).
+La entidad `StaffMember` representa a una persona del personal de la óptica que inicia sesión en la aplicación con un rol asignado por el administrador. Search & Booking la gestiona junto con `Patient` porque ambos comparten el inicio de sesión; los demás contextos solo reciben el identificador y el rol dentro del token de acceso (ver Tabla 29).
 
 
-<a id="tabla-28"></a>
+<a id="tabla-29"></a>
 
-**Tabla 28**
+**Tabla 29**
 
 *Atributos de la entidad StaffMember*
 
@@ -1663,12 +1663,12 @@ La entidad `StaffMember` representa a una persona del personal de la óptica que
 
 ##### Entidad: `OpticalStore`
 
-La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma (ver Tabla 29).
+La entidad `OpticalStore` representa una sucursal óptica disponible para ser encontrada por los pacientes dentro de la plataforma (ver Tabla 30).
 
 
-<a id="tabla-29"></a>
+<a id="tabla-30"></a>
 
-**Tabla 29**
+**Tabla 30**
 
 *Atributos de la entidad OpticalStore*
 
@@ -1685,12 +1685,12 @@ La entidad `OpticalStore` representa una sucursal óptica disponible para ser en
 
 ##### Entidad: `TimeSlot`
 
-`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica (ver Tabla 30).
+`TimeSlot` representa un bloque de tiempo disponible para que el paciente pueda reservar una atención optométrica (ver Tabla 31).
 
 
-<a id="tabla-30"></a>
+<a id="tabla-31"></a>
 
-**Tabla 30**
+**Tabla 31**
 
 *Atributos de la entidad TimeSlot*
 
@@ -1706,11 +1706,11 @@ La entidad `OpticalStore` representa una sucursal óptica disponible para ser en
 ##### Value Objects
 
 
-Los Value Objects del Search & Booking Context se resumen en la Tabla 31.
+Los Value Objects del Search & Booking Context se resumen en la Tabla 32.
 
-<a id="tabla-31"></a>
+<a id="tabla-32"></a>
 
-**Tabla 31**
+**Tabla 32**
 
 *Value Objects del Search & Booking Context*
 
@@ -1734,11 +1734,11 @@ Los Value Objects del Search & Booking Context se resumen en la Tabla 31.
 ##### Enumerations
 
 
-Las enumeraciones del Search & Booking Context se detallan en la Tabla 32.
+Las enumeraciones del Search & Booking Context se detallan en la Tabla 33.
 
-<a id="tabla-32"></a>
+<a id="tabla-33"></a>
 
-**Tabla 32**
+**Tabla 33**
 
 *Enumeraciones del Search & Booking Context*
 
@@ -1753,11 +1753,11 @@ Las enumeraciones del Search & Booking Context se detallan en la Tabla 32.
 ##### Domain Services
 
 
-Los Domain Services del Search & Booking Context se presentan en la Tabla 33.
+Los Domain Services del Search & Booking Context se presentan en la Tabla 34.
 
-<a id="tabla-33"></a>
+<a id="tabla-34"></a>
 
-**Tabla 33**
+**Tabla 34**
 
 *Domain Services del Search & Booking Context*
 
@@ -1770,12 +1770,12 @@ Los Domain Services del Search & Booking Context se presentan en la Tabla 33.
 
 ##### Repository Interfaces
 
-Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades (ver Tabla 34).
+Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persistencia de las entidades (ver Tabla 35).
 
 
-<a id="tabla-34"></a>
+<a id="tabla-35"></a>
 
-**Tabla 34**
+**Tabla 35**
 
 *Repository Interfaces del Search & Booking Context*
 
@@ -1792,12 +1792,12 @@ Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persi
 
 ##### Domain Events
 
-Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto (ver Tabla 35).
+Los eventos de dominio representan hechos relevantes ocurridos dentro del contexto (ver Tabla 36).
 
 
-<a id="tabla-35"></a>
+<a id="tabla-36"></a>
 
-**Tabla 35**
+**Tabla 36**
 
 *Domain Events del Search & Booking Context*
 
@@ -1820,11 +1820,11 @@ Los eventos anteriores corresponden a los eventos publicados definidos para el *
 ##### Factories
 
 
-Los Factories del Search & Booking Context se resumen en la Tabla 36.
+Los Factories del Search & Booking Context se resumen en la Tabla 37.
 
-<a id="tabla-36"></a>
+<a id="tabla-37"></a>
 
-**Tabla 36**
+**Tabla 37**
 
 *Factories del Search & Booking Context*
 
@@ -1845,11 +1845,11 @@ Esta capa permite exponer las capacidades de búsqueda de ópticas, consulta de 
 ##### Controllers
 
 
-Los Controllers del Search & Booking Context se detallan en la Tabla 37.
+Los Controllers del Search & Booking Context se detallan en la Tabla 38.
 
-<a id="tabla-37"></a>
+<a id="tabla-38"></a>
 
-**Tabla 37**
+**Tabla 38**
 
 *Controllers del Search & Booking Context*
 
@@ -1868,11 +1868,11 @@ Los Controllers del Search & Booking Context se detallan en la Tabla 37.
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 38.
+Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 39.
 
-<a id="tabla-38"></a>
+<a id="tabla-39"></a>
 
-**Tabla 38**
+**Tabla 39**
 
 *Resources / DTOs del Search & Booking Context*
 
@@ -1902,11 +1902,11 @@ Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 38.
 ##### Assemblers
 
 
-Los Assemblers del Search & Booking Context se resumen en la Tabla 39.
+Los Assemblers del Search & Booking Context se resumen en la Tabla 40.
 
-<a id="tabla-39"></a>
+<a id="tabla-40"></a>
 
-**Tabla 39**
+**Tabla 40**
 
 *Assemblers del Search & Booking Context*
 
@@ -1936,11 +1936,11 @@ Se utiliza una separación entre **Commands**, orientados a modificar el estado 
 ##### Command Handlers
 
 
-Los Command Handlers del Search & Booking Context se detallan en la Tabla 40.
+Los Command Handlers del Search & Booking Context se detallan en la Tabla 41.
 
-<a id="tabla-40"></a>
+<a id="tabla-41"></a>
 
-**Tabla 40**
+**Tabla 41**
 
 *Command Handlers del Search & Booking Context*
 
@@ -1962,11 +1962,11 @@ Los Command Handlers del Search & Booking Context se detallan en la Tabla 40.
 ##### Query Services
 
 
-Los Query Services del Search & Booking Context se presentan en la Tabla 41.
+Los Query Services del Search & Booking Context se presentan en la Tabla 42.
 
-<a id="tabla-41"></a>
+<a id="tabla-42"></a>
 
-**Tabla 41**
+**Tabla 42**
 
 *Query Services del Search & Booking Context*
 
@@ -1989,12 +1989,12 @@ Los Query Services del Search & Booking Context se presentan en la Tabla 41.
 
 ##### Event Handlers
 
-Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno (ver Tabla 42).
+Los eventos generados por Search & Booking pueden ser publicados para que otros Bounded Contexts reaccionen sin compartir directamente el modelo interno (ver Tabla 43).
 
 
-<a id="tabla-42"></a>
+<a id="tabla-43"></a>
 
-**Tabla 42**
+**Tabla 43**
 
 *Event Handlers del Search & Booking Context*
 
@@ -2009,11 +2009,11 @@ En el diseño estratégico, `AppointmentBooked` comunica la creación de una res
 ##### Application Services
 
 
-Los Application Services del Search & Booking Context se resumen en la Tabla 43.
+Los Application Services del Search & Booking Context se resumen en la Tabla 44.
 
-<a id="tabla-43"></a>
+<a id="tabla-44"></a>
 
-**Tabla 43**
+**Tabla 44**
 
 *Application Services del Search & Booking Context*
 
@@ -2037,11 +2037,11 @@ La infraestructura se mantiene separada del dominio para evitar que las reglas d
 ##### Repository Implementations
 
 
-Los Repository Implementations del Search & Booking Context se detallan en la Tabla 44.
+Los Repository Implementations del Search & Booking Context se detallan en la Tabla 45.
 
-<a id="tabla-44"></a>
+<a id="tabla-45"></a>
 
-**Tabla 44**
+**Tabla 45**
 
 *Repository Implementations del Search & Booking Context*
 
@@ -2061,11 +2061,11 @@ Cada implementación delega el acceso a PostgreSQL en su Spring Data repository:
 ##### Persistence Entities
 
 
-Los Persistence Entities del Search & Booking Context se presentan en la Tabla 45.
+Los Persistence Entities del Search & Booking Context se presentan en la Tabla 46.
 
-<a id="tabla-45"></a>
+<a id="tabla-46"></a>
 
-**Tabla 45**
+**Tabla 46**
 
 *Persistence Entities del Search & Booking Context*
 
@@ -2084,11 +2084,11 @@ Los Persistence Entities del Search & Booking Context se presentan en la Tabla 4
 ##### Mappers
 
 
-Los Mappers del Search & Booking Context se resumen en la Tabla 46.
+Los Mappers del Search & Booking Context se resumen en la Tabla 47.
 
-<a id="tabla-46"></a>
+<a id="tabla-47"></a>
 
-**Tabla 46**
+**Tabla 47**
 
 *Mappers del Search & Booking Context*
 
@@ -2106,11 +2106,11 @@ Los Mappers del Search & Booking Context se resumen en la Tabla 46.
 ##### External Service Adapters
 
 
-Los External Service Adapters del Search & Booking Context se detallan en la Tabla 47.
+Los External Service Adapters del Search & Booking Context se detallan en la Tabla 48.
 
-<a id="tabla-47"></a>
+<a id="tabla-48"></a>
 
-**Tabla 47**
+**Tabla 48**
 
 *External Service Adapters del Search & Booking Context*
 
@@ -2127,11 +2127,11 @@ Los External Service Adapters del Search & Booking Context se detallan en la Tab
 ##### Configuration
 
 
-Las clases de configuración del Search & Booking Context se presentan en la Tabla 48.
+Las clases de configuración del Search & Booking Context se presentan en la Tabla 49.
 
-<a id="tabla-48"></a>
+<a id="tabla-49"></a>
 
-**Tabla 48**
+**Tabla 49**
 
 *Clases de configuración del Search & Booking Context*
 
@@ -2145,12 +2145,12 @@ Las clases de configuración del Search & Booking Context se presentan en la Tab
 
 ##### Autorización por rol
 
-El backend aplica los permisos de la US16 en `SecurityConfiguration`: cada ruta exige uno o más roles del token. Son públicas `POST /api/v1/patients`, `POST /api/v1/auth/tokens`, las consultas `GET` de ópticas y horarios (`/api/v1/optical-stores` y `/api/v1/optical-stores/{id}/time-slots`) y `POST /api/v1/payment-notifications`, que recibe las notificaciones de la pasarela de pagos; las demás rutas exigen el encabezado `Authorization: Bearer` con el token. Además, un paciente solo puede consultar o modificar sus propios datos (por ejemplo, sus citas, pedidos y notificaciones), y una ruta sin el rol requerido responde HTTP 403. Los permisos se resumen por módulo (ver Tabla 49).
+El backend aplica los permisos de la US16 en `SecurityConfiguration`: cada ruta exige uno o más roles del token. Son públicas `POST /api/v1/patients`, `POST /api/v1/auth/tokens`, las consultas `GET` de ópticas y horarios (`/api/v1/optical-stores` y `/api/v1/optical-stores/{id}/time-slots`) y `POST /api/v1/payment-notifications`, que recibe las notificaciones de la pasarela de pagos; las demás rutas exigen el encabezado `Authorization: Bearer` con el token. Además, un paciente solo puede consultar o modificar sus propios datos (por ejemplo, sus citas, pedidos y notificaciones), y una ruta sin el rol requerido responde HTTP 403. Los permisos se resumen por módulo (ver Tabla 50).
 
 
-<a id="tabla-49"></a>
+<a id="tabla-50"></a>
 
-**Tabla 49**
+**Tabla 50**
 
 *Permisos por rol en el backend de OptiFlow*
 
@@ -2175,11 +2175,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el módul
 * **Infrastructure Layer:** Proporciona las implementaciones técnicas concretas, incluyendo los repositorios sobre PostgreSQL/JPA (`AppointmentRepositoryImpl`, `PatientRepositoryImpl`, etc.), las entidades de persistencia (`AppointmentEntity`, etc.), los Mappers, el `EventPublisherAdapter` para publicar eventos internos mediante `ApplicationEventPublisher` de Spring, y los adaptadores de integración externa (`AuthenticationAdapter`, `NotificationIntegrationAdapter`).
 
 
-El diagrama de componentes del Search & Booking Context en Spring Boot se observa en la Figura 41.
+El diagrama de componentes del Search & Booking Context en Spring Boot se observa en la Figura 43.
 
-<a id="figura-41"></a>
+<a id="figura-43"></a>
 
-**Figura 41**
+**Figura 43**
 
 *Diagrama de componentes del Search & Booking Context en Spring Boot*
 
@@ -2200,12 +2200,12 @@ El siguiente UML Class Diagram representa la estructura del **Domain Layer** cor
 
 El modelo tiene como elemento principal al Aggregate Root `Appointment`, encargado de representar el proceso de reserva de una cita. Este se relaciona con las Entities `Patient`, `OpticalStore` y `TimeSlot`, las cuales representan respectivamente al paciente que realiza la reserva, la óptica seleccionada y el horario disponible para la atención.
 
-El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 42).
+El diagrama también incorpora los **Domain Services** relacionados con la disponibilidad de horarios, búsqueda de ópticas y valoración de establecimientos. Asimismo, se incluyen las **Repository Interfaces**, que abstraen las operaciones de persistencia de los principales elementos del dominio, y las **Factories**, responsables de centralizar la creación de objetos del dominio cuando corresponde (ver Figura 44).
 
 
-<a id="figura-42"></a>
+<a id="figura-44"></a>
 
-**Figura 42**
+**Figura 44**
 
 *Diagrama de clases del Domain Layer del Search & Booking Context*
 
@@ -2226,11 +2226,11 @@ El diagrama también incorpora los **Domain Services** relacionados con la dispo
 
 `favorite_stores` utiliza la PK compuesta (`patient_id`, `optical_store_id`), ambas columnas también FKs, y registra `saved_at`. `store_ratings` utiliza la misma combinación como PK y FKs, y contiene `score NUMERIC(3,2)`, `comment VARCHAR(280)` y `created_at`; su `CHECK` limita `score` al intervalo de 1 a 5.
 
-Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 43 representa las siete tablas de V1, V5 y V8 con todos sus campos, tipos, nulabilidad, PK, FK y `UNIQUE`, tal como están declarados en las migraciones.**
+Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los estados y sus valores admitidos, la obligatoriedad, los índices y las restricciones se consultan íntegramente en la migración V1. **La Figura 45 representa las siete tablas de V1, V5 y V8 con todos sus campos, tipos, nulabilidad, PK, FK y `UNIQUE`, tal como están declarados en las migraciones.**
 
-<a id="figura-43"></a>
+<a id="figura-45"></a>
 
-**Figura 43**
+**Figura 45**
 
 *Diagrama de base de datos del Search & Booking Context*
 
@@ -2245,12 +2245,12 @@ Las fechas y horas de V1 se representan como `TIMESTAMP WITH TIME ZONE`. Los est
 <a id="2.6.2.1. Domain Layer"></a>
 #### 2.6.2.1. Domain Layer
 
-El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio (ver Tabla 50).
+El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord` (episodio de atención clínica), `Quotation` (propuesta comercial) y `Sale` (venta concretada), cada uno responsable de sus propias invariantes de negocio (ver Tabla 51).
 
 
-<a id="tabla-50"></a>
+<a id="tabla-51"></a>
 
-**Tabla 50**
+**Tabla 51**
 
 *Clases del Domain Layer del Clinical & Commercial Context*
 
@@ -2278,11 +2278,11 @@ Eventos de dominio publicados por estos agregados: `PatientExamined`, `MedicalHi
 #### 2.6.2.2. Interface Layer
 
 
-Las clases del Interface Layer del Clinical & Commercial Context se detallan en la Tabla 51.
+Las clases del Interface Layer del Clinical & Commercial Context se detallan en la Tabla 52.
 
-<a id="tabla-51"></a>
+<a id="tabla-52"></a>
 
-**Tabla 51**
+**Tabla 52**
 
 *Clases del Interface Layer del Clinical & Commercial Context*
 
@@ -2303,11 +2303,11 @@ Las clases del Interface Layer del Clinical & Commercial Context se detallan en 
 #### 2.6.2.3. Application Layer
 
 
-Las clases del Application Layer del Clinical & Commercial Context se presentan en la Tabla 52.
+Las clases del Application Layer del Clinical & Commercial Context se presentan en la Tabla 53.
 
-<a id="tabla-52"></a>
+<a id="tabla-53"></a>
 
-**Tabla 52**
+**Tabla 53**
 
 *Clases del Application Layer del Clinical & Commercial Context*
 
@@ -2335,11 +2335,11 @@ Las clases del Application Layer del Clinical & Commercial Context se presentan 
 #### 2.6.2.4. Infrastructure Layer
 
 
-Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen en la Tabla 53.
+Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen en la Tabla 54.
 
-<a id="tabla-53"></a>
+<a id="tabla-54"></a>
 
-**Tabla 53**
+**Tabla 54**
 
 *Clases del Infrastructure Layer del Clinical & Commercial Context*
 
@@ -2368,11 +2368,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el módul
 * **Infrastructure Layer:** Resuelve la persistencia de datos mediante `ClinicalRecordRepositoryImpl`, `QuotationRepositoryImpl` y `SaleRepositoryImpl` sobre PostgreSQL utilizando JPA/Hibernate, publica eventos internos de Spring mediante `DomainEventPublisher`, y provee el `PaymentGatewayAdapter` (Anti-Corruption Layer) para crear las preferencias de pago en la Pasarela de Pagos (Mercado Pago) y procesar sus notificaciones.
 
 
-El diagrama de componentes del Clinical & Commercial Context en Spring Boot se muestra en la Figura 44.
+El diagrama de componentes del Clinical & Commercial Context en Spring Boot se muestra en la Figura 46.
 
-<a id="figura-44"></a>
+<a id="figura-46"></a>
 
-**Figura 44**
+**Figura 46**
 
 *Diagrama de componentes del Clinical & Commercial Context en Spring Boot*
 
@@ -2390,12 +2390,12 @@ La estructura modular permite que el registro clínico, la prescripción optomé
 <a id="2.6.2.6.1. Bounded Context Domain Layer Class Diagrams"></a>
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 45).
+El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.2.1, incluyendo atributos, métodos, visibilidad y multiplicidad de las relaciones (ver Figura 47).
 
 
-<a id="figura-45"></a>
+<a id="figura-47"></a>
 
-**Figura 45**
+**Figura 47**
 
 *Diagrama de clases del Domain Layer del Clinical & Commercial Context*
 
@@ -2416,11 +2416,11 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 
 Una cotización puede generar **cero o una venta**, y cada venta pertenece a exactamente una cotización: `sales.quotation_id` es `NOT NULL UNIQUE` y FK hacia `quotations.id`. `RegisterSaleHandler` exige una cotización aprobada y rechaza una venta duplicada con HTTP 409. Los datos de pago se almacenan en columnas de `sales`; no existe una tabla adicional de pagos. Los estados `PENDING_PAYMENT`, `PAID` y `CLOSED` existen desde V2. La migración V9 ajusta las columnas de pago a Checkout Pro: `payment_method` admite `CARD`, `YAPE` y `CASH` (quita `PLIN`; las ventas que se pagaron con Plin pasan a `YAPE`); agrega `payment_preference_id`, `payment_status` (`APPROVED` o `REJECTED`) y `payment_status_detail` (motivo del rechazo que da la pasarela, que la aplicación muestra al paciente); y `transaction_reference`, única cuando no es nula, guarda el id del pago en la pasarela para ignorar notificaciones repetidas. `sales.patient_id` es una referencia lógica sin FK declarada.
 
-Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 46 representa las siete tablas de V2 y V9 con todas sus columnas, tipos, nulabilidad, PK, FK y `UNIQUE`. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) no se dibujan como relaciones.**
+Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 48 representa las siete tablas de V2 y V9 con todas sus columnas, tipos, nulabilidad, PK, FK y `UNIQUE`. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) no se dibujan como relaciones.**
 
-<a id="figura-46"></a>
+<a id="figura-48"></a>
 
-**Figura 46**
+**Figura 48**
 
 *Diagrama de base de datos del Clinical & Commercial Context*
 
@@ -2443,11 +2443,11 @@ La **Domain Layer** concentra las reglas de negocio relacionadas con la producci
 El modelo de dominio se estructura alrededor de los principales conceptos definidos en el lenguaje ubicuo del contexto:
 
 
-Los conceptos del Domain Layer del Production & Tracking Context se presentan en la Tabla 54.
+Los conceptos del Domain Layer del Production & Tracking Context se presentan en la Tabla 55.
 
-<a id="tabla-54"></a>
+<a id="tabla-55"></a>
 
-**Tabla 54**
+**Tabla 55**
 
 *Conceptos del Domain Layer del Production & Tracking Context*
 
@@ -2465,11 +2465,11 @@ Los conceptos del Domain Layer del Production & Tracking Context se presentan en
 El flujo de estados definido para la `Work Order` utiliza las siguientes etapas:
 
 
-Los estados de la orden de trabajo se resumen en la Tabla 55.
+Los estados de la orden de trabajo se resumen en la Tabla 56.
 
-<a id="tabla-55"></a>
+<a id="tabla-56"></a>
 
-**Tabla 55**
+**Tabla 56**
 
 *Estados de la orden de trabajo*
 
@@ -2487,11 +2487,11 @@ Los estados de la orden de trabajo se resumen en la Tabla 55.
 Los principales comandos definidos para el contexto son:
 
 
-Los Domain Commands del Production & Tracking Context se detallan en la Tabla 56.
+Los Domain Commands del Production & Tracking Context se detallan en la Tabla 57.
 
-<a id="tabla-56"></a>
+<a id="tabla-57"></a>
 
-**Tabla 56**
+**Tabla 57**
 
 *Domain Commands del Production & Tracking Context*
 
@@ -2511,11 +2511,11 @@ Los Domain Commands del Production & Tracking Context se detallan en la Tabla 56
 Los eventos publicados por este contexto son:
 
 
-Los Domain Events del Production & Tracking Context se presentan en la Tabla 57.
+Los Domain Events del Production & Tracking Context se presentan en la Tabla 58.
 
-<a id="tabla-57"></a>
+<a id="tabla-58"></a>
 
-**Tabla 57**
+**Tabla 58**
 
 *Domain Events del Production & Tracking Context*
 
@@ -2534,11 +2534,11 @@ Los Domain Events del Production & Tracking Context se presentan en la Tabla 57.
 ##### Repository
 
 
-El Repository del Production & Tracking Context se resume en la Tabla 58.
+El Repository del Production & Tracking Context se resume en la Tabla 59.
 
-<a id="tabla-58"></a>
+<a id="tabla-59"></a>
 
-**Tabla 58**
+**Tabla 59**
 
 *Repository del Production & Tracking Context*
 
@@ -2562,11 +2562,11 @@ Los comandos definidos en el Bounded Context se exponen mediante la API REST, mi
 ##### Controllers
 
 
-Los Controllers del Production & Tracking Context se detallan en la Tabla 59.
+Los Controllers del Production & Tracking Context se detallan en la Tabla 60.
 
-<a id="tabla-59"></a>
+<a id="tabla-60"></a>
 
-**Tabla 59**
+**Tabla 60**
 
 *Controllers del Production & Tracking Context*
 
@@ -2580,11 +2580,11 @@ Los Controllers del Production & Tracking Context se detallan en la Tabla 59.
 ##### Event Consumers
 
 
-Los Event Consumers del Production & Tracking Context se presentan en la Tabla 60.
+Los Event Consumers del Production & Tracking Context se presentan en la Tabla 61.
 
-<a id="tabla-60"></a>
+<a id="tabla-61"></a>
 
-**Tabla 60**
+**Tabla 61**
 
 *Event Consumers del Production & Tracking Context*
 
@@ -2596,11 +2596,11 @@ Los Event Consumers del Production & Tracking Context se presentan en la Tabla 6
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 61.
+Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 62.
 
-<a id="tabla-61"></a>
+<a id="tabla-62"></a>
 
-**Tabla 61**
+**Tabla 62**
 
 *Resources / DTOs del Production & Tracking Context*
 
@@ -2624,11 +2624,11 @@ Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 61
 ##### Assemblers
 
 
-Los Assemblers del Production & Tracking Context se detallan en la Tabla 62.
+Los Assemblers del Production & Tracking Context se detallan en la Tabla 63.
 
-<a id="tabla-62"></a>
+<a id="tabla-63"></a>
 
-**Tabla 62**
+**Tabla 63**
 
 *Assemblers del Production & Tracking Context*
 
@@ -2654,11 +2654,11 @@ Los casos de uso principales corresponden a las operaciones definidas en el Boun
 ##### Command Handlers
 
 
-Los Command Handlers del Production & Tracking Context se presentan en la Tabla 63.
+Los Command Handlers del Production & Tracking Context se presentan en la Tabla 64.
 
-<a id="tabla-63"></a>
+<a id="tabla-64"></a>
 
-**Tabla 63**
+**Tabla 64**
 
 *Command Handlers del Production & Tracking Context*
 
@@ -2679,11 +2679,11 @@ Los Command Handlers del Production & Tracking Context se presentan en la Tabla 
 ##### Event Handler
 
 
-El Event Handler del Production & Tracking Context se resume en la Tabla 64.
+El Event Handler del Production & Tracking Context se resume en la Tabla 65.
 
-<a id="tabla-64"></a>
+<a id="tabla-65"></a>
 
-**Tabla 64**
+**Tabla 65**
 
 *Event Handler del Production & Tracking Context*
 
@@ -2695,11 +2695,11 @@ El Event Handler del Production & Tracking Context se resume en la Tabla 64.
 ##### Application Services
 
 
-Los Application Services del Production & Tracking Context se detallan en la Tabla 65.
+Los Application Services del Production & Tracking Context se detallan en la Tabla 66.
 
-<a id="tabla-65"></a>
+<a id="tabla-66"></a>
 
-**Tabla 65**
+**Tabla 66**
 
 *Application Services del Production & Tracking Context*
 
@@ -2721,11 +2721,11 @@ Esta capa implementa las abstracciones definidas en el dominio y permite que las
 ##### Repositories
 
 
-Los Repositories del Production & Tracking Context se presentan en la Tabla 66.
+Los Repositories del Production & Tracking Context se presentan en la Tabla 67.
 
-<a id="tabla-66"></a>
+<a id="tabla-67"></a>
 
-**Tabla 66**
+**Tabla 67**
 
 *Repositories del Production & Tracking Context*
 
@@ -2739,11 +2739,11 @@ Los Repositories del Production & Tracking Context se presentan en la Tabla 66.
 ##### Persistence
 
 
-Los componentes de persistencia del Production & Tracking Context se resumen en la Tabla 67.
+Los componentes de persistencia del Production & Tracking Context se resumen en la Tabla 68.
 
-<a id="tabla-67"></a>
+<a id="tabla-68"></a>
 
-**Tabla 67**
+**Tabla 68**
 
 *Componentes de persistencia del Production & Tracking Context*
 
@@ -2760,11 +2760,11 @@ Los componentes de persistencia del Production & Tracking Context se resumen en 
 ##### Messaging
 
 
-Los componentes de mensajería del Production & Tracking Context se detallan en la Tabla 68.
+Los componentes de mensajería del Production & Tracking Context se detallan en la Tabla 69.
 
-<a id="tabla-68"></a>
+<a id="tabla-69"></a>
 
-**Tabla 68**
+**Tabla 69**
 
 *Componentes de mensajería del Production & Tracking Context*
 
@@ -2794,11 +2794,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el módul
 * **Infrastructure Layer:** Implementa la persistencia relacional de Production & Tracking con JPA/PostgreSQL. `WorkOrderRepositoryImpl` coordina la orden, sus lentes y su historial; `TechnicianRepositoryImpl` y `LaboratoryRepositoryImpl` acceden a los catálogos. Los mappers reconstruyen el agregado desde las filas SQL. Los eventos se comunican mediante el publicador de Spring y manejadores internos; no se requiere un broker externo para esta implementación.
 
 
-El diagrama de componentes del Production & Tracking Context en Spring Boot se presenta en la Figura 47.
+El diagrama de componentes del Production & Tracking Context en Spring Boot se presenta en la Figura 49.
 
-<a id="figura-47"></a>
+<a id="figura-49"></a>
 
-**Figura 47**
+**Figura 49**
 
 *Diagrama de componentes del Production & Tracking Context en Spring Boot*
 
@@ -2822,12 +2822,12 @@ El modelo se organiza alrededor de `WorkOrder`, que representa el Aggregate Root
 
 El estado actual de la orden es representado mediante `WorkOrderStatus`, el cual permite identificar las diferentes etapas del flujo de producción: pendiente, en taller, control de calidad, listo para entrega y entregado. Asimismo, `DeliveryDate` representa la fecha estimada de entrega del pedido, mientras que `DeliveryDelay` permite representar situaciones relacionadas con retrasos durante el proceso de fabricación.
 
-El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 48).
+El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 50).
 
 
-<a id="figura-48"></a>
+<a id="figura-50"></a>
 
-**Figura 48**
+**Figura 50**
 
 *Diagrama de clases del Domain Layer del Production & Tracking Context*
 
@@ -2848,11 +2848,11 @@ El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persisten
 
 Las fechas estimadas usan `DATE`, mientras que los momentos de creación, cambio, demora y entrega usan `TIMESTAMP WITH TIME ZONE`. La demora se almacena en las columnas `delay_reason`, `delay_reported_at` y `delay_new_estimated_date`; no es un documento ni una tabla separada. `WorkOrderRepositoryImpl` reconstruye el agregado a partir de las filas de orden, lentes e historial.
 
-**La Figura 49 representa las cinco tablas relacionales de V3. Los identificadores `sale_id`, `patient_id`, `optical_store_id`, `technician_id` y `laboratory_id` de `work_orders` se marcan como `REF` (referencias lógicas sin FK); `technicians` y `laboratories` aparecen sin relación física con la orden.**
+**La Figura 51 representa las cinco tablas relacionales de V3. Los identificadores `sale_id`, `patient_id`, `optical_store_id`, `technician_id` y `laboratory_id` de `work_orders` se marcan como `REF` (referencias lógicas sin FK); `technicians` y `laboratories` aparecen sin relación física con la orden.**
 
-<a id="figura-49"></a>
+<a id="figura-51"></a>
 
-**Figura 49**
+**Figura 51**
 
 *Diagrama de base de datos del Production & Tracking Context*
 
@@ -2876,11 +2876,11 @@ El modelo de dominio se organiza alrededor de los conceptos definidos en el leng
 ##### Domain Concepts
 
 
-Los Domain Concepts del Store Management & Inventory Context se resumen en la Tabla 69.
+Los Domain Concepts del Store Management & Inventory Context se resumen en la Tabla 70.
 
-<a id="tabla-69"></a>
+<a id="tabla-70"></a>
 
-**Tabla 69**
+**Tabla 70**
 
 *Domain Concepts del Store Management & Inventory Context*
 
@@ -2902,11 +2902,11 @@ Los Domain Concepts del Store Management & Inventory Context se resumen en la Ta
 Los comandos definidos para el contexto son:
 
 
-Los Domain Commands del Store Management & Inventory Context se detallan en la Tabla 70.
+Los Domain Commands del Store Management & Inventory Context se detallan en la Tabla 71.
 
-<a id="tabla-70"></a>
+<a id="tabla-71"></a>
 
-**Tabla 70**
+**Tabla 71**
 
 *Domain Commands del Store Management & Inventory Context*
 
@@ -2927,11 +2927,11 @@ La consulta de existencias (`ConsultStock`) no modifica el estado del inventario
 Los principales eventos publicados por el contexto son:
 
 
-Los Domain Events del Store Management & Inventory Context se presentan en la Tabla 71.
+Los Domain Events del Store Management & Inventory Context se presentan en la Tabla 72.
 
-<a id="tabla-71"></a>
+<a id="tabla-72"></a>
 
-**Tabla 71**
+**Tabla 72**
 
 *Domain Events del Store Management & Inventory Context*
 
@@ -2948,11 +2948,11 @@ Los Domain Events del Store Management & Inventory Context se presentan en la Ta
 ##### Repository
 
 
-El Repository del Store Management & Inventory Context se resume en la Tabla 72.
+El Repository del Store Management & Inventory Context se resume en la Tabla 73.
 
-<a id="tabla-72"></a>
+<a id="tabla-73"></a>
 
-**Tabla 72**
+**Tabla 73**
 
 *Repository del Store Management & Inventory Context*
 
@@ -2975,11 +2975,11 @@ Las solicitudes externas son recibidas mediante la API REST y posteriormente tra
 ##### Controllers
 
 
-Los Controllers del Store Management & Inventory Context se detallan en la Tabla 73.
+Los Controllers del Store Management & Inventory Context se detallan en la Tabla 74.
 
-<a id="tabla-73"></a>
+<a id="tabla-74"></a>
 
-**Tabla 73**
+**Tabla 74**
 
 *Controllers del Store Management & Inventory Context*
 
@@ -2994,11 +2994,11 @@ Los Controllers del Store Management & Inventory Context se detallan en la Tabla
 ##### Event Consumers
 
 
-Los Event Consumers del Store Management & Inventory Context se presentan en la Tabla 74.
+Los Event Consumers del Store Management & Inventory Context se presentan en la Tabla 75.
 
-<a id="tabla-74"></a>
+<a id="tabla-75"></a>
 
-**Tabla 74**
+**Tabla 75**
 
 *Event Consumers del Store Management & Inventory Context*
 
@@ -3012,11 +3012,11 @@ La recepción de `SaleWasClosed` forma parte del flujo de integración definido 
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Store Management & Inventory Context se resumen en la Tabla 75.
+Los Resources / DTOs del Store Management & Inventory Context se resumen en la Tabla 76.
 
-<a id="tabla-75"></a>
+<a id="tabla-76"></a>
 
-**Tabla 75**
+**Tabla 76**
 
 *Resources / DTOs del Store Management & Inventory Context*
 
@@ -3040,11 +3040,11 @@ Los Resources / DTOs del Store Management & Inventory Context se resumen en la T
 ##### Assemblers
 
 
-Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 76.
+Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 77.
 
-<a id="tabla-76"></a>
+<a id="tabla-77"></a>
 
-**Tabla 76**
+**Tabla 77**
 
 *Assemblers del Store Management & Inventory Context*
 
@@ -3070,11 +3070,11 @@ Los casos de uso se ejecutan mediante handlers que reciben los comandos provenie
 ##### Command Handlers
 
 
-Los Command Handlers del Store Management & Inventory Context se presentan en la Tabla 77.
+Los Command Handlers del Store Management & Inventory Context se presentan en la Tabla 78.
 
-<a id="tabla-77"></a>
+<a id="tabla-78"></a>
 
-**Tabla 77**
+**Tabla 78**
 
 *Command Handlers del Store Management & Inventory Context*
 
@@ -3096,11 +3096,11 @@ Los Command Handlers del Store Management & Inventory Context se presentan en la
 ##### Event Handler
 
 
-El Event Handler del Store Management & Inventory Context se resume en la Tabla 78.
+El Event Handler del Store Management & Inventory Context se resume en la Tabla 79.
 
-<a id="tabla-78"></a>
+<a id="tabla-79"></a>
 
-**Tabla 78**
+**Tabla 79**
 
 *Event Handler del Store Management & Inventory Context*
 
@@ -3112,11 +3112,11 @@ El Event Handler del Store Management & Inventory Context se resume en la Tabla 
 ##### Application Services
 
 
-Los Application Services del Store Management & Inventory Context se detallan en la Tabla 79.
+Los Application Services del Store Management & Inventory Context se detallan en la Tabla 80.
 
-<a id="tabla-79"></a>
+<a id="tabla-80"></a>
 
-**Tabla 79**
+**Tabla 80**
 
 *Application Services del Store Management & Inventory Context*
 
@@ -3138,11 +3138,11 @@ La **Infrastructure Layer** contiene las implementaciones técnicas necesarias p
 ##### Repositories
 
 
-Los Repositories del Store Management & Inventory Context se presentan en la Tabla 80.
+Los Repositories del Store Management & Inventory Context se presentan en la Tabla 81.
 
-<a id="tabla-80"></a>
+<a id="tabla-81"></a>
 
-**Tabla 80**
+**Tabla 81**
 
 *Repositories del Store Management & Inventory Context*
 
@@ -3157,11 +3157,11 @@ Los Repositories del Store Management & Inventory Context se presentan en la Tab
 ##### Persistence
 
 
-Los componentes de persistencia del Store Management & Inventory Context se resumen en la Tabla 81.
+Los componentes de persistencia del Store Management & Inventory Context se resumen en la Tabla 82.
 
-<a id="tabla-81"></a>
+<a id="tabla-82"></a>
 
-**Tabla 81**
+**Tabla 82**
 
 *Componentes de persistencia del Store Management & Inventory Context*
 
@@ -3182,11 +3182,11 @@ Los componentes de persistencia del Store Management & Inventory Context se resu
 ##### Messaging
 
 
-Los componentes de mensajería del Store Management & Inventory Context se detallan en la Tabla 82.
+Los componentes de mensajería del Store Management & Inventory Context se detallan en la Tabla 83.
 
-<a id="tabla-82"></a>
+<a id="tabla-83"></a>
 
-**Tabla 82**
+**Tabla 83**
 
 *Componentes de mensajería del Store Management & Inventory Context*
 
@@ -3210,11 +3210,11 @@ El siguiente Component Diagram (C4 Model - Component Level) descompone el módul
 * **Infrastructure Layer:** Implementa los repositorios de inventario, monturas, proveedores y movimientos de stock con JPA sobre la base PostgreSQL compartida, a partir de la migración V6.
 
 
-El diagrama de componentes del Store Management & Inventory Context en Spring Boot se presenta en la Figura 50.
+El diagrama de componentes del Store Management & Inventory Context en Spring Boot se presenta en la Figura 52.
 
-<a id="figura-50"></a>
+<a id="figura-52"></a>
 
-**Figura 50**
+**Figura 52**
 
 *Diagrama de componentes del Store Management & Inventory Context en Spring Boot*
 
@@ -3240,12 +3240,12 @@ El modelo se organiza principalmente alrededor de `FrameModel` e `Inventory`. `F
 
 El proceso de abastecimiento se representa mediante `Replenishment`, el cual relaciona el inventario, el producto y el `Supplier` responsable del suministro. Cada reposición y cada salida por venta se registran como un `StockMovement`, que conserva el tipo, el motivo, la cantidad, la fecha y el usuario, y forma el historial de movimientos. Asimismo, `LowStockAlert` representa la información generada cuando la cantidad disponible de un producto alcanza o se encuentra por debajo del nivel mínimo establecido.
 
-El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository`, `SupplierRepository` y `StockMovementRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 51).
+El Domain Layer también incluye las interfaces `FrameModelRepository`, `InventoryRepository`, `SupplierRepository` y `StockMovementRepository`, responsables de abstraer la persistencia de los principales elementos del dominio. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante la gestión del catálogo, inventario, stock y proveedores (ver Figura 53).
 
 
-<a id="figura-51"></a>
+<a id="figura-53"></a>
 
-**Figura 51**
+**Figura 53**
 
 *Diagrama de clases del Domain Layer del Store Management & Inventory Context*
 
@@ -3261,11 +3261,11 @@ El Domain Layer también incluye las interfaces `FrameModelRepository`, `Invento
 Las tablas son `frame_models`, `inventories`, `inventory_stocks`, `suppliers` y `stock_movements`, que organizan el catálogo, las existencias y su historial. `frame_models` contiene `id`, `sku` (único; corresponde al código de barras que lee el escáner), `name`, `material`, `shape`, `color`, `price_amount NUMERIC(10,2)`, `price_currency` y `try_on_model_url` (referencia opcional al modelo del probador virtual). `inventories` contiene `id` y `optical_store_id` (FK hacia `optical_stores.id`, único), de modo que cada óptica tiene un inventario. `suppliers` contiene `id`, `name` y `contact`. `inventory_stocks` usa una clave compuesta por `inventory_id` y `frame_model_id` (FK hacia sus tablas) y guarda `quantity` y `minimum_stock`, ambos mayores o iguales a cero. `stock_movements` contiene `id`, `inventory_id` y `frame_model_id` (FK) y registra cada entrada o salida con `type` (`IN` u `OUT`), `reason` (`REPLENISHMENT`, `SALE` o `ADJUSTMENT`), cantidad, `sale_id` o `supplier_id` según el motivo, el usuario que lo registró (`performed_by`, vacío en las salidas por venta, que provienen del evento `SaleWasClosed`) y `created_at`.
 
 
-**La Figura 52 representa las cinco tablas de la migración V6 con sus columnas, tipos, PK y FK.**
+**La Figura 54 representa las cinco tablas de la migración V6 con sus columnas, tipos, PK y FK.**
 
-<a id="figura-52"></a>
+<a id="figura-54"></a>
 
-**Figura 52**
+**Figura 54**
 
 *Diagrama de base de datos del Store Management & Inventory Context*
 
@@ -3287,11 +3287,11 @@ La capa de dominio del **Notification & Loyalty Context** concentra las reglas r
 ##### Domain Concepts
 
 
-Los Domain Concepts del Notification & Loyalty Context se resumen en la Tabla 83.
+Los Domain Concepts del Notification & Loyalty Context se resumen en la Tabla 84.
 
-<a id="tabla-83"></a>
+<a id="tabla-84"></a>
 
-**Tabla 83**
+**Tabla 84**
 
 *Domain Concepts del Notification & Loyalty Context*
 
@@ -3312,11 +3312,11 @@ Los Domain Concepts del Notification & Loyalty Context se resumen en la Tabla 83
 ##### Commands
 
 
-Los Commands del Notification & Loyalty Context se detallan en la Tabla 84.
+Los Commands del Notification & Loyalty Context se detallan en la Tabla 85.
 
-<a id="tabla-84"></a>
+<a id="tabla-85"></a>
 
-**Tabla 84**
+**Tabla 85**
 
 *Commands del Notification & Loyalty Context*
 
@@ -3338,11 +3338,11 @@ Las lecturas se modelan como consultas: `GetNotificationsByPatient` (avisos del 
 ##### Domain Events
 
 
-Los Domain Events del Notification & Loyalty Context se presentan en la Tabla 85.
+Los Domain Events del Notification & Loyalty Context se presentan en la Tabla 86.
 
-<a id="tabla-85"></a>
+<a id="tabla-86"></a>
 
-**Tabla 85**
+**Tabla 86**
 
 *Domain Events del Notification & Loyalty Context*
 
@@ -3369,11 +3369,11 @@ La Interface Layer expone los puntos de entrada que usa la aplicación del pacie
 ##### Resources / DTOs
 
 
-Los Resources / DTOs del Notification & Loyalty Context se resumen en la Tabla 86.
+Los Resources / DTOs del Notification & Loyalty Context se resumen en la Tabla 87.
 
-<a id="tabla-86"></a>
+<a id="tabla-87"></a>
 
-**Tabla 86**
+**Tabla 87**
 
 *Resources / DTOs del Notification & Loyalty Context*
 
@@ -3390,11 +3390,11 @@ Los Resources / DTOs del Notification & Loyalty Context se resumen en la Tabla 8
 ##### Controllers
 
 
-Los Controllers del Notification & Loyalty Context se detallan en la Tabla 87.
+Los Controllers del Notification & Loyalty Context se detallan en la Tabla 88.
 
-<a id="tabla-87"></a>
+<a id="tabla-88"></a>
 
-**Tabla 87**
+**Tabla 88**
 
 *Controllers del Notification & Loyalty Context*
 
@@ -3408,11 +3408,11 @@ Los Controllers del Notification & Loyalty Context se detallan en la Tabla 87.
 ##### Assemblers
 
 
-Los Assemblers del Notification & Loyalty Context se presentan en la Tabla 88.
+Los Assemblers del Notification & Loyalty Context se presentan en la Tabla 89.
 
-<a id="tabla-88"></a>
+<a id="tabla-89"></a>
 
-**Tabla 88**
+**Tabla 89**
 
 *Assemblers del Notification & Loyalty Context*
 
@@ -3434,11 +3434,11 @@ La Application Layer coordina los casos de uso definidos para el contexto de not
 ##### Command Handlers
 
 
-Los Command Handlers del Notification & Loyalty Context se resumen en la Tabla 89.
+Los Command Handlers del Notification & Loyalty Context se resumen en la Tabla 90.
 
-<a id="tabla-89"></a>
+<a id="tabla-90"></a>
 
-**Tabla 89**
+**Tabla 90**
 
 *Command Handlers del Notification & Loyalty Context*
 
@@ -3460,11 +3460,11 @@ Las consultas se resuelven con `GetNotificationsByPatientQueryService`, `GetNoti
 ##### Event Handlers y tareas programadas
 
 
-Los Event Handlers y las tareas programadas del Notification & Loyalty Context se detallan en la Tabla 90.
+Los Event Handlers y las tareas programadas del Notification & Loyalty Context se detallan en la Tabla 91.
 
-<a id="tabla-90"></a>
+<a id="tabla-91"></a>
 
-**Tabla 90**
+**Tabla 91**
 
 *Event Handlers y tareas programadas del Notification & Loyalty Context*
 
@@ -3482,11 +3482,11 @@ Los Event Handlers y las tareas programadas del Notification & Loyalty Context s
 ##### Application Services
 
 
-Los Application Services del Notification & Loyalty Context se presentan en la Tabla 91.
+Los Application Services del Notification & Loyalty Context se presentan en la Tabla 92.
 
-<a id="tabla-91"></a>
+<a id="tabla-92"></a>
 
-**Tabla 91**
+**Tabla 92**
 
 *Application Services del Notification & Loyalty Context*
 
@@ -3505,11 +3505,11 @@ La Infrastructure Layer persiste notificaciones, tokens de dispositivos y cuenta
 ##### Repositories
 
 
-Los Repositories del Notification & Loyalty Context se resumen en la Tabla 92.
+Los Repositories del Notification & Loyalty Context se resumen en la Tabla 93.
 
-<a id="tabla-92"></a>
+<a id="tabla-93"></a>
 
-**Tabla 92**
+**Tabla 93**
 
 *Repositories del Notification & Loyalty Context*
 
@@ -3523,11 +3523,11 @@ Los Repositories del Notification & Loyalty Context se resumen en la Tabla 92.
 ##### Persistence
 
 
-Los componentes de persistencia del Notification & Loyalty Context se detallan en la Tabla 93.
+Los componentes de persistencia del Notification & Loyalty Context se detallan en la Tabla 94.
 
-<a id="tabla-93"></a>
+<a id="tabla-94"></a>
 
-**Tabla 93**
+**Tabla 94**
 
 *Componentes de persistencia del Notification & Loyalty Context*
 
@@ -3543,11 +3543,11 @@ Los componentes de persistencia del Notification & Loyalty Context se detallan e
 ##### Messaging
 
 
-Los componentes de mensajería del Notification & Loyalty Context se presentan en la Tabla 94.
+Los componentes de mensajería del Notification & Loyalty Context se presentan en la Tabla 95.
 
-<a id="tabla-94"></a>
+<a id="tabla-95"></a>
 
-**Tabla 94**
+**Tabla 95**
 
 *Componentes de mensajería del Notification & Loyalty Context*
 
@@ -3561,11 +3561,11 @@ Los componentes de mensajería del Notification & Loyalty Context se presentan e
 ##### External Messaging / ACL
 
 
-Los componentes de mensajería externa y ACL del Notification & Loyalty Context se resumen en la Tabla 95.
+Los componentes de mensajería externa y ACL del Notification & Loyalty Context se resumen en la Tabla 96.
 
-<a id="tabla-95"></a>
+<a id="tabla-96"></a>
 
-**Tabla 95**
+**Tabla 96**
 
 *Componentes de mensajería externa y ACL del Notification & Loyalty Context*
 
@@ -3590,11 +3590,11 @@ El siguiente Component Diagram representa el módulo **Notification & Loyalty** 
 * **Infrastructure Layer:** Implementa los repositorios sobre JPA/PostgreSQL mediante `NotificationEntity`, `LoyaltyAccountEntity`, `DeviceTokenEntity` y sus mappers, consulta los cumpleaños mediante `PatientDirectoryAdapter` y envía las notificaciones push mediante `FirebaseMessagingAdapter`, protegido por la `MessagingAntiCorruptionLayer`.
 
 
-El diagrama de componentes del Notification & Loyalty Context en Spring Boot se muestra en la Figura 53.
+El diagrama de componentes del Notification & Loyalty Context en Spring Boot se muestra en la Figura 55.
 
-<a id="figura-53"></a>
+<a id="figura-55"></a>
 
-**Figura 53**
+**Figura 55**
 
 *Diagrama de componentes del Notification & Loyalty Context en Spring Boot*
 
@@ -3618,12 +3618,12 @@ El modelo se organiza alrededor de dos agregados. `Notification` representa cada
 
 `LoyaltyAccount` representa la cuenta de fidelización del paciente y conserva su saldo (`LoyaltyPoints`) y el año del último beneficio de cumpleaños; `grantBirthdayDiscount` rechaza un segundo beneficio en el mismo año. `DeviceToken` registra los dispositivos del paciente que reciben las notificaciones push.
 
-El Domain Layer incluye también las interfaces `NotificationRepository`, `LoyaltyAccountRepository` y `DeviceTokenRepository`, que abstraen la persistencia de avisos, cuentas y tokens. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las operaciones de notificación y fidelización (ver Figura 54).
+El Domain Layer incluye también las interfaces `NotificationRepository`, `LoyaltyAccountRepository` y `DeviceTokenRepository`, que abstraen la persistencia de avisos, cuentas y tokens. Finalmente, los Domain Events representan los acontecimientos relevantes producidos durante las operaciones de notificación y fidelización (ver Figura 56).
 
 
-<a id="figura-54"></a>
+<a id="figura-56"></a>
 
-**Figura 54**
+**Figura 56**
 
 *Diagrama de clases del Domain Layer del Notification & Loyalty Context*
 
@@ -3644,11 +3644,11 @@ El Domain Layer incluye también las interfaces `NotificationRepository`, `Loyal
 
 Los tipos permitidos son `APPOINTMENT_REMINDER`, `ANNUAL_CHECKUP_REMINDER`, `LENS_ORDER_PROGRESS`, `BIRTHDAY_DISCOUNT`, `DELIVERY_DELAY` y `SATISFACTION_SURVEY` (V7 amplía el `CHECK` de V4); los estados admitidos son `UNREAD` y `READ`. V7 reemplaza el índice único parcial de V4 por uno sobre (`patient_id`, `appointment_id`, `type`) cuando `appointment_id IS NOT NULL`, para que una cita tenga un solo recordatorio de cada tipo, y crea un índice sobre (`push_status`, `scheduled_at`) para la búsqueda de avisos pendientes. Esta regla se documenta junto al diagrama, aunque el importador gráfico no represente índices parciales.
 
-`NotificationEntity`, `LoyaltyAccountEntity` y `DeviceTokenEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. **La Figura 55 muestra las tres tablas y sus FKs hacia `patients`, tabla de V1 que se incluye como referencia. `appointment_id` y `work_order_id` de `notifications` son referencias lógicas sin FK y no se dibujan como relaciones.**
+`NotificationEntity`, `LoyaltyAccountEntity` y `DeviceTokenEntity` son las entidades JPA de estas tablas; sus repositorios y mappers convierten filas relacionales en objetos del dominio. **La Figura 57 muestra las tres tablas y sus FKs hacia `patients`, tabla de V1 que se incluye como referencia. `appointment_id` y `work_order_id` de `notifications` son referencias lógicas sin FK y no se dibujan como relaciones.**
 
-<a id="figura-55"></a>
+<a id="figura-57"></a>
 
-**Figura 55**
+**Figura 57**
 
 *Diagrama de base de datos del Notification & Loyalty Context*
 
