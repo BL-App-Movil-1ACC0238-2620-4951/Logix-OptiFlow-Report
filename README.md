@@ -59,7 +59,7 @@ Proyecto<br>
 
 **Periodo 202620**  
 
-**Octubre 2026**
+**Noviembre 2026**
 </div>
 </div> 
 <div class="page"></div>
@@ -82,6 +82,7 @@ El registro de versiones del informe se detalla en la Tabla 1.
 | ----------- | --------- |----------- |--------------------|
 | AV1 | 17/09/2026 | Atoche Nicolas Fernando <br><br> Becerra Felix Orlando <br><br> Celis Eslander <br><br> Morocho Pinedo Mariana <br><br> Quispe César Augusto | Desarrollo del avance inicial del informe de OptiFlow, incluyendo el análisis de antecedentes y problemática, análisis de competidores, entrevistas y levantamiento de requisitos. Elaboración y priorización de User Stories y Product Backlog. Desarrollo del análisis estratégico del dominio mediante EventStorming, Candidate Context Discovery, Domain Message Flows, Bounded Context Canvases y Context Mapping. Definición de los Bounded Contexts: Search & Booking, Clinical & Commercial, Production & Tracking, Store Management & Inventory y Notification & Loyalty. Desarrollo inicial del diseño táctico de los Bounded Contexts y de la arquitectura de software mediante diagramas C4 de Context, Container y Component. Elaboración de diagramas de diseño de dominio y base de datos para los contextos desarrollados, además de la organización de conclusiones y anexos del informe. |
 | TB1 | 08/10/2026 | Atoche Nicolas Fernando <br><br> Becerra Felix Orlando <br><br> Celis Eslander <br><br> Morocho Pinedo Mariana <br><br> Quispe César Augusto | Corrección de las observaciones del AV1: saltos de página entre capítulos, descripción del Student Outcome, objetivos SMART, referencia de figuras y tablas, detalle del proceso de EventStorming, Domain Message Flows, Bounded Context Canvases, diagrama de contenedores con un único backend y relación entre cotización y venta en Clinical & Commercial. Desarrollo del Capítulo III con las Style Guidelines, la Information Architecture, el wireframe, mock-up y prototipo de la Landing Page, y los wireframes, wireflows y mock-ups de la aplicación móvil. Desarrollo del Capítulo IV con la configuración del entorno, la gestión del código fuente, las guías de estilo, la configuración de despliegue y el Sprint 1: planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de los Web Services, despliegue en GitHub Pages, Render y Firebase App Distribution, y colaboración del equipo. Diseño de las entrevistas de validación. Actualización del Student Outcome y de Project Report Collaboration Insights, y aplicación del formato APA 7 a figuras, tablas y bibliografía. |
+| AV2 | 12/11/2026 | Atoche Nicolas Fernando <br><br> Becerra Felix Orlando <br><br> Celis Eslander <br><br> Morocho Pinedo Mariana <br><br> Quispe César Augusto | Corrección de las observaciones del TB1: Domain Message Flows y Context Mapping con las consultas entre contextos, la pasarela de pagos y Firebase Cloud Messaging; EventStorming, Ubiquitous Language y Bounded Context Canvases; diagramas C4 de contexto, contenedores, componentes y despliegue; diagramas de clases y de base de datos alineados con las migraciones de PostgreSQL; diseño táctico de los cinco Bounded Contexts; documentación de los Web Services con el contrato `/api/v1`; y actualización de las User Stories, el Product Backlog, la Style Guide, la Information Architecture, la Landing Page y los wireframes, wireflows y mock-ups de la aplicación móvil. Desarrollo del Sprint 2 en el Capítulo IV: planning, aspect leaders, backlog y tablero, evidencias de desarrollo, pruebas automatizadas, ejecución de la aplicación Kotlin para pacientes y personal, documentación de los servicios desplegados en Render, despliegue de la Landing Page, el backend y la versión 1.0 en Firebase App Distribution, y colaboración del equipo. Registro de los videos About the Product y About the Team, y actualización de las conclusiones, el Student Outcome y Project Report Collaboration Insights. |
 <div style="page-break-after: always;"></div>
 
 # Project Report Collaboration Insights
@@ -90,7 +91,7 @@ Para el desarrollo del **Project Report**, el equipo utiliza un repositorio dent
 
 **Repositorio del informe del proyecto:** [https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report)
 
-- **Total de commits:** 115 commits en `develop` al 9 de octubre de 2026, sin contar los commits de *merge*.
+- **Total de commits:** 190 commits en `develop` al 12 de noviembre de 2026, sin contar los commits de *merge*.
 - **Autores contribuyentes:**
   - Atoche Gonzales, Nicolas Fernando (`THECOMAX`)
   - Becerra Ttito, Felix Orlando (`Felixb14`)
@@ -213,6 +214,57 @@ Las contribuciones por integrante al repositorio del informe durante TB1 se pres
 | Celis Berrospi, Eslander | `Eslander-Celis` | 6 | 3515 | 209 |
 | Morocho Pinedo, Mariana | `Patto04` | 11 | 487 | 6 |
 | Quispe Llacsahuanga, César Augusto | `user20-bit` | 7 | 629 | 203 |
+
+
+## AV2 – Semana 12
+
+Durante AV2, el equipo corrigió las observaciones del docente sobre el TB1 y documentó el Sprint 2 en el Capítulo IV. Cada integrante trabajó en ramas creadas desde `develop` e integró sus cambios mediante *pull requests*. Entre el 10 de octubre y el 12 de noviembre de 2026 se registraron 69 commits en `develop`, sin contar los commits de *merge*. El trabajo se distribuyó de la siguiente manera:
+
+- **Atoche Gonzales, Nicolas Fernando:** corrección del EventStorming, el Ubiquitous Language y los Bounded Context Canvases; diagramas C4 de contexto y contenedores; configuración de desarrollo y despliegue del Capítulo IV; diseño táctico de Clinical & Commercial; diseño de la Landing Page; y gestión del catálogo de monturas por el asesor comercial en la documentación de servicios.
+- **Becerra Ttito, Felix Orlando:** Domain Message Flows y Context Mapping, incluidas las consultas entre contextos, la pasarela de pagos y Firebase Cloud Messaging; diagramas C4 de componentes y despliegue, diagramas de clases y diagramas de base de datos; alineación del Capítulo II y de la documentación de los Web Services con el backend; actualización de las evidencias del Sprint 1, la evaluación heurística, las referencias y el glosario; y evidencias de pruebas, ejecución de la aplicación Kotlin y despliegue del Sprint 2.
+- **Celis Berrospi, Eslander:** alineación del modelo de datos con las migraciones de PostgreSQL; diseño táctico de Production & Tracking, Store Management & Inventory y Notification & Loyalty; diagramas de clases y glosario; documentación de las cotizaciones por ficha clínica, los horarios sin solapamiento y el acceso del técnico a los datos del paciente; y Sprint Planning, Sprint Backlog, evidencias y conclusiones del Sprint 2.
+- **Morocho Pinedo, Mariana:** diagramas de componentes y de despliegue; wireframes, wireflows y mock-ups de la aplicación móvil; actualización de la Landing Page; y documentación del estado del personal de la óptica.
+- **Quispe Llacsahuanga, César Augusto:** User Stories y Product Backlog; diseño táctico de Search & Booking; Style Guide e Information Architecture; diagramas de base de datos de Search & Booking, Clinical & Commercial, Store Management & Inventory y Notification & Loyalty; y registro de los videos About the Product y About the Team.
+
+
+Los commits por integrante en el repositorio del informe durante AV2 se observan en la Figura 6.
+
+<a id="figura-6"></a>
+
+**Figura 6**
+
+*Commits por integrante en el repositorio del informe durante AV2*
+
+![Contribuidores del repositorio del informe en AV2](assets/commits/av2-contributors.png)
+
+
+Los commits semanales del repositorio del informe durante el último año se muestran en la Figura 7.
+
+<a id="figura-7"></a>
+
+**Figura 7**
+
+*Commits semanales del repositorio del informe al cierre de AV2*
+
+![Commits semanales del repositorio del informe en AV2](assets/commits/av2-commit-activity.png)
+
+
+Las contribuciones por integrante al repositorio del informe durante AV2 se presentan en la Tabla 4.
+
+<a id="tabla-4"></a>
+
+**Tabla 4**
+
+*Contribuciones por integrante al repositorio del informe durante AV2*
+
+
+| Integrante | Usuario GitHub | Commits | Adiciones | Eliminaciones |
+|---|---|---:|---:|---:|
+| Atoche Gonzales, Nicolas Fernando | `THECOMAX` | 8 | 402 | 503 |
+| Becerra Ttito, Felix Orlando | `Felixb14` | 28 | 3060 | 3169 |
+| Celis Berrospi, Eslander | `Eslander-Celis` | 12 | 1902 | 2253 |
+| Morocho Pinedo, Mariana | `Patto04` | 11 | 388 | 253 |
+| Quispe Llacsahuanga, César Augusto | `user20-bit` | 10 | 413 | 270 |
 
 
 # Tabla de Contenidos
@@ -363,6 +415,16 @@ Las contribuciones por integrante al repositorio del informe durante TB1 se pres
     - [4.2.1.7. Services Documentation Evidence for Sprint Review](Capitulo4.md#4217-services-documentation-evidence-for-sprint-review)
     - [4.2.1.8. Software Deployment Evidence for Sprint Review](Capitulo4.md#4218-software-deployment-evidence-for-sprint-review)
     - [4.2.1.9. Team Collaboration Insights during Sprint](Capitulo4.md#4219-team-collaboration-insights-during-sprint)
+  - [4.2.2. Sprint 2](Capitulo4.md#422-sprint-2)
+    - [4.2.2.1. Sprint Planning 2](Capitulo4.md#4221-sprint-planning-2)
+    - [4.2.2.2. Aspect Leaders and Collaborators](Capitulo4.md#4222-aspect-leaders-and-collaborators)
+    - [4.2.2.3. Sprint Backlog 2](Capitulo4.md#4223-sprint-backlog-2)
+    - [4.2.2.4. Development Evidence for Sprint Review](Capitulo4.md#4224-development-evidence-for-sprint-review)
+    - [4.2.2.5. Testing Suite Evidence for Sprint Review](Capitulo4.md#4225-testing-suite-evidence-for-sprint-review)
+    - [4.2.2.6. Execution Evidence for Sprint Review](Capitulo4.md#4226-execution-evidence-for-sprint-review)
+    - [4.2.2.7. Services Documentation Evidence for Sprint Review](Capitulo4.md#4227-services-documentation-evidence-for-sprint-review)
+    - [4.2.2.8. Software Deployment Evidence for Sprint Review](Capitulo4.md#4228-software-deployment-evidence-for-sprint-review)
+    - [4.2.2.9. Team Collaboration Insights during Sprint](Capitulo4.md#4229-team-collaboration-insights-during-sprint)
 - [4.3. Validation Interviews](Capitulo4.md#43-validation-interviews)
   - [4.3.1. Diseño de entrevistas](Capitulo4.md#431-diseño-de-entrevistas)
   - [4.3.2. Registro de entrevistas](Capitulo4.md#432-registro-de-entrevistas)
@@ -371,7 +433,8 @@ Las contribuciones por integrante al repositorio del informe durante TB1 se pres
 
 ## [Conclusiones](Conclusiones.md)
 
-- [Conclusiones y recomendaciones](Conclusiones.md#conclusiones)
+- [Conclusiones](Conclusiones.md#conclusiones)
+- [Recomendaciones](Conclusiones.md#recomendaciones)
 - [Video App Validation](Conclusiones.md#video-app-validation)
 - [Video About the Product](Conclusiones.md#video-about-the-product)
 - [Video About the Team](Conclusiones.md#video-about-the-team)
@@ -404,12 +467,12 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 
 En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7.
 
-En OptiFlow, este aprendizaje se relaciona con la investigación del dominio, la aplicación de Lean UX y DDD, el diseño de la experiencia móvil y la integración del flujo de búsqueda y reserva. Las acciones individuales registradas en el cuadro sustentan los dos criterios específicos: actualización de conocimientos y reconocimiento de la necesidad del aprendizaje permanente (ver Tabla 4).
+En OptiFlow, este aprendizaje se relaciona con la investigación del dominio, la aplicación de Lean UX y DDD, el diseño de la experiencia móvil y la integración del flujo de búsqueda y reserva. Las acciones individuales registradas en el cuadro sustentan los dos criterios específicos: actualización de conocimientos y reconocimiento de la necesidad del aprendizaje permanente (ver Tabla 5).
 
 
-<a id="tabla-4"></a>
+<a id="tabla-5"></a>
 
-**Tabla 4**
+**Tabla 5**
 
 *Acciones realizadas y conclusiones respecto al ABET – EAC – Student Outcome 7*
 
@@ -432,11 +495,17 @@ Durante el desarrollo del AV1, actualicé mis conocimientos relacionados con el 
 <b>Atoche Nicolas Fernando: TB1</b><br>
 Durante el TB1, actualicé mis conocimientos sobre la configuración de entornos de desarrollo, GitFlow y la configuración de despliegue al documentar las herramientas, los repositorios y las convenciones del proyecto en el Capítulo IV. Además, utilicé Figma para elaborar el wireframe y el mock-up de la Landing Page, y revisé el proceso de EventStorming para corregir las observaciones del AV1.<br><br>
 
+<b>Atoche Nicolas Fernando: AV2</b><br>
+Durante el AV2, actualicé mis conocimientos sobre EventStorming, Bounded Context Canvases y el modelo C4 al corregir los diagramas de contexto y contenedores según la implementación del backend. También revisé el diseño táctico de Clinical & Commercial y la configuración de desarrollo y despliegue del Capítulo IV.<br><br>
+
 <b>Becerra Felix Orlando: AV1</b><br>
 Durante el desarrollo del AV1, amplié mis conocimientos sobre análisis competitivo, entrevistas y procesos de Needfinding. Profundicé en herramientas como User Task Matrix, User Personas, User Journey Mapping y análisis de entrevistas, las cuales permitieron identificar las principales necesidades y características de los segmentos objetivo. La investigación realizada contribuyó a mejorar mi comprensión sobre el proceso de levantamiento y análisis de información para una solución de software.<br><br>
 
 <b>Becerra Felix Orlando: TB1</b><br>
 Durante el TB1, aprendí a documentar servicios web con OpenAPI y Swagger UI, a desplegar un backend de Spring Boot con Docker en Render y a distribuir una aplicación Android mediante Firebase App Distribution. Apliqué estos conocimientos al elaborar las evidencias de documentación de servicios, despliegue y colaboración del Sprint 1.<br><br>
+
+<b>Becerra Felix Orlando: AV2</b><br>
+Durante el AV2, profundicé en Domain Message Flows y Context Mapping para representar las consultas entre contextos, la pasarela de pagos y Firebase Cloud Messaging. Además, apliqué pruebas unitarias, de integración y de aceptación con JUnit, MockMvc y Cucumber, e integré la aplicación Kotlin con el contrato `/api/v1`, Hilt y Room antes de firmar y distribuir la versión 1.0.<br><br>
 
 <b>Celis Eslander: AV1</b><br>
 Durante el desarrollo del AV1, actualicé mis conocimientos relacionados con la especificación de requisitos y Strategic-Level Domain-Driven Design. Profundicé en conceptos como User Stories, Product Backlog, Impact Mapping, EventStorming, Ubiquitous Language, Candidate Context Discovery, Domain Message Flows Modeling y Bounded Context Canvases. Esto me permitió comprender mejor cómo organizar los requisitos y dividir el dominio de una solución de software en contextos claramente definidos.<br><br>
@@ -444,22 +513,32 @@ Durante el desarrollo del AV1, actualicé mis conocimientos relacionados con la 
 <b>Celis Eslander: TB1</b><br>
 Durante el TB1, actualicé mis conocimientos sobre la planificación de un sprint con Scrum, la elaboración del Sprint Backlog y la definición de pruebas de aceptación con Gherkin. Apliqué estos conceptos al documentar el Sprint 1 y al corregir las observaciones del AV1 sobre EventStorming, Domain Message Flows, Bounded Context Canvases y el modelo C4.<br><br>
 
+<b>Celis Eslander: AV2</b><br>
+Durante el AV2, actualicé mis conocimientos sobre el modelado de datos en PostgreSQL y su relación con el diseño táctico al alinear Production & Tracking, Store Management & Inventory y Notification & Loyalty con las migraciones del backend. También apliqué Scrum en la planificación, el backlog y las evidencias del Sprint 2.<br><br>
+
 <b>Morocho Pinedo Mariana: AV1</b><br>
 Durante el desarrollo del AV1, reforcé mis conocimientos relacionados con la definición de una propuesta de solución mediante el Startup Profile, Solution Profile y Lean UX Process. Profundicé en conceptos como Lean UX Problem Statements, Lean UX Assumptions, Lean UX Hypothesis Statements y Lean UX Canvas, aplicándolos para analizar la problemática, identificar supuestos y establecer hipótesis relacionadas con las necesidades de los segmentos objetivo.<br><br>
 
 <b>Morocho Pinedo Mariana: TB1</b><br>
 Durante el TB1, reforcé mis conocimientos de diseño de interfaces al elaborar en Figma los wireframes de la Landing Page y de la aplicación móvil. Esto me permitió aplicar criterios de jerarquía visual, consistencia y navegación por rol en las pantallas del paciente y del personal de la óptica.<br><br>
 
+<b>Morocho Pinedo Mariana: AV2</b><br>
+Durante el AV2, reforcé mis conocimientos de diseño de interfaces móviles al actualizar en Figma los wireframes, wireflows y mock-ups según las funciones implementadas en la aplicación. También actualicé los diagramas de componentes y de despliegue, y la Landing Page.<br><br>
+
 <b>Quispe César Augusto: AV1</b><br>
 Durante el desarrollo del AV1, actualicé mis conocimientos relacionados con Domain-Driven Design y arquitectura de software. Profundicé en conceptos como Context Mapping, Bounded Contexts, Domain Layer, Application Layer, Interface Layer e Infrastructure Layer. Asimismo, reforcé mis conocimientos sobre diagramas de arquitectura a nivel de Context, Container, Component y Code, además del diseño de diagramas de clases y base de datos correspondientes a los diferentes Bounded Contexts de la solución.<br><br>
 
 <b>Quispe César Augusto: TB1</b><br>
 Durante el TB1, profundicé en conceptos de diseño UX/UI y de Information Architecture, como Organization, Labeling, Searching y Navigation Systems, además de SEO tags y meta tags. Apliqué estos conocimientos al definir las Style Guidelines y la arquitectura de información del Capítulo III, y al implementar el flujo de búsqueda y reserva de la aplicación móvil conectado al backend.<br><br>
+
+<b>Quispe César Augusto: AV2</b><br>
+Durante el AV2, actualicé mis conocimientos sobre diseño táctico y modelado de bases de datos al revisar Search & Booking y los diagramas de base de datos de los contextos según las migraciones del backend. También actualicé las User Stories, el Product Backlog, la Style Guide y la Information Architecture, y preparé los videos About the Product y About the Team.<br><br>
     </td>
     <td>
 <b>AV1:</b><br>
 Durante el desarrollo del AV1, el equipo fortaleció y actualizó sus conocimientos mediante la investigación y aplicación de diferentes métodos, conceptos y herramientas necesarias para analizar y diseñar la solución de software. Se profundizó en temas relacionados con Lean UX, análisis competitivo, entrevistas, Needfinding, especificación de requisitos, Domain-Driven Design y arquitectura de software. La aplicación de estos conocimientos permitió comprender de manera más completa la problemática, las necesidades de los usuarios, los requisitos del sistema y la organización de los diferentes componentes de la solución. De esta manera, el equipo logró complementar los conocimientos adquiridos previamente y aplicarlos de forma práctica en el desarrollo del proyecto.<br><br><b>TB1:</b><br>
-Durante el TB1, el equipo actualizó sus conocimientos sobre diseño UX/UI, arquitectura de información, Scrum, documentación de servicios con OpenAPI y despliegue de productos digitales en GitHub Pages, Render y Firebase App Distribution. Estos conocimientos se aplicaron directamente en el primer incremento de OptiFlow: la Landing Page publicada, el backend desplegado y la aplicación móvil distribuida a los evaluadores. </td> </tr>
+Durante el TB1, el equipo actualizó sus conocimientos sobre diseño UX/UI, arquitectura de información, Scrum, documentación de servicios con OpenAPI y despliegue de productos digitales en GitHub Pages, Render y Firebase App Distribution. Estos conocimientos se aplicaron directamente en el primer incremento de OptiFlow: la Landing Page publicada, el backend desplegado y la aplicación móvil distribuida a los evaluadores.<br><br><b>AV2:</b><br>
+Durante el AV2, el equipo actualizó sus conocimientos sobre modelado de datos en PostgreSQL, seguridad con tokens y roles, pruebas automatizadas, integración de pagos y notificaciones, y distribución de aplicaciones firmadas. Estos conocimientos se aplicaron en el Sprint 2: un backend desplegado en Render con 133 pruebas aprobadas, una aplicación Kotlin para pacientes y personal distribuida mediante Firebase App Distribution y la Landing Page publicada. </td> </tr>
 
 <tr>
     <th>Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.</th>
@@ -471,11 +550,17 @@ Durante el desarrollo del AV1, reconocí la importancia de mantener un aprendiza
 <b>Atoche Nicolas Fernando: TB1</b><br>
 Durante el TB1, reconocí que cada herramienta de control de versiones y de despliegue tiene configuraciones propias que debo revisar en su documentación antes de utilizarlas. Documentar el entorno del proyecto me mostró que necesito actualizar mis conocimientos de forma constante para mantener un flujo de trabajo ordenado en equipo.<br><br>
 
+<b>Atoche Nicolas Fernando: AV2</b><br>
+Durante el AV2, reconocí que los diagramas de diseño deben actualizarse cada vez que cambia la implementación. Mantener el EventStorming y los diagramas C4 coherentes con el backend me mostró que debo revisar la documentación de las herramientas y del dominio de forma continua.<br><br>
+
 <b>Becerra Felix Orlando: AV1</b><br>
 Durante el desarrollo del AV1, comprendí que el aprendizaje continuo es necesario para realizar correctamente actividades como el análisis competitivo, diseño y análisis de entrevistas y Needfinding. La necesidad de investigar la forma adecuada de utilizar herramientas como User Personas y User Task Matrix me permitió reconocer que los conocimientos deben actualizarse constantemente para responder de manera adecuada a nuevos problemas y necesidades dentro de un proyecto de software.<br><br>
 
 <b>Becerra Felix Orlando: TB1</b><br>
 Durante el TB1, al desplegar el backend y distribuir la aplicación enfrenté problemas de compatibilidad del Android Gradle Plugin y de conexión entre el emulador y el servidor local, que resolví consultando la documentación oficial. Esta experiencia me mostró que el aprendizaje permanente es necesario para resolver problemas técnicos que surgen fuera del aula.<br><br>
+
+<b>Becerra Felix Orlando: AV2</b><br>
+Durante el AV2, alinear el informe con el backend y la aplicación me exigió revisar la documentación de Spring Security, Mercado Pago y Firebase para resolver problemas de autenticación, notificaciones y firma de la aplicación. Esta experiencia me mostró que debo actualizar mis conocimientos de forma constante, porque cada servicio externo tiene reglas propias.<br><br>
 
 <b>Celis Eslander: AV1</b><br>
 Durante el desarrollo del AV1, reconocí la necesidad de continuar aprendiendo nuevos conceptos relacionados con requisitos y Domain-Driven Design. La aplicación de EventStorming, Ubiquitous Language, Candidate Context Discovery, Domain Message Flows y Bounded Context Canvases requirió revisar nuevos conceptos y comprender su relación con la solución desarrollada. Esta experiencia me permitió reconocer que el aprendizaje permanente es necesario para afrontar temas cada vez más especializados dentro del desarrollo de software.<br><br>
@@ -483,22 +568,32 @@ Durante el desarrollo del AV1, reconocí la necesidad de continuar aprendiendo n
 <b>Celis Eslander: TB1</b><br>
 Durante el TB1, reconocí la necesidad de seguir aprendiendo al atender las observaciones del docente sobre el AV1, ya que corregirlas exigió revisar nuevamente las técnicas de DDD Crew y el modelo C4. Comprendí que la retroalimentación es una fuente de aprendizaje continuo para mejorar la calidad de los artefactos.<br><br>
 
+<b>Celis Eslander: AV2</b><br>
+Durante el AV2, comprendí que la trazabilidad entre tareas, commits y evidencias exige revisar el estado real de cada repositorio antes de documentarlo. Coordinar el cierre del Sprint 2 me mostró que necesito seguir aprendiendo prácticas de gestión ágil y de control de versiones.<br><br>
+
 <b>Morocho Pinedo Mariana: AV1</b><br>
 Durante el desarrollo del AV1, reconocí la importancia del aprendizaje permanente al trabajar con herramientas y conceptos del Lean UX Process que requerían una comprensión previa para ser aplicados correctamente. La elaboración de Problem Statements, Assumptions, Hypothesis Statements y Lean UX Canvas implicó investigar y reforzar conocimientos, permitiéndome comprender que la actualización constante es necesaria para mejorar el análisis de problemas y la definición de soluciones dentro de proyectos de software.<br><br>
 
 <b>Morocho Pinedo Mariana: TB1</b><br>
 Durante el TB1, comprendí que el diseño de interfaces móviles cambia constantemente y que debo mantenerme actualizada en patrones de diseño y en herramientas como Figma para proponer pantallas claras y accesibles para distintos tipos de usuarios.<br><br>
 
+<b>Morocho Pinedo Mariana: AV2</b><br>
+Durante el AV2, reconocí que el diseño debe acompañar los cambios de la implementación. Actualizar las pantallas y los diagramas me mostró que debo mantenerme al día en patrones de diseño móvil y en herramientas de modelado.<br><br>
+
 <b>Quispe César Augusto: AV1</b><br>
 Durante el desarrollo del AV1, reconocí la necesidad de mantener un proceso constante de aprendizaje al trabajar con conceptos de Domain-Driven Design y arquitectura de software. La elaboración de diagramas a nivel de Context, Container, Component y Code, así como la definición de las diferentes capas de los Bounded Contexts, requirió profundizar en conocimientos técnicos adicionales. Esto me permitió comprender que la actualización permanente es fundamental para adaptarse a nuevas prácticas y desarrollar soluciones de software mejor estructuradas.<br><br>
 
 <b>Quispe César Augusto: TB1</b><br>
 Durante el TB1, reconocí que integrar la aplicación móvil con el backend exigió aprender nuevas bibliotecas y prácticas, como Retrofit y la configuración de perfiles de Spring. Esta experiencia me mostró que debo actualizar mis conocimientos de forma permanente para adaptarme a las tecnologías que requiere cada proyecto.<br><br>
+
+<b>Quispe César Augusto: AV2</b><br>
+Durante el AV2, reconocí que los requisitos y el diseño cambian a medida que avanza la implementación. Revisar las historias de usuario y los diagramas de base de datos me mostró que debo actualizar mis conocimientos para mantener la coherencia entre el informe y el producto.<br><br>
     </td>
     <td>
 <b>AV1:</b><br>
 Durante el desarrollo del AV1, el equipo reconoció que el aprendizaje permanente es un aspecto fundamental para el desarrollo profesional y para la elaboración de soluciones de software. Las diferentes actividades del proyecto requirieron investigar, revisar documentación y comprender nuevos conceptos relacionados con Lean UX, Needfinding, requisitos, EventStorming, Domain-Driven Design y arquitectura de software. Debido a la variedad y complejidad de los temas desarrollados, cada integrante tuvo que complementar sus conocimientos para cumplir adecuadamente con las actividades asignadas. En conjunto, esta experiencia permitió comprender que el desarrollo de software exige una actualización constante de conocimientos para adaptarse a nuevos métodos, herramientas y desafíos profesionales.<br><br><b>TB1:</b><br>
-Durante el TB1, el equipo reconoció que pasar del diseño a la implementación exige aprender herramientas y tecnologías nuevas en poco tiempo. Las observaciones del docente y los problemas encontrados durante el despliegue mostraron que el aprendizaje permanente es necesario para mejorar los artefactos y entregar un producto funcional. </td> </tr>
+Durante el TB1, el equipo reconoció que pasar del diseño a la implementación exige aprender herramientas y tecnologías nuevas en poco tiempo. Las observaciones del docente y los problemas encontrados durante el despliegue mostraron que el aprendizaje permanente es necesario para mejorar los artefactos y entregar un producto funcional.<br><br><b>AV2:</b><br>
+Durante el AV2, el equipo reconoció que mantener la coherencia entre el informe, los diagramas y el código exige revisar cada artefacto cuando cambia la implementación. Las observaciones del TB1 y la integración de servicios externos mostraron que el aprendizaje permanente es necesario para entregar un producto verificable. </td> </tr>
 
 </table>
 
