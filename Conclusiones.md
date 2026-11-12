@@ -4,7 +4,7 @@
 
 En AV2, OptiFlow pasa del diseño a un producto que se puede usar. El problema que atiende sigue siendo el mismo: la información de las ópticas, los pacientes y los pedidos está repartida en varios canales. Con el backend, la aplicación Kotlin y la Landing Page publicados, el paciente puede buscar una óptica, reservar una cita y seguir su pedido desde un solo lugar. Falta medir con usuarios reales si esto reduce el tiempo de atención.
 
-La literatura respalda el interés en la asistencia a citas y la reserva en línea. Abbas et al. (2025) identifican características del paciente y de la cita asociadas con la inasistencia en una práctica de retina, y Kammrath Betancor et al. (2025) estudian la programación en línea en dos servicios de oftalmología. Estos trabajos ayudaron a elegir qué medir en OptiFlow (reservas, asistencia y seguimiento), pero sus resultados son de otros establecimientos y no se presentan como resultados del proyecto.
+Varios estudios tratan la asistencia a citas y la reserva en línea. Abbas et al. (2025) identifican características del paciente y de la cita asociadas con la inasistencia en una práctica de retina, y Kammrath Betancor et al. (2025) estudian la programación en línea en dos servicios de oftalmología. Estos trabajos ayudaron a elegir qué medir en OptiFlow (reservas, asistencia y seguimiento), pero sus resultados son de otros establecimientos y no se presentan como resultados del proyecto.
 
 EventStorming, Domain Message Flows y Bounded Context Canvases permitieron separar las responsabilidades de Search & Booking, Clinical & Commercial, Production & Tracking, Store Management & Inventory y Notification & Loyalty. En el backend, los cinco contextos comparten una base PostgreSQL con 27 tablas creadas por las migraciones V1 a V9. El [Anexo F](Anexos.md#anexo-f-diagramas-de-diseño-táctico) separa los diagramas de diseño de las tablas reales. El backend también integra la pasarela de pagos y Firebase Cloud Messaging, y la aplicación usa OpenStreetMap para el mapa y ML Kit para el escáner y el probador virtual, que funcionan en el propio celular.
 
@@ -29,7 +29,7 @@ Las hipótesis de Lean UX siguen como metas: aumentar la conversión comercial e
 
 El video muestra qué tan fácil le resulta al paciente encontrar una óptica, reservar una cita y consultar su información. Con el personal de la óptica se revisa el acceso por rol y la consulta de los datos de la atención.
 
-En cada sesión se observa cómo el participante entiende la navegación y los mensajes, y cómo resuelve las dificultades. Se anota el tiempo, la ayuda que necesitó y sus comentarios al final, junto con la versión de la aplicación y el dispositivo.
+En cada sesión se mira cómo el participante entiende la navegación y los mensajes, y cómo resuelve las dificultades. Se anota el tiempo, la ayuda que necesitó y sus comentarios al final, junto con la versión de la aplicación y el dispositivo.
 
 La Tabla CO1 registra los datos del video y el minuto en que empieza cada sesión de ambos segmentos.
 

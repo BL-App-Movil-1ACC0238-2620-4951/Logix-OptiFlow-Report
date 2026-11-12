@@ -4,7 +4,7 @@
 
 ## 4. Product Implementation & Validation
 
-Este capítulo presenta la configuración de trabajo, los incrementos de implementación y la validación de OptiFlow. El Sprint 1 conserva las evidencias de la aplicación Android y de la primera integración de búsqueda y reserva. El Sprint 2 documenta los avances de AV2: contrato REST versionado, seguridad, ubicación de ópticas, ajustes de la Landing Page y publicación del cliente Flutter.
+Este capítulo presenta la configuración de trabajo, los incrementos de implementación y la validación de OptiFlow. El Sprint 1 conserva las evidencias de la aplicación Android y de la primera integración de búsqueda y reserva. El Sprint 2 documenta los avances de AV2: API REST versionada `/api/v1`, seguridad, ubicación de ópticas, ajustes de la Landing Page y publicación del cliente Flutter.
 
 Cada evidencia identifica la versión del producto y el entorno de ejecución.
 
@@ -1458,7 +1458,7 @@ El Sprint 2 amplía el trabajo del primer incremento con la versión `/api/v1` d
 
 #### 4.2.2.1. Sprint Planning 2
 
-En el Sprint 2 se planificó la integración del cliente Flutter, la seguridad de los servicios y la consulta de información del paciente. El alcance son las historias US01, US04, US11 y US16. La búsqueda y la reserva de US05 y US06 siguen como regresión del primer incremento.
+En el Sprint 2 se planificó la integración del cliente Flutter, la seguridad de los servicios y la consulta de información del paciente. El Sprint incluye las historias US01, US04, US11 y US16. La búsqueda y la reserva de US05 y US06 siguen como regresión del primer incremento.
 
 La Tabla 126 muestra el objetivo del Sprint 2, la capacidad de trabajo y las historias seleccionadas. El equipo se coordina por Discord y sigue el avance con las tareas del Sprint Backlog.
 
@@ -1478,9 +1478,9 @@ La Tabla 126 muestra el objetivo del Sprint 2, la capacidad de trabajo y las his
 <tr><th>Prepared By</th><td>Celis Berrospi, Eslander</td></tr>
 <tr><th>Attendees (to planning meeting)</th><td>Atoche Gonzales, Nicolas Fernando / Becerra Ttito, Felix Orlando / Celis Berrospi, Eslander / Morocho Pinedo, Mariana / Quispe Llacsahuanga, César Augusto</td></tr>
 <tr><th>Sprint 1 Review Summary</th><td>El primer incremento documentó la Landing Page y la búsqueda y reserva del paciente. Se mantienen sus capturas y resultados históricos. Para AV2 se amplían los servicios con seguridad y cercanía, y se incorpora Flutter. La revisión técnica detectó incompatibilidades en rutas y autenticación y un error de compilación de la suite; estos hallazgos se incluyen en el backlog de cierre.</td></tr>
-<tr><th>Sprint 1 Retrospective Summary</th><td>La revisión del primer incremento identifica la coordinación entre el contrato HTTP y las pantallas como un punto de mejora. Para esta iteración se organiza el trabajo en tareas cortas por historia, con un responsable por aspecto. La revisión de permisos utiliza cuentas de prueba y el cierre técnico incluye la ejecución de la suite y el registro del commit y entorno empleados.</td></tr>
+<tr><th>Sprint 1 Retrospective Summary</th><td>La revisión del primer incremento identifica la coordinación entre los endpoints del backend y las pantallas como un punto de mejora. Para esta iteración se organiza el trabajo en tareas cortas por historia, con un responsable por aspecto. La revisión de permisos utiliza cuentas de prueba y el cierre técnico incluye la ejecución de la suite y el registro del commit y entorno empleados.</td></tr>
 <tr><th colspan="2">Sprint Goal &amp; User Stories</th></tr>
-<tr><th>Sprint 2 Goal</th><td>Nuestro enfoque consiste en que el paciente encuentre atención cercana, reserve con su cuenta y consulte su información, mientras el personal accede solo a las funciones de su rol. Consideramos que esto facilitará organizar la atención y seguir sus pedidos. El cumplimiento se confirmará cuando el paciente complete búsqueda y reserva sin ayuda en un máximo de cinco minutos, consulte historial y estado de pedido con datos de su cuenta, y todos los casos de acceso sin token y con rol no autorizado sean rechazados. El criterio de cierre combina la ejecución del recorrido móvil, la consulta de datos de la cuenta y la verificación de permisos.</td></tr>
+<tr><th>Sprint 2 Goal</th><td>Nuestro enfoque consiste en que el paciente encuentre atención cercana, reserve con su cuenta y consulte su información, mientras el personal accede solo a las funciones de su rol. Consideramos que esto facilitará organizar la atención y seguir sus pedidos. El cumplimiento se confirmará cuando el paciente complete búsqueda y reserva sin ayuda en un máximo de cinco minutos, consulte historial y estado de pedido con datos de su cuenta, y todos los casos de acceso sin token y con rol no autorizado sean rechazados.</td></tr>
 <tr><th>Sprint 2 Velocity</th><td>18 Story Points de capacidad planificada para US01, US04, US11 y US16.</td></tr>
 <tr><th>Sum of Story Points</th><td>18 Story Points: US01 (3), US04 (5), US11 (5) y US16 (5), según el Product Backlog. La regresión y adecuación de US05 y US06 del Sprint 1 se controlan como tareas de continuidad y no vuelven a sumar sus puntos originales.</td></tr>
 </tbody>
@@ -1559,7 +1559,7 @@ La Figura 169 presenta el tablero del Sprint 2, con las 21 tareas de la Tabla 12
 <tr><td>S2-T18</td><td>Integrar y publicar la aplicación Kotlin</td><td>Conectar la aplicación a /api/v1 con el token de sesión, firmar la versión 1.0 y distribuirla por Firebase App Distribution.</td><td>10</td><td>Becerra Ttito, Felix Orlando</td><td>Done</td></tr>
 <tr><td>S2-T19</td><td>Generar y distribuir el APK</td><td>Construir e instalar el APK con la URL compatible y registrar versión, dispositivo y enlace de distribución.</td><td>4</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-Review</td></tr>
 <tr><td>S2-T20</td><td>Coordinar las entrevistas de validación</td><td>Realizar tres entrevistas por segmento y registrar datos, tiempos, capturas y observaciones.</td><td>8</td><td>Morocho Pinedo, Mariana</td><td>To-Review</td></tr>
-<tr><td>S2-T21</td><td>Consolidar el cierre del Sprint</td><td>Revisar evidencias, resultados, tablero e Insights; actualizar el informe con los acuerdos confirmados.</td><td>4</td><td>Celis Berrospi, Eslander</td><td>To-Review</td></tr>
+<tr><td>S2-T21</td><td>Cerrar el Sprint</td><td>Revisar resultados, tablero e Insights; actualizar el informe con los acuerdos confirmados.</td><td>4</td><td>Celis Berrospi, Eslander</td><td>To-Review</td></tr>
 </tbody>
 </table>
 
@@ -1580,7 +1580,7 @@ Los datos salen del historial de cada repositorio, con fechas en hora de Lima. L
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1c5d3f7](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1c5d3f7fb1b877df3b1d562fccb7d82a0a2f3b20) | `refactor: add api v1 prefix to controllers` | Introduce el prefijo `/api/v1` en los controladores. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [c35048f](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/c35048fa938a448e17c52da0a5fa1b743a509f94) | `refactor: return location header on created resources` | Devuelve el encabezado Location al crear recursos. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [a1db022](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/a1db022c903f52b2e3b3915c8c22eeb2eb50f356) | `refactor: merge optical store search routes` | Unifica la consulta y los filtros de ópticas. | 06/11/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [5b0bbf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/5b0bbf237ddefaa0e10592fa57e95e57a70d6cf1) | `feat: add authentication tokens endpoint` | Añade el contrato para emitir tokens de sesión. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [5b0bbf2](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/5b0bbf237ddefaa0e10592fa57e95e57a70d6cf1) | `feat: add authentication tokens endpoint` | Añade el endpoint para emitir tokens de sesión. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [f9d0964](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/f9d09646886d555c17fd64b66cad582fe08b150a) | `feat: add staff members and roles` | Incorpora usuarios de personal y sus roles. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [a5e729a](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/a5e729a45e083224028189b79f16a3022a2964d1) | `feat: add role based authorization` | Aplica autorización por rol a las operaciones protegidas. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Añade coordenadas y consulta de ópticas cercanas. | 06/11/2026 |
@@ -1609,7 +1609,7 @@ Los datos salen del historial de cada repositorio, con fechas en hora de Lima. L
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [ce31259](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/ce31259a4239e98d41087e95658eacf46fe2c69b) | `fix: let staff close sales from earlier patient records` | Permite cerrar ventas pendientes de fichas anteriores del paciente. | 11/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [22bf023](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/22bf023a56300f3f66ce2ba0fdb7eb660f2f387e) | `build: sign release builds with a local keystore` | Firma la versión release con un keystore que no se guarda en el repositorio. | 11/11/2026 |
 
-La aplicación Android en Kotlin ya consume el contrato `/api/v1`: usa 64 de las 70 operaciones publicadas, envía el token en las llamadas protegidas y se distribuyó como versión 1.0 (4.2.2.8). El backend `71ed60c` tiene una API distinta a la que usa el cliente Flutter. El cliente Flutter `0344413` todavía usa `/login`, `/optical-stores/search` y `/availability`, y no añade el token a las solicitudes protegidas. La Tabla 130 muestra lo que falta cambiar en Flutter.
+La aplicación Android en Kotlin ya consume la API `/api/v1`: usa 64 de las 70 operaciones publicadas, envía el token en las llamadas protegidas y se distribuyó como versión 1.0 (4.2.2.8). El backend `71ed60c` tiene una API distinta a la que usa el cliente Flutter. El cliente Flutter `0344413` todavía usa `/login`, `/optical-stores/search` y `/availability`, y no añade el token a las solicitudes protegidas. La Tabla 130 muestra lo que falta cambiar en Flutter.
 
 <a id="tabla-130"></a>
 
@@ -1626,7 +1626,7 @@ La aplicación Android en Kotlin ya consume el contrato `/api/v1`: usa 64 de las
 | Recursos protegidos | Las llamadas HTTP no adjuntan el token. | Requiere `Authorization: Bearer <token>`. | Añadir el encabezado a las operaciones autenticadas. |
 | Operación de personal y catálogo | Parte de las vistas utiliza `DemoData` y cambios en memoria. | El backend incorpora inventario, checkout, notificaciones y reportes; sus endpoints deben relacionarse con cada vista del cliente. | Identificar el modo de demostración y no contabilizarlo como integración terminada. |
 
-Fuentes de la revisión: [cliente HTTP Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/blob/03444133bb4889773dda3b250c708e315bb545b6/lib/data/optiflow_api.dart), [controlador de estado](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/blob/03444133bb4889773dda3b250c708e315bb545b6/lib/state/optiflow_controller.dart) y controladores del backend del mismo corte.
+Archivos revisados: [cliente HTTP Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/blob/03444133bb4889773dda3b250c708e315bb545b6/lib/data/optiflow_api.dart), [controlador de estado](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/blob/03444133bb4889773dda3b250c708e315bb545b6/lib/state/optiflow_controller.dart) y controladores del backend de la misma versión.
 
 #### 4.2.2.5. Testing Suite Evidence for Sprint Review
 
@@ -1640,9 +1640,9 @@ Las pruebas se corrieron el 11/11/2026 sobre el backend `71ed60c`, sin cambios e
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [7575d66](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/7575d662e98b019e4716b90c61d7df04caa0acf0) | `test: add authentication and authorization tests` | Añade la suite de autenticación y autorización; sus correcciones posteriores forman parte de la revisión ejecutada. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [7575d66](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/7575d662e98b019e4716b90c61d7df04caa0acf0) | `test: add authentication and authorization tests` | Añade la suite de autenticación y autorización; sus correcciones posteriores ya están incluidas. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Incluye pruebas de coordenadas y de búsqueda por cercanía. | 06/11/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter) | `main` | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | `feat: Add cross-platform OptiFlow Flutter app` | Incluye una prueba de traducción de estados de cita, aún sin ejecutar en esta revisión. | 08/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter) | `main` | [0344413](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/commit/03444133bb4889773dda3b250c708e315bb545b6) | `feat: Add cross-platform OptiFlow Flutter app` | Incluye una prueba de traducción de estados de cita, aún no se ejecuta. | 08/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [c287603](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/c287603381d0028f82cbf78d474b467525f0f2b3) | `test: fix misplaced parenthesis in auth api test` | Corrige el paréntesis de las solicitudes de autenticación para permitir la compilación. | 07/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [b4deec7](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/b4deec7649d9b75e1848e48b9fe6564ad021599a) | `test: run flyway migrations on h2 in api tests` | Prepara la ejecución de las migraciones en el entorno H2 de pruebas. | 07/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [e0b8071](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/e0b8071d12c00c540b16c19ad54f60550ac1583d) | `test: adapt multi column migrations for h2 instead of editing v5` | Adapta las migraciones de varias columnas al dialecto H2 utilizado por las pruebas. | 07/11/2026 |
@@ -1672,10 +1672,10 @@ La Tabla 132 indica qué prueba cada suite y a qué historias pertenece.
 | `ClinicalCommercialRulesTest` y `ClinicalCommercialApiTest` | Unitaria e integración | Receta, cotización, pago y cierre de venta. | US03, US08 y US17, como regresión. |
 | `ProductionTrackingRulesTest` y `ProductionTrackingApiTest` | Unitaria e integración | Transiciones de taller, entrega y trazabilidad. | US10 y US11, como regresión. |
 | `StoreInventoryApiTest` | Integración | Catálogo de monturas y operaciones de inventario. | Store Management & Inventory. |
-| `CheckoutApiTest` y `PaymentGatewayAdapterTest` | Integración y adaptador | Checkout y contrato del proveedor de pagos con respuestas controladas. | Clinical & Commercial. |
+| `CheckoutApiTest` y `PaymentGatewayAdapterTest` | Integración y adaptador | Checkout y respuestas simuladas del proveedor de pagos. | Clinical & Commercial. |
 | `NotificationApiTest`, `NotificationApplicationServiceTest` y suites de envío | Unitaria e integración | Persistencia, consulta, encuestas, programación y adaptador de mensajería. | Notification & Loyalty. |
-| `OpenApiDocumentationTest` | Integración | Códigos de respuesta, esquemas y seguridad documental de las operaciones. | Contrato de los servicios. |
-| `test/status_test.dart` del cliente Flutter | Unitaria diseñada | Traduce estados de cita del backend al modelo de la interfaz. | Consulta de citas. No se ejecutó en esta revisión. |
+| `OpenApiDocumentationTest` | Integración | Códigos de respuesta, esquemas y seguridad documental de las operaciones. | Documentación de los servicios. |
+| `test/status_test.dart` del cliente Flutter | Unitaria diseñada | Traduce estados de cita del backend al modelo de la interfaz. | Consulta de citas. No se ejecutó. |
 
 ##### Resultados de ejecución
 
@@ -1987,7 +1987,7 @@ Las Figuras 186 a 196 se tomaron el mismo día con la cuenta de administrador, q
 
 ![Landing Page del Sprint 2 abierta localmente en ancho de celular](assets/cap4/sprint2/landing-mobile.png)
 
-**Aplicación Flutter.** El repositorio contiene las rutas y pantallas de paciente y personal. El controlador mezcla respuestas de servicios con datos de demostración para catálogo, operación clínica y estados locales. El equipo termina de conectar esas vistas con el contrato `/api/v1` para la entrega.
+**Aplicación Flutter.** El repositorio contiene las rutas y pantallas de paciente y personal. El controlador mezcla respuestas de servicios con datos de demostración para catálogo, operación clínica y estados locales. El equipo termina de conectar esas vistas con la API `/api/v1` para la entrega.
 
 **Capturas de Flutter:** ____________________
 
@@ -2066,8 +2066,8 @@ La Tabla 134 muestra los commits que cambiaron rutas y parámetros, y los que ag
 |---|---|---|---|---|---|
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1c5d3f7](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1c5d3f7fb1b877df3b1d562fccb7d82a0a2f3b20) | `refactor: add api v1 prefix to controllers` | Introduce /api/v1 en los controladores y cambia la ruta base de las operaciones documentadas. | 06/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [a1db022](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/a1db022c903f52b2e3b3915c8c22eeb2eb50f356) | `refactor: merge optical store search routes` | Consolida la búsqueda de ópticas en una sola operación con parámetros. | 06/11/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Añade coordenadas y filtros de cercanía al contrato de ópticas. | 06/11/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [2a94c5c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/2a94c5ce84c374b34be4990bc7fc133a310eb21d) | `docs: document inventory endpoints in swagger` | Documenta los endpoints de inventario y sus contratos en Swagger. | 09/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [1eb0524](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/1eb0524798938457b2750c6e87a73024ea823105) | `feat: add optical store location and nearby search` | Añade coordenadas y filtros de cercanía a los endpoints de ópticas. | 06/11/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [2a94c5c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/2a94c5ce84c374b34be4990bc7fc133a310eb21d) | `docs: document inventory endpoints in swagger` | Documenta los endpoints de inventario en Swagger. | 09/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [567f363](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/567f3630d55aa79c0918d663bb32ddef479da315) | `docs: document remaining endpoints in swagger` | Completa la documentación de las operaciones restantes de la API. | 09/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [0d76c5b](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/0d76c5bd5ab099d019b178cf012cf897e6405118) | `feat: list quotations of a clinical record` | Agrega la consulta de cotizaciones de una ficha clínica. | 10/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [5cdebd5](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/5cdebd56133ac1e5a80ed7d3428ece96143f19a5) | `feat: let admins deactivate staff members` | Agrega PATCH /staff-members/{id}/status. | 10/11/2026 |
@@ -2085,9 +2085,9 @@ La Tabla 135 muestra la versión de cada producto y dónde está publicada.
 
 *Versión publicada de cada producto en el Sprint 2*
 
-| Producto | Revisión de código | Evidencia disponible | Confirmación de despliegue AV2 |
+| Producto | Revisión de código | Resultado | Despliegue AV2 |
 |---|---|---|---|
-| Landing Page | `main`, `ef1c032`; enlace de descarga en `6258035`. | [Workflow completado correctamente](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y página pública con HTTP 200, comprobados el 08/11/2026. La [ejecución 43140453746](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/43140453746) publicó `6258035` el 11/11/2026. | Publicación confirmada; capturas en las Figuras 199 y 200. El botón de descarga enlaza el [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a) de la versión 1.0 desde el commit `6258035`, del 11/11/2026. |
+| Landing Page | `main`, `ef1c032`; enlace de descarga en `6258035`. | [Workflow completado correctamente](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y página pública en línea el 08/11/2026. La [ejecución 43140453746](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/43140453746) publicó `6258035` el 11/11/2026. | Publicada; capturas en las Figuras 199 y 200. El botón de descarga enlaza el [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a) de la versión 1.0 desde el commit `6258035`, del 11/11/2026. |
 | Backend | `develop`, `71ed60c`. | 133 pruebas aprobadas, [CI exitosa](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/actions/runs/43116369654) y 70 operaciones documentadas. | `71ed60c` activo en Render desde el 11/11/2026; Swagger publicado en la Figura 173. |
 | Android/Kotlin | `develop`, `22bf023`, versión 1.0 (1). | APK release firmado, instalado y probado contra Render. | Distribuida el 11/11/2026 por Firebase App Distribution al grupo `optiflow-testers`; [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a). |
 | Flutter | `main`, `0344413`, versión `1.0.0+1`. | Código publicado y definición de pantallas, cliente HTTP y prueba de estados. | APK, enlace de distribución y captura de versión: ____________________. |
@@ -2104,7 +2104,7 @@ La [ejecución 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/L
 
 ![Workflow de GitHub Pages completado correctamente](assets/cap4/sprint2/workflow-pages.png)
 
-La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) respondió HTTP 200 en la revisión del 08/11/2026. La Figura 200 es una captura de esa URL; las de 4.2.2.6 se tomaron en local.
+La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) estaba en línea el 08/11/2026. La Figura 200 es una captura de esa URL; las de 4.2.2.6 se tomaron en local.
 
 <a id="figura-200"></a>
 
@@ -2112,7 +2112,7 @@ La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-Op
 
 *Landing Page pública de OptiFlow, 08/11/2026*
 
-![Landing Page pública comprobada](assets/cap4/sprint2/landing-publica.png)
+![Landing Page pública de OptiFlow](assets/cap4/sprint2/landing-publica.png)
 
 ##### Despliegue del backend en Render
 
@@ -2169,17 +2169,17 @@ La Tabla 136 muestra los commits sin merge desde el 09/10/2026 en cada rama; cad
 
 | Repositorio / rama | Intervalo revisado | Autor registrado | Commits sin merge | Interpretación |
 |---|---|---|:---:|---|
-| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | Felixb14 | 48 | Cambios incluidos en la revisión `71ed60c`. |
-| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | user20-bit | 18 | Cambios incluidos en la revisión `71ed60c`. |
-| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | Patto04 | 7 | Cambios incluidos en la revisión `71ed60c`. |
-| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | THECOMAX | 7 | Cambios incluidos en la revisión `71ed60c`. |
-| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | Eslander-Celis | 8 | Cambios incluidos en la revisión `71ed60c`. |
-| `Logix-OptiFlow-Flutter` / `main` | 09/10/2026–10/11/2026 | user20-bit | 3 | Base del cliente y pantallas de AV2; revisión `0344413`. |
-| `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–11/11/2026 | Patto04 | 7 | Accesibilidad, contenido y publicación; revisión `ef1c032`. |
-| `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–11/11/2026 | Felixb14 | 1 | Botones de descarga hacia el vínculo de Firebase App Distribution; revisión `6258035`. |
-| `Logix-OptiFlow-Mobile` / `develop` | 09/10/2026–11/11/2026 | Felixb14 | 45 | Aplicación Kotlin conectada a `/api/v1` y versión 1.0; revisión `22bf023`. |
+| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | Felixb14 | 48 | Incluidos en `71ed60c`. |
+| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | user20-bit | 18 | Incluidos en `71ed60c`. |
+| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | Patto04 | 7 | Incluidos en `71ed60c`. |
+| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | THECOMAX | 7 | Incluidos en `71ed60c`. |
+| `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | Eslander-Celis | 8 | Incluidos en `71ed60c`. |
+| `Logix-OptiFlow-Flutter` / `main` | 09/10/2026–10/11/2026 | user20-bit | 3 | Base del cliente y pantallas de AV2; commit `0344413`. |
+| `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–11/11/2026 | Patto04 | 7 | Accesibilidad, contenido y publicación; commit `ef1c032`. |
+| `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–11/11/2026 | Felixb14 | 1 | Botones de descarga hacia el vínculo de Firebase App Distribution; commit `6258035`. |
+| `Logix-OptiFlow-Mobile` / `develop` | 09/10/2026–11/11/2026 | Felixb14 | 45 | Aplicación Kotlin conectada a `/api/v1` y versión 1.0; commit `22bf023`. |
 
-Los 88 commits del backend abarcan seguridad, inventario, pagos, mensajería, reportes, pruebas y documentación. Entre los últimos cambios están los PR #22 y #23, que corrigen el tratamiento de errores y el acceso del personal a las citas, y el PR #30, que invalida los tokens del personal desactivado. La Landing Page integra su publicación mediante Pages; Flutter conserva tres commits en `main` en el corte consultado. Los 45 commits de la aplicación Kotlin cubren la conexión con la API, la organización por capas, los menús por rol, el mapa, el escáner, el probador, las notificaciones, el modo sin conexión y la firma del release.
+Los 88 commits del backend abarcan seguridad, inventario, pagos, mensajería, reportes, pruebas y documentación. Entre los últimos cambios están los PR #22 y #23, que corrigen el tratamiento de errores y el acceso del personal a las citas, y el PR #30, que invalida los tokens del personal desactivado. La Landing Page se publica con GitHub Pages; Flutter tiene tres commits en `main`. Los 45 commits de la aplicación Kotlin cubren la conexión con la API, la organización por capas, los menús por rol, el mapa, el escáner, el probador, las notificaciones, el modo sin conexión y la firma del release.
 
 Las Figuras 204, 205, 206 y 207 muestran los paneles de contribuciones de [backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/graphs/contributors), [Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/graphs/contributors), [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/graphs/contributors) y [aplicación Kotlin](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/graphs/contributors). Las tres primeras se capturaron el 10/11/2026 y la de la aplicación Kotlin, el 11/11/2026. Los gráficos muestran los últimos tres meses sin merges, por eso sus totales no coinciden con los de la Tabla 136.
 
@@ -2215,7 +2215,7 @@ Las Figuras 204, 205, 206 y 207 muestran los paneles de contribuciones de [backe
 
 ![GitHub Insights: contribuciones a la aplicación Kotlin develop, 11/11/2026](assets/cap4/sprint2/revision-20261111/mobile-contributors.png)
 
-El backend y la aplicación Kotlin quedaron publicados, con sus pruebas y capturas. El cliente Flutter termina su integración con el contrato de la Tabla 130.
+El backend y la aplicación Kotlin están publicados y probados. El cliente Flutter termina de conectarse a la API `/api/v1` según la Tabla 130.
 
 ## 4.3. Validation Interviews
 
