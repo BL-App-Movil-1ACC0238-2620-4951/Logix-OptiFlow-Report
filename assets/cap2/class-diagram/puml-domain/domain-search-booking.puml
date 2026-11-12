@@ -1,5 +1,6 @@
 @startuml domain-search-booking
 !pragma layout smetana
+scale max 4000 width
 skinparam classAttributeIconSize 0
 skinparam packageStyle rectangle
 skinparam shadowing false
@@ -21,7 +22,7 @@ package "searchbooking.domain" {
       + book(): void
       + confirm(): void
       + cancel(): void
-      + reschedule(timeSlot: TimeSlot): void
+      + complete(): void
       + isAvailable(): boolean
     }
   }
@@ -71,7 +72,7 @@ package "searchbooking.domain" {
       - opticalStoreId: OpticalStoreId
       - savedAt: Instant
     }
-    class StoreRatingEntry as "StoreRating" <<Entity>> {
+    class StoreRatingEntry as "PatientStoreRating" <<Entity>> {
       - patientId: PatientId
       - opticalStoreId: OpticalStoreId
       - score: int
@@ -147,6 +148,7 @@ package "searchbooking.domain" {
       + findById(id: AppointmentId): Optional<Appointment>
       + findByPatientId(id: PatientId): List<Appointment>
       + findByTimeSlot(id: TimeSlotId): Optional<Appointment>
+      + findByOpticalStoreAndDate(id: OpticalStoreId, date: LocalDate): List<Appointment>
     }
     interface PatientRepository {
       + save(patient: Patient): void
@@ -164,11 +166,22 @@ package "searchbooking.domain" {
       + findById(id: OpticalStoreId): Optional<OpticalStore>
       + search(text: String): List<OpticalStore>
       + filter(criteria): List<OpticalStore>
+      + findNearby(location: GeoLocation, radiusKm: double): List<OpticalStore>
     }
     interface TimeSlotRepository {
+      + save(timeSlot: TimeSlot): void
       + findById(id: TimeSlotId): Optional<TimeSlot>
       + findAvailableByStore(id: OpticalStoreId): List<TimeSlot>
       + reserve(id: TimeSlotId): void
+      + release(id: TimeSlotId): void
+    }
+    interface FavoriteStoreRepository {
+      + save(favorite: FavoriteStore): void
+      + existsByPatientAndStore(patientId: PatientId, storeId: OpticalStoreId): boolean
+    }
+    interface StoreRatingRepository {
+      + save(rating: PatientStoreRating): void
+      + findByPatientAndStore(patientId: PatientId, storeId: OpticalStoreId): Optional<PatientStoreRating>
     }
   }
 
@@ -177,11 +190,12 @@ package "searchbooking.domain" {
     class PatientLoggedIn <<Domain Event>>
     class StaffMemberRegistered <<Domain Event>>
     class StaffMemberRoleAssigned <<Domain Event>>
-    class OpticalStoresFiltered <<Domain Event>>
     class OpticalStoresPublished <<Domain Event>>
     class FavoriteOpticalStoreSaved <<Domain Event>>
     class OpticalStoreRated <<Domain Event>>
     class AppointmentBooked <<Domain Event>>
+    class AppointmentCancelled <<Domain Event>>
+    class AppointmentCompleted <<Domain Event>>
   }
 }
 
@@ -214,4 +228,6 @@ StaffMemberRepository ..> StaffMember
 OpticalStoreRepository ..> OpticalStore
 TimeSlotRepository ..> TimeSlotEntity
 Appointment ..> AppointmentBooked : publica
+Appointment ..> AppointmentCancelled : publica
+Appointment ..> AppointmentCompleted : publica
 @enduml

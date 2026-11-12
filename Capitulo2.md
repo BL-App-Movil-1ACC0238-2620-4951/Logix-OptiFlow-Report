@@ -802,7 +802,7 @@ El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre 
     </tr>
     <tr>
       <td><strong>Work Order Status (Estado de la Orden)</strong></td>
-      <td>Fase de avance del pedido dentro del tablero Kanban (Pendiente, En Taller, Control de Calidad, Listo para Entrega).</td>
+      <td>Fase de avance del pedido dentro del tablero Kanban (Pendiente, En Taller, Control de Calidad, Listo para Entrega y Entregado).</td>
       <td style="text-align:center;">Production & Tracking Context</td>
     </tr>
     <tr>
@@ -817,7 +817,7 @@ El lenguaje ubicuo constituye el vocabulario común y riguroso compartido entre 
     </tr>
     <tr>
       <td><strong>Virtual Try-On (Probador Virtual)</strong></td>
-      <td>Prueba de una montura del catálogo sobre el rostro del paciente, en tiempo real, mediante la cámara frontal del celular y un servicio de filtros faciales de realidad aumentada.</td>
+      <td>Prueba de una montura del catálogo sobre el rostro del paciente, en tiempo real, mediante la cámara frontal del celular y la detección de rostro de ML Kit, que ubica la montura sobre los ojos.</td>
       <td style="text-align:center;">Store Management & Inventory</td>
     </tr>
     <tr>
@@ -858,7 +858,7 @@ Esta sección presenta las historias de usuario de **OptiFlow** para los proceso
 | EP01 / US02 | Registro de pacientes desde el móvil | **Como** optómetra o asesor de ventas, **quiero** registrar nuevos pacientes desde la aplicación móvil **para** centralizar su información personal y facilitar su atención. | **Escenario 1:** Registro exitoso. **Dado que** el usuario se encuentra en el módulo de pacientes, **cuando** completa los campos obligatorios y selecciona "Guardar", **entonces** el sistema registra al paciente correctamente.<br><br>**Escenario 2:** Datos incompletos. **Dado que** existen campos obligatorios vacíos, **cuando** el usuario intenta guardar el registro, **entonces** el sistema indica los campos que deben completarse. | EP01: Authentication & User Management |
 | EP02 / US03 | Gestión de la historia clínica electrónica | **Como** optómetra, **quiero** registrar y actualizar la historia clínica electrónica del paciente desde un dispositivo móvil **para** mantener disponible y organizada su información clínica. | **Escenario 1:** Registro exitoso. **Dado que** el optómetra selecciona un paciente, **cuando** registra las mediciones, observaciones y diagnóstico y selecciona "Guardar", **entonces** el sistema almacena la información en su historia clínica.<br><br>**Escenario 2:** Datos inválidos. **Dado que** existen valores que no cumplen las validaciones establecidas, **cuando** se intenta guardar la información, **entonces** el sistema muestra un mensaje de validación y solicita corregir los datos. | EP02: Clinical Management |
 | EP02 / US04 | Consulta del historial clínico y receta | **Como** optómetra o asesor autorizado, **quiero** consultar el historial clínico y las recetas anteriores de un paciente **para** disponer de sus antecedentes durante la atención. | **Escenario 1:** Historial disponible. **Dado que** el paciente posee registros clínicos, **cuando** el usuario accede a su perfil, **entonces** el sistema muestra sus antecedentes y recetas registradas.<br><br>**Escenario 2:** Sin historial. **Dado que** el paciente no posee registros anteriores, **cuando** se consulta su historial, **entonces** el sistema muestra un mensaje indicando que no existen registros disponibles. | EP02: Clinical Management |
-| EP03 / US05 | Búsqueda de ópticas y disponibilidad de atención | **Como** paciente, **quiero** consultar las ópticas disponibles, sus sucursales y horarios de atención **para** elegir dónde recibir el servicio. | **Escenario 1:** Consulta de establecimientos. **Dado que** existen ópticas y sucursales registradas, **cuando** el paciente accede al módulo de búsqueda, **entonces** el sistema muestra los establecimientos disponibles, sus direcciones y horarios.<br><br>**Escenario 2:** Sin establecimientos disponibles. **Dado que** no existen sucursales disponibles, **cuando** el paciente realiza una búsqueda, **entonces** el sistema muestra un mensaje informativo.<br><br>**Escenario 3:** Ópticas cercanas en el mapa. **Dado que** el paciente concede el permiso de ubicación, **cuando** abre la vista de mapa, **entonces** la aplicación muestra en Google Maps las ópticas cercanas a su posición, ordenadas por distancia. | EP03: Search & Booking |
+| EP03 / US05 | Búsqueda de ópticas y disponibilidad de atención | **Como** paciente, **quiero** consultar las ópticas disponibles, sus sucursales y horarios de atención **para** elegir dónde recibir el servicio. | **Escenario 1:** Consulta de establecimientos. **Dado que** existen ópticas y sucursales registradas, **cuando** el paciente accede al módulo de búsqueda, **entonces** el sistema muestra los establecimientos disponibles, sus direcciones y horarios.<br><br>**Escenario 2:** Sin establecimientos disponibles. **Dado que** no existen sucursales disponibles, **cuando** el paciente realiza una búsqueda, **entonces** el sistema muestra un mensaje informativo.<br><br>**Escenario 3:** Ópticas cercanas en el mapa. **Dado que** el paciente concede el permiso de ubicación, **cuando** abre la vista de mapa, **entonces** la aplicación muestra en un mapa de OpenStreetMap las ópticas cercanas a su posición, ordenadas por distancia. | EP03: Search & Booking |
 | EP03 / US06 | Reserva de cita para atención optométrica | **Como** paciente, **quiero** seleccionar una fecha y horario disponible para reservar una cita **para** recibir atención optométrica de manera organizada. | **Escenario 1:** Reserva exitosa. **Dado que** existen horarios disponibles, **cuando** el paciente selecciona una fecha, horario y sucursal y confirma la reserva, **entonces** el sistema registra la cita y muestra su confirmación.<br><br>**Escenario 2:** Horario no disponible. **Dado que** otro paciente ha ocupado el horario seleccionado, **cuando** se intenta confirmar la reserva, **entonces** el sistema informa que el horario ya no está disponible y solicita seleccionar otro. | EP03: Search & Booking |
 | EP04 / US07 | Consulta de inventario mediante escáner móvil | **Como** asesor de ventas, **quiero** escanear el código de una montura utilizando la cámara del dispositivo móvil **para** consultar rápidamente su disponibilidad, características y precio. | **Escenario 1:** Producto encontrado. **Dado que** la montura posee un código registrado, **cuando** el asesor realiza el escaneo, **entonces** el sistema muestra su stock, características y precio actualizado.<br><br>**Escenario 2:** Producto no encontrado. **Dado que** el código no está registrado, **cuando** se realiza el escaneo, **entonces** el sistema informa que el producto no existe en el catálogo. | EP04: Inventory & Catalog Management |
 | EP04 / US08 | Generación de cotización vinculada a receta | **Como** asesor de ventas, **quiero** generar una cotización utilizando la receta del paciente y los productos disponibles **para** elaborar un presupuesto de manera rápida y precisa. | **Escenario 1:** Cotización generada. **Dado que** el paciente cuenta con una receta válida y existen productos disponibles, **cuando** el asesor selecciona los productos y genera la cotización, **entonces** el sistema calcula y muestra el monto total.<br><br>**Escenario 2:** Receta no disponible. **Dado que** el paciente no posee una receta registrada, **cuando** se intenta generar una cotización que requiere dicha información, **entonces** el sistema solicita registrar o seleccionar una receta válida. | EP04: Inventory & Catalog Management |
@@ -871,10 +871,10 @@ Esta sección presenta las historias de usuario de **OptiFlow** para los proceso
 | EP07 / US15 | Historial de movimientos de inventario | **Como** administrador, **quiero** consultar el historial de entradas y salidas de productos **para** controlar los movimientos del inventario y detectar posibles diferencias. | **Escenario 1:** Historial disponible. **Dado que** existen movimientos registrados, **cuando** el administrador consulta el historial, **entonces** el sistema muestra la fecha, producto, cantidad y usuario asociado a cada movimiento.<br><br>**Escenario 2:** Sin movimientos. **Dado que** no existen movimientos registrados, **cuando** se consulta el historial, **entonces** el sistema muestra un estado vacío informativo. | EP07: Store Management & Inventory |
 | EP07 / US16 | Gestión de permisos por roles | **Como** administrador, **quiero** asignar permisos según el rol de cada usuario **para** proteger la información y funcionalidades sensibles de la óptica. | **Escenario 1:** Acceso autorizado. **Dado que** un usuario posee permisos para un módulo, **cuando** intenta acceder a este, **entonces** el sistema permite visualizar y utilizar sus funcionalidades.<br><br>**Escenario 2:** Acceso restringido. **Dado que** un usuario no posee permisos para un módulo, **cuando** intenta acceder, **entonces** el sistema deniega el acceso y muestra un mensaje de permisos insuficientes. | EP07: Store Management & Inventory |
 | EP08 / US17 | Registro de ventas y pagos | **Como** paciente, **quiero** pagar desde la aplicación la venta que registró el asesor **para** confirmar mi pedido sin pagar en caja. | **Escenario 1:** Pago aprobado. **Dado que** el asesor registró una venta pendiente de pago, **cuando** el paciente selecciona "Pagar", completa el pago con tarjeta o Yape en la pasarela de pagos y esta lo aprueba, **entonces** el sistema registra el pago con la referencia de la pasarela y la venta queda lista para que el asesor la cierre.<br><br>**Escenario 2:** Pago rechazado. **Dado que** la pasarela de pagos rechaza el pago, **cuando** el paciente regresa a la aplicación, **entonces** el sistema mantiene la venta pendiente, muestra el motivo del rechazo y permite reintentar.<br><br>**Escenario 3:** Pago en efectivo. **Dado que** el paciente paga en caja, **cuando** el asesor registra el pago en efectivo, **entonces** el sistema registra el pago y permite cerrar la venta. | EP08: Clinical & Commercial |
-| EP08 / US18 | Dashboard de métricas operativas | **Como** administrador de la óptica, **quiero** visualizar indicadores de atención, ventas y pedidos **para** conocer el estado general del negocio y tomar decisiones oportunas. | **Escenario 1:** Visualización de indicadores. **Dado que** existen registros operativos, **cuando** el administrador accede al dashboard, **entonces** el sistema muestra los principales indicadores del periodo seleccionado.<br><br>**Escenario 2:** Sin información. **Dado que** no existen registros para el periodo consultado, **cuando** se accede al dashboard, **entonces** el sistema muestra los indicadores en cero y un mensaje informativo. | EP08: Analytics & Reporting |
+| EP08 / US18 | Dashboard de métricas operativas | **Como** administrador de la óptica, **quiero** visualizar indicadores de ventas, pedidos e inventario **para** conocer el estado general del negocio y tomar decisiones oportunas. | **Escenario 1:** Visualización de indicadores. **Dado que** existen registros operativos, **cuando** el administrador accede al dashboard, **entonces** el sistema muestra los principales indicadores del periodo seleccionado.<br><br>**Escenario 2:** Sin información. **Dado que** no existen registros para el periodo consultado, **cuando** se accede al dashboard, **entonces** el sistema muestra los indicadores en cero y un mensaje informativo. | EP08: Analytics & Reporting |
 | EP08 / US19 | Generación y exportación de reportes | **Como** administrador, **quiero** generar y exportar reportes de las operaciones de la óptica **para** analizar y compartir información con las áreas correspondientes. | **Escenario 1:** Reporte generado. **Dado que** existen datos en el periodo seleccionado, **cuando** el administrador solicita un reporte, **entonces** el sistema genera el documento con la información correspondiente.<br><br>**Escenario 2:** Sin datos. **Dado que** el periodo seleccionado no contiene registros, **cuando** se solicita el reporte, **entonces** el sistema informa que no existen datos disponibles para exportar. | EP08: Analytics & Reporting |
 | EP09 / US20 | Consulta de información sin conexión | **Como** usuario de la aplicación, **quiero** consultar la última información descargada aunque no tenga conexión a internet **para** seguir revisando mis citas, pedidos, avisos y el catálogo durante una interrupción temporal. | **Escenario 1:** Consulta sin conexión. **Dado que** el usuario abrió antes sus citas, pedidos, avisos o el catálogo con conexión, **cuando** el dispositivo pierde la conexión, **entonces** la aplicación muestra la información guardada en el dispositivo e indica la fecha de su última actualización.<br><br>**Escenario 2:** Operación que requiere conexión. **Dado que** el dispositivo no tiene conexión, **cuando** el usuario intenta reservar, pagar o registrar información, **entonces** la aplicación le indica que la operación requiere conexión y no la envía. | EP09: Mobile Offline Capability |
-| EP04 / US21 | Probador virtual de monturas | **Como** paciente, **quiero** probarme virtualmente las monturas del catálogo con la cámara frontal de mi celular **para** elegir el modelo que mejor se adapta a mi rostro antes de visitar la óptica. | **Escenario 1:** Prueba de montura. **Dado que** la montura tiene un modelo de prueba virtual, **cuando** el paciente selecciona "Probar" y concede el permiso de cámara, **entonces** la aplicación muestra la montura sobre su rostro en tiempo real mediante el servicio de filtros faciales AR.<br><br>**Escenario 2:** Montura sin modelo virtual. **Dado que** la montura no tiene un modelo de prueba virtual, **cuando** el paciente consulta su detalle, **entonces** la aplicación no muestra la opción "Probar". | EP04: Inventory & Catalog Management |
+| EP04 / US21 | Probador virtual de monturas | **Como** paciente, **quiero** probarme virtualmente las monturas del catálogo con la cámara frontal de mi celular **para** elegir el modelo que mejor se adapta a mi rostro antes de visitar la óptica. | **Escenario 1:** Prueba de montura. **Dado que** la montura tiene un modelo de prueba virtual, **cuando** el paciente selecciona "Probar" y concede el permiso de cámara, **entonces** la aplicación muestra la montura sobre su rostro en tiempo real mediante la detección de rostro de ML Kit.<br><br>**Escenario 2:** Montura sin modelo virtual. **Dado que** la montura no tiene un modelo de prueba virtual, **cuando** el paciente consulta su detalle, **entonces** la aplicación no muestra la opción "Probar". | EP04: Inventory & Catalog Management |
 ### 2.4.2. Impact Mapping
 
 El Impact Mapping es una herramienta que nos permitió estructurar y visualizar de manera clara la relación entre los objetivos del proyecto, los actores involucrados y las funcionalidades propuestas en la solución. A partir de la información recopilada en las entrevistas y el análisis de necesidades, se identificaron los principales problemas que enfrentan los usuarios.
@@ -1029,7 +1029,7 @@ La Tabla 17 resume los eventos que conectan a los Bounded Contexts y el comando 
 | 6 | Production & Tracking | `DeliveryDelayNotified` | Notification & Loyalty | `SendDeliveryDelayNotification` | 5 |
 | 7 | Production & Tracking | `OrderWasMarkedAsDelivered` | Notification & Loyalty | `SendSatisfactionSurvey` | 6 |
 
-La tabla solo incluye eventos. Los dos sistemas externos participan en los escenarios 3 a 6: Clinical & Commercial crea en la Pasarela de Pagos la preferencia de pago que el paciente paga desde la aplicación y recibe de ella la notificación del resultado, y Notification & Loyalty envía cada aviso como notificación push mediante Firebase Cloud Messaging. Además, dos contextos consultan información de otro: Clinical & Commercial consulta la cita a Search & Booking (`GetAppointment`, escenario 2) y Production & Tracking consulta la venta cerrada a Clinical & Commercial (`GetClosedSale`, escenario 3). Además de estos flujos entre contextos, Notification & Loyalty gestiona internamente el descuento de cumpleaños: el comando `GrantBirthdayDiscount` registra el beneficio y publica el evento `BirthdayDiscountWasSent`, sin intervención de otros contextos.
+La tabla solo incluye eventos. Los dos sistemas externos participan en los escenarios 3 a 6: Clinical & Commercial crea en la Pasarela de Pagos la preferencia de pago que el paciente paga desde la aplicación y recibe de ella la notificación del resultado, y Notification & Loyalty envía cada aviso como notificación push mediante Firebase Cloud Messaging. Además, tres contextos consultan información de otro: Clinical & Commercial consulta la cita a Search & Booking (`GetAppointment`, escenario 2), Production & Tracking consulta la venta cerrada a Clinical & Commercial (`GetClosedSale`, escenario 3) y Notification & Loyalty consulta a Search & Booking los pacientes que cumplen años (`GetPatientsByBirthday`) y el estado de una cita antes de enviar su recordatorio (`GetAppointment`). El descuento de cumpleaños no depende de ningún evento: el comando `GrantBirthdayDiscount` registra el beneficio y publica el evento `BirthdayDiscountWasSent`.
 
 **Escenario 1: Búsqueda y reserva de cita**
 
@@ -1141,8 +1141,8 @@ El Bounded Context Canvas del Search & Booking Context se detalla en la Tabla 18
 | **Strategic Classification** | Core Domain |
 | **Domain Roles** | Gestión del proceso inicial del paciente y del acceso a la plataforma: registro e inicio de sesión de pacientes y personal con roles, descubrimiento de sucursales cercanas, ópticas favoritas y calificaciones, y reserva formal de citas según disponibilidad de horarios. |
 | **Ubiquitous Language** | Patient, Staff Member, User Role, Time Slot, Optical Store, Store Location, Favorite Store, Store Rating, Appointment, Booking. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `RegisterPatient`<br>- `LogIn`<br>- `RegisterStaffMember`<br>- `AssignStaffRole`<br>- `PublishAvailableTimeSlots`<br>- `SaveFavoriteOpticalStore`<br>- `RateOpticalStore`<br>- `BookAppointment`<br><br>**Queries (vía API Gateway):**<br>- `SearchOpticalStores`<br>- `FilterOpticalStores`<br>- `GetNearbyOpticalStores`<br>- `GetAvailableTimeSlots`<br>- `GetPatientAppointments`<br>- `GetAppointment`<br>- `GetStaffMembers`<br><br>**Queries (internas):**<br>- `GetPatientsByBirthday` (Notification & Loyalty) |
-| **Outbound Communication** | **Events (Publicados):**<br>- `PatientRegistered`<br>- `PatientLoggedIn`<br>- `StaffMemberRegistered`<br>- `StaffMemberRoleAssigned`<br>- `OpticalStoresPublished`<br>- `FavoriteOpticalStoreSaved`<br>- `OpticalStoreRated`<br>- `AppointmentBooked` |
+| **Inbound Communication** | **Commands (vía API REST):**<br>- `RegisterPatient`<br>- `Login`<br>- `RegisterStaffMember`<br>- `AssignStaffRole`<br>- `UpdateStaffMemberStatus`<br>- `PublishAvailableTimeSlots`<br>- `SaveFavoriteOpticalStore`<br>- `RateOpticalStore`<br>- `BookAppointment`<br>- `CancelAppointment`<br>- `CompleteAppointment`<br><br>**Queries (vía API REST):**<br>- `SearchOpticalStores`<br>- `FilterOpticalStores`<br>- `GetNearbyOpticalStores`<br>- `GetAvailableTimeSlots`<br>- `GetPatientAppointments`<br>- `GetAppointment`<br>- `GetAppointmentsByOpticalStore`<br>- `GetStaffMembers`<br><br>**Queries (internas):**<br>- `GetPatientsByBirthday` (Notification & Loyalty)<br>- `GetAppointment` (Clinical & Commercial y Notification & Loyalty) |
+| **Outbound Communication** | **Events (Publicados):**<br>- `PatientRegistered`<br>- `PatientLoggedIn`<br>- `StaffMemberRegistered`<br>- `StaffMemberRoleAssigned`<br>- `OpticalStoresPublished`<br>- `FavoriteOpticalStoreSaved`<br>- `OpticalStoreRated`<br>- `AppointmentBooked`<br>- `AppointmentCancelled`<br>- `AppointmentCompleted` |
 
 **Canvas 2: Clinical & Commercial Context**
 
@@ -1162,7 +1162,7 @@ El Bounded Context Canvas del Clinical & Commercial Context se presenta en la Ta
 | **Strategic Classification** | Core Domain |
 | **Domain Roles** | Control de la atención clínica presencial y conversión comercial: registro de refracción/receta optométrica, evaluación de cotizaciones, aplicación de descuentos o promociones y cobro de la venta mediante la Pasarela de Pagos externa (tarjeta o Yape, pagados por el paciente desde la aplicación) o en efectivo. |
 | **Ubiquitous Language** | Patient, Medical History, Clinical Record, Optical Prescription, Quotation, Promotion, Discount, Payment, Sale, Electronic Receipt. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `ExaminePatient`<br>- `RecordMedicalHistory`<br>- `RegisterClinicalRecord`<br>- `GenerateOpticalPrescription`<br>- `GenerateQuotation`<br>- `ApplyPromotionOrDiscount`<br>- `ApproveQuotation`<br>- `RejectQuotation`<br>- `RegisterSale`<br>- `CreatePaymentPreference` (App del paciente)<br>- `RecordPayment`<br>- `CloseSale`<br><br>**Queries (vía API Gateway):**<br>- `GetClosedSale`<br>- `GetSalesMetrics`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked`<br><br>**Sistema externo:**<br>- Notificación de pago de la Pasarela de Pagos (webhook) |
+| **Inbound Communication** | **Commands (vía API REST):**<br>- `ExaminePatient`<br>- `RecordMedicalHistory`<br>- `RegisterClinicalRecord`<br>- `GenerateOpticalPrescription`<br>- `GenerateQuotation`<br>- `ApplyPromotionOrDiscount`<br>- `ApproveQuotation`<br>- `RejectQuotation`<br>- `RegisterSale`<br>- `CreatePaymentPreference` (App del paciente)<br>- `RecordPayment`<br>- `CloseSale`<br><br>**Queries (vía API REST):**<br>- `GetSaleById`<br>- `GetSalesByPatientId`<br>- `GetSalesMetrics`<br><br>**Queries (internas):**<br>- `GetClosedSale` (Production & Tracking)<br><br>**Events (Suscrito):**<br>- `AppointmentBooked`<br><br>**Sistema externo:**<br>- Notificación de pago de la Pasarela de Pagos (webhook) |
 | **Outbound Communication** | **Events (Publicados):**<br>- `PatientExamined`<br>- `MedicalHistoryRecorded`<br>- `ClinicalRecordRegistered`<br>- `OpticalPrescriptionGenerated`<br>- `PromotionOrDiscountApplied`<br>- `QuotationApproved`<br>- `QuotationRejected`<br>- `PaymentRecorded`<br>- `PaymentRejected`<br>- `SaleWasClosed`<br>- `ElectronicReceiptIssued`<br><br>**Sistema externo:**<br>- Creación de la preferencia de pago en la Pasarela de Pagos |
 
 **Canvas 3: Production & Tracking Context**
@@ -1183,7 +1183,7 @@ El Bounded Context Canvas del Production & Tracking Context se resume en la Tabl
 | **Strategic Classification** | Core Domain |
 | **Domain Roles** | Trazabilidad del proceso de fabricación de lentes y monturas: generación de órdenes de trabajo, asignación a técnicos de laboratorio, control del flujo de estado (Kanban logístico), cálculo de fechas estimadas, gestión de retrasos, seguimiento del pedido por el paciente y métricas de producción. |
 | **Ubiquitous Language** | Work Order, Technician, Laboratory, Work Order Status, Lenses, Delivery Date, Delivery Delay. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `GenerateWorkOrder`<br>- `AssignWorkOrderToTechnician`<br>- `SendWorkOrderToLaboratory`<br>- `UpdateWorkOrderStatus`<br>- `CompleteLenses`<br>- `NotifyDeliveryDelay`<br>- `MarkOrderAsDelivered`<br><br>**Queries (vía API Gateway):**<br>- `GetWorkOrders`<br>- `GetWorkOrderById`<br>- `GetWorkOrdersByPatientId`<br>- `GetProductionMetrics`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed`<br><br>**Consulta a otro contexto:**<br>- `GetClosedSale` (Clinical & Commercial) |
+| **Inbound Communication** | **Commands (vía API REST):**<br>- `GenerateWorkOrder`<br>- `AssignWorkOrderToTechnician`<br>- `SendWorkOrderToLaboratory`<br>- `UpdateWorkOrderStatus`<br>- `CompleteLenses`<br>- `NotifyDeliveryDelay`<br>- `MarkOrderAsDelivered`<br><br>**Queries (vía API REST):**<br>- `GetWorkOrders`<br>- `GetWorkOrderById`<br>- `GetWorkOrdersByPatientId`<br>- `GetProductionMetrics`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed`<br><br>**Consulta a otro contexto:**<br>- `GetClosedSale` (Clinical & Commercial) |
 | **Outbound Communication** | **Events (Publicados):**<br>- `WorkOrderGenerated`<br>- `WorkOrderAssigned`<br>- `WorkOrderSentToLaboratory`<br>- `WorkOrderStatusUpdated`<br>- `LensesWereCompleted`<br>- `EstimatedDeliveryDateCalculated`<br>- `DeliveryDelayNotified`<br>- `OrderWasMarkedAsDelivered` |
 
 **Canvas 4: Notification & Loyalty Context**
@@ -1204,7 +1204,7 @@ El Bounded Context Canvas del Notification & Loyalty Context se detalla en la Ta
 | **Strategic Classification** | Supporting Domain |
 | **Domain Roles** | Gestión proactiva de la relación con el paciente: notificaciones push automáticas del estado del pedido mediante Firebase Cloud Messaging, recordatorios de citas y de control anual, beneficio de cumpleaños en la cuenta de fidelización y envío y recolección de encuestas de satisfacción. |
 | **Ubiquitous Language** | Notification, Appointment Reminder, Annual Check-up Reminder, Order Progress, Satisfaction Survey, Push Notification, Device Token, Loyalty Account, Loyalty Points, Birthday Discount. |
-| **Inbound Communication** | **Commands (App del paciente, vía API Gateway):**<br>- `RegisterDeviceToken`<br>- `MarkNotificationAsRead`<br>- `AnswerSatisfactionSurvey`<br><br>**Commands (internos, por evento o tarea programada):**<br>- `ScheduleAppointmentReminder`<br>- `NotifyLensOrderProgress`<br>- `SendDeliveryDelayNotification`<br>- `SendSatisfactionSurvey`<br>- `GrantBirthdayDiscount`<br>- `SendPushNotification`<br><br>**Queries (vía API Gateway):**<br>- `GetNotificationsByPatient`<br>- `GetNotificationById`<br>- `GetLoyaltyAccountByPatient`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked`<br>- `WorkOrderStatusUpdated`<br>- `DeliveryDelayNotified`<br>- `OrderWasMarkedAsDelivered` |
+| **Inbound Communication** | **Commands (App del paciente, vía API REST):**<br>- `RegisterDeviceToken`<br>- `MarkNotificationAsRead`<br>- `AnswerSatisfactionSurvey`<br><br>**Commands (internos, por evento o tarea programada):**<br>- `ScheduleAppointmentReminder`<br>- `NotifyLensOrderProgress`<br>- `SendDeliveryDelayNotification`<br>- `SendSatisfactionSurvey`<br>- `GrantBirthdayDiscount`<br>- `SendPushNotification`<br><br>**Queries (vía API REST):**<br>- `GetNotificationsByPatient`<br>- `GetNotificationById`<br>- `GetLoyaltyAccountByPatient`<br><br>**Events (Suscrito):**<br>- `AppointmentBooked`<br>- `WorkOrderStatusUpdated`<br>- `DeliveryDelayNotified`<br>- `OrderWasMarkedAsDelivered` |
 | **Outbound Communication** | **Events (Publicados):**<br>- `BirthdayDiscountWasSent`<br>- `AppointmentReminderScheduled`<br>- `SatisfactionSurveyWasSent`<br>- `SatisfactionSurveyCompleted`<br>- `DeviceTokenRegistered`<br>- `InAppNotificationSent`<br>- `PushNotificationSent`<br>- `LensOrderProgressNotified`<br><br>**Sistema externo:**<br>- Notificación push a Firebase Cloud Messaging |
 
 **Canvas 5: Store Management & Inventory Context**
@@ -1225,7 +1225,7 @@ El Bounded Context Canvas del Store Management & Inventory Context se presenta e
 | **Strategic Classification** | Supporting Domain |
 | **Domain Roles** | Control de existencias físicas multitienda, administración del catálogo de modelos de monturas, actualización de precios, consulta por código escaneado, reabastecimiento, historial de movimientos, alertas de stock crítico, gestión de proveedores (Suppliers) y métricas de inventario. |
 | **Ubiquitous Language** | Frame Model, SKU, Catalog, Price, Stock, Inventory, Stock Movement, Low Stock Alert, Supplier, Replenishment, Virtual Try-On. |
-| **Inbound Communication** | **Commands (vía API Gateway):**<br>- `AddNewFrameModel`<br>- `UpdateFrameModelPrice`<br>- `ReplenishStock`<br>- `UpdateInventory`<br>- `RegisterSupplier`<br><br>**Queries (vía API Gateway):**<br>- `ConsultStock`<br>- `GetFrameModelBySku`<br>- `GetFrameCatalog`<br>- `GetInventoryMovements`<br>- `GetLowStockAlerts`<br>- `GetInventoryMetrics`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
+| **Inbound Communication** | **Commands (vía API REST):**<br>- `AddNewFrameModel`<br>- `UpdateFrameModelPrice`<br>- `UpdateFrameModelTryOnModel`<br>- `ReplenishStock`<br>- `UpdateInventory`<br>- `RegisterSupplier`<br><br>**Queries (vía API REST):**<br>- `ConsultStock`<br>- `GetFrameModelBySku`<br>- `GetFrameCatalog`<br>- `GetInventoryMovements`<br>- `GetLowStockAlerts`<br>- `GetInventoryMetrics`<br><br>**Events (Suscrito):**<br>- `SaleWasClosed` |
 | **Outbound Communication** | **Events (Publicados):**<br>- `NewFrameModelAdded`<br>- `FrameModelPriceUpdated`<br>- `StockWasReplenished`<br>- `LowStockAlertGenerated`<br>- `InventoryWasUpdated`<br>- `SupplierRegistered` |
 
 ##### Canvases de los bounded contexts
@@ -1266,7 +1266,7 @@ Los siguientes canvases complementan las tablas anteriores con propósito, regla
 ![canvas-production-tracking.png](assets/cap2/bounded-context-canvases/canvas-production-tracking.png)
 
 
-**Notification & Loyalty.** Comunicar hitos relevantes al paciente y apoyar el seguimiento posterior a la atención. Regla destacada: Respetar preferencias y permisos. Evitar duplicados. El estado de fabricación pertenece a producción; este contexto lo comunica (ver Figura 28).
+**Notification & Loyalty.** Comunicar hitos relevantes al paciente y apoyar el seguimiento posterior a la atención. Regla destacada: Respetar el permiso de notificaciones del dispositivo. Evitar duplicados. El estado de fabricación pertenece a producción; este contexto lo comunica (ver Figura 28).
 
 
 <a id="figura-28"></a>
@@ -1347,7 +1347,7 @@ La Tabla 24 resume cada relación del mapa final, los mensajes que la conectan (
 | Upstream | Downstream | Relación | Patrones | Mensajes | Comando ejecutado | Implementación en el backend |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Search & Booking | Clinical & Commercial | Customer / Supplier | OHS, PL / ACL | `AppointmentBooked` (evento), `GetAppointment` (consulta) | `ExaminePatient` | `SearchBookingAppointmentAdapter` (ACL) |
-| Search & Booking | Notification & Loyalty | Conformist | OHS, PL / CF | `AppointmentBooked` | `ScheduleAppointmentReminder` | `AppointmentBookedEventHandler` |
+| Search & Booking | Notification & Loyalty | Conformist | OHS, PL / CF | `AppointmentBooked` (evento), `GetPatientsByBirthday` y `GetAppointment` (consultas) | `ScheduleAppointmentReminder` | `AppointmentBookedEventHandler` |
 | Clinical & Commercial | Production & Tracking | Customer / Supplier | OHS, PL / ACL | `SaleWasClosed` (evento), `GetClosedSale` (consulta) | `GenerateWorkOrder` | `ClinicalCommercialSaleAdapter` (ACL) |
 | Clinical & Commercial | Store Management & Inventory | Customer / Supplier | OHS, PL / ACL | `SaleWasClosed` | `UpdateInventory` | `SaleWasClosedEventHandler` (ACL) |
 | Production & Tracking | Notification & Loyalty | Conformist | OHS, PL / CF | `WorkOrderStatusUpdated`, `DeliveryDelayNotified`, `OrderWasMarkedAsDelivered` | `NotifyLensOrderProgress`, `SendDeliveryDelayNotification`, `SendSatisfactionSurvey` | `WorkOrderStatusUpdatedEventHandler`, `ProductionDeliveryDelayNotifiedEventHandler`, `OrderWasMarkedAsDeliveredEventHandler` |
@@ -1391,8 +1391,8 @@ La relación entre Search & Booking y Notification & Loyalty se muestra en la Fi
 
 **Patrón: Conformist, con Open Host Service y Published Language en el upstream.**
 
-- **Search & Booking como upstream:** publica `AppointmentBooked` sin conocer cómo se redactan ni se muestran los avisos al paciente, y responde la consulta `GetPatientsByBirthday`, que devuelve los pacientes que cumplen años en una fecha.
-- **Notification & Loyalty como downstream:** adopta el evento tal como se publica y usa `patientId` y `appointmentId` para ejecutar `ScheduleAppointmentReminder`, que programa el recordatorio de la cita y el de control anual. Su `BirthdayDiscountScheduler` usa cada día `GetPatientsByBirthday` para ejecutar `GrantBirthdayDiscount`.
+- **Search & Booking como upstream:** publica `AppointmentBooked` sin conocer cómo se redactan ni se muestran los avisos al paciente, y responde las consultas `GetPatientsByBirthday`, que devuelve los pacientes que cumplen años en una fecha, y `GetAppointment`, que devuelve el estado de una cita.
+- **Notification & Loyalty como downstream:** adopta el evento tal como se publica y usa `patientId` y `appointmentId` para ejecutar `ScheduleAppointmentReminder`, que programa el recordatorio de la cita y el de control anual. Para programarlos consulta la fecha de la cita con `GetAppointment`; antes de enviar un recordatorio vuelve a consultarla y elimina los avisos de la cita si fue cancelada. Su `BirthdayDiscountScheduler` usa cada día `GetPatientsByBirthday` para ejecutar `GrantBirthdayDiscount`.
 
 ##### Clinical & Commercial → Production & Tracking
 
@@ -1410,7 +1410,7 @@ La relación entre Clinical & Commercial y Production & Tracking se muestra en l
 
 **Patrón: Customer / Supplier, con Open Host Service y Published Language en el upstream y Anti-Corruption Layer en el downstream.**
 
-- **Clinical & Commercial como upstream:** al cerrar la venta publica `SaleWasClosed` con `saleId`, `quotationId`, `clinicalRecordId`, `patientId`, `totalAmount` y los productos vendidos. También responde la consulta `GetClosedSale`, que reúne los datos de la venta, la cotización y el expediente clínico.
+- **Clinical & Commercial como upstream:** al cerrar la venta publica `SaleWasClosed` con `saleId`, `quotationId`, `clinicalRecordId`, `patientId`, `totalAmount`, la óptica donde se atendió al paciente (`opticalStoreId`) y los productos vendidos. También responde la consulta `GetClosedSale`, que reúne los datos de la venta, la cotización y el expediente clínico.
 - **Production & Tracking como downstream:** al recibir el evento ejecuta `GenerateWorkOrder`. Su ACL (`ClinicalCommercialSaleAdapter`) consulta la venta con `GetClosedSale` y traduce la receta óptica en especificaciones de lunas (esfera, cilindro, eje, adición y tratamiento), descartando precios, pagos y datos de facturación que la fabricación no necesita.
 
 ##### Clinical & Commercial → Store Management & Inventory
@@ -1429,7 +1429,7 @@ La relación entre Clinical & Commercial y Store Management & Inventory se muest
 
 **Patrón: Customer / Supplier, con Open Host Service y Published Language en el upstream y Anti-Corruption Layer en el downstream.**
 
-- **Clinical & Commercial como upstream:** a pedido de Store Management & Inventory, incluye en `SaleWasClosed` la lista de productos vendidos con su `productSku` y `quantity`. Esta adaptación del contrato a las necesidades del cliente caracteriza la relación Customer / Supplier.
+- **Clinical & Commercial como upstream:** a pedido de Store Management & Inventory, incluye en `SaleWasClosed` la óptica de la venta (`opticalStoreId`) y la lista de productos vendidos con su `productSku` y `quantity`, para saber de qué inventario descontarlos. Esta adaptación del contrato a las necesidades del cliente caracteriza la relación Customer / Supplier.
 - **Store Management & Inventory como downstream:** al recibir el evento ejecuta `UpdateInventory`. Su ACL traduce cada producto vendido en un movimiento de salida de stock y descarta los productos que no controla, como los servicios. Luego verifica si alguna existencia llegó a su nivel mínimo para generar la alerta de reabastecimiento.
 
 ##### Production & Tracking → Notification & Loyalty
@@ -1493,7 +1493,7 @@ La relación entre Firebase Cloud Messaging y Notification & Loyalty se muestra 
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto, elaborado con Structurizr, ubica a OptiFlow frente a sus usuarios y a los cuatro sistemas externos con los que se integra: la **Pasarela de Pagos** (Mercado Pago Checkout Pro), en la que el paciente paga con tarjeta o Yape; **Firebase Cloud Messaging**, que entrega las notificaciones push al paciente; **Google Maps Platform**, que muestra las ópticas cercanas en un mapa; y el **servicio de filtros faciales AR**, que permite probar virtualmente las monturas. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias (ver Figura 38).
+El diagrama de contexto, elaborado con Structurizr, ubica a OptiFlow frente a sus usuarios y a los tres sistemas externos con los que se integra: la **Pasarela de Pagos** (Mercado Pago Checkout Pro), en la que el paciente paga con tarjeta o Yape; **Firebase Cloud Messaging**, que entrega las notificaciones push al paciente; y **OpenStreetMap**, que entrega el mapa de las ópticas cercanas. El escáner y el probador virtual no dependen de un servicio externo: usan ML Kit dentro del propio dispositivo. El [Anexo E](Anexos.md#anexo-e-arquitectura-de-software) reúne las vistas complementarias (ver Figura 38).
 
 
 <a id="figura-38"></a>
@@ -1510,8 +1510,8 @@ El diagrama de contexto, elaborado con Structurizr, ubica a OptiFlow frente a su
 
 El diagrama de contenedores, elaborado con Structurizr, muestra el backend como **un único contenedor de aplicación Spring Boot**, coherente con el código del repositorio: una aplicación, módulos por contexto y adaptadores de persistencia JPA. Los límites de DDD no equivalen a límites de despliegue. La aplicación móvil, su base de datos local, la Landing Page y la base de datos del backend se representan como contenedores distintos por sus responsabilidades y tecnologías, siguiendo el alcance del [diagrama de contenedores C4](https://c4model.com/diagrams/container) (Brown, s. f.) (ver Figura 39).
 
-- **Aplicación móvil (Kotlin, Jetpack Compose):** consume la API REST del backend, guarda en la base de datos local la última información consultada para mostrarla sin conexión, usa la cámara del dispositivo (CameraX) en el escáner de monturas y en el probador virtual, muestra las ópticas cercanas con Google Maps SDK, aplica el probador virtual con el servicio de filtros faciales AR y recibe las notificaciones push de Firebase Cloud Messaging.
-- **Base de datos local (Room, SQLite):** almacena en el dispositivo una copia de solo lectura de la última información consultada (citas, pedidos, avisos y catálogo) y la reemplaza con la respuesta del backend en cada consulta con conexión; las operaciones que modifican datos requieren conexión.
+- **Aplicación móvil (Kotlin, Jetpack Compose):** consume la API REST del backend, guarda en la base de datos local la última información consultada para mostrarla sin conexión, usa la cámara del dispositivo (CameraX) en el escáner de monturas y en el probador virtual, lee los códigos de barras y detecta el rostro con ML Kit en el propio dispositivo, muestra las ópticas cercanas en un mapa de OpenStreetMap (osmdroid) y recibe las notificaciones push de Firebase Cloud Messaging.
+- **Base de datos local (Room, SQLite):** almacena en el dispositivo una copia de solo lectura de la última información consultada (citas, pedidos, avisos, recetas, catálogo, ópticas y tablero de producción) y la reemplaza con la respuesta del backend en cada consulta con conexión; las operaciones que modifican datos requieren conexión.
 - **Backend OptiFlow (Java 21, Spring Boot):** crea las preferencias de pago en Mercado Pago Checkout Pro, recibe sus notificaciones de pago en una ruta pública (webhook), emite los tokens JWT de sesión y envía las notificaciones push mediante Firebase Cloud Messaging.
 - **Base de datos (PostgreSQL 16):** persistencia relacional de los cinco módulos del backend.
 - **Landing Page (HTML5, CSS3, JavaScript):** presenta la propuesta de valor e incluye el enlace de descarga de la aplicación desde Firebase App Distribution.
@@ -1533,7 +1533,7 @@ El Deployment Diagram, elaborado con Structurizr, muestra dónde se ejecuta cada
 
 - **Dispositivo del visitante:** el navegador web carga la Landing Page publicada como sitio estático en **GitHub Pages**, que incluye el enlace de descarga de la aplicación.
 - **Firebase App Distribution:** distribuye el APK de la aplicación móvil a los dispositivos Android de prueba.
-- **Dispositivo Android de prueba:** dentro del entorno de ejecución de la aplicación Kotlin se encuentran la aplicación Android, la base de datos local (SQLite/Room, caché de solo lectura) y la cámara del dispositivo (CameraX). La aplicación consume el servicio de filtros faciales AR para el probador virtual y Google Maps Platform para el mapa de ópticas.
+- **Dispositivo Android de prueba:** dentro del entorno de ejecución de la aplicación Kotlin se encuentran la aplicación Android, la base de datos local (SQLite/Room, caché de solo lectura) la cámara del dispositivo (CameraX) y ML Kit, que lee los códigos de barras y detecta el rostro para el probador virtual. La aplicación obtiene de OpenStreetMap el mapa de ópticas.
 - **Render:** ejecuta el backend en un contenedor Docker (Java 21), que accede a la base de datos **Render PostgreSQL** mediante JPA. El backend crea las preferencias de pago en la **Pasarela de Pagos** (Mercado Pago), que le notifica el resultado de cada pago en un webhook público, y envía las notificaciones push mediante **Firebase Cloud Messaging**, que las entrega al dispositivo Android.
 
 La configuración de cada entorno se detalla en la sección 4.1.4 (ver Figura 40).
@@ -1576,7 +1576,7 @@ Esta capa no depende de frameworks, bases de datos ni servicios externos, permit
 
 La entidad `Appointment` representa la reserva formal realizada por un paciente para recibir atención en una óptica dentro de un horario determinado. Se considera el **Aggregate Root** principal del proceso de reserva, debido a que concentra las reglas necesarias para mantener la consistencia de una cita.
 
-Cuando un paciente selecciona una óptica y un horario disponible, el agregado valida la información correspondiente y permite crear la reserva. Asimismo, controla las operaciones relacionadas con la confirmación, cancelación y reprogramación de una cita (ver Tabla 25).
+Cuando un paciente selecciona una óptica y un horario disponible, el agregado valida la información correspondiente y permite crear la reserva. Asimismo, controla la confirmación, la cancelación y el cierre de una cita como completada. Para reprogramar, la aplicación cancela la cita y reserva un nuevo horario (ver Tabla 25).
 
 
 <a id="tabla-25"></a>
@@ -1612,8 +1612,8 @@ Los métodos principales del aggregate root Appointment se presentan en la Tabla
 |---|---|---|
 | `book()` | public | Confirma la creación de una reserva cuando el horario seleccionado está disponible |
 | `confirm()` | public | Cambia el estado de la cita a confirmada |
-| `cancel()` | public | Cancela una cita previamente registrada |
-| `reschedule(timeSlot: TimeSlot)` | public | Permite cambiar la fecha y horario de una cita |
+| `cancel()` | public | Cancela una cita pendiente o confirmada; su horario vuelve a quedar disponible |
+| `complete()` | public | Marca como completada una cita confirmada, una vez atendido el paciente |
 | `isAvailable()` | public | Valida si el horario asociado puede ser utilizado para la reserva |
 
 ##### Entidad: `Patient`
@@ -1782,11 +1782,13 @@ Las interfaces de repositorio pertenecen al dominio y permiten abstraer la persi
 
 | Interface | Operaciones principales |
 |---|---|
-| `AppointmentRepository` | `save()`, `findById()`, `findByPatientId()`, `findByTimeSlot()` |
-| `PatientRepository` | `save()`, `findById()`, `findByEmail()`, `findByBirthday(month, day)` |
+| `AppointmentRepository` | `save()`, `findById()`, `findByPatientId()`, `findByTimeSlot()`, `findByOpticalStoreAndDate()` |
+| `PatientRepository` | `save()`, `findById()`, `findByEmail()`, `search(name, email)`, `findByBirthday(month, day)` |
 | `StaffMemberRepository` | `save()`, `findById()`, `findByEmail()`, `findByOpticalStoreId()` |
-| `OpticalStoreRepository` | `findById()`, `search()`, `filter()` |
-| `TimeSlotRepository` | `findById()`, `findAvailableByStore()`, `reserve()` |
+| `OpticalStoreRepository` | `findById()`, `search()`, `filter()`, `findNearby()` |
+| `TimeSlotRepository` | `save()`, `findById()`, `findAvailableByStore()`, `existsOverlapping()`, `reserve()`, `release()` |
+| `FavoriteStoreRepository` | `save()`, `existsByPatientAndStore()` |
+| `StoreRatingRepository` | `save()`, `findByPatientAndStore()` |
 
 ##### Domain Events
 
@@ -1806,11 +1808,12 @@ Los eventos de dominio representan hechos relevantes ocurridos dentro del contex
 | `PatientLoggedIn` | Se genera cuando un paciente o un miembro del personal inicia sesión correctamente |
 | `StaffMemberRegistered` | Se genera cuando el administrador registra a un miembro del personal |
 | `StaffMemberRoleAssigned` | Se genera cuando el administrador cambia el rol de un miembro del personal |
-| `OpticalStoresFiltered` | Se genera cuando un paciente filtra las ópticas según sus criterios |
 | `OpticalStoresPublished` | Se genera cuando las ópticas disponibles son publicadas |
 | `FavoriteOpticalStoreSaved` | Se genera cuando un paciente guarda una óptica como favorita |
 | `OpticalStoreRated` | Se genera cuando un paciente registra una valoración |
 | `AppointmentBooked` | Se genera cuando una cita es reservada correctamente |
+| `AppointmentCancelled` | Se genera cuando el paciente o el personal cancela una cita |
+| `AppointmentCompleted` | Se genera cuando el optómetra marca la cita como completada |
 
 Los eventos anteriores corresponden a los eventos publicados definidos para el **Search & Booking Context** en el diseño estratégico de OptiFlow.
 
@@ -1837,7 +1840,7 @@ Los Factories del Search & Booking Context se resumen en la Tabla 36.
 
 La **Interface Layer** representa el punto de entrada al Bounded Context Search & Booking. Su responsabilidad es recibir las solicitudes provenientes de la aplicación cliente y traducirlas al modelo utilizado por la Application Layer.
 
-Esta capa permite exponer las capacidades de búsqueda, consulta de disponibilidad, registro de pacientes, exploración de catálogos y reserva de citas sin exponer directamente las entidades internas del dominio.
+Esta capa permite exponer las capacidades de búsqueda de ópticas, consulta de disponibilidad, registro de pacientes, inicio de sesión y reserva de citas sin exponer directamente las entidades internas del dominio.
 
 ##### Controllers
 
@@ -1853,14 +1856,14 @@ Los Controllers del Search & Booking Context se detallan en la Tabla 37.
 
 | Controller | Endpoints | Capabilities soportadas |
 |---|---|---|
-| `PatientController` | `POST /patients`, `POST /login`, `GET /patients/{id}/appointments` | Registro de pacientes, inicio de sesión de pacientes y personal (devuelve el token JWT y el rol) y consulta de las citas del paciente |
-| `StaffMemberController` | `POST /staff-members`, `GET /staff-members`, `PATCH /staff-members/{id}/role` | Registro del personal, listado y asignación de rol; solo para `ADMIN` |
-| `OpticalStoreController` | `GET /optical-stores`, `GET /optical-stores/{id}`, `GET /optical-stores/nearby` | Búsqueda y consulta de ópticas, y consulta de las ópticas cercanas a una ubicación |
-| `OpticalStoreFilterController` | `GET /optical-stores/search` | Filtrado de ópticas según criterios del paciente |
-| `TimeSlotController` | `GET /optical-stores/{id}/availability` | Consulta de horarios disponibles |
-| `AppointmentController` | `POST /appointments`, `GET /appointments/{id}` | Creación y consulta de citas |
-| `FavoriteStoreController` | `POST /patients/{id}/favorites` | Registro de ópticas favoritas |
-| `StoreRatingController` | `POST /optical-stores/{id}/ratings` | Registro de valoraciones |
+| `PatientController` | `POST /api/v1/patients`, `GET /api/v1/patients`, `GET /api/v1/patients/{patientId}`, `GET /api/v1/patients/{patientId}/appointments` | Registro de pacientes, directorio de pacientes para el personal, perfil del paciente y consulta de sus citas |
+| `AuthenticationController` | `POST /api/v1/auth/tokens` | Inicio de sesión de pacientes y personal: crea el token JWT y devuelve su fecha de expiración, el identificador del usuario y su rol |
+| `StaffMemberController` | `POST /api/v1/staff-members`, `GET /api/v1/staff-members`, `GET /api/v1/staff-members/{id}`, `PATCH /api/v1/staff-members/{id}/role`, `PATCH /api/v1/staff-members/{id}/status` | Registro del personal, listado, asignación de rol y activación o desactivación, solo para `ADMIN`; cada miembro del personal puede consultar su propio perfil y su óptica |
+| `OpticalStoreController` | `GET /api/v1/optical-stores`, `GET /api/v1/optical-stores/{id}` | Búsqueda de ópticas por nombre o dirección, filtrado por valoración mínima (`minRating`) y consulta de las ópticas cercanas a una ubicación (`lat`, `lng` y `radiusKm`), todo mediante parámetros de consulta; y detalle de una óptica |
+| `TimeSlotController` | `GET /api/v1/optical-stores/{id}/time-slots`, `POST /api/v1/optical-stores/{id}/time-slots` | Consulta de los horarios disponibles de una óptica y publicación de sus horarios de atención |
+| `AppointmentController` | `POST /api/v1/appointments`, `GET /api/v1/appointments/{id}`, `GET /api/v1/appointments`, `PATCH /api/v1/appointments/{id}/status` | Creación y consulta de citas, agenda de una óptica por fecha (parámetros de consulta `opticalStoreId` y `date`) y cambio de estado de la cita (`CANCELLED` o `COMPLETED`). Un paciente solo reserva, consulta y cambia sus propias citas; si no, recibe HTTP 403. |
+| `FavoriteStoreController` | `POST /api/v1/patients/{patientId}/favorites` | Registro de ópticas favoritas |
+| `StoreRatingController` | `POST /api/v1/optical-stores/{id}/ratings` | Registro de valoraciones. Un paciente solo califica a su nombre; si no, recibe HTTP 403. |
 
 ##### Resources / DTOs
 
@@ -1881,16 +1884,20 @@ Los Resources / DTOs del Search & Booking Context se presentan en la Tabla 38.
 | `LoginResponse` | Output | Token de acceso JWT, fecha de expiración, identificador del usuario y rol |
 | `RegisterStaffMemberRequest` | Input | Datos del miembro del personal, su óptica y su rol |
 | `AssignStaffRoleRequest` | Input | Nuevo rol del miembro del personal |
+| `UpdateStaffMemberStatusRequest` | Input | `active`: `false` desactiva al miembro del personal y `true` lo vuelve a activar |
 | `StaffMemberResponse` | Output | Información pública del miembro del personal, sin la contraseña |
-| `SearchOpticalStoreRequest` | Input | Parámetros utilizados para buscar ópticas |
-| `FilterOpticalStoreRequest` | Input | Criterios utilizados para filtrar resultados |
+| `OpticalStoreQueryParams` | Input | Parámetros de consulta de `GET /api/v1/optical-stores`: nombre, dirección, valoración mínima y ubicación con radio |
+| `PublishTimeSlotsRequest` | Input | Lista de horarios (inicio y fin) que publica la óptica |
 | `BookAppointmentRequest` | Input | Datos necesarios para reservar una cita |
+| `UpdateAppointmentStatusRequest` | Input | Nuevo estado de la cita: `CANCELLED` o `COMPLETED` |
 | `SaveFavoriteStoreRequest` | Input | Datos necesarios para guardar una óptica favorita |
 | `RateOpticalStoreRequest` | Input | Datos de la valoración de una óptica |
 | `PatientResponse` | Output | Información pública del paciente |
 | `OpticalStoreResponse` | Output | Información de una óptica, incluida su latitud y longitud |
 | `TimeSlotResponse` | Output | Información sobre un horario disponible |
 | `AppointmentResponse` | Output | Información de una cita registrada |
+| `FavoriteStoreResponse` | Output | Óptica favorita guardada por el paciente y su fecha |
+| `StoreRatingResponse` | Output | Puntaje registrado y nueva valoración promedio de la óptica |
 
 ##### Assemblers
 
@@ -1908,11 +1915,15 @@ Los Assemblers del Search & Booking Context se resumen en la Tabla 39.
 |---|---|
 | `FromRegisterPatientRequestAssembler` | `RegisterPatientRequest` → `RegisterPatientCommand` |
 | `FromLoginRequestAssembler` | `LoginRequest` → `LoginCommand` |
-| `FromSearchOpticalStoreRequestAssembler` | `SearchOpticalStoreRequest` → `SearchOpticalStoresQuery` |
-| `FromFilterOpticalStoreRequestAssembler` | `FilterOpticalStoreRequest` → `FilterOpticalStoresQuery` |
+| `FromOpticalStoreQueryParamsAssembler` | `OpticalStoreQueryParams` → `SearchOpticalStoresQuery`, `FilterOpticalStoresQuery` o `GetNearbyOpticalStoresQuery`, según los parámetros recibidos |
+| `FromPublishTimeSlotsRequestAssembler` | `PublishTimeSlotsRequest` → `PublishAvailableTimeSlotsCommand` |
 | `FromBookAppointmentRequestAssembler` | `BookAppointmentRequest` → `BookAppointmentCommand` |
+| `FromUpdateAppointmentStatusRequestAssembler` | `UpdateAppointmentStatusRequest` → `CancelAppointmentCommand` o `CompleteAppointmentCommand`, según el estado recibido |
+| `FromSaveFavoriteStoreRequestAssembler` | `SaveFavoriteStoreRequest` → `SaveFavoriteOpticalStoreCommand` |
 | `FromRateOpticalStoreRequestAssembler` | `RateOpticalStoreRequest` → `RateOpticalStoreCommand` |
 | `FromRegisterStaffMemberRequestAssembler` | `RegisterStaffMemberRequest` → `RegisterStaffMemberCommand` |
+| `FromAssignStaffRoleRequestAssembler` | `AssignStaffRoleRequest` → `AssignStaffRoleCommand` |
+| `SearchBookingResponseAssembler` | Agregados y resultados del dominio → `PatientResponse`, `LoginResponse`, `OpticalStoreResponse`, `TimeSlotResponse`, `AppointmentResponse`, `FavoriteStoreResponse` y `StoreRatingResponse`; las consultas de colecciones devuelven un arreglo JSON de estos DTOs (vacío si no hay resultados) |
 
 
 <a id="2.6.1.3. Application Layer"></a>
@@ -1937,13 +1948,16 @@ Los Command Handlers del Search & Booking Context se detallan en la Tabla 40.
 | Command Handler | Command procesado | Flujo |
 |---|---|---|
 | `RegisterPatientCommandHandler` | `RegisterPatient` | Valida los datos, crea el paciente mediante `PatientFactory`, persiste mediante `PatientRepository` y publica `PatientRegistered` |
-| `LoginCommandHandler` | `LogIn` | Busca el correo entre pacientes y personal activo, verifica la contraseña con BCrypt, emite el token JWT con el identificador y el rol mediante `JwtTokenService` y publica `PatientLoggedIn` |
+| `LoginCommandHandler` | `Login` | Busca el correo entre pacientes y personal activo, verifica la contraseña con BCrypt, emite el token JWT con el identificador y el rol mediante `JwtTokenService` y publica `PatientLoggedIn` |
 | `RegisterStaffMemberCommandHandler` | `RegisterStaffMember` | Valida que el correo no exista, guarda el hash de la contraseña y el rol, y publica `StaffMemberRegistered` |
 | `AssignStaffRoleCommandHandler` | `AssignStaffRole` | Cambia el rol de un miembro del personal y publica `StaffMemberRoleAssigned`; el cambio rige desde su siguiente inicio de sesión |
-| `PublishAvailableTimeSlotsCommandHandler` | `PublishAvailableTimeSlots` | Registra o actualiza los horarios disponibles de una óptica y publica `OpticalStoresPublished` |
+| `UpdateStaffMemberStatusCommandHandler` | `UpdateStaffMemberStatus` | Activa o desactiva a un miembro del personal; uno inactivo ya no puede iniciar sesión y el token que ya tenía deja de ser aceptado |
+| `PublishAvailableTimeSlotsCommandHandler` | `PublishAvailableTimeSlots` | Registra o actualiza los horarios disponibles de una óptica, rechaza los que se cruzan con otros y publica `OpticalStoresPublished` |
 | `SaveFavoriteOpticalStoreCommandHandler` | `SaveFavoriteOpticalStore` | Registra una óptica como favorita del paciente y publica `FavoriteOpticalStoreSaved` |
 | `RateOpticalStoreCommandHandler` | `RateOpticalStore` | Valida y registra la valoración realizada por el paciente y publica `OpticalStoreRated` |
 | `BookAppointmentCommandHandler` | `BookAppointment` | Verifica la disponibilidad del horario, crea la cita mediante `AppointmentFactory`, persiste el agregado y publica `AppointmentBooked` |
+| `CancelAppointmentCommandHandler` | `CancelAppointment` | Verifica que la cita pertenezca al paciente o a la óptica del personal, la cancela, libera su horario mediante `TimeSlotRepository` y publica `AppointmentCancelled` |
+| `CompleteAppointmentCommandHandler` | `CompleteAppointment` | Marca como completada una cita confirmada de la óptica del optómetra y publica `AppointmentCompleted` |
 
 ##### Query Services
 
@@ -1964,9 +1978,13 @@ Los Query Services del Search & Booking Context se presentan en la Tabla 41.
 | `GetOpticalStoreQueryService` | `GetOpticalStoreQuery` | Información detallada de una óptica |
 | `GetNearbyOpticalStoresQueryService` | `GetNearbyOpticalStoresQuery` | Lista de ópticas activas dentro de un radio, ordenadas por distancia a la ubicación del paciente |
 | `GetAvailableTimeSlotsQueryService` | `GetAvailableTimeSlotsQuery` | Lista de horarios disponibles |
+| `GetPatientByIdQueryService` | `GetPatientByIdQuery` | Datos del paciente para su perfil o su ficha |
+| `SearchPatientsQueryService` | `SearchPatientsQuery` | Pacientes cuyo nombre y correo contienen el texto buscado, para el directorio del personal |
 | `GetPatientAppointmentsQueryService` | `GetPatientAppointmentsQuery` | Lista de citas del paciente |
-| `GetAppointmentQueryService` | `GetAppointmentQuery` | Detalle de una cita; también lo usa Clinical & Commercial para validar la atención (`GetAppointment`) |
+| `GetAppointmentQueryService` | `GetAppointmentQuery` | Detalle y estado de una cita; también lo usan Clinical & Commercial para validar la atención y Notification & Loyalty para descartar los recordatorios de citas canceladas (`GetAppointment`) |
+| `GetAppointmentsByOpticalStoreQueryService` | `GetAppointmentsByOpticalStoreQuery` | Agenda de citas de una óptica en una fecha, ordenada por hora |
 | `GetStaffMembersQueryService` | `GetStaffMembersQuery` | Lista del personal de una óptica con su rol |
+| `GetStaffMemberByIdQueryService` | `GetStaffMemberByIdQuery` | Perfil de un miembro del personal, con su rol y su óptica |
 | `GetPatientsByBirthdayQueryService` | `GetPatientsByBirthdayQuery` | Identificadores de los pacientes cuyo día y mes de nacimiento coinciden con una fecha; lo usa Notification & Loyalty para el beneficio de cumpleaños |
 
 ##### Event Handlers
@@ -2004,7 +2022,7 @@ Los Application Services del Search & Booking Context se resumen en la Tabla 43.
 |---|---|
 | `SearchBookingApplicationService` | Fachada principal del contexto que coordina los casos de uso de búsqueda, disponibilidad y reserva |
 | `PatientApplicationService` | Coordina las operaciones relacionadas con el registro e identificación de pacientes |
-| `AppointmentApplicationService` | Coordina las operaciones relacionadas con la creación, consulta, confirmación, cancelación y reprogramación de citas |
+| `AppointmentApplicationService` | Coordina las operaciones relacionadas con la creación, consulta, cancelación y cierre de citas |
 | `OpticalStoreApplicationService` | Coordina las operaciones de búsqueda, filtrado, ópticas cercanas, favoritos y valoración de ópticas |
 | `StaffMemberApplicationService` | Coordina el registro del personal y la asignación de roles |
 
@@ -2038,6 +2056,8 @@ Los Repository Implementations del Search & Booking Context se detallan en la Ta
 | `StoreRatingRepositoryImpl` | `StoreRatingRepository` | Persistencia de las valoraciones |
 | `StaffMemberRepositoryImpl` | `StaffMemberRepository` | Persistencia y consulta del personal |
 
+Cada implementación delega el acceso a PostgreSQL en su Spring Data repository: `AppointmentJpaRepository`, `PatientJpaRepository`, `OpticalStoreJpaRepository`, `TimeSlotJpaRepository`, `FavoriteStoreJpaRepository`, `StoreRatingJpaRepository` y `StaffMemberJpaRepository`.
+
 ##### Persistence Entities
 
 
@@ -2059,6 +2079,7 @@ Los Persistence Entities del Search & Booking Context se presentan en la Tabla 4
 | `FavoriteStoreEntity` | Representa la relación entre un paciente y una óptica favorita |
 | `StoreRatingEntity` | Representa la valoración realizada por un paciente |
 | `StaffMemberEntity` | Representa la información persistida de un miembro del personal |
+| `PatientStoreKey` | Clave compuesta (`patientId`, `opticalStoreId`) de `FavoriteStoreEntity` y `StoreRatingEntity` |
 
 ##### Mappers
 
@@ -2078,8 +2099,8 @@ Los Mappers del Search & Booking Context se resumen en la Tabla 46.
 | `PatientMapper` | `Patient` ↔ `PatientEntity` |
 | `OpticalStoreMapper` | `OpticalStore` ↔ `OpticalStoreEntity` |
 | `TimeSlotMapper` | `TimeSlot` ↔ `TimeSlotEntity` |
-| `FavoriteStoreMapper` | Modelo de dominio ↔ `FavoriteStoreEntity` |
-| `StoreRatingMapper` | Modelo de dominio ↔ `StoreRatingEntity` |
+| `FavoriteStoreMapper` | `FavoriteStore` ↔ `FavoriteStoreEntity` |
+| `StoreRatingMapper` | `PatientStoreRating` ↔ `StoreRatingEntity` |
 | `StaffMemberMapper` | `StaffMember` ↔ `StaffMemberEntity` |
 
 ##### External Service Adapters
@@ -2099,7 +2120,8 @@ Los External Service Adapters del Search & Booking Context se detallan en la Tab
 | `EventPublisherAdapter` | Sistema de eventos | Adaptador compartido (`shared`) que publica los eventos de dominio mediante `ApplicationEventPublisher` de Spring |
 | `AuthenticationAdapter` | Servicio de autenticación | Genera y verifica los hash BCrypt de las contraseñas |
 | `JwtTokenService` | JSON Web Token | Emite y valida los tokens de acceso firmados (HS256) con el identificador del usuario, su rol y su expiración; el secreto se lee de la variable de entorno `JWT_SECRET` |
-| `JwtAuthenticationFilter` | Spring Security | Lee el encabezado `Authorization: Bearer`, valida el token y carga el usuario y su rol en el contexto de seguridad de cada solicitud |
+| `JwtAuthenticationFilter` | Spring Security | Lee el encabezado `Authorization: Bearer`, valida el token, comprueba con `AccountStatusChecker` que la cuenta siga activa y carga el usuario y su rol en el contexto de seguridad de cada solicitud |
+| `AccountStatusAdapter` | Estado de la cuenta | Implementa `AccountStatusChecker` (`shared`) con el repositorio del personal: rechaza el token de un miembro del personal desactivado |
 | `NotificationIntegrationAdapter` | Servicio de notificaciones | Facilitar la integración con el contexto Notification & Loyalty cuando corresponda |
 
 ##### Configuration
@@ -2123,7 +2145,7 @@ Las clases de configuración del Search & Booking Context se presentan en la Tab
 
 ##### Autorización por rol
 
-El backend aplica los permisos de la US16 en `SecurityConfiguration`: cada ruta exige uno o más roles del token. `POST /patients`, `POST /login`, las consultas de ópticas y horarios, y el webhook de la pasarela de pagos son públicos. Además, un paciente solo puede consultar o modificar sus propios datos (por ejemplo, sus citas, pedidos y notificaciones), y una ruta sin el rol requerido responde HTTP 403. Los permisos se resumen por módulo (ver Tabla 49).
+El backend aplica los permisos de la US16 en `SecurityConfiguration`: cada ruta exige uno o más roles del token. Son públicas `POST /api/v1/patients`, `POST /api/v1/auth/tokens`, las consultas `GET` de ópticas y horarios (`/api/v1/optical-stores` y `/api/v1/optical-stores/{id}/time-slots`) y `POST /api/v1/payment-notifications`, que recibe las notificaciones de la pasarela de pagos; las demás rutas exigen el encabezado `Authorization: Bearer` con el token. Además, un paciente solo puede consultar o modificar sus propios datos (por ejemplo, sus citas, pedidos y notificaciones), y una ruta sin el rol requerido responde HTTP 403. Los permisos se resumen por módulo (ver Tabla 49).
 
 
 <a id="tabla-49"></a>
@@ -2135,21 +2157,21 @@ El backend aplica los permisos de la US16 en `SecurityConfiguration`: cada ruta 
 
 | Rol | Operaciones permitidas |
 |---|---|
-| `PATIENT` | Consultar el catálogo de monturas y usar el probador virtual; reservar y consultar sus citas, favoritos y valoraciones; consultar sus registros clínicos, recetas y pedidos; pagar sus ventas; registrar su dispositivo y consultar sus notificaciones y su cuenta de fidelización |
-| `OPTOMETRIST` | Registrar la atención clínica, la historia médica y la receta; consultar citas y registros clínicos |
-| `SALES_ADVISOR` | Generar y aprobar cotizaciones, registrar ventas y pagos en efectivo, cerrar ventas y consultar el catálogo y el stock (escáner) |
+| `PATIENT` | Consultar el catálogo de monturas y usar el probador virtual; consultar su perfil; reservar, consultar y cancelar sus citas; guardar ópticas favoritas y valorarlas; consultar sus registros clínicos, recetas, cotizaciones y pedidos; pagar sus ventas; registrar su dispositivo y consultar sus notificaciones y su cuenta de fidelización |
+| `OPTOMETRIST` | Consultar el directorio de pacientes (con el resumen de registros clínicos), reservar citas para ellos y consultar las citas de cada paciente; consultar la agenda de citas de su óptica, cancelarlas o marcarlas como completadas; registrar la atención clínica, la historia médica y la receta; consultar registros clínicos y el estado de las órdenes de trabajo |
+| `SALES_ADVISOR` | Consultar el directorio de pacientes (con el resumen de registros clínicos), reservar citas para ellos, consultar las citas de cada paciente y la agenda de citas de su óptica; consultar registros clínicos y recetas; generar y aprobar cotizaciones, registrar ventas y pagos en efectivo, cerrar ventas, generar órdenes de trabajo y consultar su estado; consultar el catálogo y el stock (escáner); registrar monturas en el catálogo, actualizar su precio y asignar su modelo del probador virtual |
 | `TECHNICIAN` | Gestionar las órdenes de trabajo: asignación, envío al laboratorio, estados, demoras y entrega |
-| `ADMIN` | Todo lo anterior, además del personal y sus roles, el catálogo, el stock, los proveedores, el historial de movimientos, las alertas, el dashboard y los reportes |
+| `ADMIN` | Todo lo anterior, además del personal y sus roles, los horarios de atención, el catálogo, el stock, los proveedores, el historial de movimientos, las alertas, el dashboard y los reportes |
 
 
 <a id="2.6.1.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Search & Booking Service** en sus componentes internos estructurados bajo los principios de Domain-Driven Design (DDD) y Clean Architecture, organizados en cuatro capas:
+El siguiente Component Diagram (C4 Model - Component Level) descompone el módulo **Search & Booking** del container **Backend OptiFlow** en sus componentes internos estructurados bajo los principios de Domain-Driven Design (DDD) y Clean Architecture, organizados en cuatro capas:
 
-* **Interface / Presentation Layer:** Agrupa los controladores REST (`PatientController`, `StaffMemberController`, `OpticalStoreController`, `OpticalStoreFilterController`, `TimeSlotController`, `AppointmentController`, `FavoriteStoreController`, `StoreRatingController`) que reciben las solicitudes HTTP/JSON desde las aplicaciones móviles y web a través del API Gateway, así como los DTOs de entrada/salida y los Assemblers responsables de transformar los requests en comandos y queries internos.
-* **Application Layer:** Contiene los Command Handlers (`BookAppointmentCommandHandler`, `LoginCommandHandler`, `PublishAvailableTimeSlotsCommandHandler`, `SaveFavoriteOpticalStoreCommandHandler`, `RateOpticalStoreCommandHandler`) encargados de orquestar las mutaciones de estado, los Query Services (`SearchOpticalStoresQueryService`, `GetAvailableTimeSlotsQueryService`, `GetPatientAppointmentsQueryService`, etc.) para consultas optimizadas, los Event Handlers (`AppointmentBookedEventHandler`, `AppointmentBookedNotificationHandler`) y los Application Services que actúan como fachada de coordinación.
-* **Domain Layer:** Núcleo libre de dependencias de infraestructura que encapsula las entidades y agregados principales (`Appointment`, `Patient`, `OpticalStore`, `TimeSlot`, `FavoriteStore`, `StoreRating`), los Domain Services, Factories y las interfaces de repositorio (`AppointmentRepository`, `PatientRepository`, `OpticalStoreRepository`, `TimeSlotRepository`) junto con la definición de eventos de dominio (`AppointmentBooked`, etc.).
+* **Interface / Presentation Layer:** Agrupa los controladores REST (`PatientController`, `AuthenticationController`, `StaffMemberController`, `OpticalStoreController`, `TimeSlotController`, `AppointmentController`, `FavoriteStoreController`, `StoreRatingController`) que reciben las solicitudes HTTP/JSON de la aplicación móvil en la API REST (`/api/v1`), así como los DTOs de entrada/salida y los Assemblers responsables de transformar los requests en comandos y queries internos.
+* **Application Layer:** Contiene los Command Handlers (`BookAppointmentCommandHandler`, `CancelAppointmentCommandHandler`, `CompleteAppointmentCommandHandler`, `LoginCommandHandler`, `PublishAvailableTimeSlotsCommandHandler`, `SaveFavoriteOpticalStoreCommandHandler`, `RateOpticalStoreCommandHandler`) encargados de orquestar las mutaciones de estado, los Query Services (`SearchOpticalStoresQueryService`, `GetAvailableTimeSlotsQueryService`, `GetPatientAppointmentsQueryService`, etc.) para consultas optimizadas, los Event Handlers (`AppointmentBookedEventHandler`, `AppointmentBookedNotificationHandler`) y los Application Services que actúan como fachada de coordinación.
+* **Domain Layer:** Núcleo libre de dependencias de infraestructura que encapsula las entidades y agregados principales (`Appointment`, `Patient`, `OpticalStore`, `TimeSlot`, `FavoriteStore`, `PatientStoreRating`), los Domain Services, Factories y las interfaces de repositorio (`AppointmentRepository`, `PatientRepository`, `OpticalStoreRepository`, `TimeSlotRepository`) junto con la definición de eventos de dominio (`AppointmentBooked`, etc.).
 * **Infrastructure Layer:** Proporciona las implementaciones técnicas concretas, incluyendo los repositorios sobre PostgreSQL/JPA (`AppointmentRepositoryImpl`, `PatientRepositoryImpl`, etc.), las entidades de persistencia (`AppointmentEntity`, etc.), los Mappers, el `EventPublisherAdapter` para publicar eventos internos mediante `ApplicationEventPublisher` de Spring, y los adaptadores de integración externa (`AuthenticationAdapter`, `NotificationIntegrationAdapter`).
 
 
@@ -2241,12 +2263,12 @@ El núcleo del dominio se organiza alrededor de tres agregados: `ClinicalRecord`
 | `Quotation` | Aggregate Root | Propuesta comercial derivada de la receta, sujeta a aprobación del paciente. | `id`, `clinicalRecordId`, `discount: Discount`, `total: Money`, `status: QuotationStatus` | `+addItem(item)`, `+applyPromotionOrDiscount(d)`, `+approve()`, `+reject(reason)`, `+calculateTotal()` |
 | `QuotationItem` | Entity | Línea de detalle de una cotización (producto o servicio cotizado). | `id`, `description: String`, `unitPrice: Money`, `quantity: Integer` | `+subtotal()` |
 | `Discount` | Value Object | Encapsula una promoción o descuento aplicado a una cotización. | `type: DiscountType`, `value: Decimal`, `reason: String` | — |
-| `Sale` | Aggregate Root | Venta concretada a partir de una cotización aprobada. | `id`, `quotationId`, `patientId`, `status: SaleStatus` (PENDING_PAYMENT, PAID, CLOSED), `paymentPreferenceId: String`, `closedAt: DateTime` | `+attachPaymentPreference(id)`, `+recordPayment(p)`, `+rejectPayment(reason)`, `+close()` |
-| `Payment` | Value Object | Detalle del cobro asociado a la venta, aprobado por la Pasarela de Pagos o registrado en caja. | `method: PaymentMethod` (CARD, YAPE o CASH), `amount: Money`, `transactionReference: String` (id del pago en la pasarela), `status: PaymentStatus` (APPROVED o REJECTED), `paidAt: DateTime` | — |
+| `Sale` | Aggregate Root | Venta concretada a partir de una cotización aprobada. | `id`, `quotationId`, `patientId`, `status: SaleStatus` (PENDING_PAYMENT, PAID, CLOSED), `paymentPreferenceId: String`, `closedAt: DateTime` | `+attachPaymentPreference(id)`, `+recordPayment(p)`, `+rejectPayment(p)`, `+hasPayment(transactionReference)`, `+close()` |
+| `Payment` | Value Object | Detalle del cobro asociado a la venta, aprobado por la Pasarela de Pagos o registrado en caja. | `method: PaymentMethod` (CARD, YAPE o CASH), `amount: Money`, `transactionReference: String` (id del pago en la pasarela), `status: PaymentStatus` (APPROVED o REJECTED), `statusDetail: String` (motivo del rechazo que da la pasarela, por ejemplo `cc_rejected_insufficient_amount`), `paidAt: DateTime` | — |
 | `ElectronicReceipt` | Entity | Comprobante electrónico emitido al cierre de la venta. | `id`, `receiptNumber`, `saleId`, `issueDate`, `taxAmount: Money`, `totalAmount: Money` | `+issue()` |
-| `ClinicalRecordRepository` | Interface (Repository) | Abstracción de persistencia para `ClinicalRecord`. | — | `+save(record)`, `+findById(id)` |
-| `QuotationRepository` | Interface (Repository) | Abstracción de persistencia para `Quotation`. | — | `+save(quotation)`, `+findById(id)` |
-| `SaleRepository` | Interface (Repository) | Abstracción de persistencia para `Sale`. | — | `+save(sale)`, `+findById(id)` |
+| `ClinicalRecordRepository` | Interface (Repository) | Abstracción de persistencia para `ClinicalRecord`. | — | `+save(record)`, `+findById(id)`, `+countPatientsWithRecords()`, `+findExaminedBetween(from, to)` |
+| `QuotationRepository` | Interface (Repository) | Abstracción de persistencia para `Quotation`. | — | `+save(quotation)`, `+findById(id)`, `+findByClinicalRecordIds(ids)` |
+| `SaleRepository` | Interface (Repository) | Abstracción de persistencia para `Sale`. | — | `+save(sale)`, `+findById(id)`, `+findClosedBetween(from, to)` |
 
 Relaciones principales: `ClinicalRecord` compone 1 `MedicalHistory` y 0..1 `OpticalPrescription`, y origina 0..* `Quotation`; `Quotation` compone 1..* `QuotationItem`, agrega 0..1 `Discount` y concreta 0..1 `Sale`; `Sale` compone 0..1 `Payment` y da lugar a 0..1 `ElectronicReceipt`. Una venta nace en `PENDING_PAYMENT`, pasa a `PAID` cuando se registra un pago aprobado y a `CLOSED` cuando el asesor la cierra; un pago rechazado no cambia su estado.
 
@@ -2267,11 +2289,14 @@ Las clases del Interface Layer del Clinical & Commercial Context se detallan en 
 
 | Clase | Tipo | Responsabilidad |
 | :--- | :--- | :--- |
-| `ClinicalRecordController` | REST Controller | `POST /clinical-records` (`RegisterClinicalRecord`), `GET /clinical-records/{id}`, `GET /patients/{patientId}/clinical-records`, `PUT /clinical-records/{id}/medical-history` (`RecordMedicalHistory`), `POST /clinical-records/{id}/prescription` (`GenerateOpticalPrescription`) y `GET /clinical-records/{id}/prescription`. |
-| `QuotationController` | REST Controller | `POST /quotations` (`GenerateQuotation`), `GET /quotations/{id}`, `PATCH /quotations/{id}/discount` (`ApplyPromotionOrDiscount`), `PATCH /quotations/{id}/approve` (`ApproveQuotation`) y `PATCH /quotations/{id}/reject` (`RejectQuotation`). |
-| `SaleController` | REST Controller | `POST /sales` (`RegisterSale`), `GET /sales/{id}` (estado de la venta y del pago; con la venta cerrada responde `GetClosedSale` para Production & Tracking), `GET /patients/{patientId}/sales` (ventas del paciente, incluidas las pendientes de pago), `POST /sales/{id}/payment-preference` (`CreatePaymentPreference`, solo el paciente dueño de la venta), `POST /sales/{id}/payments` (`RecordPayment` en efectivo) y `PATCH /sales/{id}/close` (`CloseSale`). |
-| `PaymentWebhookController` | REST Controller | `POST /payments/webhook`: ruta pública que recibe las notificaciones de la Pasarela de Pagos, las entrega al `PaymentGatewayAdapter` para validar su firma y traducirlas, y ejecuta `RecordPayment`; responde HTTP 200 para que el proveedor no reintente. |
-| `SalesReportController` | REST Controller | `GET /reports/sales?from&to` (`GetSalesMetrics`) y `GET /reports/sales/export?from&to` (CSV), solo para `ADMIN`. |
+| `ClinicalRecordController` | REST Controller | `POST /api/v1/clinical-records` (`RegisterClinicalRecord`), `GET /api/v1/clinical-records/{id}`, `GET /api/v1/clinical-records/summary` (`GetClinicalRecordsSummary`), `GET /api/v1/patients/{patientId}/clinical-records`, `PUT /api/v1/clinical-records/{id}/medical-history` (`RecordMedicalHistory`), `POST /api/v1/clinical-records/{id}/prescription` (`GenerateOpticalPrescription`) y `GET /api/v1/clinical-records/{id}/prescription`. Un paciente solo consulta sus expedientes y sus recetas; si no, recibe HTTP 403. |
+| `QuotationController` | REST Controller | `POST /api/v1/quotations` (`GenerateQuotation`), `GET /api/v1/quotations/{id}`, `GET /api/v1/clinical-records/{id}/quotations` (lista las cotizaciones de un expediente), `PATCH /api/v1/quotations/{id}/discount` (`ApplyPromotionOrDiscount`) y `PATCH /api/v1/quotations/{id}/status`: con `{"status": "APPROVED"}` ejecuta `ApproveQuotation` y con `{"status": "REJECTED", "reason": "..."}` ejecuta `RejectQuotation`. Un paciente solo consulta las cotizaciones de sus expedientes; si no, recibe HTTP 403. |
+| `SaleController` | REST Controller | `POST /api/v1/sales` (`RegisterSale`), `GET /api/v1/sales/{id}` (`GetSaleById`: estado de la venta y de su pago; un paciente solo consulta sus ventas y, si no, recibe HTTP 403), `GET /api/v1/patients/{patientId}/sales` (`GetSalesByPatientId`: ventas del paciente, primero las pendientes de pago), `POST /api/v1/sales/{id}/payment-preference` (`CreatePaymentPreference`, solo el paciente dueño de la venta), `POST /api/v1/sales/{id}/payments` (`RecordPayment` en efectivo) y `PATCH /api/v1/sales/{id}/status` con `{"status": "CLOSED"}` (`CloseSale`). `GetClosedSale` no se expone por HTTP: la ACL de Production & Tracking lo consulta dentro del backend. |
+| `PaymentWebhookController` | REST Controller | `POST /api/v1/payment-notifications`: ruta pública que recibe las notificaciones de la Pasarela de Pagos, las entrega al `PaymentGatewayAdapter` para validar su firma y traducirlas, y ejecuta `RecordPayment`; responde HTTP 200 para que el proveedor no reintente, incluso cuando la notificación no se puede aplicar (venta desconocida o ya pagada), y HTTP 401 si la firma no es válida. |
+| `SalesReportController` | REST Controller | `GET /api/v1/reports/sales` (`GetSalesMetrics`, con los parámetros de consulta `from` y `to`): responde en JSON o, con el encabezado `Accept: text/csv`, en CSV; solo para `ADMIN`. |
+| Request DTOs | Resource (entrada) | `RegisterClinicalRecordRequest`, `RecordMedicalHistoryRequest`, `GenerateOpticalPrescriptionRequest`, `GenerateQuotationRequest` (con sus `QuotationItemRequest`), `ApplyPromotionOrDiscountRequest`, `UpdateQuotationStatusRequest` (`status` y `reason` cuando es `REJECTED`), `RegisterSaleRequest`, `RecordPaymentRequest` (pago en efectivo: solo `amount`), `UpdateSaleStatusRequest` (`status: CLOSED`) y `PaymentNotificationRequest` (cuerpo de la notificación de la Pasarela de Pagos: `type`, `action` y `data.id`). |
+| Response DTOs | Resource (salida) | `ClinicalRecordResponse`, `ClinicalRecordsSummaryResponse` (pacientes con al menos un registro clínico), `MedicalHistoryResponse`, `OpticalPrescriptionResponse`, `QuotationResponse`, `QuotationItemResponse`, `DiscountResponse`, `SaleResponse`, `PaymentResponse`, `PaymentPreferenceResponse` (identificador de la preferencia y `initPoint` para abrir Checkout Pro), `ElectronicReceiptResponse` y `SalesMetricsResponse` (periodo, atenciones, cotizaciones aprobadas y rechazadas, ventas cerradas, monto total, ticket promedio y moneda). |
+| Assemblers | Assembler | `FromRegisterClinicalRecordRequestAssembler`, `FromRecordMedicalHistoryRequestAssembler`, `FromGenerateOpticalPrescriptionRequestAssembler`, `FromGenerateQuotationRequestAssembler`, `FromApplyPromotionOrDiscountRequestAssembler`, `FromUpdateQuotationStatusRequestAssembler` (elige `ApproveQuotationCommand` o `RejectQuotationCommand`), `FromRegisterSaleRequestAssembler`, `FromRecordPaymentRequestAssembler`, `FromPaymentNotificationRequestAssembler` y `ClinicalCommercialResponseAssembler` (agregados → Response DTOs). |
 | `AppointmentBookedConsumer` | Event Consumer | Se suscribe al evento externo `AppointmentBooked` (proveniente de Search & Booking; en el backend actual se comunica mediante eventos de Spring) y lo traduce al comando interno `ExaminePatient`, actuando como puerto de entrada de la Anti-Corruption Layer documentada en el Context Mapping (2.5.2). |
 
 <a id="2.6.2.3. Application Layer"></a>
@@ -2291,7 +2316,7 @@ Las clases del Application Layer del Clinical & Commercial Context se presentan 
 | :--- | :--- | :--- |
 | `ExaminePatientHandler` | Command Handler | Crea el `ClinicalRecord` a partir de la cita reservada. |
 | `RecordMedicalHistoryHandler` | Command Handler | Registra los antecedentes clínicos en el expediente. |
-| `RegisterClinicalRecordHandler` | Command Handler | Persiste el expediente clínico registrado. |
+| `RegisterClinicalRecordHandler` | Command Handler | Consulta la cita con `GetAppointment`, verifica que sea del paciente y que no esté cancelada (HTTP 409 en ambos casos), completa el expediente abierto al reservar y publica `PatientExamined`. |
 | `GenerateOpticalPrescriptionHandler` | Command Handler | Genera la `OpticalPrescription` a partir de la evaluación. |
 | `ApplyPromotionOrDiscountHandler` | Command Handler | Aplica un `Discount` a la cotización vigente. |
 | `ApproveQuotationHandler` / `RejectQuotationHandler` | Command Handler | Resuelven el estado de la cotización. |
@@ -2300,10 +2325,10 @@ Las clases del Application Layer del Clinical & Commercial Context se presentan 
 | `CreatePaymentPreferenceHandler` | Command Handler | Verifica que la venta pertenezca al paciente y esté pendiente de pago, crea la preferencia en la pasarela mediante `PaymentGatewayAdapter` y devuelve el enlace de pago. |
 | `RecordPaymentHandler` | Command Handler | Registra el `Payment` de una venta pendiente. Lo invocan el webhook de la pasarela (pago aprobado: publica `PaymentRecorded`; rechazado: publica `PaymentRejected`) y el asesor para los pagos en efectivo. Ignora las notificaciones repetidas de un mismo pago. |
 | `CloseSaleHandler` | Command Handler | Cierra una venta pagada, solicita la emisión del recibo y publica `SaleWasClosed`. |
-| `ClinicalRecordQueryService` | Query Service | Resuelve `GetClinicalRecordById`, `GetClinicalRecordsByPatientId` y `GetOpticalPrescription`. |
+| `ClinicalRecordQueryService` | Query Service | Resuelve `GetClinicalRecordById`, `GetClinicalRecordsByPatientId`, `GetClinicalRecordsSummary` (cuántos pacientes tienen al menos un registro clínico) y `GetOpticalPrescription`. |
 | `QuotationQueryService` | Query Service | Resuelve `GetQuotationById`. |
 | `SaleQueryService` | Query Service | Resuelve `GetSaleById`, `GetSalesByPatientId` y `GetClosedSale` (venta cerrada con el paciente, la óptica y las especificaciones de las lunas). |
-| `SalesMetricsQueryService` | Query Service | Resuelve `GetSalesMetrics`: número de atenciones, cotizaciones aprobadas y rechazadas, ventas cerradas, monto total y ticket promedio del periodo, y genera su exportación en CSV. |
+| `SalesMetricsQueryService` | Query Service | Resuelve `GetSalesMetrics`: número de atenciones (expedientes examinados en el periodo), cotizaciones aprobadas y rechazadas de esas atenciones, ventas cerradas en el periodo, monto total de sus comprobantes y ticket promedio (`0.00` si no hubo ventas), y genera su exportación en CSV con una fila por venta cerrada. |
 | `AppointmentBookedEventHandler` | Event Handler | Reacciona a la notificación entrante del `AppointmentBookedConsumer` invocando `ExaminePatientHandler`. |
 
 <a id="2.6.2.4. Infrastructure Layer"></a>
@@ -2324,13 +2349,18 @@ Las clases del Infrastructure Layer del Clinical & Commercial Context se resumen
 | `ClinicalRecordRepositoryImpl` | Repository (impl) | Implementa `ClinicalRecordRepository` sobre JPA/PostgreSQL. |
 | `QuotationRepositoryImpl` | Repository (impl) | Implementa `QuotationRepository` sobre JPA/PostgreSQL. |
 | `SaleRepositoryImpl` | Repository (impl) | Implementa `SaleRepository` sobre JPA/PostgreSQL. |
+| `ClinicalRecordEntity`, `MedicalHistoryEntity` y `OpticalPrescriptionEntity` | JPA Entity | Mapean `clinical_records`, `medical_histories` y `optical_prescriptions`. |
+| `QuotationEntity` y `QuotationItemEntity` | JPA Entity | Mapean `quotations` y `quotation_items`. |
+| `SaleEntity` y `ElectronicReceiptEntity` | JPA Entity | Mapean `sales` (con las columnas del pago) y `electronic_receipts`. |
+| `ClinicalRecordMapper`, `QuotationMapper` y `SaleMapper` | Mapper | Convierten las entidades JPA en los agregados del dominio y viceversa. |
+| `ClinicalRecordJpaRepository`, `MedicalHistoryJpaRepository`, `OpticalPrescriptionJpaRepository`, `QuotationJpaRepository`, `QuotationItemJpaRepository`, `SaleJpaRepository` y `ElectronicReceiptJpaRepository` | Spring Data Repository | Ejecutan el acceso a PostgreSQL que usan las implementaciones de los repositorios. |
 | `DomainEventPublisher` | Messaging | Publica los eventos de dominio mediante el adaptador compartido de eventos de Spring. |
 | `PaymentGatewayAdapter` | Anti-Corruption Layer | Implementa la integración con Mercado Pago Checkout Pro: crea la preferencia de pago (monto, referencia externa `saleId`, URLs de retorno a la aplicación y URL del webhook), valida la firma de cada notificación, consulta el pago notificado y lo traduce al modelo interno de `Payment`, aislando al dominio de los estados y códigos del proveedor (relación documentada en 2.5.2). El token de acceso y el secreto del webhook se leen desde variables de entorno. |
 
 <a id="2.6.2.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Clinical & Commercial Service** en sus bloques estructurales principales, organizados según las cuatro capas arquitectónicas:
+El siguiente Component Diagram (C4 Model - Component Level) descompone el módulo **Clinical & Commercial** del container **Backend OptiFlow** en sus bloques estructurales principales, organizados según las cuatro capas arquitectónicas:
 
 * **Interface Layer:** Expone los controladores REST (`ClinicalRecordController`, `QuotationController`, `SaleController`, `PaymentWebhookController`, `SalesReportController`) para gestionar atenciones optométricas, cotizaciones, ventas, notificaciones de pago y métricas, además del `AppointmentBookedConsumer`, que actúa como puerto de entrada para procesar eventos provenientes de Search & Booking.
 * **Application Layer:** Orquesta los casos de uso clínicos y comerciales a través de Command Handlers especializados (`ExaminePatientHandler`, `RecordMedicalHistoryHandler`, `RegisterClinicalRecordHandler`, `GenerateOpticalPrescriptionHandler`, `ApplyPromotionOrDiscountHandler`, `ApproveQuotationHandler`, `GenerateQuotationHandler`, `RegisterSaleHandler`, `CreatePaymentPreferenceHandler`, `RecordPaymentHandler`, `CloseSaleHandler`), los Query Services (`ClinicalRecordQueryService`, `QuotationQueryService`, `SaleQueryService`, `SalesMetricsQueryService`) y el `AppointmentBookedEventHandler`.
@@ -2384,7 +2414,7 @@ El siguiente Class Diagram detalla las clases del Domain Layer descritas en 2.6.
 
 `quotations.clinical_record_id` es una FK obligatoria: un registro clínico puede tener varias cotizaciones. La cotización conserva tipo, valor y motivo del descuento, total, estado y `rejection_reason`. `quotation_items` tiene una FK obligatoria hacia la cotización, `line_number`, `item_type`, `product_sku`, descripción, precio unitario y cantidad. La pareja (`quotation_id`, `line_number`) es única; las validaciones de importes, cantidad y tipos de ítem son las declaradas en la migración.
 
-Una cotización puede generar **cero o una venta**, y cada venta pertenece a exactamente una cotización: `sales.quotation_id` es `NOT NULL UNIQUE` y FK hacia `quotations.id`. `RegisterSaleHandler` exige una cotización aprobada y rechaza una venta duplicada con HTTP 409. Los datos de pago se almacenan en columnas de `sales`; no existe una tabla adicional de pagos. La migración V9 ajusta esas columnas al pago con Checkout Pro: `status` admite `PENDING_PAYMENT`, `PAID` y `CLOSED`; `payment_method` admite `CARD`, `YAPE` y `CASH`; agrega `payment_preference_id` y `payment_status` (`APPROVED` o `REJECTED`); y `transaction_reference`, única cuando no es nula, guarda el id del pago en la pasarela para ignorar notificaciones repetidas. `sales.patient_id` es una referencia lógica sin FK declarada.
+Una cotización puede generar **cero o una venta**, y cada venta pertenece a exactamente una cotización: `sales.quotation_id` es `NOT NULL UNIQUE` y FK hacia `quotations.id`. `RegisterSaleHandler` exige una cotización aprobada y rechaza una venta duplicada con HTTP 409. Los datos de pago se almacenan en columnas de `sales`; no existe una tabla adicional de pagos. Los estados `PENDING_PAYMENT`, `PAID` y `CLOSED` existen desde V2. La migración V9 ajusta las columnas de pago a Checkout Pro: `payment_method` admite `CARD`, `YAPE` y `CASH` (quita `PLIN`; las ventas que se pagaron con Plin pasan a `YAPE`); agrega `payment_preference_id`, `payment_status` (`APPROVED` o `REJECTED`) y `payment_status_detail` (motivo del rechazo que da la pasarela, que la aplicación muestra al paciente); y `transaction_reference`, única cuando no es nula, guarda el id del pago en la pasarela para ignorar notificaciones repetidas. `sales.patient_id` es una referencia lógica sin FK declarada.
 
 Una venta puede tener cero o un comprobante: `electronic_receipts.sale_id` es `NOT NULL UNIQUE` y FK hacia `sales.id`. El número de comprobante también es único. **La Figura 46 representa las siete tablas de V2 y V9 con todas sus columnas, tipos, nulabilidad, PK, FK y `UNIQUE`. Las referencias lógicas sin FK (`patient_id` y `appointment_id` en `clinical_records`, `patient_id` en `sales`) no se dibujan como relaciones.**
 
@@ -2446,10 +2476,11 @@ Los estados de la orden de trabajo se resumen en la Tabla 55.
 
 | Estado | Descripción |
 |---|---|
-| `Pendiente` | La orden ha sido generada y se encuentra pendiente de iniciar el proceso de producción. |
-| `En Taller` | La orden se encuentra en proceso de fabricación en el taller o laboratorio. |
-| `Control de Calidad` | Las lentes y monturas se encuentran en la etapa de revisión antes de la entrega. |
-| `Listo para Entrega` | El proceso de fabricación y control ha finalizado y el pedido se encuentra preparado para ser entregado al paciente. |
+| `PENDING` (Pendiente) | La orden ha sido generada y se encuentra pendiente de iniciar el proceso de producción. |
+| `IN_WORKSHOP` (En Taller) | La orden se encuentra en proceso de fabricación en el taller o laboratorio. |
+| `QUALITY_CONTROL` (Control de Calidad) | Las lentes y monturas se encuentran en la etapa de revisión antes de la entrega. |
+| `READY_FOR_DELIVERY` (Listo para Entrega) | El proceso de fabricación y control ha finalizado y el pedido se encuentra preparado para ser entregado al paciente. |
+| `DELIVERED` (Entregado) | El pedido fue entregado al paciente; se publica `OrderWasMarkedAsDelivered`. |
 
 ##### Domain Commands
 
@@ -2526,7 +2557,7 @@ La interacción principal del dominio con otros contextos comienza cuando **Clin
 
 La **Interface Layer** representa el punto de entrada mediante el cual Production & Tracking recibe comandos y eventos externos. Su función es traducir las solicitudes externas hacia las operaciones que serán procesadas por la Application Layer.
 
-Los comandos definidos en el Bounded Context se exponen mediante la API Gateway, mientras que el evento `SaleWasClosed` es recibido desde el contexto **Clinical & Commercial**.
+Los comandos definidos en el Bounded Context se exponen mediante la API REST, mientras que el evento `SaleWasClosed` es recibido desde el contexto **Clinical & Commercial**.
 
 ##### Controllers
 
@@ -2542,9 +2573,9 @@ Los Controllers del Production & Tracking Context se detallan en la Tabla 59.
 
 | Controller | Tipo | Responsabilidad |
 |---|---|---|
-| `WorkOrderController` | REST Controller | `GET /work-orders` (tablero Kanban, filtrable por estado), `POST /work-orders` (`GenerateWorkOrder` manual), `GET /work-orders/{id}`, `GET /patients/{patientId}/work-orders` (seguimiento del paciente), `PATCH /work-orders/{id}/technician` (`AssignWorkOrderToTechnician`), `PATCH /work-orders/{id}/laboratory` (`SendWorkOrderToLaboratory`), `PATCH /work-orders/{id}/status` (`UpdateWorkOrderStatus`), `PATCH /work-orders/{id}/lenses/complete` (`CompleteLenses`), `POST /work-orders/{id}/delays` (`NotifyDeliveryDelay`) y `PATCH /work-orders/{id}/deliver` (`MarkOrderAsDelivered`). |
-| `ProductionCatalogController` | REST Controller | `GET /technicians` y `GET /laboratories`, catálogos usados al asignar y enviar las órdenes. |
-| `ProductionReportController` | REST Controller | `GET /reports/production?from&to` (`GetProductionMetrics`) y `GET /reports/production/export?from&to` (CSV), solo para `ADMIN`. |
+| `WorkOrderController` | REST Controller | `GET /api/v1/work-orders` (tablero Kanban, filtrable por estado), `POST /api/v1/work-orders` (`GenerateWorkOrder` manual), `GET /api/v1/work-orders/{id}`, `GET /api/v1/patients/{patientId}/work-orders` (seguimiento del paciente), `PATCH /api/v1/work-orders/{id}/technician` (`AssignWorkOrderToTechnician`), `PATCH /api/v1/work-orders/{id}/laboratory` (`SendWorkOrderToLaboratory`), `PATCH /api/v1/work-orders/{id}/status` (con `{"status": "DELIVERED"}` ejecuta `MarkOrderAsDelivered`; con los demás estados, `UpdateWorkOrderStatus`), `PATCH /api/v1/work-orders/{id}/lenses` (`CompleteLenses`, con los `lensIds` terminados) y `POST /api/v1/work-orders/{id}/delays` (`NotifyDeliveryDelay`). |
+| `ProductionCatalogController` | REST Controller | `GET /api/v1/technicians` (`GetTechnicians`) y `GET /api/v1/laboratories` (`GetLaboratories`), catálogos usados al asignar y enviar las órdenes. |
+| `ProductionReportController` | REST Controller | `GET /api/v1/reports/production` (`GetProductionMetrics`, con los parámetros de consulta `from` y `to`): responde en JSON o, con el encabezado `Accept: text/csv`, en CSV; solo para `ADMIN`. |
 
 ##### Event Consumers
 
@@ -2579,12 +2610,16 @@ Los Resources / DTOs del Production & Tracking Context se resumen en la Tabla 61
 | `GenerateWorkOrderRequest` | Input | Datos necesarios para generar una orden de trabajo. |
 | `AssignWorkOrderToTechnicianRequest` | Input | Datos necesarios para asignar una orden a un técnico. |
 | `SendWorkOrderToLaboratoryRequest` | Input | Datos necesarios para enviar una orden al laboratorio. |
-| `UpdateWorkOrderStatusRequest` | Input | Datos necesarios para actualizar el estado de una orden. |
-| `CompleteLensesRequest` | Input | Datos necesarios para registrar la finalización de las lentes. |
+| `UpdateWorkOrderStatusRequest` | Input | Nuevo estado de la orden, incluido `DELIVERED` para registrar la entrega. |
+| `CompleteLensesRequest` | Input | Identificadores de las lentes terminadas (`lensIds`). |
 | `NotifyDeliveryDelayRequest` | Input | Datos asociados a la notificación de un retraso. |
-| `MarkOrderAsDeliveredRequest` | Input | Datos necesarios para registrar la entrega de una orden. |
 | `WorkOrderResponse` | Output | Información de una orden de trabajo. |
 | `WorkOrderStatusResponse` | Output | Información relacionada con el estado actual de una orden. |
+| `LensResponse` | Output | Especificaciones de una lente de la orden y si ya está terminada. |
+| `StatusChangeResponse` | Output | Estado y fecha de cada cambio del historial de la orden. |
+| `DeliveryDelayResponse` | Output | Motivo, fecha de registro y nueva fecha estimada de entrega. |
+| `TechnicianResponse` y `LaboratoryResponse` | Output | Identificador y nombre de los técnicos y laboratorios del catálogo. |
+| `ProductionMetricsResponse` | Output | Periodo, órdenes creadas en el periodo por estado actual, órdenes entregadas, tiempo promedio de fabricación en horas y órdenes con demora. |
 
 ##### Assemblers
 
@@ -2603,10 +2638,10 @@ Los Assemblers del Production & Tracking Context se detallan en la Tabla 62.
 | `FromGenerateWorkOrderRequestAssembler` | `GenerateWorkOrderRequest` → `GenerateWorkOrderCommand` |
 | `FromAssignWorkOrderToTechnicianRequestAssembler` | `AssignWorkOrderToTechnicianRequest` → `AssignWorkOrderToTechnicianCommand` |
 | `FromSendWorkOrderToLaboratoryRequestAssembler` | `SendWorkOrderToLaboratoryRequest` → `SendWorkOrderToLaboratoryCommand` |
-| `FromUpdateWorkOrderStatusRequestAssembler` | `UpdateWorkOrderStatusRequest` → `UpdateWorkOrderStatusCommand` |
+| `FromUpdateWorkOrderStatusRequestAssembler` | `UpdateWorkOrderStatusRequest` → `MarkOrderAsDeliveredCommand` (estado `DELIVERED`) o `UpdateWorkOrderStatusCommand` (demás estados) |
 | `FromCompleteLensesRequestAssembler` | `CompleteLensesRequest` → `CompleteLensesCommand` |
 | `FromNotifyDeliveryDelayRequestAssembler` | `NotifyDeliveryDelayRequest` → `NotifyDeliveryDelayCommand` |
-| `FromMarkOrderAsDeliveredRequestAssembler` | `MarkOrderAsDeliveredRequest` → `MarkOrderAsDeliveredCommand` |
+| `ProductionTrackingResponseAssembler` | `WorkOrder`, `Technician` y `Laboratory` → `WorkOrderResponse`, `WorkOrderStatusResponse`, `TechnicianResponse` y `LaboratoryResponse` |
 
 
 <a id="2.6.3.3. Application Layer"></a>
@@ -2638,8 +2673,8 @@ Los Command Handlers del Production & Tracking Context se presentan en la Tabla 
 | `NotifyDeliveryDelayHandler` | Command Handler | Gestiona el registro y notificación de retrasos en la entrega. |
 | `MarkOrderAsDeliveredHandler` | Command Handler | Coordina el registro de la entrega final de la orden. |
 | `WorkOrderQueryService` | Query Service | Resuelve `GetWorkOrders`, `GetWorkOrderById` y `GetWorkOrdersByPatientId`. |
-| `ProductionCatalogQueryService` | Query Service | Devuelve los técnicos y laboratorios disponibles. |
-| `ProductionMetricsQueryService` | Query Service | Resuelve `GetProductionMetrics`: órdenes por estado, órdenes entregadas, tiempo promedio de fabricación y demoras del periodo, y genera su exportación en CSV. |
+| `ProductionCatalogQueryService` | Query Service | Resuelve `GetTechnicians` y `GetLaboratories` (técnicos y laboratorios disponibles). |
+| `ProductionMetricsQueryService` | Query Service | Resuelve `GetProductionMetrics`: órdenes creadas en el periodo por estado actual, órdenes entregadas, tiempo promedio de fabricación (horas desde la creación de la orden hasta que pasa a `READY_FOR_DELIVERY`, de las órdenes que llegaron a ese estado en el periodo) y órdenes cuya demora se registró en el periodo, y genera su exportación en CSV con una fila por orden. |
 
 ##### Event Handler
 
@@ -2720,6 +2755,7 @@ Los componentes de persistencia del Production & Tracking Context se resumen en 
 | `WorkOrderStatusChangeEntity` y `WorkOrderStatusChangeKey` | Mapean `work_order_status_history` y su PK compuesta; `@Embeddable` representa una clave JPA, no un documento NoSQL. |
 | `TechnicianEntity` y `LaboratoryEntity` | Mapean los catálogos `technicians` y `laboratories`. |
 | `WorkOrderMapper` y `ProductionCatalogMapper` | Transforman las entidades JPA y los modelos del dominio. |
+| `WorkOrderJpaRepository`, `WorkOrderLensJpaRepository`, `WorkOrderStatusChangeJpaRepository`, `TechnicianJpaRepository` y `LaboratoryJpaRepository` | Ejecutan el acceso a persistencia mediante Spring Data JPA. |
 
 ##### Messaging
 
@@ -2750,7 +2786,7 @@ La relación se encuentra definida en el Context Mapping de la sección 2.5.2 me
 <a id="2.6.3.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Production & Tracking Service** en sus componentes de software estructurados por capas:
+El siguiente Component Diagram (C4 Model - Component Level) descompone el módulo **Production & Tracking** del container **Backend OptiFlow** en sus componentes de software estructurados por capas:
 
 * **Interface Layer:** Provee el `WorkOrderController` para la interacción síncrona vía REST (generación, asignación a técnicos, envío a laboratorio, actualización de estados Kanban, demoras y entrega), el `ProductionCatalogController` (técnicos y laboratorios), el `ProductionReportController` (métricas y exportación CSV), el `SaleWasClosedConsumer` para la recepción de eventos de venta desde Clinical & Commercial, además de los DTOs de solicitud/respuesta y sus respectivos Assemblers.
 * **Application Layer:** Coordina el flujo de fabricación óptica mediante los Command Handlers (`GenerateWorkOrderHandler`, `AssignWorkOrderToTechnicianHandler`, `SendWorkOrderToLaboratoryHandler`, `UpdateWorkOrderStatusHandler`, `CompleteLensesHandler`, `NotifyDeliveryDelayHandler`, `MarkOrderAsDeliveredHandler`), los Query Services (`WorkOrderQueryService`, `ProductionCatalogQueryService`, `ProductionMetricsQueryService`), el `SaleWasClosedEventHandler` y el servicio de aplicación `WorkOrderApplicationService`.
@@ -2772,7 +2808,7 @@ El diagrama de componentes del Production & Tracking Context en Spring Boot se p
 
 
 
-Este diseño por componentes asegura que cada transición del estado de fabricación de las lentes (pendiente, taller, control de calidad, entrega) se registre de forma consistente y notifique en tiempo real a los contextos interesados sin generar dependencias directas con las interfaces de usuario.
+Este diseño por componentes asegura que cada transición del estado de fabricación de las lentes (pendiente, en taller, control de calidad, listo para entrega y entregado) se registre de forma consistente y notifique en tiempo real a los contextos interesados sin generar dependencias directas con las interfaces de usuario.
 
 <a id="2.6.3.6. Bounded Context Software Architecture Code Level Diagrams"></a>
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
@@ -2784,7 +2820,7 @@ El siguiente UML Class Diagram representa la estructura del Domain Layer corresp
 
 El modelo se organiza alrededor de `WorkOrder`, que representa el Aggregate Root encargado de controlar el ciclo de vida de una orden de trabajo desde su generación hasta la entrega final del pedido. La orden puede ser asignada a un `Technician`, enviada a un `Laboratory` y contiene las `Lenses` que forman parte del proceso de fabricación.
 
-El estado actual de la orden es representado mediante `WorkOrderStatus`, el cual permite identificar las diferentes etapas del flujo de producción: pendiente, en taller, control de calidad y listo para entrega. Asimismo, `DeliveryDate` representa la fecha estimada de entrega del pedido, mientras que `DeliveryDelay` permite representar situaciones relacionadas con retrasos durante el proceso de fabricación.
+El estado actual de la orden es representado mediante `WorkOrderStatus`, el cual permite identificar las diferentes etapas del flujo de producción: pendiente, en taller, control de calidad, listo para entrega y entregado. Asimismo, `DeliveryDate` representa la fecha estimada de entrega del pedido, mientras que `DeliveryDelay` permite representar situaciones relacionadas con retrasos durante el proceso de fabricación.
 
 El Domain Layer también incluye `WorkOrderRepository`, que abstrae la persistencia del agregado, y los Domain Events generados durante las distintas operaciones realizadas sobre la orden de trabajo (ver Figura 48).
 
@@ -2879,11 +2915,12 @@ Los Domain Commands del Store Management & Inventory Context se detallan en la T
 |---|---|
 | `AddNewFrameModel` | Registra un nuevo modelo de montura dentro del catálogo. |
 | `UpdateFrameModelPrice` | Actualiza el precio asociado a un modelo de montura. |
+| `UpdateFrameModelTryOnModel` | Asigna o quita el modelo del probador virtual de una montura. |
 | `ReplenishStock` | Gestiona el reabastecimiento de las existencias. |
 | `UpdateInventory` | Registra la salida de stock de los productos vendidos al recibir `SaleWasClosed`, como un movimiento de salida por venta. |
 | `RegisterSupplier` | Registra un nuevo proveedor para las operaciones de abastecimiento. |
 
-La consulta de existencias (`ConsultStock`) no modifica el estado del inventario, por lo que se modela como una consulta (`ConsultStockQuery`) y no como un comando. Lo mismo ocurre con la búsqueda de una montura por su código escaneado (`GetFrameModelBySku`), el catálogo (`GetFrameCatalog`), el historial de movimientos (`GetInventoryMovements`), las alertas de stock crítico vigentes (`GetLowStockAlerts`) y las métricas de inventario (`GetInventoryMetrics`).
+La consulta de existencias (`ConsultStock`) no modifica el estado del inventario, por lo que se modela como una consulta (`ConsultStockQuery`) y no como un comando. Lo mismo ocurre con la búsqueda de una montura por su código escaneado (`GetFrameModelBySku`), el catálogo (`GetFrameCatalog`), el historial de movimientos (`GetInventoryMovements`), las alertas de stock crítico vigentes (`GetLowStockAlerts`) las métricas de inventario (`GetInventoryMetrics`) y la lista de proveedores (`GetSuppliers`).
 
 ##### Domain Events
 
@@ -2933,7 +2970,7 @@ El Repository del Store Management & Inventory Context se resume en la Tabla 72.
 
 La **Interface Layer** representa el punto de entrada para las operaciones relacionadas con el catálogo, precios, stock, reabastecimiento y proveedores.
 
-Las solicitudes externas son recibidas mediante la API Gateway y posteriormente transformadas en comandos de aplicación.
+Las solicitudes externas son recibidas mediante la API REST y posteriormente transformadas en comandos de aplicación.
 
 ##### Controllers
 
@@ -2949,10 +2986,10 @@ Los Controllers del Store Management & Inventory Context se detallan en la Tabla
 
 | Controller | Tipo | Responsabilidad |
 |---|---|---|
-| `FrameModelController` | REST Controller | `GET /inventory/frames` (`GetFrameCatalog`, también para el probador virtual), `GET /inventory/frames/{sku}` (`GetFrameModelBySku`: datos, precio y stock de la montura escaneada; HTTP 404 si el código no existe), `POST /inventory/frames` (`AddNewFrameModel`) y `PATCH /inventory/frames/{sku}/price` (`UpdateFrameModelPrice`). |
-| `InventoryController` | REST Controller | `GET /inventory/stock` (`ConsultStock`), `POST /inventory/replenishments` (`ReplenishStock`), `GET /inventory/movements?from&to&sku` (`GetInventoryMovements`) y `GET /inventory/alerts` (`GetLowStockAlerts`). |
-| `SupplierController` | REST Controller | `POST /suppliers` (`RegisterSupplier`) y `GET /suppliers`. |
-| `InventoryReportController` | REST Controller | `GET /reports/inventory` (`GetInventoryMetrics`) y `GET /reports/inventory/export` (CSV), solo para `ADMIN`. |
+| `FrameModelController` | REST Controller | `GET /api/v1/inventory/frames` (`GetFrameCatalog`, también para el probador virtual), `GET /api/v1/inventory/frames/{sku}` (`GetFrameModelBySku`: datos y precio de la montura escaneada y, con el parámetro de consulta `opticalStoreId`, su stock en esa óptica; HTTP 404 si el código no existe), `POST /api/v1/inventory/frames` (`AddNewFrameModel`), `PATCH /api/v1/inventory/frames/{sku}/price` (`UpdateFrameModelPrice`) y `PATCH /api/v1/inventory/frames/{sku}/try-on-model` (`UpdateFrameModelTryOnModel`: asigna el modelo del probador virtual; un valor vacío lo quita). |
+| `InventoryController` | REST Controller | `GET /api/v1/inventory/stock` (`ConsultStock`), `POST /api/v1/inventory/replenishments` (`ReplenishStock`), `GET /api/v1/inventory/movements` (`GetInventoryMovements`, con los parámetros de consulta `from`, `to` y `sku` opcional) y `GET /api/v1/inventory/alerts` (`GetLowStockAlerts`). Cada óptica tiene su inventario, por lo que estas rutas reciben la óptica en el parámetro de consulta `opticalStoreId` (en la reposición, en el body); una óptica sin inventario responde HTTP 404. |
+| `SupplierController` | REST Controller | `POST /api/v1/suppliers` (`RegisterSupplier`) y `GET /api/v1/suppliers` (`GetSuppliers`). |
+| `InventoryReportController` | REST Controller | `GET /api/v1/reports/inventory` (`GetInventoryMetrics`, con los parámetros de consulta `opticalStoreId`, `from` y `to`): responde en JSON o, con el encabezado `Accept: text/csv`, en CSV; solo para `ADMIN`. |
 
 ##### Event Consumers
 
@@ -2988,8 +3025,9 @@ Los Resources / DTOs del Store Management & Inventory Context se resumen en la T
 |---|---|---|
 | `AddNewFrameModelRequest` | Input | Datos necesarios para registrar un nuevo modelo de montura. |
 | `UpdateFrameModelPriceRequest` | Input | Datos necesarios para actualizar el precio de un modelo de montura. |
-| `ConsultStockRequest` | Input | Parámetros utilizados para consultar las existencias. |
-| `ReplenishStockRequest` | Input | Datos necesarios para gestionar el reabastecimiento del stock. |
+| `UpdateFrameModelTryOnModelRequest` | Input | `tryOnModelUrl`: referencia del modelo del probador virtual (máximo 255 caracteres); vacío lo quita. |
+| `ConsultStockRequest` | Input | Parámetros de consulta de `GET /api/v1/inventory/stock` para consultar las existencias. |
+| `ReplenishStockRequest` | Input | Óptica, `sku`, proveedor, cantidad y `minimumStock` opcional (la primera reposición de una montura crea su stock con ese mínimo, 5 por defecto). |
 | `RegisterSupplierRequest` | Input | Datos necesarios para registrar un proveedor. |
 | `FrameModelResponse` | Output | Información de un modelo de montura registrado. |
 | `StockResponse` | Output | Información sobre las existencias disponibles. |
@@ -2997,6 +3035,7 @@ Los Resources / DTOs del Store Management & Inventory Context se resumen en la T
 | `InventoryResponse` | Output | Información relacionada con el inventario. |
 | `StockMovementResponse` | Output | Fecha, producto, tipo (entrada o salida), cantidad, motivo y usuario de un movimiento. |
 | `LowStockAlertResponse` | Output | Producto, cantidad disponible y stock mínimo de una alerta vigente. |
+| `InventoryMetricsResponse` | Output | Unidades que entraron y salieron en el periodo, cantidad de productos con stock crítico y el detalle por montura. |
 
 ##### Assemblers
 
@@ -3014,9 +3053,11 @@ Los Assemblers del Store Management & Inventory Context se detallan en la Tabla 
 |---|---|
 | `FromAddNewFrameModelRequestAssembler` | `AddNewFrameModelRequest` → `AddNewFrameModelCommand` |
 | `FromUpdateFrameModelPriceRequestAssembler` | `UpdateFrameModelPriceRequest` → `UpdateFrameModelPriceCommand` |
+| `FromUpdateFrameModelTryOnModelRequestAssembler` | `UpdateFrameModelTryOnModelRequest` → `UpdateFrameModelTryOnModelCommand` |
 | `FromConsultStockRequestAssembler` | `ConsultStockRequest` → `ConsultStockQuery` |
 | `FromReplenishStockRequestAssembler` | `ReplenishStockRequest` → `ReplenishStockCommand` |
 | `FromRegisterSupplierRequestAssembler` | `RegisterSupplierRequest` → `RegisterSupplierCommand` |
+| `StoreInventoryResponseAssembler` | `FrameModel`, existencias, alertas, movimientos, métricas y `Supplier` → `FrameModelResponse`, `InventoryResponse`, `StockResponse`, `LowStockAlertResponse`, `StockMovementResponse`, `InventoryMetricsResponse` y `SupplierResponse` |
 
 
 <a id="2.6.4.3. Application Layer"></a>
@@ -3042,12 +3083,14 @@ Los Command Handlers del Store Management & Inventory Context se presentan en la
 |---|---|---|
 | `AddNewFrameModelHandler` | Command Handler | Coordina el registro de un nuevo modelo de montura en el catálogo. |
 | `UpdateFrameModelPriceHandler` | Command Handler | Coordina la actualización del precio de un modelo de montura. |
+| `UpdateFrameModelTryOnModelHandler` | Command Handler | Coordina la asignación del modelo del probador virtual de una montura. |
 | `ReplenishStockHandler` | Command Handler | Coordina el proceso de reabastecimiento del inventario. |
 | `RegisterSupplierHandler` | Command Handler | Coordina el registro de un nuevo proveedor. |
 | `UpdateInventoryHandler` | Command Handler | Descuenta del stock los productos vendidos, registra un movimiento de salida por cada uno y verifica si alguno llegó a su nivel mínimo para publicar `LowStockAlertGenerated`. |
 | `ConsultStockQueryService` | Query Service | Resuelve `ConsultStock` y `GetFrameModelBySku` (existencias y datos de un producto, incluido el escaneo). |
 | `FrameCatalogQueryService` | Query Service | Resuelve `GetFrameCatalog`. |
 | `InventoryMovementQueryService` | Query Service | Resuelve `GetInventoryMovements` y `GetLowStockAlerts` (productos con cantidad igual o menor a su stock mínimo). |
+| `SupplierQueryService` | Query Service | Resuelve `GetSuppliers` (proveedores registrados). |
 | `InventoryMetricsQueryService` | Query Service | Resuelve `GetInventoryMetrics` (productos con stock crítico, entradas y salidas del periodo) y genera su exportación en CSV. |
 
 ##### Event Handler
@@ -3081,7 +3124,7 @@ Los Application Services del Store Management & Inventory Context se detallan en
 | Application Service | Responsabilidad |
 |---|---|
 | `InventoryApplicationService` | Coordina los casos de uso relacionados con la consulta, actualización y reabastecimiento del inventario. |
-| `FrameModelApplicationService` | Coordina los casos de uso relacionados con la administración de modelos de monturas y sus precios. |
+| `FrameModelApplicationService` | Coordina los casos de uso relacionados con la administración de modelos de monturas, sus precios y su modelo del probador virtual. |
 | `SupplierApplicationService` | Coordina las operaciones relacionadas con el registro y gestión de proveedores. |
 
 La Application Layer permite mantener separados los casos de uso de las reglas de negocio del dominio y de los mecanismos utilizados para persistir la información o comunicarse con otros contextos.
@@ -3128,10 +3171,13 @@ Los componentes de persistencia del Store Management & Inventory Context se resu
 | `InventoryEntity` | Representa la persistencia de la información del inventario. |
 | `FrameModelEntity` | Representa la persistencia de los modelos de monturas. |
 | `SupplierEntity` | Representa la persistencia de los proveedores. |
-| `StockMovementEntity` | Representa la persistencia de un movimiento de stock. |
+| `StockMovementEntity` | Representa la persistencia de un movimiento de stock (`stock_movements`). |
+| `StockEntity` y `StockKey` | Mapean `inventory_stocks` y su PK compuesta (`inventory_id`, `frame_model_id`); cada fila es un `Stock` del agregado `Inventory`. |
 | `InventoryMapper` | Transforma la información de persistencia del inventario hacia el modelo utilizado por el dominio y viceversa. |
 | `FrameModelMapper` | Transforma la información de persistencia de los modelos de monturas hacia el modelo utilizado por el dominio y viceversa. |
 | `SupplierMapper` | Transforma la información de persistencia de los proveedores hacia el modelo utilizado por el dominio y viceversa. |
+| `StockMovementMapper` | Transforma los movimientos de stock persistidos hacia el modelo del dominio y viceversa. |
+| `InventoryJpaRepository`, `StockJpaRepository`, `FrameModelJpaRepository`, `SupplierJpaRepository` y `StockMovementJpaRepository` | Ejecutan el acceso a persistencia mediante Spring Data JPA. |
 
 ##### Messaging
 
@@ -3147,7 +3193,7 @@ Los componentes de mensajería del Store Management & Inventory Context se detal
 
 | Componente | Responsabilidad |
 |---|---|
-| `DomainEventPublisher` | Publica los eventos generados por Store Management & Inventory hacia el Event Bus. |
+| `DomainEventPublisher` | Publica los eventos generados por Store Management & Inventory mediante el publicador de eventos de Spring dentro del backend. |
 | `SaleWasClosedConsumer` | Consume el evento `SaleWasClosed` proveniente de Clinical & Commercial. |
 
 El evento `SaleWasClosed` permite que Store Management & Inventory reaccione al cierre de una venta y evalúe el stock consumido. Esta interacción forma parte del flujo de mensajes definido en el modelo estratégico.
@@ -3156,10 +3202,10 @@ El evento `SaleWasClosed` permite que Store Management & Inventory reaccione al 
 <a id="2.6.4.5. Bounded Context Software Architecture Component Level Diagrams"></a>
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-El siguiente Component Diagram (C4 Model - Component Level) descompone el container **Store Management & Inventory Service** en sus componentes internos organizados en las cuatro capas del diseño guiado por el dominio:
+El siguiente Component Diagram (C4 Model - Component Level) descompone el módulo **Store Management & Inventory** del container **Backend OptiFlow** en sus componentes internos organizados en las cuatro capas del diseño guiado por el dominio:
 
-* **Interface Layer:** Proporciona los controladores REST (`InventoryController`, `FrameModelController`, `SupplierController`, `InventoryReportController`) expuestos a través del API Gateway para la administración del catálogo, la búsqueda por código escaneado, el stock, el historial de movimientos, las alertas, los proveedores y las métricas, el consumidor `SaleWasClosedConsumer` que procesa las deducciones de existencias originadas por ventas, y los DTOs y Assemblers correspondientes.
-* **Application Layer:** Coordina la lógica de aplicación mediante Command Handlers (`AddNewFrameModelHandler`, `UpdateFrameModelPriceHandler`, `ReplenishStockHandler`, `UpdateInventoryHandler`, `RegisterSupplierHandler`), el `SaleWasClosedEventHandler`, los Query Services (`ConsultStockQueryService`, `FrameCatalogQueryService`, `InventoryMovementQueryService`, `InventoryMetricsQueryService`) y los servicios de aplicación `InventoryApplicationService`, `FrameModelApplicationService` y `SupplierApplicationService`.
+* **Interface Layer:** Proporciona los controladores REST (`InventoryController`, `FrameModelController`, `SupplierController`, `InventoryReportController`) expuestos a través de la API REST (`/api/v1`) para la administración del catálogo, la búsqueda por código escaneado, el stock, el historial de movimientos, las alertas, los proveedores y las métricas, el consumidor `SaleWasClosedConsumer` que procesa las deducciones de existencias originadas por ventas, y los DTOs y Assemblers correspondientes.
+* **Application Layer:** Coordina la lógica de aplicación mediante Command Handlers (`AddNewFrameModelHandler`, `UpdateFrameModelPriceHandler`, `UpdateFrameModelTryOnModelHandler`, `ReplenishStockHandler`, `UpdateInventoryHandler`, `RegisterSupplierHandler`), el `SaleWasClosedEventHandler`, los Query Services (`ConsultStockQueryService`, `FrameCatalogQueryService`, `InventoryMovementQueryService`, `InventoryMetricsQueryService`) y los servicios de aplicación `InventoryApplicationService`, `FrameModelApplicationService` y `SupplierApplicationService`.
 * **Domain Layer:** Concentra el modelo de negocio con los agregados y entidades `Inventory`, `FrameModel`, `Stock`, `Supplier` y `Catalog`, la entidad `StockMovement`, los Value Objects `Price`, `LowStockAlert` y `Replenishment`, las interfaces de repositorio (`InventoryRepository`, `FrameModelRepository`, `SupplierRepository`, `StockMovementRepository`) y los eventos de dominio (`NewFrameModelAdded`, `FrameModelPriceUpdated`, `StockWasReplenished`, `LowStockAlertGenerated`, `InventoryWasUpdated`, `SupplierRegistered`).
 * **Infrastructure Layer:** Implementa los repositorios de inventario, monturas, proveedores y movimientos de stock con JPA sobre la base PostgreSQL compartida, a partir de la migración V6.
 
@@ -3212,7 +3258,7 @@ El Domain Layer también incluye las interfaces `FrameModelRepository`, `Invento
 
 **Modelo físico: PostgreSQL compartido, migración V6.** Store Management & Inventory comprende cinco tablas en la misma base del backend.
 
-Las tablas son `frame_models`, `inventories`, `inventory_stocks`, `suppliers` y `stock_movements`, que organizan el catálogo, las existencias y su historial. `frame_models` contiene `id`, `sku` (único; corresponde al código de barras que lee el escáner), `name`, `material`, `shape`, `color`, `price_amount NUMERIC(10,2)`, `price_currency` y `try_on_model_url` (referencia opcional al modelo del probador virtual). `inventories` contiene `id` y `optical_store_id` (FK hacia `optical_stores.id`, único), de modo que cada óptica tiene un inventario. `suppliers` contiene `id`, `name` y `contact`. `inventory_stocks` usa una clave compuesta por `inventory_id` y `frame_model_id` (FK hacia sus tablas) y guarda `quantity` y `minimum_stock`, ambos mayores o iguales a cero. `stock_movements` contiene `id`, `inventory_id` y `frame_model_id` (FK) y registra cada entrada o salida con `type` (`IN` u `OUT`), `reason` (`REPLENISHMENT`, `SALE` o `ADJUSTMENT`), cantidad, `sale_id` o `supplier_id` según el motivo, el usuario que lo registró (`performed_by`) y `created_at`.
+Las tablas son `frame_models`, `inventories`, `inventory_stocks`, `suppliers` y `stock_movements`, que organizan el catálogo, las existencias y su historial. `frame_models` contiene `id`, `sku` (único; corresponde al código de barras que lee el escáner), `name`, `material`, `shape`, `color`, `price_amount NUMERIC(10,2)`, `price_currency` y `try_on_model_url` (referencia opcional al modelo del probador virtual). `inventories` contiene `id` y `optical_store_id` (FK hacia `optical_stores.id`, único), de modo que cada óptica tiene un inventario. `suppliers` contiene `id`, `name` y `contact`. `inventory_stocks` usa una clave compuesta por `inventory_id` y `frame_model_id` (FK hacia sus tablas) y guarda `quantity` y `minimum_stock`, ambos mayores o iguales a cero. `stock_movements` contiene `id`, `inventory_id` y `frame_model_id` (FK) y registra cada entrada o salida con `type` (`IN` u `OUT`), `reason` (`REPLENISHMENT`, `SALE` o `ADJUSTMENT`), cantidad, `sale_id` o `supplier_id` según el motivo, el usuario que lo registró (`performed_by`, vacío en las salidas por venta, que provienen del evento `SaleWasClosed`) y `created_at`.
 
 
 **La Figura 52 representa las cinco tablas de la migración V6 con sus columnas, tipos, PK y FK.**
@@ -3277,7 +3323,7 @@ Los Commands del Notification & Loyalty Context se detallan en la Tabla 84.
 
 | Command | Descripción |
 |---|---|
-| `ScheduleAppointmentReminder` | Registra, a partir de `AppointmentBooked`, el recordatorio de la cita (24 horas antes) y el recordatorio de control anual (12 meses después). |
+| `ScheduleAppointmentReminder` | A partir de `AppointmentBooked`, consulta la cita con `GetAppointment` para conocer su fecha y registra el recordatorio de la cita (24 horas antes, o de inmediato si faltan menos de 24 horas) y el recordatorio de control anual (12 meses después). |
 | `NotifyLensOrderProgress` | Registra el aviso del avance del pedido al recibir `WorkOrderStatusUpdated`. |
 | `SendDeliveryDelayNotification` | Registra el aviso de demora con la nueva fecha estimada al recibir `DeliveryDelayNotified`. |
 | `SendSatisfactionSurvey` | Registra la encuesta de satisfacción al recibir `OrderWasMarkedAsDelivered`. |
@@ -3336,7 +3382,8 @@ Los Resources / DTOs del Notification & Loyalty Context se resumen en la Tabla 8
 |---|---|---|
 | `RegisterDeviceTokenRequest` | Input | Token de Firebase Cloud Messaging y plataforma del dispositivo del paciente. |
 | `AnswerSatisfactionSurveyRequest` | Input | Calificación de 1 a 5 y comentario opcional de la encuesta. |
-| `NotificationResponse` | Output | Identificador, tipo, título, mensaje, estado de lectura, fecha y, si corresponde, la cita, la orden o la respuesta de la encuesta. |
+| `UpdateNotificationRequest` | Input | `{"read": true}` para marcar un aviso como leído. |
+| `NotificationResponse` | Output | Identificador, tipo, título, mensaje, estado de lectura, fecha de creación, fecha programada de envío y, si corresponde, la cita, la orden o la respuesta de la encuesta (calificación, comentario y fecha). |
 | `LoyaltyAccountResponse` | Output | Saldo de puntos del paciente y año del último beneficio de cumpleaños. |
 | `DeviceTokenResponse` | Output | Identificador, plataforma y fecha de actualización del token registrado. |
 
@@ -3354,9 +3401,9 @@ Los Controllers del Notification & Loyalty Context se detallan en la Tabla 87.
 
 | Controller | Responsabilidad |
 |---|---|
-| `NotificationController` | `GET /patients/{patientId}/notifications` (`GetNotificationsByPatient`), `GET /notifications/{id}` (`GetNotificationById`), `PATCH /notifications/{id}/read` (`MarkNotificationAsRead`) y `POST /notifications/{id}/survey-response` (`AnswerSatisfactionSurvey`; HTTP 409 si la encuesta ya fue respondida). |
-| `DeviceTokenController` | `POST /patients/{patientId}/device-tokens` (`RegisterDeviceToken`); si el token ya existe, actualiza su paciente y fecha. |
-| `LoyaltyAccountController` | `GET /patients/{patientId}/loyalty-account` (`GetLoyaltyAccountByPatient`; HTTP 404 si el paciente aún no tiene cuenta). |
+| `NotificationController` | `GET /api/v1/patients/{patientId}/notifications` (`GetNotificationsByPatient`), `GET /api/v1/notifications/{id}` (`GetNotificationById`), `PATCH /api/v1/notifications/{id}` con `{"read": true}` (`MarkNotificationAsRead`; HTTP 409 si el aviso ya estaba leído) y `POST /api/v1/notifications/{id}/survey-response` (`AnswerSatisfactionSurvey`; HTTP 201 con el aviso y su respuesta, y HTTP 409 si la encuesta ya fue respondida). |
+| `DeviceTokenController` | `POST /api/v1/patients/{patientId}/device-tokens` (`RegisterDeviceToken`); si el token ya existe, actualiza su paciente y fecha. |
+| `LoyaltyAccountController` | `GET /api/v1/patients/{patientId}/loyalty-account` (`GetLoyaltyAccountByPatient`; HTTP 404 si el paciente aún no tiene cuenta). |
 
 ##### Assemblers
 
@@ -3374,6 +3421,7 @@ Los Assemblers del Notification & Loyalty Context se presentan en la Tabla 88.
 |---|---|
 | `FromRegisterDeviceTokenRequestAssembler` | `RegisterDeviceTokenRequest` → `RegisterDeviceTokenCommand` |
 | `FromAnswerSatisfactionSurveyRequestAssembler` | `AnswerSatisfactionSurveyRequest` → `AnswerSatisfactionSurveyCommand` |
+| `FromUpdateNotificationRequestAssembler` | `UpdateNotificationRequest` (`{"read": true}`) → `MarkNotificationAsReadCommand` |
 | `NotificationResourceAssembler` | `Notification` → `NotificationResponse` |
 | `LoyaltyAccountResourceAssembler` | `LoyaltyAccount` → `LoyaltyAccountResponse` |
 
@@ -3428,7 +3476,7 @@ Los Event Handlers y las tareas programadas del Notification & Loyalty Context s
 | `ProductionDeliveryDelayNotifiedEventHandler` | `DeliveryDelayNotified` | Ejecuta `SendDeliveryDelayNotification`. |
 | `OrderWasMarkedAsDeliveredEventHandler` | `OrderWasMarkedAsDelivered` | Ejecuta `SendSatisfactionSurvey`. |
 | `InAppNotificationSentEventHandler` | `InAppNotificationSent` | Ejecuta `SendPushNotification` para los avisos sin fecha programada. |
-| `ScheduledNotificationDispatcher` | Tarea programada cada 5 minutos | Ejecuta `SendPushNotification` para los avisos `PENDING` cuya fecha programada ya llegó. |
+| `ScheduledNotificationDispatcher` | Tarea programada cada 5 minutos | Ejecuta `SendPushNotification` para los avisos `PENDING` cuya fecha programada ya llegó; antes de enviar un recordatorio, consulta la cita con `GetAppointment` y, si fue cancelada, elimina sus dos recordatorios sin enviarlos. |
 | `BirthdayDiscountScheduler` | Tarea programada diaria (08:00, hora de Lima) | Obtiene de Search & Booking los pacientes que cumplen años ese día y ejecuta `GrantBirthdayDiscount` para cada uno. |
 
 ##### Application Services
@@ -3508,7 +3556,7 @@ Los componentes de mensajería del Notification & Loyalty Context se presentan e
 |---|---|
 | `EventPublisherAdapter` | Adaptador compartido de `DomainEventPublisher` sobre `ApplicationEventPublisher`, sin broker externo. |
 | `NotificationSchedulingConfiguration` | Habilita las tareas programadas de Spring (`@EnableScheduling`) y define la zona horaria `America/Lima`. |
-| `PatientDirectoryAdapter` | Consulta a Search & Booking los pacientes que cumplen años en una fecha, sin exponer su modelo de `Patient` al contexto. |
+| `PatientDirectoryAdapter` | Consulta a Search & Booking los pacientes que cumplen años en una fecha y el estado de una cita, sin exponer sus modelos de `Patient` y `Appointment` al contexto. |
 
 ##### External Messaging / ACL
 
@@ -3525,8 +3573,8 @@ Los componentes de mensajería externa y ACL del Notification & Loyalty Context 
 
 | Componente | Responsabilidad |
 |---|---|
-| `FirebaseMessagingAdapter` | Envía cada aviso como notificación push mediante Firebase Admin SDK a los tokens registrados del paciente; elimina los tokens que el proveedor reporta como no válidos. |
-| `MessagingAntiCorruptionLayer` | Aísla el modelo de notificaciones de OptiFlow de los formatos externos de mensajería. |
+| `FirebaseMessagingAdapter` | Envía cada aviso como notificación push a los tokens registrados del paciente mediante la API HTTP v1 de Firebase Cloud Messaging: firma un JWT con la cuenta de servicio (`FIREBASE_CREDENTIALS`), lo canjea por un token de acceso OAuth 2.0 y publica un mensaje por dispositivo. Informa los tokens que el proveedor reporta como no válidos, que `SendPushNotification` elimina. |
+| `MessagingAntiCorruptionLayer` | Implementa el puerto `PushNotificationService`: traduce cada `Notification` al mensaje de Firebase Cloud Messaging (título, cuerpo y los datos `notificationId` y `type`) y aísla el modelo de notificaciones de OptiFlow de los formatos externos de mensajería. |
 
 La integración con **Firebase Cloud Messaging** sigue el patrón **Anti-Corruption Layer** documentado en 2.5.2: el modelo de avisos de OptiFlow no depende del formato de mensajes del proveedor. Si el envío falla o el paciente no tiene un token registrado, el aviso queda con estado de envío `FAILED` y el paciente puede consultarlo igualmente en la aplicación.
 
@@ -3590,9 +3638,9 @@ El Domain Layer incluye también las interfaces `NotificationRepository`, `Loyal
 
 `loyalty_accounts` utiliza `patient_id UUID` como PK y FK hacia `patients.id`, y conserva `balance INT NOT NULL`, `last_birthday_discount_year INT` y `updated_at TIMESTAMP WITH TIME ZONE NOT NULL`. Un paciente puede tener cero o una cuenta; el saldo no puede ser negativo. La cuenta registra el saldo de puntos y el año del último beneficio de cumpleaños.
 
-`device_tokens` contiene `id`, `patient_id` (FK hacia `patients.id`), `token` (único), `platform` y `updated_at`; un paciente puede tener varios dispositivos.
+`device_tokens` contiene `id`, `patient_id` (FK hacia `patients.id`), `token` (único, hasta 512 caracteres), `platform` (`CHECK` con `ANDROID`) y `updated_at`; un paciente puede tener varios dispositivos.
 
-`notifications` contiene `id`, `patient_id`, `type`, `title`, `body`, `appointment_id`, `work_order_id`, `status`, `push_status`, `scheduled_at`, `survey_rating`, `survey_comment`, `answered_at`, `created_at` y `read_at`. `push_status` (`PENDING`, `SENT` o `FAILED`) registra el resultado del envío por Firebase Cloud Messaging; `scheduled_at` es la fecha programada de los recordatorios (nula para los avisos inmediatos); `survey_rating` (`CHECK` entre 1 y 5), `survey_comment` y `answered_at` guardan la respuesta de la encuesta. Su PK es `id` y su única FK es `patient_id` hacia `patients.id`. Un paciente puede tener varias notificaciones. Los identificadores de cita y orden son opcionales y no tienen FKs declaradas en V4; no se representan como relaciones físicas con sus tablas.
+`notifications` contiene `id`, `patient_id`, `type`, `title`, `body`, `appointment_id`, `work_order_id`, `status`, `push_status`, `scheduled_at`, `survey_rating`, `survey_comment`, `answered_at`, `created_at` y `read_at`. `push_status` (`PENDING`, `SENT` o `FAILED`) registra el resultado del envío por Firebase Cloud Messaging (los avisos creados antes de V7 quedan en `FAILED`, porque nunca se enviaron); `scheduled_at` es la fecha programada de los recordatorios (nula para los avisos inmediatos); `survey_rating` (`CHECK` entre 1 y 5), `survey_comment` y `answered_at` guardan la respuesta de la encuesta. Su PK es `id` y su única FK es `patient_id` hacia `patients.id`. Un paciente puede tener varias notificaciones. Los identificadores de cita y orden son opcionales y no tienen FKs declaradas en V4; no se representan como relaciones físicas con sus tablas.
 
 Los tipos permitidos son `APPOINTMENT_REMINDER`, `ANNUAL_CHECKUP_REMINDER`, `LENS_ORDER_PROGRESS`, `BIRTHDAY_DISCOUNT`, `DELIVERY_DELAY` y `SATISFACTION_SURVEY` (V7 amplía el `CHECK` de V4); los estados admitidos son `UNREAD` y `READ`. V7 reemplaza el índice único parcial de V4 por uno sobre (`patient_id`, `appointment_id`, `type`) cuando `appointment_id IS NOT NULL`, para que una cita tenga un solo recordatorio de cada tipo, y crea un índice sobre (`push_status`, `scheduled_at`) para la búsqueda de avisos pendientes. Esta regla se documenta junto al diagrama, aunque el importador gráfico no represente índices parciales.
 

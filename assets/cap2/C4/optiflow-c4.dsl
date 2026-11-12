@@ -13,31 +13,30 @@ workspace "OptiFlow" "Plataforma móvil para la búsqueda de ópticas, la reserv
 
         mercadoPago = softwareSystem "Pasarela de Pagos (Mercado Pago Checkout Pro)" "Cobra con tarjeta o Yape y notifica el resultado de cada pago." "External"
         fcm = softwareSystem "Firebase Cloud Messaging" "Entrega las notificaciones push a los dispositivos Android." "External"
-        maps = softwareSystem "Google Maps Platform" "Muestra las ópticas cercanas en un mapa." "External"
-        arFilters = softwareSystem "Servicio de filtros faciales AR" "Superpone las monturas sobre el rostro en el probador virtual." "External"
+        maps = softwareSystem "OpenStreetMap" "Entrega los mosaicos del mapa de ópticas cercanas." "External"
 
         optiflow = softwareSystem "OptiFlow" "Búsqueda de ópticas, reserva de citas, atención clínica y comercial, producción de lentes, inventario y fidelización." {
             landing = container "Landing Page" "Sitio estático que presenta la propuesta de valor e incluye el enlace de descarga de la aplicación." "HTML5, CSS3, JavaScript" "Web Browser"
             mobile = container "Aplicación móvil" "Interfaz por rol para pacientes y personal de la óptica." "Kotlin, Jetpack Compose" "Mobile App"
-            localDb = container "Base de datos local" "Copia de solo lectura de la última información consultada (citas, pedidos, avisos y catálogo)." "Room, SQLite" "Database"
+            localDb = container "Base de datos local" "Copia de solo lectura de la última información consultada (citas, pedidos, avisos, recetas, catálogo, ópticas y tablero de producción)." "Room, SQLite" "Database"
 
             backend = container "Backend OptiFlow" "Único contenedor de la API REST; organiza los Bounded Contexts como módulos internos." "Java 21, Spring Boot" {
 
                 group "Shared / Security" {
-                    jwtFilter = component "JwtAuthenticationFilter" "Valida el token JWT de cada solicitud y carga el rol del usuario." "Spring Security"
+                    jwtFilter = component "JwtAuthenticationFilter" "Valida el token JWT de cada solicitud, rechaza el de un miembro del personal desactivado y carga el rol del usuario." "Spring Security"
                     eventPublisher = component "EventPublisherAdapter" "Publica los eventos de dominio entre módulos." "Spring ApplicationEventPublisher"
                 }
 
                 group "Search & Booking" {
-                    sbControllers = component "Controllers de Search & Booking" "PatientController, StaffMemberController, OpticalStoreController, OpticalStoreFilterController, TimeSlotController, AppointmentController, FavoriteStoreController y StoreRatingController." "Spring MVC"
-                    sbApp = component "Application Services de Search & Booking" "Command Handlers (login, registro, personal, reserva, favoritos, calificación) y Query Services (búsqueda, cercanía, horarios, citas, personal, cumpleaños)." "Spring"
+                    sbControllers = component "Controllers de Search & Booking" "PatientController, AuthenticationController, StaffMemberController, OpticalStoreController, TimeSlotController, AppointmentController, FavoriteStoreController y StoreRatingController." "Spring MVC"
+                    sbApp = component "Application Services de Search & Booking" "Command Handlers (login, registro, personal, horarios, citas, favoritos, calificación) y Query Services (búsqueda, cercanía, horarios, citas, agenda, personal, cumpleaños)." "Spring"
                     sbDomain = component "Domain de Search & Booking" "Appointment, Patient, StaffMember, OpticalStore, TimeSlot y sus repositorios." "Java"
-                    sbInfra = component "Infrastructure de Search & Booking" "Repositorios JPA, JwtTokenService y AuthenticationAdapter (BCrypt)." "Spring Data JPA"
+                    sbInfra = component "Infrastructure de Search & Booking" "Repositorios JPA, JwtTokenService, AuthenticationAdapter (BCrypt) y AccountStatusAdapter (estado de la cuenta)." "Spring Data JPA"
                 }
 
                 group "Clinical & Commercial" {
                     ccControllers = component "Controllers de Clinical & Commercial" "ClinicalRecordController, QuotationController, SaleController y SalesReportController." "Spring MVC"
-                    ccWebhook = component "PaymentWebhookController" "Ruta pública POST /payments/webhook que recibe las notificaciones de pago." "Spring MVC"
+                    ccWebhook = component "PaymentWebhookController" "Ruta pública POST /api/v1/payment-notifications que recibe las notificaciones de pago." "Spring MVC"
                     ccApp = component "Application Services de Clinical & Commercial" "Command Handlers (atención, cotización, venta, preferencia de pago, pago y cierre) y Query Services (ventas y métricas)." "Spring"
                     ccDomain = component "Domain de Clinical & Commercial" "ClinicalRecord, Quotation, Sale, Payment y sus repositorios." "Java"
                     ccInfra = component "Infrastructure de Clinical & Commercial" "Repositorios JPA." "Spring Data JPA"
@@ -53,7 +52,7 @@ workspace "OptiFlow" "Plataforma móvil para la búsqueda de ópticas, la reserv
 
                 group "Store Management & Inventory" {
                     invControllers = component "Controllers de Inventory" "FrameModelController, InventoryController, SupplierController e InventoryReportController." "Spring MVC"
-                    invApp = component "Application Services de Inventory" "Command Handlers (catálogo, precio, reposición, salida por venta, proveedores), SaleWasClosedEventHandler y Query Services (escaneo, catálogo, movimientos, alertas y métricas)." "Spring"
+                    invApp = component "Application Services de Inventory" "Command Handlers (catálogo, precio, modelo del probador virtual, reposición, salida por venta, proveedores), SaleWasClosedEventHandler y Query Services (escaneo, catálogo, movimientos, alertas y métricas)." "Spring"
                     invDomain = component "Domain de Inventory" "Inventory, Stock, FrameModel, Supplier, StockMovement y sus repositorios." "Java"
                     invInfra = component "Infrastructure de Inventory" "Repositorios JPA." "Spring Data JPA"
                 }
@@ -79,8 +78,7 @@ workspace "OptiFlow" "Plataforma móvil para la búsqueda de ópticas, la reserv
         # Contenedores
         optiflow.mobile -> optiflow.localDb "Guarda y lee la última información consultada" "Room"
         optiflow.mobile -> optiflow.backend.jwtFilter "Consume la API REST con token JWT" "HTTPS/JSON"
-        optiflow.mobile -> maps "Muestra el mapa de ópticas" "Maps SDK for Android"
-        optiflow.mobile -> arFilters "Aplica el probador virtual" "SDK"
+        optiflow.mobile -> maps "Muestra el mapa de ópticas" "osmdroid"
         optiflow.mobile -> mercadoPago "Abre la página de pago de la preferencia" "HTTPS"
         fcm -> optiflow.mobile "Entrega las notificaciones push" "FCM"
         mercadoPago -> optiflow.backend.ccWebhook "Notifica el resultado de cada pago (webhook)" "HTTPS/JSON"
@@ -139,7 +137,7 @@ workspace "OptiFlow" "Plataforma móvil para la búsqueda de ópticas, la reserv
                 }
             }
             deploymentNode "Render" "Plataforma en la nube, región Frankfurt." "Render" {
-                deploymentNode "Web Service Logix-OptiFlow-Back-End" "Desplegado desde la rama develop; expone el webhook público /payments/webhook." "Docker, eclipse-temurin:21-jre" {
+                deploymentNode "Web Service Logix-OptiFlow-Back-End" "Desplegado desde la rama develop; expone la API REST en /api/v1 y el webhook público /api/v1/payment-notifications." "Docker, eclipse-temurin:21-jre" {
                     backendInstance = containerInstance optiflow.backend
                 }
                 deploymentNode "Render PostgreSQL" "Base de datos administrada por Render." "PostgreSQL 16" {
@@ -153,15 +151,16 @@ workspace "OptiFlow" "Plataforma móvil para la búsqueda de ópticas, la reserv
                 mobileInstance = containerInstance optiflow.mobile
                 localDbInstance = containerInstance optiflow.localDb
                 camera = infrastructureNode "Cámara del dispositivo" "Escáner de monturas y probador virtual." "CameraX"
+                mlKit = infrastructureNode "ML Kit" "Lee el código de barras de la montura y detecta el rostro para el probador virtual, en el propio dispositivo." "ML Kit Barcode Scanning, Face Detection"
             }
             deploymentNode "Servicios externos" "" "Internet" {
                 mercadoPagoInstance = softwareSystemInstance mercadoPago
                 fcmInstance = softwareSystemInstance fcm
                 mapsInstance = softwareSystemInstance maps
-                arInstance = softwareSystemInstance arFilters
             }
             validation.firebase.appDistribution -> validation.androidDevice.mobileInstance "Distribuye e instala el APK" "HTTPS"
             validation.androidDevice.mobileInstance -> validation.androidDevice.camera "Usa la cámara" "CameraX"
+            validation.androidDevice.mobileInstance -> validation.androidDevice.mlKit "Analiza las imágenes de la cámara" "ML Kit"
         }
     }
 

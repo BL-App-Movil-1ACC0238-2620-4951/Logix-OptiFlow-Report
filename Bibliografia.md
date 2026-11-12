@@ -74,7 +74,7 @@ Las referencias se agrupan por dominio de negocio, métodos de ingeniería de so
 
 <p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-d). <i>Jetpack Compose</i>. Android Developers. <a href="https://developer.android.com/compose">https://developer.android.com/compose</a></p>
 
-<p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-e). <i>Maps SDK for Android overview</i>. Google Maps Platform. <a href="https://developers.google.com/maps/documentation/android-sdk/overview">https://developers.google.com/maps/documentation/android-sdk/overview</a></p>
+<p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-e). <i>ML Kit</i>. Google for Developers. <a href="https://developers.google.com/ml-kit">https://developers.google.com/ml-kit</a></p>
 
 <p style="padding-left: 0.5in; text-indent: -0.5in;">Google. (s. f.-f). <i>Save data in a local database using Room</i>. Android Developers. <a href="https://developer.android.com/training/data-storage/room">https://developer.android.com/training/data-storage/room</a></p>
 
@@ -87,6 +87,10 @@ Las referencias se agrupan por dominio de negocio, métodos de ingeniería de so
 <p style="padding-left: 0.5in; text-indent: -0.5in;">Mahmud, T., Che, M., &amp; Yang, G. (2024). An empirical study on compatibility issues in Android API field evolution. <i>Information and Software Technology, 175</i>, Artículo 107530. <a href="https://doi.org/10.1016/j.infsof.2024.107530">https://doi.org/10.1016/j.infsof.2024.107530</a></p>
 
 <p style="padding-left: 0.5in; text-indent: -0.5in;">Mercado Pago. (s. f.). <i>Checkout Pro</i>. Mercado Pago Developers. <a href="https://www.mercadopago.com.pe/developers/es/docs/checkout-pro/overview">https://www.mercadopago.com.pe/developers/es/docs/checkout-pro/overview</a></p>
+
+<p style="padding-left: 0.5in; text-indent: -0.5in;">OpenStreetMap Foundation. (s. f.). <i>OpenStreetMap</i>. <a href="https://www.openstreetmap.org/">https://www.openstreetmap.org/</a></p>
+
+<p style="padding-left: 0.5in; text-indent: -0.5in;">osmdroid. (s. f.). <i>osmdroid</i> [Software]. GitHub. <a href="https://github.com/osmdroid/osmdroid">https://github.com/osmdroid/osmdroid</a></p>
 
 <p style="padding-left: 0.5in; text-indent: -0.5in;">PostgreSQL Global Development Group. (s. f.). <i>PostgreSQL 16 documentation</i>. <a href="https://www.postgresql.org/docs/16/index.html">https://www.postgresql.org/docs/16/index.html</a></p>
 

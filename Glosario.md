@@ -66,7 +66,7 @@ Evento que representa algo relevante que ocurrió dentro del dominio y que puede
 Mecanismo utilizado para recopilar la percepción del paciente sobre la atención o experiencia recibida, especialmente después de la entrega de un pedido.
 
 ### Estado de la Orden de Trabajo
-Fase en la que se encuentra una orden dentro del proceso de producción. En OptiFlow comprende los estados `Pendiente`, `En Taller`, `Control de Calidad` y `Listo para Entrega`.
+Fase en la que se encuentra una orden dentro del proceso de producción. En OptiFlow comprende los estados `Pendiente`, `En Taller`, `Control de Calidad`, `Listo para Entrega` y `Entregado`.
 
 ### EventStorming
 Técnica de modelado colaborativo utilizada para identificar eventos, comandos, actores, reglas y procesos relevantes del dominio de OptiFlow.
@@ -114,7 +114,7 @@ Mensaje mostrado directamente dentro de la aplicación móvil OptiFlow para info
 Bounded Context encargado de gestionar las notificaciones, recordatorios, encuestas de satisfacción y beneficios de fidelización de los pacientes.
 
 ### Operación Offline
-Capacidad de la aplicación para mostrar, sin conexión a internet, la última información consultada (citas, pedidos, avisos y catálogo). Las operaciones que modifican datos requieren conexión.
+Capacidad de la aplicación para mostrar, sin conexión a internet, la última información consultada (citas, pedidos, avisos, recetas, catálogo, ópticas y tablero de producción). Las operaciones que modifican datos requieren conexión.
 
 ### Óptica
 Establecimiento especializado en servicios relacionados con la evaluación visual, atención optométrica y comercialización de productos ópticos.
@@ -147,7 +147,7 @@ Sistema de gestión relacional utilizado como una única base compartida por los
 Valor monetario asociado a un producto o modelo de montura disponible para su comercialización.
 
 ### Probador Virtual
-Funcionalidad de la aplicación móvil que muestra una montura del catálogo sobre el rostro del paciente, en tiempo real, mediante la cámara frontal y un servicio de filtros faciales de realidad aumentada.
+Funcionalidad de la aplicación móvil que muestra una montura del catálogo sobre el rostro del paciente, en tiempo real, mediante la cámara frontal y la detección de rostro de ML Kit.
 
 ### Production & Tracking Context
 Bounded Context encargado de gestionar el ciclo de vida de las órdenes de trabajo, desde su generación y asignación hasta la fabricación y entrega de los lentes.
@@ -242,9 +242,6 @@ Modelo de ramificación que organiza el trabajo en ramas principales y temporale
 ### GitHub Pages
 Servicio de GitHub para publicar la Landing Page del proyecto de forma estática, permitiendo su acceso desde una URL pública.
 
-### Google Maps Platform
-Servicio de mapas de Google. La aplicación móvil utiliza Maps SDK for Android para mostrar las ópticas cercanas a partir de la latitud y longitud registradas en el backend.
-
 ### Jetpack Compose
 Biblioteca de UI para Android basada en Kotlin que permite construir interfaces declarativas, reutilizables y adaptadas a pantallas móviles.
 
@@ -260,8 +257,14 @@ Sitio web promocional del proyecto que presenta la propuesta de valor de OptiFlo
 ### Miro
 Pizarra colaborativa empleada en sesiones de EventStorming para mapear eventos, actores, procesos y relaciones del dominio.
 
+### ML Kit
+Kit de aprendizaje automático de Google que se ejecuta en el propio dispositivo. La aplicación móvil lo utiliza para leer el código de barras de las monturas en el escáner y para detectar el rostro en el probador virtual, sin enviar imágenes a un servicio externo.
+
 ### Mock-up
 Representación visual más detallada de una interfaz que muestra la distribución de elementos, contenido y estilos antes de la implementación final.
+
+### OpenStreetMap
+Mapa colaborativo y abierto. La aplicación móvil lo muestra con la biblioteca osmdroid para ubicar las ópticas cercanas a partir de la latitud y longitud registradas en el backend; no requiere clave de acceso.
 
 ### Prototipo
 Versión interactiva de la interfaz que simula la navegación entre pantallas y permite validar flujos de uso, contenido y experiencia del usuario.
@@ -288,7 +291,7 @@ Descripción de una necesidad del usuario expresada como una funcionalidad con v
 Backend del sistema encargado de exponer servicios y lógica de negocio para la gestión de pacientes, citas, pedidos, inventario y operaciones de la óptica.
 
 ### Webhook
-Solicitud HTTP que un servicio externo envía al backend para avisar un acontecimiento; Mercado Pago lo usa para notificar el resultado de cada pago en `POST /payments/webhook`.
+Solicitud HTTP que un servicio externo envía al backend para avisar un acontecimiento; Mercado Pago lo usa para notificar el resultado de cada pago en `POST /api/v1/payment-notifications`.
 
 ### Wireframe
 Esquema básico de una pantalla o flujo que define la estructura, organización del contenido y navegación antes de refinarlos en mock-ups y prototipos.

@@ -145,8 +145,8 @@ Los repositorios del proyecto se detallan en la Tabla 106.
 | Informe del proyecto | [Logix-OptiFlow-Report](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report) |
 | Landing Page | [Logix-OptiFlow-landing-page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page) |
 | Web Services | [Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) |
-| Aplicación Android del Sprint 1 | [Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) |
-| Cliente Flutter incorporado en AV2 | [Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter) |
+| Aplicación Android (Kotlin) | [Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) |
+| Aplicación Flutter (AV2, en desarrollo) | [Logix-OptiFlow-Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter) |
 
 El informe utiliza ramas por alcance y Pull Requests hacia `develop`. La revisión del Sprint 2 identifica también los repositorios que publican directamente en `main`, como Flutter y la Landing Page, sin atribuirles un flujo de integración que no consta en el historial.
 
@@ -222,6 +222,9 @@ Las convenciones de nomenclatura se detallan en la Tabla 109.
 | Paquetes | minúsculas, sin guiones bajos | `com.optiflow.booking` |
 | Archivos CSS y de la Landing Page | `kebab-case` | `main-header.css` |
 | Archivos `.feature` | `snake_case` o `kebab-case` en inglés | `book-appointment.feature` |
+| Rutas de la API REST | sustantivos en plural, `kebab-case`, con el prefijo `/api/v1` | `/api/v1/work-orders/{id}/status` |
+
+Las rutas de la API REST identifican recursos y no contienen verbos. Las operaciones usan `GET` para consultar, `POST` para crear, `PUT` para reemplazar y `PATCH` para actualizar parcialmente; los cambios de estado se registran con `PATCH .../status` y los filtros se envían como parámetros de consulta (por ejemplo, `minRating` en `GET /api/v1/optical-stores`), y no forman parte de la ruta. Las respuestas usan los códigos `200`, `201` con el encabezado `Location`, `204`, `400`, `401`, `403`, `404` y `409`, y los errores se devuelven con la estructura `ApiError`. Los reportes se descargan en CSV desde la misma ruta enviando `Accept: text/csv`, y el inicio de sesión se realiza con `POST /api/v1/auth/tokens`, porque crea un token de acceso.
 
 En Flutter se emplean archivos en `snake_case`, clases en `UpperCamelCase` y miembros en `lowerCamelCase`. La revisión separa los modelos, el cliente HTTP, el controlador de estado, las pantallas y los componentes visuales. El cliente debe diferenciar datos de demostración y respuestas de servicio, comunicar errores y adjuntar el token cuando una operación lo requiere. El análisis estático se realiza con `flutter analyze` y las pruebas con `flutter test`.
 
@@ -231,7 +234,7 @@ El backend se organiza en Domain, Application, Interface e Infrastructure por co
 
 #### 4.1.4. Software Deployment Configuration
 
-La Landing Page se publica en GitHub Pages y los servicios se alojan en Render. El cliente Android del Sprint 1 se distribuyó mediante Firebase App Distribution. Para AV2 se incorpora el cliente Flutter, cuya configuración se describe a continuación.
+La Landing Page se publica en **GitHub Pages**, los Web Services se despliegan en **Render** mediante Docker (Render, s. f.) y la aplicación móvil se distribuye a través de **Firebase App Distribution** (Google, s. f.-b). Además, el backend se integra con la Pasarela de Pagos y con **Firebase Cloud Messaging** (Google, s. f.-c), y la aplicación móvil con **OpenStreetMap** mediante osmdroid (OpenStreetMap Foundation, s. f.; osmdroid, s. f.), la base de datos local Room (Google, s. f.-f), la cámara mediante CameraX (Google, s. f.-a) y ML Kit (Google, s. f.-e), que lee los códigos de barras y detecta el rostro en el propio dispositivo. A continuación se describe la configuración de cada producto; la evidencia de cada despliegue se presenta en las secciones 4.2.1.8 (Sprint 1) y 4.2.2.8 (Sprint 2). La aplicación Flutter de AV2 se encuentra en desarrollo y su configuración se describe por separado.
 
 ##### Landing Page
 
@@ -248,27 +251,34 @@ Para reproducir la publicación de la Landing:
 
 El backend se construye con Maven y Java 21 y se empaqueta mediante el `Dockerfile`. El perfil `postgres` obtiene la conexión de `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME` y `SPRING_DATASOURCE_PASSWORD`; Flyway aplica las migraciones y JPA valida el esquema. Los valores de credenciales se configuran en el entorno y no se incluyen en las evidencias.
 
+1. Se parte de la rama `develop` del repositorio de los Web Services; Render vuelve a desplegar el servicio cada vez que esta rama se actualiza.
+2. Render construye la imagen con el `Dockerfile` del repositorio: compila el proyecto con Maven y ejecuta el JAR generado sobre Java 21.
+3. El servicio se conecta a una base de datos PostgreSQL 16 administrada por Render. Las credenciales se registran como variables de entorno (`SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME` y `SPRING_DATASOURCE_PASSWORD`) y no se incluyen en el repositorio.
+4. La clave de firma de los tokens de sesión se registra como `JWT_SECRET`; los tokens expiran a las 24 horas (`PT24H` en `application.yml`).
+5. Las credenciales de los servicios externos también se registran como variables de entorno: el token de acceso de prueba de Mercado Pago Checkout Pro (`MERCADOPAGO_ACCESS_TOKEN`; Mercado Pago, s. f.), la clave secreta con la que se valida la firma de sus notificaciones (`MERCADOPAGO_WEBHOOK_SECRET`) y la cuenta de servicio de Firebase (`FIREBASE_CREDENTIALS`) que el backend usa para enviar notificaciones con Firebase Cloud Messaging.
+6. En el panel de desarrolladores de Mercado Pago se registra como URL de notificaciones la ruta pública `https://logix-optiflow-back-end.onrender.com/api/v1/payment-notifications`. Las URL de retorno de cada preferencia de pago usan el deep link `optiflow://payment-result`, que devuelve al paciente a la aplicación.
+7. Se verifica el despliegue en la documentación OpenAPI publicada con Swagger UI (SmartBear Software, s. f.): [https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html).
+
 La revisión `41bcb44`, consultada el 10/11/2026, publica las rutas de negocio bajo `/api/v1`. El registro de pacientes y la creación de tokens son públicos; las operaciones protegidas requieren un token y verifican los roles autorizados para cada recurso. La documentación se genera en `/v3/api-docs` y se visualiza en `/swagger-ui/index.html`. El perfil local utiliza H2; las capturas de 4.2.2 se tomaron en una instancia aislada, distinta de Render.
 
-El código revisado contiene las migraciones V1 a V9 y 27 tablas en una base PostgreSQL compartida. V6 incorpora inventario, V7 registra dispositivos para notificaciones y V9 amplía el pago de ventas. Los adaptadores de pagos y mensajería push tienen pruebas automatizadas; su ejecución con proveedores reales requiere la configuración del entorno. La revisión local usa H2 y no acredita la aplicación de las migraciones en PostgreSQL de producción.
+El código revisado contiene las migraciones V1 a V9 y 27 tablas en una base PostgreSQL compartida. V6 incorpora inventario, V7 registra dispositivos para notificaciones y V9 amplía el pago de ventas. Los adaptadores de pagos y mensajería push tienen pruebas automatizadas; su ejecución con proveedores reales requiere la configuración del entorno. Render aplica las migraciones con Flyway al iniciar el servicio sobre PostgreSQL.
 
-Para preparar los servicios desde el código:
+##### Aplicación móvil (Kotlin)
 
-1. Usar la revisión elegida del backend, Java 21 y Maven; ejecutar la suite antes de preparar la entrega. La ejecución del 10/11/2026 terminó con 131 pruebas aprobadas; el registro y la ejecución de integración continua se presentan en 4.2.2.5.
-2. Configurar `SPRING_PROFILES_ACTIVE=postgres`, la URL JDBC de PostgreSQL, el usuario, la contraseña y `JWT_SECRET` en el entorno. La configuración revisada lee el puerto desde `PORT` y usa 8080 como valor por defecto.
-3. Construir la imagen con `docker build -t optiflow-backend:<version> .` desde la raíz del backend. El `Dockerfile` empaqueta con `-DskipTests`, que omite ejecutar las pruebas. Para esta revisión se ejecutó primero `mvn -B test` con resultado satisfactorio y después `mvn -B -DskipTests package` para generar el JAR. La construcción de la imagen Docker no se presenta como una ejecución realizada en este entorno.
-4. En Render, seleccionar el repositorio y commit que se publicarán mediante Docker, registrar las variables del paso anterior y revisar los logs de arranque y migración sin exponer sus valores.
-5. Abrir `/v3/api-docs` y `/swagger-ui/index.html`; comprobar el contrato versionado, una consulta pública y una operación protegida. Conservar el commit desplegado y la evidencia de esa revisión.
+1. Se parte de la rama `develop` del repositorio de la aplicación móvil.
+2. Se configuran los servicios que usa la aplicación: el archivo `app/google-services.json` del proyecto de Firebase para recibir notificaciones de Firebase Cloud Messaging. El mapa (OpenStreetMap con osmdroid), el escáner y el probador virtual (ML Kit en el dispositivo) no requieren claves. La URL del backend de cada variante puede cambiarse en `local.properties` (`api.base.url.local` y `api.base.url.prod`), que no se incluye en el repositorio. El `AndroidManifest.xml` declara un `intent-filter` para el deep link `optiflow://payment-result`, que abre la pantalla del resultado del pago al volver de Mercado Pago Checkout Pro.
+3. La firma del release usa un keystore propio del equipo que no se incluye en el repositorio: `local.properties` indica en `release.signing.properties` la ruta del archivo con el keystore, el alias y las contraseñas. Si ese archivo no existe, el release se genera sin firmar.
+4. Se genera el APK de la variante `prodRelease`, que consume los Web Services desplegados en Render, con `./gradlew assembleProdRelease` o desde **Build Variants** en Android Studio. El APK queda en `app/build/outputs/apk/prod/release/app-prod-release.apk`.
+5. El APK se carga en **Firebase App Distribution** dentro del proyecto `optiflow-d5022` y la versión se distribuye al grupo `optiflow-testers`, formado por los integrantes del equipo.
+6. Los evaluadores reciben la invitación por correo o se unen al grupo mediante el vínculo de invitación [https://appdistribution.firebase.dev/i/89d115baa19a781a](https://appdistribution.firebase.dev/i/89d115baa19a781a), e instalan la aplicación en sus dispositivos Android. Cada versión nueva aumenta `versionCode` en `app/build.gradle.kts` para instalarse sobre la anterior.
 
-##### Aplicaciones móviles
-
-El cliente Android/Kotlin del Sprint 1 utiliza variantes Gradle y se distribuyó con Firebase App Distribution. Esas capturas e instrucciones se conservan como antecedentes de ese incremento.
+##### Aplicación Flutter (AV2)
 
 El cliente Flutter de AV2 se configura mediante `--dart-define=API_BASE_URL=...`. Antes de construir el APK, se deben adaptar y comprobar las subrutas, el formato de sesión y el encabezado Bearer descritos en 4.2.2.4. Después se ejecutan el análisis y las pruebas, se genera la versión elegida y se instala en un dispositivo para verificar el flujo. La versión y el enlace de distribución se registran en 4.2.2.8. El proyecto publicado utiliza `shared_preferences`; no se afirma que incluya Room o que sus vistas de demostración estén conectadas a todos los módulos del backend.
 
 ##### Deployment Diagram
 
-El Deployment Diagram representa la distribución prevista de OptiFlow y sus servicios externos. Se conserva como vista de arquitectura del capítulo II. La revisión del Sprint 2 identifica por separado qué artefactos y operaciones se comprobaron, y no utiliza el diagrama para dar por desplegadas las integraciones de pagos, mapas, cámara o notificaciones (ver Figura 120).
+El Deployment Diagram muestra los nodos de publicación y ejecución de OptiFlow: GitHub Pages para la Landing Page, Render para el backend y su base de datos PostgreSQL, Firebase App Distribution para distribuir la aplicación a los dispositivos Android, y los servicios externos con los que se integran el backend (Pasarela de Pagos y Firebase Cloud Messaging) y la aplicación móvil (OpenStreetMap). Es el mismo diagrama de la sección 2.5.3.3. La evidencia de los entornos utilizados se presenta en la sección 4.2.1.8 (ver Figura 120).
 
 
 <a id="figura-120"></a>
@@ -425,21 +435,21 @@ La siguiente tabla presenta commits representativos del alcance documentado, obt
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [2f3f43f](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/2f3f43f) | `Add local/postgres Spring profiles` | Descripción en español: Añade perfiles de configuración local y PostgreSQL y modifica la configuración de pruebas. | 06/10/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [ac63183](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/ac63183) | `fix: reject invalid characters in patient phone numbers` | Descripción en español: Rechaza caracteres inválidos en teléfonos e incorpora pruebas de validación. | 07/10/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) | `develop` | [25c3003](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/commit/25c3003) | `feat: standardize malformed request error responses` | Descripción en español: Unifica respuestas a solicitudes mal formadas e incorpora pruebas de errores. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [067fd5d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/067fd5d) | `chore(mobile): configure api base url for local and production` | Descripción en español: Configura las URL del backend para los entornos local y de producción. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [27fef3d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/27fef3d) | `feat: add retrofit client with timeouts and logging` | Descripción en español: Añade el cliente Retrofit con tiempos de espera y registro de comunicaciones. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [484564d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/484564d) | `feat: Add remote booking and search API layer` | Descripción en español: Añade la capa de API remota para búsqueda y reserva. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [8f950a3](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/8f950a3) | `feat: load optical stores from backend` | Descripción en español: Carga los establecimientos ópticos desde el backend. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [3e6f97c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/3e6f97c) | `feat: register patient and login against api` | Descripción en español: Integra el registro y el inicio de sesión del paciente con la API. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [024cd92](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/024cd92) | `feat: fetch availability and book appointment` | Descripción en español: Consulta horarios disponibles y solicita reservas de citas. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [557a47c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/557a47c) | `feat: wire sprint 1 screens to search booking repository` | Descripción en español: Conecta las pantallas del Sprint 1 con los repositorios de búsqueda y reserva. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [a5f5062](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/a5f5062) | `feat: add store search filter by minimum rating` | Descripción en español: Añade un filtro de búsqueda por valoración mínima. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [e097ffd](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/e097ffd) | `feat: Redesign auth flow and fix store rating types` | Descripción en español: Rediseña el flujo de acceso y corrige los tipos de las valoraciones. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [f09d228](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/f09d228) | `feat: Add home dashboard and patient appointment flow` | Descripción en español: Añade la pantalla de inicio y el flujo de citas del paciente. | 07/10/2026 |
-| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) | `develop` | [861628c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile/commit/861628c) | `feat: Add notifications and backend setup docs` | Descripción en español: Añade notificaciones y documentación para configurar el backend. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [067fd5d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/067fd5d) | `chore(mobile): configure api base url for local and production` | Descripción en español: Configura las URL del backend para los entornos local y de producción. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [27fef3d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/27fef3d) | `feat: add retrofit client with timeouts and logging` | Descripción en español: Añade el cliente Retrofit con tiempos de espera y registro de comunicaciones. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [484564d](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/484564d) | `feat: Add remote booking and search API layer` | Descripción en español: Añade la capa de API remota para búsqueda y reserva. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [8f950a3](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/8f950a3) | `feat: load optical stores from backend` | Descripción en español: Carga los establecimientos ópticos desde el backend. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [3e6f97c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/3e6f97c) | `feat: register patient and login against api` | Descripción en español: Integra el registro y el inicio de sesión del paciente con la API. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [024cd92](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/024cd92) | `feat: fetch availability and book appointment` | Descripción en español: Consulta horarios disponibles y solicita reservas de citas. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [557a47c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/557a47c) | `feat: wire sprint 1 screens to search booking repository` | Descripción en español: Conecta las pantallas del Sprint 1 con los repositorios de búsqueda y reserva. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [a5f5062](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/a5f5062) | `feat: add store search filter by minimum rating` | Descripción en español: Añade un filtro de búsqueda por valoración mínima. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [e097ffd](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/e097ffd) | `feat: Redesign auth flow and fix store rating types` | Descripción en español: Rediseña el flujo de acceso y corrige los tipos de las valoraciones. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [f09d228](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/f09d228) | `feat: Add home dashboard and patient appointment flow` | Descripción en español: Añade la pantalla de inicio y el flujo de citas del paciente. | 07/10/2026 |
+| [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [861628c](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/861628c) | `feat: Add notifications and backend setup docs` | Descripción en español: Añade notificaciones y documentación para configurar el backend. | 07/10/2026 |
 
 **Nota:** los commits seleccionados no contienen un cuerpo adicional en Git. La columna Commit Message Body presenta una descripción explicativa en español, no una transcripción de un cuerpo original. Branch identifica la rama revisada que contiene el commit, no necesariamente su rama de creación.
 
-**Repositorios:** [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page), [Web Services](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) y [aplicación móvil](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile).
+**Repositorios:** [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page), [Web Services](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End) y [aplicación móvil](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile).
 
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
 
@@ -571,7 +581,7 @@ Característica: Búsqueda de ópticas y disponibilidad de atención
   Escenario: Búsqueda sin establecimientos coincidentes
     Dado que ninguna óptica coincide con los criterios de búsqueda
     Cuando el paciente realiza la búsqueda
-    Entonces obtiene una lista vacía y un mensaje informativo
+    Entonces obtiene una lista vacía de establecimientos
 ```
 
 ```gherkin
@@ -680,7 +690,7 @@ Los Web Services se ejecutaron en `http://127.0.0.1:8080` con el perfil local. L
 ![Swagger UI de OptiFlow](assets/cap4/sprint1/swagger-overview.png)
 
 
-**Consulta de ópticas.** La ejecución de GET /optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado (ver Figura 128).
+**Consulta de ópticas.** La ejecución de GET /api/v1/optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado (ver Figura 128).
 
 
 <a id="figura-128"></a>
@@ -692,7 +702,7 @@ Los Web Services se ejecutaron en `http://127.0.0.1:8080` con el perfil local. L
 ![Consulta de ópticas en Swagger](assets/cap4/sprint1/swagger-optical-stores.png)
 
 
-**Reserva confirmada.** POST /appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED (ver Figura 129).
+**Reserva confirmada.** POST /api/v1/appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED (ver Figura 129).
 
 
 <a id="figura-129"></a>
@@ -770,7 +780,7 @@ El recorrido utilizó el paciente ficticio Paciente Demo Informe. Tras el inicio
 <img src="assets/cap4/sprint1/mobile-booking-confirmed.png" alt="Confirmación de la reserva desde la aplicación" width="390">
 
 
-**Verificación de la cita móvil en el backend.** GET /appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend (ver Figura 135).
+**Verificación de la cita móvil en el backend.** GET /api/v1/appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend (ver Figura 135).
 
 
 <a id="figura-135"></a>
@@ -811,9 +821,10 @@ Los datos generales de la documentación de los Web Services se resumen en la Ta
 | URL base de la API | `https://logix-optiflow-back-end.onrender.com` (contrato histórico del Sprint 1, sin prefijo de versión) |
 | Formato de intercambio | JSON (`application/json`) |
 | Identificadores | UUID en todos los recursos |
-| Autenticación | `POST /login` devuelve un token para el paciente. En esta versión los endpoints aún no exigen el token; la protección por roles (US16) se incorporará en un siguiente Sprint. |
+| Datos de prueba | Al iniciar, el backend registra en su base de datos las ópticas con su ubicación, sus horarios, el catálogo de monturas con su stock, los proveedores y un usuario por rol: `admin@optiflow.test`, `optometrist@optiflow.test`, `advisor@optiflow.test`, `technician@optiflow.test` y `patient@optiflow.test`, con la contraseña `secret12`. No duplica ni sobrescribe los datos existentes. |
+| Autenticación | `POST /api/v1/auth/tokens` crea el token JWT del paciente o del miembro del personal y devuelve su rol. Las demás rutas, salvo las públicas, exigen el encabezado `Authorization: Bearer <token>` y se autorizan según el rol (US16). |
 
-Las respuestas siguen los códigos de estado HTTP estándar: `200 OK` (consulta o actualización exitosa), `201 Created` (recurso creado), `400 Bad Request` (datos inválidos o regla de dominio incumplida), `401 Unauthorized` (credenciales inválidas en `/login`), `404 Not Found` (recurso inexistente) y `409 Conflict` (conflicto de negocio, por ejemplo un horario que ya fue reservado). Los errores se devuelven con una estructura uniforme que incluye `status`, `error` y `message`.
+Las respuestas siguen los códigos de estado HTTP estándar: `200 OK` (consulta o actualización exitosa), `201 Created` (recurso creado), `400 Bad Request` (datos inválidos o regla de dominio incumplida), `401 Unauthorized` (credenciales inválidas en `/api/v1/auth/tokens`, o token ausente o inválido), `403 Forbidden` (el rol no tiene permiso o el recurso pertenece a otro paciente), `404 Not Found` (recurso inexistente) y `409 Conflict` (conflicto de negocio, por ejemplo un horario que ya fue reservado). Los errores se devuelven con una estructura uniforme que incluye `status`, `error` y `message`.
 
 ##### Search & Booking Context
 
@@ -844,7 +855,7 @@ Los Endpoints del Search & Booking Context se detallan en la Tabla 119.
 Ejemplo de interacción, reserva de una cita:
 
 ```http
-POST /appointments
+POST /api/v1/appointments
 Content-Type: application/json
 
 {
@@ -904,7 +915,7 @@ Los Endpoints del Clinical & Commercial Context se presentan en la Tabla 120.
 Ejemplo de interacción, generación de una cotización:
 
 ```http
-POST /quotations
+POST /api/v1/quotations
 Content-Type: application/json
 
 {
@@ -997,7 +1008,7 @@ Las capturas del 2026-10-08 registran la documentación publicada en Render. Se 
 ![Endpoints de Production & Tracking en Swagger](assets/cap4/sprint1/swagger-render-production-tracking.png)
 
 
-**Consulta de ópticas en el entorno desplegado.** GET /optical-stores devuelve HTTP 200 con las sucursales de Miraflores y San Isidro (ver Figura 140).
+**Consulta de ópticas en el entorno desplegado.** GET /api/v1/optical-stores devuelve HTTP 200 con las sucursales de Miraflores y San Isidro (ver Figura 140).
 
 
 <a id="figura-140"></a>
@@ -1009,7 +1020,7 @@ Las capturas del 2026-10-08 registran la documentación publicada en Render. Se 
 ![Consulta de ópticas en Render](assets/cap4/sprint1/swagger-render-optical-stores.png)
 
 
-**Consulta de disponibilidad.** GET /optical-stores/{id}/availability devuelve HTTP 200 con los horarios disponibles de la sucursal de Miraflores (ver Figura 141).
+**Consulta de disponibilidad.** GET /api/v1/optical-stores/{id}/time-slots devuelve HTTP 200 con los horarios disponibles de la sucursal de Miraflores (ver Figura 141).
 
 
 <a id="figura-141"></a>
@@ -1021,7 +1032,7 @@ Las capturas del 2026-10-08 registran la documentación publicada en Render. Se 
 ![Disponibilidad de horarios en Render](assets/cap4/sprint1/swagger-render-availability.png)
 
 
-**Consulta de técnicos de Production & Tracking.** GET /technicians devuelve HTTP 200 con los técnicos registrados para asignar órdenes de trabajo (ver Figura 142).
+**Consulta de técnicos de Production & Tracking.** GET /api/v1/technicians devuelve HTTP 200 con los técnicos registrados para asignar órdenes de trabajo (ver Figura 142).
 
 
 <a id="figura-142"></a>
@@ -1035,11 +1046,11 @@ Las capturas del 2026-10-08 registran la documentación publicada en Render. Se 
 
 ##### Commits relacionados con la documentación
 
-Los commits del repositorio de Web Services que incorporan o modifican la documentación OpenAPI durante el Sprint 1 se detallan en la Tabla 122.
+Los commits del repositorio de Web Services que incorporan o modifican la documentación OpenAPI durante el Sprint 1 se detallan en la Tabla 124.
 
-<a id="tabla-122"></a>
+<a id="tabla-124"></a>
 
-**Tabla 122**
+**Tabla 124**
 
 *Commits relacionados con la documentación de los Web Services*
 
@@ -1052,12 +1063,12 @@ Los commits del repositorio de Web Services que incorporan o modifican la docume
 
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
-La evidencia de despliegue del Sprint 1 comprende la **Landing Page en GitHub Pages**, los **Web Services en Render mediante Docker** y la distribución de la **aplicación móvil mediante Firebase App Distribution**. Cada producto tiene un mecanismo de publicación distinto. La sección identifica los entornos utilizados y debe interpretarse junto con las evidencias de ejecución y pruebas, sin equiparar la publicación con la validación de todas las funciones del producto (ver Tabla 123).
+La evidencia de despliegue del Sprint 1 comprende la **Landing Page en GitHub Pages**, los **Web Services en Render mediante Docker** y la distribución de la **aplicación móvil mediante Firebase App Distribution**. Cada producto tiene un mecanismo de publicación distinto. La sección identifica los entornos utilizados y debe interpretarse junto con las evidencias de ejecución y pruebas, sin equiparar la publicación con la validación de todas las funciones del producto (ver Tabla 125).
 
 
-<a id="tabla-123"></a>
+<a id="tabla-125"></a>
 
-**Tabla 123**
+**Tabla 125**
 
 *Productos desplegados en el Sprint 1*
 
@@ -1169,7 +1180,7 @@ Render vuelve a desplegar el servicio cada vez que se actualiza `develop`. El ú
 
 ##### Aplicación móvil
 
-La aplicación móvil se desarrolla en **Kotlin con Jetpack Compose** en el repositorio [Logix-OptiFlow-Movile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Movile) y se distribuyó mediante **Firebase App Distribution** para que los evaluadores puedan instalarla en sus dispositivos Android. La variante `prodDebug` consume los Web Services desplegados en Render.
+La aplicación móvil se desarrolla en **Kotlin con Jetpack Compose** en el repositorio [Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) y se distribuyó mediante **Firebase App Distribution** para que los evaluadores puedan instalarla en sus dispositivos Android. La variante `prodDebug` consume los Web Services desplegados en Render.
 
 **Paso 1: Creación del proyecto en Firebase.**
 
@@ -1345,16 +1356,16 @@ La disponibilidad de horarios obtenida de Render se observa en la Figura 160.
 
 <img src="assets/cap4/sprint1/deploy-mobile-availability.png" alt="Disponibilidad de horarios" width="300">
 
-Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /optical-stores/{id}/availability` de la [Figura 154](#figura-154).
+Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /api/v1/optical-stores/{id}/time-slots` de la [Figura 141](#figura-141).
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
-Durante el Sprint 1, las tareas de implementación de la Landing Page, los Web Services y la aplicación móvil se distribuyeron entre los integrantes según la matriz de líderes y colaboradores de la sección 4.2.1.2. El trabajo siguió **GitFlow** y **Conventional Commits**: cada integrante trabajó en ramas `feature/*` creadas desde `develop` y los cambios se integraron mediante *pull requests*. En la Landing Page, la publicación se realiza desde `main`, que dispara el workflow de GitHub Pages (ver Tabla 124).
+Durante el Sprint 1, las tareas de implementación de la Landing Page, los Web Services y la aplicación móvil se distribuyeron entre los integrantes según la matriz de líderes y colaboradores de la sección 4.2.1.2. El trabajo siguió **GitFlow** y **Conventional Commits**: cada integrante trabajó en ramas `feature/*` creadas desde `develop` y los cambios se integraron mediante *pull requests*. En la Landing Page, la publicación se realiza desde `main`, que dispara el workflow de GitHub Pages (ver Tabla 126).
 
 
-<a id="tabla-124"></a>
+<a id="tabla-126"></a>
 
-**Tabla 124**
+**Tabla 126**
 
 *Integrantes del equipo y sus usuarios de GitHub*
 
