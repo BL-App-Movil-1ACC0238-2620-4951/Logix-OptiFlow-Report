@@ -372,9 +372,6 @@ Las contribuciones por integrante al repositorio del informe durante TB1 se pres
 ## [Conclusiones](Conclusiones.md)
 
 - [Conclusiones y recomendaciones](Conclusiones.md#conclusiones)
-- [Video App Validation](Conclusiones.md#video-app-validation)
-- [Video About the Product](Conclusiones.md#video-about-the-product)
-- [Video About the Team](Conclusiones.md#video-about-the-team)
 
 
 ## [Glosario](Glosario.md)
