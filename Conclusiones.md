@@ -53,65 +53,56 @@ La grabación de AV2 se vincula con la distribución del APK y con la evaluació
 | Inicio de las sesiones por segmento | |
 | Captura representativa | |
 
-## Video About-the-Product
+## Video About the Product
 
-OptiFlow busca facilitar la relación entre el paciente y la óptica mediante un recorrido que reúne la búsqueda del establecimiento, la consulta de horarios y la reserva de una cita. La presentación del producto parte de las dificultades de coordinar la atención por distintos canales y explica cómo una experiencia móvil puede organizar ese proceso.
+Este video presenta la propuesta de OptiFlow como una solución para centralizar información y procesos relacionados con la atención en ópticas. En la revisión visual se identifican funciones dirigidas al paciente —búsqueda de ópticas en un mapa, reserva de citas, pedidos, avisos y prueba virtual de monturas— y al personal de la óptica —cotizaciones, ventas, inventario, taller y reportes—, además de referencias a seguridad y servicios en la nube. La captura muestra la búsqueda de ópticas cercanas y la opción de reservar una cita.
 
-El recorrido se concentra en las funciones de la versión entregada: acceso, búsqueda, disponibilidad y confirmación de la reserva. La consulta del historial y el seguimiento de pedidos se presentan con el alcance que tengan en esa versión, diferenciando los servicios conectados de las vistas de demostración. La Landing Page complementa la presentación con la propuesta de valor y el acceso a la aplicación.
+<a id="figura-207"></a>
 
-El testimonio de un participante de la validación aporta la perspectiva del usuario sobre la experiencia de uso. Su intervención se relaciona con una tarea realizada y conserva el sentido de su comentario. La Tabla CO2 registra la versión del video destinada al curso, su publicación pública y la referencia del testimonio.
+**Figura 207**
 
-<a id="tabla-co2"></a>
+*Búsqueda de ópticas cercanas y opción de reservar una cita en OptiFlow*
 
-**Tabla CO2**
+![Búsqueda de ópticas y reserva de cita mostradas en el video About the Product](assets/cap4/videos/OptiFlow_About_the_Product_captura.png)
 
-*Registro del Video About-the-Product de AV2*
+*Fuente: Captura del video del equipo en 00:00:57.*
 
-| Dato | Registro |
-|---|---|
-| Video en OneDrive / Microsoft Stream | |
-| Versión pública en YouTube | |
-| Enlace de la Landing que lo incorpora | |
-| Duración total | |
-| Participante del testimonio y momento de inicio | |
-| Captura representativa | |
+**Duración:** 00:02:03 minutos.
 
-## Video About-the-Team
+**Video:**
 
-El trabajo en OptiFlow comprende la investigación del problema, la definición de los segmentos, el modelado del dominio, el diseño de la experiencia y la implementación de los productos. La presentación del equipo sigue ese recorrido y relaciona las decisiones con los avances de cada Sprint.
+- [YouTube](https://www.youtube.com/watch?v=kp8q3Ojp2LI)
+- [OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202417405_upc_edu_pe/IQDkcvZ_f404Q7KTI0hx7GlBAcd_AJtuvGxw_VgAyL_fvk0?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=pagewO)
 
-La organización del Sprint 2 distribuye los servicios y la seguridad a César; la integración de Flutter a Nicolas; las pruebas a Felix; la Landing Page y la validación a Mariana; y la coordinación y documentación a Eslander. La colaboración entre estos aspectos permite revisar el contrato de servicios, resolver dificultades de integración y conservar las evidencias de la entrega.
 
-Cada integrante explica su participación, una dificultad técnica y el aprendizaje que le permitió abordarla. Estos testimonios se relacionan con el Student Outcome 7: adquirir y aplicar nuevos conocimientos mediante estrategias de aprendizaje apropiadas. Las escenas de trabajo y las revisiones del producto acompañan la explicación del proceso. La Tabla CO3 registra la publicación del video y la Tabla CO4 organiza sus secciones.
+## Video About the Team
 
-<a id="tabla-co3"></a>
+El video presenta una portada del equipo Logix y, a continuación, cinco bloques visuales por orden como testimonios de cada uno de los participantes del proyecto.
 
-**Tabla CO3**
+<a id="figura-208"></a>
 
-*Registro del Video About-the-Team de AV2*
+**Figura 208**
 
-| Dato | Registro |
-|---|---|
-| Video en OneDrive / Microsoft Stream | |
-| Versión pública en YouTube | |
-| Duración total | |
-| Captura representativa | |
+*Portada del video About the Team del equipo Logix*
 
-<a id="tabla-co4"></a>
+![Portada del video About the Team](assets/cap4/videos/OptiFlow_About_the_Team_captura.png)
 
-**Tabla CO4**
+*Fuente: Captura del video del equipo en 00:00:01.*
 
-*Secuencias del Video About-the-Team*
+**Duración:** 00:06:09 minutos.
 
-| Sección | Contenido | Inicio (hh:mm:ss) |
-|---|---|---|
-| Presentación | Integrantes, producto y alcance de AV2. | |
-| Investigación y diseño | Problema de atención óptica, segmentos, decisiones del dominio y experiencia móvil. | |
-| Implementación del incremento | Backend versionado, seguridad, Flutter y publicación de la Landing Page. | |
-| Organización del trabajo | Distribución de tareas, coordinación, revisión de cambios y evidencias del Sprint. | |
-| Testimonio de César | Decisiones de servicios y seguridad; aprendizaje asociado con contratos y permisos. | |
-| Testimonio de Nicolas | Integración del cliente Flutter; aprendizaje sobre navegación, estado y comunicación con servicios. | |
-| Testimonio de Felix | Pruebas unitarias, integración y aceptación; aprendizaje sobre reproducción y análisis de resultados. | |
-| Testimonio de Mariana | Landing Page y validación; aprendizaje sobre accesibilidad y observación de usuarios. | |
-| Testimonio de Eslander | Coordinación y documentación; aprendizaje sobre trazabilidad entre tareas, versiones y evidencias. | |
-| Cierre | Principales aprendizajes del equipo y siguientes pasos del producto. | |
+**Video:**
+
+- [YouTube](https://www.youtube.com/watch?v=_Kak03FkP5s)
+- [OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202417405_upc_edu_pe/IQB2eKOGMeJZQbxlasnPLsHIAQ7wSQyj9SjgZlo6ltTBmaA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=BPE4Eo)
+
+| Sección visual | Inicio | Fin |
+| :--- | :---: | :---: |
+| Portada | 00:00:00 | 00:00:05 |
+| Testimonio 1 Eslander Celis | 00:00:05 | 00:01:05 |
+| Testimonio 2 Mariana Morocho | 00:01:05 | 00:02:15 |
+| Testimonio 3 Cesar Augusto | 00:02:15 | 00:03:15 |
+| Testimonio 4 Nicolas Fernando | 00:03:16 | 00:04:42 |
+| Testimonio 5 Felix Orlando | 00:04:42 | 00:06:04 |
+| Cierre | 00:06:04 | 00:06:09 |
+| Fin del archivo | 00:06:09 | 00:06:09 |
