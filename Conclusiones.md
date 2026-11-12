@@ -53,9 +53,9 @@ La Tabla CO1 registra los datos del video y el minuto en que empieza cada sesió
 
 El video presenta OptiFlow como una solución que reúne en un solo lugar la información y los procesos de la atención en ópticas. Muestra las funciones para el paciente —búsqueda de ópticas en un mapa, reserva de citas, pedidos, avisos y prueba virtual de monturas— y para el personal de la óptica —cotizaciones, ventas, inventario, taller y reportes—, además de la seguridad y los servicios en la nube. La captura muestra la búsqueda de ópticas cercanas y la opción de reservar una cita.
 
-<a id="figura-207"></a>
+<a id="figura-209"></a>
 
-**Figura 207**
+**Figura 209**
 
 *Búsqueda de ópticas cercanas y opción de reservar una cita en OptiFlow*
 
@@ -75,9 +75,9 @@ El video presenta OptiFlow como una solución que reúne en un solo lugar la inf
 
 El video empieza con una portada del equipo Logix y sigue con el testimonio de cada uno de los cinco integrantes.
 
-<a id="figura-208"></a>
+<a id="figura-210"></a>
 
-**Figura 208**
+**Figura 210**
 
 *Portada del video About the Team del equipo Logix*
 

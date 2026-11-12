@@ -17,11 +17,11 @@ La visión de OptiFlow es convertirse en una plataforma de referencia para el ag
 ### 1.1.2. Perfiles de integrantes del equipo
 
 
-Los perfiles de los integrantes del equipo se resumen en la Tabla 5.
+Los perfiles de los integrantes del equipo se resumen en la Tabla 6.
 
-<a id="tabla-5"></a>
+<a id="tabla-6"></a>
 
-**Tabla 5**
+**Tabla 6**
 
 *Perfiles de los integrantes del equipo*
 
@@ -256,11 +256,11 @@ Creemos que el seguimiento móvil de pedidos y las notificaciones oportunas redu
 #### 1.2.2.4. Lean UX Canvas
 
 
-El Lean UX Canvas de OptiFlow se muestra en la Figura 6.
+El Lean UX Canvas de OptiFlow se muestra en la Figura 8.
 
-<a id="figura-6"></a>
+<a id="figura-8"></a>
 
-**Figura 6**
+**Figura 8**
 
 *Lean UX Canvas de OptiFlow*
 

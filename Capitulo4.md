@@ -19,11 +19,11 @@ Esta sección describe las herramientas del entorno de trabajo y su función en 
 ##### Figma
 
 
-El logo de Figma se presenta en la Figura 115.
+El logo de Figma se presenta en la Figura 117.
 
-<a id="figura-115"></a>
+<a id="figura-117"></a>
 
-**Figura 115**
+**Figura 117**
 
 *Logo de Figma*
 
@@ -37,11 +37,11 @@ Ruta de referencia: https://www.figma.com
 ##### Android Studio
 
 
-El logo de Android Studio se observa en la Figura 116.
+El logo de Android Studio se observa en la Figura 118.
 
-<a id="figura-116"></a>
+<a id="figura-118"></a>
 
-**Figura 116**
+**Figura 118**
 
 *Logo de Android Studio*
 
@@ -55,11 +55,11 @@ Ruta de descarga: https://developer.android.com/studio
 ##### Docker
 
 
-El logo de Docker se muestra en la Figura 117.
+El logo de Docker se muestra en la Figura 119.
 
-<a id="figura-117"></a>
+<a id="figura-119"></a>
 
-**Figura 117**
+**Figura 119**
 
 *Logo de Docker*
 
@@ -73,11 +73,11 @@ Ruta de descarga: https://www.docker.com/products/docker-desktop
 ##### Structurizr
 
 
-El logo de Structurizr se presenta en la Figura 118.
+El logo de Structurizr se presenta en la Figura 120.
 
-<a id="figura-118"></a>
+<a id="figura-120"></a>
 
-**Figura 118**
+**Figura 120**
 
 *Logo de Structurizr*
 
@@ -91,11 +91,11 @@ Ruta de referencia: https://structurizr.com
 ##### Miro
 
 
-El logo de Miro se observa en la Figura 119.
+El logo de Miro se observa en la Figura 121.
 
-<a id="figura-119"></a>
+<a id="figura-121"></a>
 
-**Figura 119**
+**Figura 121**
 
 *Logo de Miro*
 
@@ -131,11 +131,11 @@ El equipo utiliza **Git** para el control de versiones y **GitHub** para alojar 
 ##### Repositorios del proyecto
 
 
-Los repositorios del proyecto se detallan en la Tabla 106.
+Los repositorios del proyecto se detallan en la Tabla 107.
 
-<a id="tabla-106"></a>
+<a id="tabla-107"></a>
 
-**Tabla 106**
+**Tabla 107**
 
 *Repositorios del proyecto*
 
@@ -152,14 +152,14 @@ El informe utiliza ramas por alcance y Pull Requests hacia `develop`. La revisi�
 
 ##### Flujo de trabajo con GitFlow
 
-Se establece **GitFlow** como convención para organizar el desarrollo en ramas con responsabilidades definidas. La Tabla 107 describe la política de integración; los historiales de cada producto muestran qué ramas se utilizaron en cada Sprint.
+Se establece **GitFlow** como convención para organizar el desarrollo en ramas con responsabilidades definidas. La Tabla 108 describe la política de integración; los historiales de cada producto muestran qué ramas se utilizaron en cada Sprint.
 
 
-Las ramas del flujo de trabajo GitFlow se presentan en la Tabla 107.
+Las ramas del flujo de trabajo GitFlow se presentan en la Tabla 108.
 
-<a id="tabla-107"></a>
+<a id="tabla-108"></a>
 
-**Tabla 107**
+**Tabla 108**
 
 *Ramas del flujo de trabajo GitFlow*
 
@@ -185,11 +185,11 @@ Las guías de estilo buscan mantener el código legible y consistente entre los 
 ##### Guías de estilo por lenguaje
 
 
-Las guías de estilo por lenguaje se resumen en la Tabla 108.
+Las guías de estilo por lenguaje se resumen en la Tabla 109.
 
-<a id="tabla-108"></a>
+<a id="tabla-109"></a>
 
-**Tabla 108**
+**Tabla 109**
 
 *Guías de estilo por lenguaje*
 
@@ -205,11 +205,11 @@ Las guías de estilo por lenguaje se resumen en la Tabla 108.
 ##### Convenciones de nomenclatura
 
 
-Las convenciones de nomenclatura se detallan en la Tabla 109.
+Las convenciones de nomenclatura se detallan en la Tabla 110.
 
-<a id="tabla-109"></a>
+<a id="tabla-110"></a>
 
-**Tabla 109**
+**Tabla 110**
 
 *Convenciones de nomenclatura*
 
@@ -278,12 +278,12 @@ El cliente Flutter de AV2 se configura mediante `--dart-define=API_BASE_URL=...`
 
 ##### Deployment Diagram
 
-El Deployment Diagram muestra los nodos de publicación y ejecución de OptiFlow: GitHub Pages para la Landing Page, Render para el backend y su base de datos PostgreSQL, Firebase App Distribution para distribuir la aplicación a los dispositivos Android, y los servicios externos con los que se integran el backend (Pasarela de Pagos y Firebase Cloud Messaging) y la aplicación móvil (OpenStreetMap). Es el mismo diagrama de la sección 2.5.3.3. La evidencia de los entornos utilizados se presenta en la sección 4.2.1.8 (ver Figura 120).
+El Deployment Diagram muestra los nodos de publicación y ejecución de OptiFlow: GitHub Pages para la Landing Page, Render para el backend y su base de datos PostgreSQL, Firebase App Distribution para distribuir la aplicación a los dispositivos Android, y los servicios externos con los que se integran el backend (Pasarela de Pagos y Firebase Cloud Messaging) y la aplicación móvil (OpenStreetMap). Es el mismo diagrama de la sección 2.5.3.3. La evidencia de los entornos utilizados se presenta en la sección 4.2.1.8 (ver Figura 122).
 
 
-<a id="figura-120"></a>
+<a id="figura-122"></a>
 
-**Figura 120**
+**Figura 122**
 
 *Deployment Diagram de OptiFlow*
 
@@ -302,12 +302,12 @@ El alcance funcional comprometido en el Sprint 1 se concentra en las User Storie
 #### 4.2.1.1. Sprint Planning 1
 El Sprint Planning 1 tuvo como finalidad establecer el objetivo de la primera iteración, seleccionar las User Stories que contribuyen directamente a dicho objetivo, determinar la capacidad inicial del equipo y distribuir las principales responsabilidades de implementación.
 
-La reunión se realizó de manera virtual mediante Discord y fue preparada por Celis Berrospi, Eslander. Debido a que Sprint 1 representa la primera iteración de implementación de la solución, no existe un Sprint anterior sobre el cual realizar un Sprint Review o Sprint Retrospective formal (ver Tabla 110).
+La reunión se realizó de manera virtual mediante Discord y fue preparada por Celis Berrospi, Eslander. Debido a que Sprint 1 representa la primera iteración de implementación de la solución, no existe un Sprint anterior sobre el cual realizar un Sprint Review o Sprint Retrospective formal (ver Tabla 111).
 
 
-<a id="tabla-110"></a>
+<a id="tabla-111"></a>
 
-**Tabla 110**
+**Tabla 111**
 
 *Sprint Planning 1*
 
@@ -335,12 +335,12 @@ El alcance estimado en Story Points corresponde a US05 y US06. Las actividades d
 #### 4.2.1.2. Aspect Leaders and Collaborators
 Para organizar las responsabilidades del Sprint se establece una Leadership-and-Collaboration Matrix (LACX). La matriz identifica al integrante responsable de liderar cada aspecto y a los integrantes que participan como colaboradores.
 
-Los principales aspectos considerados durante Sprint 1 son la implementación del Landing Page, la experiencia móvil de búsqueda de ópticas, el flujo móvil de reserva de citas, los servicios asociados a Search & Booking y la integración y coordinación general del Sprint (ver Tabla 111).
+Los principales aspectos considerados durante Sprint 1 son la implementación del Landing Page, la experiencia móvil de búsqueda de ópticas, el flujo móvil de reserva de citas, los servicios asociados a Search & Booking y la integración y coordinación general del Sprint (ver Tabla 112).
 
 
-<a id="tabla-111"></a>
+<a id="tabla-112"></a>
 
-**Tabla 111**
+**Tabla 112**
 
 *Aspect leaders y colaboradores del Sprint 1*
 
@@ -362,23 +362,23 @@ Cada aspecto cuenta con un líder y colaboradores. La matriz expresa la distribu
 
 El Sprint Backlog reúne las tareas de búsqueda de ópticas y reserva de citas correspondientes a US05 y US06, junto con las actividades adicionales de la Landing Page. La tabla conserva las estimaciones y responsabilidades del registro de planificación. Las 13 tareas se encuentran en estado Done, ya que la Landing Page está publicada y la búsqueda de ópticas y la reserva de citas funcionan en la aplicación móvil y en los Web Services, como se evidencia en las secciones 4.2.1.6 a 4.2.1.8.
 
-**Board del Sprint:** [Tablero del Sprint 1 en GitHub](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report/blob/develop/assets/cap4/sprint1/sprint-board.md) · [Vista del tablero local](assets/cap4/sprint1/sprint-board.html). El tablero adjunto se elaboró para esta revisión a partir de las tareas del informe y sus evidencias (ver Figura 121).
+**Board del Sprint:** [Tablero del Sprint 1 en GitHub](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Report/blob/develop/assets/cap4/sprint1/sprint-board.md) · [Vista del tablero local](assets/cap4/sprint1/sprint-board.html). El tablero adjunto se elaboró para esta revisión a partir de las tareas del informe y sus evidencias (ver Figura 123).
 
 
-<a id="figura-121"></a>
+<a id="figura-123"></a>
 
-**Figura 121**
+**Figura 123**
 
 *Tablero de revisión del Sprint 1*
 
 ![Tablero de revisión del Sprint 1](assets/cap4/sprint1/sprint-board.png)
 
 
-El Sprint Backlog 1 se presenta en la Tabla 112.
+El Sprint Backlog 1 se presenta en la Tabla 113.
 
-<a id="tabla-112"></a>
+<a id="tabla-113"></a>
 
-**Tabla 112**
+**Tabla 113**
 
 *Sprint Backlog 1*
 
@@ -410,12 +410,12 @@ El Sprint Backlog 1 se presenta en la Tabla 112.
 
 Durante el Sprint 1 se registraron avances en los tres productos principales de OptiFlow. La Landing Page incorpora secciones informativas, ajustes visuales, navegación y validaciones del formulario. El backend incluye operaciones de búsqueda de ópticas, disponibilidad y reserva de citas, además de validaciones de entrada y manejo de errores. La aplicación móvil incorpora el cliente de comunicación con el backend, el registro e inicio de sesión del paciente, la consulta de establecimientos y la selección de horarios para realizar reservas.
 
-La siguiente tabla presenta commits representativos del alcance documentado, obtenidos de los historiales de las clonaciones locales revisadas el 2026-10-07 (ver Tabla 113).
+La siguiente tabla presenta commits representativos del alcance documentado, obtenidos de los historiales de las clonaciones locales revisadas el 2026-10-07 (ver Tabla 114).
 
 
-<a id="tabla-113"></a>
+<a id="tabla-114"></a>
 
-**Tabla 113**
+**Tabla 114**
 
 *Commits de desarrollo del Sprint 1*
 
@@ -453,11 +453,11 @@ La siguiente tabla presenta commits representativos del alcance documentado, obt
 
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
 
-La verificación de Web Services comprende pruebas unitarias, de integración y de aceptación automatizadas bajo BDD, relacionadas con US05, US06 y el soporte al registro del paciente. La Tabla 114 presenta los commits de testing con la estructura del enunciado: repositorio, rama, identificador, mensaje, cuerpo explicativo y fecha.
+La verificación de Web Services comprende pruebas unitarias, de integración y de aceptación automatizadas bajo BDD, relacionadas con US05, US06 y el soporte al registro del paciente. La Tabla 115 presenta los commits de testing con la estructura del enunciado: repositorio, rama, identificador, mensaje, cuerpo explicativo y fecha.
 
-<a id="tabla-114"></a>
+<a id="tabla-115"></a>
 
-**Tabla 114**
+**Tabla 115**
 
 *Commits de la suite de pruebas*
 
@@ -474,12 +474,12 @@ La columna Commit Message Body explica en español el alcance del cambio. Branch
 
 ##### Relación complementaria de pruebas diseñadas
 
-JUnit valida las reglas del dominio; Spring Boot Test y MockMvc comprueban las operaciones de la API; Cucumber ejecuta los escenarios Gherkin mediante Steps en Java. La Tabla 115 detalla las suites, sus clases y los comportamientos relacionados.
+JUnit valida las reglas del dominio; Spring Boot Test y MockMvc comprueban las operaciones de la API; Cucumber ejecuta los escenarios Gherkin mediante Steps en Java. La Tabla 116 detalla las suites, sus clases y los comportamientos relacionados.
 
 
-<a id="tabla-115"></a>
+<a id="tabla-116"></a>
 
-**Tabla 115**
+**Tabla 116**
 
 *Escenarios de prueba del Sprint 1*
 
@@ -494,12 +494,12 @@ JUnit valida las reglas del dominio; Spring Boot Test y MockMvc comprueban las o
 
 ##### Resultados complementarios de ejecución
 
-El 2026-10-07 a las 23:09:57 (America/Lima) se ejecutó `mvn test` sobre el backend con la suite BDD incorporada localmente. Maven finalizó con **BUILD SUCCESS: 53 tests, 0 failures, 0 errors y 0 skipped**. Las suites relacionadas con Search & Booking y soporte suman 38 ejecuciones, incluidos cuatro escenarios de aceptación. Las 15 ejecuciones restantes corresponden a Clinical & Commercial y Production & Tracking (ver Tabla 116).
+El 2026-10-07 a las 23:09:57 (America/Lima) se ejecutó `mvn test` sobre el backend con la suite BDD incorporada localmente. Maven finalizó con **BUILD SUCCESS: 53 tests, 0 failures, 0 errors y 0 skipped**. Las suites relacionadas con Search & Booking y soporte suman 38 ejecuciones, incluidos cuatro escenarios de aceptación. Las 15 ejecuciones restantes corresponden a Clinical & Commercial y Production & Tracking (ver Tabla 117).
 
 
-<a id="tabla-116"></a>
+<a id="tabla-117"></a>
 
-**Tabla 116**
+**Tabla 117**
 
 *Resultados de ejecución de la suite de pruebas*
 
@@ -517,12 +517,12 @@ El 2026-10-07 a las 23:09:57 (America/Lima) se ejecutó `mvn test` sobre el back
 
 Los casos parametrizados se contabilizan como ejecuciones individuales. La ejecución utilizó Java 25.0.3 con release 21 configurado en Maven. Las pruebas BDD emplean una base H2 independiente (`optiflow_bdd`), pacientes con correos únicos y horarios nuevos para los escenarios de reserva, sin acceder a datos de producción.
 
-**Evidencias:** [resumen de Maven Surefire](assets/cap4/sprint1/test-results.txt), [reporte HTML de Cucumber](assets/cap4/sprint1/testing/cucumber.html) y [resultados JSON](assets/cap4/sprint1/testing/cucumber.json) (ver Figura 122).
+**Evidencias:** [resumen de Maven Surefire](assets/cap4/sprint1/test-results.txt), [reporte HTML de Cucumber](assets/cap4/sprint1/testing/cucumber.html) y [resultados JSON](assets/cap4/sprint1/testing/cucumber.json) (ver Figura 124).
 
 
-<a id="figura-122"></a>
+<a id="figura-124"></a>
 
-**Figura 122**
+**Figura 124**
 
 *Resultado de los escenarios de aceptación en Cucumber*
 
@@ -545,11 +545,11 @@ La suite BDD se encuentra registrada en el commit [706ada9](https://github.com/B
 ##### Archivos de pruebas de aceptación
 
 
-Los archivos de pruebas de aceptación se detallan en la Tabla 117.
+Los archivos de pruebas de aceptación se detallan en la Tabla 118.
 
-<a id="tabla-117"></a>
+<a id="tabla-118"></a>
 
-**Tabla 117**
+**Tabla 118**
 
 *Archivos de pruebas de aceptación*
 
@@ -627,47 +627,47 @@ La ejecución del incremento permitió visualizar la Landing Page en escritorio 
 
 La Landing Page presenta la propuesta de valor de OptiFlow y permite navegar entre sus secciones informativas. Las capturas se obtuvieron desde la clonación local en Chrome, con viewports de 1440 × 1000 píxeles para escritorio y 390 × 844 píxeles para móvil. Se utilizó el control Saltar para finalizar la introducción y acceder a la vista principal.
 
-**Landing Page en escritorio.** Se visualizan la identidad de OptiFlow, la propuesta de valor y los accesos de navegación (ver Figura 123).
-
-
-<a id="figura-123"></a>
-
-**Figura 123**
-
-*Landing Page en escritorio*
-
-![Landing Page en escritorio](assets/cap4/sprint1/landing-desktop.png)
-
-
-**Landing Page en móvil.** La presentación se adapta a una distribución vertical y la navegación utiliza un menú compacto (ver Figura 124).
-
-
-<a id="figura-124"></a>
-
-**Figura 124**
-
-*Landing Page en móvil*
-
-<img src="assets/cap4/sprint1/landing-mobile.png" alt="Landing Page en móvil" width="390">
-
-
-**Menú y navegación móvil.** Se abrió el menú y se seleccionó Beneficios para comprobar el acceso a la sección correspondiente (ver Figura 125).
+**Landing Page en escritorio.** Se visualizan la identidad de OptiFlow, la propuesta de valor y los accesos de navegación (ver Figura 125).
 
 
 <a id="figura-125"></a>
 
 **Figura 125**
 
+*Landing Page en escritorio*
+
+![Landing Page en escritorio](assets/cap4/sprint1/landing-desktop.png)
+
+
+**Landing Page en móvil.** La presentación se adapta a una distribución vertical y la navegación utiliza un menú compacto (ver Figura 126).
+
+
+<a id="figura-126"></a>
+
+**Figura 126**
+
+*Landing Page en móvil*
+
+<img src="assets/cap4/sprint1/landing-mobile.png" alt="Landing Page en móvil" width="390">
+
+
+**Menú y navegación móvil.** Se abrió el menú y se seleccionó Beneficios para comprobar el acceso a la sección correspondiente (ver Figura 127).
+
+
+<a id="figura-127"></a>
+
+**Figura 127**
+
 *Menú móvil de la Landing Page*
 
 <img src="assets/cap4/sprint1/landing-mobile-menu.png" alt="Menú móvil de la Landing Page" width="390">
 
 
-El navegación móvil a Beneficios se presenta en la Figura 126.
+El navegación móvil a Beneficios se presenta en la Figura 128.
 
-<a id="figura-126"></a>
+<a id="figura-128"></a>
 
-**Figura 126**
+**Figura 128**
 
 *Navegación móvil a Beneficios*
 
@@ -678,48 +678,48 @@ El navegación móvil a Beneficios se presenta en la Figura 126.
 
 Los Web Services se ejecutaron en `http://127.0.0.1:8080` con el perfil local. La documentación OpenAPI se visualizó en [Swagger UI local](http://localhost:8080/swagger-ui/index.html), que permitió ejecutar consultas y solicitudes con datos de demostración. El README de la aplicación también referencia [Swagger del backend desplegado](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html); las evidencias de esta revisión corresponden al entorno local.
 
-**Vista general de Swagger.** La documentación organiza las operaciones de pacientes, ópticas, disponibilidad y citas dentro de Search & Booking (ver Figura 127).
-
-
-<a id="figura-127"></a>
-
-**Figura 127**
-
-*Swagger UI de OptiFlow*
-
-![Swagger UI de OptiFlow](assets/cap4/sprint1/swagger-overview.png)
-
-
-**Consulta de ópticas.** La ejecución de GET /api/v1/optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado (ver Figura 128).
-
-
-<a id="figura-128"></a>
-
-**Figura 128**
-
-*Consulta de ópticas en Swagger*
-
-![Consulta de ópticas en Swagger](assets/cap4/sprint1/swagger-optical-stores.png)
-
-
-**Reserva confirmada.** POST /api/v1/appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED (ver Figura 129).
+**Vista general de Swagger.** La documentación organiza las operaciones de pacientes, ópticas, disponibilidad y citas dentro de Search & Booking (ver Figura 129).
 
 
 <a id="figura-129"></a>
 
 **Figura 129**
 
-*Reserva confirmada en Swagger*
+*Swagger UI de OptiFlow*
 
-![Reserva confirmada en Swagger](assets/cap4/sprint1/swagger-booking-confirmed.png)
+![Swagger UI de OptiFlow](assets/cap4/sprint1/swagger-overview.png)
 
 
-**Prevención de doble reserva.** Al repetir la solicitud sobre el mismo horario, el servicio devuelve HTTP 409 e informa que el horario seleccionado ya no está disponible (ver Figura 130).
+**Consulta de ópticas.** La ejecución de GET /api/v1/optical-stores devuelve HTTP 200 y la información de las sucursales de Miraflores y San Isidro, incluyendo dirección, teléfono, valoración y estado (ver Figura 130).
 
 
 <a id="figura-130"></a>
 
 **Figura 130**
+
+*Consulta de ópticas en Swagger*
+
+![Consulta de ópticas en Swagger](assets/cap4/sprint1/swagger-optical-stores.png)
+
+
+**Reserva confirmada.** POST /api/v1/appointments registra una cita con datos de prueba y devuelve HTTP 201 con estado CONFIRMED (ver Figura 131).
+
+
+<a id="figura-131"></a>
+
+**Figura 131**
+
+*Reserva confirmada en Swagger*
+
+![Reserva confirmada en Swagger](assets/cap4/sprint1/swagger-booking-confirmed.png)
+
+
+**Prevención de doble reserva.** Al repetir la solicitud sobre el mismo horario, el servicio devuelve HTTP 409 e informa que el horario seleccionado ya no está disponible (ver Figura 132).
+
+
+<a id="figura-132"></a>
+
+**Figura 132**
 
 *Rechazo de doble reserva en Swagger*
 
@@ -732,60 +732,60 @@ La aplicación se compiló desde la rama develop mediante assembleLocalDebug y G
 
 El recorrido utilizó el paciente ficticio Paciente Demo Informe. Tras el inicio de sesión se consultaron las ópticas disponibles, se abrió la sucursal de Miraflores, se solicitaron sus horarios y se confirmó una reserva. Las fechas y horas visibles corresponden a la zona horaria del emulador, configurado en UTC durante esta demostración.
 
-**Acceso del paciente.** Inicio de sesión con una cuenta ficticia del backend local (ver Figura 131).
-
-
-<a id="figura-131"></a>
-
-**Figura 131**
-
-*Acceso del paciente de demostración*
-
-<img src="assets/cap4/sprint1/mobile-access.png" alt="Acceso del paciente de demostración" width="390">
-
-
-**Búsqueda de ópticas (US05).** La app muestra establecimientos obtenidos del backend, con sus direcciones, teléfonos, valoraciones y controles de búsqueda (ver Figura 132).
-
-
-<a id="figura-132"></a>
-
-**Figura 132**
-
-*Búsqueda de ópticas en la aplicación*
-
-<img src="assets/cap4/sprint1/mobile-search.png" alt="Búsqueda de ópticas en la aplicación" width="390">
-
-
-**Disponibilidad de atención.** Se consultan los horarios disponibles de la sucursal de Miraflores antes de solicitar la reserva (ver Figura 133).
+**Acceso del paciente.** Inicio de sesión con una cuenta ficticia del backend local (ver Figura 133).
 
 
 <a id="figura-133"></a>
 
 **Figura 133**
 
-*Disponibilidad de horarios en la aplicación*
+*Acceso del paciente de demostración*
 
-<img src="assets/cap4/sprint1/mobile-availability.png" alt="Disponibilidad de horarios en la aplicación" width="390">
+<img src="assets/cap4/sprint1/mobile-access.png" alt="Acceso del paciente de demostración" width="390">
 
 
-**Reserva confirmada (US06).** La app muestra el identificador de la cita creada y su estado CONFIRMED (ver Figura 134).
+**Búsqueda de ópticas (US05).** La app muestra establecimientos obtenidos del backend, con sus direcciones, teléfonos, valoraciones y controles de búsqueda (ver Figura 134).
 
 
 <a id="figura-134"></a>
 
 **Figura 134**
 
-*Confirmación de la reserva desde la aplicación*
+*Búsqueda de ópticas en la aplicación*
 
-<img src="assets/cap4/sprint1/mobile-booking-confirmed.png" alt="Confirmación de la reserva desde la aplicación" width="390">
+<img src="assets/cap4/sprint1/mobile-search.png" alt="Búsqueda de ópticas en la aplicación" width="390">
 
 
-**Verificación de la cita móvil en el backend.** GET /api/v1/appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend (ver Figura 135).
+**Disponibilidad de atención.** Se consultan los horarios disponibles de la sucursal de Miraflores antes de solicitar la reserva (ver Figura 135).
 
 
 <a id="figura-135"></a>
 
 **Figura 135**
+
+*Disponibilidad de horarios en la aplicación*
+
+<img src="assets/cap4/sprint1/mobile-availability.png" alt="Disponibilidad de horarios en la aplicación" width="390">
+
+
+**Reserva confirmada (US06).** La app muestra el identificador de la cita creada y su estado CONFIRMED (ver Figura 136).
+
+
+<a id="figura-136"></a>
+
+**Figura 136**
+
+*Confirmación de la reserva desde la aplicación*
+
+<img src="assets/cap4/sprint1/mobile-booking-confirmed.png" alt="Confirmación de la reserva desde la aplicación" width="390">
+
+
+**Verificación de la cita móvil en el backend.** GET /api/v1/appointments/{id} devuelve HTTP 200 para el mismo identificador mostrado en la app, confirmando que la operación se registró en el backend (ver Figura 137).
+
+
+<a id="figura-137"></a>
+
+**Figura 137**
 
 *Consulta en Swagger de la cita creada desde la app*
 
@@ -803,11 +803,11 @@ La documentación cubre los tres bounded contexts del **Core Domain** definidos 
 **Datos generales de la documentación**
 
 
-Los datos generales de la documentación de los Web Services se resumen en la Tabla 118.
+Los datos generales de la documentación de los Web Services se resumen en la Tabla 119.
 
-<a id="tabla-118"></a>
+<a id="tabla-119"></a>
 
-**Tabla 118**
+**Tabla 119**
 
 *Datos generales de la documentación de los Web Services*
 
@@ -829,11 +829,11 @@ Las respuestas siguen los códigos de estado HTTP estándar: `200 OK` (consulta 
 ##### Search & Booking Context
 
 
-Los Endpoints del Search & Booking Context se detallan en la Tabla 119.
+Los Endpoints del Search & Booking Context se detallan en la Tabla 120.
 
-<a id="tabla-119"></a>
+<a id="tabla-120"></a>
 
-**Tabla 119**
+**Tabla 120**
 
 *Endpoints del Search & Booking Context*
 
@@ -885,11 +885,11 @@ La respuesta confirma la creación de la reserva y devuelve su identificador. El
 ##### Clinical & Commercial Context
 
 
-Los Endpoints del Clinical & Commercial Context se presentan en la Tabla 120.
+Los Endpoints del Clinical & Commercial Context se presentan en la Tabla 121.
 
-<a id="tabla-120"></a>
+<a id="tabla-121"></a>
 
-**Tabla 120**
+**Tabla 121**
 
 *Endpoints del Clinical & Commercial Context*
 
@@ -932,11 +932,11 @@ La respuesta devuelve la cotización con el subtotal de cada ítem y el total ca
 ##### Production & Tracking Context
 
 
-Los Endpoints del Production & Tracking Context se resumen en la Tabla 121.
+Los Endpoints del Production & Tracking Context se resumen en la Tabla 122.
 
-<a id="tabla-121"></a>
+<a id="tabla-122"></a>
 
-**Tabla 121**
+**Tabla 122**
 
 *Endpoints del Production & Tracking Context*
 
@@ -960,84 +960,84 @@ Los Endpoints del Production & Tracking Context se resumen en la Tabla 121.
 
 Las capturas del 2026-10-08 registran la documentación publicada en Render. Se presentan primero las operaciones agrupadas por contexto y, después, las respuestas de consultas ejecutadas sobre datos de demostración. Estas evidencias muestran la disponibilidad de la documentación y el resultado de las operaciones consultadas; la cobertura automatizada se detalla en la sección 4.2.1.5.
 
-**Endpoints de Search & Booking: pacientes y ópticas.** Swagger UI desplegado en Render con las operaciones de registro, inicio de sesión, citas del paciente y búsqueda de ópticas (ver Figura 136).
-
-
-<a id="figura-136"></a>
-
-**Figura 136**
-
-*Endpoints de pacientes y ópticas en Swagger*
-
-![Endpoints de pacientes y ópticas en Swagger](assets/cap4/sprint1/swagger-render-search-booking-1.png)
-
-
-**Endpoints de Search & Booking**: Disponibilidad, citas, favoritos y calificaciones (ver Figura 137).
-
-
-<a id="figura-137"></a>
-
-**Figura 137**
-
-*Endpoints de disponibilidad y citas en Swagger*
-
-![Endpoints de disponibilidad y citas en Swagger](assets/cap4/sprint1/swagger-render-search-booking-2.png)
-
-
-**Endpoints de Clinical & Commercial.** Operaciones de expediente clínico, receta, cotizaciones y ventas (ver Figura 138).
+**Endpoints de Search & Booking: pacientes y ópticas.** Swagger UI desplegado en Render con las operaciones de registro, inicio de sesión, citas del paciente y búsqueda de ópticas (ver Figura 138).
 
 
 <a id="figura-138"></a>
 
 **Figura 138**
 
-*Endpoints de Clinical & Commercial en Swagger*
+*Endpoints de pacientes y ópticas en Swagger*
 
-![Endpoints de Clinical & Commercial en Swagger](assets/cap4/sprint1/swagger-render-clinical-commercial.png)
+![Endpoints de pacientes y ópticas en Swagger](assets/cap4/sprint1/swagger-render-search-booking-1.png)
 
 
-**Endpoints de Production & Tracking.** Operaciones de órdenes de trabajo, técnicos y laboratorios (ver Figura 139).
+**Endpoints de Search & Booking**: Disponibilidad, citas, favoritos y calificaciones (ver Figura 139).
 
 
 <a id="figura-139"></a>
 
 **Figura 139**
 
-*Endpoints de Production & Tracking en Swagger*
+*Endpoints de disponibilidad y citas en Swagger*
 
-![Endpoints de Production & Tracking en Swagger](assets/cap4/sprint1/swagger-render-production-tracking.png)
+![Endpoints de disponibilidad y citas en Swagger](assets/cap4/sprint1/swagger-render-search-booking-2.png)
 
 
-**Consulta de ópticas en el entorno desplegado.** GET /api/v1/optical-stores devuelve HTTP 200 con las sucursales de Miraflores y San Isidro (ver Figura 140).
+**Endpoints de Clinical & Commercial.** Operaciones de expediente clínico, receta, cotizaciones y ventas (ver Figura 140).
 
 
 <a id="figura-140"></a>
 
 **Figura 140**
 
-*Consulta de ópticas en Render*
+*Endpoints de Clinical & Commercial en Swagger*
 
-![Consulta de ópticas en Render](assets/cap4/sprint1/swagger-render-optical-stores.png)
+![Endpoints de Clinical & Commercial en Swagger](assets/cap4/sprint1/swagger-render-clinical-commercial.png)
 
 
-**Consulta de disponibilidad.** GET /api/v1/optical-stores/{id}/time-slots devuelve HTTP 200 con los horarios disponibles de la sucursal de Miraflores (ver Figura 141).
+**Endpoints de Production & Tracking.** Operaciones de órdenes de trabajo, técnicos y laboratorios (ver Figura 141).
 
 
 <a id="figura-141"></a>
 
 **Figura 141**
 
-*Disponibilidad de horarios en Render*
+*Endpoints de Production & Tracking en Swagger*
 
-![Disponibilidad de horarios en Render](assets/cap4/sprint1/swagger-render-availability.png)
+![Endpoints de Production & Tracking en Swagger](assets/cap4/sprint1/swagger-render-production-tracking.png)
 
 
-**Consulta de técnicos de Production & Tracking.** GET /api/v1/technicians devuelve HTTP 200 con los técnicos registrados para asignar órdenes de trabajo (ver Figura 142).
+**Consulta de ópticas en el entorno desplegado.** GET /api/v1/optical-stores devuelve HTTP 200 con las sucursales de Miraflores y San Isidro (ver Figura 142).
 
 
 <a id="figura-142"></a>
 
 **Figura 142**
+
+*Consulta de ópticas en Render*
+
+![Consulta de ópticas en Render](assets/cap4/sprint1/swagger-render-optical-stores.png)
+
+
+**Consulta de disponibilidad.** GET /api/v1/optical-stores/{id}/time-slots devuelve HTTP 200 con los horarios disponibles de la sucursal de Miraflores (ver Figura 143).
+
+
+<a id="figura-143"></a>
+
+**Figura 143**
+
+*Disponibilidad de horarios en Render*
+
+![Disponibilidad de horarios en Render](assets/cap4/sprint1/swagger-render-availability.png)
+
+
+**Consulta de técnicos de Production & Tracking.** GET /api/v1/technicians devuelve HTTP 200 con los técnicos registrados para asignar órdenes de trabajo (ver Figura 144).
+
+
+<a id="figura-144"></a>
+
+**Figura 144**
 
 *Técnicos en Swagger desplegado*
 
@@ -1046,11 +1046,11 @@ Las capturas del 2026-10-08 registran la documentación publicada en Render. Se 
 
 ##### Commits relacionados con la documentación
 
-Los commits del repositorio de Web Services que incorporan o modifican la documentación OpenAPI durante el Sprint 1 se detallan en la Tabla 124.
+Los commits del repositorio de Web Services que incorporan o modifican la documentación OpenAPI durante el Sprint 1 se detallan en la Tabla 123.
 
-<a id="tabla-124"></a>
+<a id="tabla-123"></a>
 
-**Tabla 124**
+**Tabla 123**
 
 *Commits relacionados con la documentación de los Web Services*
 
@@ -1063,12 +1063,12 @@ Los commits del repositorio de Web Services que incorporan o modifican la docume
 
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
-La evidencia de despliegue del Sprint 1 comprende la **Landing Page en GitHub Pages**, los **Web Services en Render mediante Docker** y la distribución de la **aplicación móvil mediante Firebase App Distribution**. Cada producto tiene un mecanismo de publicación distinto. La sección identifica los entornos utilizados y debe interpretarse junto con las evidencias de ejecución y pruebas, sin equiparar la publicación con la validación de todas las funciones del producto (ver Tabla 125).
+La evidencia de despliegue del Sprint 1 comprende la **Landing Page en GitHub Pages**, los **Web Services en Render mediante Docker** y la distribución de la **aplicación móvil mediante Firebase App Distribution**. Cada producto tiene un mecanismo de publicación distinto. La sección identifica los entornos utilizados y debe interpretarse junto con las evidencias de ejecución y pruebas, sin equiparar la publicación con la validación de todas las funciones del producto (ver Tabla 124).
 
 
-<a id="tabla-125"></a>
+<a id="tabla-124"></a>
 
-**Tabla 125**
+**Tabla 124**
 
 *Productos desplegados en el Sprint 1*
 
@@ -1089,12 +1089,12 @@ Desde el repositorio de la Landing Page en la organización de GitHub se ingres�
 
 **Paso 2: Configuración de la fuente de publicación.**
 
-Se seleccionó *Deploy from a branch* como fuente, la rama `main` y la carpeta raíz (`/root`). Con esta configuración GitHub Pages publica el sitio en la URL de la organización y fuerza el uso de HTTPS (ver Figura 143).
+Se seleccionó *Deploy from a branch* como fuente, la rama `main` y la carpeta raíz (`/root`). Con esta configuración GitHub Pages publica el sitio en la URL de la organización y fuerza el uso de HTTPS (ver Figura 145).
 
 
-<a id="figura-143"></a>
+<a id="figura-145"></a>
 
-**Figura 143**
+**Figura 145**
 
 *Configuración de GitHub Pages del repositorio de la Landing Page*
 
@@ -1102,12 +1102,12 @@ Se seleccionó *Deploy from a branch* como fuente, la rama `main` y la carpeta r
 
 **Paso 3: Verificación del workflow de despliegue.**
 
-Cada integración en `main` ejecuta el workflow `pages build and deployment`. La ejecución #10, lanzada por `Patto04` con el commit `54caeae`, terminó con estado *Success* en 45 segundos tras completar los jobs `build`, `report-build-status` y `deploy` (ver Figura 144).
+Cada integración en `main` ejecuta el workflow `pages build and deployment`. La ejecución #10, lanzada por `Patto04` con el commit `54caeae`, terminó con estado *Success* en 45 segundos tras completar los jobs `build`, `report-build-status` y `deploy` (ver Figura 146).
 
 
-<a id="figura-144"></a>
+<a id="figura-146"></a>
 
-**Figura 144**
+**Figura 146**
 
 *Ejecución del workflow pages build and deployment*
 
@@ -1115,12 +1115,12 @@ Cada integración en `main` ejecuta el workflow `pages build and deployment`. La
 
 **Paso 4: Verificación del sitio publicado.**
 
-Se ingresó a la URL pública generada por GitHub Pages y se comprobó que la Landing Page carga correctamente (ver Figura 145).
+Se ingresó a la URL pública generada por GitHub Pages y se comprobó que la Landing Page carga correctamente (ver Figura 147).
 
 
-<a id="figura-145"></a>
+<a id="figura-147"></a>
 
-**Figura 145**
+**Figura 147**
 
 *Landing Page publicada en GitHub Pages*
 
@@ -1132,12 +1132,12 @@ El código del backend se encuentra en el repositorio [Logix-OptiFlow-Back-End](
 
 **Paso 1: Creación del proyecto y sus recursos.**
 
-En Render se creó el proyecto **OptiFlow-Back-end** con un entorno *Production* que agrupa dos recursos en la región Frankfurt: el Web Service `Logix-OptiFlow-Back-End`, con runtime Docker, y la base de datos `Postgres Backend`, con PostgreSQL 16 (ver Figura 146).
+En Render se creó el proyecto **OptiFlow-Back-end** con un entorno *Production* que agrupa dos recursos en la región Frankfurt: el Web Service `Logix-OptiFlow-Back-End`, con runtime Docker, y la base de datos `Postgres Backend`, con PostgreSQL 16 (ver Figura 148).
 
 
-<a id="figura-146"></a>
+<a id="figura-148"></a>
 
-**Figura 146**
+**Figura 148**
 
 *Recursos del proyecto OptiFlow-Back-end en Render*
 
@@ -1167,12 +1167,12 @@ El backend define dos perfiles de Spring: `local`, con base de datos H2 en memor
 
 **Paso 4: Verificación del despliegue.**
 
-Render vuelve a desplegar el servicio cada vez que se actualiza `develop`. El último despliegue corresponde al commit `6c388bc` y se encuentra en estado *Live* en [https://logix-optiflow-back-end.onrender.com](https://logix-optiflow-back-end.onrender.com). Como el servicio utiliza el plan gratuito, se suspende tras un periodo sin tráfico y la primera solicitud posterior puede demorar alrededor de un minuto. Swagger UI responde en la URL pública con los endpoints de los tres bounded contexts (ver sección 4.2.1.7) (ver Figura 147).
+Render vuelve a desplegar el servicio cada vez que se actualiza `develop`. El último despliegue corresponde al commit `6c388bc` y se encuentra en estado *Live* en [https://logix-optiflow-back-end.onrender.com](https://logix-optiflow-back-end.onrender.com). Como el servicio utiliza el plan gratuito, se suspende tras un periodo sin tráfico y la primera solicitud posterior puede demorar alrededor de un minuto. Swagger UI responde en la URL pública con los endpoints de los tres bounded contexts (ver sección 4.2.1.7) (ver Figura 149).
 
 
-<a id="figura-147"></a>
+<a id="figura-149"></a>
 
-**Figura 147**
+**Figura 149**
 
 *Web Service en estado Live y su historial de despliegues*
 
@@ -1184,12 +1184,12 @@ La aplicación móvil se desarrolla en **Kotlin con Jetpack Compose** en el repo
 
 **Paso 1: Creación del proyecto en Firebase.**
 
-Se creó el proyecto **Optiflow** en la consola de Firebase, con el plan Spark sin costo (ver Figura 148).
+Se creó el proyecto **Optiflow** en la consola de Firebase, con el plan Spark sin costo (ver Figura 150).
 
 
-<a id="figura-148"></a>
+<a id="figura-150"></a>
 
-**Figura 148**
+**Figura 150**
 
 *Proyecto Optiflow en la consola de Firebase*
 
@@ -1205,11 +1205,11 @@ Nombre del paquete: com.logix.optiflow
 ```
 
 
-El aplicación Android registrada en Firebase se muestra en la Figura 149.
+El aplicación Android registrada en Firebase se muestra en la Figura 151.
 
-<a id="figura-149"></a>
+<a id="figura-151"></a>
 
-**Figura 149**
+**Figura 151**
 
 *Aplicación Android registrada en Firebase*
 
@@ -1217,23 +1217,23 @@ El aplicación Android registrada en Firebase se muestra en la Figura 149.
 
 **Paso 3: Generación del APK desde Android Studio.**
 
-En Android Studio se seleccionó la variante `prodDebug` en **Build Variants** y se generó el APK desde el menú **Build → Generate App Bundles or APKs → Generate APKs** (ver Figura 150).
+En Android Studio se seleccionó la variante `prodDebug` en **Build Variants** y se generó el APK desde el menú **Build → Generate App Bundles or APKs → Generate APKs** (ver Figura 152).
 
 
-<a id="figura-150"></a>
+<a id="figura-152"></a>
 
-**Figura 150**
+**Figura 152**
 
 *Variante prodDebug seleccionada en Build Variants*
 
 <img src="assets/cap4/sprint1/deploy-mobile-build-variants.png" alt="Build Variants" width="420">
 
 
-La generación del APK en Android Studio se presenta en la Figura 151.
+La generación del APK en Android Studio se presenta en la Figura 153.
 
-<a id="figura-151"></a>
+<a id="figura-153"></a>
 
-**Figura 151**
+**Figura 153**
 
 *Generación del APK en Android Studio*
 
@@ -1248,11 +1248,11 @@ app/build/outputs/apk/prod/debug/app-prod-debug.apk
 ```
 
 
-El APK generado en la carpeta de salida del proyecto se observa en la Figura 152.
+El APK generado en la carpeta de salida del proyecto se observa en la Figura 154.
 
-<a id="figura-152"></a>
+<a id="figura-154"></a>
 
-**Figura 152**
+**Figura 154**
 
 *APK generado en la carpeta de salida del proyecto*
 
@@ -1260,12 +1260,12 @@ El APK generado en la carpeta de salida del proyecto se observa en la Figura 152
 
 **Paso 5: Carga del APK en Firebase App Distribution.**
 
-Se ingresó al módulo **App Distribution** y se cargó el APK, que se registró como la versión **1.0 (1)** (ver Figura 153).
+Se ingresó al módulo **App Distribution** y se cargó el APK, que se registró como la versión **1.0 (1)** (ver Figura 155).
 
 
-<a id="figura-153"></a>
+<a id="figura-155"></a>
 
-**Figura 153**
+**Figura 155**
 
 *Versión 1.0 (1) cargada en Firebase App Distribution*
 
@@ -1273,12 +1273,12 @@ Se ingresó al módulo **App Distribution** y se cargó el APK, que se registró
 
 **Paso 6: Registro de evaluadores.**
 
-Se creó el grupo `optiflow-testers` con seis evaluadores y se le distribuyó la versión 1.0 (1) con la nota "Sprint 1 – versión inicial de OptiFlow" (ver Figura 154).
+Se creó el grupo `optiflow-testers` con seis evaluadores y se le distribuyó la versión 1.0 (1) con la nota "Sprint 1 – versión inicial de OptiFlow" (ver Figura 156).
 
 
-<a id="figura-154"></a>
+<a id="figura-156"></a>
 
-**Figura 154**
+**Figura 156**
 
 *Grupo de evaluadores optiflow-testers*
 
@@ -1286,12 +1286,12 @@ Se creó el grupo `optiflow-testers` con seis evaluadores y se le distribuyó la
 
 **Paso 7: Creación del vínculo de invitación.**
 
-Se generó un vínculo de invitación asociado al grupo `optiflow-testers`. Cualquier persona que lo abra desde un dispositivo Android puede iniciar sesión con su cuenta de Google, unirse al grupo y descargar la aplicación: [https://appdistribution.firebase.dev/i/69aa930a1cd1ad63](https://appdistribution.firebase.dev/i/69aa930a1cd1ad63) (ver Figura 155).
+Se generó un vínculo de invitación asociado al grupo `optiflow-testers`. Cualquier persona que lo abra desde un dispositivo Android puede iniciar sesión con su cuenta de Google, unirse al grupo y descargar la aplicación: [https://appdistribution.firebase.dev/i/69aa930a1cd1ad63](https://appdistribution.firebase.dev/i/69aa930a1cd1ad63) (ver Figura 157).
 
 
-<a id="figura-155"></a>
+<a id="figura-157"></a>
 
-**Figura 155**
+**Figura 157**
 
 *Vínculo de invitación de Firebase App Distribution*
 
@@ -1299,12 +1299,12 @@ Se generó un vínculo de invitación asociado al grupo `optiflow-testers`. Cual
 
 **Paso 8: Instalación en un dispositivo.**
 
-Desde un dispositivo Android se abrió el vínculo de invitación y se instaló la versión 1.0 (1) mediante Firebase App Tester (ver Figura 156).
+Desde un dispositivo Android se abrió el vínculo de invitación y se instaló la versión 1.0 (1) mediante Firebase App Tester (ver Figura 158).
 
 
-<a id="figura-156"></a>
+<a id="figura-158"></a>
 
-**Figura 156**
+**Figura 158**
 
 *Versión 1.0 (1) instalada desde Firebase App Tester*
 
@@ -1312,60 +1312,60 @@ Desde un dispositivo Android se abrió el vínculo de invitación y se instaló 
 
 **Paso 9: Verificación de la aplicación contra el backend desplegado.**
 
-Se comprobó que la aplicación instalada se comunica con el backend desplegado en Render: el registro e inicio de sesión del paciente, la búsqueda de ópticas y la consulta de disponibilidad devolvieron los mismos datos que Swagger UI (ver Figura 157).
+Se comprobó que la aplicación instalada se comunica con el backend desplegado en Render: el registro e inicio de sesión del paciente, la búsqueda de ópticas y la consulta de disponibilidad devolvieron los mismos datos que Swagger UI (ver Figura 159).
 
 
-<a id="figura-157"></a>
+<a id="figura-159"></a>
 
-**Figura 157**
+**Figura 159**
 
 *Pantalla de inicio del paciente en el dispositivo*
 
 <img src="assets/cap4/sprint1/deploy-mobile-home-device.png" alt="Inicio del paciente" width="300">
 
 
-El inicio de sesión del paciente contra el backend desplegado se muestra en la Figura 158.
+El inicio de sesión del paciente contra el backend desplegado se muestra en la Figura 160.
 
-<a id="figura-158"></a>
+<a id="figura-160"></a>
 
-**Figura 158**
+**Figura 160**
 
 *Inicio de sesión del paciente contra el backend desplegado*
 
 <img src="assets/cap4/sprint1/deploy-mobile-login.png" alt="Inicio de sesión" width="300">
 
 
-La búsqueda de ópticas obtenida de Render se presenta en la Figura 159.
+La búsqueda de ópticas obtenida de Render se presenta en la Figura 161.
 
-<a id="figura-159"></a>
+<a id="figura-161"></a>
 
-**Figura 159**
+**Figura 161**
 
 *Búsqueda de ópticas obtenida de Render*
 
 <img src="assets/cap4/sprint1/deploy-mobile-search.png" alt="Búsqueda de ópticas" width="300">
 
 
-La disponibilidad de horarios obtenida de Render se observa en la Figura 160.
+La disponibilidad de horarios obtenida de Render se observa en la Figura 162.
 
-<a id="figura-160"></a>
+<a id="figura-162"></a>
 
-**Figura 160**
+**Figura 162**
 
 *Disponibilidad de horarios obtenida de Render*
 
 <img src="assets/cap4/sprint1/deploy-mobile-availability.png" alt="Disponibilidad de horarios" width="300">
 
-Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /api/v1/optical-stores/{id}/time-slots` de la [Figura 141](#figura-141).
+Los horarios de 14:00 y 16:00 coinciden con la respuesta de `GET /api/v1/optical-stores/{id}/time-slots` de la [Figura 143](#figura-141).
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
-Durante el Sprint 1, las tareas de implementación de la Landing Page, los Web Services y la aplicación móvil se distribuyeron entre los integrantes según la matriz de líderes y colaboradores de la sección 4.2.1.2. El trabajo siguió **GitFlow** y **Conventional Commits**: cada integrante trabajó en ramas `feature/*` creadas desde `develop` y los cambios se integraron mediante *pull requests*. En la Landing Page, la publicación se realiza desde `main`, que dispara el workflow de GitHub Pages (ver Tabla 126).
+Durante el Sprint 1, las tareas de implementación de la Landing Page, los Web Services y la aplicación móvil se distribuyeron entre los integrantes según la matriz de líderes y colaboradores de la sección 4.2.1.2. El trabajo siguió **GitFlow** y **Conventional Commits**: cada integrante trabajó en ramas `feature/*` creadas desde `develop` y los cambios se integraron mediante *pull requests*. En la Landing Page, la publicación se realiza desde `main`, que dispara el workflow de GitHub Pages (ver Tabla 125).
 
 
-<a id="tabla-126"></a>
+<a id="tabla-125"></a>
 
-**Tabla 126**
+**Tabla 125**
 
 *Integrantes del equipo y sus usuarios de GitHub*
 
@@ -1382,23 +1382,23 @@ Las siguientes figuras muestran la actividad de cada repositorio según **GitHub
 
 ##### Landing Page
 
-En la rama `main` del repositorio de la Landing Page se registran contribuciones de los cinco integrantes: `Patto04` (8 commits), `user20-bit` (3), `Felixb14` (3), `Eslander-Celis` (3) y `THECOMAX` (2) (ver Figura 161).
+En la rama `main` del repositorio de la Landing Page se registran contribuciones de los cinco integrantes: `Patto04` (8 commits), `user20-bit` (3), `Felixb14` (3), `Eslander-Celis` (3) y `THECOMAX` (2) (ver Figura 163).
 
 
-<a id="figura-161"></a>
+<a id="figura-163"></a>
 
-**Figura 161**
+**Figura 163**
 
 *Contribuidores del repositorio de la Landing Page*
 
 ![Contributors de la Landing Page](assets/cap4/sprint1/insights-contributors-landing.png)
 
 
-Los commits por semana del repositorio de la Landing Page se muestran en la Figura 162.
+Los commits por semana del repositorio de la Landing Page se muestran en la Figura 164.
 
-<a id="figura-162"></a>
+<a id="figura-164"></a>
 
-**Figura 162**
+**Figura 164**
 
 *Commits por semana del repositorio de la Landing Page*
 
@@ -1406,23 +1406,23 @@ Los commits por semana del repositorio de la Landing Page se muestran en la Figu
 
 ##### Web Services
 
-En la rama `develop` del backend se registran 14 commits de `Felixb14`, 5 de `user20-bit` y 3 de `Eslander-Celis`, correspondientes a la implementación de los bounded contexts, los perfiles de base de datos y la configuración del despliegue (ver Figura 163).
+En la rama `develop` del backend se registran 14 commits de `Felixb14`, 5 de `user20-bit` y 3 de `Eslander-Celis`, correspondientes a la implementación de los bounded contexts, los perfiles de base de datos y la configuración del despliegue (ver Figura 165).
 
 
-<a id="figura-163"></a>
+<a id="figura-165"></a>
 
-**Figura 163**
+**Figura 165**
 
 *Contribuidores del repositorio de los Web Services*
 
 ![Contributors del backend](assets/cap4/sprint1/insights-contributors-backend.png)
 
 
-Los commits por semana del repositorio de los Web Services se presentan en la Figura 164.
+Los commits por semana del repositorio de los Web Services se presentan en la Figura 166.
 
-<a id="figura-164"></a>
+<a id="figura-166"></a>
 
-**Figura 164**
+**Figura 166**
 
 *Commits por semana del repositorio de los Web Services*
 
@@ -1430,23 +1430,23 @@ Los commits por semana del repositorio de los Web Services se presentan en la Fi
 
 ##### Aplicación móvil
 
-En la rama `develop` de la aplicación móvil se registran 15 commits de `user20-bit` y 5 de `Felixb14`, correspondientes a la estructura base del proyecto, la integración con los Web Services y las pantallas de los roles de paciente y personal clínico (ver Figura 165).
+En la rama `develop` de la aplicación móvil se registran 15 commits de `user20-bit` y 5 de `Felixb14`, correspondientes a la estructura base del proyecto, la integración con los Web Services y las pantallas de los roles de paciente y personal clínico (ver Figura 167).
 
 
-<a id="figura-165"></a>
+<a id="figura-167"></a>
 
-**Figura 165**
+**Figura 167**
 
 *Contribuidores del repositorio de la aplicación móvil*
 
 ![Contributors de la app móvil](assets/cap4/sprint1/insights-contributors-mobile.png)
 
 
-Los commits por semana del repositorio de la aplicación móvil se observan en la Figura 166.
+Los commits por semana del repositorio de la aplicación móvil se observan en la Figura 168.
 
-<a id="figura-166"></a>
+<a id="figura-168"></a>
 
-**Figura 166**
+**Figura 168**
 
 *Commits por semana del repositorio de la aplicación móvil*
 
@@ -1460,11 +1460,11 @@ El Sprint 2 amplía el trabajo del primer incremento con la versión `/api/v1` d
 
 En el Sprint 2 se planificó la integración del cliente Flutter, la seguridad de los servicios y la consulta de información del paciente. El alcance son las historias US01, US04, US11 y US16. La búsqueda y la reserva de US05 y US06 siguen como regresión del primer incremento.
 
-La Tabla 125 muestra el objetivo del Sprint 2, la capacidad de trabajo y las historias seleccionadas. El equipo se coordina por Discord y sigue el avance con las tareas del Sprint Backlog.
+La Tabla 126 muestra el objetivo del Sprint 2, la capacidad de trabajo y las historias seleccionadas. El equipo se coordina por Discord y sigue el avance con las tareas del Sprint Backlog.
 
-<a id="tabla-125"></a>
+<a id="tabla-126"></a>
 
-**Tabla 125**
+**Tabla 126**
 
 *Sprint Planning 2*
 
@@ -1490,13 +1490,13 @@ Los Story Points son de las historias seleccionadas y las horas, de sus tareas. 
 
 #### 4.2.2.2. Aspect Leaders and Collaborators
 
-Los aspectos del Sprint son servicios y seguridad, cliente Flutter, Landing Page y validación, pruebas, e integración y coordinación. La Tabla 126 muestra el líder y los colaboradores de cada aspecto.
+Los aspectos del Sprint son servicios y seguridad, cliente Flutter, Landing Page y validación, pruebas, e integración y coordinación. La Tabla 127 muestra el líder y los colaboradores de cada aspecto.
 
 Nicolas coordina la integración de Flutter; Felix, las pruebas; Mariana, la Landing Page y la validación; Eslander, la coordinación y las evidencias; y César, los servicios y la seguridad. Cada líder revisa sus tareas con los colaboradores y avisa al equipo si algo bloquea la búsqueda o la reserva.
 
-<a id="tabla-126"></a>
+<a id="tabla-127"></a>
 
-**Tabla 126**
+**Tabla 127**
 
 *Aspect leaders y colaboradores del Sprint 2*
 
@@ -1512,23 +1512,23 @@ Nicolas coordina la integración de Flutter; Felix, las pruebas; Mariana, la Lan
 
 #### 4.2.2.3. Sprint Backlog 2
 
-La Tabla 127 divide las historias y las actividades adicionales en tareas, cada una con su responsable, sus horas estimadas y su estado. Antes de distribuir el APK había que tener listos los servicios, adaptar el cliente móvil y correr las pruebas.
+La Tabla 128 divide las historias y las actividades adicionales en tareas, cada una con su responsable, sus horas estimadas y su estado. Antes de distribuir el APK había que tener listos los servicios, adaptar el cliente móvil y correr las pruebas.
 
-La Figura 167 presenta el tablero del Sprint 2, con las 21 tareas de la Tabla 127 agrupadas por estado. Cada tarjeta indica la historia, la estimación y el responsable.
+La Figura 169 presenta el tablero del Sprint 2, con las 21 tareas de la Tabla 128 agrupadas por estado. Cada tarjeta indica la historia, la estimación y el responsable.
 
-<a id="figura-167"></a>
+<a id="figura-169"></a>
 
-**Figura 167**
+**Figura 169**
 
-*Tablero del Sprint 2 con el estado de las tareas de la Tabla 127*
+*Tablero del Sprint 2 con el estado de las tareas de la Tabla 128*
 
-![Tablero del Sprint 2 con el estado de las tareas de la Tabla 127](assets/cap4/sprint2/revision-20261111/sprint2-board.png)
+![Tablero del Sprint 2 con el estado de las tareas de la Tabla 128](assets/cap4/sprint2/revision-20261111/sprint2-board.png)
 
 **Done** son las tareas terminadas y con evidencia; **To-Review**, las que están en revisión; y **To-do**, las que faltan.
 
-<a id="tabla-127"></a>
+<a id="tabla-128"></a>
 
-**Tabla 127**
+**Tabla 128**
 
 *Sprint Backlog 2*
 
@@ -1553,7 +1553,7 @@ La Figura 167 presenta el tablero del Sprint 2, con las 21 tareas de la Tabla 12
 <tr><td rowspan="1">US11</td><td rowspan="1">Seguimiento del estado de los pedidos</td><td>S2-T12</td><td>Conectar el seguimiento de pedidos</td><td>Consumir /patients/{patientId}/work-orders y diferenciar el estado real de los ejemplos locales.</td><td>6</td><td>Atoche Gonzales, Nicolas Fernando</td><td>To-Review</td></tr>
 <tr><td rowspan="9">—</td><td rowspan="9">Actividades adicionales del Sprint</td><td>S2-T13</td><td>Mejorar la Landing Page</td><td>Conservar los cambios de accesibilidad, navegación, diseño y configuración de publicación del repositorio.</td><td>6</td><td>Morocho Pinedo, Mariana</td><td>Done</td></tr>
 <tr><td>S2-T14</td><td>Verificar la publicación y la descarga</td><td>Confirmar el workflow de Pages y que Descargar APK apunte a la versión que se entregará.</td><td>4</td><td>Morocho Pinedo, Mariana</td><td>Done</td></tr>
-<tr><td>S2-T15</td><td>Corregir la compilación de las pruebas</td><td>Corregir las solicitudes de AuthenticationAuthorizationApiTest. La corrección c287603 está integrada y la suite compila en 41bcb44.</td><td>2</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
+<tr><td>S2-T15</td><td>Corregir la compilación de las pruebas</td><td>Corregir las solicitudes de AuthenticationAuthorizationApiTest. La corrección c287603 está integrada y la suite compila en 71ed60c.</td><td>2</td><td>Quispe Llacsahuanga, César Augusto</td><td>Done</td></tr>
 <tr><td>S2-T16</td><td>Ejecutar la suite y adjuntar reportes</td><td>Maven: 133 pruebas aprobadas el 11/11/2026 sobre 71ed60c, incluidos cuatro escenarios de aceptación. La ejecución de Flutter se revisa junto con el APK.</td><td>4</td><td>Becerra Ttito, Felix Orlando</td><td>Done</td></tr>
 <tr><td>S2-T17</td><td>Preparar evidencias y video de ejecución</td><td>Registrar Swagger, capturas de Flutter y momentos del video con la versión probada.</td><td>6</td><td>Celis Berrospi, Eslander</td><td>To-Review</td></tr>
 <tr><td>S2-T18</td><td>Integrar y publicar la aplicación Kotlin</td><td>Conectar la aplicación a /api/v1 con el token de sesión, firmar la versión 1.0 y distribuirla por Firebase App Distribution.</td><td>10</td><td>Becerra Ttito, Felix Orlando</td><td>Done</td></tr>
@@ -1567,11 +1567,11 @@ La Figura 167 presenta el tablero del Sprint 2, con las 21 tareas de la Tabla 12
 
 #### 4.2.2.4. Development Evidence for Sprint Review
 
-Los datos salen del historial de cada repositorio, con fechas en hora de Lima. Los mensajes de commit se copian tal como están y la columna Commit Message Body explica el cambio en español. La Tabla 128 muestra los avances del backend, la aplicación Kotlin, Flutter y la Landing Page.
+Los datos salen del historial de cada repositorio, con fechas en hora de Lima. Los mensajes de commit se copian tal como están y la columna Commit Message Body explica el cambio en español. La Tabla 129 muestra los avances del backend, la aplicación Kotlin, Flutter y la Landing Page.
 
-<a id="tabla-128"></a>
+<a id="tabla-129"></a>
 
-**Tabla 128**
+**Tabla 129**
 
 *Commits de desarrollo del Sprint 2*
 
@@ -1609,11 +1609,11 @@ Los datos salen del historial de cada repositorio, con fechas en hora de Lima. L
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [ce31259](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/ce31259a4239e98d41087e95658eacf46fe2c69b) | `fix: let staff close sales from earlier patient records` | Permite cerrar ventas pendientes de fichas anteriores del paciente. | 11/11/2026 |
 | [BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile) | `develop` | [22bf023](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/commit/22bf023a56300f3f66ce2ba0fdb7eb660f2f387e) | `build: sign release builds with a local keystore` | Firma la versión release con un keystore que no se guarda en el repositorio. | 11/11/2026 |
 
-La aplicación Android en Kotlin ya consume el contrato `/api/v1`: usa 64 de las 70 operaciones publicadas, envía el token en las llamadas protegidas y se distribuyó como versión 1.0 (4.2.2.8). El backend `71ed60c` tiene una API distinta a la que usa el cliente Flutter. El cliente Flutter `0344413` todavía usa `/login`, `/optical-stores/search` y `/availability`, y no añade el token a las solicitudes protegidas. La Tabla 129 muestra lo que falta cambiar en Flutter.
+La aplicación Android en Kotlin ya consume el contrato `/api/v1`: usa 64 de las 70 operaciones publicadas, envía el token en las llamadas protegidas y se distribuyó como versión 1.0 (4.2.2.8). El backend `71ed60c` tiene una API distinta a la que usa el cliente Flutter. El cliente Flutter `0344413` todavía usa `/login`, `/optical-stores/search` y `/availability`, y no añade el token a las solicitudes protegidas. La Tabla 130 muestra lo que falta cambiar en Flutter.
 
-<a id="tabla-129"></a>
+<a id="tabla-130"></a>
 
-**Tabla 129**
+**Tabla 130**
 
 *Diferencias entre el cliente Flutter y la API /api/v1*
 
@@ -1630,11 +1630,11 @@ Fuentes de la revisión: [cliente HTTP Flutter](https://github.com/BL-App-Movil-
 
 #### 4.2.2.5. Testing Suite Evidence for Sprint Review
 
-Las pruebas se corrieron el 11/11/2026 sobre el backend `71ed60c`, sin cambios en el código. La Tabla 130 muestra los commits de pruebas del Sprint 2.
+Las pruebas se corrieron el 11/11/2026 sobre el backend `71ed60c`, sin cambios en el código. La Tabla 131 muestra los commits de pruebas del Sprint 2.
 
-<a id="tabla-130"></a>
+<a id="tabla-131"></a>
 
-**Tabla 130**
+**Tabla 131**
 
 *Commits relacionados con pruebas*
 
@@ -1653,11 +1653,11 @@ La columna Commit Message Body explica en español cada cambio en las pruebas.
 
 ##### Suites de pruebas del Sprint 2
 
-La Tabla 131 indica qué prueba cada suite y a qué historias pertenece.
+La Tabla 132 indica qué prueba cada suite y a qué historias pertenece.
 
-<a id="tabla-131"></a>
+<a id="tabla-132"></a>
 
-**Tabla 131**
+**Tabla 132**
 
 *Suites identificadas para el Sprint 2*
 
@@ -1679,31 +1679,31 @@ La Tabla 131 indica qué prueba cada suite y a qué historias pertenece.
 
 ##### Resultados de ejecución
 
-El 11/11/2026 se ejecutó `mvn -B test` sobre el backend `develop` en el commit `71ed60c`, el mismo que Render tiene activo (4.2.2.8). Maven terminó con **BUILD SUCCESS: 133 pruebas, 0 fallos, 0 errores y 0 omitidas**, distribuidas en 27 suites, en 50,5 segundos con Java 21. El total incluye los cuatro escenarios Cucumber de búsqueda y reserva. La Figura 168 muestra el cierre de la ejecución en la terminal.
+El 11/11/2026 se ejecutó `mvn -B test` sobre el backend `develop` en el commit `71ed60c`, el mismo que Render tiene activo (4.2.2.8). Maven terminó con **BUILD SUCCESS: 133 pruebas, 0 fallos, 0 errores y 0 omitidas**, distribuidas en 27 suites, en 50,5 segundos con Java 21. El total incluye los cuatro escenarios Cucumber de búsqueda y reserva. La Figura 170 muestra el cierre de la ejecución en la terminal.
 
-<a id="figura-168"></a>
+<a id="figura-170"></a>
 
-**Figura 168**
+**Figura 170**
 
 *Ejecución de mvn -B test sobre el backend 71ed60c, 11/11/2026*
 
 ![Ejecución de mvn -B test sobre el backend 71ed60c, 11/11/2026](assets/cap4/sprint2/revision-20261111/maven-tests.png)
 
-La [ejecución 43116369654](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/actions/runs/43116369654) de GitHub Actions también terminó con `success` para el push de `71ed60c` a `develop`, mediante el workflow `ci.yml` y su job `test`. La Figura 169 muestra el resultado de integración continua.
+La [ejecución 43116369654](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/actions/runs/43116369654) de GitHub Actions también terminó con `success` para el push de `71ed60c` a `develop`, mediante el workflow `ci.yml` y su job `test`. La Figura 171 muestra el resultado de integración continua.
 
-<a id="figura-169"></a>
+<a id="figura-171"></a>
 
-**Figura 169**
+**Figura 171**
 
 *Workflow de pruebas del backend 71ed60c completado correctamente*
 
 ![Workflow de pruebas del backend 71ed60c completado correctamente](assets/cap4/sprint2/revision-20261111/backend-ci.png)
 
-**Pruebas de aceptación.** La Figura 170 muestra el reporte Cucumber de la misma ejecución: cuatro escenarios aprobados. Los archivos [búsqueda](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/resources/features/optical-store-search.feature) y [reserva](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/resources/features/appointment-booking.feature) se ejecutan mediante [SearchBookingSteps](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/java/com/optiflow/platform/searchbooking/acceptance/SearchBookingSteps.java), que utiliza la API versionada y adjunta el token en las operaciones protegidas. El [reporte HTML](assets/cap4/sprint2/revision-20261111/cucumber.html) tiene el detalle de cada paso.
+**Pruebas de aceptación.** La Figura 172 muestra el reporte Cucumber de la misma ejecución: cuatro escenarios aprobados. Los archivos [búsqueda](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/resources/features/optical-store-search.feature) y [reserva](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/resources/features/appointment-booking.feature) se ejecutan mediante [SearchBookingSteps](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/blob/71ed60c117879d6ecb67c82ea8a0fca27cd5da52/src/test/java/com/optiflow/platform/searchbooking/acceptance/SearchBookingSteps.java), que utiliza la API versionada y adjunta el token en las operaciones protegidas. El [reporte HTML](assets/cap4/sprint2/revision-20261111/cucumber.html) tiene el detalle de cada paso.
 
-<a id="figura-170"></a>
+<a id="figura-172"></a>
 
-**Figura 170**
+**Figura 172**
 
 *Reporte Cucumber: cuatro escenarios de búsqueda y reserva aprobados*
 
@@ -1756,7 +1756,7 @@ Característica: Reserva de cita para atención optométrica
 
 Los escenarios son de US05 y US06 y se mantienen como regresión del primer incremento. La autenticación, los roles y la cercanía se prueban con `AuthenticationAuthorizationApiTest`, `JwtTokenServiceTest`, `GeoLocationTest` y `SearchAndBookingApiTest`, que no son escenarios Gherkin.
 
-**Comprobaciones en el servicio publicado.** Sobre Render, con `71ed60c` activo, la búsqueda de ópticas por cercanía respondió 200 y la consulta del personal sin token respondió 401 (Figuras 172 y 173, en 4.2.2.6). El mismo día se comprobó que un token emitido a un técnico deja de aceptarse, con 401, cuando el administrador lo desactiva, y que vuelve a funcionar al reactivarlo; esto lo resolvió la corrección `ddf6760`. Los casos 201, 403 y 409 de la reserva y de los permisos se prueban con `AuthenticationAuthorizationApiTest` y con los escenarios de aceptación.
+**Comprobaciones en el servicio publicado.** Sobre Render, con `71ed60c` activo, la búsqueda de ópticas por cercanía respondió 200 y la consulta del personal sin token respondió 401 (Figuras 174 y 175, en 4.2.2.6). El mismo día se comprobó que un token emitido a un técnico deja de aceptarse, con 401, cuando el administrador lo desactiva, y que vuelve a funcionar al reactivarlo; esto lo resolvió la corrección `ddf6760`. Los casos 201, 403 y 409 de la reserva y de los permisos se prueban con `AuthenticationAuthorizationApiTest` y con los escenarios de aceptación.
 
 ##### Reproducción de la ejecución actual
 
@@ -1771,217 +1771,217 @@ mvn -B -DskipTests package
 
 #### 4.2.2.6. Execution Evidence for Sprint Review
 
-**Web Services.** El servicio publicado en Render ejecuta el commit `71ed60c`. La Figura 171 muestra su Swagger UI con OpenAPI 3.1. La Figura 172 registra la búsqueda de ópticas en un radio de 10 km con respuesta 200, y la Figura 173, el rechazo 401 de la consulta del personal sin token. Las capturas se tomaron el 11/11/2026.
-
-<a id="figura-171"></a>
-
-**Figura 171**
-
-*Swagger UI del backend publicado en Render, 11/11/2026*
-
-![Swagger UI del backend publicado en Render, 11/11/2026](assets/cap4/sprint2/revision-20261111/swagger-render.png)
-
-<a id="figura-172"></a>
-
-**Figura 172**
-
-*Búsqueda de ópticas por cercanía en Render: respuesta 200*
-
-![Búsqueda de ópticas por cercanía en Render: respuesta 200](assets/cap4/sprint2/revision-20261111/nearby-render.png)
+**Web Services.** El servicio publicado en Render ejecuta el commit `71ed60c`. La Figura 173 muestra su Swagger UI con OpenAPI 3.1. La Figura 174 registra la búsqueda de ópticas en un radio de 10 km con respuesta 200, y la Figura 175, el rechazo 401 de la consulta del personal sin token. Las capturas se tomaron el 11/11/2026.
 
 <a id="figura-173"></a>
 
 **Figura 173**
 
-*Consulta del personal sin token en Render: respuesta 401*
+*Swagger UI del backend publicado en Render, 11/11/2026*
 
-![Consulta del personal sin token en Render: respuesta 401](assets/cap4/sprint2/revision-20261111/unauthorized-render.png)
-
-**Aplicación Android (Kotlin).** La versión 1.0 (1), firmada para release desde `develop` (`22bf023`), se instaló en un Samsung Galaxy A06 y se conectó al backend de Render. Las Figuras 174 a 183 se tomaron el 11/11/2026 con la cuenta de paciente de prueba, cuyos datos son ficticios. Muestran el inicio, el mapa, la reserva en pasos, las citas, el seguimiento de pedidos, el catálogo, el perfil con puntos, las compras y las notificaciones.
+![Swagger UI del backend publicado en Render, 11/11/2026](assets/cap4/sprint2/revision-20261111/swagger-render.png)
 
 <a id="figura-174"></a>
 
 **Figura 174**
 
-*Inicio del paciente con su próxima cita, aplicación Kotlin 1.0*
+*Búsqueda de ópticas por cercanía en Render: respuesta 200*
 
-![Inicio del paciente con su próxima cita, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-home.png)
+![Búsqueda de ópticas por cercanía en Render: respuesta 200](assets/cap4/sprint2/revision-20261111/nearby-render.png)
 
 <a id="figura-175"></a>
 
 **Figura 175**
 
-*Mapa de ópticas sobre OpenStreetMap con la óptica seleccionada, aplicación Kotlin 1.0*
+*Consulta del personal sin token en Render: respuesta 401*
 
-![Mapa de ópticas sobre OpenStreetMap con la óptica seleccionada, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-mapa-pin.png)
+![Consulta del personal sin token en Render: respuesta 401](assets/cap4/sprint2/revision-20261111/unauthorized-render.png)
+
+**Aplicación Android (Kotlin).** La versión 1.0 (1), firmada para release desde `develop` (`22bf023`), se instaló en un Samsung Galaxy A06 y se conectó al backend de Render. Las Figuras 176 a 185 se tomaron el 11/11/2026 con la cuenta de paciente de prueba, cuyos datos son ficticios. Muestran el inicio, el mapa, la reserva en pasos, las citas, el seguimiento de pedidos, el catálogo, el perfil con puntos, las compras y las notificaciones.
 
 <a id="figura-176"></a>
 
 **Figura 176**
 
-*Reserva de cita: elección de la óptica, aplicación Kotlin 1.0*
+*Inicio del paciente con su próxima cita, aplicación Kotlin 1.0*
 
-![Reserva de cita: elección de la óptica, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-reserva1.png)
+![Inicio del paciente con su próxima cita, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-home.png)
 
 <a id="figura-177"></a>
 
 **Figura 177**
 
-*Reserva de cita: fecha y horarios disponibles, aplicación Kotlin 1.0*
+*Mapa de ópticas sobre OpenStreetMap con la óptica seleccionada, aplicación Kotlin 1.0*
 
-![Reserva de cita: fecha y horarios disponibles, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-reserva2.png)
+![Mapa de ópticas sobre OpenStreetMap con la óptica seleccionada, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-mapa-pin.png)
 
 <a id="figura-178"></a>
 
 **Figura 178**
 
-*Mis citas con las reservas confirmadas, aplicación Kotlin 1.0*
+*Reserva de cita: elección de la óptica, aplicación Kotlin 1.0*
 
-![Mis citas con las reservas confirmadas, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-citas.png)
+![Reserva de cita: elección de la óptica, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-reserva1.png)
 
 <a id="figura-179"></a>
 
 **Figura 179**
 
-*Seguimiento de pedidos en curso, aplicación Kotlin 1.0*
+*Reserva de cita: fecha y horarios disponibles, aplicación Kotlin 1.0*
 
-![Seguimiento de pedidos en curso, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-pedidos.png)
+![Reserva de cita: fecha y horarios disponibles, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-reserva2.png)
 
 <a id="figura-180"></a>
 
 **Figura 180**
 
-*Detalle de una montura con su stock y el botón del probador virtual, aplicación Kotlin 1.0*
+*Mis citas con las reservas confirmadas, aplicación Kotlin 1.0*
 
-![Detalle de una montura con su stock y el botón del probador virtual, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-probador.png)
+![Mis citas con las reservas confirmadas, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-citas.png)
 
 <a id="figura-181"></a>
 
 **Figura 181**
 
-*Perfil con puntos OptiFlow, salud visual y compras, aplicación Kotlin 1.0*
+*Seguimiento de pedidos en curso, aplicación Kotlin 1.0*
 
-![Perfil con puntos OptiFlow, salud visual y compras, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-perfil.png)
+![Seguimiento de pedidos en curso, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-pedidos.png)
 
 <a id="figura-182"></a>
 
 **Figura 182**
 
-*Mis compras con sus comprobantes, aplicación Kotlin 1.0*
+*Detalle de una montura con su stock y el botón del probador virtual, aplicación Kotlin 1.0*
 
-![Mis compras con sus comprobantes, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-compras.png)
+![Detalle de una montura con su stock y el botón del probador virtual, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-probador.png)
 
 <a id="figura-183"></a>
 
 **Figura 183**
 
-*Notificaciones de citas, pedidos y encuesta de satisfacción, aplicación Kotlin 1.0*
+*Perfil con puntos OptiFlow, salud visual y compras, aplicación Kotlin 1.0*
 
-![Notificaciones de citas, pedidos y encuesta de satisfacción, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-avisos.png)
-
-Las Figuras 184 a 194 se tomaron el mismo día con la cuenta de administrador, que tiene acceso a todas las funciones del personal: agenda, fichas, cotización y venta, escáner, inventario, producción, reportes y gestión del personal. Los otros roles ven solo las opciones de su rol.
+![Perfil con puntos OptiFlow, salud visual y compras, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-perfil.png)
 
 <a id="figura-184"></a>
 
 **Figura 184**
 
-*Inicio del personal con la jornada, la próxima atención y las alertas, aplicación Kotlin 1.0*
+*Mis compras con sus comprobantes, aplicación Kotlin 1.0*
 
-![Inicio del personal con la jornada, la próxima atención y las alertas, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-home.png)
+![Mis compras con sus comprobantes, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-compras.png)
 
 <a id="figura-185"></a>
 
 **Figura 185**
 
-*Agenda de citas de la óptica, aplicación Kotlin 1.0*
+*Notificaciones de citas, pedidos y encuesta de satisfacción, aplicación Kotlin 1.0*
 
-![Agenda de citas de la óptica, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-agenda.png)
+![Notificaciones de citas, pedidos y encuesta de satisfacción, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-avisos.png)
+
+Las Figuras 186 a 196 se tomaron el mismo día con la cuenta de administrador, que tiene acceso a todas las funciones del personal: agenda, fichas, cotización y venta, escáner, inventario, producción, reportes y gestión del personal. Los otros roles ven solo las opciones de su rol.
 
 <a id="figura-186"></a>
 
 **Figura 186**
 
-*Ficha del paciente con la última receta y la próxima cita, aplicación Kotlin 1.0*
+*Inicio del personal con la jornada, la próxima atención y las alertas, aplicación Kotlin 1.0*
 
-![Ficha del paciente con la última receta y la próxima cita, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-ficha.png)
+![Inicio del personal con la jornada, la próxima atención y las alertas, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-home.png)
 
 <a id="figura-187"></a>
 
 **Figura 187**
 
-*Cotización aprobada con montura y lentes, aplicación Kotlin 1.0*
+*Agenda de citas de la óptica, aplicación Kotlin 1.0*
 
-![Cotización aprobada con montura y lentes, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-cotizacion.png)
+![Agenda de citas de la óptica, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-agenda.png)
 
 <a id="figura-188"></a>
 
 **Figura 188**
 
-*Venta confirmada con boleta y orden de trabajo, aplicación Kotlin 1.0*
+*Ficha del paciente con la última receta y la próxima cita, aplicación Kotlin 1.0*
 
-![Venta confirmada con boleta y orden de trabajo, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-venta.png)
+![Ficha del paciente con la última receta y la próxima cita, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-ficha.png)
 
 <a id="figura-189"></a>
 
 **Figura 189**
 
-*Escáner de códigos de barras de monturas, aplicación Kotlin 1.0*
+*Cotización aprobada con montura y lentes, aplicación Kotlin 1.0*
 
-![Escáner de códigos de barras de monturas, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-escaner.png)
+![Cotización aprobada con montura y lentes, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-cotizacion.png)
 
 <a id="figura-190"></a>
 
 **Figura 190**
 
-*Producto encontrado por su SKU, con stock y precio, aplicación Kotlin 1.0*
+*Venta confirmada con boleta y orden de trabajo, aplicación Kotlin 1.0*
 
-![Producto encontrado por su SKU, con stock y precio, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-producto.png)
+![Venta confirmada con boleta y orden de trabajo, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-venta.png)
 
 <a id="figura-191"></a>
 
 **Figura 191**
 
-*Inventario y catálogo de la óptica, aplicación Kotlin 1.0*
+*Escáner de códigos de barras de monturas, aplicación Kotlin 1.0*
 
-![Inventario y catálogo de la óptica, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-inventario.png)
+![Escáner de códigos de barras de monturas, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-escaner.png)
 
 <a id="figura-192"></a>
 
 **Figura 192**
 
-*Órdenes de trabajo por iniciar en el tablero de producción, aplicación Kotlin 1.0*
+*Producto encontrado por su SKU, con stock y precio, aplicación Kotlin 1.0*
 
-![Órdenes de trabajo por iniciar en el tablero de producción, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-ordenes.png)
+![Producto encontrado por su SKU, con stock y precio, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-producto.png)
 
 <a id="figura-193"></a>
 
 **Figura 193**
 
-*Reportes del mes: ventas, cotizaciones y órdenes, aplicación Kotlin 1.0*
+*Inventario y catálogo de la óptica, aplicación Kotlin 1.0*
 
-![Reportes del mes: ventas, cotizaciones y órdenes, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-reportes.png)
+![Inventario y catálogo de la óptica, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-inventario.png)
 
 <a id="figura-194"></a>
 
 **Figura 194**
 
-*Gestión del personal: roles y desactivación, aplicación Kotlin 1.0*
+*Órdenes de trabajo por iniciar en el tablero de producción, aplicación Kotlin 1.0*
 
-![Gestión del personal: roles y desactivación, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-personal.png)
-
-**Landing Page.** Las Figuras 195 y 196 muestran la Landing Page del commit `ef1c032`, abierta localmente en escritorio y en ancho de celular.
+![Órdenes de trabajo por iniciar en el tablero de producción, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-ordenes.png)
 
 <a id="figura-195"></a>
 
 **Figura 195**
 
-*Landing Page del Sprint 2 abierta localmente en escritorio*
+*Reportes del mes: ventas, cotizaciones y órdenes, aplicación Kotlin 1.0*
 
-![Landing Page del Sprint 2 abierta localmente en escritorio](assets/cap4/sprint2/landing-desktop.png)
+![Reportes del mes: ventas, cotizaciones y órdenes, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-reportes.png)
 
 <a id="figura-196"></a>
 
 **Figura 196**
+
+*Gestión del personal: roles y desactivación, aplicación Kotlin 1.0*
+
+![Gestión del personal: roles y desactivación, aplicación Kotlin 1.0](assets/cap4/sprint2/revision-20261111/app-s-personal.png)
+
+**Landing Page.** Las Figuras 197 y 198 muestran la Landing Page del commit `ef1c032`, abierta localmente en escritorio y en ancho de celular.
+
+<a id="figura-197"></a>
+
+**Figura 197**
+
+*Landing Page del Sprint 2 abierta localmente en escritorio*
+
+![Landing Page del Sprint 2 abierta localmente en escritorio](assets/cap4/sprint2/landing-desktop.png)
+
+<a id="figura-198"></a>
+
+**Figura 198**
 
 *Landing Page del Sprint 2 abierta localmente en ancho de celular*
 
@@ -2002,11 +2002,11 @@ La documentación OpenAPI 3.1 publicada en Render para `71ed60c` contiene **70 o
 
 La especificación está guardada como [OpenAPI publicado en Render](assets/cap4/sprint2/revision-20261111/openapi-render.json). y se puede abrir en [Swagger UI en Render](https://logix-optiflow-back-end.onrender.com/swagger-ui/index.html). En 4.2.2.8 se muestra que ese despliegue corre el mismo commit.
 
-La Tabla 132 muestra los endpoints principales del Sprint con su método, parámetros, autorización, ejemplo de respuesta y enlace a Swagger. La sintaxis es `<VERBO> https://logix-optiflow-back-end.onrender.com<ruta>`; localmente se usa `http://127.0.0.1:18082<ruta>`. Las rutas incluyen `/api/v1`. Los ejemplos de respuesta están resumidos.
+La Tabla 133 muestra los endpoints principales del Sprint con su método, parámetros, autorización, ejemplo de respuesta y enlace a Swagger. La sintaxis es `<VERBO> https://logix-optiflow-back-end.onrender.com<ruta>`; localmente se usa `http://127.0.0.1:18082<ruta>`. Las rutas incluyen `/api/v1`. Los ejemplos de respuesta están resumidos.
 
-<a id="tabla-132"></a>
+<a id="tabla-133"></a>
 
-**Tabla 132**
+**Tabla 133**
 
 *Endpoints principales del Sprint 2*
 
@@ -2054,11 +2054,11 @@ El cliente debe leer `userId` y `role` de esta respuesta y adjuntar el token a l
 
 ##### Cambios relacionados con la documentación del Sprint 2
 
-La Tabla 133 muestra los commits que cambiaron rutas y parámetros, y los que agregaron la documentación de inventario y reportes.
+La Tabla 134 muestra los commits que cambiaron rutas y parámetros, y los que agregaron la documentación de inventario y reportes.
 
-<a id="tabla-133"></a>
+<a id="tabla-134"></a>
 
-**Tabla 133**
+**Tabla 134**
 
 *Commits que cambian la API del Sprint 2*
 
@@ -2077,38 +2077,38 @@ La Tabla 133 muestra los commits que cambiaron rutas y parámetros, y los que ag
 
 Las evidencias de GitHub Pages, Render y Firebase App Distribution del Sprint 1 están en 4.2.1.8. Para el Sprint 2 se indica el commit o la versión que tiene publicada cada producto.
 
-La Tabla 134 muestra la versión de cada producto y dónde está publicada.
+La Tabla 135 muestra la versión de cada producto y dónde está publicada.
 
-<a id="tabla-134"></a>
+<a id="tabla-135"></a>
 
-**Tabla 134**
+**Tabla 135**
 
 *Versión publicada de cada producto en el Sprint 2*
 
 | Producto | Revisión de código | Evidencia disponible | Confirmación de despliegue AV2 |
 |---|---|---|---|
-| Landing Page | `main`, `ef1c032`; enlace de descarga en `6258035`. | [Workflow completado correctamente](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y página pública con HTTP 200, comprobados el 08/11/2026. La [ejecución 43140453746](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/43140453746) publicó `6258035` el 11/11/2026. | Publicación confirmada; capturas en las Figuras 197 y 198. El botón de descarga enlaza el [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a) de la versión 1.0 desde el commit `6258035`, del 11/11/2026. |
-| Backend | `develop`, `71ed60c`. | 133 pruebas aprobadas, [CI exitosa](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/actions/runs/43116369654) y 70 operaciones documentadas. | `71ed60c` activo en Render desde el 11/11/2026; Swagger publicado en la Figura 171. |
+| Landing Page | `main`, `ef1c032`; enlace de descarga en `6258035`. | [Workflow completado correctamente](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y página pública con HTTP 200, comprobados el 08/11/2026. La [ejecución 43140453746](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/43140453746) publicó `6258035` el 11/11/2026. | Publicación confirmada; capturas en las Figuras 199 y 200. El botón de descarga enlaza el [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a) de la versión 1.0 desde el commit `6258035`, del 11/11/2026. |
+| Backend | `develop`, `71ed60c`. | 133 pruebas aprobadas, [CI exitosa](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/actions/runs/43116369654) y 70 operaciones documentadas. | `71ed60c` activo en Render desde el 11/11/2026; Swagger publicado en la Figura 173. |
 | Android/Kotlin | `develop`, `22bf023`, versión 1.0 (1). | APK release firmado, instalado y probado contra Render. | Distribuida el 11/11/2026 por Firebase App Distribution al grupo `optiflow-testers`; [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a). |
 | Flutter | `main`, `0344413`, versión `1.0.0+1`. | Código publicado y definición de pantallas, cliente HTTP y prueba de estados. | APK, enlace de distribución y captura de versión: ____________________. |
 
 ##### Publicación de la Landing Page
 
-La [ejecución 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) del workflow `Deploy static content to Pages` se inició el 06/11/2026 a las 11:23 PM (America/Lima), para `main` y el commit `ef1c032`, y terminó con `success`. La Figura 197 muestra la ejecución. Los avisos que aparecen en la captura son de mantenimiento de las acciones y del parámetro `include-hidden-files`; no son errores del despliegue.
+La [ejecución 42338220243](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) del workflow `Deploy static content to Pages` se inició el 06/11/2026 a las 11:23 PM (America/Lima), para `main` y el commit `ef1c032`, y terminó con `success`. La Figura 199 muestra la ejecución. Los avisos que aparecen en la captura son de mantenimiento de las acciones y del parámetro `include-hidden-files`; no son errores del despliegue.
 
-<a id="figura-197"></a>
+<a id="figura-199"></a>
 
-**Figura 197**
+**Figura 199**
 
 *Workflow de GitHub Pages del commit ef1c032 completado correctamente*
 
 ![Workflow de GitHub Pages completado correctamente](assets/cap4/sprint2/workflow-pages.png)
 
-La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) respondió HTTP 200 en la revisión del 08/11/2026. La Figura 198 es una captura de esa URL; las de 4.2.2.6 se tomaron en local.
+La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-OptiFlow-landing-page/) respondió HTTP 200 en la revisión del 08/11/2026. La Figura 200 es una captura de esa URL; las de 4.2.2.6 se tomaron en local.
 
-<a id="figura-198"></a>
+<a id="figura-200"></a>
 
-**Figura 198**
+**Figura 200**
 
 *Landing Page pública de OptiFlow, 08/11/2026*
 
@@ -2116,31 +2116,31 @@ La [Landing pública](https://bl-app-movil-1acc0238-2620-4951.github.io/Logix-Op
 
 ##### Despliegue del backend en Render
 
-Render ejecuta el commit `71ed60c` de `develop`. El despliegue del 11/11/2026 se hizo limpiando la caché de compilación, para que la imagen incluyera la corrección `ddf6760`. La Figura 171, de 4.2.2.6, es de ese servicio, y la [especificación publicada](assets/cap4/sprint2/revision-20261111/openapi-render.json) contiene las 70 operaciones de 4.2.2.7.
+Render ejecuta el commit `71ed60c` de `develop`. El despliegue del 11/11/2026 se hizo limpiando la caché de compilación, para que la imagen incluyera la corrección `ddf6760`. La Figura 173, de 4.2.2.6, es de ese servicio, y la [especificación publicada](assets/cap4/sprint2/revision-20261111/openapi-render.json) contiene las 70 operaciones de 4.2.2.7.
 
 ##### Distribución de la aplicación Kotlin
 
-La versión 1.0 (1) se generó con `./gradlew assembleProdRelease`, firmada con el keystore del equipo, y se cargó el 11/11/2026 en el proyecto de Firebase `optiflow-d5022`. Se distribuyó al grupo `optiflow-testers`, con los cuatro verificadores del equipo. La Figura 199 muestra la versión, la Figura 200 muestra el [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a) y la Figura 201 muestra el grupo. El vínculo del Sprint 1 es de otro proyecto de Firebase y solo aparece en 4.2.1.8.
+La versión 1.0 (1) se generó con `./gradlew assembleProdRelease`, firmada con el keystore del equipo, y se cargó el 11/11/2026 en el proyecto de Firebase `optiflow-d5022`. Se distribuyó al grupo `optiflow-testers`, con los cuatro verificadores del equipo. La Figura 201 muestra la versión, la Figura 202 muestra el [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a) y la Figura 203 muestra el grupo. El vínculo del Sprint 1 es de otro proyecto de Firebase y solo aparece en 4.2.1.8.
 
-<a id="figura-199"></a>
+<a id="figura-201"></a>
 
-**Figura 199**
+**Figura 201**
 
 *Versión 1.0 (1) de OptiFlow Android en Firebase App Distribution*
 
 ![Versión 1.0 (1) de OptiFlow Android en Firebase App Distribution](assets/cap4/sprint2/revision-20261111/firebase-release.png)
 
-<a id="figura-200"></a>
+<a id="figura-202"></a>
 
-**Figura 200**
+**Figura 202**
 
 *Vínculo de invitación del grupo optiflow-testers*
 
 ![Vínculo de invitación del grupo optiflow-testers](assets/cap4/sprint2/revision-20261111/firebase-invite-link.png)
 
-<a id="figura-201"></a>
+<a id="figura-203"></a>
 
-**Figura 201**
+**Figura 203**
 
 *Grupo optiflow-testers con cuatro verificadores*
 
@@ -2155,15 +2155,15 @@ flutter test
 flutter build apk --release --dart-define="API_BASE_URL=<URL-compatible-del-backend>"
 ```
 
-Además de la URL base, se ajustan las subrutas y el formato de autenticación de la Tabla 129.
+Además de la URL base, se ajustan las subrutas y el formato de autenticación de la Tabla 130.
 
 #### 4.2.2.9. Team Collaboration Insights during Sprint
 
-La Tabla 135 muestra los commits sin merge desde el 09/10/2026 en cada rama; cada fila indica hasta qué fecha se contó. Los autores aparecen con su nombre de GitHub.
+La Tabla 136 muestra los commits sin merge desde el 09/10/2026 en cada rama; cada fila indica hasta qué fecha se contó. Los autores aparecen con su nombre de GitHub.
 
-<a id="tabla-135"></a>
+<a id="tabla-136"></a>
 
-**Tabla 135**
+**Tabla 136**
 
 *Contribuciones registradas hasta el 11/11/2026*
 
@@ -2175,46 +2175,47 @@ La Tabla 135 muestra los commits sin merge desde el 09/10/2026 en cada rama; cad
 | `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | THECOMAX | 7 | Cambios incluidos en la revisión `71ed60c`. |
 | `Logix-OptiFlow-Back-End` / `develop` | 09/10/2026–11/11/2026 | Eslander-Celis | 8 | Cambios incluidos en la revisión `71ed60c`. |
 | `Logix-OptiFlow-Flutter` / `main` | 09/10/2026–10/11/2026 | user20-bit | 3 | Base del cliente y pantallas de AV2; revisión `0344413`. |
-| `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–10/11/2026 | Patto04 | 7 | Accesibilidad, contenido y publicación; revisión `ef1c032`. |
+| `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–11/11/2026 | Patto04 | 7 | Accesibilidad, contenido y publicación; revisión `ef1c032`. |
+| `Logix-OptiFlow-landing-page` / `main` | 09/10/2026–11/11/2026 | Felixb14 | 1 | Botones de descarga hacia el vínculo de Firebase App Distribution; revisión `6258035`. |
 | `Logix-OptiFlow-Mobile` / `develop` | 09/10/2026–11/11/2026 | Felixb14 | 45 | Aplicación Kotlin conectada a `/api/v1` y versión 1.0; revisión `22bf023`. |
 
 Los 88 commits del backend abarcan seguridad, inventario, pagos, mensajería, reportes, pruebas y documentación. Entre los últimos cambios están los PR #22 y #23, que corrigen el tratamiento de errores y el acceso del personal a las citas, y el PR #30, que invalida los tokens del personal desactivado. La Landing Page integra su publicación mediante Pages; Flutter conserva tres commits en `main` en el corte consultado. Los 45 commits de la aplicación Kotlin cubren la conexión con la API, la organización por capas, los menús por rol, el mapa, el escáner, el probador, las notificaciones, el modo sin conexión y la firma del release.
 
-Las Figuras 202, 203, 204 y 205 muestran los paneles de contribuciones de [backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/graphs/contributors), [Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/graphs/contributors), [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/graphs/contributors) y [aplicación Kotlin](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/graphs/contributors). Las tres primeras se capturaron el 10/11/2026 y la de la aplicación Kotlin, el 11/11/2026. Los gráficos muestran los últimos tres meses sin merges, por eso sus totales no coinciden con los de la Tabla 135.
-
-<a id="figura-202"></a>
-
-**Figura 202**
-
-*GitHub Insights: contribuciones al backend develop*
-
-![GitHub Insights: contribuciones al backend develop](assets/cap4/sprint2/revision-20261110/backend-contributors.png)
-
-<a id="figura-203"></a>
-
-**Figura 203**
-
-*GitHub Insights: contribuciones al cliente Flutter main*
-
-![GitHub Insights: contribuciones al cliente Flutter main](assets/cap4/sprint2/revision-20261110/flutter-contributors.png)
+Las Figuras 204, 205, 206 y 207 muestran los paneles de contribuciones de [backend](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/graphs/contributors), [Flutter](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Flutter/graphs/contributors), [Landing Page](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/graphs/contributors) y [aplicación Kotlin](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Mobile/graphs/contributors). Las tres primeras se capturaron el 10/11/2026 y la de la aplicación Kotlin, el 11/11/2026. Los gráficos muestran los últimos tres meses sin merges, por eso sus totales no coinciden con los de la Tabla 136.
 
 <a id="figura-204"></a>
 
 **Figura 204**
 
-*GitHub Insights: contribuciones a la Landing Page main*
+*GitHub Insights: contribuciones al backend develop*
 
-![GitHub Insights: contribuciones a la Landing Page main](assets/cap4/sprint2/revision-20261110/landing-contributors.png)
+![GitHub Insights: contribuciones al backend develop](assets/cap4/sprint2/revision-20261110/backend-contributors.png)
 
 <a id="figura-205"></a>
 
 **Figura 205**
 
+*GitHub Insights: contribuciones al cliente Flutter main*
+
+![GitHub Insights: contribuciones al cliente Flutter main](assets/cap4/sprint2/revision-20261110/flutter-contributors.png)
+
+<a id="figura-206"></a>
+
+**Figura 206**
+
+*GitHub Insights: contribuciones a la Landing Page main*
+
+![GitHub Insights: contribuciones a la Landing Page main](assets/cap4/sprint2/revision-20261110/landing-contributors.png)
+
+<a id="figura-207"></a>
+
+**Figura 207**
+
 *GitHub Insights: contribuciones a la aplicación Kotlin develop, 11/11/2026*
 
 ![GitHub Insights: contribuciones a la aplicación Kotlin develop, 11/11/2026](assets/cap4/sprint2/revision-20261111/mobile-contributors.png)
 
-El backend y la aplicación Kotlin quedaron publicados, con sus pruebas y capturas. El cliente Flutter termina su integración con el contrato de la Tabla 129.
+El backend y la aplicación Kotlin quedaron publicados, con sus pruebas y capturas. El cliente Flutter termina su integración con el contrato de la Tabla 130.
 
 ## 4.3. Validation Interviews
 
@@ -2289,11 +2290,11 @@ Se consideran entre tres y cinco participantes de cada segmento. En el registro 
 
 Los videos de las entrevistas anteriores están en el [Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). En AV2, cada sesión se registra con la aplicación y la versión que se probaron.
 
-**Video de entrevistas de validación:** [evidencia audiovisual en el Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). La Figura 206 es una captura de ese video.
+**Video de entrevistas de validación:** [evidencia audiovisual en el Anexo H](Anexos.md#anexo-h-entrevistas-de-validación). La Figura 208 es una captura de ese video.
 
-<a id="figura-206"></a>
+<a id="figura-208"></a>
 
-**Figura 206**
+**Figura 208**
 
 *Captura del video de las entrevistas de validación anteriores*
 
@@ -2301,11 +2302,11 @@ Los videos de las entrevistas anteriores están en el [Anexo H](Anexos.md#anexo-
 
 #### Registro de sesiones de AV2
 
-La validación contempla entre tres y cinco entrevistas por segmento. La Tabla 136 registra los datos del participante, la versión evaluada y el video de cada sesión.
+La validación contempla entre tres y cinco entrevistas por segmento. La Tabla 137 registra los datos del participante, la versión evaluada y el video de cada sesión.
 
-<a id="tabla-136"></a>
+<a id="tabla-137"></a>
 
-**Tabla 136**
+**Tabla 137**
 
 *Registro de entrevistas de validación de AV2*
 
@@ -2322,13 +2323,13 @@ La validación contempla entre tres y cinco entrevistas por segmento. La Tabla 1
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-La evaluación de OptiFlow considera las diez heurísticas de usabilidad de Jakob Nielsen para las experiencias del paciente y del personal de óptica. Las Tablas 137 y 138 muestran las observaciones y recomendaciones de los recorridos en la aplicación Android/Kotlin. Las capturas y el detalle de cada hallazgo están en el [Anexo K](Anexos.md#anexo-k-registro-de-evaluación-heurística).
+La evaluación de OptiFlow considera las diez heurísticas de usabilidad de Jakob Nielsen para las experiencias del paciente y del personal de óptica. Las Tablas 138 y 139 muestran las observaciones y recomendaciones de los recorridos en la aplicación Android/Kotlin. Las capturas y el detalle de cada hallazgo están en el [Anexo K](Anexos.md#anexo-k-registro-de-evaluación-heurística).
 
 #### OptiFlow - Pacientes
 
-<a id="tabla-137"></a>
+<a id="tabla-138"></a>
 
-**Tabla 137**
+**Tabla 138**
 
 *Evaluación heurística de la experiencia del paciente*
 
@@ -2347,9 +2348,9 @@ La evaluación de OptiFlow considera las diez heurísticas de usabilidad de Jako
 
 #### OptiFlow - Personal de óptica
 
-<a id="tabla-138"></a>
+<a id="tabla-139"></a>
 
-**Tabla 138**
+**Tabla 139**
 
 *Evaluación heurística de la experiencia del personal de óptica*
 
