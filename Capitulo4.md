@@ -270,7 +270,7 @@ El código revisado contiene las migraciones V1 a V9 y 27 tablas en una base Pos
 3. La firma del release usa un keystore propio del equipo que no se incluye en el repositorio: `local.properties` indica en `release.signing.properties` la ruta del archivo con el keystore, el alias y las contraseñas. Si ese archivo no existe, el release se genera sin firmar.
 4. Se genera el APK de la variante `prodRelease`, que consume los Web Services desplegados en Render, con `./gradlew assembleProdRelease` o desde **Build Variants** en Android Studio. El APK queda en `app/build/outputs/apk/prod/release/app-prod-release.apk`.
 5. El APK se carga en **Firebase App Distribution** dentro del proyecto `optiflow-d5022` y la versión se distribuye al grupo `optiflow-testers`, formado por los integrantes del equipo.
-6. Los evaluadores reciben la invitación por correo o se unen al grupo mediante el vínculo de invitación [https://appdistribution.firebase.dev/i/89d115baa19a781a](https://appdistribution.firebase.dev/i/89d115baa19a781a), e instalan la aplicación en sus dispositivos Android. Cada versión nueva aumenta `versionCode` en `app/build.gradle.kts` para instalarse sobre la anterior.
+6. Los evaluadores reciben la invitación por correo o se unen al grupo mediante el vínculo de invitación [https://appdistribution.firebase.dev/i/5e18cd4d3fbc92c8](https://appdistribution.firebase.dev/i/5e18cd4d3fbc92c8), e instalan la aplicación en sus dispositivos Android. Cada versión nueva aumenta `versionCode` en `app/build.gradle.kts` para instalarse sobre la anterior.
 
 ##### Aplicación Flutter (AV2)
 
@@ -2087,9 +2087,9 @@ La Tabla 135 muestra la versión de cada producto y dónde está publicada.
 
 | Producto | Revisión de código | Resultado | Despliegue AV2 |
 |---|---|---|---|
-| Landing Page | `main`, `ef1c032`; enlace de descarga en `6258035`. | [Workflow completado correctamente](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y página pública en línea el 08/11/2026. La [ejecución 43140453746](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/43140453746) publicó `6258035` el 11/11/2026. | Publicada; capturas en las Figuras 199 y 200. El botón de descarga enlaza el [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a) de la versión 1.0 desde el commit `6258035`, del 11/11/2026. |
+| Landing Page | `main`, `ef1c032`; enlace de descarga en `6258035`. | [Workflow completado correctamente](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/42338220243) y página pública en línea el 08/11/2026. La [ejecución 43140453746](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-landing-page/actions/runs/43140453746) publicó `6258035` el 11/11/2026. | Publicada; capturas en las Figuras 199 y 200. El botón de descarga enlaza el [vínculo de invitación](https://appdistribution.firebase.dev/i/5e18cd4d3fbc92c8) de la versión 1.0 desde el commit `6258035`, del 11/11/2026. |
 | Backend | `develop`, `71ed60c`. | 133 pruebas aprobadas, [CI exitosa](https://github.com/BL-App-Movil-1ACC0238-2620-4951/Logix-OptiFlow-Back-End/actions/runs/43116369654) y 70 operaciones documentadas. | `71ed60c` activo en Render desde el 11/11/2026; Swagger publicado en la Figura 173. |
-| Android/Kotlin | `develop`, `22bf023`, versión 1.0 (1). | APK release firmado, instalado y probado contra Render. | Distribuida el 11/11/2026 por Firebase App Distribution al grupo `optiflow-testers`; [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a). |
+| Android/Kotlin | `develop`, `22bf023`, versión 1.0 (1). | APK release firmado, instalado y probado contra Render. | Distribuida el 11/11/2026 por Firebase App Distribution al grupo `optiflow-testers`; [vínculo de invitación](https://appdistribution.firebase.dev/i/5e18cd4d3fbc92c8). |
 | Flutter | `main`, `0344413`, versión `1.0.0+1`. | Código publicado y definición de pantallas, cliente HTTP y prueba de estados. | APK, enlace de distribución y captura de versión: ____________________. |
 
 ##### Publicación de la Landing Page
@@ -2120,7 +2120,7 @@ Render ejecuta el commit `71ed60c` de `develop`. El despliegue del 11/11/2026 se
 
 ##### Distribución de la aplicación Kotlin
 
-La versión 1.0 (1) se generó con `./gradlew assembleProdRelease`, firmada con el keystore del equipo, y se cargó el 11/11/2026 en el proyecto de Firebase `optiflow-d5022`. Se distribuyó al grupo `optiflow-testers`, con los cuatro verificadores del equipo. La Figura 201 muestra la versión, la Figura 202 muestra el [vínculo de invitación](https://appdistribution.firebase.dev/i/89d115baa19a781a) y la Figura 203 muestra el grupo. El vínculo del Sprint 1 es de otro proyecto de Firebase y solo aparece en 4.2.1.8.
+La versión 1.0 (1) se generó con `./gradlew assembleProdRelease`, firmada con el keystore del equipo, y se cargó el 11/11/2026 en el proyecto de Firebase `optiflow-d5022`. Se distribuyó al grupo `optiflow-testers`, con los cuatro verificadores del equipo. La Figura 201 muestra la versión, la Figura 202 muestra el [vínculo de invitación](https://appdistribution.firebase.dev/i/5e18cd4d3fbc92c8) y la Figura 203 muestra el grupo. El vínculo del Sprint 1 es de otro proyecto de Firebase y solo aparece en 4.2.1.8.
 
 <a id="figura-201"></a>
 
@@ -2312,14 +2312,29 @@ La validación contempla entre tres y cinco entrevistas por segmento. La Tabla 1
 
 | ID | Segmento | Nombre y apellidos | Edad | Distrito | Fecha | Versión / dispositivo | URL del video | Inicio y duración | Resumen de tareas y comentarios | Captura del cuadro de video |
 |---|---|---|---|---|---|---|---|---|---|---|
-| V2-P01 | Paciente | | | | | | | |  |
+| V2-P01 | Paciente | Juan Pablo | 20 | Lima | 12/11/2026 | Android / Móvil | [Video entrevista 2](https://drive.google.com/file/d/1HvduPGEgaxsbCoU6wP-B1a5vP6F-LBwt/view?usp=sharing) | 0:00 - 13:00 (13 min) | Explicó que la propuesta de la aplicación le pareció interesante para la reserva y gestión de citas. | [Figura 210](#figura-210) |
 | V2-P02 | Paciente | | | | | | | |  |
-| V2-P03 | Paciente | | | | | | | |  |
-| V2-S01 | Personal de óptica | | | | | | | |  |
-| V2-S02 | Personal de óptica | | | | | | | |  |
-| V2-S03 | Personal de óptica | | | | | | | |  |
+| V2-S01 | Personal de óptica | Camila Gutiérrez | 35 | Chorrillos, Lima | 12/11/2026 | Android / Móvil | [Video entrevista 1](https://drive.google.com/file/d/1q51NqsGhTk0uyQjnSMAkDzWZMivnve6G/view?usp=drive_link) | 0:00 - 19:00 (19 min) | Le pareció una buena aplicación y recomendó añadir consejos de ópticas. | [Figura 209](#figura-209) |
 
-**Capturas de los cuadros de video de AV2:** ____________________.
+
+**Capturas de los cuadros de video de AV2:**
+
+<a id="figura-209"></a>
+
+**Figura 209**
+
+*Captura del video de la entrevista 1 de AV2 (Camila Gutiérrez - Personal de óptica)*
+
+![Entrevista 1](assets/cap4/entrevistas/entrevista_1.jpg)
+
+
+<a id="figura-210"></a>
+
+**Figura 210**
+
+*Captura del video de la entrevista 2 de AV2 (Juan Pablo - Paciente)*
+
+![Entrevista 2](assets/cap4/entrevistas/entrevista_2.jpg)
 
 ### 4.3.3. Evaluaciones según heurísticas
 
